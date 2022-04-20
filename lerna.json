@@ -1,0 +1,6 @@
+{
+  "packages": ["android-profiler/*"],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent"
+}

@@ -1,0 +1,28 @@
+{
+  "name": "react-native-performance",
+  "private": "true",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bamlab/react-native-performance.git"
+  },
+  "author": {
+    "name": "Almouro",
+    "email": "alexandrem@bam.tech"
+  },
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "bugs": {
+    "url": "https://github.com/bamlab/react-native-performance/issues"
+  },
+  "homepage": "https://github.com/bamlab/react-native-performance#readme",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  },
+  "dependencies": {
+    "jest": "^27.5.1",
+    "typescript": "^4.6.3"
+  }
+}
