@@ -8,12 +8,8 @@ https://user-images.githubusercontent.com/4534323/164205504-e07f4a93-25c1-4c14-8
 
 ### Install
 
-The plugin doesn't appear in the Flipper marketplace yet. In the meantime, you can install it manually:
+Search for `android-performance-profiler` in the Flipper marketplace![image](https://user-images.githubusercontent.com/4534323/165071805-bf553b14-42f5-441b-8771-139bfb613941.png)
 
-- Download the [package from npm](https://registry.npmjs.org/flipper-plugin-android-performance-profiler/-/flipper-plugin-android-performance-profiler-0.1.1.tgz)
-- Add it via the bottom left input on the Flipper Plugin Manager
-
-![package manager](https://user-images.githubusercontent.com/4534323/164198127-f796476b-993a-4b14-bf48-9db11072caba.png)
 
 ## CLI
 
