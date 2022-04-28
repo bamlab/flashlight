@@ -71,6 +71,6 @@ execLoopCommands(
   ],
   0.5,
   (data) => {
-    console.log("HELLO", data);
+    console.log("DATA", data);
   }
 );

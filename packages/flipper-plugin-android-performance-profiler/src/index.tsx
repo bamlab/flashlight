@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 import { DevicePluginClient, createState } from "flipper-plugin";
 import {
   getAverageCpuUsage,
@@ -29,7 +29,7 @@ export function devicePlugin(client: DevicePluginClient) {
   return { data };
 }
 
-const SectionTitle = (props) => (
+const SectionTitle = (props: ComponentProps<typeof Typography>) => (
   <Typography
     variant="h4"
     {...props}

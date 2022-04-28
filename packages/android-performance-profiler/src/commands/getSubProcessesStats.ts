@@ -13,6 +13,7 @@ export const getCommand = (pidId: string): string =>
 export const processOutput = (output: string): ProcessStat[] =>
   output
     .split("\n")
+    .slice(1)
     .filter(Boolean)
     .map((stats) => stats.split(" "))
     .filter(Boolean)
@@ -31,7 +32,9 @@ export const processOutput = (output: string): ProcessStat[] =>
     });
 
 export const getSubProcessesStats = (pidId: string): ProcessStat[] => {
-  const data = executeCommand(`adb shell "${getCommand(pidId)}"`);
+  const output = executeCommand(
+    `adb shell "date +%s%3N && ${getCommand(pidId)}"`
+  );
 
-  return processOutput(data);
+  return processOutput(output);
 };
