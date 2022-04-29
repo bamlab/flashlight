@@ -1,0 +1,16 @@
+{
+  "name": "@bam.tech/e2e-performance",
+  "version": "0.1.0",
+  "author": {
+    "name": "Almouro",
+    "email": "alexandrem@bam.tech"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "tsc"
+  },
+  "dependencies": {
+    "@performance-profiler/logger": "*",
+    "android-performance-profiler": "*"
+  }
+}

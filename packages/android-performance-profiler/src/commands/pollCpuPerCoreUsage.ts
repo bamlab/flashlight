@@ -3,6 +3,8 @@ import { Measure } from "../Measure";
 import { getCpuClockTick } from "./getCpuClockTick";
 import { getSubProcessesStats, ProcessStat } from "./getSubProcessesStats";
 
+const SYSTEM_TICK_IN_ONE_SECOND = getCpuClockTick();
+
 export const pollCpuPerCoreUsage = (
   pidId: string,
   dataCallback: (data: Measure) => void
@@ -11,8 +13,6 @@ export const pollCpuPerCoreUsage = (
 
   const TIME_INTERVAL_S = 0.5;
   let isFirstMeasure = true;
-
-  const SYSTEM_TICK_IN_ONE_SECOND = getCpuClockTick();
 
   /**
    * TODO: using setInterval is probably a bad idea.

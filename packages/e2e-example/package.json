@@ -1,0 +1,17 @@
+{
+  "name": "e2e-example",
+  "private": true,
+  "version": "0.1.0",
+  "author": {
+    "name": "Almouro",
+    "email": "alexandrem@bam.tech"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "tsc"
+  },
+  "dependencies": {
+    "@bam.tech/appium-helper": "*",
+    "@bam.tech/e2e-performance": "*"
+  }
+}

@@ -32,7 +32,7 @@ export const getAverageCpuUsage = (measures: Measure[]) =>
 
 export const getHighCpuUsageStats = (
   measures: Measure[],
-  cpuUsageThreshold: number
+  cpuUsageThreshold: number | undefined = 90
 ) =>
   _(measures)
     .map(({ perName }) =>
