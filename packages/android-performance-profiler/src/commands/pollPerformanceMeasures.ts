@@ -11,7 +11,7 @@ import {
 import { execLoopCommands } from "./shellNext";
 
 const TIME_INTERVAL_S = 0.5;
-export const pollCpuPerCoreUsage = (
+export const pollPerformanceMeasures = (
   pidId: string,
   dataCallback: (data: Measure) => void
 ) => {

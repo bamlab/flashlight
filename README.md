@@ -10,7 +10,6 @@ https://user-images.githubusercontent.com/4534323/164205504-e07f4a93-25c1-4c14-8
 
 Search for `android-performance-profiler` in the Flipper marketplace![image](https://user-images.githubusercontent.com/4534323/165071805-bf553b14-42f5-441b-8771-139bfb613941.png)
 
-
 ## CLI
 
 Multiple commands are also available in the standalone package `android-performance-profiler`.
@@ -25,7 +24,7 @@ import {
   getAverageCpuUsage,
   getPidId,
   Measure,
-  pollCpuPerCoreUsage,
+  pollPerformanceMeasures,
 } from "android-performance-profiler";
 
 const bundleId = detectCurrentAppBundleId();
@@ -33,7 +32,7 @@ const pidId = getPidId(bundleId);
 
 const measures: Measure[] = [];
 
-const polling = pollCpuPerCoreUsage(pidId, (measure) => {
+const polling = pollPerformanceMeasures(pidId, (measure) => {
   measures.push(measure);
   console.log(`JS Thread CPU Usage: ${measure.perName["(mqt_js)"]}%`);
 });

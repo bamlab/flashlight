@@ -2,7 +2,7 @@ import {
   detectCurrentAppBundleId,
   getPidId,
   Measure,
-  pollCpuPerCoreUsage,
+  pollPerformanceMeasures,
 } from "android-performance-profiler";
 
 const waitFor = async <T>(
@@ -45,7 +45,7 @@ export class CPUMeasurer {
       }
     });
 
-    this.polling = pollCpuPerCoreUsage(pidId, (measure) => {
+    this.polling = pollPerformanceMeasures(pidId, (measure) => {
       this.cpuMeasures.push(measure);
     });
   }
