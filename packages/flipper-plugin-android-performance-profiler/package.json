@@ -47,7 +47,6 @@
     "@babel/preset-react": "latest",
     "@babel/preset-typescript": "latest",
     "@testing-library/react": "^12.1.1",
-    "@types/jest": "latest",
     "@types/react": "^17.0.2",
     "@types/react-dom": "latest",
     "antd": "latest",

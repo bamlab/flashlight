@@ -9,7 +9,7 @@
     "directory": "very-secret-profiler"
   },
   "scripts": {
-    "test": "tsc"
+    "test": "tsc && jest"
   },
   "author": {
     "name": "Almouro",
