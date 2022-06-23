@@ -1,9 +1,18 @@
 import { exec, execSync } from "child_process";
 
+const isTest = !!global.jest;
+
 export const executeCommand = (command: string): string => {
   return execSync(command).toString();
 };
 
+/**
+ * The point of this is to limit round trip via "adb shell" which drastically slows down
+ * performance of this tool
+ *
+ * Instead we pass all our commands, execute them all on adb shell in one go and return the
+ * results
+ */
 export const execLoopCommands = (
   commands: {
     id: string;
@@ -26,19 +35,19 @@ export const execLoopCommands = (
     )
     .join("");
 
-  // const startPoint = getStartPoint(commands[0].id);
   const endPoint = getEndPoint(commands[commands.length - 1]?.id || "");
 
   const LINE_BREAK_CHAR_COUNT = "\n".length;
 
-  console.log(
-    "RUNNING COMMAND: ",
-    `adb shell "{ while true; do ${fullCommand} sleep ${interval}; done }"`
-  );
-  return exec(
-    `adb shell "{ while true; do ${fullCommand} sleep ${interval}; done }"`
-  ).stdout?.on("data", (data) => {
-    console.log(data);
+  const loopCommand = `while true; do ${fullCommand} sleep ${interval}; done`;
+  // For tests purposes, run in local shell
+  const executeViaADB = !isTest;
+  const shellCommand = executeViaADB
+    ? `adb shell "{ ${loopCommand} }"`
+    : loopCommand;
+
+  const process = exec(shellCommand);
+  process.stdout?.on("data", (data) => {
     currentOutput += data;
 
     const endPointIndex = currentOutput.indexOf(endPoint);
@@ -62,15 +71,8 @@ export const execLoopCommands = (
       currentOutput = currentOutput.substring(endPointIndex + endPoint.length);
     }
   });
-};
 
-execLoopCommands(
-  [
-    { id: "ls", command: "ls" },
-    { id: "proc", command: "ls proc" },
-  ],
-  0.5,
-  (data) => {
-    console.log("DATA", data);
-  }
-);
+  return {
+    stop: () => process.kill(),
+  };
+};
