@@ -62,7 +62,7 @@ const HighCpuProcesses = ({ measures }: { measures: Measure[] }) => {
 
 const Report = ({ measures }: { measures: Measure[] }) => {
   const reactNativeDetected = measures.some((measure) =>
-    Object.keys(measure.perName).some((key) => key === "(mqt_js)")
+    Object.keys(measure.cpu.perName).some((key) => key === "(mqt_js)")
   );
   const [selectedThreads, setSelectedThreads] = React.useState<string[]>(
     reactNativeDetected ? ["(mqt_js)"] : []
@@ -71,7 +71,7 @@ const Report = ({ measures }: { measures: Measure[] }) => {
   const threads = selectedThreads.map((threadName) => ({
     name: threadName,
     data: measures
-      .map((measure) => measure.perName[threadName] || 0)
+      .map((measure) => measure.cpu.perName[threadName] || 0)
       .map((value, i) => ({
         x: i * 500,
         y: value,

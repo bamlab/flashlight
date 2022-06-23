@@ -26,6 +26,6 @@ test("compareGfxMeasures", async () => {
     const result = results[index];
     expect(result.TOTO).toEqual("TOTO");
     expect(result.YOUPI).toEqual("YOUPI");
-    expect(result.LONG_FILE.length).toEqual(2424);
+    expect(result.LONG_FILE.length).toEqual(2429);
   }
 });

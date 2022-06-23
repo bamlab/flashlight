@@ -6,6 +6,7 @@ const round = (n: number, decimals: number) =>
 
 export const getAverageCpuUsagePerProcess = (measures: Measure[]) =>
   _(measures)
+    .map((measure) => measure.cpu)
     .map(({ perName }) =>
       Object.keys(perName).map((processName) => ({
         processName,
@@ -35,6 +36,7 @@ export const getHighCpuUsageStats = (
   cpuUsageThreshold: number | undefined = 90
 ) =>
   _(measures)
+    .map((measure) => measure.cpu)
     .map(({ perName }) =>
       Object.keys(perName).map((processName) => ({
         processName,

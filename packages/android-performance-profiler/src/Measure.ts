@@ -1,4 +1,5 @@
+import { CpuMeasure } from "./commands/cpu/CpuMeasure";
+
 export interface Measure {
-  perName: { [processName: string]: number };
-  perCore: { [core: number]: number };
+  cpu: CpuMeasure;
 }
