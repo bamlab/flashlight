@@ -21,6 +21,8 @@ jest.mock("child_process", () => {
             return "      mSurface=Surface(name=com.example/com.example.MainActivity$_21455)/@0x9110fea";
           case "adb shell pidof com.example":
             return "123456";
+          case "adb shell getconf PAGESIZE":
+            return 4096;
           default:
             console.error(`Unknown command: ${command}`);
             return "";
@@ -50,8 +52,10 @@ jest
           );
           firstPolling = false;
           return result;
+        case "cat /proc/123456/statm":
+          return "4430198 96195 58113 3 0 398896 0";
         default:
-          console.error(`Unknown command: ${command}`);
+          console.error(`Unknown command: ${command.command}`);
           return "";
       }
     };
