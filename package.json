@@ -18,13 +18,11 @@
     "url": "https://github.com/bamlab/react-native-performance/issues"
   },
   "scripts": {
-    "test": "lerna run test"
+    "test": "tsc --noEmit && jest"
   },
   "homepage": "https://github.com/bamlab/react-native-performance#readme",
   "devDependencies": {
-    "lerna": "^4.0.0"
-  },
-  "dependencies": {
+    "lerna": "^4.0.0",
     "@types/jest": "^26.0.3",
     "jest": "^27.5.1",
     "ts-jest": "^27.1.4",
