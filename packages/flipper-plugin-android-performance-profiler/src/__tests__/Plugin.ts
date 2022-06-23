@@ -3,6 +3,7 @@ import { act, waitFor } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import * as Plugin from "..";
 import { getCommand } from "android-performance-profiler/src/commands/cpu/getCpuStatsByProcess";
+import { execLoopCommands } from "android-performance-profiler/src/commands/shellNext";
 
 // See https://github.com/facebook/flipper/pull/3327
 // @ts-ignore
@@ -10,7 +11,6 @@ global.electronRequire = require;
 require("@testing-library/react");
 
 jest.mock("child_process", () => {
-  let firstPolling = true;
   return {
     execSync: (command: string) => ({
       toString: () => {
@@ -21,19 +21,7 @@ jest.mock("child_process", () => {
             return "      mSurface=Surface(name=com.example/com.example.MainActivity$_21455)/@0x9110fea";
           case "adb shell pidof com.example":
             return "123456";
-          case `adb shell "${getCommand("123456")}"`:
-            const result = require("fs").readFileSync(
-              `${__dirname}/sample-command-output-${
-                firstPolling ? "1" : "2"
-              }.txt`,
-              "utf8"
-            );
-            firstPolling = false;
-            return result;
           default:
-            console.log(
-              `adb shell "date +%s%3N && cd /proc/123456/task && ls | tr '\n' ' ' | sed 's/ /\/stat /g' | xargs cat $1"`
-            );
             console.error(`Unknown command: ${command}`);
             return "";
         }
@@ -41,6 +29,50 @@ jest.mock("child_process", () => {
     }),
   };
 });
+
+jest
+  .spyOn(
+    require("android-performance-profiler/src/commands/shellNext"),
+    "execLoopCommands"
+  )
+  // @ts-ignore
+  .mockImplementation((commands: any[], interval, callback: Function) => {
+    let firstPolling = true;
+
+    const mockCommandResult = (command: any) => {
+      switch (command.command) {
+        case getCommand("123456"):
+          const result = require("fs").readFileSync(
+            `${__dirname}/sample-command-output-${
+              firstPolling ? "1" : "2"
+            }.txt`,
+            "utf8"
+          );
+          firstPolling = false;
+          return result;
+        default:
+          console.error(`Unknown command: ${command}`);
+          return "";
+      }
+    };
+
+    const sendData = () => {
+      callback(
+        commands.reduce(
+          (aggr, command) => ({
+            ...aggr,
+            [command.id]: mockCommandResult(command),
+          }),
+          {}
+        )
+      );
+    };
+
+    sendData();
+    firstPolling = false;
+    sendData();
+    sendData();
+  });
 
 // See https://github.com/apexcharts/react-apexcharts/issues/52
 jest.mock("react-apexcharts", () => "apex-charts");
