@@ -1,4 +1,4 @@
-import { Measure, pollCpuPerCoreUsage } from "android-performance-profiler";
+import { Measure, pollPerformanceMeasures } from "android-performance-profiler";
 import { useRef, useState } from "react";
 
 export const useMeasures = (pidId: string | null) => {
@@ -11,7 +11,7 @@ export const useMeasures = (pidId: string | null) => {
     try {
       if (pidId) {
         measuresRef.current = [];
-        poll.current = pollCpuPerCoreUsage(pidId, (measure) => {
+        poll.current = pollPerformanceMeasures(pidId, (measure) => {
           // Keeping a ref here in case setMeasures is too slow
           measuresRef.current = [...measuresRef.current, measure];
           setMeasures(measuresRef.current);
