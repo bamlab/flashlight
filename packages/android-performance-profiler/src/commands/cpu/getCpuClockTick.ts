@@ -1,4 +1,4 @@
-import { executeCommand } from "./shell";
+import { executeCommand } from "../shell";
 
 export const getCpuClockTick = () => {
   try {
