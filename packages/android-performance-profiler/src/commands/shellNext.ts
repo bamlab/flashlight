@@ -1,6 +1,6 @@
 import { exec, execSync } from "child_process";
 
-const isTest = !!global.jest;
+const isTest = !!global.test;
 
 export const executeCommand = (command: string): string => {
   return execSync(command).toString();

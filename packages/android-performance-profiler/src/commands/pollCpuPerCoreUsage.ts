@@ -29,7 +29,7 @@ export const pollCpuPerCoreUsage = (
       const cpuMeasures = cpuMeasuresAggregator.process(subProcessesStats);
 
       if (!isFirstMeasure) {
-        dataCallback(cpuMeasures);
+        dataCallback({ cpu: cpuMeasures });
       }
       isFirstMeasure = false;
     }

@@ -1,5 +1,5 @@
 import { mapValues } from "lodash";
-import { Measure } from "../../Measure";
+import { CpuMeasure as Measure } from "./CpuMeasure";
 import { getCpuClockTick } from "./getCpuClockTick";
 import { ProcessStat } from "./getCpuStatsByProcess";
 
