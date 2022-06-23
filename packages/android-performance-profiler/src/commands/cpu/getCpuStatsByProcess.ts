@@ -1,4 +1,4 @@
-import { executeCommand } from "./shell";
+import { executeCommand } from "../shell";
 
 export interface ProcessStat {
   processId: string;
@@ -30,9 +30,3 @@ export const processOutput = (output: string): ProcessStat[] =>
 
       return { processId, processName, totalCpuTime, cpuNumber };
     });
-
-export const getSubProcessesStats = (pidId: string): ProcessStat[] => {
-  const output = executeCommand(`adb shell "${getCommand(pidId)}"`);
-
-  return processOutput(output);
-};

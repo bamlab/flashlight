@@ -1,4 +1,4 @@
-import { getCpuClockTick } from "./getCpuClockTick";
+import { getCpuClockTick } from "./cpu/getCpuClockTick";
 import { execLoopCommand } from "./shell";
 
 const SYSTEM_TICK_IN_ONE_SECOND = 100 || getCpuClockTick();
