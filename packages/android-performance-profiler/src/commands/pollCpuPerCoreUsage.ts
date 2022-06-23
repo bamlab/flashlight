@@ -1,7 +1,7 @@
 import { mapValues } from "lodash";
 import { Measure } from "../Measure";
 import { getCpuClockTick } from "./getCpuClockTick";
-import { getSubProcessesStats, ProcessStat } from "./getSubProcessesStats";
+import { getSubProcessesStats, ProcessStat } from "./getCpuStatsByProcess";
 
 const SYSTEM_TICK_IN_ONE_SECOND = getCpuClockTick();
 

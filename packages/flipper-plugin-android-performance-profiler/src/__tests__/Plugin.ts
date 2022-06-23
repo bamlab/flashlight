@@ -3,7 +3,7 @@ import { act, waitFor } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import * as Plugin from "..";
 import { execSync } from "child_process";
-import { getCommand } from "android-performance-profiler/src/commands/getSubProcessesStats";
+import { getCommand } from "android-performance-profiler/src/commands/getCpuStatsByProcess";
 
 // See https://github.com/facebook/flipper/pull/3327
 // @ts-ignore
