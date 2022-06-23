@@ -1,7 +1,10 @@
 import { Measure } from "../Measure";
 import { CpuMeasureAggregator } from "./cpu/CpuMeasureAggregator";
-import { getCommand, processOutput } from "./cpu/getCpuStatsByProcess";
-import { executeCommand } from "./shell";
+import {
+  getCommand as getCpuCommand,
+  processOutput,
+} from "./cpu/getCpuStatsByProcess";
+import { execLoopCommands } from "./shellNext";
 
 const TIME_INTERVAL_S = 0.5;
 export const pollCpuPerCoreUsage = (
@@ -12,25 +15,23 @@ export const pollCpuPerCoreUsage = (
 
   const cpuMeasuresAggregator = new CpuMeasureAggregator(TIME_INTERVAL_S);
 
-  /**
-   * TODO: using setInterval is probably a bad idea.
-   * Should double check that the timings are accurate, otherwise
-   * fallback to execute a loop in the device shell and ensure we can handle chunks of data
-   **/
-  const interval = setInterval(() => {
-    const subProcessesStats = processOutput(
-      executeCommand(`adb shell "${getCommand(pidId)}"`)
-    );
+  return execLoopCommands(
+    [
+      {
+        id: "CPU_STATS",
+        command: getCpuCommand(pidId),
+      },
+    ],
+    TIME_INTERVAL_S,
+    ({ CPU_STATS }) => {
+      const subProcessesStats = processOutput(CPU_STATS);
 
-    const cpuMeasures = cpuMeasuresAggregator.process(subProcessesStats);
+      const cpuMeasures = cpuMeasuresAggregator.process(subProcessesStats);
 
-    if (!isFirstMeasure) {
-      dataCallback(cpuMeasures);
+      if (!isFirstMeasure) {
+        dataCallback(cpuMeasures);
+      }
+      isFirstMeasure = false;
     }
-    isFirstMeasure = false;
-  }, TIME_INTERVAL_S * 1000);
-
-  return {
-    stop: () => clearInterval(interval),
-  };
+  );
 };
