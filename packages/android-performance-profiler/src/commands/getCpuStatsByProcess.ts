@@ -8,7 +8,7 @@ export interface ProcessStat {
 }
 
 export const getCommand = (pidId: string): string =>
-  `cd /proc/${pidId}/task && ls | tr '\n' ' ' | sed 's/ /\\/stat /g' | xargs cat $1`;
+  `date +%s%3N && cd /proc/${pidId}/task && ls | tr '\n' ' ' | sed 's/ /\\/stat /g' | xargs cat $1`;
 
 export const processOutput = (output: string): ProcessStat[] =>
   output
@@ -32,9 +32,7 @@ export const processOutput = (output: string): ProcessStat[] =>
     });
 
 export const getSubProcessesStats = (pidId: string): ProcessStat[] => {
-  const output = executeCommand(
-    `adb shell "date +%s%3N && ${getCommand(pidId)}"`
-  );
+  const output = executeCommand(`adb shell "${getCommand(pidId)}"`);
 
   return processOutput(output);
 };
