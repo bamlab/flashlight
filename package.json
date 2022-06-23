@@ -17,6 +17,9 @@
   "bugs": {
     "url": "https://github.com/bamlab/react-native-performance/issues"
   },
+  "scripts": {
+    "test": "lerna run test"
+  },
   "homepage": "https://github.com/bamlab/react-native-performance#readme",
   "devDependencies": {
     "lerna": "^4.0.0"
