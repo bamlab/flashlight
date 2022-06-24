@@ -3,11 +3,11 @@ import { execLoopCommand } from "./shell";
 
 const SYSTEM_TICK_IN_ONE_SECOND = 100 || getCpuClockTick();
 
-export const pollProcStats = (pidId: string) => {
+export const pollProcStats = (pid: string) => {
   const TIME_INTERVAL_S = 1;
   let previousTotalCpuTime: number | null = null;
   execLoopCommand(
-    `adb shell cat /proc/${pidId}/stat | awk '{print $14,$15,$16,$17,$22}'`,
+    `adb shell cat /proc/${pid}/stat | awk '{print $14,$15,$16,$17,$22}'`,
     TIME_INTERVAL_S,
     function (data) {
       const [utime, stime, cutime, cstime, starttime] = data

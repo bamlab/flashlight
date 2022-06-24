@@ -7,14 +7,19 @@ import {
   getAverageCpuUsagePerProcess,
   getHighCpuUsageStats,
 } from "./reporting/reporting";
+import { parseGfxInfo } from "./commands/gfxInfo/parseGfxInfo";
+import { compareGfxMeasures } from "./commands/gfxInfo/compareGfxMeasures";
 
 export { Measure } from "./Measure";
+export { Measure as GfxInfoMeasure } from "./commands/gfxInfo/parseGfxInfo";
 
 export {
+  compareGfxMeasures,
   detectCurrentAppBundleId,
   getPidId,
   pollPerformanceMeasures,
   getAverageCpuUsage,
   getAverageCpuUsagePerProcess,
   getHighCpuUsageStats,
+  parseGfxInfo,
 };

@@ -1,6 +1,6 @@
 import { executeCommand } from "../shell";
 
-interface HistogramValue {
+export interface HistogramValue {
   renderingTime: number;
   frameCount: number;
 }
@@ -17,21 +17,22 @@ export interface Measure {
   };
   renderingTime: RenderingTimeMeasures;
   realtime: number;
+  histogram: HistogramValue[];
 }
 
 export class GfxInfoParser {
-  private androidPackage: string;
+  private bundleId: string;
 
-  constructor({ androidPackage }: { androidPackage: string }) {
-    this.androidPackage = androidPackage;
+  constructor({ bundleId }: { bundleId: string }) {
+    this.bundleId = bundleId;
   }
 
   private async resetDumpSys(): Promise<void> {
-    executeCommand(`adb shell dumpsys gfxinfo ${this.androidPackage} reset`);
+    executeCommand(`adb shell dumpsys gfxinfo ${this.bundleId} reset`);
   }
 
   private getGfxInfo(): string {
-    return executeCommand(`adb shell dumpsys gfxinfo ${this.androidPackage}`);
+    return executeCommand(`adb shell dumpsys gfxinfo ${this.bundleId}`);
   }
 
   private parseHistogram(histogramText: string): HistogramValue[] {
@@ -43,7 +44,7 @@ export class GfxInfoParser {
     });
   }
 
-  private getRenderingTimeMeasures(
+  public static getRenderingTimeMeasures(
     histogram: HistogramValue[]
   ): RenderingTimeMeasures {
     const { totalFramesRendered, totalRenderTime } = histogram.reduce(
@@ -82,14 +83,18 @@ export class GfxInfoParser {
       count: parseInt(gfxOutput["Janky frames"], 10),
     };
 
-    const renderingTime = this.getRenderingTimeMeasures(
-      this.parseHistogram(gfxOutput["HISTOGRAM"])
-    );
+    const histogram = this.parseHistogram(gfxOutput["HISTOGRAM"]);
+
+    const renderingTime = GfxInfoParser.getRenderingTimeMeasures(histogram);
 
     return {
       realtime: parseInt(gfxOutput["Realtime"], 10),
       jankyFrames,
       renderingTime,
+      histogram,
     };
   }
 }
+
+export const parseGfxInfo = (bundleId: string) =>
+  new GfxInfoParser({ bundleId }).measure();

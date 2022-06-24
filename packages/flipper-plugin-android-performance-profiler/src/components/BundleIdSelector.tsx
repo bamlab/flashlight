@@ -6,11 +6,11 @@ import { detectCurrentAppBundleId } from "android-performance-profiler";
 
 export const BundleIdSelector = ({
   bundleId,
-  pidId,
+  pid,
   onChange,
 }: {
   bundleId: string | null;
-  pidId: string | null;
+  pid: string | null;
   onChange: (bundleId: string) => void;
 }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,10 +44,10 @@ export const BundleIdSelector = ({
         <div style={{ paddingRight: 5, paddingLeft: 5 }}>
           <TextField onChange={handleChange} value={bundleId || ""} />
         </div>
-        {pidId ? (
+        {pid ? (
           <>
             <CheckCircleOutline style={{ color: "#4BB543", marginRight: 10 }} />
-            Pid ID: {pidId}
+            Pid ID: {pid}
           </>
         ) : null}
       </div>

@@ -3,7 +3,7 @@ import { useMemo } from "react";
 import { useDebounce } from "use-debounce";
 
 export const usePidId = (bundleId: string | null) => {
-  const pidId = useMemo(() => {
+  const pid = useMemo(() => {
     if (!bundleId) return null;
 
     try {
@@ -16,7 +16,7 @@ export const usePidId = (bundleId: string | null) => {
     }
   }, [bundleId]);
 
-  const [pidIdDebounced] = useDebounce(pidId, 1000);
+  const [pidDebounced] = useDebounce(pid, 1000);
 
-  return pidIdDebounced === pidId ? pidId : null;
+  return pidDebounced === pid ? pid : null;
 };

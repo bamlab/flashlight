@@ -1,6 +1,6 @@
 import { Logger } from "@performance-profiler/logger";
 import { Measure } from "android-performance-profiler";
-import { CPUMeasurer } from "./CPUMeasurer";
+import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { Trace } from "./Trace";
 
 export interface TestCase {
@@ -11,27 +11,27 @@ export interface TestCase {
 
 export class PerformanceTester {
   measures: {
-    coldStartTime: number;
-    cpuMeasures: Measure[];
+    time: number;
+    measures: Measure[];
   }[] = [];
   constructor(private bundleId: string) {}
 
   async executeTestCase({ beforeTest, run, afterTest }: TestCase) {
     if (beforeTest) await beforeTest();
 
-    const cpuMeasurer = new CPUMeasurer(this.bundleId);
+    const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
 
     const startTimeTrace = new Trace();
     await run();
-    const coldStartTime = startTimeTrace.stop();
+    const time = startTimeTrace.stop();
 
     if (afterTest) await afterTest();
 
-    const cpuMeasures = cpuMeasurer.stop();
+    const cpuMeasures = performanceMeasurer.stop();
 
     this.measures.push({
-      coldStartTime,
-      cpuMeasures,
+      time,
+      ...cpuMeasures,
     });
   }
 

@@ -11,11 +11,11 @@ export const getPidId = (bundleId: string) => {
     );
   }
 
-  const pidIds = commandOutput.split("\n").filter(Boolean);
+  const pids = commandOutput.split("\n").filter(Boolean);
 
-  if (pidIds.length > 1) {
-    console.error("Multiple pidIds found, selecting the first one", pidIds);
+  if (pids.length > 1) {
+    console.error("Multiple pids found, selecting the first one", pids);
   }
 
-  return pidIds[0];
+  return pids[0];
 };
