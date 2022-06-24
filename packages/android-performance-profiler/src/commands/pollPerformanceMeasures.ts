@@ -12,7 +12,7 @@ import { execLoopCommands } from "./shellNext";
 
 const TIME_INTERVAL_S = 0.5;
 export const pollPerformanceMeasures = (
-  pidId: string,
+  pid: string,
   dataCallback: (data: Measure) => void
 ) => {
   let isFirstMeasure = true;
@@ -23,9 +23,9 @@ export const pollPerformanceMeasures = (
     [
       {
         id: "CPU_STATS",
-        command: getCpuCommand(pidId),
+        command: getCpuCommand(pid),
       },
-      { id: "RAM", command: getRamCommand(pidId) },
+      { id: "RAM", command: getRamCommand(pid) },
     ],
     TIME_INTERVAL_S,
     ({ CPU_STATS, RAM }) => {

@@ -7,8 +7,8 @@ export interface ProcessStat {
   cpuNumber: string;
 }
 
-export const getCommand = (pidId: string): string =>
-  `date +%s%3N && cd /proc/${pidId}/task && ls | tr '\n' ' ' | sed 's/ /\\/stat /g' | xargs cat $1`;
+export const getCommand = (pid: string): string =>
+  `date +%s%3N && cd /proc/${pid}/task && ls | tr '\n' ' ' | sed 's/ /\\/stat /g' | xargs cat $1`;
 
 export const processOutput = (output: string): ProcessStat[] =>
   output

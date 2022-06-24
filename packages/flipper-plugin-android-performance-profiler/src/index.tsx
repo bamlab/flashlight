@@ -132,18 +132,14 @@ const Report = ({ measures }: { measures: Measure[] }) => {
 
 export function Component() {
   const [bundleId, setBundleId] = useState<string | null>(null);
-  const pidId = usePidId(bundleId);
-  const { start, stop, measures, isMeasuring, reset } = useMeasures(pidId);
+  const pid = usePidId(bundleId);
+  const { start, stop, measures, isMeasuring, reset } = useMeasures(pid);
 
   return (
     <>
-      <BundleIdSelector
-        bundleId={bundleId}
-        pidId={pidId}
-        onChange={setBundleId}
-      />
+      <BundleIdSelector bundleId={bundleId} pid={pid} onChange={setBundleId} />
       <div style={{ margin: 10 }}>
-        {pidId ? (
+        {pid ? (
           <>
             <StartButton start={start} stop={stop} isMeasuring={isMeasuring} />
             <Button

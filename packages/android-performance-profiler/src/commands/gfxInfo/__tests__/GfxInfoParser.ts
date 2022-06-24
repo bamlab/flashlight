@@ -1,4 +1,4 @@
-import { GfxInfoParser } from "../GfxInfoParser";
+import { parseGfxInfo } from "../parseGfxInfo";
 
 jest
   .spyOn(require("../../shell"), "executeCommand")
@@ -6,9 +6,9 @@ jest
     require("fs").readFileSync(`${__dirname}/GfxInfoSample.txt`, "utf8")
   );
 
-const androidPackage = "mockPackage";
+const bundleId = "mockPackage";
 test("GfxInfoParser", () => {
-  expect(new GfxInfoParser({ androidPackage }).measure()).toEqual({
+  expect(parseGfxInfo(bundleId)).toEqual({
     realtime: 1555308405,
     jankyFrames: {
       count: 4,

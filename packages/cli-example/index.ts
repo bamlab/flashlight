@@ -7,11 +7,11 @@ import {
 } from "android-performance-profiler";
 
 const bundleId = detectCurrentAppBundleId() || "";
-const pidId = getPidId(bundleId) || "";
+const pid = getPidId(bundleId) || "";
 
 const measures: Measure[] = [];
 
-const polling = pollPerformanceMeasures(pidId, (measure) => {
+const polling = pollPerformanceMeasures(pid, (measure) => {
   measures.push(measure);
   console.log(`JS Thread CPU Usage: ${measure.cpu.perName["(mqt_js)"]}%`);
   console.log(`RAM Usage: ${measure.ram}MB`);

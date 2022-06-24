@@ -1,8 +1,10 @@
 import {
-  detectCurrentAppBundleId,
   getPidId,
   Measure,
   pollPerformanceMeasures,
+  GfxInfoMeasure,
+  parseGfxInfo,
+  compareGfxMeasures,
 } from "android-performance-profiler";
 
 const waitFor = async <T>(
@@ -26,9 +28,10 @@ const waitFor = async <T>(
   });
 };
 
-export class CPUMeasurer {
+export class PerformanceMeasurer {
   cpuMeasures: Measure[] = [];
   polling?: { stop: () => void };
+  initialGfxInfoMeasure?: GfxInfoMeasure;
   bundleId: string;
 
   constructor(bundleId: string) {
@@ -37,7 +40,7 @@ export class CPUMeasurer {
   }
 
   async start() {
-    const pidId = await waitFor(() => {
+    const pid = await waitFor(() => {
       try {
         return getPidId(this.bundleId);
       } catch (error) {
@@ -45,13 +48,26 @@ export class CPUMeasurer {
       }
     });
 
-    this.polling = pollPerformanceMeasures(pidId, (measure) => {
+    this.initialGfxInfoMeasure = parseGfxInfo(this.bundleId);
+
+    this.polling = pollPerformanceMeasures(pid, (measure) => {
       this.cpuMeasures.push(measure);
     });
   }
 
   stop() {
     this.polling?.stop();
-    return this.cpuMeasures;
+
+    if (!this.initialGfxInfoMeasure) {
+      throw new Error("PerformanceMeasurer was not properly started");
+    }
+
+    return {
+      measures: this.cpuMeasures,
+      gfxInfo: compareGfxMeasures(
+        this.initialGfxInfoMeasure,
+        parseGfxInfo(this.bundleId)
+      ),
+    };
   }
 }
