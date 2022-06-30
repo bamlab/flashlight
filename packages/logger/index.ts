@@ -5,4 +5,7 @@ export const Logger = {
   success: (message: string) => {
     console.log(`✅ ${message}`);
   },
+  warn: (message: string) => {
+    console.log(`⚠️ ${message}`);
+  },
 };

@@ -1,10 +1,11 @@
+import { Logger } from "@performance-profiler/logger";
 import { executeCommand } from "../shell";
 
 export const getRamPageSize = () => {
   try {
     return parseInt(executeCommand(`adb shell getconf PAGESIZE`), 10);
   } catch (error) {
-    console.error(error);
+    Logger.warn("Failed to retrieve RAM Pagesize, defaulting to 4096");
     return 4096;
   }
 };
