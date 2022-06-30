@@ -1,7 +1,5 @@
 import { exec, execSync } from "child_process";
 
-const isTest = !!global.test;
-
 export const executeCommand = (command: string): string => {
   return execSync(command).toString();
 };
@@ -19,7 +17,8 @@ export const execLoopCommands = (
     command: string;
   }[],
   interval: number,
-  dataCallback: { (data: any): void }
+  dataCallback: { (data: any): void },
+  runInAdb = true
 ) => {
   if (commands.length < 1) return;
 
@@ -41,8 +40,7 @@ export const execLoopCommands = (
 
   const loopCommand = `while true; do ${fullCommand} sleep ${interval}; done`;
   // For tests purposes, run in local shell
-  const executeViaADB = !isTest;
-  const shellCommand = executeViaADB
+  const shellCommand = runInAdb
     ? `adb shell "{ ${loopCommand} }"`
     : loopCommand;
 

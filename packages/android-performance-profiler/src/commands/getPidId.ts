@@ -1,3 +1,4 @@
+import { Logger } from "@performance-profiler/logger";
 import { executeCommand } from "./shell";
 
 export const getPidId = (bundleId: string) => {
@@ -17,5 +18,9 @@ export const getPidId = (bundleId: string) => {
     console.error("Multiple pids found, selecting the first one", pids);
   }
 
-  return pids[0];
+  const pid = pids[0];
+
+  Logger.info(`Pid ${pid} found for bundle id ${bundleId}`);
+
+  return pid;
 };
