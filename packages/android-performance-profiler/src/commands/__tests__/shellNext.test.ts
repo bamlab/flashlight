@@ -15,7 +15,8 @@ test("compareGfxMeasures", async () => {
       { id: "YOUPI", command: `echo "YOUPI"` },
     ],
     0.2,
-    (data) => results.push(data)
+    (data) => results.push(data),
+    false
   );
   await new Promise((resolve) => setTimeout(resolve, 1000));
 

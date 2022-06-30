@@ -1,3 +1,4 @@
+import { Logger } from "@performance-profiler/logger";
 import {
   getPidId,
   Measure,
@@ -44,6 +45,7 @@ export class PerformanceMeasurer {
       try {
         return getPidId(this.bundleId);
       } catch (error) {
+        Logger.info(`${this.bundleId} not yet started, retrying...`);
         return null;
       }
     });

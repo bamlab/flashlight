@@ -173,7 +173,6 @@ export class GestureHandler {
         action: "release",
       },
     ]);
-    await this.client.pause(1000);
   }
 
   /**
