@@ -3,12 +3,13 @@ import { act, waitFor } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import * as Plugin from "..";
 import { getCommand } from "android-performance-profiler/src/commands/cpu/getCpuStatsByProcess";
-import { execLoopCommands } from "android-performance-profiler/src/commands/shellNext";
 
 // See https://github.com/facebook/flipper/pull/3327
 // @ts-ignore
 global.electronRequire = require;
 require("@testing-library/react");
+
+window.alert = console.error;
 
 jest.mock("child_process", () => {
   return {
@@ -32,52 +33,66 @@ jest.mock("child_process", () => {
   };
 });
 
+const mockExecLoopCommandsImplementation = (
+  commands: any[],
+  interval: any,
+  callback: Function
+) => {
+  let firstPolling = true;
+
+  const mockCommandResult = (command: any) => {
+    switch (command.command) {
+      case getCommand("123456"):
+        const result = require("fs").readFileSync(
+          `${__dirname}/sample-command-output-${firstPolling ? "1" : "2"}.txt`,
+          "utf8"
+        );
+        firstPolling = false;
+        return result;
+      case "cat /proc/123456/statm":
+        return "4430198 96195 58113 3 0 398896 0";
+      default:
+        console.error(`Unknown command: ${command.command}`);
+        return "";
+    }
+  };
+
+  const sendData = () => {
+    callback(
+      commands.reduce(
+        (aggr, command) => ({
+          ...aggr,
+          [command.id]: mockCommandResult(command),
+        }),
+        {}
+      )
+    );
+  };
+
+  sendData();
+  firstPolling = false;
+  sendData();
+  sendData();
+};
+
+// jest
+//   .spyOn(
+//     require("android-performance-profiler/src/commands/shellNext"),
+//     "execLoopCommands"
+//   )
+//   // @ts-ignore
+//   .mockImplementation(mockExecLoopCommandsImplementation);
+
+let moduleToMock;
+try {
+  moduleToMock = require("android-performance-profiler/dist/src/commands/shellNext");
+} catch {
+  moduleToMock = require("android-performance-profiler/src/commands/shellNext");
+}
 jest
-  .spyOn(
-    require("android-performance-profiler/src/commands/shellNext"),
-    "execLoopCommands"
-  )
+  .spyOn(moduleToMock, "execLoopCommands")
   // @ts-ignore
-  .mockImplementation((commands: any[], interval, callback: Function) => {
-    let firstPolling = true;
-
-    const mockCommandResult = (command: any) => {
-      switch (command.command) {
-        case getCommand("123456"):
-          const result = require("fs").readFileSync(
-            `${__dirname}/sample-command-output-${
-              firstPolling ? "1" : "2"
-            }.txt`,
-            "utf8"
-          );
-          firstPolling = false;
-          return result;
-        case "cat /proc/123456/statm":
-          return "4430198 96195 58113 3 0 398896 0";
-        default:
-          console.error(`Unknown command: ${command.command}`);
-          return "";
-      }
-    };
-
-    const sendData = () => {
-      callback(
-        commands.reduce(
-          (aggr, command) => ({
-            ...aggr,
-            [command.id]: mockCommandResult(command),
-          }),
-          {}
-        )
-      );
-    };
-
-    sendData();
-    firstPolling = false;
-    sendData();
-    sendData();
-  });
-
+  .mockImplementation(mockExecLoopCommandsImplementation);
 // See https://github.com/apexcharts/react-apexcharts/issues/52
 jest.mock("react-apexcharts", () => "apex-charts");
 jest.mock("apexcharts", () => ({ exec: jest.fn() }));

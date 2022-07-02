@@ -1,6 +1,9 @@
 {
-  "extends": "../../tsconfig.json",
-  "include": [
-    "**/*.ts"
+  "extends": "../../tsconfig.module.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "files": [
+    "appium.test.ts"
   ]
 }

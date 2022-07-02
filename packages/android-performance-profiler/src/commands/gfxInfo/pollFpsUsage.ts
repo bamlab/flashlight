@@ -1,9 +1,10 @@
 import { GfxInfoParser, Measure } from "./parseGfxInfo";
 import { compareGfxMeasures } from "./compareGfxMeasures";
-import { detectCurrentAppBundleId } from "android-performance-profiler";
+import { detectCurrentAppBundleId } from "../detectCurrentAppBundleId";
 // gfxinfo is one way
 // one of the caveats is Flutter won't be supported
 // https://github.com/flutter/flutter/issues/91406
+
 export const pollFpsUsage = (bundleId: string) => {
   let previousMeasure: Measure;
   setInterval(() => {

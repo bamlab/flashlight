@@ -9,11 +9,13 @@ export interface TestCase {
   afterTest?: () => Promise<void> | void;
 }
 
+export interface PerformanceTesterMeasure {
+  time: number;
+  measures: Measure[];
+}
+
 export class PerformanceTester {
-  measures: {
-    time: number;
-    measures: Measure[];
-  }[] = [];
+  measures: PerformanceTesterMeasure[] = [];
   constructor(private bundleId: string) {}
 
   async executeTestCase({ beforeTest, run, afterTest }: TestCase) {

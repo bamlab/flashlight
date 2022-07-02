@@ -18,7 +18,10 @@
     "url": "https://github.com/bamlab/react-native-performance/issues"
   },
   "scripts": {
-    "test": "tsc --noEmit && jest"
+    "clean-dist": "rm -rf packages/*/dist",
+    "test": "tsc --build && jest",
+    "test:coverage": "yarn clean-dist && jest --coverage",
+    "run-cli-example": "node packages/cli-example"
   },
   "homepage": "https://github.com/bamlab/react-native-performance#readme",
   "devDependencies": {

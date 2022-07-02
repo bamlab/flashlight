@@ -1,15 +1,9 @@
 {
+  "extends": "../../tsconfig.module.json",
   "compilerOptions": {
-    "target": "es6",
-    "module": "CommonJS",
-    "jsx": "react",
-    "sourceMap": true,
-    "strict": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "outDir": "dist"
+    "outDir": "./dist"
   },
-  "files": ["./index.ts"]
+  "files": [
+    "index.ts"
+  ]
 }

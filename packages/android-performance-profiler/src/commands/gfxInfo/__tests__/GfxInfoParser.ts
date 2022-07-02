@@ -8,7 +8,7 @@ jest
 
 const bundleId = "mockPackage";
 test("GfxInfoParser", () => {
-  expect(parseGfxInfo(bundleId)).toEqual({
+  expect(parseGfxInfo(bundleId)).toMatchObject({
     realtime: 1555308405,
     jankyFrames: {
       count: 4,
