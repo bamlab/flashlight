@@ -1,4 +1,9 @@
 {
-  "extends": "../../tsconfig.json",
-  "files": ["index.ts"]
+  "extends": "../../tsconfig.module.json",
+  "compilerOptions": {
+    "outDir": "./dist"
+  },
+  "files": [
+    "index.ts"
+  ]
 }

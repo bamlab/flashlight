@@ -9,6 +9,14 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "outDir": "dist"
   },
+  "references": [
+    {"path": "./packages/android-performance-profiler"},
+    {"path": "./packages/appium-helper"},
+    {"path": "./packages/cli-example"},
+    {"path": "./packages/e2e-performance"},
+    {"path": "./packages/logger"},
+    {"path": "./packages/web-reporter"}
+  ],
+  "files": []
 }
