@@ -1,9 +1,6 @@
 import React from "react";
-import { DevicePluginClient, createState } from "flipper-plugin";
-import {
-  Measure,
-  getAverageCpuUsagePerProcess,
-} from "android-performance-profiler";
+import { Measure } from "android-performance-profiler";
+import { getAverageCpuUsagePerProcess } from "@performance-profiler/reporter";
 import { Paper, TableContainer } from "@mui/material";
 import { keyBy } from "lodash";
 import Table from "./Table";

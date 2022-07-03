@@ -1,10 +1,10 @@
 import {
   detectCurrentAppBundleId,
-  getAverageCpuUsage,
   getPidId,
   Measure,
   pollPerformanceMeasures,
 } from "android-performance-profiler";
+import { getAverageCpuUsage } from "@performance-profiler/reporter";
 
 const bundleId = detectCurrentAppBundleId() || "";
 const pid = getPidId(bundleId) || "";
