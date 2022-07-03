@@ -16,7 +16,8 @@
     {"path": "./packages/cli-example"},
     {"path": "./packages/e2e-performance"},
     {"path": "./packages/logger"},
-    {"path": "./packages/web-reporter"}
+    {"path": "./packages/reporter"},
+    {"path": "./packages/web-reporter"},
   ],
   "files": []
 }

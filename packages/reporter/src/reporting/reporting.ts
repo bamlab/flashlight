@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { Measure } from "../Measure";
+import { Measure } from "android-performance-profiler";
 
 const round = (n: number, decimals: number) =>
   Math.floor(n * Math.pow(10, decimals)) / Math.pow(10, decimals);

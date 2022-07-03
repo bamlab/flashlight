@@ -1,10 +1,10 @@
 import React, { ComponentProps } from "react";
 import { DevicePluginClient, createState } from "flipper-plugin";
+import { Measure } from "android-performance-profiler";
 import {
   getAverageCpuUsage,
   getHighCpuUsageStats,
-  Measure,
-} from "android-performance-profiler";
+} from "@performance-profiler/reporter";
 import { Chart } from "./components/Chart";
 import { ScrollContainer } from "./components/ScrollContainer";
 import { ThreadTable } from "./components/ThreadTable";
