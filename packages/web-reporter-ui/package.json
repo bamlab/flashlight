@@ -1,5 +1,5 @@
 {
-  "name": "@performance-profiler/web-reporter",
+  "name": "@performance-profiler/web-reporter-ui",
   "version": "0.1.0",
   "main": "dist/index.js",
   "dependencies": {}

@@ -5,7 +5,7 @@ import { BundleIdSelector } from "./components/BundleIdSelector";
 import { StartButton } from "./components/StartButton";
 import { usePidId } from "./usePidId";
 import { useMeasures } from "./useMeasures";
-import { ReporterView } from "@performance-profiler/web-reporter";
+import { ReporterView } from "@performance-profiler/web-reporter-ui";
 import { Button } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 
