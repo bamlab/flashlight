@@ -8,6 +8,7 @@ import { useMeasures } from "./useMeasures";
 import { ReporterView } from "@performance-profiler/web-reporter-ui";
 import { Button } from "@mui/material";
 import { Delete } from "@mui/icons-material";
+import { ScrollContainer } from "./components/ScrollContainer";
 
 // We don't actually use the device plugin functionalities
 export function devicePlugin(client: DevicePluginClient) {
@@ -39,7 +40,9 @@ export function Component() {
           </>
         ) : null}
       </div>
-      <ReporterView measures={measures} />
+      <ScrollContainer>
+        <ReporterView measures={measures} />
+      </ScrollContainer>
     </>
   );
 }
