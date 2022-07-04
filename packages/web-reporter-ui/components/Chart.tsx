@@ -8,6 +8,7 @@ export const Chart = ({
   interval,
   timeLimit,
   maxValue,
+  colors,
 }: {
   title: string;
   series: { name: string; data: { x: number; y: number }[] }[];
@@ -15,6 +16,7 @@ export const Chart = ({
   interval: number;
   timeLimit?: number | null;
   maxValue?: number;
+  colors?: string[];
 }) => {
   const options = useMemo<ComponentProps<typeof ReactApexChart>["options"]>(
     () => ({
@@ -56,7 +58,7 @@ export const Chart = ({
         min: 0,
         max: maxValue,
       },
-      // colors: [color],
+      colors,
     }),
     [title, timeLimit]
   );

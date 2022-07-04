@@ -10,6 +10,7 @@ import { ScrollContainer } from "./components/ScrollContainer";
 import { ThreadTable } from "./components/ThreadTable";
 import { sanitizeProcessName } from "./utils/sanitizeProcessName";
 import { Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 const roundToDecimal = (value: number, decimalCount: number) => {
   const factor = Math.pow(10, decimalCount);
@@ -84,6 +85,20 @@ const Report = ({ measures }: { measures: Measure[] }) => {
     },
   ];
 
+  const ram = [
+    {
+      name: "Total CPU Usage (%)",
+      data: measures
+        .map((measure) => measure.ram)
+        .map((value, i) => ({
+          x: i * 500,
+          y: roundToDecimal(value, 0),
+        })),
+    },
+  ];
+
+  const { palette } = useTheme();
+
   return (
     <>
       <div style={{ padding: 10 }}>
@@ -106,6 +121,7 @@ const Report = ({ measures }: { measures: Measure[] }) => {
         height={500}
         interval={500}
         series={totalCPUUsage}
+        colors={[palette.primary.main]}
       />
       <Chart
         title="CPU Usage per thread (%)"
@@ -119,6 +135,14 @@ const Report = ({ measures }: { measures: Measure[] }) => {
         measures={measures}
         selectedThreads={selectedThreads}
         setSelectedThreads={setSelectedThreads}
+      />
+      <SectionTitle>RAM</SectionTitle>
+      <Chart
+        title="RAM Usage (MB)"
+        height={500}
+        interval={500}
+        series={ram}
+        colors={[palette.secondary.main]}
       />
     </>
   );
