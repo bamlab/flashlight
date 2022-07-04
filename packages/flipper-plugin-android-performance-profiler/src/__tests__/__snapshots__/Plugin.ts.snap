@@ -6,8 +6,12 @@ Pid ID:
 123456
 Stop Measuring
 Reset
-Average CPU Usage (%): 
+Average CPU Usage: 
 84
+%
+Average RAM Usage: 
+375.7
+MB
 Processes with high CPU usage detected: 
 mqt_js
  for
@@ -259,9 +263,16 @@ exports[`displays FPS data and scoring 2`] = `
         style="padding: 10px;"
       >
         <b>
-          Average CPU Usage (%): 
+          Average CPU Usage: 
         </b>
         84
+        %
+        <br />
+        <b>
+          Average RAM Usage: 
+        </b>
+        375.7
+        MB
         <br />
         <b>
           Processes with high CPU usage detected: 
