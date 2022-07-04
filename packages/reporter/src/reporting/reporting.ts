@@ -47,3 +47,8 @@ export const getHighCpuUsageStats = (
     .filter((measure) => measure.cpuUsage > cpuUsageThreshold)
     .groupBy((measure) => measure.processName)
     .value();
+
+const average = (measures: number[]) => _.sum(measures) / measures.length;
+
+export const getAverageRAMUsage = (measures: Measure[]) =>
+  average(measures.map((measure) => measure.ram));

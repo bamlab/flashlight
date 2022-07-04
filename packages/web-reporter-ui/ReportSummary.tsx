@@ -2,6 +2,7 @@ import React from "react";
 import { Measure } from "android-performance-profiler";
 import {
   getAverageCpuUsage,
+  getAverageRAMUsage,
   getHighCpuUsageStats,
 } from "@performance-profiler/reporter";
 import { sanitizeProcessName } from "./utils/sanitizeProcessName";
@@ -38,8 +39,11 @@ export const ReportSummary = ({ measures }: { measures: Measure[] }) => {
   return (
     <>
       <div style={{ padding: 10 }}>
-        <b>Average CPU Usage (%): </b>
-        {roundToDecimal(getAverageCpuUsage(measures), 1)}
+        <b>Average CPU Usage: </b>
+        {roundToDecimal(getAverageCpuUsage(measures), 1)}%
+        <br />
+        <b>Average RAM Usage: </b>
+        {roundToDecimal(getAverageRAMUsage(measures), 1)}MB
         <br />
         <HighCpuProcesses measures={measures} />
         {reactNativeDetected ? (
