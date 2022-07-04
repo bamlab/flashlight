@@ -14,5 +14,9 @@
   },
   "devDependencies": {
     "parcel": "^2.6.2"
+  },
+  "scripts": {
+    "start": "yarn parcel src/index.html",
+    "build": "yarn parcel build src/index.html"
   }
 }
