@@ -1,17 +1,8 @@
-import React, { ComponentProps } from "react";
+import React from "react";
 import { Measure } from "android-performance-profiler";
 import { Chart } from "./components/Chart";
-import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { roundToDecimal } from "./utils/roundToDecimal";
-
-const SectionTitle = (props: ComponentProps<typeof Typography>) => (
-  <Typography
-    variant="h4"
-    {...props}
-    style={{ color: "#666666", margin: 10 }}
-  ></Typography>
-);
 
 export const RAMReport = ({ measures }: { measures: Measure[] }) => {
   const ram = [
@@ -30,7 +21,6 @@ export const RAMReport = ({ measures }: { measures: Measure[] }) => {
 
   return (
     <>
-      <SectionTitle>RAM</SectionTitle>
       <Chart
         title="RAM Usage (MB)"
         height={500}

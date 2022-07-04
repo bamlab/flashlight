@@ -1,7 +1,15 @@
-import React from "react";
+import React, { ComponentProps } from "react";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+const SectionTitle = (props: ComponentProps<typeof Typography>) => (
+  <Typography
+    variant="h4"
+    {...props}
+    style={{ color: "#666666", margin: 10 }}
+  ></Typography>
+);
 
 export const AccordionSectionTitle = ({ title }: { title: string }) => {
   return (
@@ -10,7 +18,7 @@ export const AccordionSectionTitle = ({ title }: { title: string }) => {
       aria-controls="panel1a-content"
       id="panel1a-header"
     >
-      <Typography>{title}</Typography>
+      <SectionTitle>{title}</SectionTitle>
     </AccordionSummary>
   );
 };

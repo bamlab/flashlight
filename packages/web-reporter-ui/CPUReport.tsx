@@ -1,18 +1,12 @@
-import React, { ComponentProps } from "react";
+import React from "react";
 import { Measure } from "android-performance-profiler";
 import { getAverageCpuUsage } from "@performance-profiler/reporter";
 import { Chart } from "./components/Chart";
 import { ThreadTable } from "./components/ThreadTable";
-import { Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-
-const SectionTitle = (props: ComponentProps<typeof Typography>) => (
-  <Typography
-    variant="h4"
-    {...props}
-    style={{ color: "#666666", margin: 10 }}
-  ></Typography>
-);
+import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
+import Accordion from "@mui/material/Accordion";
+import AccordionDetails from "@mui/material/AccordionDetails";
 
 export const CPUReport = ({ measures }: { measures: Measure[] }) => {
   const reactNativeDetected = measures.some((measure) =>
@@ -62,12 +56,16 @@ export const CPUReport = ({ measures }: { measures: Measure[] }) => {
         series={threads}
         maxValue={100}
       />
-      <SectionTitle>Threads</SectionTitle>
-      <ThreadTable
-        measures={measures}
-        selectedThreads={selectedThreads}
-        setSelectedThreads={setSelectedThreads}
-      />
+      <Accordion>
+        <AccordionSectionTitle title="Threads"></AccordionSectionTitle>
+        <AccordionDetails>
+          <ThreadTable
+            measures={measures}
+            selectedThreads={selectedThreads}
+            setSelectedThreads={setSelectedThreads}
+          />
+        </AccordionDetails>
+      </Accordion>
     </>
   );
 };
