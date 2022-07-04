@@ -125,7 +125,8 @@ Binder:21455_4
 0
 Binder:21455_5
 0
-0"
+0
+RAM"
 `;
 
 exports[`displays FPS data and scoring 2`] = `
@@ -2222,6 +2223,18 @@ exports[`displays FPS data and scoring 2`] = `
           </tbody>
         </table>
       </div>
+      <h4
+        class="MuiTypography-root MuiTypography-h4 css-5lbw0b-MuiTypography-root"
+        style="color: rgb(102, 102, 102); margin: 10px;"
+      >
+        RAM
+      </h4>
+      <apex-charts
+        height="500"
+        options="[object Object]"
+        series="[object Object]"
+        type="line"
+      />
     </div>
   </div>
 </body>
