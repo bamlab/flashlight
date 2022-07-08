@@ -37,7 +37,6 @@ export class PerformanceMeasurer {
 
   constructor(bundleId: string) {
     this.bundleId = bundleId;
-    this.start();
   }
 
   async start() {
