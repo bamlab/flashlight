@@ -3,6 +3,7 @@ import { GestureHandler } from "./GestureHandler";
 import { toMatchImageSnapshot } from "jest-image-snapshot";
 import { executeCommand } from "android-performance-profiler/src/commands/shell";
 import { detectCurrentAppBundleId } from "android-performance-profiler/src";
+import { Logger } from "@performance-profiler/logger";
 
 expect.extend({ toMatchImageSnapshot });
 
@@ -43,21 +44,25 @@ export class AppiumDriver {
     appPackage: string;
     appActivity: string;
   }) {
+    const capabilities = {
+      platformName: "Android",
+      "appium:automationName": "UiAutomator2",
+      appPackage,
+      // See https://github.com/appium/appium/blob/1e30207ec4e413c64396420fbb0388392e88cc54/docs/en/writing-running-appium/other/reset-strategies.md
+      "appium:noReset": true,
+      autoLaunch: false,
+      appActivity,
+      ...clientCapabilities,
+    };
+
     const client = await webdriver.remote({
       path: "/wd/hub",
       port: 4723,
       logLevel: "warn",
-      capabilities: {
-        platformName: "Android",
-        "appium:automationName": "UiAutomator2",
-        appPackage,
-        // See https://github.com/appium/appium/blob/1e30207ec4e413c64396420fbb0388392e88cc54/docs/en/writing-running-appium/other/reset-strategies.md
-        "appium:noReset": true,
-        autoLaunch: false,
-        appActivity,
-        ...clientCapabilities,
-      },
+      capabilities,
     });
+
+    Logger.info(`Appium capabilities: ${JSON.stringify(capabilities)}`);
 
     return new AppiumDriver({ client, bundleId: appPackage, appActivity });
   }
