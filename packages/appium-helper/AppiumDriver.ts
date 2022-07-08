@@ -180,11 +180,11 @@ export class AppiumDriver {
     return await element.click();
   }
 
-  async switchToAppContext() {
+  async switchToNativeAppContext() {
     return await this.client.switchContext("NATIVE_APP");
   }
 
-  async switchToWebviewContext(bundleId: string) {
-    return await this.client.switchContext(`WEBVIEW_${bundleId}`);
+  async switchToWebviewContext() {
+    return await this.client.switchContext(`WEBVIEW_${this.bundleId}`);
   }
 }
