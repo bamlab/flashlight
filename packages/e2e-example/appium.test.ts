@@ -1,7 +1,7 @@
 // @flow
 
 import { AppiumDriver } from "@bam.tech/appium-helper";
-import { TestCase, PerformanceTester } from "@bam.tech/e2e-performance";
+import { TestCase, PerformanceTester } from "@performance-profiler/e2e";
 
 const BundleId = {
   FLUTTER: "com.example.clash_of_techs_twitter_feed",

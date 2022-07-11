@@ -2,7 +2,7 @@ import { fireEvent } from "@testing-library/dom";
 import { act, waitFor } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import * as Plugin from "..";
-import { getCommand } from "android-performance-profiler/src/commands/cpu/getCpuStatsByProcess";
+import { getCommand } from "@performance-profiler/profiler/src/commands/cpu/getCpuStatsByProcess";
 
 // See https://github.com/facebook/flipper/pull/3327
 // @ts-ignore
@@ -85,9 +85,9 @@ const mockExecLoopCommandsImplementation = (
 
 let moduleToMock;
 try {
-  moduleToMock = require("android-performance-profiler/dist/src/commands/shellNext");
+  moduleToMock = require("@performance-profiler/profiler/dist/src/commands/shellNext");
 } catch {
-  moduleToMock = require("android-performance-profiler/src/commands/shellNext");
+  moduleToMock = require("@performance-profiler/profiler/src/commands/shellNext");
 }
 jest
   .spyOn(moduleToMock, "execLoopCommands")

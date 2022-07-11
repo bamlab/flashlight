@@ -1,5 +1,5 @@
 import React from "react";
-import { Measure } from "android-performance-profiler";
+import { Measure } from "@performance-profiler/profiler";
 import {
   getAverageCpuUsage,
   getAverageRAMUsage,

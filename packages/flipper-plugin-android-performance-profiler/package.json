@@ -31,7 +31,7 @@
     "@mui/material": "^5.5.2",
     "@mui/utils": "^5.4.4",
     "@types/lodash": "^4.14.180",
-    "android-performance-profiler": "*",
+    "@performance-profiler/profiler": "*",
     "apexcharts": "3.33.0",
     "lodash": "^4.17.21",
     "react": "^17.0.2",
