@@ -25,7 +25,7 @@ import {
   getPidId,
   Measure,
   pollPerformanceMeasures,
-} from "android-performance-profiler";
+} from "@performance-profiler/profiler";
 
 const bundleId = detectCurrentAppBundleId();
 const pid = getPidId(bundleId);

@@ -1,5 +1,5 @@
 {
-  "name": "@bam.tech/e2e-performance",
+  "name": "@performance-profiler/e2e",
   "version": "0.1.0",
   "author": {
     "name": "Almouro",
@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@performance-profiler/logger": "*",
-    "android-performance-profiler": "*"
+    "@performance-profiler/profiler": "*"
   }
 }

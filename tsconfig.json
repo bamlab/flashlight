@@ -18,6 +18,7 @@
     {"path": "./packages/e2e-performance"},
     {"path": "./packages/reporter"},
     {"path": "./packages/web-reporter-ui"},
+    {"path": "./packages/web-reporter"},
   ],
   "files": []
 }

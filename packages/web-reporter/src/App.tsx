@@ -1,5 +1,7 @@
+import React from "react";
 import { ReporterView } from "@performance-profiler/web-reporter-ui";
-import measures from "./measures.json";
+
+const measures = require("./measures.json");
 
 export function App() {
   return (

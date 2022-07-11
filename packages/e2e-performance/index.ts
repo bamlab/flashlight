@@ -1,5 +1,5 @@
 import { Logger } from "@performance-profiler/logger";
-import { Measure } from "android-performance-profiler";
+import { Measure } from "@performance-profiler/profiler";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { Trace } from "./Trace";
 

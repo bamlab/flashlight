@@ -6,7 +6,7 @@ import {
   GfxInfoMeasure,
   parseGfxInfo,
   compareGfxMeasures,
-} from "android-performance-profiler";
+} from "@performance-profiler/profiler";
 
 const waitFor = async <T>(
   evaluateResult: () => T | undefined | null,

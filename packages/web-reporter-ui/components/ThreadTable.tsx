@@ -1,5 +1,5 @@
 import React from "react";
-import { Measure } from "android-performance-profiler";
+import { Measure } from "@performance-profiler/profiler";
 import { getAverageCpuUsagePerProcess } from "@performance-profiler/reporter";
 import { Paper, TableContainer } from "@mui/material";
 import { keyBy } from "lodash";

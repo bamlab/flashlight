@@ -1,4 +1,7 @@
-import { Measure, pollPerformanceMeasures } from "android-performance-profiler";
+import {
+  Measure,
+  pollPerformanceMeasures,
+} from "@performance-profiler/profiler";
 import { useRef, useState } from "react";
 
 export const useMeasures = (pid: string | null) => {
