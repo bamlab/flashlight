@@ -1,5 +1,3 @@
-import { executeCommand } from "../shell";
-
 export interface ProcessStat {
   processId: string;
   processName: string;

@@ -1,10 +1,10 @@
-import { fireEvent } from "@testing-library/dom";
-import { act, waitFor } from "@testing-library/react";
+import { act, fireEvent, screen } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import * as Plugin from "..";
 import { getCommand } from "@performance-profiler/profiler/src/commands/cpu/getCpuStatsByProcess";
 
 // See https://github.com/facebook/flipper/pull/3327
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 global.electronRequire = require;
 require("@testing-library/react");
@@ -36,6 +36,7 @@ jest.mock("child_process", () => {
 const mockExecLoopCommandsImplementation = (
   commands: any[],
   interval: any,
+  // eslint-disable-next-line @typescript-eslint/ban-types
   callback: Function
 ) => {
   let firstPolling = true;
@@ -43,6 +44,7 @@ const mockExecLoopCommandsImplementation = (
   const mockCommandResult = (command: any) => {
     switch (command.command) {
       case getCommand("123456"):
+        // eslint-disable-next-line no-case-declarations
         const result = require("fs").readFileSync(
           `${__dirname}/sample-command-output-${firstPolling ? "1" : "2"}.txt`,
           "utf8"
@@ -91,13 +93,14 @@ try {
 }
 jest
   .spyOn(moduleToMock, "execLoopCommands")
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   .mockImplementation(mockExecLoopCommandsImplementation);
 // See https://github.com/apexcharts/react-apexcharts/issues/52
 jest.mock("react-apexcharts", () => "apex-charts");
 jest.mock("apexcharts", () => ({ exec: jest.fn() }));
 
-const getText = (node: ChildNode): string | null => {
+const getText = (node: any): string | null => {
   if (node.childNodes.length > 0) {
     return (
       Array.from(node.childNodes)
@@ -113,13 +116,13 @@ const getText = (node: ChildNode): string | null => {
 test("displays FPS data and scoring", async () => {
   const { renderer } = TestUtils.renderDevicePlugin(Plugin);
 
-  fireEvent.click(renderer.getByText("Auto-Detect"));
-  await waitFor(() => renderer.getByText("Start Measuring"));
-  fireEvent.click(renderer.getByText("Start Measuring"));
+  fireEvent.click(screen.getByText("Auto-Detect"));
+  await screen.findByText("Start Measuring");
+  fireEvent.click(screen.getByText("Start Measuring"));
 
   // Wait for 2 measures
   await act(() => new Promise((resolve) => setTimeout(resolve, 1000)));
-  await waitFor(() => renderer.getByText("Threads"));
+  await screen.findByText("Threads");
   expect(getText(renderer.baseElement as HTMLBodyElement)).toMatchSnapshot();
   expect(renderer.baseElement).toMatchSnapshot();
 });

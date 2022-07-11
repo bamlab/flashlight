@@ -1,4 +1,4 @@
-import { Measure } from "../Measure";
+import { Measure } from "@performance-profiler/types";
 import { CpuMeasureAggregator } from "./cpu/CpuMeasureAggregator";
 import {
   getCommand as getCpuCommand,

@@ -17,7 +17,7 @@ export const execLoopCommands = (
     command: string;
   }[],
   interval: number,
-  dataCallback: { (data: any): void },
+  dataCallback: { (data: Record<string, string>): void },
   runInAdb = true
 ) => {
   if (commands.length < 1) return;

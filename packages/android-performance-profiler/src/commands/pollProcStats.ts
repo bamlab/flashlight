@@ -10,7 +10,8 @@ export const pollProcStats = (pid: string) => {
     `adb shell cat /proc/${pid}/stat | awk '{print $14,$15,$16,$17,$22}'`,
     TIME_INTERVAL_S,
     function (data) {
-      const [utime, stime, cutime, cstime, starttime] = data
+      // 5th columns is starttime
+      const [utime, stime, cutime, cstime] = data
         .replace("\n", "")
         .split(" ")
         .map((x: string) => parseInt(x, 10));

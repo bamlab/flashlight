@@ -1,5 +1,5 @@
 import React from "react";
-import { Measure } from "@performance-profiler/profiler";
+import { Measure } from "@performance-profiler/types";
 import { CPUReport } from "./CPUReport";
 import { ReportSummary } from "./ReportSummary";
 import { RAMReport } from "./RAMReport";

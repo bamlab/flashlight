@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { DevicePluginClient, createState } from "flipper-plugin";
-import { useState } from "react";
 import { BundleIdSelector } from "./components/BundleIdSelector";
 import { StartButton } from "./components/StartButton";
 import { usePidId } from "./usePidId";
