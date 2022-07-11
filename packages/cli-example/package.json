@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "main": "dist/index.js",
   "dependencies": {
-    "@performance-profiler/reporter": "*",
-    "@performance-profiler/profiler": "*"
+    "@performance-profiler/reporter": "0.0.0",
+    "@performance-profiler/profiler": "0.0.0"
   }
 }

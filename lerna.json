@@ -1,6 +1,15 @@
 {
-  "packages": ["android-profiler/*"],
+  "packages": [
+    "./packages/logger",
+    "./packages/types",
+    "./packages/android-performance-profiler",
+    "./packages/appium-helper",
+    "./packages/e2e-performance",
+    "./packages/reporter",
+    "./packages/web-reporter-ui",
+    "./packages/web-reporter"
+  ],
+  "useWorkspaces": false,
   "npmClient": "yarn",
-  "useWorkspaces": true,
-  "version": "independent"
+  "version": "0.0.0"
 }

@@ -11,7 +11,7 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@bam.tech/appium-helper": "*",
-    "@performance-profiler/e2e": "*"
+    "@bam.tech/appium-helper": "0.0.0",
+    "@performance-profiler/e2e": "0.0.0"
   }
 }

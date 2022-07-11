@@ -1,6 +1,6 @@
 {
   "name": "@bam.tech/appium-helper",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -16,7 +16,7 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@performance-profiler/logger": "*",
+    "@performance-profiler/logger": "0.0.0",
     "@types/jest-image-snapshot": "^4.3.1",
     "appium": "^1.22.3",
     "jest-image-snapshot": "^4.0.2",
