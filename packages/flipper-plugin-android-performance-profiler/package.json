@@ -22,7 +22,7 @@
     "prepack": "flipper-pkg lint && flipper-pkg bundle",
     "build": "flipper-pkg bundle",
     "watch": "flipper-pkg bundle --watch",
-    "test": "tsc && jest"
+    "test": "tsc --noEmit"
   },
   "dependencies": {
     "@emotion/react": "^11.8.2",

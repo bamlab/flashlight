@@ -1,6 +1,7 @@
 {
   "name": "cli-example",
-  "version": "1.0.0",
+  "private": true,
+  "version": "0.0.0",
   "main": "dist/index.js",
   "dependencies": {
     "@performance-profiler/reporter": "*",
