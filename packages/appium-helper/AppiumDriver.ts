@@ -1,9 +1,12 @@
 import * as webdriver from "webdriverio";
-import { GestureHandler } from "./GestureHandler";
 import { toMatchImageSnapshot } from "jest-image-snapshot";
-import { executeCommand } from "android-performance-profiler/src/commands/shell";
-import { detectCurrentAppBundleId } from "android-performance-profiler/src";
 import { Logger } from "@performance-profiler/logger";
+import { GestureHandler } from "./GestureHandler";
+import { execSync } from "child_process";
+
+const executeCommand = (command: string): string => {
+  return execSync(command).toString();
+};
 
 expect.extend({ toMatchImageSnapshot });
 
@@ -131,22 +134,10 @@ export class AppiumDriver {
     return await this.client.$(this.xpathByResourceId(testID));
   }
 
-  async logResourceIds() {
-    const elements = await this.client.$$(
-      "//android.view.ViewGroup[@resource-id=${testID}]"
-    );
-    const clickableElements = [];
-    for (const element of elements) {
-      if (await element.getAttribute("clickable")) {
-        clickableElements.push(await element.getAttribute("resource-id"));
-      }
-    }
-  }
-
   async checkIfDisplayedWithScrollDown(
     elementText: string,
-    maxScrolls: number = 10,
-    amount: number = 0
+    maxScrolls = 10,
+    amount = 0
   ) {
     const element = await this.byText(elementText);
     await this.takeScreenshotOnFailure(

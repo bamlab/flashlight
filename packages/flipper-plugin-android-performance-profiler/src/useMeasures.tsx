@@ -8,7 +8,12 @@ export const useMeasures = (pid: string | null) => {
   const [isMeasuring, setIsMeasuring] = useState(false);
   const [measures, setMeasures] = useState<Measure[]>([]);
   const measuresRef = useRef<Measure[]>([]);
-  const poll = useRef<any>(null);
+  const poll = useRef<
+    | {
+        stop: () => boolean;
+      }
+    | undefined
+  >();
 
   const start = () => {
     try {

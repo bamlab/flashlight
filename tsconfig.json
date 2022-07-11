@@ -12,6 +12,7 @@
   },
   "references": [
     {"path": "./packages/logger"},
+    {"path": "./packages/types"},
     {"path": "./packages/android-performance-profiler"},
     {"path": "./packages/appium-helper"},
     {"path": "./packages/cli-example"},

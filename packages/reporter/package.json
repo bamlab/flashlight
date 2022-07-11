@@ -13,6 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@performance-profiler/types": "*",
     "lodash": "^4.17.21"
   }
 }

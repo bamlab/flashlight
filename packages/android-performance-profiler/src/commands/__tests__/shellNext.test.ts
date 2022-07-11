@@ -1,7 +1,7 @@
 import { execLoopCommands } from "../shellNext";
 
 test("compareGfxMeasures", async () => {
-  const results: any[] = [];
+  const results: Record<string, string>[] = [];
   const polling = execLoopCommands(
     [
       {

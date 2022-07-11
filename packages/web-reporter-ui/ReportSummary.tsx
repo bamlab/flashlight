@@ -1,5 +1,5 @@
 import React from "react";
-import { Measure } from "@performance-profiler/profiler";
+import { Measure } from "@performance-profiler/types";
 import {
   getAverageCpuUsage,
   getAverageRAMUsage,
@@ -49,6 +49,7 @@ export const ReportSummary = ({ measures }: { measures: Measure[] }) => {
         {reactNativeDetected ? (
           <div>
             <img
+              alt="React Native logo"
               style={{ height: 20, width: 20 }}
               src="https://d33wubrfki0l68.cloudfront.net/554c3b0e09cf167f0281fda839a5433f2040b349/ecfc9/img/header_logo.svg"
             />{" "}

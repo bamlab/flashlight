@@ -1,5 +1,5 @@
 import React from "react";
-import { Measure } from "@performance-profiler/profiler";
+import { Measure } from "@performance-profiler/types";
 import { getAverageCpuUsage } from "@performance-profiler/reporter";
 import { Chart } from "./components/Chart";
 import { ThreadTable } from "./components/ThreadTable";

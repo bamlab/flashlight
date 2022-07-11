@@ -1,5 +1,5 @@
 import React from "react";
-import { Measure } from "@performance-profiler/profiler";
+import { Measure } from "@performance-profiler/types";
 import { Chart } from "./components/Chart";
 import { useTheme } from "@mui/material/styles";
 import { roundToDecimal } from "./utils/roundToDecimal";

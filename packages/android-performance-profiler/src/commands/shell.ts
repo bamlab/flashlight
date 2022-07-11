@@ -7,7 +7,7 @@ export const executeCommand = (command: string): string => {
 export const execLoopCommand = (
   command: string,
   interval: number,
-  dataCallback: { (data: any): void }
+  dataCallback: { (data: string): void }
 ) => {
   return exec(
     `{ while true; do ${command};  sleep ${interval}; done }`

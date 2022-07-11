@@ -27,7 +27,12 @@ const SWIPE_DIRECTION = {
 };
 
 export class GestureHandler {
-  SCREEN_SIZE: WebDriver.RectReturn | null;
+  SCREEN_SIZE: {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  } | null;
   client: webdriver.BrowserObject;
 
   constructor(client: webdriver.BrowserObject) {
@@ -45,8 +50,8 @@ export class GestureHandler {
    */
   async checkIfDisplayedWithScrollDown(
     element: webdriver.Element,
-    maxScrolls: number = 5,
-    amount: number = 0
+    maxScrolls = 5,
+    amount = 0
   ) {
     const isExisting = await element.isExisting();
     const isDisplayed = await element.isDisplayed();
@@ -69,7 +74,7 @@ export class GestureHandler {
    *
    * @param {number} percentage from 0 - 1
    */
-  async swipeDown(percentage: number = 1) {
+  async swipeDown(percentage = 1) {
     await this.swipeOnPercentage(
       this._calculateXY(SWIPE_DIRECTION.down.start, percentage),
       this._calculateXY(SWIPE_DIRECTION.down.end, percentage)
@@ -81,7 +86,7 @@ export class GestureHandler {
    *
    * @param {number} percentage from 0 - 1
    */
-  async swipeUp(percentage: number = 1) {
+  async swipeUp(percentage = 1) {
     await this.swipeOnPercentage(
       this._calculateXY(SWIPE_DIRECTION.up.start, percentage),
       this._calculateXY(SWIPE_DIRECTION.up.end, percentage)
@@ -93,7 +98,7 @@ export class GestureHandler {
    *
    * @param {number} percentage from 0 - 1
    */
-  async swipeLeft(percentage: number = 1) {
+  async swipeLeft(percentage = 1) {
     await this.swipeOnPercentage(
       this._calculateXY(SWIPE_DIRECTION.left.start, percentage),
       this._calculateXY(SWIPE_DIRECTION.left.end, percentage)
@@ -105,7 +110,7 @@ export class GestureHandler {
    *
    * @param {number} percentage from 0 - 1
    */
-  async swipeRight(percentage: number = 1) {
+  async swipeRight(percentage = 1) {
     await this.swipeOnPercentage(
       this._calculateXY(SWIPE_DIRECTION.right.start, percentage),
       this._calculateXY(SWIPE_DIRECTION.right.end, percentage)
