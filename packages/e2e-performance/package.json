@@ -1,6 +1,6 @@
 {
   "name": "@performance-profiler/e2e",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -10,7 +10,7 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@performance-profiler/logger": "*",
-    "@performance-profiler/profiler": "*"
+    "@performance-profiler/logger": "0.0.0",
+    "@performance-profiler/profiler": "0.0.0"
   }
 }

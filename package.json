@@ -1,7 +1,6 @@
 {
   "name": "react-native-performance",
   "private": "true",
-  "version": "0.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bamlab/react-native-performance.git"
@@ -22,7 +21,7 @@
     "test": "eslint . && tsc --build && yarn workspace flipper-plugin-android-performance-profiler test && jest",
     "test:coverage": "yarn clean-dist && jest --coverage",
     "run-cli-example": "node packages/cli-example",
-    "publish": "yarn test && lerna publish"
+    "release": "yarn test && lerna publish"
   },
   "homepage": "https://github.com/bamlab/react-native-performance#readme",
   "devDependencies": {
