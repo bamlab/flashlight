@@ -1,5 +1,5 @@
 import { Logger } from "@performance-profiler/logger";
-import { Measure } from "@performance-profiler/profiler";
+import { TestCaseIterationResult } from "@performance-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { Trace } from "./Trace";
 
@@ -9,13 +9,8 @@ export interface TestCase {
   afterTest?: () => Promise<void> | void;
 }
 
-export interface PerformanceTesterMeasure {
-  time: number;
-  measures: Measure[];
-}
-
 export class PerformanceTester {
-  measures: PerformanceTesterMeasure[] = [];
+  measures: TestCaseIterationResult[] = [];
   constructor(private bundleId: string) {}
 
   async executeTestCase({ beforeTest, run, afterTest }: TestCase) {
