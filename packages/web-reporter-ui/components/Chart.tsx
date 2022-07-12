@@ -5,7 +5,7 @@ export const Chart = ({
   title,
   series,
   height,
-  interval,
+  interval = 500,
   timeLimit,
   maxValue,
   colors,
@@ -13,7 +13,7 @@ export const Chart = ({
   title: string;
   series: { name: string; data: { x: number; y: number }[] }[];
   height: number;
-  interval: number;
+  interval?: number;
   timeLimit?: number | null;
   maxValue?: number;
   colors?: string[];
