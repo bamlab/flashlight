@@ -3,14 +3,16 @@ import {
   ComparisonView,
   ReporterView,
 } from "@performance-profiler/web-reporter-ui";
+import { TestCaseIterationResult } from "@performance-profiler/types";
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const measures = require("./measures.json");
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const testCaseResults: TestCaseIterationResult[] = "INSERT_HERE";
 
 export function App() {
-  return (
+  return testCaseResults ? (
     <>
-      <ReporterView measures={measures[5].measures} />
+      <ReporterView measures={testCaseResults[5].measures} />
     </>
-  );
+  ) : null;
 }
