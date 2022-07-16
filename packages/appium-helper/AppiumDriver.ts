@@ -1,5 +1,4 @@
 import * as webdriver from "webdriverio";
-import { toMatchImageSnapshot } from "jest-image-snapshot";
 import { Logger } from "@performance-profiler/logger";
 import { GestureHandler } from "./GestureHandler";
 import { execSync } from "child_process";
@@ -8,13 +7,11 @@ const executeCommand = (command: string): string => {
   return execSync(command).toString();
 };
 
-expect.extend({ toMatchImageSnapshot });
-
 const TEN_MINUTES = 600000;
 
 // Allow tests to take as much time as needed, in any case Bitrise will kill the test if it hangs
 const A_LOT_OF_TIME = 10 * TEN_MINUTES;
-jest.setTimeout(A_LOT_OF_TIME);
+// jest.setTimeout(A_LOT_OF_TIME);
 
 export class AppiumDriver {
   client: webdriver.BrowserObject;
@@ -97,9 +94,9 @@ export class AppiumDriver {
     );
     const id = screen.elementId;
     const base64Image = await this.client.takeElementScreenshot(id);
-    expect(base64Image).toMatchImageSnapshot({
-      customSnapshotIdentifier: screenName,
-    });
+    // expect(base64Image).toMatchImageSnapshot({
+    //   customSnapshotIdentifier: screenName,
+    // });
   }
 
   async byText(text: string) {
@@ -114,10 +111,11 @@ export class AppiumDriver {
     command: () => Promise<void>,
     errorScreenshotName: string
   ) {
+    // eslint-disable-next-line no-useless-catch
     try {
       await command();
     } catch (error) {
-      await this.takeScreenShot(`ERROR_${errorScreenshotName}`);
+      // await this.takeScreenShot(`ERROR_${errorScreenshotName}`);
       throw error;
     }
   }
