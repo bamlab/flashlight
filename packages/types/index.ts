@@ -6,6 +6,7 @@ export interface CpuMeasure {
 export interface Measure {
   cpu: CpuMeasure;
   ram: number;
+  time: number;
 }
 
 export interface HistogramValue {

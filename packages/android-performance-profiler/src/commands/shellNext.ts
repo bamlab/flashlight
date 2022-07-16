@@ -41,11 +41,12 @@ export const execLoopCommands = (
   const loopCommand = `while true; do ${fullCommand} sleep ${interval}; done`;
   // For tests purposes, run in local shell
   const shellCommand = runInAdb
-    ? `adb shell "{ ${loopCommand} }"`
-    : loopCommand;
+    ? `adb shell "{ ${fullCommand} }"`
+    : fullCommand;
 
-  const process = exec(shellCommand);
-  process.stdout?.on("data", (data) => {
+  const polling = setInterval(() => {
+    const data = execSync(shellCommand).toString();
+
     currentOutput += data;
 
     const endPointIndex = currentOutput.indexOf(endPoint);
@@ -68,9 +69,11 @@ export const execLoopCommands = (
 
       currentOutput = currentOutput.substring(endPointIndex + endPoint.length);
     }
-  });
+  }, interval * 1000);
 
   return {
-    stop: () => process.kill(),
+    stop: () => {
+      clearInterval(polling);
+    },
   };
 };

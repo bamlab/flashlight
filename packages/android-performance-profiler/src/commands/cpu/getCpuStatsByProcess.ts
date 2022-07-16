@@ -6,12 +6,11 @@ export interface ProcessStat {
 }
 
 export const getCommand = (pid: string): string =>
-  `date +%s%3N && cd /proc/${pid}/task && ls | tr '\n' ' ' | sed 's/ /\\/stat /g' | xargs cat $1`;
+  `cd /proc/${pid}/task && ls | tr '\n' ' ' | sed 's/ /\\/stat /g' | xargs cat $1`;
 
 export const processOutput = (output: string): ProcessStat[] =>
   output
     .split("\n")
-    .slice(1)
     .filter(Boolean)
     .map((stats) => stats.split(" "))
     .filter(Boolean)

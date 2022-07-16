@@ -10,7 +10,7 @@ export const useMeasures = (pid: string | null) => {
   const measuresRef = useRef<Measure[]>([]);
   const poll = useRef<
     | {
-        stop: () => boolean;
+        stop: () => void;
       }
     | undefined
   >();

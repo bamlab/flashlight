@@ -1,3 +1,4 @@
+import { Logger } from "@performance-profiler/logger";
 import { Measure } from "@performance-profiler/types";
 import { CpuMeasureAggregator } from "./cpu/CpuMeasureAggregator";
 import {
@@ -11,33 +12,64 @@ import {
 import { execLoopCommands } from "./shellNext";
 
 const TIME_INTERVAL_S = 0.5;
+
 export const pollPerformanceMeasures = (
   pid: string,
   dataCallback: (data: Measure) => void
 ) => {
-  let isFirstMeasure = true;
+  let initialTime: number | null = null;
+  let previousTime: number | null = null;
 
-  const cpuMeasuresAggregator = new CpuMeasureAggregator(TIME_INTERVAL_S);
+  const cpuMeasuresAggregator = new CpuMeasureAggregator();
 
   return execLoopCommands(
     [
+      {
+        id: "START_TIME",
+        command: "date +%s%3N",
+      },
       {
         id: "CPU_STATS",
         command: getCpuCommand(pid),
       },
       { id: "RAM", command: getRamCommand(pid) },
+      {
+        id: "END_TIME",
+        command: "date +%s%3N",
+      },
     ],
     TIME_INTERVAL_S,
-    ({ CPU_STATS, RAM }) => {
+    ({ CPU_STATS, RAM, START_TIME, END_TIME }) => {
       const subProcessesStats = processOutput(CPU_STATS);
-      const cpuMeasures = cpuMeasuresAggregator.process(subProcessesStats);
+      const adbStartTime = parseInt(START_TIME, 10);
+      const time = adbStartTime;
 
       const ram = processRamOutput(RAM);
 
-      if (!isFirstMeasure) {
-        dataCallback({ cpu: cpuMeasures, ram });
+      if (initialTime) {
+        const adbEndTime = parseInt(END_TIME, 10);
+
+        Logger.debug(
+          `Measure received ${adbStartTime - initialTime}/${
+            adbEndTime - initialTime
+          }/ADB Exec time:${adbEndTime - adbStartTime}ms`
+        );
+      } else {
+        initialTime = time;
       }
-      isFirstMeasure = false;
+
+      if (previousTime) {
+        const interval = time - previousTime;
+
+        const cpuMeasures = cpuMeasuresAggregator.process(
+          subProcessesStats,
+          interval
+        );
+        dataCallback({ cpu: cpuMeasures, ram, time: time - initialTime });
+      } else {
+        cpuMeasuresAggregator.initStats(subProcessesStats);
+      }
+      previousTime = time;
     }
   );
 };
