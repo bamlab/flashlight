@@ -34,29 +34,47 @@ export class PerformanceMeasurer {
   polling?: { stop: () => void };
   initialGfxInfoMeasure?: GfxInfoMeasure;
   bundleId: string;
+  shouldStop = false;
 
   constructor(bundleId: string) {
     this.bundleId = bundleId;
   }
 
   async start() {
-    const pid = await waitFor(() => {
-      try {
-        return getPidId(this.bundleId);
-      } catch (error) {
-        Logger.info(`${this.bundleId} not yet started, retrying...`);
-        return null;
+    const pid = await waitFor(
+      () => {
+        try {
+          return getPidId(this.bundleId);
+        } catch (error) {
+          Logger.debug(`${this.bundleId} not yet started, retrying...`);
+          return null;
+        }
+      },
+      {
+        timeout: 10000,
+        // we don't add any timeout since `adb pidof` already takes a bit of time
+        checkInterval: 0,
       }
-    });
+    );
 
     this.initialGfxInfoMeasure = parseGfxInfo(this.bundleId);
 
     this.polling = pollPerformanceMeasures(pid, (measure) => {
+      if (this.shouldStop) {
+        this.polling?.stop();
+      }
+
       this.cpuMeasures.push(measure);
+      Logger.debug(`Received measure ${this.cpuMeasures.length}`);
     });
   }
 
-  stop() {
+  async stop() {
+    this.shouldStop = true;
+    // Hack to wait for the last measures to be received
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    // Ensure polling has stopped
     this.polling?.stop();
 
     if (!this.initialGfxInfoMeasure) {
