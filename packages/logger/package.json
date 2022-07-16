@@ -2,5 +2,7 @@
   "name": "@performance-profiler/logger",
   "version": "0.0.0",
   "main": "dist/index.js",
-  "dependencies": {}
+  "dependencies": {
+    "chalk": "^4.0.0"
+  }
 }
