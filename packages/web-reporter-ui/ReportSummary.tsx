@@ -1,15 +1,19 @@
 import React from "react";
-import { Measure } from "@performance-profiler/types";
+import { Measure, TestCaseIterationResult } from "@performance-profiler/types";
 import {
+  averageHighCpuUsage,
   getAverageCpuUsage,
   getAverageRAMUsage,
-  getHighCpuUsageStats,
 } from "@performance-profiler/reporter";
 import { sanitizeProcessName } from "./utils/sanitizeProcessName";
 import { roundToDecimal } from "./utils/roundToDecimal";
 
-const HighCpuProcesses = ({ measures }: { measures: Measure[] }) => {
-  const highCpuProcesses = getHighCpuUsageStats(measures, 90);
+const HighCpuProcesses = ({
+  iterations,
+}: {
+  iterations: TestCaseIterationResult[];
+}) => {
+  const highCpuProcesses = averageHighCpuUsage(iterations, 90);
   const processNames = Object.keys(highCpuProcesses);
 
   return (
@@ -20,7 +24,7 @@ const HighCpuProcesses = ({ measures }: { measures: Measure[] }) => {
           {processNames.map((processName) => (
             <li key={processName}>
               {sanitizeProcessName(processName)} for{" "}
-              {highCpuProcesses[processName].length * 0.5}s
+              {highCpuProcesses[processName] / 1000}s
             </li>
           ))}
         </ul>
@@ -31,7 +35,13 @@ const HighCpuProcesses = ({ measures }: { measures: Measure[] }) => {
   );
 };
 
-export const ReportSummary = ({ measures }: { measures: Measure[] }) => {
+export const ReportSummary = ({
+  measures,
+  iterations,
+}: {
+  measures: Measure[];
+  iterations: TestCaseIterationResult[];
+}) => {
   const reactNativeDetected = measures.some((measure) =>
     Object.keys(measure.cpu.perName).some((key) => key === "(mqt_js)")
   );
@@ -45,7 +55,7 @@ export const ReportSummary = ({ measures }: { measures: Measure[] }) => {
         <b>Average RAM Usage: </b>
         {roundToDecimal(getAverageRAMUsage(measures), 1)}MB
         <br />
-        <HighCpuProcesses measures={measures} />
+        <HighCpuProcesses iterations={iterations} />
         {reactNativeDetected ? (
           <div>
             <img

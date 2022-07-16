@@ -1,2 +1,2 @@
 export { ComparisonView } from "./ComparisonView";
-export { ReporterView } from "./ReporterView";
+export { IterationsReporterView, ReporterView } from "./ReporterView";
