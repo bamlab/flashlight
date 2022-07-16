@@ -20,7 +20,7 @@ export const getPidId = (bundleId: string) => {
 
   const pid = pids[0];
 
-  Logger.info(`Pid ${pid} found for bundle id ${bundleId}`);
+  Logger.debug(`Pid ${pid} found for bundle id ${bundleId}`);
 
   return pid;
 };

@@ -39,20 +39,24 @@ const mockExecLoopCommandsImplementation = (
   // eslint-disable-next-line @typescript-eslint/ban-types
   callback: Function
 ) => {
-  let firstPolling = true;
+  let pollingIndex = 0;
 
   const mockCommandResult = (command: any) => {
     switch (command.command) {
       case getCommand("123456"):
         // eslint-disable-next-line no-case-declarations
         const result = require("fs").readFileSync(
-          `${__dirname}/sample-command-output-${firstPolling ? "1" : "2"}.txt`,
+          `${__dirname}/sample-command-output-${
+            pollingIndex === 0 ? "1" : "2"
+          }.txt`,
           "utf8"
         );
-        firstPolling = false;
+        pollingIndex++;
         return result;
       case "cat /proc/123456/statm":
         return "4430198 96195 58113 3 0 398896 0";
+      case "date +%s%3N":
+        return 1651248790047 + pollingIndex * 500;
       default:
         console.error(`Unknown command: ${command.command}`);
         return "";
@@ -72,7 +76,6 @@ const mockExecLoopCommandsImplementation = (
   };
 
   sendData();
-  firstPolling = false;
   sendData();
   sendData();
 };
