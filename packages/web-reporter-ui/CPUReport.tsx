@@ -1,5 +1,5 @@
 import React from "react";
-import { Measure } from "@performance-profiler/types";
+import { Measure, TestCaseIterationResult } from "@performance-profiler/types";
 import { getAverageCpuUsage } from "@performance-profiler/reporter";
 import { Chart } from "./components/Chart";
 import { ThreadTable } from "./components/ThreadTable";
@@ -7,8 +7,32 @@ import { useTheme } from "@mui/material/styles";
 import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import { roundToDecimal } from "./utils/roundToDecimal";
 
-export const CPUReport = ({ measures }: { measures: Measure[] }) => {
+const buildSeriesData = (
+  measures: Measure[],
+  calculate: (measure: Measure) => number
+) =>
+  measures
+    .map((measure) => calculate(measure) || 0)
+    .map((value, i) => ({
+      x: i * 500,
+      y: roundToDecimal(value, 1),
+    }));
+
+const buildAverageCpuSeriesData = (measures: Measure[]) =>
+  buildSeriesData(measures, (measure) => getAverageCpuUsage([measure]));
+
+const buildCpuPerThreadSeriesData = (measures: Measure[], threadName: string) =>
+  buildSeriesData(measures, (measure) => measure.cpu.perName[threadName]);
+
+export const CPUReport = ({
+  measures,
+  iterations,
+}: {
+  measures: Measure[];
+  iterations: TestCaseIterationResult[];
+}) => {
   const reactNativeDetected = measures.some((measure) =>
     Object.keys(measure.cpu.perName).some((key) => key === "(mqt_js)")
   );
@@ -18,25 +42,23 @@ export const CPUReport = ({ measures }: { measures: Measure[] }) => {
 
   const threads = selectedThreads.map((threadName) => ({
     name: threadName,
-    data: measures
-      .map((measure) => measure.cpu.perName[threadName] || 0)
-      .map((value, i) => ({
-        x: i * 500,
-        y: value,
-      })),
+    data: buildCpuPerThreadSeriesData(measures, threadName),
   }));
 
   const totalCPUUsage = [
     {
       name: "Total CPU Usage (%)",
-      data: measures
-        .map((measure) => getAverageCpuUsage([measure]) || 0)
-        .map((value, i) => ({
-          x: i * 500,
-          y: value,
-        })),
+      data: buildAverageCpuSeriesData(measures),
     },
-  ];
+  ].concat(
+    iterations.length <= 1
+      ? []
+      : iterations.map((iteration, index) => ({
+          name: `Iteration ${index + 1}`,
+          data: buildAverageCpuSeriesData(iteration.measures),
+          color: "#0000ff10",
+        }))
+  );
 
   const { palette } = useTheme();
 

@@ -46,6 +46,7 @@ export const getHighCpuUsageStats = (
     .flatten()
     .filter((measure) => measure.cpuUsage > cpuUsageThreshold)
     .groupBy((measure) => measure.processName)
+    .mapValues((measures) => measures.length * 500)
     .value();
 
 const average = (measures: number[]) => _.sum(measures) / measures.length;
