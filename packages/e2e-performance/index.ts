@@ -1,5 +1,6 @@
 import { Logger } from "@performance-profiler/logger";
 import { TestCaseIterationResult } from "@performance-profiler/types";
+import fs from "fs";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { Trace } from "./Trace";
 
@@ -27,7 +28,7 @@ export class PerformanceTester {
 
     if (afterTest) await afterTest();
 
-    const cpuMeasures = performanceMeasurer.stop();
+    const cpuMeasures = await performanceMeasurer.stop();
 
     this.measures.push({
       time,
@@ -39,8 +40,21 @@ export class PerformanceTester {
     for (let i = 0; i < iterationCount; i++) {
       Logger.info(`Running iteration ${i + 1}/${iterationCount}`);
       await this.executeTestCase(testCase);
+      Logger.success(
+        `Finished iteration ${i + 1}/${iterationCount} in ${
+          this.measures[i].time
+        }ms`
+      );
     }
 
     return this.measures;
+  }
+
+  writeResults(filePath?: string) {
+    const path =
+      filePath || `${process.cwd()}/results_${new Date().getTime()}.json`;
+    fs.writeFileSync(path, JSON.stringify(this.measures));
+
+    Logger.success(`Results written to ${path}`);
   }
 }

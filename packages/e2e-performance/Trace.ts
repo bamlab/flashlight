@@ -1,3 +1,4 @@
+import { Logger } from "@performance-profiler/logger";
 import { performance } from "perf_hooks";
 
 export class Trace {
@@ -5,10 +6,14 @@ export class Trace {
 
   constructor() {
     this.startTime = performance.now();
+    Logger.debug(`Started trace`);
   }
 
   stop() {
     const endTime = performance.now();
-    return endTime - this.startTime;
+    const duration = endTime - this.startTime;
+    Logger.debug(`Ended trace ${duration}`);
+
+    return duration;
   }
 }
