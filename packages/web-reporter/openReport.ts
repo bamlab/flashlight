@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { execSync } from "child_process";
 import { Logger } from "@performance-profiler/logger";
 import fs from "fs";
@@ -12,12 +14,16 @@ const newHtmlContent = fs
   .replace(`src="${scriptName}"`, `src="${newJsFile}"`)
   .replace('type="module"', "");
 
+const paths = process.argv.slice(2);
+
 const report = JSON.stringify(
-  JSON.parse(fs.readFileSync(`${process.cwd()}/${process.argv[2]}`, "utf8"))
+  paths.map((path) =>
+    JSON.parse(fs.readFileSync(`${process.cwd()}/${path}`, "utf8"))
+  )
 );
 
 const jsFileContent = fs
-  .readFileSync(`${__dirname}/index.e033a635.js`, "utf8")
+  .readFileSync(`${__dirname}/${scriptName}`, "utf8")
   .replace('"INSERT_HERE"', report);
 
 fs.writeFileSync(`${__dirname}/report.js`, jsFileContent);
@@ -25,5 +31,5 @@ fs.writeFileSync(`${__dirname}/report.js`, jsFileContent);
 const htmlFilePath = `${__dirname}/report.html`;
 fs.writeFileSync(htmlFilePath, newHtmlContent);
 
-Logger.info(`Opening report: ${htmlFilePath}`);
+Logger.success(`Opening report: ${htmlFilePath}`);
 execSync(`open ${htmlFilePath}`);

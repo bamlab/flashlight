@@ -1,33 +1,36 @@
 import React from "react";
-import { Measure, TestCaseIterationResult } from "@performance-profiler/types";
+import { AveragedTestCaseResult } from "@performance-profiler/types";
 import {
-  averageHighCpuUsage,
   getAverageCpuUsage,
   getAverageRAMUsage,
 } from "@performance-profiler/reporter";
 import { sanitizeProcessName } from "./utils/sanitizeProcessName";
 import { roundToDecimal } from "./utils/roundToDecimal";
+import { SimpleTable } from "./components/SimpleTable";
 
 const HighCpuProcesses = ({
-  iterations,
+  highCpuProcesses,
 }: {
-  iterations: TestCaseIterationResult[];
+  highCpuProcesses: { [processName: string]: number };
 }) => {
-  const highCpuProcesses = averageHighCpuUsage(iterations, 90);
   const processNames = Object.keys(highCpuProcesses);
+  const total = processNames.reduce(
+    (sum, name) => sum + highCpuProcesses[name],
+    0
+  );
 
   return (
     <>
-      <b>Processes with high CPU usage detected: </b>
+      <div style={{ color: "red" }}>Total: {total / 1000}s</div>
       {processNames.length > 0 ? (
-        <ul style={{ color: "red" }}>
+        <div>
           {processNames.map((processName) => (
-            <li key={processName}>
+            <div key={processName}>
               {sanitizeProcessName(processName)} for{" "}
               {highCpuProcesses[processName] / 1000}s
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       ) : (
         <span style={{ color: "green" }}>None</span>
       )}
@@ -35,38 +38,61 @@ const HighCpuProcesses = ({
   );
 };
 
-export const ReportSummary = ({
-  measures,
-  iterations,
+const FrameworkDetection = ({
+  reactNativeDetected,
 }: {
-  measures: Measure[];
-  iterations: TestCaseIterationResult[];
+  reactNativeDetected: boolean;
 }) => {
-  const reactNativeDetected = measures.some((measure) =>
-    Object.keys(measure.cpu.perName).some((key) => key === "(mqt_js)")
-  );
+  return reactNativeDetected ? (
+    <div>
+      <img
+        alt="React Native logo"
+        style={{ height: 20, width: 20 }}
+        src="https://d33wubrfki0l68.cloudfront.net/554c3b0e09cf167f0281fda839a5433f2040b349/ecfc9/img/header_logo.svg"
+      />{" "}
+      React Native detected
+    </div>
+  ) : null;
+};
+
+export const ReportSummary = ({
+  results,
+}: {
+  results: AveragedTestCaseResult[];
+}) => {
+  const table = [
+    ["", ...results.map((result) => result.name)],
+    [
+      "Average CPU usage",
+      ...results.map(
+        (result) =>
+          `${roundToDecimal(getAverageCpuUsage(result.average.measures), 1)}%`
+      ),
+    ],
+    [
+      "Average RAM usage",
+      ...results.map(
+        (result) =>
+          `${roundToDecimal(getAverageRAMUsage(result.average.measures), 1)}MB`
+      ),
+    ],
+    [
+      "Processes with high CPU usage detected",
+      ...results.map((result) => (
+        <HighCpuProcesses highCpuProcesses={result.averageHighCpuUsage} />
+      )),
+    ],
+    [
+      "React Native?",
+      ...results.map((result) => (
+        <FrameworkDetection reactNativeDetected={result.reactNativeDetected} />
+      )),
+    ],
+  ];
 
   return (
     <>
-      <div style={{ padding: 10 }}>
-        <b>Average CPU Usage: </b>
-        {roundToDecimal(getAverageCpuUsage(measures), 1)}%
-        <br />
-        <b>Average RAM Usage: </b>
-        {roundToDecimal(getAverageRAMUsage(measures), 1)}MB
-        <br />
-        <HighCpuProcesses iterations={iterations} />
-        {reactNativeDetected ? (
-          <div>
-            <img
-              alt="React Native logo"
-              style={{ height: 20, width: 20 }}
-              src="https://d33wubrfki0l68.cloudfront.net/554c3b0e09cf167f0281fda839a5433f2040b349/ecfc9/img/header_logo.svg"
-            />{" "}
-            React Native was detected.
-          </div>
-        ) : null}
-      </div>
+      <SimpleTable rows={table} />
     </>
   );
 };

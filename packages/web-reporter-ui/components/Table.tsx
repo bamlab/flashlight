@@ -57,35 +57,15 @@ function stableSort<T>(
   return stabilizedThis.map((el) => el[0]);
 }
 
-interface HeadCell {
+export interface HeadCell {
   disablePadding: boolean;
   id: keyof Data;
   label: string;
   numeric: boolean;
 }
 
-const headCells: readonly HeadCell[] = [
-  {
-    id: "name",
-    numeric: false,
-    disablePadding: true,
-    label: "Thread",
-  },
-  {
-    id: "averageCpuUsage",
-    numeric: true,
-    disablePadding: false,
-    label: "Average CPU Usage (%)",
-  },
-  {
-    id: "currentCpuUsage",
-    numeric: true,
-    disablePadding: false,
-    label: "Current CPU Usage (%)",
-  },
-];
-
 interface EnhancedTableProps {
+  headCells: HeadCell[];
   numSelected: number;
   onRequestSort: (
     event: React.MouseEvent<unknown>,
@@ -108,7 +88,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     <TableHead>
       <TableRow>
         <TableCell padding="checkbox"></TableCell>
-        {headCells.map((headCell) => (
+        {props.headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? "right" : "left"}
@@ -138,13 +118,15 @@ export default function EnhancedTable({
   rows,
   selected,
   setSelected,
+  headCells,
 }: {
   rows: Data[];
   selected: string[];
   setSelected: (threads: string[]) => void;
+  headCells: HeadCell[];
 }) {
   const [order, setOrder] = React.useState<Order>("desc");
-  const [orderBy, setOrderBy] = React.useState<keyof Data>("currentCpuUsage");
+  const [orderBy, setOrderBy] = React.useState<keyof Data>(headCells[1].id);
 
   const handleRequestSort = (
     event: React.MouseEvent<unknown>,
@@ -189,6 +171,7 @@ export default function EnhancedTable({
   return (
     <Table size={"small"}>
       <EnhancedTableHead
+        headCells={headCells}
         numSelected={selected.length}
         order={order}
         orderBy={orderBy}
@@ -223,8 +206,11 @@ export default function EnhancedTable({
               <TableCell component="th" id={labelId} scope="row" padding="none">
                 {sanitizeProcessName(row.name)}
               </TableCell>
-              <TableCell align="right">{row.averageCpuUsage}</TableCell>
-              <TableCell align="right">{row.currentCpuUsage}</TableCell>
+              {headCells.slice(1).map((headCell) => (
+                <TableCell align="right" key={headCell.id}>
+                  {row[headCell.id]}
+                </TableCell>
+              ))}
             </TableRow>
           );
         })}

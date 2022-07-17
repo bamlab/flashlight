@@ -6,26 +6,29 @@ Pid ID:
 123456
 Stop Measuring
 Reset
-Average CPU Usage: 
-84
-%
-Average RAM Usage: 
-375.7
-MB
-Processes with high CPU usage detected: 
+Results
+Average CPU usage
+84%
+Average RAM usage
+375.7MB
+Processes with high CPU usage detected
+Total: 
+0.5
+s
 mqt_js
  for
  
 0.5
 s
+React Native?
  
-React Native was detected.
+React Native detected
 CPU
 Threads
 Thread
 Average CPU Usage (%)
-Current CPU Usage (%)
 sorted descending
+Current CPU Usage (%)
 mqt_js
 50
 0
@@ -260,44 +263,122 @@ exports[`displays FPS data and scoring 2`] = `
       class="css-1v8x7dw"
     >
       <div
-        style="padding: 10px;"
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
       >
-        <b>
-          Average CPU Usage: 
-        </b>
-        84
-        %
-        <br />
-        <b>
-          Average RAM Usage: 
-        </b>
-        375.7
-        MB
-        <br />
-        <b>
-          Processes with high CPU usage detected: 
-        </b>
-        <ul
-          style="color: red;"
+        <table
+          aria-label="simple table"
+          class="MuiTable-root css-rqglhn-MuiTable-root"
         >
-          <li>
-            mqt_js
-             for
-             
-            0.5
-            s
-          </li>
-        </ul>
-        <div>
-          <img
-            alt="React Native logo"
-            src="https://d33wubrfki0l68.cloudfront.net/554c3b0e09cf167f0281fda839a5433f2040b349/ecfc9/img/header_logo.svg"
-            style="height: 20px; width: 20px;"
-          />
-           
-          React Native was detected.
-        </div>
+          <thead
+            class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+          >
+            <tr
+              class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1ygcj2i-MuiTableCell-root"
+                scope="col"
+              />
+              <th
+                class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-1o98s2t-MuiTableCell-root"
+                scope="col"
+              >
+                Results
+              </th>
+            </tr>
+          </thead>
+          <tbody
+            class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+          >
+            <tr
+              class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1bofi2j-MuiTableCell-root"
+                scope="row"
+              >
+                Average CPU usage
+              </th>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+              >
+                84%
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1bofi2j-MuiTableCell-root"
+                scope="row"
+              >
+                Average RAM usage
+              </th>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+              >
+                375.7MB
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1bofi2j-MuiTableCell-root"
+                scope="row"
+              >
+                Processes with high CPU usage detected
+              </th>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+              >
+                <div
+                  style="color: red;"
+                >
+                  Total: 
+                  0.5
+                  s
+                </div>
+                <div>
+                  <div>
+                    mqt_js
+                     for
+                     
+                    0.5
+                    s
+                  </div>
+                </div>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1bofi2j-MuiTableCell-root"
+                scope="row"
+              >
+                React Native?
+              </th>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+              >
+                <div>
+                  <img
+                    alt="React Native logo"
+                    src="https://d33wubrfki0l68.cloudfront.net/554c3b0e09cf167f0281fda839a5433f2040b349/ecfc9/img/header_logo.svg"
+                    style="height: 20px; width: 20px;"
+                  />
+                   
+                  React Native detected
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <div
+        class="css-1xehky4"
+      />
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1elwnq4-MuiPaper-root-MuiAccordion-root"
       >
@@ -458,18 +539,24 @@ exports[`displays FPS data and scoring 2`] = `
                                         </span>
                                       </th>
                                       <th
+                                        aria-sort="descending"
                                         class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeSmall css-6qfsqn-MuiTableCell-root"
                                         scope="col"
                                       >
                                         <span
-                                          class="MuiButtonBase-root MuiTableSortLabel-root css-1qgma8u-MuiButtonBase-root-MuiTableSortLabel-root"
+                                          class="MuiButtonBase-root MuiTableSortLabel-root Mui-active css-1qgma8u-MuiButtonBase-root-MuiTableSortLabel-root"
                                           role="button"
                                           tabindex="0"
                                         >
                                           Average CPU Usage (%)
+                                          <span
+                                            class="MuiBox-root css-trfuzi"
+                                          >
+                                            sorted descending
+                                          </span>
                                           <svg
                                             aria-hidden="true"
-                                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc css-1vweko9-MuiSvgIcon-root-MuiTableSortLabel-icon"
+                                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionDesc css-3l415a-MuiSvgIcon-root-MuiTableSortLabel-icon"
                                             data-testid="ArrowDownwardIcon"
                                             focusable="false"
                                             viewBox="0 0 24 24"
@@ -481,24 +568,18 @@ exports[`displays FPS data and scoring 2`] = `
                                         </span>
                                       </th>
                                       <th
-                                        aria-sort="descending"
                                         class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeSmall css-6qfsqn-MuiTableCell-root"
                                         scope="col"
                                       >
                                         <span
-                                          class="MuiButtonBase-root MuiTableSortLabel-root Mui-active css-1qgma8u-MuiButtonBase-root-MuiTableSortLabel-root"
+                                          class="MuiButtonBase-root MuiTableSortLabel-root css-1qgma8u-MuiButtonBase-root-MuiTableSortLabel-root"
                                           role="button"
                                           tabindex="0"
                                         >
                                           Current CPU Usage (%)
-                                          <span
-                                            class="MuiBox-root css-trfuzi"
-                                          >
-                                            sorted descending
-                                          </span>
                                           <svg
                                             aria-hidden="true"
-                                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionDesc css-3l415a-MuiSvgIcon-root-MuiTableSortLabel-icon"
+                                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium MuiTableSortLabel-icon MuiTableSortLabel-iconDirectionAsc css-1vweko9-MuiSvgIcon-root-MuiTableSortLabel-icon"
                                             data-testid="ArrowDownwardIcon"
                                             focusable="false"
                                             viewBox="0 0 24 24"
