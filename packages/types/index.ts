@@ -24,3 +24,16 @@ export interface TestCaseIterationResult {
     histogram: HistogramValue[];
   };
 }
+
+export interface TestCaseResult {
+  name: string;
+  iterations: TestCaseIterationResult[];
+}
+
+export interface AveragedTestCaseResult {
+  name: string;
+  iterations: TestCaseIterationResult[];
+  average: TestCaseIterationResult;
+  averageHighCpuUsage: { [processName: string]: number };
+  reactNativeDetected: boolean;
+}

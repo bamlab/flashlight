@@ -1,4 +1,4 @@
-import { exec, execSync } from "child_process";
+import { execSync } from "child_process";
 
 export const executeCommand = (command: string): string => {
   return execSync(command).toString();
@@ -38,7 +38,8 @@ export const execLoopCommands = (
 
   const LINE_BREAK_CHAR_COUNT = "\n".length;
 
-  const loopCommand = `while true; do ${fullCommand} sleep ${interval}; done`;
+  // We used to run the loop in adb shell but timings weren't accurate
+  // const loopCommand = `while true; do ${fullCommand} sleep ${interval}; done`;
   // For tests purposes, run in local shell
   const shellCommand = runInAdb
     ? `adb shell "{ ${fullCommand} }"`

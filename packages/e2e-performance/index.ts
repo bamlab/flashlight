@@ -1,5 +1,8 @@
 import { Logger } from "@performance-profiler/logger";
-import { TestCaseIterationResult } from "@performance-profiler/types";
+import {
+  TestCaseIterationResult,
+  TestCaseResult,
+} from "@performance-profiler/types";
 import fs from "fs";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { Trace } from "./Trace";
@@ -8,6 +11,7 @@ export interface TestCase {
   beforeTest?: () => Promise<void> | void;
   run: () => Promise<void> | void;
   afterTest?: () => Promise<void> | void;
+  name?: string;
 }
 
 export class PerformanceTester {
@@ -50,11 +54,18 @@ export class PerformanceTester {
     return this.measures;
   }
 
-  writeResults(filePath?: string) {
-    const path =
-      filePath || `${process.cwd()}/results_${new Date().getTime()}.json`;
-    fs.writeFileSync(path, JSON.stringify(this.measures));
+  writeResults({ path, title: givenTitle }: { path?: string; title?: string }) {
+    const title = givenTitle || "Results";
+    const filePath =
+      path ||
+      `${process.cwd()}/${title.toLocaleLowerCase()}_${new Date().getTime()}.json`;
 
-    Logger.success(`Results written to ${path}`);
+    const testCase: TestCaseResult = {
+      name: title,
+      iterations: this.measures,
+    };
+    fs.writeFileSync(filePath, JSON.stringify(testCase));
+
+    Logger.success(`Results written to ${filePath}`);
   }
 }

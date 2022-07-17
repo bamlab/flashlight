@@ -1,8 +1,8 @@
 import React from "react";
-import { Measure, TestCaseIterationResult } from "@performance-profiler/types";
+import { AveragedTestCaseResult, Measure } from "@performance-profiler/types";
 import { getAverageCpuUsage } from "@performance-profiler/reporter";
 import { Chart } from "./components/Chart";
-import { ThreadTable } from "./components/ThreadTable";
+import { ComparativeThreadTable, ThreadTable } from "./components/ThreadTable";
 import { useTheme } from "@mui/material/styles";
 import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
 import Accordion from "@mui/material/Accordion";
@@ -27,38 +27,30 @@ const buildCpuPerThreadSeriesData = (measures: Measure[], threadName: string) =>
   buildSeriesData(measures, (measure) => measure.cpu.perName[threadName]);
 
 export const CPUReport = ({
-  measures,
-  iterations,
+  results,
 }: {
-  measures: Measure[];
-  iterations: TestCaseIterationResult[];
+  results: AveragedTestCaseResult[];
 }) => {
-  const reactNativeDetected = measures.some((measure) =>
-    Object.keys(measure.cpu.perName).some((key) => key === "(mqt_js)")
+  const reactNativeDetected = results.every(
+    (result) => result.reactNativeDetected
   );
   const [selectedThreads, setSelectedThreads] = React.useState<string[]>(
     reactNativeDetected ? ["(mqt_js)"] : []
   );
 
-  const threads = selectedThreads.map((threadName) => ({
-    name: threadName,
-    data: buildCpuPerThreadSeriesData(measures, threadName),
-  }));
+  const threads = selectedThreads
+    .map((threadName) =>
+      results.map((result) => ({
+        name: `${threadName}${results.length > 1 ? ` (${result.name})` : ""}`,
+        data: buildCpuPerThreadSeriesData(result.average.measures, threadName),
+      }))
+    )
+    .flat();
 
-  const totalCPUUsage = [
-    {
-      name: "Total CPU Usage (%)",
-      data: buildAverageCpuSeriesData(measures),
-    },
-  ].concat(
-    iterations.length <= 1
-      ? []
-      : iterations.map((iteration, index) => ({
-          name: `Iteration ${index + 1}`,
-          data: buildAverageCpuSeriesData(iteration.measures),
-          color: "#0000ff10",
-        }))
-  );
+  const totalCPUUsage = results.map((result) => ({
+    name: result.name,
+    data: buildAverageCpuSeriesData(result.average.measures),
+  }));
 
   const { palette } = useTheme();
 
@@ -69,23 +61,36 @@ export const CPUReport = ({
         height={500}
         interval={500}
         series={totalCPUUsage}
-        colors={[palette.primary.main]}
+        colors={[palette.primary.main, palette.secondary.main]}
       />
       <Chart
         title="CPU Usage per thread (%)"
         height={500}
         interval={500}
         series={threads}
+        colors={
+          results.length > 1
+            ? [palette.primary.main, palette.secondary.main]
+            : undefined
+        }
         maxValue={100}
       />
       <Accordion>
         <AccordionSectionTitle title="Threads"></AccordionSectionTitle>
         <AccordionDetails>
-          <ThreadTable
-            measures={measures}
-            selectedThreads={selectedThreads}
-            setSelectedThreads={setSelectedThreads}
-          />
+          {results.length > 1 ? (
+            <ComparativeThreadTable
+              results={results}
+              selectedThreads={selectedThreads}
+              setSelectedThreads={setSelectedThreads}
+            />
+          ) : (
+            <ThreadTable
+              measures={results[0].average.measures}
+              selectedThreads={selectedThreads}
+              setSelectedThreads={setSelectedThreads}
+            />
+          )}
         </AccordionDetails>
       </Accordion>
     </>
