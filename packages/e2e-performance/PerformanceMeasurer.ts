@@ -1,4 +1,4 @@
-import { Logger } from "@performance-profiler/logger";
+import { Logger } from "@perf-profiler/logger";
 import {
   getPidId,
   Measure,
@@ -6,7 +6,7 @@ import {
   GfxInfoMeasure,
   parseGfxInfo,
   compareGfxMeasures,
-} from "@performance-profiler/profiler";
+} from "@perf-profiler/profiler";
 
 const waitFor = async <T>(
   evaluateResult: () => T | undefined | null,

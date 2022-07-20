@@ -1,7 +1,7 @@
 import { act, fireEvent, screen } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import * as Plugin from "..";
-import { getCommand } from "@performance-profiler/profiler/src/commands/cpu/getCpuStatsByProcess";
+import { getCommand } from "@perf-profiler/profiler/src/commands/cpu/getCpuStatsByProcess";
 
 // See https://github.com/facebook/flipper/pull/3327
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -90,9 +90,9 @@ const mockExecLoopCommandsImplementation = (
 
 let moduleToMock;
 try {
-  moduleToMock = require("@performance-profiler/profiler/dist/src/commands/shellNext");
+  moduleToMock = require("@perf-profiler/profiler/dist/src/commands/shellNext");
 } catch {
-  moduleToMock = require("@performance-profiler/profiler/src/commands/shellNext");
+  moduleToMock = require("@perf-profiler/profiler/src/commands/shellNext");
 }
 jest
   .spyOn(moduleToMock, "execLoopCommands")

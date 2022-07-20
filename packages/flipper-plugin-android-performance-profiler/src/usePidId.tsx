@@ -1,4 +1,4 @@
-import { getPidId } from "@performance-profiler/profiler";
+import { getPidId } from "@perf-profiler/profiler";
 import { useMemo } from "react";
 import { useDebounce } from "use-debounce";
 

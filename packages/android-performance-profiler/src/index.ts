@@ -4,7 +4,7 @@ import { pollPerformanceMeasures } from "./commands/pollPerformanceMeasures";
 import { parseGfxInfo } from "./commands/gfxInfo/parseGfxInfo";
 import { compareGfxMeasures } from "./commands/gfxInfo/compareGfxMeasures";
 
-export { Measure } from "@performance-profiler/types";
+export { Measure } from "@perf-profiler/types";
 export { Measure as GfxInfoMeasure } from "./commands/gfxInfo/parseGfxInfo";
 
 export {

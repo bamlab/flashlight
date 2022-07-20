@@ -1,4 +1,4 @@
-import { Logger } from "@performance-profiler/logger";
+import { Logger } from "@perf-profiler/logger";
 import { performance } from "perf_hooks";
 
 export class Trace {

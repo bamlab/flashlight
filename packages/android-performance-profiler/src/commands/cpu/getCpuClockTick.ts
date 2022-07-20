@@ -1,4 +1,4 @@
-import { Logger } from "@performance-profiler/logger";
+import { Logger } from "@perf-profiler/logger";
 import { executeCommand } from "../shell";
 
 export const getCpuClockTick = () => {

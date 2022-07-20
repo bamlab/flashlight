@@ -16,7 +16,7 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@performance-profiler/logger": "0.0.0",
+    "@perf-profiler/logger": "0.0.0",
     "appium": "^1.22.3",
     "webdriverio": "^6.1.22"
   }

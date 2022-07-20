@@ -3,8 +3,8 @@ import {
   getPidId,
   Measure,
   pollPerformanceMeasures,
-} from "@performance-profiler/profiler";
-import { getAverageCpuUsage } from "@performance-profiler/reporter";
+} from "@perf-profiler/profiler";
+import { getAverageCpuUsage } from "@perf-profiler/reporter";
 
 const bundleId = detectCurrentAppBundleId() || "";
 const pid = getPidId(bundleId) || "";

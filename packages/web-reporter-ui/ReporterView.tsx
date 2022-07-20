@@ -3,7 +3,7 @@ import {
   AveragedTestCaseResult,
   Measure,
   TestCaseResult,
-} from "@performance-profiler/types";
+} from "@perf-profiler/types";
 import { CPUReport } from "./CPUReport";
 import { ReportSummary } from "./ReportSummary";
 import { RAMReport } from "./RAMReport";
@@ -13,7 +13,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import {
   averageHighCpuUsage,
   averageIterations,
-} from "@performance-profiler/reporter";
+} from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 
 const Padding = styled.div`

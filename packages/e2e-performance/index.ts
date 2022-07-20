@@ -1,8 +1,5 @@
-import { Logger } from "@performance-profiler/logger";
-import {
-  TestCaseIterationResult,
-  TestCaseResult,
-} from "@performance-profiler/types";
+import { Logger } from "@perf-profiler/logger";
+import { TestCaseIterationResult, TestCaseResult } from "@perf-profiler/types";
 import fs from "fs";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { Trace } from "./Trace";

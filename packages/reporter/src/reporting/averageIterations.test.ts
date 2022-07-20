@@ -1,5 +1,5 @@
 import { averageHighCpuUsage, averageIterations } from "./averageIterations";
-import { TestCaseIterationResult } from "@performance-profiler/types";
+import { TestCaseIterationResult } from "@perf-profiler/types";
 
 const ITERATION_1: TestCaseIterationResult = {
   measures: [

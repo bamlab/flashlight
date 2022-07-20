@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "@bam.tech/appium-helper": "0.0.0",
-    "@performance-profiler/e2e": "0.0.0"
+    "@perf-profiler/e2e": "0.0.0"
   }
 }

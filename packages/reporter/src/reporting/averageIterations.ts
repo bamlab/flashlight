@@ -1,4 +1,4 @@
-import { Measure, TestCaseIterationResult } from "@performance-profiler/types";
+import { Measure, TestCaseIterationResult } from "@perf-profiler/types";
 import { mapValues } from "lodash";
 import { getHighCpuUsageStats } from "./reporting";
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { AveragedTestCaseResult, Measure } from "@performance-profiler/types";
-import { getAverageCpuUsage } from "@performance-profiler/reporter";
+import { AveragedTestCaseResult, Measure } from "@perf-profiler/types";
+import { getAverageCpuUsage } from "@perf-profiler/reporter";
 import { Chart } from "./components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "./components/ThreadTable";
 import { useTheme } from "@mui/material/styles";

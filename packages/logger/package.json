@@ -1,5 +1,5 @@
 {
-  "name": "@performance-profiler/logger",
+  "name": "@perf-profiler/logger",
   "version": "0.0.0",
   "main": "dist/index.js",
   "dependencies": {

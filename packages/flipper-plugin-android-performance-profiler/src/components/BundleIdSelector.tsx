@@ -2,7 +2,7 @@ import React from "react";
 import { AppBar, Button } from "@mui/material";
 import { CheckCircleOutline } from "@mui/icons-material";
 import { TextField } from "./TextField";
-import { detectCurrentAppBundleId } from "@performance-profiler/profiler";
+import { detectCurrentAppBundleId } from "@perf-profiler/profiler";
 
 export const BundleIdSelector = ({
   bundleId,

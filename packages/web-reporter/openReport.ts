@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { execSync } from "child_process";
-import { Logger } from "@performance-profiler/logger";
+import { Logger } from "@perf-profiler/logger";
 import fs from "fs";
 
 const newJsFile = "report.js";
