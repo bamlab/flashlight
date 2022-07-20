@@ -7,6 +7,8 @@ Pid ID:
 Stop Measuring
 Reset
 Results
+Average Test Runtime
+0ms
 Average CPU usage
 84%
 Average RAM usage
@@ -290,6 +292,21 @@ exports[`displays FPS data and scoring 2`] = `
           <tbody
             class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
           >
+            <tr
+              class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1bofi2j-MuiTableCell-root"
+                scope="row"
+              >
+                Average Test Runtime
+              </th>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+              >
+                0ms
+              </td>
+            </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
             >

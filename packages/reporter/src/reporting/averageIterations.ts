@@ -45,8 +45,8 @@ export const averageIterations = (
     measures: range(minLength).map((i) =>
       averageMeasures(results.map((result) => result.measures[i]))
     ),
+    time: average(results.map((result) => result.time)),
     // Rest is not implemented yet
-    time: 0,
     gfxInfo: {
       frameCount: 0,
       time: 0,
