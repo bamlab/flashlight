@@ -11,14 +11,14 @@ export interface TestCase {
   beforeTest?: () => Promise<void> | void;
   run: () => Promise<void> | void;
   afterTest?: () => Promise<void> | void;
-  name?: string;
+  duration?: number;
 }
 
 export class PerformanceTester {
   measures: TestCaseIterationResult[] = [];
   constructor(private bundleId: string) {}
 
-  async executeTestCase({ beforeTest, run, afterTest }: TestCase) {
+  async executeTestCase({ beforeTest, run, afterTest, duration }: TestCase) {
     if (beforeTest) await beforeTest();
 
     const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
@@ -30,9 +30,9 @@ export class PerformanceTester {
     await run();
     const time = startTimeTrace.stop();
 
-    if (afterTest) await afterTest();
+    const cpuMeasures = await performanceMeasurer.stop(duration);
 
-    const cpuMeasures = await performanceMeasurer.stop();
+    if (afterTest) await afterTest();
 
     this.measures.push({
       time,
@@ -58,7 +58,9 @@ export class PerformanceTester {
     const title = givenTitle || "Results";
     const filePath =
       path ||
-      `${process.cwd()}/${title.toLocaleLowerCase()}_${new Date().getTime()}.json`;
+      `${process.cwd()}/${title
+        .toLocaleLowerCase()
+        .replace(/ /g, "_")}_${new Date().getTime()}.json`;
 
     const testCase: TestCaseResult = {
       name: title,

@@ -69,10 +69,28 @@ export class PerformanceMeasurer {
     });
   }
 
-  async stop() {
-    this.shouldStop = true;
-    // Hack to wait for the last measures to be received
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+  async stop(duration?: number) {
+    const TIME_INTERVAL_IN_MS = 500;
+    if (duration) {
+      // Hack to wait for the duration to be reached in case test case has finished before
+      await waitFor(
+        () => this.cpuMeasures.length * TIME_INTERVAL_IN_MS > duration,
+        {
+          checkInterval: TIME_INTERVAL_IN_MS,
+          timeout: duration * 1000,
+        }
+      );
+      this.cpuMeasures = this.cpuMeasures.slice(
+        0,
+        duration / TIME_INTERVAL_IN_MS + 1
+      );
+    } else {
+      this.shouldStop = true;
+      // Hack to wait for the last measures to be received
+      await new Promise((resolve) =>
+        setTimeout(resolve, TIME_INTERVAL_IN_MS * 2)
+      );
+    }
 
     // Ensure polling has stopped
     this.polling?.stop();
