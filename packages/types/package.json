@@ -1,5 +1,5 @@
 {
-  "name": "@performance-profiler/types",
+  "name": "@perf-profiler/types",
   "version": "0.0.0",
   "dependencies": {}
 }

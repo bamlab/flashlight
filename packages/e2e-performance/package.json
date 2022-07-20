@@ -1,5 +1,5 @@
 {
-  "name": "@performance-profiler/e2e",
+  "name": "@perf-profiler/e2e",
   "version": "0.0.0",
   "author": {
     "name": "Almouro",
@@ -10,8 +10,8 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@performance-profiler/logger": "0.0.0",
-    "@performance-profiler/profiler": "0.0.0",
-    "@performance-profiler/types": "0.0.0"
+    "@perf-profiler/logger": "0.0.0",
+    "@perf-profiler/profiler": "0.0.0",
+    "@perf-profiler/types": "0.0.0"
   }
 }

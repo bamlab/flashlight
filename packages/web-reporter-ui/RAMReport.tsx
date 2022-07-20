@@ -1,5 +1,5 @@
 import React from "react";
-import { AveragedTestCaseResult } from "@performance-profiler/types";
+import { AveragedTestCaseResult } from "@perf-profiler/types";
 import { Chart } from "./components/Chart";
 import { useTheme } from "@mui/material/styles";
 import { roundToDecimal } from "./utils/roundToDecimal";

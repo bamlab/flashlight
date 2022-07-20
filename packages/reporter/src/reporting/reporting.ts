@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { Measure } from "@performance-profiler/types";
+import { Measure } from "@perf-profiler/types";
 
 const round = (n: number, decimals: number) =>
   Math.floor(n * Math.pow(10, decimals)) / Math.pow(10, decimals);

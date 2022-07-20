@@ -1,5 +1,5 @@
-import { Logger } from "@performance-profiler/logger";
-import { Measure } from "@performance-profiler/types";
+import { Logger } from "@perf-profiler/logger";
+import { Measure } from "@perf-profiler/types";
 import { CpuMeasureAggregator } from "./cpu/CpuMeasureAggregator";
 import {
   getCommand as getCpuCommand,

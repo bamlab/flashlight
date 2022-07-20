@@ -1,5 +1,5 @@
 import * as webdriver from "webdriverio";
-import { Logger } from "@performance-profiler/logger";
+import { Logger } from "@perf-profiler/logger";
 import { GestureHandler } from "./GestureHandler";
 import { execSync } from "child_process";
 

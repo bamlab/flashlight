@@ -1,9 +1,9 @@
 import React from "react";
-import { AveragedTestCaseResult } from "@performance-profiler/types";
+import { AveragedTestCaseResult } from "@perf-profiler/types";
 import {
   getAverageCpuUsage,
   getAverageRAMUsage,
-} from "@performance-profiler/reporter";
+} from "@perf-profiler/reporter";
 import { sanitizeProcessName } from "./utils/sanitizeProcessName";
 import { roundToDecimal } from "./utils/roundToDecimal";
 import { SimpleTable } from "./components/SimpleTable";

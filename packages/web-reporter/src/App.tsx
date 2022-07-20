@@ -1,6 +1,6 @@
 import React from "react";
-import { TestCaseResult } from "@performance-profiler/types";
-import { IterationsReporterView } from "@performance-profiler/web-reporter-ui";
+import { TestCaseResult } from "@perf-profiler/types";
+import { IterationsReporterView } from "@perf-profiler/web-reporter-ui";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore

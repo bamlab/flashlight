@@ -1,6 +1,6 @@
 import React from "react";
-import { AveragedTestCaseResult, Measure } from "@performance-profiler/types";
-import { getAverageCpuUsagePerProcess } from "@performance-profiler/reporter";
+import { AveragedTestCaseResult, Measure } from "@perf-profiler/types";
+import { getAverageCpuUsagePerProcess } from "@perf-profiler/reporter";
 import { Paper, TableContainer } from "@mui/material";
 import { keyBy, uniq } from "lodash";
 import Table, { HeadCell } from "./Table";

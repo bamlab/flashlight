@@ -1,5 +1,5 @@
 import { mapValues } from "lodash";
-import { CpuMeasure as Measure } from "@performance-profiler/types";
+import { CpuMeasure as Measure } from "@perf-profiler/types";
 import { getCpuClockTick } from "./getCpuClockTick";
 import { ProcessStat } from "./getCpuStatsByProcess";
 
