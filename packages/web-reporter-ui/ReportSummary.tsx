@@ -63,6 +63,10 @@ export const ReportSummary = ({
   const table = [
     ["", ...results.map((result) => result.name)],
     [
+      "Average Test Runtime",
+      ...results.map((result) => `${roundToDecimal(result.average.time, 0)}ms`),
+    ],
+    [
       "Average CPU usage",
       ...results.map(
         (result) =>
