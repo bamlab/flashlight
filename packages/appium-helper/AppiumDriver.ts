@@ -30,7 +30,7 @@ export class AppiumDriver {
     appActivity: string;
   }) {
     this.client = client;
-    this.timeout = 10000;
+    this.timeout = 30000;
     this.gestures = new GestureHandler(client);
     this.bundleId = bundleId;
     this.appActivity = appActivity;
