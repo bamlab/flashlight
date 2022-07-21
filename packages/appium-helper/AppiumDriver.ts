@@ -11,7 +11,10 @@ const TEN_MINUTES = 600000;
 
 // Allow tests to take as much time as needed, in any case Bitrise will kill the test if it hangs
 const A_LOT_OF_TIME = 10 * TEN_MINUTES;
-// jest.setTimeout(A_LOT_OF_TIME);
+
+if (global.jest) {
+  jest.setTimeout(A_LOT_OF_TIME);
+}
 
 export class AppiumDriver {
   client: webdriver.BrowserObject;

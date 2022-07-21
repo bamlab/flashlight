@@ -51,7 +51,10 @@ export class PerformanceTester {
     return this.measures;
   }
 
-  writeResults({ path, title: givenTitle }: { path?: string; title?: string }) {
+  writeResults({
+    path,
+    title: givenTitle,
+  }: { path?: string; title?: string } = {}) {
     const title = givenTitle || "Results";
     const filePath =
       path ||
