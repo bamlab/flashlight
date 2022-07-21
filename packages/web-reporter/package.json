@@ -22,6 +22,6 @@
   },
   "scripts": {
     "start": "yarn parcel src/index.html",
-    "build": "rm -rf dist && yarn parcel build src/index.html"
+    "build": "yarn parcel build src/index.html"
   }
 }

@@ -18,7 +18,7 @@
   },
   "scripts": {
     "clean-dist": "rm -rf packages/*/dist",
-    "test": "eslint . && tsc --build && yarn workspace flipper-plugin-android-performance-profiler test && jest",
+    "test": "eslint . && yarn build && yarn workspace flipper-plugin-android-performance-profiler test && jest",
     "test:coverage": "yarn clean-dist && jest --coverage",
     "run-cli-example": "node packages/cli-example",
     "build": "yarn clean-dist && tsc --build && yarn workspace @perf-profiler/web-reporter build && yarn workspace flipper-plugin-android-performance-profiler build",

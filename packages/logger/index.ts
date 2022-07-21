@@ -1,5 +1,4 @@
 import chalk from "chalk";
-import { performance } from "perf_hooks";
 
 const info = chalk.blue;
 const success = chalk.bold.green;
