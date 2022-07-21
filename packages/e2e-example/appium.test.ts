@@ -3,13 +3,7 @@
 import { AppiumDriver } from "@bam.tech/appium-helper";
 import { TestCase, PerformanceTester } from "@perf-profiler/e2e";
 
-const BundleId = {
-  FLUTTER: "com.example.clash_of_techs_twitter_feed",
-  RN: "com.reactnativefeed",
-  NATIVE: "tech.bam.twitbench",
-};
-
-const bundleId = BundleId.NATIVE;
+const bundleId = "com.reactnativefeed";
 
 const getTestCases = async () => {
   const driver = await AppiumDriver.create({
@@ -24,12 +18,7 @@ const getTestCases = async () => {
     },
     run: async () => {
       driver.startApp();
-
-      if (bundleId === BundleId.FLUTTER) {
-        // await driver.client.$(`//android.widget.ImageView[@content-desc=""]`);
-      } else {
-        await driver.findElementByText("Notre CEO");
-      }
+      await driver.findElementByText("Notre CEO");
     },
   };
 
@@ -56,13 +45,8 @@ const getTestCases = async () => {
 test.skip("e2e", async () => {
   const testCases = await getTestCases();
 
-  const measures = await new PerformanceTester(bundleId).iterate(
-    testCases.SCROLL,
-    10
-  );
+  const tester = new PerformanceTester(bundleId);
 
-  require("fs").writeFileSync(
-    `./results_${new Date().getTime()}.json`,
-    JSON.stringify(measures)
-  );
+  await tester.iterate(testCases.START, 10);
+  tester.writeResults();
 });
