@@ -8,7 +8,7 @@ Stop Measuring
 Reset
 Results
 Average Test Runtime
-0ms
+1000ms
 Average CPU usage
 84%
 Average RAM usage
@@ -304,7 +304,7 @@ exports[`displays FPS data and scoring 2`] = `
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
               >
-                0ms
+                1000ms
               </td>
             </tr>
             <tr

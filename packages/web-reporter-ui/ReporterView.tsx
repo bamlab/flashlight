@@ -72,8 +72,8 @@ export const ReporterView = ({ measures }: { measures: Measure[] }) => (
             iterations: [
               {
                 measures,
+                time: measures.length * 500,
                 // Add dummy data for now
-                time: 0,
                 gfxInfo: {
                   frameCount: 0,
                   time: 0,
