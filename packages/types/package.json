@@ -1,5 +1,4 @@
 {
   "name": "@perf-profiler/types",
-  "version": "0.0.0",
-  "dependencies": {}
+  "version": "0.1.0-alpha.0"
 }

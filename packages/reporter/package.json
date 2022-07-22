@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/reporter",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "",
   "main": "dist/src/index.js",
   "repository": {
@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@perf-profiler/types": "0.0.0",
+    "@perf-profiler/types": "^0.1.0-alpha.0",
     "lodash": "^4.17.21"
   }
 }

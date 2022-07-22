@@ -1,6 +1,6 @@
 {
   "name": "@bam.tech/appium-helper",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -16,7 +16,7 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@perf-profiler/logger": "0.0.0",
+    "@perf-profiler/logger": "^0.1.0-alpha.0",
     "appium": "^1.22.3",
     "webdriverio": "^6.1.22"
   }
