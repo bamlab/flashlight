@@ -21,18 +21,20 @@ const HighCpuProcesses = ({
 
   return (
     <>
-      <div style={{ color: "red" }}>Total: {total / 1000}s</div>
       {processNames.length > 0 ? (
-        <div>
-          {processNames.map((processName) => (
-            <div key={processName}>
-              {sanitizeProcessName(processName)} for{" "}
-              {highCpuProcesses[processName] / 1000}s
-            </div>
-          ))}
-        </div>
+        <>
+          <div style={{ color: "red" }}>Total: {total / 1000}s</div>
+          <div>
+            {processNames.map((processName) => (
+              <div key={processName}>
+                {sanitizeProcessName(processName)} for{" "}
+                {highCpuProcesses[processName] / 1000}s
+              </div>
+            ))}
+          </div>
+        </>
       ) : (
-        <span style={{ color: "green" }}>None</span>
+        <span style={{ color: "green" }}>None ✅</span>
       )}
     </>
   );
