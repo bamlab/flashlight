@@ -6,6 +6,7 @@
     "email": "alexandrem@bam.tech"
   },
   "license": "MIT",
+  "main": "dist/index.js",
   "devDependencies": {
     "@types/jest": "^26.0.3",
     "jest": "^26.1.0",

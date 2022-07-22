@@ -6,6 +6,7 @@
     "email": "alexandrem@bam.tech"
   },
   "license": "MIT",
+  "main": "dist/index.js",
   "scripts": {
     "test": "tsc"
   },
