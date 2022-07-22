@@ -9,6 +9,10 @@ import {
   getCommand as getRamCommand,
   processOutput as processRamOutput,
 } from "./ram/pollRamUsage";
+import {
+  getCommand as getFpsCommand,
+  processOutput as processFpsOutput,
+} from "./gfxInfo/pollFpsUsage";
 import { execLoopCommands } from "./shellNext";
 
 const TIME_INTERVAL_S = 0.5;
@@ -33,18 +37,20 @@ export const pollPerformanceMeasures = (
         command: getCpuCommand(pid),
       },
       { id: "RAM", command: getRamCommand(pid) },
+      { id: "FPS", command: getFpsCommand(pid) },
       {
         id: "END_TIME",
         command: "date +%s%3N",
       },
     ],
     TIME_INTERVAL_S,
-    ({ CPU_STATS, RAM, START_TIME, END_TIME }) => {
+    ({ CPU_STATS, RAM, FPS, START_TIME, END_TIME }) => {
       const subProcessesStats = processOutput(CPU_STATS);
       const adbStartTime = parseInt(START_TIME, 10);
       const time = adbStartTime;
 
       const ram = processRamOutput(RAM);
+      const fps = processFpsOutput(FPS);
 
       if (initialTime) {
         const adbEndTime = parseInt(END_TIME, 10);
@@ -65,7 +71,7 @@ export const pollPerformanceMeasures = (
           subProcessesStats,
           interval
         );
-        dataCallback({ cpu: cpuMeasures, ram, time: time - initialTime });
+        dataCallback({ cpu: cpuMeasures, fps, ram, time: time - initialTime });
       } else {
         cpuMeasuresAggregator.initStats(subProcessesStats);
       }

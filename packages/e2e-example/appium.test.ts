@@ -18,8 +18,9 @@ const getTestCases = async () => {
     },
     run: async () => {
       driver.startApp();
-      await driver.findElementByText("Notre CEO");
+      await driver.findElementByText("As you may");
     },
+    duration: 15000,
   };
 
   const scrollTestCase: TestCase = {

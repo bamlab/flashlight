@@ -12,7 +12,9 @@ const TEN_MINUTES = 600000;
 // Allow tests to take as much time as needed, in any case Bitrise will kill the test if it hangs
 const A_LOT_OF_TIME = 10 * TEN_MINUTES;
 
-if (global.jest) {
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+if (global.test) {
   jest.setTimeout(A_LOT_OF_TIME);
 }
 
@@ -55,6 +57,7 @@ export class AppiumDriver {
       "appium:noReset": true,
       autoLaunch: false,
       appActivity,
+      newCommandTimeout: TEN_MINUTES,
       ...clientCapabilities,
     };
 

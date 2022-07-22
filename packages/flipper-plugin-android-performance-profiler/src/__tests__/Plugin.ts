@@ -57,6 +57,11 @@ const mockExecLoopCommandsImplementation = (
         return "4430198 96195 58113 3 0 398896 0";
       case "date +%s%3N":
         return 1651248790047 + pollingIndex * 500;
+      case "dumpsys gfxinfo 123456":
+        return require("fs").readFileSync(
+          `${__dirname}/sample-gfxinfo-output.txt`,
+          "utf8"
+        );
       default:
         console.error(`Unknown command: ${command.command}`);
         return "";
