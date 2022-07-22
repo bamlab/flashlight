@@ -7,6 +7,8 @@ Pid ID:
 Stop Measuring
 Reset
 Results
+Score
+45
 Average Test Runtime
 1000ms
 Average FPS usage
@@ -295,6 +297,55 @@ exports[`displays FPS data and scoring 2`] = `
           <tbody
             class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
           >
+            <tr
+              class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-1bofi2j-MuiTableCell-root"
+                scope="row"
+              >
+                Score
+              </th>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-177gid-MuiTableCell-root"
+              >
+                <div
+                  class="MuiBox-root css-rmz4vk"
+                >
+                  <span
+                    aria-valuenow="45"
+                    class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary css-1rn30mb-MuiCircularProgress-root"
+                    role="progressbar"
+                    style="width: 80px; height: 80px; transform: rotate(-90deg); color: rgb(255, 65, 54);"
+                  >
+                    <svg
+                      class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
+                      viewBox="22 22 44 44"
+                    >
+                      <circle
+                        class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-oxts8u-MuiCircularProgress-circle"
+                        cx="44"
+                        cy="44"
+                        fill="none"
+                        r="20.2"
+                        stroke-width="3.6"
+                        style="stroke-dasharray: 126.920; stroke-dashoffset: 69.806px;"
+                      />
+                    </svg>
+                  </span>
+                  <div
+                    class="MuiBox-root css-rv4iyw"
+                  >
+                    <div
+                      class="MuiTypography-root MuiTypography-caption css-ol7wxs-MuiTypography-root"
+                      style="font-size: 28px; color: rgb(255, 65, 54);"
+                    >
+                      45
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
             <tr
               class="MuiTableRow-root css-34nofg-MuiTableRow-root"
             >
