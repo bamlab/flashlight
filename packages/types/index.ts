@@ -17,12 +17,6 @@ export interface HistogramValue {
 export interface TestCaseIterationResult {
   time: number;
   measures: Measure[];
-  gfxInfo: {
-    frameCount: number;
-    time: number;
-    renderTime: number;
-    histogram: HistogramValue[];
-  };
 }
 
 export interface TestCaseResult {

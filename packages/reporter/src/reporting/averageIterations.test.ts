@@ -27,12 +27,6 @@ const ITERATION_1: TestCaseIterationResult = {
     },
   ],
   time: 0,
-  gfxInfo: {
-    frameCount: 0,
-    time: 0,
-    renderTime: 0,
-    histogram: [],
-  },
 };
 
 const ITERATION_2: TestCaseIterationResult = {
@@ -61,12 +55,6 @@ const ITERATION_2: TestCaseIterationResult = {
     },
   ],
   time: 0,
-  gfxInfo: {
-    frameCount: 0,
-    time: 0,
-    renderTime: 0,
-    histogram: [],
-  },
 };
 
 it("average measures", () => {
@@ -98,12 +86,6 @@ it("average measures", () => {
       },
     ],
     time: 0,
-    gfxInfo: {
-      frameCount: 0,
-      time: 0,
-      renderTime: 0,
-      histogram: [],
-    },
   });
 });
 
