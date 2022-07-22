@@ -8,6 +8,7 @@ import {
 import { sanitizeProcessName } from "./utils/sanitizeProcessName";
 import { roundToDecimal } from "./utils/roundToDecimal";
 import { SimpleTable } from "./components/SimpleTable";
+import { Score } from "./components/Score";
 
 const HighCpuProcesses = ({
   highCpuProcesses,
@@ -65,6 +66,7 @@ export const ReportSummary = ({
 }) => {
   const table = [
     ["", ...results.map((result) => result.name)],
+    ["Score", ...results.map((result) => <Score result={result} />)],
     [
       "Average Test Runtime",
       ...results.map((result) => `${roundToDecimal(result.average.time, 0)}ms`),
