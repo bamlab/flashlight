@@ -11,14 +11,14 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@perf-profiler/logger": "^0.1.0-alpha.0",
-    "@perf-profiler/types": "^0.1.0-alpha.0",
-    "@perf-profiler/web-reporter-ui": "^0.1.0-alpha.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "@perf-profiler/logger": "^0.1.0-alpha.0"
   },
   "devDependencies": {
-    "parcel": "^2.6.2"
+    "@perf-profiler/types": "^0.1.0-alpha.0",
+    "@perf-profiler/web-reporter-ui": "^0.1.0-alpha.0",
+    "parcel": "^2.6.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "scripts": {
     "start": "yarn parcel src/index.html",

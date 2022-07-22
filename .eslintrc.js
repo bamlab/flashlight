@@ -10,7 +10,9 @@ module.exports = {
   rules: {
     "import/no-extraneous-dependencies": [
       "error",
-      { devDependencies: ["**/__tests__/**"] },
+      {
+        devDependencies: ["**/__tests__/**", "packages/web-reporter/src/**"],
+      },
     ],
   },
   overrides: [
