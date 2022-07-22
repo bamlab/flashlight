@@ -1,7 +1,15 @@
+import { Logger } from "@perf-profiler/logger";
 import { execSync } from "child_process";
 
 export const executeCommand = (command: string): string => {
-  return execSync(command).toString();
+  try {
+    return execSync(command, { stdio: "pipe" }).toString();
+  } catch (error: any) {
+    Logger.debug(
+      `Error while executing command "${command}": ${error.stderr.toString()}`
+    );
+    throw error;
+  }
 };
 
 /**
@@ -46,7 +54,7 @@ export const execLoopCommands = (
     : fullCommand;
 
   const polling = setInterval(() => {
-    const data = execSync(shellCommand).toString();
+    const data = executeCommand(shellCommand);
 
     currentOutput += data;
 
