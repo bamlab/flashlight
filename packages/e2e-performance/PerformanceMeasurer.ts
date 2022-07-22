@@ -3,9 +3,6 @@ import {
   getPidId,
   Measure,
   pollPerformanceMeasures,
-  GfxInfoMeasure,
-  parseGfxInfo,
-  compareGfxMeasures,
 } from "@perf-profiler/profiler";
 
 const waitFor = async <T>(
@@ -32,7 +29,6 @@ const waitFor = async <T>(
 export class PerformanceMeasurer {
   cpuMeasures: Measure[] = [];
   polling?: { stop: () => void };
-  initialGfxInfoMeasure?: GfxInfoMeasure;
   bundleId: string;
   shouldStop = false;
 
@@ -56,8 +52,6 @@ export class PerformanceMeasurer {
         checkInterval: 0,
       }
     );
-
-    this.initialGfxInfoMeasure = parseGfxInfo(this.bundleId);
 
     this.polling = pollPerformanceMeasures(pid, (measure) => {
       if (this.shouldStop) {
@@ -95,16 +89,8 @@ export class PerformanceMeasurer {
     // Ensure polling has stopped
     this.polling?.stop();
 
-    if (!this.initialGfxInfoMeasure) {
-      throw new Error("PerformanceMeasurer was not properly started");
-    }
-
     return {
       measures: this.cpuMeasures,
-      gfxInfo: compareGfxMeasures(
-        this.initialGfxInfoMeasure,
-        parseGfxInfo(this.bundleId)
-      ),
     };
   }
 }
