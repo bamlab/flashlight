@@ -2,6 +2,7 @@ import React from "react";
 import { AveragedTestCaseResult } from "@perf-profiler/types";
 import {
   getAverageCpuUsage,
+  getAverageFPSUsage,
   getAverageRAMUsage,
 } from "@perf-profiler/reporter";
 import { sanitizeProcessName } from "./utils/sanitizeProcessName";
@@ -67,6 +68,13 @@ export const ReportSummary = ({
     [
       "Average Test Runtime",
       ...results.map((result) => `${roundToDecimal(result.average.time, 0)}ms`),
+    ],
+    [
+      "Average FPS usage",
+      ...results.map(
+        (result) =>
+          `${roundToDecimal(getAverageFPSUsage(result.average.measures), 1)}`
+      ),
     ],
     [
       "Average CPU usage",

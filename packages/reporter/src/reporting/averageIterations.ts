@@ -30,6 +30,7 @@ const averageMeasures = (measures: Measure[]): Measure => {
       perName: averageMaps(measures.map((m) => m.cpu.perName)),
     },
     ram: average(measures.map((m) => m.ram)),
+    fps: average(measures.map((m) => m.fps)),
     time: 500,
   };
 };

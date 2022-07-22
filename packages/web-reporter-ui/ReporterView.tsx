@@ -15,6 +15,7 @@ import {
   averageIterations,
 } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
+import { FPSReport } from "./FPSReport";
 
 const Padding = styled.div`
   height: 10px;
@@ -38,6 +39,12 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
     <>
       <ReportSummary results={averagedResults} />
       <Padding />
+      <Accordion>
+        <AccordionSectionTitle title="FPS" />
+        <AccordionDetails>
+          <FPSReport results={averagedResults} />
+        </AccordionDetails>
+      </Accordion>
       <Accordion>
         <AccordionSectionTitle title="CPU" />
         <AccordionDetails>

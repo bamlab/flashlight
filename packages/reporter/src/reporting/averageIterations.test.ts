@@ -12,6 +12,7 @@ const ITERATION_1: TestCaseIterationResult = {
         },
       },
       ram: 100,
+      fps: 60,
       time: 500,
     },
     {
@@ -23,6 +24,7 @@ const ITERATION_1: TestCaseIterationResult = {
         },
       },
       ram: 100,
+      fps: 30,
       time: 1000,
     },
   ],
@@ -40,6 +42,7 @@ const ITERATION_2: TestCaseIterationResult = {
         },
       },
       ram: 300,
+      fps: 60,
       time: 500,
     },
     {
@@ -51,6 +54,7 @@ const ITERATION_2: TestCaseIterationResult = {
         },
       },
       ram: 300,
+      fps: 0,
       time: 1000,
     },
   ],
@@ -70,6 +74,7 @@ it("average measures", () => {
           },
         },
         ram: 200,
+        fps: 60,
         time: 500,
       },
       {
@@ -82,6 +87,7 @@ it("average measures", () => {
           },
         },
         ram: 200,
+        fps: 15,
         time: 500,
       },
     ],

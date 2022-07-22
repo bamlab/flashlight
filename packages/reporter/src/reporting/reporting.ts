@@ -51,5 +51,8 @@ export const getHighCpuUsageStats = (
 
 const average = (measures: number[]) => _.sum(measures) / measures.length;
 
+export const getAverageFPSUsage = (measures: Measure[]) =>
+  average(measures.map((measure) => measure.fps));
+
 export const getAverageRAMUsage = (measures: Measure[]) =>
   average(measures.map((measure) => measure.ram));
