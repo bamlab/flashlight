@@ -43,3 +43,32 @@ setTimeout(() => {
   console.log(`Average CPU Usage: ${averageCpuUsage}%`);
 }, 10000);
 ```
+
+## Contributing
+
+### web-reporter
+
+At the root of the repo:
+```
+yarn
+yarn tsc --build --w
+```
+and run in another terminal:
+```
+yarn workspace @perf-profiler/web-reporter start
+```
+
+Then in `packages/web-reporter/src/App.tsx`, uncomment the lines to add your own measures:
+
+```ts
+// Uncomment with when locally testing
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+testCaseResults = [
+  require("../measures.json"),
+];
+```
+
+You should now be able to open [the local server](http://localhost:1234/)
+
+
+Run `yarn jest Plugin -u` after modifications.
