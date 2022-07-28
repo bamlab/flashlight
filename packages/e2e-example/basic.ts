@@ -1,5 +1,3 @@
-// @flow
-
 import { execSync } from "child_process";
 import { TestCase, PerformanceTester } from "@perf-profiler/e2e";
 
