@@ -7,12 +7,11 @@ https://user-images.githubusercontent.com/4534323/164205504-e07f4a93-25c1-4c14-8
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents**
-
 - [Getting started with the automated profiler](#getting-started-with-the-automated-profiler)
 - [Flipper Plugin](#flipper-plugin)
   - [Install](#install)
 - [CLI](#cli)
+- [Getting FPS Data](#getting-fps-data)
 - [Contributing](#contributing)
   - [web-reporter](#web-reporter)
 
@@ -67,6 +66,8 @@ yarn add --dev @perf-profiler/web-reporter
 yarn generate results.json
 ```
 
+If you don't see FPS data, see [Getting FPS Data](#getting-fps-data).
+
 ## Flipper Plugin
 
 ### Install
@@ -106,6 +107,14 @@ setTimeout(() => {
   console.log(`Average CPU Usage: ${averageCpuUsage}%`);
 }, 10000);
 ```
+
+## Getting FPS Data
+
+In developer options, you need to set _Profile HWUI rendering_ to `In adb shell dumpsys gfxinfo`
+
+<img width="453" alt="image" src="https://user-images.githubusercontent.com/4534323/182430625-e051c5aa-8153-46ad-a3f2-b095a2dadf25.png">
+
+Note that this method of recording FPS supports only Native (including RN) apps.
 
 ## Contributing
 
