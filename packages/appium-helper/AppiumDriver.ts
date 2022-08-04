@@ -127,7 +127,7 @@ export class AppiumDriver {
   }
 
   xpathByResourceId(id: string) {
-    return `//android.view.ViewGroup[contains(@resource-id, "${id}")]`;
+    return `//*[contains(@resource-id, "${id}")]`;
   }
 
   async findElementsById(testID: string) {
@@ -135,7 +135,10 @@ export class AppiumDriver {
   }
 
   async findElementById(testID: string) {
-    return await this.client.$(this.xpathByResourceId(testID));
+    const element = await this.client.$(this.xpathByResourceId(testID));
+    this.waitForElement(element);
+
+    return element;
   }
 
   async checkIfDisplayedWithScrollDown(
