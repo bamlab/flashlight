@@ -1,5 +1,6 @@
 import { GfxInfoParser, Measure } from "./parseGfxInfo";
 import { compareGfxMeasures } from "./compareGfxMeasures";
+import { Logger } from "@perf-profiler/logger";
 
 // gfxinfo is one way
 // one of the caveats is Flutter won't be supported
@@ -29,12 +30,24 @@ import { compareGfxMeasures } from "./compareGfxMeasures";
 //   }, 1000);
 // };
 
+const TIME_INTERVAL = 500;
+
 export const getCommand = (bundleId: string) => `dumpsys gfxinfo ${bundleId}`;
 export const processOutput = (result: string) => {
   const lines = result.split("\n");
 
-  const firstRowIndex =
-    lines.findIndex((line) => line === "\tDraw\tPrepare\tProcess\tExecute") + 1;
+  const headerIndex = lines.findIndex(
+    (line) => line === "\tDraw\tPrepare\tProcess\tExecute"
+  );
+  if (headerIndex === -1) {
+    Logger.warn(
+      `FPS data not found, defaulting to 0, refer to https://github.com/bamlab/android-performance-profiler#getting-fps-data`
+    );
+
+    return 0;
+  }
+
+  const firstRowIndex = headerIndex + 1;
   const lastLineIndex =
     lines.slice(firstRowIndex).findIndex((line) => line === "") + firstRowIndex;
 
@@ -51,5 +64,14 @@ export const processOutput = (result: string) => {
   );
   const frameCount = frameTimes.length;
 
-  return (frameCount / renderTime) * 1000;
+  /**
+   * We could have 0 frames drawn because nothing is happening or because the UI thread is dead
+   *
+   * Here we choose to be optimistic about it, and say it's because the app is idle
+   * and count those as 60FPS
+   */
+  const idleTime = Math.max(TIME_INTERVAL - renderTime, 0);
+  const idleFrameCount = (idleTime * 60) / 1000;
+
+  return ((frameCount + idleFrameCount) / (renderTime + idleTime)) * 1000;
 };
