@@ -4,7 +4,7 @@ module.exports = {
     "^.+\\.tsx?$": "ts-jest",
   },
   testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-  testPathIgnorePatterns: ["\\.snap$", "/node_modules/", "/dist/"],
+  testPathIgnorePatterns: ["\\.snap$", "/node_modules/", "/dist/", "/e2e-example/"],
   testEnvironment: "jsdom",
   collectCoverageFrom: ["**/*.{ts,tsx}", "!**/node_modules/**", "!**/dist/**"],
 };

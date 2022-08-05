@@ -24,6 +24,8 @@ jest.mock("child_process", () => {
             return "123456";
           case "adb shell getconf PAGESIZE":
             return 4096;
+          case "adb shell setprop debug.hwui.profile true":
+            return "";
           default:
             console.error(`Unknown command: ${command}`);
             return "";
