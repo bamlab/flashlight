@@ -37,8 +37,7 @@ const bundleId = "com.reactnativefeed";
 const appActivity = `${bundleId}.MainActivity`;
 
 const stopApp = () => execSync(`adb shell am force-stop ${bundleId}`);
-const startApp = () =>
-  execSync(`adb shell am start ${bundleId}/${appActivity}`);
+const startApp = () => execSync(`adb shell am start ${bundleId}/${appActivity}`);
 
 const startTestCase: TestCase = {
   duration: 15000,
@@ -110,6 +109,8 @@ setTimeout(() => {
 
 ## Getting FPS Data
 
+FPS debug should be enabled automatically when you run a test. If it doesn't work on your device, follow the steps below:
+
 In developer options, you need to set _Profile HWUI rendering_ to `In adb shell dumpsys gfxinfo`
 
 <img width="453" alt="image" src="https://user-images.githubusercontent.com/4534323/182430625-e051c5aa-8153-46ad-a3f2-b095a2dadf25.png">
@@ -144,6 +145,5 @@ testCaseResults = [
 ```
 
 You should now be able to open [the local server](http://localhost:1234/)
-
 
 Run `yarn jest Plugin -u` after modifications.
