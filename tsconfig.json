@@ -20,6 +20,7 @@
     {"path": "./packages/reporter"},
     {"path": "./packages/web-reporter-ui"},
     {"path": "./packages/web-reporter"},
+    {"path": "./packages/appium-test-cases"},
   ],
   "files": []
 }

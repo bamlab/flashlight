@@ -1,5 +1,3 @@
-// @flow
-
 import { AppiumDriver } from "@bam.tech/appium-helper";
 import { TestCase, PerformanceTester } from "@perf-profiler/e2e";
 
