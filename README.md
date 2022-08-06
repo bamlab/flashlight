@@ -31,13 +31,14 @@ For instance, here we'll be testing the start up performance of the app for 10 i
 
 ```ts
 import { execSync } from "child_process";
-import { TestCase, PerformanceTester } from "@perf-profiler/e2e";
+import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
 const bundleId = "com.reactnativefeed";
 const appActivity = `${bundleId}.MainActivity`;
 
 const stopApp = () => execSync(`adb shell am force-stop ${bundleId}`);
-const startApp = () => execSync(`adb shell am start ${bundleId}/${appActivity}`);
+const startApp = () =>
+  execSync(`adb shell am start ${bundleId}/${appActivity}`);
 
 const startTestCase: TestCase = {
   duration: 15000,
@@ -50,9 +51,12 @@ const startTestCase: TestCase = {
 };
 
 const test = async () => {
-  const performanceTester = new PerformanceTester(bundleId);
-  await performanceTester.iterate(startTestCase, 10);
-  performanceTester.writeResults();
+  const { measures, writeResults } = await measurePerformance(
+    bundleId,
+    startTestCase,
+    10
+  );
+  writeResults();
 };
 
 test();

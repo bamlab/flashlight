@@ -11,11 +11,15 @@ export interface TestCase {
   duration?: number;
 }
 
-export class PerformanceTester {
-  measures: TestCaseIterationResult[] = [];
+class PerformanceTester {
   constructor(private bundleId: string) {}
 
-  async executeTestCase({ beforeTest, run, afterTest, duration }: TestCase) {
+  private async executeTestCase({
+    beforeTest,
+    run,
+    afterTest,
+    duration,
+  }: TestCase): Promise<TestCaseIterationResult> {
     if (beforeTest) await beforeTest();
 
     const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
@@ -31,30 +35,33 @@ export class PerformanceTester {
 
     if (afterTest) await afterTest();
 
-    this.measures.push({
+    return {
       time,
       ...cpuMeasures,
-    });
+    };
   }
 
-  async iterate(testCase: TestCase, iterationCount = 10) {
+  async iterate(
+    testCase: TestCase,
+    iterationCount: number
+  ): Promise<TestCaseIterationResult[]> {
+    const measures: TestCaseIterationResult[] = [];
+
     for (let i = 0; i < iterationCount; i++) {
       Logger.info(`Running iteration ${i + 1}/${iterationCount}`);
-      await this.executeTestCase(testCase);
+      const measure = await this.executeTestCase(testCase);
       Logger.success(
-        `Finished iteration ${i + 1}/${iterationCount} in ${
-          this.measures[i].time
-        }ms`
+        `Finished iteration ${i + 1}/${iterationCount} in ${measure.time}ms`
       );
     }
 
-    return this.measures;
+    return measures;
   }
 
-  writeResults({
-    path,
-    title: givenTitle,
-  }: { path?: string; title?: string } = {}) {
+  public static writeResults(
+    measures: TestCaseIterationResult[],
+    { path, title: givenTitle }: { path?: string; title?: string } = {}
+  ) {
     const title = givenTitle || "Results";
     const filePath =
       path ||
@@ -64,10 +71,27 @@ export class PerformanceTester {
 
     const testCase: TestCaseResult = {
       name: title,
-      iterations: this.measures,
+      iterations: measures,
     };
     fs.writeFileSync(filePath, JSON.stringify(testCase));
 
     Logger.success(`Results written to ${filePath}`);
   }
 }
+
+export const measurePerformance = async (
+  bundleId: string,
+  testCase: TestCase,
+  iterationCount = 10
+) => {
+  const measures = await new PerformanceTester(bundleId).iterate(
+    testCase,
+    iterationCount
+  );
+
+  return {
+    measures,
+    writeResults: (options: { path?: string; title?: string } = {}) =>
+      PerformanceTester.writeResults(measures, options),
+  };
+};
