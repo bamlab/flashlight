@@ -66,7 +66,7 @@ test();
 
 ```sh
 yarn add --dev @perf-profiler/web-reporter
-yarn generate results.json
+yarn generate-performance-web-report results.json
 ```
 
 If you don't see FPS data, see [Getting FPS Data](#getting-fps-data).
