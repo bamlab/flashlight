@@ -1,4 +1,9 @@
-import { Measure, TestCaseIterationResult } from "@perf-profiler/types";
+import {
+  AveragedTestCaseResult,
+  Measure,
+  TestCaseIterationResult,
+  TestCaseResult,
+} from "@perf-profiler/types";
 import { mapValues } from "lodash";
 import { getHighCpuUsageStats } from "./reporting";
 
@@ -59,4 +64,19 @@ export const averageHighCpuUsage = (
       getHighCpuUsageStats(result.measures, cpuUsageThreshold)
     )
   );
+};
+
+export const averageTestCaseResult = (
+  result: TestCaseResult
+): AveragedTestCaseResult => {
+  const averagedIterations = averageIterations(result.iterations);
+
+  return {
+    ...result,
+    average: averagedIterations,
+    averageHighCpuUsage: averageHighCpuUsage(result.iterations),
+    reactNativeDetected: averagedIterations.measures.some((measure) =>
+      Object.keys(measure.cpu.perName).some((key) => key === "(mqt_js)")
+    ),
+  };
 };
