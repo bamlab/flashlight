@@ -22,11 +22,13 @@ export interface TestCaseIterationResult {
 
 export interface TestCaseResult {
   name: string;
+  score?: number;
   iterations: TestCaseIterationResult[];
 }
 
 export interface AveragedTestCaseResult {
   name: string;
+  score?: number;
   iterations: TestCaseIterationResult[];
   average: TestCaseIterationResult;
   averageHighCpuUsage: { [processName: string]: number };

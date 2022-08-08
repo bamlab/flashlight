@@ -7,7 +7,7 @@
     "email": "alexandrem@bam.tech"
   },
   "bin": {
-    "generate": "./dist/openReport.js"
+    "generate-performance-web-report": "./dist/openReport.js"
   },
   "license": "MIT",
   "dependencies": {

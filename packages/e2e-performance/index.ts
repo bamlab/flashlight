@@ -1,60 +1,60 @@
 import { Logger } from "@perf-profiler/logger";
-import { TestCaseIterationResult, TestCaseResult } from "@perf-profiler/types";
+import {
+  AveragedTestCaseResult,
+  TestCaseIterationResult,
+  TestCaseResult,
+} from "@perf-profiler/types";
+import { averageTestCaseResult } from "@perf-profiler/reporter";
 import fs from "fs";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
-import { Trace } from "./Trace";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
   run: () => Promise<void> | void;
   afterTest?: () => Promise<void> | void;
   duration?: number;
+  getScore?: (result: AveragedTestCaseResult) => number;
 }
 
-export class PerformanceTester {
-  measures: TestCaseIterationResult[] = [];
-  constructor(private bundleId: string) {}
+class PerformanceTester {
+  constructor(private bundleId: string, private testCase: TestCase) {}
 
-  async executeTestCase({ beforeTest, run, afterTest, duration }: TestCase) {
+  private async executeTestCase(): Promise<TestCaseIterationResult> {
+    const { beforeTest, run, afterTest, duration } = this.testCase;
+
     if (beforeTest) await beforeTest();
 
     const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
     // We don't await here to not block the thread
     // but it's not ideal, we could spawn a worker for the measurer
     performanceMeasurer.start();
-
-    const startTimeTrace = new Trace();
     await run();
-    const time = startTimeTrace.stop();
-
-    const cpuMeasures = await performanceMeasurer.stop(duration);
+    const measures = await performanceMeasurer.stop(duration);
 
     if (afterTest) await afterTest();
 
-    this.measures.push({
-      time,
-      ...cpuMeasures,
-    });
+    return measures;
   }
 
-  async iterate(testCase: TestCase, iterationCount = 10) {
+  async iterate(iterationCount: number): Promise<TestCaseIterationResult[]> {
+    const measures: TestCaseIterationResult[] = [];
+
     for (let i = 0; i < iterationCount; i++) {
       Logger.info(`Running iteration ${i + 1}/${iterationCount}`);
-      await this.executeTestCase(testCase);
+      const measure = await this.executeTestCase();
       Logger.success(
-        `Finished iteration ${i + 1}/${iterationCount} in ${
-          this.measures[i].time
-        }ms`
+        `Finished iteration ${i + 1}/${iterationCount} in ${measure.time}ms`
       );
+      measures.push(measure);
     }
 
-    return this.measures;
+    return measures;
   }
 
-  writeResults({
-    path,
-    title: givenTitle,
-  }: { path?: string; title?: string } = {}) {
+  public writeResults(
+    measures: TestCaseIterationResult[],
+    { path, title: givenTitle }: { path?: string; title?: string } = {}
+  ) {
     const title = givenTitle || "Results";
     const filePath =
       path ||
@@ -64,10 +64,39 @@ export class PerformanceTester {
 
     const testCase: TestCaseResult = {
       name: title,
-      iterations: this.measures,
+      iterations: measures,
     };
+
+    /**
+     * Might not be the best place to put this since this is reporting
+     * and not really measuring
+     */
+    if (this.testCase.getScore) {
+      const averagedResult: AveragedTestCaseResult =
+        averageTestCaseResult(testCase);
+      testCase.score = Math.max(
+        0,
+        Math.min(this.testCase.getScore(averagedResult), 100)
+      );
+    }
+
     fs.writeFileSync(filePath, JSON.stringify(testCase));
 
     Logger.success(`Results written to ${filePath}`);
   }
 }
+
+export const measurePerformance = async (
+  bundleId: string,
+  testCase: TestCase,
+  iterationCount = 10
+) => {
+  const tester = new PerformanceTester(bundleId, testCase);
+  const measures = await tester.iterate(iterationCount);
+
+  return {
+    measures,
+    writeResults: (options: { path?: string; title?: string } = {}) =>
+      tester.writeResults(measures, options),
+  };
+};

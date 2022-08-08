@@ -10,10 +10,7 @@ import { RAMReport } from "./RAMReport";
 import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import {
-  averageHighCpuUsage,
-  averageIterations,
-} from "@perf-profiler/reporter";
+import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./FPSReport";
 
@@ -22,18 +19,9 @@ const Padding = styled.div`
 `;
 
 const Report = ({ results }: { results: TestCaseResult[] }) => {
-  const averagedResults: AveragedTestCaseResult[] = results.map((result) => {
-    const averagedIterations = averageIterations(result.iterations);
-
-    return {
-      ...result,
-      average: averagedIterations,
-      averageHighCpuUsage: averageHighCpuUsage(result.iterations),
-      reactNativeDetected: averagedIterations.measures.some((measure) =>
-        Object.keys(measure.cpu.perName).some((key) => key === "(mqt_js)")
-      ),
-    };
-  });
+  const averagedResults: AveragedTestCaseResult[] = results.map(
+    averageTestCaseResult
+  );
 
   return (
     <>

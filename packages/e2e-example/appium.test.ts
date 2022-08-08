@@ -1,7 +1,5 @@
-// @flow
-
 import { AppiumDriver } from "@bam.tech/appium-helper";
-import { TestCase, PerformanceTester } from "@perf-profiler/e2e";
+import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
 const bundleId = "com.reactnativefeed";
 
@@ -46,8 +44,10 @@ const getTestCases = async () => {
 test.skip("e2e", async () => {
   const testCases = await getTestCases();
 
-  const tester = new PerformanceTester(bundleId);
-
-  await tester.iterate(testCases.START, 10);
-  tester.writeResults();
+  const { writeResults } = await measurePerformance(
+    bundleId,
+    testCases.START,
+    10
+  );
+  writeResults();
 });

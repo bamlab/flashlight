@@ -136,7 +136,7 @@ export class AppiumDriver {
 
   async findElementById(testID: string) {
     const element = await this.client.$(this.xpathByResourceId(testID));
-    this.waitForElement(element);
+    await this.waitForElement(element);
 
     return element;
   }
