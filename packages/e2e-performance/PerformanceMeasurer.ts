@@ -4,6 +4,7 @@ import {
   Measure,
   pollPerformanceMeasures,
 } from "@perf-profiler/profiler";
+import { Trace } from "./Trace";
 
 const waitFor = async <T>(
   evaluateResult: () => T | undefined | null,
@@ -31,6 +32,7 @@ export class PerformanceMeasurer {
   polling?: { stop: () => void };
   bundleId: string;
   shouldStop = false;
+  timingTrace?: Trace;
 
   constructor(bundleId: string) {
     this.bundleId = bundleId;
@@ -53,6 +55,8 @@ export class PerformanceMeasurer {
       }
     );
 
+    this.timingTrace = new Trace();
+
     this.polling = pollPerformanceMeasures(pid, (measure) => {
       if (this.shouldStop) {
         this.polling?.stop();
@@ -64,6 +68,8 @@ export class PerformanceMeasurer {
   }
 
   async stop(duration?: number) {
+    const time = this.timingTrace?.stop();
+
     const TIME_INTERVAL_IN_MS = 500;
     if (duration) {
       // Hack to wait for the duration to be reached in case test case has finished before
@@ -90,6 +96,7 @@ export class PerformanceMeasurer {
     this.polling?.stop();
 
     return {
+      time: time ?? 0,
       measures: this.cpuMeasures,
     };
   }
