@@ -66,6 +66,20 @@ class PerformanceTester {
       name: title,
       iterations: measures,
     };
+
+    /**
+     * Might not be the best place to put this since this is reporting
+     * and not really measuring
+     */
+    if (this.testCase.getScore) {
+      const averagedResult: AveragedTestCaseResult =
+        averageTestCaseResult(testCase);
+      testCase.score = Math.max(
+        0,
+        Math.min(this.testCase.getScore(averagedResult), 100)
+      );
+    }
+
     fs.writeFileSync(filePath, JSON.stringify(testCase));
 
     Logger.success(`Results written to ${filePath}`);

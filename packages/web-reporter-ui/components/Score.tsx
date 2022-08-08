@@ -11,7 +11,7 @@ const getColor = (score: number) => {
 
 export const Score = ({ result }: { result: AveragedTestCaseResult }) => {
   const displayPlaceholder = result.average.measures.length === 0;
-  const score = displayPlaceholder ? 100 : getScore(result);
+  const score = displayPlaceholder ? 100 : result.score ?? getScore(result);
   const color = displayPlaceholder ? "#eeeeee50" : getColor(score);
 
   return <CircularProgressWithLabel size={80} color={color} value={score} />;
