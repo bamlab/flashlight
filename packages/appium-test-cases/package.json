@@ -1,11 +1,11 @@
 {
   "name": "@perf-profiler/appium-test-cases",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "main": "dist/index.js",
   "dependencies": {
-    "@bam.tech/appium-helper": "^0.1.0-alpha.3",
-    "@perf-profiler/e2e": "^0.1.0-alpha.3",
-    "@perf-profiler/reporter": "^0.1.0-alpha.3",
-    "@perf-profiler/types": "^0.1.0-alpha.3"
+    "@bam.tech/appium-helper": "^0.1.0-alpha.4",
+    "@perf-profiler/e2e": "^0.1.0-alpha.4",
+    "@perf-profiler/reporter": "^0.1.0-alpha.4",
+    "@perf-profiler/types": "^0.1.0-alpha.4"
   }
 }
