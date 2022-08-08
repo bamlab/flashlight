@@ -1,10 +1,10 @@
 {
   "name": "cli-example",
   "private": true,
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "main": "dist/index.js",
   "dependencies": {
-    "@perf-profiler/reporter": "0.1.0-alpha.3",
-    "@perf-profiler/profiler": "0.1.0-alpha.3"
+    "@perf-profiler/reporter": "0.1.0-alpha.4",
+    "@perf-profiler/profiler": "0.1.0-alpha.4"
   }
 }

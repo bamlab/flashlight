@@ -11,7 +11,7 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@perf-profiler/logger": "^0.1.0-alpha.3",
+    "@perf-profiler/logger": "^0.1.0-alpha.4",
     "@perf-profiler/profiler": "^0.1.0-alpha.4",
     "@perf-profiler/reporter": "^0.1.0-alpha.4",
     "@perf-profiler/types": "^0.1.0-alpha.4"

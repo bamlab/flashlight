@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/logger",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "main": "dist/index.js",
   "dependencies": {
     "chalk": "^4.0.0"
