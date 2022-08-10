@@ -2,12 +2,11 @@
 
 Measure the performance of any Android app, even in production, via a Flipper plugin or directly via CLI.
 
-https://user-images.githubusercontent.com/4534323/164205504-e07f4a93-25c1-4c14-82f3-5854ae11af8e.mp4
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Getting started with the automated profiler](#getting-started-with-the-automated-profiler)
+- [Using Appium](#using-appium)
 - [Flipper Plugin](#flipper-plugin)
   - [Install](#install)
 - [CLI](#cli)
@@ -22,7 +21,7 @@ https://user-images.githubusercontent.com/4534323/164205504-e07f4a93-25c1-4c14-8
 1. Install the profiler
 
 ```sh
-yarn add --dev @perf-profiler/e2e
+yarn add --dev @perf-profiler/e2e @perf-profiler/web-reporter
 ```
 
 2. Write a test
@@ -65,13 +64,62 @@ test();
 3. Open the JSON file generated in the web profiler:
 
 ```sh
-yarn add --dev @perf-profiler/web-reporter
 yarn generate-performance-web-report results.json
 ```
 
-If you don't see FPS data, see [Getting FPS Data](#getting-fps-data).
+## Using Appium
+
+Appium is an e2e testing framework which works with no installation required on your app.  
+We created `@bam.tech/appium-helper` to simplify its use and you can use integrate the performance measures like so:
+
+1. Install
+
+```
+yarn add --dev @perf-profiler/e2e @perf-profiler/web-reporter @bam.tech/appium-helper
+```
+
+2. Write a performance test
+
+```ts
+import { AppiumDriver } from "@bam.tech/appium-helper";
+import { TestCase, measurePerformance } from "@perf-profiler/e2e";
+
+const bundleId = "com.reactnativefeed";
+
+test("e2e", async () => {
+  const driver = await AppiumDriver.create({
+    appPackage: bundleId,
+    appActivity: `${bundleId}.MainActivity`,
+  });
+
+  const startApp: TestCase = {
+    beforeTest: async () => {
+      driver.stopApp();
+      await driver.wait(3000);
+    },
+    run: async () => {
+      driver.startApp();
+      await driver.findElementByText("As you may");
+    },
+    duration: 15000,
+  };
+
+  const { writeResults } = await measurePerformance(bundleId, startApp);
+  writeResults();
+});
+```
+
+3. Run `yarn appium` in one tab
+4. Run `yarn jest yourtest` in a separate tab
+5. Open the JSON file generated in the web profiler:
+
+```sh
+yarn generate-performance-web-report results.json
+```
 
 ## Flipper Plugin
+
+https://user-images.githubusercontent.com/4534323/164205504-e07f4a93-25c1-4c14-82f3-5854ae11af8e.mp4
 
 ### Install
 
