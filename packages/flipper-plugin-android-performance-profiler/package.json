@@ -2,7 +2,7 @@
   "$schema": "https://fbflipper.com/schemas/plugin-package/v2.json",
   "name": "flipper-plugin-android-performance-profiler",
   "id": "android-performance-profiler",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "pluginType": "device",
   "supportedDevices": [
     {
@@ -16,7 +16,8 @@
     "flipper-plugin"
   ],
   "icon": "apps",
-  "title": "Android Performance Profiler",
+  "title": "Performance Profiler",
+  "description": "Measure performance of any Android apps (CPU, FPS, RAM)",
   "scripts": {
     "lint": "flipper-pkg lint",
     "prepack": "flipper-pkg lint && flipper-pkg bundle",
