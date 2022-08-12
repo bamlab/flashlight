@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/e2e",
-  "version": "0.1.0-alpha.6",
+  "version": "0.1.0-alpha.7",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -11,8 +11,8 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@perf-profiler/logger": "^0.1.0-alpha.5",
-    "@perf-profiler/profiler": "^0.1.0-alpha.6",
+    "@perf-profiler/logger": "^0.1.0-alpha.7",
+    "@perf-profiler/profiler": "^0.1.0-alpha.7",
     "@perf-profiler/reporter": "^0.1.0-alpha.6",
     "@perf-profiler/types": "^0.1.0-alpha.6"
   }
