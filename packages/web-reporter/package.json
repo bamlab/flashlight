@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/web-reporter",
-  "version": "0.1.0-alpha.4",
+  "version": "0.1.0-alpha.5",
   "description": "",
   "author": {
     "name": "Almouro",
@@ -11,7 +11,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@perf-profiler/logger": "^0.1.0-alpha.4"
+    "@perf-profiler/logger": "^0.1.0-alpha.5"
   },
   "devDependencies": {
     "@perf-profiler/types": "^0.1.0-alpha.4",
