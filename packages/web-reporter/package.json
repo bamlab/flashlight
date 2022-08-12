@@ -11,7 +11,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@perf-profiler/logger": "^0.1.0-alpha.5"
+    "@perf-profiler/logger": "^0.1.0-alpha.5",
+    "commander": "^9.4.0"
   },
   "devDependencies": {
     "@perf-profiler/types": "^0.1.0-alpha.6",
