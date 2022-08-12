@@ -182,6 +182,36 @@ export class AppiumDriver {
     return await this.client.switchContext("NATIVE_APP");
   }
 
+  async runUIAutomatorCommand(selector: string) {
+    return this.client.$(`android=${selector}`);
+  }
+
+  /**
+   *
+   * @param steps: number of steps. Use this to control the speed of the scroll action.
+   * UIAutomator default is 55 (and is quite slow), a lower number will increase speed
+   *
+   * See https://developer.android.com/reference/androidx/test/uiautomator/UiScrollable#scrollforward
+   */
+  async scrollDown(steps = 5) {
+    // See https://stackoverflow.com/questions/63238189/appium-how-to-scroll-down-using-uiautomator2-and-webdriverio-with-react-native
+    const selector = `new UiScrollable(new UiSelector().scrollable(true)).scrollForward(${steps})`;
+    return this.runUIAutomatorCommand(selector);
+  }
+
+  /**
+   *
+   * @param maxSwipes: max amount of swipe gestures to perform
+   * @param steps: number of steps. Use this to control the speed of the scroll action.
+   * UIAutomator default is 55 (and is quite slow), a lower number will increase speed
+   *
+   * See https://developer.android.com/reference/androidx/test/uiautomator/UiScrollable#scrolltoend_1
+   */
+  async scrollToEnd(maxSwipes = 100, steps = 5) {
+    const selector = `new UiScrollable(new UiSelector().scrollable(true)).scrollToEnd(${maxSwipes}, ${steps})`;
+    return this.runUIAutomatorCommand(selector);
+  }
+
   async switchToWebviewContext() {
     return await this.client.switchContext(`WEBVIEW_${this.bundleId}`);
   }

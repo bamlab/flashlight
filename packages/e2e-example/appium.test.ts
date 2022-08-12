@@ -16,9 +16,9 @@ const getTestCases = async () => {
     },
     run: async () => {
       driver.startApp();
-      await driver.findElementByText("As you may");
+      await driver.findElementByText("Notre CEO");
     },
-    duration: 15000,
+    duration: 10000,
   };
 
   const scrollTestCase: TestCase = {
@@ -29,8 +29,7 @@ const getTestCases = async () => {
     },
     run: async () => {
       for (let index = 0; index < 10; index++) {
-        await driver.gestures.swipeUp();
-        await driver.wait(1000);
+        await driver.scrollDown();
       }
     },
   };
