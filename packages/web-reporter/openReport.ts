@@ -16,10 +16,24 @@ const newHtmlContent = fs
 
 const paths = process.argv.slice(2);
 
+const fullPaths = paths
+  .map((path) => {
+    const fullPath = `${process.cwd()}/${path}`;
+    const isDirectory = fs.lstatSync(fullPath).isDirectory();
+
+    if (isDirectory) {
+      return fs
+        .readdirSync(fullPath)
+        .filter((file) => file.endsWith(".json"))
+        .map((file) => `${fullPath}/${file}`);
+    } else {
+      return fullPath;
+    }
+  })
+  .flat();
+
 const report = JSON.stringify(
-  paths.map((path) =>
-    JSON.parse(fs.readFileSync(`${process.cwd()}/${path}`, "utf8"))
-  )
+  fullPaths.map((path) => JSON.parse(fs.readFileSync(path, "utf8")))
 );
 
 const jsFileContent = fs

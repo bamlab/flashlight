@@ -191,9 +191,7 @@ Then in `packages/web-reporter/src/App.tsx`, uncomment the lines to add your own
 ```ts
 // Uncomment with when locally testing
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-testCaseResults = [
-  require("../measures.json"),
-];
+testCaseResults = [require("../measures.json")];
 ```
 
 You should now be able to open [the local server](http://localhost:1234/)
