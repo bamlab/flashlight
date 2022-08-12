@@ -1,8 +1,22 @@
 #!/usr/bin/env node
 
 import { execSync } from "child_process";
+import { program } from "commander";
 import { Logger } from "@perf-profiler/logger";
 import fs from "fs";
+
+program
+  .argument("<files/folders...>")
+  .description("Generate web report from performance measures")
+  .usage(
+    `yarn generate-performance-web-report -o . results1.json results2.json`
+  )
+  .option(
+    "-o, --output-dir <outputDir>",
+    "Output directory for the web report"
+  );
+
+program.parse();
 
 const newJsFile = "report.js";
 
@@ -14,35 +28,39 @@ const newHtmlContent = fs
   .replace(`src="${scriptName}"`, `src="${newJsFile}"`)
   .replace('type="module"', "");
 
-const paths = process.argv.slice(2);
+const getJsonPaths = () => {
+  const paths = program.args;
 
-const fullPaths = paths
-  .map((path) => {
-    const fullPath = `${process.cwd()}/${path}`;
-    const isDirectory = fs.lstatSync(fullPath).isDirectory();
+  return paths
+    .map((path) => {
+      const fullPath = `${process.cwd()}/${path}`;
+      const isDirectory = fs.lstatSync(fullPath).isDirectory();
 
-    if (isDirectory) {
-      return fs
-        .readdirSync(fullPath)
-        .filter((file) => file.endsWith(".json"))
-        .map((file) => `${fullPath}/${file}`);
-    } else {
-      return fullPath;
-    }
-  })
-  .flat();
+      if (isDirectory) {
+        return fs
+          .readdirSync(fullPath)
+          .filter((file) => file.endsWith(".json"))
+          .map((file) => `${fullPath}/${file}`);
+      } else {
+        return fullPath;
+      }
+    })
+    .flat();
+};
 
 const report = JSON.stringify(
-  fullPaths.map((path) => JSON.parse(fs.readFileSync(path, "utf8")))
+  getJsonPaths().map((path) => JSON.parse(fs.readFileSync(path, "utf8")))
 );
 
 const jsFileContent = fs
   .readFileSync(`${__dirname}/${scriptName}`, "utf8")
   .replace('"INSERT_HERE"', report);
 
-fs.writeFileSync(`${__dirname}/report.js`, jsFileContent);
+const outputDir = (program.opts().outputDir as string) || __dirname;
 
-const htmlFilePath = `${__dirname}/report.html`;
+fs.writeFileSync(`${outputDir}/report.js`, jsFileContent);
+
+const htmlFilePath = `${outputDir}/report.html`;
 fs.writeFileSync(htmlFilePath, newHtmlContent);
 
 Logger.success(`Opening report: ${htmlFilePath}`);
