@@ -1,6 +1,11 @@
-# Android Performance Profiler
+# Measure the performance of any Android app 🚀
 
-Measure the performance of any Android app, even in production, via a Flipper plugin or directly via CLI.
+- 🙅 No installation required, supports even production app
+- ✨ Generates beautiful web report ([like this Flatlist/Flashlist comparison](https://bamlab.github.io/android-performance-profiler/flashlist/report.html))
+- 💻 Via CLI, e2e test or Flipper plugin
+
+<img width="676" alt="image" src="https://user-images.githubusercontent.com/4534323/184388576-f61270ca-17dc-4688-bf72-2d747f310e7e.png">
+
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
