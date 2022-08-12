@@ -1,8 +1,8 @@
-import chalk from "chalk";
+import kleur from "kleur";
 
-const info = chalk.blue;
-const success = chalk.bold.green;
-const warn = chalk.hex("#FFA500");
+const info = kleur.blue;
+const success = kleur.bold().green;
+const warn = kleur.bold().yellow().bgRed;
 
 export enum LogLevel {
   WARN,
@@ -38,4 +38,15 @@ export const Logger = {
 
     console.log(warn(`⚠️  ${message}`));
   },
+};
+
+export const printExampleMessages = () => {
+  Logger.setLogLevel(Infinity);
+  Object.keys(Logger).forEach((key: string) => {
+    if (key === "setLogLevel") return;
+
+    (Logger[key as keyof typeof Logger] as typeof Logger.debug)(
+      `This is an awesome ${key} message`
+    );
+  });
 };

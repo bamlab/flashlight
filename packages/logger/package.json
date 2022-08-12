@@ -3,6 +3,6 @@
   "version": "0.1.0-alpha.5",
   "main": "dist/index.js",
   "dependencies": {
-    "chalk": "^4.0.0"
+    "kleur": "^4.1.5"
   }
 }

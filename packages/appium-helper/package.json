@@ -7,12 +7,6 @@
   },
   "license": "MIT",
   "main": "dist/index.js",
-  "devDependencies": {
-    "@types/jest": "^26.0.3",
-    "jest": "^26.1.0",
-    "ts-jest": "^26.1.1",
-    "typescript": "^3.9.6"
-  },
   "scripts": {
     "test": "tsc"
   },
