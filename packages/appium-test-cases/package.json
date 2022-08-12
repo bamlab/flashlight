@@ -5,7 +5,7 @@
   "dependencies": {
     "@bam.tech/appium-helper": "^0.1.0-alpha.5",
     "@perf-profiler/e2e": "^0.1.0-alpha.5",
-    "@perf-profiler/reporter": "^0.1.0-alpha.4",
-    "@perf-profiler/types": "^0.1.0-alpha.4"
+    "@perf-profiler/reporter": "^0.1.0-alpha.5",
+    "@perf-profiler/types": "^0.1.0-alpha.5"
   }
 }

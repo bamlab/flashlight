@@ -22,7 +22,7 @@
     "test:coverage": "yarn clean-dist && jest --coverage",
     "run-cli-example": "node packages/cli-example",
     "build": "yarn clean-dist && tsc --build && yarn workspace @perf-profiler/web-reporter build && yarn workspace flipper-plugin-android-performance-profiler build",
-    "release": "yarn test && lerna publish"
+    "release": "yarn build && lerna publish"
   },
   "homepage": "https://github.com/bamlab/react-native-performance#readme",
   "devDependencies": {
