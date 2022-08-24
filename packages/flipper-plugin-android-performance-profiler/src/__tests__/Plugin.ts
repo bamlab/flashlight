@@ -1,7 +1,7 @@
 import { act, fireEvent, screen } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
+import { EventEmitter } from "events";
 import * as Plugin from "..";
-import { getCommand } from "@perf-profiler/profiler/src/commands/cpu/getCpuStatsByProcess";
 
 // See https://github.com/facebook/flipper/pull/3327
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -13,17 +13,29 @@ window.alert = console.error;
 
 jest.mock("child_process", () => {
   return {
+    spawn: jest.requireActual("child_process").spawn,
     execSync: (command: string) => ({
       toString: () => {
+        if (
+          command.startsWith("adb push") &&
+          command.endsWith(
+            "/BAMPerfProfiler-arm64-v8a /data/local/tmp/BAMPerfProfiler"
+          )
+        ) {
+          return "";
+        }
+
         switch (command) {
-          case "adb shell getconf CLK_TCK":
+          case "adb shell /data/local/tmp/BAMPerfProfiler printCpuClockTick":
             return 100;
           case "adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp|mInputMethodTarget|mSurface' | grep Activity":
             return "      mSurface=Surface(name=com.example/com.example.MainActivity$_21455)/@0x9110fea";
           case "adb shell pidof com.example":
             return "123456";
-          case "adb shell getconf PAGESIZE":
+          case "adb shell /data/local/tmp/BAMPerfProfiler printRAMPageSize":
             return 4096;
+          case "adb shell getprop ro.product.cpu.abi":
+            return "arm64-v8a";
           case "adb shell setprop debug.hwui.profile true":
             return "";
           default:
@@ -35,77 +47,67 @@ jest.mock("child_process", () => {
   };
 });
 
-const mockExecLoopCommandsImplementation = (
-  commands: any[],
-  interval: any,
-  // eslint-disable-next-line @typescript-eslint/ban-types
-  callback: Function
-) => {
-  let pollingIndex = 0;
+const mockSpawn = (): { stdout: EventEmitter } => {
+  const mockProcess = new EventEmitter();
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  mockProcess.stdout = new EventEmitter();
 
-  const mockCommandResult = (command: any) => {
-    switch (command.command) {
-      case getCommand("123456"):
-        // eslint-disable-next-line no-case-declarations
-        const result = require("fs").readFileSync(
-          `${__dirname}/sample-command-output-${
-            pollingIndex === 0 ? "1" : "2"
-          }.txt`,
-          "utf8"
-        );
-        pollingIndex++;
-        return result;
-      case "cat /proc/123456/statm":
-        return "4430198 96195 58113 3 0 398896 0";
-      case "date +%s%3N":
-        return 1651248790047 + pollingIndex * 500;
-      case "dumpsys gfxinfo 123456":
-        return require("fs").readFileSync(
-          `${__dirname}/sample-gfxinfo-output.txt`,
-          "utf8"
-        );
-      default:
-        console.error(`Unknown command: ${command.command}`);
-        return "";
-    }
-  };
+  jest
+    .spyOn(require("child_process"), "spawn")
+    .mockImplementationOnce((...args) => {
+      expect(args).toEqual([
+        "adb",
+        [
+          "shell",
+          "/data/local/tmp/BAMPerfProfiler",
+          "pollPerformanceMeasures",
+          "123456",
+        ],
+      ]);
+      return mockProcess;
+    });
 
-  const sendData = () => {
-    callback(
-      commands.reduce(
-        (aggr, command) => ({
-          ...aggr,
-          [command.id]: mockCommandResult(command),
-        }),
-        {}
-      )
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  return mockProcess;
+};
+
+const spawn = mockSpawn();
+
+const emitMeasures = () => {
+  const emitMeasure = (measureIndex: number) => {
+    const cpuOutput: string = require("fs").readFileSync(
+      `${__dirname}/sample-command-output-${
+        measureIndex === 0 ? "1" : "2"
+      }.txt`,
+      "utf8"
+    );
+    const gfxOutput: string = require("fs").readFileSync(
+      `${__dirname}/sample-gfxinfo-output.txt`,
+      "utf8"
+    );
+
+    spawn.stdout.emit(
+      "data",
+      `=START MEASURE=
+${cpuOutput}
+=SEPARATOR=
+4430198 96195 58113 3 0 398896 0
+=SEPARATOR=
+${gfxOutput}
+=SEPARATOR=
+Timestamp: ${1651248790047 + measureIndex * 500}
+ADB EXEC TIME: ${42}
+=STOP MEASURE=`
     );
   };
 
-  sendData();
-  sendData();
-  sendData();
+  emitMeasure(0);
+  emitMeasure(1);
+  emitMeasure(2);
 };
 
-// jest
-//   .spyOn(
-//     require("android-performance-profiler/src/commands/shellNext"),
-//     "execLoopCommands"
-//   )
-//   // @ts-ignore
-//   .mockImplementation(mockExecLoopCommandsImplementation);
-
-let moduleToMock;
-try {
-  moduleToMock = require("@perf-profiler/profiler/dist/src/commands/shellNext");
-} catch {
-  moduleToMock = require("@perf-profiler/profiler/src/commands/shellNext");
-}
-jest
-  .spyOn(moduleToMock, "execLoopCommands")
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  .mockImplementation(mockExecLoopCommandsImplementation);
 // See https://github.com/apexcharts/react-apexcharts/issues/52
 jest.mock("react-apexcharts", () => "apex-charts");
 jest.mock("apexcharts", () => ({ exec: jest.fn() }));
@@ -130,8 +132,8 @@ test("displays FPS data and scoring", async () => {
   await screen.findByText("Start Measuring");
   fireEvent.click(screen.getByText("Start Measuring"));
 
-  // Wait for 2 measures
-  await act(() => new Promise((resolve) => setTimeout(resolve, 1000)));
+  act(() => emitMeasures());
+
   await screen.findByText("Threads");
   expect(getText(renderer.baseElement as HTMLBodyElement)).toMatchSnapshot();
   expect(renderer.baseElement).toMatchSnapshot();

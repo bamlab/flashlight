@@ -1,17 +1,9 @@
 import { Logger } from "@perf-profiler/logger";
+import { getRAMPageSize } from "../cppProfiler";
 import { executeCommand } from "../shellNext";
 
-export const getRamPageSize = () => {
-  try {
-    return parseInt(executeCommand(`adb shell getconf PAGESIZE`), 10);
-  } catch (error) {
-    Logger.debug("Failed to retrieve RAM Pagesize, defaulting to 4096");
-    return 4096;
-  }
-};
-
 const BYTES_PER_MB = 1024 * 1024;
-const RAM_PAGE_SIZE = getRamPageSize();
+const RAM_PAGE_SIZE = getRAMPageSize();
 
 export const getCommand = (pid: string) => `cat /proc/${pid}/statm`;
 
