@@ -3,8 +3,10 @@ import kleur from "kleur";
 const info = kleur.blue;
 const success = kleur.bold().green;
 const warn = kleur.bold().yellow().bgRed;
+const error = kleur.bold().red;
 
 export enum LogLevel {
+  ERROR,
   WARN,
   SUCCESS,
   INFO,
@@ -37,6 +39,11 @@ export const Logger = {
     if (logLevel < LogLevel.WARN) return;
 
     console.log(warn(`⚠️  ${message}`));
+  },
+  error: (message: string) => {
+    if (logLevel < LogLevel.ERROR) return;
+
+    console.log(error(`🚨  ${message}`));
   },
 };
 
