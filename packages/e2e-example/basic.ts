@@ -9,7 +9,7 @@ const startApp = () =>
   execSync(`adb shell am start ${bundleId}/${appActivity}`);
 
 const startTestCase: TestCase = {
-  duration: 15000,
+  duration: 10000,
   beforeTest: () => {
     stopApp();
   },
