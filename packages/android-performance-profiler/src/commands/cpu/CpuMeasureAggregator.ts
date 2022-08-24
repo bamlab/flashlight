@@ -1,6 +1,6 @@
 import { mapValues } from "lodash";
 import { CpuMeasure as Measure } from "@perf-profiler/types";
-import { getCpuClockTick } from "./getCpuClockTick";
+import { getCpuClockTick } from "../cppProfiler";
 import { ProcessStat } from "./getCpuStatsByProcess";
 
 const SYSTEM_TICK_IN_ONE_SECOND = getCpuClockTick();
