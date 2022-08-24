@@ -2,35 +2,45 @@ import { Logger } from "@perf-profiler/logger";
 import { getAbi } from "./getAbi";
 import { executeCommand, executeLongRunningProcess } from "./shellNext";
 
-const CppProfilerName = "BAMPerfProfiler";
+const CppProfilerName = `BAMPerfProfiler`;
 const deviceProfilerPath = `/data/local/tmp/${CppProfilerName}`;
 
 const binaryFolder = `${__dirname}/../..${
   __dirname.includes("dist") ? "/.." : ""
 }/cpp-profiler/bin`;
 
-export const installCppProfiler = () => {
-  const abi = getAbi();
-  Logger.info(`Installing C++ profiler for ${abi} architecture`);
+let hasInstalledProfiler = false;
 
-  const binaryPath = `${binaryFolder}/${CppProfilerName}-${abi}`;
+export const ensureCppProfilerIsInstalled = () => {
+  if (!hasInstalledProfiler) {
+    const abi = getAbi();
+    Logger.info(`Installing C++ profiler for ${abi} architecture`);
 
-  const command = `adb push ${binaryPath} ${deviceProfilerPath}`;
-  executeCommand(command);
-  Logger.success(`C++ Profiler installed in ${deviceProfilerPath}`);
+    const binaryPath = `${binaryFolder}/${CppProfilerName}-${abi}`;
+
+    const command = `adb push ${binaryPath} ${deviceProfilerPath}`;
+    executeCommand(command);
+    Logger.success(`C++ Profiler installed in ${deviceProfilerPath}`);
+  }
+
+  hasInstalledProfiler = true;
 };
 
-export const getCpuClockTick = () =>
-  parseInt(
+export const getCpuClockTick = () => {
+  ensureCppProfilerIsInstalled();
+  return parseInt(
     executeCommand(`adb shell ${deviceProfilerPath} printCpuClockTick`),
     10
   );
+};
 
-export const getRAMPageSize = () =>
-  parseInt(
+export const getRAMPageSize = () => {
+  ensureCppProfilerIsInstalled();
+  return parseInt(
     executeCommand(`adb shell ${deviceProfilerPath} printRAMPageSize`),
     10
   );
+};
 
 type CppPerformanceMeasure = {
   cpu: string;
@@ -60,7 +70,7 @@ export const pollPerformanceMeasures = (
   pid: string,
   onData: (measure: CppPerformanceMeasure) => void
 ) => {
-  installCppProfiler();
+  ensureCppProfilerIsInstalled();
 
   const DELIMITER = "=STOP MEASURE=";
 
