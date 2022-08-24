@@ -6,7 +6,6 @@
 
 <img width="676" alt="image" src="https://user-images.githubusercontent.com/4534323/184388576-f61270ca-17dc-4688-bf72-2d747f310e7e.png">
 
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -45,7 +44,7 @@ const startApp = () =>
   execSync(`adb shell am start ${bundleId}/${appActivity}`);
 
 const startTestCase: TestCase = {
-  duration: 15000,
+  duration: 10000,
   beforeTest: () => {
     stopApp();
   },
@@ -106,7 +105,7 @@ test("e2e", async () => {
       driver.startApp();
       await driver.findElementByText("As you may");
     },
-    duration: 15000,
+    duration: 10000,
   };
 
   const { writeResults } = await measurePerformance(bundleId, startApp);
