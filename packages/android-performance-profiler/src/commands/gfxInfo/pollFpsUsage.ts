@@ -1,35 +1,5 @@
-import { GfxInfoParser, Measure } from "./parseGfxInfo";
-import { compareGfxMeasures } from "./compareGfxMeasures";
 import { Logger } from "@perf-profiler/logger";
 import { executeCommand } from "../shell";
-
-// gfxinfo is one way
-// one of the caveats is Flutter won't be supported
-// https://github.com/flutter/flutter/issues/91406
-
-// Unused for now
-// export const pollFpsUsage = (bundleId: string) => {
-//   let previousMeasure: Measure;
-//   setInterval(() => {
-//     const newMeasure = new GfxInfoParser({
-//       bundleId,
-//     }).measure();
-
-//     if (previousMeasure) {
-//       const { frameCount, time } = compareGfxMeasures(
-//         previousMeasure,
-//         newMeasure
-//       );
-//       console.log(
-//         `${frameCount} frames rendered in ${time}ms at ${
-//           (frameCount / time) * 1000
-//         } FPS`
-//       );
-//     }
-
-//     previousMeasure = newMeasure;
-//   }, 1000);
-// };
 
 const TIME_INTERVAL = 500;
 

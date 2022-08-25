@@ -1,6 +1,6 @@
 import { Logger } from "@perf-profiler/logger";
 import { getAbi } from "./getAbi";
-import { executeCommand, executeLongRunningProcess } from "./shellNext";
+import { executeCommand, executeLongRunningProcess } from "./shell";
 
 const CppProfilerName = `BAMPerfProfiler`;
 const deviceProfilerPath = `/data/local/tmp/${CppProfilerName}`;

@@ -1,15 +1,59 @@
-import { exec, execSync } from "child_process";
+import { Logger } from "@perf-profiler/logger";
+import { execSync, spawn } from "child_process";
 
 export const executeCommand = (command: string): string => {
-  return execSync(command).toString();
+  try {
+    return execSync(command, { stdio: "pipe" }).toString();
+  } catch (error: any) {
+    Logger.debug(
+      `Error while executing command "${command}": ${error.stderr.toString()}`
+    );
+    throw error;
+  }
 };
 
-export const execLoopCommand = (
+export const executeLongRunningProcess = (
   command: string,
-  interval: number,
-  dataCallback: { (data: string): void }
+  delimiter: string,
+  onData: (data: string) => void
 ) => {
-  return exec(
-    `{ while true; do ${command};  sleep ${interval}; done }`
-  ).stdout?.on("data", dataCallback);
+  const parts = command.split(" ");
+
+  const process = spawn(parts[0], parts.slice(1));
+
+  let currentChunk = "";
+
+  process.stdout?.on("data", (data: ReadableStream<string>) => {
+    currentChunk += data.toString();
+
+    const dataSplits = currentChunk.split(delimiter);
+
+    dataSplits.slice(0, -1).forEach((split) => {
+      onData(split.trim());
+    });
+
+    if (dataSplits.length > 0) {
+      currentChunk = currentChunk.slice(
+        currentChunk.length - 1 * dataSplits[dataSplits.length - 1].length
+      );
+    }
+  });
+
+  process.stdout?.on("end", () => {
+    Logger.debug("Polling ended");
+  });
+
+  process.on("close", (code) => {
+    Logger.debug(`child process exited with code ${code}`);
+  });
+
+  process.on("error", (err) => {
+    Logger.error(`Pollling errored with ${err}`);
+  });
+
+  return {
+    stop: () => {
+      process.kill();
+    },
+  };
 };

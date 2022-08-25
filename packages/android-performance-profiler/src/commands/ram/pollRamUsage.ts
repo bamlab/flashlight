@@ -1,6 +1,4 @@
-import { Logger } from "@perf-profiler/logger";
 import { getRAMPageSize } from "../cppProfiler";
-import { executeCommand } from "../shellNext";
 
 const BYTES_PER_MB = 1024 * 1024;
 const RAM_PAGE_SIZE = getRAMPageSize();
