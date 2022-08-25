@@ -146,7 +146,7 @@ import {
   pollPerformanceMeasures,
 } from "@perf-profiler/profiler";
 
-const bundleId = detectCurrentAppBundleId();
+const { bundleId } = detectCurrentAppBundleId();
 const pid = getPidId(bundleId);
 
 const measures: Measure[] = [];

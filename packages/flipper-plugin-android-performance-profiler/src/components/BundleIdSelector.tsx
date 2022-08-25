@@ -19,7 +19,7 @@ export const BundleIdSelector = ({
 
   const autodetect = () => {
     try {
-      const detectedBundleId = detectCurrentAppBundleId();
+      const { bundleId: detectedBundleId } = detectCurrentAppBundleId();
       onChange(detectedBundleId);
     } catch (error) {
       alert(
