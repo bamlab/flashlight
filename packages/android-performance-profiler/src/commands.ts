@@ -26,14 +26,24 @@ program
   .command("getCurrentAppBundleId")
   .description("Retrieves the focused app bundle id")
   .action(() => {
-    console.log(detectCurrentAppBundleId());
+    const { bundleId } = detectCurrentAppBundleId();
+    console.log(bundleId);
   });
 
 program
   .command("getCurrentAppPid")
   .description("Retrieves the focused app process id")
   .action(() => {
-    console.log(getPidId(detectCurrentAppBundleId()));
+    const { bundleId } = detectCurrentAppBundleId();
+    console.log(getPidId(bundleId));
+  });
+
+program
+  .command("getCurrentApp")
+  .description("Prints out bundle id and currently focused app activity")
+  .action(() => {
+    const { bundleId, appActivity } = detectCurrentAppBundleId();
+    console.log(`bundleId=${bundleId}\nappActivity=${appActivity}`);
   });
 
 program

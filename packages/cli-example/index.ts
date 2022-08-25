@@ -6,7 +6,7 @@ import {
 } from "@perf-profiler/profiler";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
 
-const bundleId = detectCurrentAppBundleId() || "";
+const bundleId = detectCurrentAppBundleId().bundleId || "";
 const pid = getPidId(bundleId) || "";
 
 const measures: Measure[] = [];
