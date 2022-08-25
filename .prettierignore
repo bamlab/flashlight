@@ -1,0 +1,8 @@
+dist
+node_modules
+docs
+cpp-profiler
+coverage
+*.js
+*.html
+results*.json

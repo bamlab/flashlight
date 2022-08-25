@@ -3,7 +3,5 @@
   "compilerOptions": {
     "outDir": "./dist"
   },
-  "files": [
-    "appium.test.ts"
-  ]
+  "files": ["appium.test.ts"]
 }

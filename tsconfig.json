@@ -8,19 +8,19 @@
     "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
+    "skipLibCheck": true
   },
   "references": [
-    {"path": "./packages/logger"},
-    {"path": "./packages/types"},
-    {"path": "./packages/android-performance-profiler"},
-    {"path": "./packages/appium-helper"},
-    {"path": "./packages/cli-example"},
-    {"path": "./packages/e2e-performance"},
-    {"path": "./packages/reporter"},
-    {"path": "./packages/web-reporter-ui"},
-    {"path": "./packages/web-reporter"},
-    {"path": "./packages/appium-test-cases"},
+    { "path": "./packages/logger" },
+    { "path": "./packages/types" },
+    { "path": "./packages/android-performance-profiler" },
+    { "path": "./packages/appium-helper" },
+    { "path": "./packages/cli-example" },
+    { "path": "./packages/e2e-performance" },
+    { "path": "./packages/reporter" },
+    { "path": "./packages/web-reporter-ui" },
+    { "path": "./packages/web-reporter" },
+    { "path": "./packages/appium-test-cases" }
   ],
   "files": []
 }
