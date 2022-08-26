@@ -1,5 +1,6 @@
 {
   "name": "react-native-performance",
+  "version": "0.0.0",
   "private": "true",
   "repository": {
     "type": "git",
@@ -22,7 +23,9 @@
     "test:coverage": "yarn clean-dist && jest --coverage",
     "run-cli-example": "node packages/cli-example",
     "build": "yarn clean-dist && tsc --build && yarn workspace @perf-profiler/web-reporter build && yarn workspace flipper-plugin-android-performance-profiler build",
-    "release": "yarn build && lerna publish"
+    "release": "yarn build && lerna publish",
+    "test:e2e": "mkdir -p report && npx @perf-profiler/aws-device-farm runTest --apkPath .github/workflows/example.apk --testFolder . --projectName 'Flashlight - Open Source CI' --reportDestinationPath report",
+    "flashlight": "npx ts-node packages/e2e-example/appium-ci.test.ts"
   },
   "homepage": "https://github.com/bamlab/react-native-performance#readme",
   "devDependencies": {
