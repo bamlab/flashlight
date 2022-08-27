@@ -64,7 +64,7 @@ phases:
       - echo "Navigate to test source code"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH/node_modules/*
       - yarn
-      - yarn flashlight
+      - INSERT_TEST_COMMAND
       - mv result*.json $DEVICEFARM_LOG_DIR
 
   # The post test phase includes are commands that are run after your tests are executed.

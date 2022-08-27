@@ -9,7 +9,7 @@ export const zipTestFolder = (folderPath: string) => {
 
   const zipPath = `${path.basename(path.resolve(folderPath))}.zip`;
   execSync(`zip -r ${zipPath} ${folderPath}/*.tgz && rm ${folderPath}/*.tgz`);
-  Logger.success(`Zip created: ${zipPath}`);
+  Logger.success(`Zip created, ready for upload: ${zipPath}`);
 
   return zipPath;
 };

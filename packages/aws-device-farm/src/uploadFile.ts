@@ -20,5 +20,5 @@ export const uploadFile = async (url: string, filePath: string) => {
     onUploadProgress: (progressEvent) => console.log(progressEvent),
   });
 
-  Logger.success(`Upload of ${filePath} done`);
+  Logger.info(`Upload of ${filePath} done`);
 };

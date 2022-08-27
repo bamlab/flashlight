@@ -57,7 +57,9 @@ export class TestRepository extends BaseRepository {
       testRunArn,
     });
     // Hack to add the variable into Github actions although it shouldn't be done here
-    execSync(`echo "AWS_CONSOLE_TEST_RUN_URL=${consoleUrl}" >> $GITHUB_ENV`);
+    if (process.env.GITHUB_ENV) {
+      execSync(`echo "AWS_CONSOLE_TEST_RUN_URL=${consoleUrl}" >> $GITHUB_ENV`);
+    }
     Logger.success(
       `Launched test ${testName}...
 Follow along on ${consoleUrl}`

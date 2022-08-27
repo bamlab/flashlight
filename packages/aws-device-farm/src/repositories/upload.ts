@@ -128,6 +128,8 @@ export class UploadRepository extends BaseRepository {
       await new Promise((resolve) => setTimeout(resolve, 2000));
     }
 
+    Logger.success(`Upload ${name} ready for use`);
+
     return arn;
   }
 }

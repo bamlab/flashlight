@@ -18,14 +18,13 @@
     "url": "https://github.com/bamlab/react-native-performance/issues"
   },
   "scripts": {
-    "clean-dist": "rm -rf packages/*/dist",
+    "clean-dist": "rm -rf packages/*/dist && rm -rf packages/*/tsconfig.tsbuildinfo",
     "test": "prettier --check . && eslint . && yarn build && yarn workspace flipper-plugin-android-performance-profiler test && jest",
     "test:coverage": "yarn clean-dist && jest --coverage",
     "run-cli-example": "node packages/cli-example",
     "build": "yarn clean-dist && tsc --build && yarn workspace @perf-profiler/web-reporter build && yarn workspace flipper-plugin-android-performance-profiler build",
     "release": "yarn build && lerna publish",
-    "test:e2e": "mkdir -p report && npx @perf-profiler/aws-device-farm runTest --apkPath .github/workflows/example.apk --testFolder . --projectName 'Flashlight - Open Source CI' --reportDestinationPath report",
-    "flashlight": "npx ts-node packages/e2e-example/appium-ci.test.ts"
+    "test:e2e": "mkdir -p report && npx @perf-profiler/aws-device-farm runTest --apkPath .github/workflows/example.apk --projectName 'Flashlight - Open Source CI' --reportDestinationPath report --testCommand 'npx ts-node packages/e2e-example/appium-ci.test.ts'"
   },
   "homepage": "https://github.com/bamlab/react-native-performance#readme",
   "devDependencies": {
