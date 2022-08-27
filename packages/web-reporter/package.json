@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/web-reporter",
-  "version": "0.1.0-alpha.7",
+  "version": "0.1.0-alpha.8",
   "description": "",
   "author": {
     "name": "Almouro",
@@ -11,12 +11,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@perf-profiler/logger": "^0.1.0-alpha.7",
+    "@perf-profiler/logger": "^0.1.0-alpha.8",
     "commander": "^9.4.0"
   },
   "devDependencies": {
-    "@perf-profiler/types": "^0.1.0-alpha.6",
-    "@perf-profiler/web-reporter-ui": "^0.1.0-alpha.6",
+    "@perf-profiler/types": "^0.1.0-alpha.8",
+    "@perf-profiler/web-reporter-ui": "^0.1.0-alpha.8",
     "parcel": "^2.7.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
