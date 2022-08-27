@@ -13,8 +13,13 @@ program
     "Path to the APK to be uploaded for testing"
   )
   .requiredOption(
+    "--testCommand <testCommand>",
+    "Test command that should be run (e.g.: `yarn jest appium`)"
+  )
+  .option(
     "--testFolder <testFolder>",
-    "Path to the folder containing the tests"
+    "AWS requires us to upload the folder containing the tests including node_modules folder",
+    "."
   )
   .option(
     "--testSpecsPath <testSpecsPath>",
@@ -41,6 +46,11 @@ program
     "Skip waiting for test to be done after scheduling run.",
     false
   )
+  .option(
+    "--deviceName <deviceName>",
+    "Device on which to run tests. A device pool with devices containing this parameter in their model name will be created",
+    "A10s"
+  )
   .action(async (options) => {
     // Just destructuring to have type checking on the parameters sent to runTest
     const {
@@ -51,6 +61,8 @@ program
       testName,
       reportDestinationPath,
       skipWaitingForResult,
+      testCommand,
+      deviceName,
     } = options;
 
     const testRunArn = await runTest({
@@ -59,6 +71,8 @@ program
       testFolder,
       projectName,
       testName,
+      testCommand,
+      deviceName,
     });
 
     if (!skipWaitingForResult) {

@@ -3,8 +3,10 @@ import {
   DeviceFarmClient,
   UploadType,
 } from "@aws-sdk/client-device-farm";
+import fs from "fs";
 import { Logger } from "@perf-profiler/logger";
 import { execSync } from "child_process";
+import { createTestSpecFile } from "./createTestSpecFile";
 import { downloadFile } from "./downloadFile";
 import { DevicePoolRepository } from "./repositories/devicePool";
 import { ProjectRepository } from "./repositories/project";
@@ -13,7 +15,6 @@ import { UploadRepository } from "./repositories/upload";
 import { zipTestFolder } from "./zipTestFolder";
 
 const DEFAULT_REGION = "us-west-2";
-const DEFAULT_DEVICE_NAME = "A10s";
 
 const { AWS_ACCESS_KEY_ID, AWS_ACCESS_KEY_SECRET } = process.env;
 
@@ -42,17 +43,21 @@ export const runTest = async ({
   testSpecsPath,
   testFolder,
   testName,
+  testCommand,
+  deviceName,
 }: {
   projectName: string;
   apkPath: string;
   testSpecsPath: string;
   testFolder: string;
   testName: string;
+  testCommand: string;
+  deviceName: string;
 }): Promise<string> => {
   const projectArn = await projectRepository.getOrCreate({ name: projectName });
   const devicePoolArn = await devicePoolRepository.getOrCreate({
     projectArn,
-    deviceName: DEFAULT_DEVICE_NAME,
+    deviceName,
   });
 
   const testFolderZipPath = zipTestFolder(testFolder);
@@ -62,11 +67,17 @@ export const runTest = async ({
     filePath: apkPath,
     type: UploadType.ANDROID_APP,
   });
+
+  const newTestSpecPath = createTestSpecFile({
+    testSpecsPath,
+    testCommand,
+  });
   const testSpecArn = await uploadRepository.upload({
     projectArn,
-    filePath: testSpecsPath,
+    filePath: newTestSpecPath,
     type: UploadType.APPIUM_NODE_TEST_SPEC,
   });
+  fs.rmSync(newTestSpecPath);
   const testPackageArn = await uploadRepository.upload({
     projectArn,
     filePath: testFolderZipPath,
