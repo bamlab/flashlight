@@ -13,10 +13,24 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./FPSReport";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 const Padding = styled.div`
   height: 10px;
 `;
+
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      "open-sans",
+      "Roboto",
+      "Helvetica",
+      "Arial",
+      "sans-serif",
+    ].join(","),
+    fontWeightBold: 600,
+  },
+});
 
 const Report = ({ results }: { results: TestCaseResult[] }) => {
   const averagedResults: AveragedTestCaseResult[] = results.map(
@@ -27,19 +41,19 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
     <>
       <ReportSummary results={averagedResults} />
       <Padding />
-      <Accordion>
+      <Accordion defaultExpanded>
         <AccordionSectionTitle title="FPS" />
         <AccordionDetails>
           <FPSReport results={averagedResults} />
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion defaultExpanded>
         <AccordionSectionTitle title="CPU" />
         <AccordionDetails>
           <CPUReport results={averagedResults} />
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion defaultExpanded>
         <AccordionSectionTitle title="RAM" />
         <AccordionDetails>
           <RAMReport results={averagedResults} />
@@ -54,7 +68,11 @@ export const IterationsReporterView = ({
 }: {
   results: TestCaseResult[];
 }) => {
-  return <Report results={results} />;
+  return (
+    <ThemeProvider theme={theme}>
+      <Report results={results} />
+    </ThemeProvider>
+  );
 };
 
 export const ReporterView = ({ measures }: { measures: Measure[] }) => (
