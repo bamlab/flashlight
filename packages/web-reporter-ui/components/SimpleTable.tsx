@@ -19,7 +19,11 @@ export const SimpleTable = ({
           <TableRow>
             <TableCell>{rows[0][0]}</TableCell>
             {rows[0].slice(1).map((cell, i) => (
-              <TableCell align="right" key={i} sx={{ fontWeight: "bold" }}>
+              <TableCell
+                align="right"
+                key={i}
+                sx={{ fontWeight: "bold", fontFamily: "open-sans" }}
+              >
                 {cell}
               </TableCell>
             ))}

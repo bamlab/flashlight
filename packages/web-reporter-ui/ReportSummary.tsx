@@ -9,6 +9,7 @@ import { sanitizeProcessName } from "./utils/sanitizeProcessName";
 import { roundToDecimal } from "./utils/roundToDecimal";
 import { SimpleTable } from "./components/SimpleTable";
 import { Score } from "./components/Score";
+import { orderBy } from "lodash";
 
 const HighCpuProcesses = ({
   highCpuProcesses,
@@ -22,12 +23,16 @@ const HighCpuProcesses = ({
   );
 
   return (
-    <>
+    <div style={{ overflowY: "scroll", maxHeight: 100 }}>
       {processNames.length > 0 ? (
         <>
           <div style={{ color: "red" }}>Total: {total / 1000}s</div>
           <div>
-            {processNames.map((processName) => (
+            {orderBy(
+              processNames,
+              (processName) => highCpuProcesses[processName],
+              "desc"
+            ).map((processName) => (
               <div key={processName}>
                 {sanitizeProcessName(processName)} for{" "}
                 {highCpuProcesses[processName] / 1000}s
@@ -38,7 +43,7 @@ const HighCpuProcesses = ({
       ) : (
         <span style={{ color: "green" }}>None ✅</span>
       )}
-    </>
+    </div>
   );
 };
 
@@ -48,13 +53,13 @@ const FrameworkDetection = ({
   reactNativeDetected: boolean;
 }) => {
   return reactNativeDetected ? (
-    <div>
+    <div style={{ display: "flex", justifyContent: "flex-end" }}>
       <img
         alt="React Native logo"
         style={{ height: 20, width: 20 }}
         src="https://d33wubrfki0l68.cloudfront.net/554c3b0e09cf167f0281fda839a5433f2040b349/ecfc9/img/header_logo.svg"
-      />{" "}
-      React Native detected
+      />
+      <div>&nbsp;React Native</div>
     </div>
   ) : null;
 };
@@ -72,7 +77,7 @@ export const ReportSummary = ({
       ...results.map((result) => `${roundToDecimal(result.average.time, 0)}ms`),
     ],
     [
-      "Average FPS usage",
+      "Average FPS",
       ...results.map(
         (result) =>
           `${roundToDecimal(getAverageFPSUsage(result.average.measures), 1)}`
@@ -99,7 +104,7 @@ export const ReportSummary = ({
       )),
     ],
     [
-      "React Native?",
+      "Framework Detection",
       ...results.map((result) => (
         <FrameworkDetection reactNativeDetected={result.reactNativeDetected} />
       )),
