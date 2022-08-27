@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  e2e:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
