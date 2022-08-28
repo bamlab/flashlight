@@ -113,7 +113,7 @@ test("e2e", async () => {
 });
 ```
 
-3. Run `yarn appium` in one tab
+3. Run `npx appium` in one tab
 4. Run `yarn jest yourtest` in a separate tab
 5. Open the JSON file generated in the web profiler:
 
