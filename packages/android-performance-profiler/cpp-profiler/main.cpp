@@ -2,11 +2,6 @@
 #include <iostream>
 #include <filesystem>
 #include <fstream>
-#include <cstdio>
-#include <memory>
-#include <stdexcept>
-#include <string>
-#include <array>
 #include <thread>
 #include <unistd.h>
 
