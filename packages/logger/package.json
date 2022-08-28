@@ -3,6 +3,13 @@
   "version": "0.1.0-alpha.8",
   "main": "dist/index.js",
   "dependencies": {
-    "kleur": "^4.1.5"
+    "kleur": "^4.1.5",
+    "luxon": "^3.0.2"
+  },
+  "bin": {
+    "perf-profiler-logger": "dist/bin.js"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.0.0"
   }
 }
