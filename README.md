@@ -11,6 +11,8 @@
 
 - [Getting started with the automated profiler](#getting-started-with-the-automated-profiler)
 - [Using Appium](#using-appium)
+- [Running in CI](#running-in-ci)
+  - [AWS Device Farm](#aws-device-farm)
 - [Flipper Plugin](#flipper-plugin)
   - [Install](#install)
 - [CLI](#cli)
@@ -28,7 +30,7 @@
 yarn add --dev @perf-profiler/e2e @perf-profiler/web-reporter
 ```
 
-2. Write a test
+2. Create a test file including a performance test
 
 For instance, here we'll be testing the start up performance of the app for 10 iterations:
 
@@ -36,6 +38,7 @@ For instance, here we'll be testing the start up performance of the app for 10 i
 import { execSync } from "child_process";
 import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
+// `npx @perf-profiler/profiler getCurrentApp` will display info for the current app
 const bundleId = "com.reactnativefeed";
 const appActivity = `${bundleId}.MainActivity`;
 
@@ -82,18 +85,20 @@ We created `@bam.tech/appium-helper` to simplify its use and you can use integra
 yarn add --dev @perf-profiler/e2e @perf-profiler/web-reporter @bam.tech/appium-helper
 ```
 
-2. Write a performance test
+2. Create a test file including a performance test
 
 ```ts
 import { AppiumDriver } from "@bam.tech/appium-helper";
 import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
+// `npx @perf-profiler/profiler getCurrentApp` will display info for the current app
 const bundleId = "com.reactnativefeed";
+const appActivity = `com.reactnativefeed.MainActivity`,
 
 test("e2e", async () => {
   const driver = await AppiumDriver.create({
     appPackage: bundleId,
-    appActivity: `${bundleId}.MainActivity`,
+    appActivity
   });
 
   const startApp: TestCase = {
@@ -121,6 +126,29 @@ test("e2e", async () => {
 yarn generate-performance-web-report results.json
 ```
 
+## Running in CI
+
+To run in CI, you'll need the CI to be connected to an Android device. An emulator running on the CI will likely be too slow, so it's best to be connected to a device farm cloud. The profiler needs full `adb` access, so only few device cloud are compatible:
+
+Our choice is **AWS Device Farm** but some other options should work as well (though they haven't been tested):
+
+- Saucelabs with Entreprise plan and [Virtual USB](https://docs.saucelabs.com/mobile-apps/features/virtual-usb/)
+- [Genymotion Cloud](https://www.genymotion.com/pricing/) (using emulators will not accurately reproduce the performance of a real device)
+
+### AWS Device Farm
+
+We've added a neat tool to seamlessly run your tests on AWS Device Farm and get the measures back:
+
+```
+export AWS_ACCESS_KEY_ID="ADD YOUR AWS KEY ID HERE" AWS_ACCESS_KEY_SECRET="ADD YOUR AWS SECRET HERE"
+
+npx @perf-profiler/aws-device-farm runTest \
+  --apkPath $TEST_FOLDER_NAME/apks/$APK_NAME.apk \
+  --deviceName "A10s" \
+  --testFolder . \
+  --testCommand "yarn jest appium"
+```
+
 ## Flipper Plugin
 
 https://user-images.githubusercontent.com/4534323/164205504-e07f4a93-25c1-4c14-82f3-5854ae11af8e.mp4
@@ -132,8 +160,6 @@ Search for `android-performance-profiler` in the Flipper marketplace![image](htt
 ## CLI
 
 Multiple commands are also available in the standalone package `android-performance-profiler`.
-
-_:warning: they will be subject to breaking changes_
 
 For instance:
 
