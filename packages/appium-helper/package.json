@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@perf-profiler/logger": "^0.1.0-alpha.8",
-    "appium": "^1.22.3",
     "webdriverio": "^6.1.22"
   }
 }
