@@ -1,10 +1,10 @@
 # Measure the performance of any Android app 🚀
 
 - 🙅 No installation required, supports even production app
-- ✨ Generates beautiful web report ([like this Flatlist/Flashlist comparison](https://bamlab.github.io/android-performance-profiler/flashlist/report.html))
+- ✨ Generates beautiful web report ([like this Flatlist/Flashlist comparison](https://bamlab.github.io/android-performance-profiler/report/complex-list/s10/report.html))
 - 💻 Via CLI, e2e test or Flipper plugin
 
-<img width="676" alt="image" src="https://user-images.githubusercontent.com/4534323/184388576-f61270ca-17dc-4688-bf72-2d747f310e7e.png">
+<img width="596" alt="image" src="https://user-images.githubusercontent.com/4534323/187192078-402c306e-4d29-465c-bdfa-f278e7f0b927.png">
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -142,10 +142,10 @@ We've added a neat tool to seamlessly run your tests on AWS Device Farm and get 
 ```
 export AWS_ACCESS_KEY_ID="ADD YOUR AWS KEY ID HERE" AWS_ACCESS_KEY_SECRET="ADD YOUR AWS SECRET HERE"
 
+# Run from your root folder, containing `node_modules`
 npx @perf-profiler/aws-device-farm runTest \
   --apkPath $TEST_FOLDER_NAME/apks/$APK_NAME.apk \
   --deviceName "A10s" \
-  --testFolder . \
   --testCommand "yarn jest appium"
 ```
 
