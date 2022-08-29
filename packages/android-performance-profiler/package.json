@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/profiler",
-  "version": "0.1.0-alpha.8",
+  "version": "0.1.0-alpha.9",
   "description": "",
   "main": "dist/src/index.js",
   "repository": {
@@ -20,7 +20,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@perf-profiler/logger": "^0.1.0-alpha.8",
+    "@perf-profiler/logger": "^0.1.0-alpha.9",
     "@perf-profiler/types": "^0.1.0-alpha.8",
     "commander": "^9.4.0",
     "lodash": "^4.17.21"
