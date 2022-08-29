@@ -16,18 +16,18 @@ import { zipTestFolder } from "./zipTestFolder";
 
 const DEFAULT_REGION = "us-west-2";
 
-const { AWS_ACCESS_KEY_ID, AWS_ACCESS_KEY_SECRET } = process.env;
+const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env;
 
-if (!AWS_ACCESS_KEY_ID || !AWS_ACCESS_KEY_SECRET) {
+if (!AWS_ACCESS_KEY_ID || !AWS_SECRET_ACCESS_KEY) {
   throw new Error(
-    "Please provide AWS_ACCESS_KEY_ID and AWS_ACCESS_KEY_SECRET environment variables"
+    "Please provide AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables"
   );
 }
 
 const client = new DeviceFarmClient({
   credentials: {
     accessKeyId: AWS_ACCESS_KEY_ID,
-    secretAccessKey: AWS_ACCESS_KEY_SECRET,
+    secretAccessKey: AWS_SECRET_ACCESS_KEY,
   },
   region: DEFAULT_REGION,
 });
