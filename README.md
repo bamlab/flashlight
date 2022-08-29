@@ -140,7 +140,7 @@ Our choice is **AWS Device Farm** but some other options should work as well (th
 We've added a neat tool to seamlessly run your tests on AWS Device Farm and get the measures back:
 
 ```
-export AWS_ACCESS_KEY_ID="ADD YOUR AWS KEY ID HERE" AWS_ACCESS_KEY_SECRET="ADD YOUR AWS SECRET HERE"
+export AWS_ACCESS_KEY_ID="ADD YOUR AWS KEY ID HERE" AWS_SECRET_ACCESS_KEY="ADD YOUR AWS SECRET HERE"
 
 # Run from your root folder, containing `node_modules`
 npx @perf-profiler/aws-device-farm runTest \
