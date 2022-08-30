@@ -1,13 +1,13 @@
 {
   "name": "@perf-profiler/aws-device-farm",
-  "version": "0.1.0-alpha.10",
+  "version": "0.1.0",
   "main": "dist/index.js",
   "bin": {
     "aws-device-farm-run-test": "dist/index.js"
   },
   "dependencies": {
     "@aws-sdk/client-device-farm": "^3.154.0",
-    "@perf-profiler/logger": "^0.1.0-alpha.9",
+    "@perf-profiler/logger": "^0.1.0",
     "axios": "^0.27.2",
     "commander": "^9.4.0"
   }
