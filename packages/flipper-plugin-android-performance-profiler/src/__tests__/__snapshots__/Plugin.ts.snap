@@ -38,7 +38,7 @@ Current CPU Usage (%)
 mqt_js
 50
 0
-com.example
+UI Thread
 24
 0
 OkHttp
@@ -845,7 +845,7 @@ exports[`displays FPS data and scoring 2`] = `
                                         id="enhanced-table-checkbox-1"
                                         scope="row"
                                       >
-                                        com.example
+                                        UI Thread
                                       </th>
                                       <td
                                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall css-tqm498-MuiTableCell-root"

@@ -1,7 +1,7 @@
 import { Measure, pollPerformanceMeasures } from "@perf-profiler/profiler";
 import { useRef, useState } from "react";
 
-export const useMeasures = (pid: string | null) => {
+export const useMeasures = (pid: string | null, bundleId: string | null) => {
   const [isMeasuring, setIsMeasuring] = useState(false);
   const [measures, setMeasures] = useState<Measure[]>([]);
   const measuresRef = useRef<Measure[]>([]);
@@ -16,11 +16,15 @@ export const useMeasures = (pid: string | null) => {
     try {
       if (pid) {
         measuresRef.current = [];
-        poll.current = pollPerformanceMeasures(pid, (measure) => {
-          // Keeping a ref here in case setMeasures is too slow
-          measuresRef.current = [...measuresRef.current, measure];
-          setMeasures(measuresRef.current);
-        });
+        poll.current = pollPerformanceMeasures(
+          pid,
+          bundleId ?? "",
+          (measure) => {
+            // Keeping a ref here in case setMeasures is too slow
+            measuresRef.current = [...measuresRef.current, measure];
+            setMeasures(measuresRef.current);
+          }
+        );
         setIsMeasuring(true);
       }
     } catch (error) {

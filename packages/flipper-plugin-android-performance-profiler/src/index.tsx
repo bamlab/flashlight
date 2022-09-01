@@ -19,7 +19,10 @@ export function devicePlugin(client: DevicePluginClient) {
 export function Component() {
   const [bundleId, setBundleId] = useState<string | null>(null);
   const pid = usePidId(bundleId);
-  const { start, stop, measures, isMeasuring, reset } = useMeasures(pid);
+  const { start, stop, measures, isMeasuring, reset } = useMeasures(
+    pid,
+    bundleId
+  );
 
   return (
     <>

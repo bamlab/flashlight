@@ -57,7 +57,7 @@ export class PerformanceMeasurer {
 
     this.timingTrace = new Trace();
 
-    this.polling = pollPerformanceMeasures(pid, (measure) => {
+    this.polling = pollPerformanceMeasures(pid, this.bundleId, (measure) => {
       if (this.shouldStop) {
         this.polling?.stop();
       }

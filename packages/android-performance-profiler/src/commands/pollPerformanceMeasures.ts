@@ -8,6 +8,7 @@ import { pollPerformanceMeasures as cppPollPerformanceMeasures } from "./cppProf
 
 export const pollPerformanceMeasures = (
   pid: string,
+  bundleId: string,
   dataCallback: (data: Measure) => void
 ) => {
   let initialTime: number | null = null;
@@ -18,7 +19,7 @@ export const pollPerformanceMeasures = (
   return cppPollPerformanceMeasures(
     pid,
     ({ cpu, ram: ramStr, gfxinfo, timestamp, adbExecTime }) => {
-      const subProcessesStats = processOutput(cpu);
+      const subProcessesStats = processOutput(cpu, bundleId);
 
       const ram = processRamOutput(ramStr);
       const fps = processFpsOutput(gfxinfo);

@@ -11,7 +11,7 @@ const pid = getPidId(bundleId) || "";
 
 const measures: Measure[] = [];
 
-const polling = pollPerformanceMeasures(pid, (measure) => {
+const polling = pollPerformanceMeasures(pid, bundleId, (measure) => {
   measures.push(measure);
   console.log(`JS Thread CPU Usage: ${measure.cpu.perName["(mqt_js)"]}%`);
   console.log(`RAM Usage: ${measure.ram}MB`);
