@@ -44,10 +44,12 @@ export class AppiumDriver {
   static async create({
     appPackage,
     appActivity,
+    hostName,
     ...clientCapabilities
   }: webdriver.BrowserObject["capabilities"] & {
     appPackage: string;
     appActivity: string;
+    hostName?: string;
   }) {
     const capabilities = {
       platformName: "Android",
@@ -66,6 +68,11 @@ export class AppiumDriver {
       port: 4723,
       logLevel: "warn",
       capabilities,
+      /**
+       * @param hostName requires to be 0.0.0.0 in Mac.
+       * Default is localhost
+       */
+      hostname: hostName,
     });
 
     Logger.info(`Appium capabilities: ${JSON.stringify(capabilities)}`);
