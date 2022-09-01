@@ -68,10 +68,6 @@ export class AppiumDriver {
       port: 4723,
       logLevel: "warn",
       capabilities,
-      /**
-       * @param hostName requires to be 0.0.0.0 in Mac.
-       * Default is localhost
-       */
       hostname: hostName,
     });
 

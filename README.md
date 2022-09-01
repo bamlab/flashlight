@@ -98,7 +98,12 @@ const appActivity = `com.reactnativefeed.MainActivity`,
 test("e2e", async () => {
   const driver = await AppiumDriver.create({
     appPackage: bundleId,
-    appActivity
+    appActivity,
+    /**
+     * @param hostName requires to be 0.0.0.0 in Mac.
+     * Default is localhost
+     */
+    hostName: '0.0.0.0'
   });
 
   const startApp: TestCase = {
