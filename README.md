@@ -99,14 +99,6 @@ test("e2e", async () => {
   const driver = await AppiumDriver.create({
     appPackage: bundleId,
     appActivity,
-    remoteServerOptions: {
-    /**
-     * @param hostName
-     * Default is localhost
-     * Can be set to 0.0.0.0 for Mac.
-     */
-      hostName: '0.0.0.0'
-    }
   });
 
   const startApp: TestCase = {
