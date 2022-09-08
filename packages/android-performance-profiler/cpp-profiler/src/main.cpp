@@ -4,18 +4,13 @@
 #include <fstream>
 #include <thread>
 #include <unistd.h>
+#include "utils.h"
 
 using std::cout;
 using std::endl;
 using std::string;
-using namespace std::chrono;
 
 namespace fs = std::__fs::filesystem;
-
-void log(const string &msg)
-{
-    cout << msg << endl;
-}
 
 void readFile(string filePath)
 {
@@ -31,7 +26,7 @@ void readFile(string filePath)
     }
     else
     {
-        cout << "OH NOOOO";
+        cout << "C++ Error, file couldn't be opened";
     }
 }
 
@@ -71,16 +66,10 @@ long long printPerformanceMeasure(string pid)
     printGfxInfoStats(pid);
     log(separator);
 
-    const auto p1 = std::chrono::system_clock::now();
-
-    cout << "Timestamp: "
-         << std::chrono::duration_cast<std::chrono::milliseconds>(
-                p1.time_since_epoch())
-                .count()
-         << '\n';
+    logTimestamp();
 
     auto end = std::chrono::system_clock::now();
-    auto duration = duration_cast<milliseconds>(end - start);
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
     cout << "ADB EXEC TIME: " << duration.count() << endl;
     log("=STOP MEASURE=");
 
