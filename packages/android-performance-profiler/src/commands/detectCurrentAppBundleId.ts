@@ -6,7 +6,7 @@ export const detectCurrentAppBundleId = () => {
 
   const commandOutput = executeCommand(command);
 
-  const regexMatching = commandOutput.match(/name=([\w.]+)\/([\w.]+)\$/);
+  const regexMatching = commandOutput.match(/name=([\w.]+)\/([\w.]+)\$?/);
 
   if (!regexMatching) {
     throw new Error(

@@ -68,7 +68,13 @@ const test = async () => {
 test();
 ```
 
-3. Open the JSON file generated in the web profiler:
+3. Run your test:
+
+```sh
+yarn jest yourtest
+```
+
+4. Open the JSON file generated in the web profiler:
 
 ```sh
 yarn generate-performance-web-report results.json

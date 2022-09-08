@@ -18,7 +18,7 @@ export const pollPerformanceMeasures = (
   return cppPollPerformanceMeasures(
     pid,
     ({ cpu, ram: ramStr, gfxinfo, timestamp, adbExecTime }) => {
-      const subProcessesStats = processOutput(cpu);
+      const subProcessesStats = processOutput(cpu, pid);
 
       const ram = processRamOutput(ramStr);
       const fps = processFpsOutput(gfxinfo);
