@@ -69,7 +69,7 @@ export class AppiumDriver {
       port: 4723,
       logLevel: "warn",
       capabilities,
-      hostname: remoteServerOptions?.hostName,
+      hostname: remoteServerOptions?.hostName ?? '0.0.0.0',
     });
 
     Logger.info(`Appium capabilities: ${JSON.stringify(capabilities)}`);
