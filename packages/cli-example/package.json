@@ -4,7 +4,7 @@
   "version": "0.1.0-alpha.5",
   "main": "dist/index.js",
   "dependencies": {
-    "@perf-profiler/reporter": "^0.1.0-alpha.6",
-    "@perf-profiler/profiler": "^0.1.0-alpha.6"
+    "@perf-profiler/reporter": "*",
+    "@perf-profiler/profiler": "*"
   }
 }
