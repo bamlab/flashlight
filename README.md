@@ -104,7 +104,7 @@ const appActivity = `com.reactnativefeed.MainActivity`,
 test("e2e", async () => {
   const driver = await AppiumDriver.create({
     appPackage: bundleId,
-    appActivity
+    appActivity,
   });
 
   const startApp: TestCase = {

@@ -2,6 +2,7 @@ import * as webdriver from "webdriverio";
 import { Logger } from "@perf-profiler/logger";
 import { GestureHandler } from "./GestureHandler";
 import { execSync } from "child_process";
+import { RemoteServerOptions } from "@perf-profiler/types";
 
 const executeCommand = (command: string): string => {
   return execSync(command).toString();
@@ -44,10 +45,12 @@ export class AppiumDriver {
   static async create({
     appPackage,
     appActivity,
+    remoteServerOptions,
     ...clientCapabilities
   }: webdriver.BrowserObject["capabilities"] & {
     appPackage: string;
     appActivity: string;
+    remoteServerOptions?: RemoteServerOptions;
   }) {
     const capabilities = {
       platformName: "Android",
@@ -66,6 +69,7 @@ export class AppiumDriver {
       port: 4723,
       logLevel: "warn",
       capabilities,
+      hostname: remoteServerOptions?.hostName ?? "0.0.0.0",
     });
 
     Logger.info(`Appium capabilities: ${JSON.stringify(capabilities)}`);
