@@ -13,5 +13,14 @@
   ],
   "useWorkspaces": false,
   "npmClient": "yarn",
-  "version": "0.2.0"
+  "version": "independent",
+  "command": {
+    "publish": {
+      "allowBranch": "main",
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "message": "chore: publish",
+      "ignoreChanges": ["**/__tests__/**", "**/*.md", "**/*example/**"]
+    }
+  }
 }
