@@ -34,7 +34,3 @@ export interface AveragedTestCaseResult {
   averageHighCpuUsage: { [processName: string]: number };
   reactNativeDetected: boolean;
 }
-
-export interface RemoteServerOptions {
-  hostName?: string;
-}

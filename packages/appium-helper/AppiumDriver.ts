@@ -2,7 +2,10 @@ import * as webdriver from "webdriverio";
 import { Logger } from "@perf-profiler/logger";
 import { GestureHandler } from "./GestureHandler";
 import { execSync } from "child_process";
-import { RemoteServerOptions } from "@perf-profiler/types";
+
+export interface RemoteServerOptions {
+  hostName?: string;
+}
 
 const executeCommand = (command: string): string => {
   return execSync(command).toString();
