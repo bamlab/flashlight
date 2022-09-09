@@ -24,7 +24,8 @@
     "run-cli-example": "node packages/cli-example",
     "build": "yarn clean-dist && tsc --build && yarn workspace @perf-profiler/web-reporter build && yarn workspace flipper-plugin-android-performance-profiler build",
     "release": "yarn build && lerna publish",
-    "test:e2e": "mkdir -p report && npx @perf-profiler/aws-device-farm runTest --apkPath .github/workflows/example.apk --projectName 'Flashlight - Open Source CI' --reportDestinationPath report --testCommand 'npx ts-node packages/e2e-example/appium-ci.test.ts'"
+    "test:e2e": "mkdir -p report && npx @perf-profiler/aws-device-farm runTest --apkPath .github/workflows/example.apk --projectName 'Flashlight - Open Source CI' --reportDestinationPath report --testCommand 'npx ts-node packages/e2e-example/appium-ci.test.ts'",
+    "prepare": "husky install"
   },
   "homepage": "https://github.com/bamlab/react-native-performance#readme",
   "devDependencies": {
@@ -32,10 +33,16 @@
     "eslint": "^8.0.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.26.0",
+    "husky": ">=6",
     "jest": "^27.5.1",
     "lerna": "^4.0.0",
+    "lint-staged": ">=10",
     "prettier": "^2.7.1",
     "ts-jest": "^27.1.4",
     "typescript": "^4.7.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{ts,tsx,md,json}": "prettier --write"
   }
 }
