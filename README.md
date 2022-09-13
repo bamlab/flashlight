@@ -150,7 +150,7 @@ export AWS_ACCESS_KEY_ID="ADD YOUR AWS KEY ID HERE" AWS_SECRET_ACCESS_KEY="ADD Y
 
 # Run from your root folder, containing `node_modules`
 npx @perf-profiler/aws-device-farm runTest \
-  --apkPath $TEST_FOLDER_NAME/apks/$APK_NAME.apk \
+  --apkPath app-release.apk \
   --deviceName "A10s" \
   --testCommand "yarn jest appium"
 ```
