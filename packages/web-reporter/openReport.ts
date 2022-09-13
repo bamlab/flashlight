@@ -33,16 +33,15 @@ const getJsonPaths = () => {
 
   return paths
     .map((path) => {
-      const fullPath = `${process.cwd()}/${path}`;
-      const isDirectory = fs.lstatSync(fullPath).isDirectory();
+      const isDirectory = fs.lstatSync(path).isDirectory();
 
       if (isDirectory) {
         return fs
-          .readdirSync(fullPath)
+          .readdirSync(path)
           .filter((file) => file.endsWith(".json"))
-          .map((file) => `${fullPath}/${file}`);
+          .map((file) => `${path}/${file}`);
       } else {
-        return fullPath;
+        return path;
       }
     })
     .flat();
