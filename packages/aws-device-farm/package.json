@@ -8,7 +8,6 @@
   "dependencies": {
     "@aws-sdk/client-device-farm": "^3.154.0",
     "@perf-profiler/logger": "^0.2.0",
-    "axios": "^0.27.2",
     "commander": "^9.4.0"
   }
 }
