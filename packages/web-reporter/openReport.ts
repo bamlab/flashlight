@@ -26,4 +26,8 @@ const htmlFilePath = writeReport({
 });
 
 Logger.success(`Opening report: ${htmlFilePath}`);
-execSync(`open ${htmlFilePath}`);
+try {
+  execSync(`open ${htmlFilePath}`);
+} catch {
+  Logger.warn(`Failed to run "open ${htmlFilePath}"`);
+}
