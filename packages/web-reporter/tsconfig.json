@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "./dist"
   },
-  "include": ["./src/**/*.ts*", "./openReport.ts"],
+  "include": ["./src/**/*.ts*", "*.ts"],
   "exclude": ["./dist/**/*"]
 }
