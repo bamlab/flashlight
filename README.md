@@ -27,14 +27,15 @@
 1. Install the profiler
 
 ```sh
-yarn add --dev @perf-profiler/e2e @perf-profiler/web-reporter
+yarn add --dev @perf-profiler/e2e
 ```
 
-2. Create a test file including a performance test
+2. Create a TS script including a performance test
 
 For instance, here we'll be testing the start up performance of the app for 10 iterations:
 
 ```ts
+// performance.ts
 import { execSync } from "child_process";
 import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
@@ -68,16 +69,16 @@ const test = async () => {
 test();
 ```
 
-3. Run your test:
+3. Run your script:
 
 ```sh
-yarn jest yourtest
+npx ts-node performance.ts
 ```
 
 4. Open the JSON file generated in the web profiler:
 
 ```sh
-yarn generate-performance-web-report results.json
+npx @perf-profiler/web-reporter results.json
 ```
 
 ## Using Appium
@@ -88,7 +89,7 @@ We created `@bam.tech/appium-helper` to simplify its use and you can use integra
 1. Install
 
 ```
-yarn add --dev @perf-profiler/e2e @perf-profiler/web-reporter @bam.tech/appium-helper
+yarn add --dev @perf-profiler/e2e @bam.tech/appium-helper
 ```
 
 2. Create a test file including a performance test
@@ -129,7 +130,7 @@ test("e2e", async () => {
 5. Open the JSON file generated in the web profiler:
 
 ```sh
-yarn generate-performance-web-report results.json
+npx @perf-profiler/web-reporter results.json
 ```
 
 ## Running in CI
