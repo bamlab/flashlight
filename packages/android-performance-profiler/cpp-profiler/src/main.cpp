@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include <filesystem>
+#include "atrace.h"
 #include <fstream>
 #include <thread>
 #include <unistd.h>
@@ -47,11 +48,6 @@ void printMemoryStats(string pid)
     readFile(memoryFilePath);
 }
 
-void printGfxInfoStats(string pid)
-{
-    system(("dumpsys gfxinfo " + pid).c_str());
-}
-
 long long printPerformanceMeasure(string pid)
 {
     auto start = std::chrono::system_clock::now();
@@ -62,8 +58,7 @@ long long printPerformanceMeasure(string pid)
     log(separator);
     printMemoryStats(pid);
     log(separator);
-    // Gfxinfo is the big bottleneck obviously (~80ms on J3), the rest is ~10ms
-    printGfxInfoStats(pid);
+    printATraceLines();
     log(separator);
 
     logTimestamp();
@@ -104,7 +99,11 @@ int main(int argc, char **argv)
 
     if (methodName == "pollPerformanceMeasures")
     {
+        string pid = argv[2];
+
+        std::thread aTraceReadThread(readATraceThread, pid);
         pollPerformanceMeasures(argv);
+        aTraceReadThread.join();
     }
     else if (methodName == "printPerformanceMeasure")
     {
