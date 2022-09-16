@@ -12,15 +12,32 @@ export const executeCommand = (command: string): string => {
   }
 };
 
+export const executeAsync = (command: string) => {
+  const parts = command.split(" ");
+
+  const process = spawn(parts[0], parts.slice(1));
+
+  process.stdout?.on("end", () => {
+    Logger.debug(`Process for ${command} ended`);
+  });
+
+  process.on("close", (code) => {
+    Logger.debug(`child process exited with code ${code}`);
+  });
+
+  process.on("error", (err) => {
+    Logger.error(`Process for ${command} errored with ${err}`);
+  });
+
+  return process;
+};
+
 export const executeLongRunningProcess = (
   command: string,
   delimiter: string,
   onData: (data: string) => void
 ) => {
-  const parts = command.split(" ");
-
-  const process = spawn(parts[0], parts.slice(1));
-
+  const process = executeAsync(command);
   let currentChunk = "";
 
   process.stdout?.on("data", (data: ReadableStream<string>) => {
@@ -37,18 +54,6 @@ export const executeLongRunningProcess = (
         currentChunk.length - 1 * dataSplits[dataSplits.length - 1].length
       );
     }
-  });
-
-  process.stdout?.on("end", () => {
-    Logger.debug("Polling ended");
-  });
-
-  process.on("close", (code) => {
-    Logger.debug(`child process exited with code ${code}`);
-  });
-
-  process.on("error", (err) => {
-    Logger.error(`Pollling errored with ${err}`);
   });
 
   return {
