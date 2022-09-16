@@ -12,10 +12,12 @@ const runTest = async () => {
   const testCase: TestCase = {
     beforeTest: async () => {
       driver.stopApp();
+      driver.startApp();
+      await driver.findElementById("kill_ui");
     },
     run: async () => {
-      driver.startApp();
       await driver.clickElementById("kill_js");
+      await driver.clickElementById("kill_ui");
     },
     duration: 10000,
   };
