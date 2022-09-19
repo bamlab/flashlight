@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.2.1...@perf-profiler/web-reporter@0.2.2) (2022-09-19)
+
+### Bug Fixes
+
+- **web-reporter:** don't fail if open command doesn't exist ([#26](https://github.com/bamlab/android-performance-profiler/issues/26)) ([4b83771](https://github.com/bamlab/android-performance-profiler/commit/4b83771c916da8b433222a6376b6b1180edfc42d))
+
 ## 0.2.1 (2022-09-13)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/bamlab/android-performance-profiler/compare/@bam.tech/appium-helper@0.3.0...@bam.tech/appium-helper@0.3.1) (2022-09-19)
+
+### Bug Fixes
+
+- **adb:** replace start command by monkey ([#29](https://github.com/bamlab/android-performance-profiler/issues/29)) ([416ba00](https://github.com/bamlab/android-performance-profiler/commit/416ba003c140ccb79ae168de5726846ae7060c69))
+
 # 0.3.0 (2022-09-09)
 
 ### Features
