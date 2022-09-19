@@ -10,9 +10,15 @@ import {
 const CppProfilerName = `BAMPerfProfiler`;
 const deviceProfilerPath = `/data/local/tmp/${CppProfilerName}`;
 
-const binaryFolder = `${__dirname}/../..${
-  __dirname.includes("dist") ? "/.." : ""
-}/cpp-profiler/bin`;
+// Since Flipper uses esbuild, we copy the bin folder directly
+// into the Flipper plugin directory
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const binaryFolder = global.Flipper
+  ? `${__dirname}/bin`
+  : `${__dirname}/../..${
+      __dirname.includes("dist") ? "/.." : ""
+    }/cpp-profiler/bin`;
 
 let hasInstalledProfiler = false;
 let aTraceProcess: ChildProcess | null = null;

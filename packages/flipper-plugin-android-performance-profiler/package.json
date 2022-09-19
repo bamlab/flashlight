@@ -21,8 +21,8 @@
   "scripts": {
     "lint": "flipper-pkg lint",
     "prepack": "flipper-pkg lint && flipper-pkg bundle",
-    "build": "flipper-pkg bundle",
-    "watch": "flipper-pkg bundle --watch",
+    "build": "cp -R ../android-performance-profiler/cpp-profiler/bin dist && flipper-pkg bundle",
+    "watch": "cp -R ../android-performance-profiler/cpp-profiler/bin dist && flipper-pkg bundle --watch",
     "test": "tsc --noEmit"
   },
   "dependencies": {
