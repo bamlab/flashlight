@@ -2,11 +2,12 @@ import { execSync } from "child_process";
 import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
 const bundleId = "com.reactnativefeed";
-const appActivity = `${bundleId}.MainActivity`;
 
 const stopApp = () => execSync(`adb shell am force-stop ${bundleId}`);
 const startApp = () =>
-  execSync(`adb shell am start ${bundleId}/${appActivity}`);
+  execSync(
+    `adb shell monkey -p ${bundleId} -c android.intent.category.LAUNCHER 1`
+  );
 
 const startTestCase: TestCase = {
   duration: 10000,

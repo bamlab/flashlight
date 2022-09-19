@@ -81,7 +81,9 @@ export class AppiumDriver {
   }
 
   startApp() {
-    executeCommand(`adb shell am start ${this.bundleId}/${this.appActivity}`);
+    executeCommand(
+      `adb shell monkey -p ${this.bundleId} -c android.intent.category.LAUNCHER 1`
+    );
   }
 
   restartApp() {
