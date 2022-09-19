@@ -13,8 +13,8 @@ export const CircularProgressWithLabel = ({
     <Box position="relative" display="inline-flex">
       <CircularProgress variant="determinate" {...props} style={{ color }} />
       <Box
-        top={(props.size / 80) * 6}
-        left={(props.size / 80) * 3}
+        top={0}
+        left={0}
         bottom={0}
         right={0}
         position="absolute"
@@ -29,7 +29,6 @@ export const CircularProgressWithLabel = ({
           style={{
             fontSize: 28,
             color,
-            fontFamily: "josefin-sans, sans-serif",
           }}
         >{`${Math.round(props.value)}`}</Typography>
       </Box>
