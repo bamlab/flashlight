@@ -7242,7 +7242,7 @@ flipper-pkg-lib@0.140.0:
     metro-minify-terser "^0.66.2"
     npm-packlist "^4.0.0"
 
-flipper-pkg@latest:
+flipper-pkg@0.140.0:
   version "0.140.0"
   resolved "https://registry.yarnpkg.com/flipper-pkg/-/flipper-pkg-0.140.0.tgz#3a2b3654c98bf4b76c7efa62c56b0a4deeb438f8"
   integrity sha512-VnfsmVA1tD6xscC4iUATzXmjps+5wEHxwtbheV7OaZeA3HCx8IbecfI1UqYpwKfq0Z3mPhOhd7CuigmWSg2q4w==
@@ -7280,7 +7280,7 @@ flipper-plugin-lib@0.140.0:
     semver "^7.3.5"
     tmp "^0.2.1"
 
-flipper-plugin@latest:
+flipper-plugin@0.140.0:
   version "0.140.0"
   resolved "https://registry.yarnpkg.com/flipper-plugin/-/flipper-plugin-0.140.0.tgz#b918193643ac3e402dbb8f86b9a3420cbaa1c227"
   integrity sha512-QckTvMzfjWgWdk51galhjHexGB4YfxHNddwvRpuCMc7DmTRHJFV2ZHFKUuZW3bq1eYWb1FqcFRNVmaZ1fzVubA==
