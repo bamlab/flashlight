@@ -333,11 +333,11 @@ exports[`displays FPS data and scoring 2`] = `
                     </svg>
                   </span>
                   <div
-                    class="MuiBox-root css-1mo2re"
+                    class="MuiBox-root css-1o8dslu"
                   >
                     <div
                       class="MuiTypography-root MuiTypography-caption css-4ii6uc-MuiTypography-root"
-                      style="font-size: 28px; color: rgb(255, 65, 54); font-family: josefin-sans, sans-serif;"
+                      style="font-size: 28px; color: rgb(255, 65, 54);"
                     >
                       45
                     </div>
