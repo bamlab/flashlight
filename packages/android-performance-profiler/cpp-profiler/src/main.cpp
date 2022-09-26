@@ -27,7 +27,7 @@ void readFile(string filePath)
     }
     else
     {
-        cout << "C++ Error, file couldn't be opened";
+        cout << "C++ Error, file couldn't be opened" << endl;
     }
 }
 

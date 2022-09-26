@@ -11,11 +11,10 @@ void log(const std::string &msg)
 
 void logTimestamp()
 {
-  const auto p1 = std::chrono::system_clock::now();
+  const auto now = std::chrono::system_clock::now();
+  const auto timestamp = std::chrono::duration_cast<std::chrono::milliseconds>(
+                             now.time_since_epoch())
+                             .count();
 
-  cout << "Timestamp: "
-       << std::chrono::duration_cast<std::chrono::milliseconds>(
-              p1.time_since_epoch())
-              .count()
-       << endl;
+  cout << "Timestamp: " << timestamp << endl;
 }
