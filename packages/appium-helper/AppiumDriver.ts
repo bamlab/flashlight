@@ -8,7 +8,14 @@ export interface RemoteServerOptions {
 }
 
 const executeCommand = (command: string): string => {
-  return execSync(command).toString();
+  try {
+    return execSync(command, { stdio: "pipe" }).toString();
+  } catch (error: any) {
+    Logger.debug(
+      `Error while executing command "${command}": ${error.stderr.toString()}`
+    );
+    throw error;
+  }
 };
 
 const TEN_MINUTES = 600000;
