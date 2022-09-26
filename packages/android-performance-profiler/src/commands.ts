@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { Logger } from "@perf-profiler/logger";
+import { Measure } from "@perf-profiler/types";
 import {
   getCpuClockTick,
   getRAMPageSize,
@@ -51,6 +52,56 @@ program
   .description("Retrieves ABI architecture of the device")
   .action(() => {
     console.log(getAbi());
+  });
+
+program
+  .command("profile")
+  .description("Retrieves ABI architecture of the device")
+  .option(
+    "--bundleId <bundleId>",
+    "Bundle id for the app (e.g. com.twitter.android). Defaults to the currently focused app."
+  )
+  .option("--fps", "Display FPS")
+  .option("--ram", "Display RAM Usage")
+  .option(
+    "--threadNames <threadNames...>",
+    "Display CPU Usage for a given threads (e.g. (mqt_js))"
+  )
+  .action((options) => {
+    const {
+      pollPerformanceMeasures,
+      // Makes sure we don't start Atrace by just requiring
+      // A better fix would be to not run atrace when requiring the file
+      // eslint-disable-next-line @typescript-eslint/no-var-requires
+    } = require("./commands/pollPerformanceMeasures");
+
+    const bundleId =
+      options.bundleId || getPidId(detectCurrentAppBundleId().bundleId);
+
+    pollPerformanceMeasures(bundleId, (measure: Measure) => {
+      const headers: string[] = [];
+      const values: number[] = [];
+
+      if (options.fps) {
+        headers.push("FPS");
+        values.push(measure.fps);
+      }
+
+      if (options.ram) {
+        headers.push("RAM");
+        values.push(measure.ram);
+      }
+
+      if (options.threadNames) {
+        options.threadNames.forEach((thread: string) => {
+          headers.push(`CPU ${thread}`);
+          values.push(measure.cpu.perName[thread]);
+        });
+      }
+
+      console.log(headers.join("|"));
+      console.log(values.join("|"));
+    });
   });
 
 program.parse();
