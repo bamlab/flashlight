@@ -197,16 +197,6 @@ setTimeout(() => {
 }, 10000);
 ```
 
-## Getting FPS Data
-
-FPS debug should be enabled automatically when you run a test. If it doesn't work on your device, follow the steps below:
-
-In developer options, you need to set _Profile HWUI rendering_ to `In adb shell dumpsys gfxinfo`
-
-<img width="453" alt="image" src="https://user-images.githubusercontent.com/4534323/182430625-e051c5aa-8153-46ad-a3f2-b095a2dadf25.png">
-
-Note that this method of recording FPS supports only Native (including RN) apps.
-
 ## Contributing
 
 ### web-reporter

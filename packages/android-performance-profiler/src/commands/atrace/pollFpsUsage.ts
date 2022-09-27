@@ -1,0 +1,109 @@
+export const parseLine = (line: string) => {
+  let regexMatching = line.match(
+    / (\d+\.\d+): tracing_mark_write: ([A-Z])(.*)/
+  );
+
+  if (!regexMatching) {
+    regexMatching = line.match(/ (\d+\.\d+): (.*)/);
+
+    if (!regexMatching) {
+      throw new Error(`Could not parse ATrace line "${line}"`);
+    }
+  }
+
+  const [, timestamp, beginOrEnd, methodName] = regexMatching;
+
+  return {
+    timestamp: parseFloat(timestamp) * 1000,
+    ending: beginOrEnd === "E",
+    methodName,
+  };
+};
+
+// At some point we might want to change this to adapt to 90fps or 120fps devices
+const TARGET_FRAME_RATE = 60;
+const TARGET_FRAME_TIME = 1000 / TARGET_FRAME_RATE;
+
+export class FrameTimeParser {
+  private methodStartedCount = 0;
+  private doFrameStartedTimeStamp: number | null = null;
+
+  getFrameTimes(
+    output: string,
+    pid: string
+  ): {
+    frameTimes: number[];
+    interval: number;
+  } {
+    const lines = output.split("\n").filter(Boolean);
+
+    if (lines.length === 0)
+      return {
+        frameTimes: [],
+        interval: 500,
+      };
+
+    const frameTimes: number[] = [];
+
+    lines.forEach((line) => {
+      if (!line.includes("-" + pid + " ")) return;
+
+      const { timestamp, ending, methodName } = parseLine(line);
+
+      if (ending) {
+        this.methodStartedCount--;
+        if (this.methodStartedCount <= 0) {
+          if (this.doFrameStartedTimeStamp) {
+            frameTimes.push(timestamp - this.doFrameStartedTimeStamp);
+            this.doFrameStartedTimeStamp = null;
+          }
+
+          this.methodStartedCount = 0;
+        }
+      } else {
+        if (methodName.includes("Choreographer#doFrame")) {
+          this.methodStartedCount = 1;
+          this.doFrameStartedTimeStamp = timestamp;
+        } else {
+          this.methodStartedCount++;
+        }
+      }
+    });
+
+    return {
+      frameTimes,
+      interval:
+        parseLine(lines[lines.length - 1]).timestamp -
+        parseLine(lines[0]).timestamp,
+    };
+  }
+
+  static getFps(
+    frameTimes: number[],
+    timeInterval: number,
+    uiCpuUsage: number
+  ) {
+    const frameCount = frameTimes.length;
+
+    const totalFrameTime = frameTimes.reduce(
+      (sum, time) => sum + Math.max(TARGET_FRAME_TIME, time),
+      0
+    );
+
+    /**
+     * This is an approximation of idle time. When the user is not doing anything
+     * and the app is not drawing any frames, we aim to set the value to 60FPS
+     *
+     * In RN apps, Choreographer#doFrame is always called, but for other apps
+     * it might not be called, either because UI thread is too busy or because
+     * the app is just not doing anything
+     */
+    const idleTime = (timeInterval - totalFrameTime) * (1 - uiCpuUsage / 100);
+    // We add frame count in idle time as if we were running at 60fps still
+    const idleTimeFrameCount = (idleTime / 1000) * TARGET_FRAME_RATE;
+
+    const fps = ((frameCount + idleTimeFrameCount) / timeInterval) * 1000;
+
+    return Math.min(TARGET_FRAME_RATE, fps);
+  }
+}

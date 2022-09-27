@@ -3,7 +3,7 @@ import { Measure } from "@perf-profiler/types";
 import { CpuMeasureAggregator } from "./cpu/CpuMeasureAggregator";
 import { processOutput } from "./cpu/getCpuStatsByProcess";
 import { processOutput as processRamOutput } from "./ram/pollRamUsage";
-import { processOutput as processFpsOutput } from "./gfxInfo/pollFpsUsage";
+import { FrameTimeParser } from "./atrace/pollFpsUsage";
 import { pollPerformanceMeasures as cppPollPerformanceMeasures } from "./cppProfiler";
 
 export const pollPerformanceMeasures = (
@@ -14,14 +14,16 @@ export const pollPerformanceMeasures = (
   let previousTime: number | null = null;
 
   const cpuMeasuresAggregator = new CpuMeasureAggregator();
+  const frameTimeParser = new FrameTimeParser();
 
   return cppPollPerformanceMeasures(
     pid,
-    ({ cpu, ram: ramStr, gfxinfo, timestamp, adbExecTime }) => {
+    ({ cpu, ram: ramStr, atrace, timestamp, adbExecTime }) => {
       const subProcessesStats = processOutput(cpu, pid);
 
       const ram = processRamOutput(ramStr);
-      const fps = processFpsOutput(gfxinfo);
+      const { frameTimes, interval: atraceInterval } =
+        frameTimeParser.getFrameTimes(atrace, pid);
 
       if (initialTime) {
         Logger.debug(`ADB Exec time:${adbExecTime}ms`);
@@ -36,6 +38,17 @@ export const pollPerformanceMeasures = (
           subProcessesStats,
           interval
         );
+
+        const fps = FrameTimeParser.getFps(
+          frameTimes,
+          atraceInterval,
+          Math.max(
+            cpuMeasures.perName["UI Thread"] || 0,
+            // Hack for Flutter apps - if this thread is heavy app will be laggy
+            cpuMeasures.perName["(1.ui)"] || 0
+          )
+        );
+
         dataCallback({
           cpu: cpuMeasures,
           fps,

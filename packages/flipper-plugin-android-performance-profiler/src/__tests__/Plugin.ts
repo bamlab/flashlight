@@ -37,6 +37,7 @@ jest.mock("child_process", () => {
           case "adb shell getprop ro.product.cpu.abi":
             return "arm64-v8a";
           case "adb shell setprop debug.hwui.profile true":
+          case "adb shell atrace --async_stop 1>/dev/null":
             return "";
           default:
             console.error(`Unknown command: ${command}`);
@@ -70,6 +71,12 @@ const mockSpawn = (): { stdout: EventEmitter } => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
+  mockProcess.kill = () => {
+    //
+  };
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   return mockProcess;
 };
 
@@ -83,8 +90,8 @@ const emitMeasures = () => {
       }.txt`,
       "utf8"
     );
-    const gfxOutput: string = require("fs").readFileSync(
-      `${__dirname}/sample-gfxinfo-output.txt`,
+    const aTraceOutput: string = require("fs").readFileSync(
+      `${__dirname}/sample-atrace-output.txt`,
       "utf8"
     );
 
@@ -95,7 +102,7 @@ ${cpuOutput}
 =SEPARATOR=
 4430198 96195 58113 3 0 398896 0
 =SEPARATOR=
-${gfxOutput}
+${aTraceOutput}
 =SEPARATOR=
 Timestamp: ${1651248790047 + measureIndex * 500}
 ADB EXEC TIME: ${42}
@@ -137,4 +144,6 @@ test("displays FPS data and scoring", async () => {
   await screen.findByText("Threads");
   expect(getText(renderer.baseElement as HTMLBodyElement)).toMatchSnapshot();
   expect(renderer.baseElement).toMatchSnapshot();
+
+  fireEvent.click(screen.getByText("Stop Measuring"));
 });
