@@ -75,10 +75,10 @@ program
       // eslint-disable-next-line @typescript-eslint/no-var-requires
     } = require("./commands/pollPerformanceMeasures");
 
-    const bundleId =
-      options.bundleId || getPidId(detectCurrentAppBundleId().bundleId);
+    const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
+    const pid = getPidId(bundleId);
 
-    pollPerformanceMeasures(bundleId, (measure: Measure) => {
+    pollPerformanceMeasures(pid, (measure: Measure) => {
       const headers: string[] = [];
       const values: number[] = [];
 
