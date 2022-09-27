@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@bam.tech/appium-helper@0.3.1...@bam.tech/appium-helper@0.4.0) (2022-09-27)
+
+### Features
+
+- **profiler:** improve fps accuracy by using atrace for reporting ([#28](https://github.com/bamlab/android-performance-profiler/issues/28)) ([ad161d5](https://github.com/bamlab/android-performance-profiler/commit/ad161d53b6d219242641e33e5d1f8214ad0f5f6c))
+
 ## [0.3.1](https://github.com/bamlab/android-performance-profiler/compare/@bam.tech/appium-helper@0.3.0...@bam.tech/appium-helper@0.3.1) (2022-09-19)
 
 ### Bug Fixes
