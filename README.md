@@ -167,7 +167,15 @@ Search for `android-performance-profiler` in the Flipper marketplace![image](htt
 
 ## CLI
 
-Multiple commands are also available in the standalone package `android-performance-profiler`.
+You can profile directly in CLI with:
+
+```
+npx @perf-profiler/profiler profile --fps --ram --threadNames "(mqt_js)" "UI Thread"
+```
+
+You can also use a custom script:
+
+### Via Custom script
 
 For instance:
 
