@@ -8,7 +8,7 @@ module.exports = {
     "\\.snap$",
     "/node_modules/",
     "/dist/",
-    "/e2e-example/",
+    "/examples/e2e/",
   ],
   testEnvironment: "jsdom",
   collectCoverageFrom: [
