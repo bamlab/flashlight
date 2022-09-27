@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/bamlab/react-native-performance/compare/@perf-profiler/profiler@0.3.0...@perf-profiler/profiler@0.3.1) (2022-09-27)
+
+### Bug Fixes
+
+- **profiler:** fix bundle id option in profile command ([595060d](https://github.com/bamlab/react-native-performance/commit/595060d513073d06489ae2ebd0bcca25e546a7e2))
+
 # 0.3.0 (2022-09-27)
 
 ### Features
