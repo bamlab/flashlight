@@ -21,7 +21,6 @@ export const pollPerformanceMeasures = (
     ({ cpu, ram: ramStr, atrace, timestamp, adbExecTime }) => {
       const subProcessesStats = processOutput(cpu, pid);
 
-      const ram = processRamOutput(ramStr);
       const { frameTimes, interval: atraceInterval } =
         frameTimeParser.getFrameTimes(atrace, pid);
 
@@ -48,6 +47,8 @@ export const pollPerformanceMeasures = (
             cpuMeasures.perName["(1.ui)"] || 0
           )
         );
+
+        const ram = processRamOutput(ramStr);
 
         dataCallback({
           cpu: cpuMeasures,

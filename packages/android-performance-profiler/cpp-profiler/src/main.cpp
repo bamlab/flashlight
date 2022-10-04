@@ -5,6 +5,7 @@
 #include <fstream>
 #include <thread>
 #include <unistd.h>
+#include "meminfo.h"
 #include "utils.h"
 
 using std::cout;
@@ -42,10 +43,9 @@ void printCpuStats(string pid)
     }
 }
 
-void printMemoryStats(string pid)
+void printMemoryStats()
 {
-    string memoryFilePath = "/proc/" + pid + "/statm";
-    readFile(memoryFilePath);
+    log(getCurrentMeminfoResult());
 }
 
 long long printPerformanceMeasure(string pid)
@@ -56,7 +56,7 @@ long long printPerformanceMeasure(string pid)
     log("=START MEASURE=");
     printCpuStats(pid);
     log(separator);
-    printMemoryStats(pid);
+    printMemoryStats();
     log(separator);
     printATraceLines();
     log(separator);
@@ -102,8 +102,12 @@ int main(int argc, char **argv)
         string pid = argv[2];
 
         std::thread aTraceReadThread(readATraceThread, pid);
+        std::thread memInfoThread(pollMeminfo, pid);
+
         pollPerformanceMeasures(argv);
+
         aTraceReadThread.join();
+        memInfoThread.join();
     }
     else if (methodName == "printPerformanceMeasure")
     {
