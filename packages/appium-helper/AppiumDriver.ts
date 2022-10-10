@@ -190,6 +190,13 @@ export class AppiumDriver {
     return element;
   }
 
+  async findElementByXPath(xpath: string) {
+    const element = await this.client.$(xpath);
+    await this.waitForElement(element);
+
+    return element;
+  }
+
   async clickElementById(id: string) {
     const element = await this.findElementById(id);
     return await element.click();
@@ -197,6 +204,11 @@ export class AppiumDriver {
 
   async clickElementByText(text: string) {
     const element = await this.findElementByText(text);
+    return await element.click();
+  }
+
+  async clickElementByXPath(xpath: string) {
+    const element = await this.findElementByXPath(xpath);
     return await element.click();
   }
 
