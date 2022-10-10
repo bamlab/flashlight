@@ -126,7 +126,9 @@ export class AppiumDriver {
   }
 
   async byText(text: string) {
-    return this.client.$(`//*[contains(@text,'${text}')]`);
+    return this.client.$(
+      `//*[contains(@text,'${text}')] | //*[contains(@content-desc,'${text}')]`
+    );
   }
 
   async waitForElement(element: webdriver.Element) {
