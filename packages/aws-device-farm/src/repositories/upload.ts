@@ -110,12 +110,14 @@ export class UploadRepository extends BaseRepository {
     projectArn,
     filePath,
     type,
+    name: nameGiven,
   }: {
     projectArn: string;
     filePath: string;
     type: UploadType;
+    name?: string;
   }) {
-    const name = path.basename(filePath);
+    const name = nameGiven || path.basename(filePath);
     const { url, arn } = await this.createOrReplace({
       projectArn,
       name,

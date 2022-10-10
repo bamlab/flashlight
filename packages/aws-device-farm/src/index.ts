@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 
 import path from "path";
-import { program } from "commander";
-import { checkResults, runTest, uploadApk } from "./runTest";
+import { Option, program } from "commander";
+import {
+  checkResults,
+  createDefaultNodeTestPackage,
+  runTest,
+  uploadApk,
+} from "./runTest";
 
 const DEFAULT_PROJECT_NAME = "Flashlight";
 
 program
   .command("runTest")
-  .requiredOption(
-    "--apkPath <apkPath>",
-    "Path to the APK to be uploaded for testing"
-  )
-  .requiredOption(
+  .option("--apkPath <apkPath>", "Path to the APK to be uploaded for testing")
+  .option(
     "--testCommand <testCommand>",
     "Test command that should be run (e.g.: `yarn jest appium`)"
   )
@@ -51,6 +53,16 @@ program
     "Device on which to run tests. A device pool with devices containing this parameter in their model name will be created",
     "A10s"
   )
+  .addOption(
+    new Option(
+      "--apkUploadArn <apkUploadArn>",
+      "APK Upload ARN. Overrides apkPath option"
+    ).env("APK_UPLOAD_ARN")
+  )
+  .option(
+    "--testFile <testFile>",
+    "Pass a test file instead. Overrides testCommand and testSpecsPath."
+  )
   .action(async (options) => {
     // Just destructuring to have type checking on the parameters sent to runTest
     const {
@@ -63,6 +75,8 @@ program
       skipWaitingForResult,
       testCommand,
       deviceName,
+      apkUploadArn,
+      testFile,
     } = options;
 
     const testRunArn = await runTest({
@@ -73,6 +87,8 @@ program
       testName,
       testCommand,
       deviceName,
+      apkUploadArn,
+      testFile,
     });
 
     if (!skipWaitingForResult) {
@@ -95,13 +111,9 @@ program
 
 program
   .command("uploadApk")
-  .addOption(
-    new Option(
-      "--apkPath <apkPath>",
-      "Path to the APK to be uploaded for testing"
-    )
-      .env("APK_PATH")
-      .makeOptionMandatory()
+  .requiredOption(
+    "--apkPath <apkPath>",
+    "Path to the APK to be uploaded for testing"
   )
   .option(
     "--projectName <projectName>",
@@ -111,6 +123,18 @@ program
   .action(async (options) => {
     const { apkPath, projectName } = options;
     uploadApk({ apkPath, projectName });
+  });
+
+program
+  .command("createDefaultNodeTestPackage")
+  .option(
+    "--projectName <projectName>",
+    "AWS Device Farm project name",
+    DEFAULT_PROJECT_NAME
+  )
+  .action(async (options) => {
+    const { projectName } = options;
+    await createDefaultNodeTestPackage({ projectName });
   });
 
 program.parse();

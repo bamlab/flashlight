@@ -13,10 +13,12 @@
 - [Using Appium](#using-appium)
 - [Running in CI](#running-in-ci)
   - [AWS Device Farm](#aws-device-farm)
+    - [Reusing APK](#reusing-apk)
+    - [Advanced usage](#advanced-usage)
 - [Flipper Plugin](#flipper-plugin)
   - [Install](#install)
 - [CLI](#cli)
-- [Getting FPS Data](#getting-fps-data)
+  - [Via Custom script](#via-custom-script)
 - [Contributing](#contributing)
   - [web-reporter](#web-reporter)
 
@@ -147,14 +149,35 @@ Our choice is **AWS Device Farm** but some other options should work as well (th
 
 We've added a neat tool to seamlessly run your tests on AWS Device Farm and get the measures back:
 
-```
+```sh
 export AWS_ACCESS_KEY_ID="ADD YOUR AWS KEY ID HERE" AWS_SECRET_ACCESS_KEY="ADD YOUR AWS SECRET HERE"
 
-# Run from your root folder, containing `node_modules`
+# If you have a simple TS script to run
+npx @perf-profiler/aws-device-farm runTest --apkPath app-release.apk --testFile script.ts
+```
+
+#### Reusing APK
+
+You might also want to upload your APK only once and reuse it:
+
+```sh
+# This will log the "ARN" associated with your APK
+npx @perf-profiler/aws-device-farm uploadApk --apkPath app-release.apk
+# ...
+
+export APK_UPLOAD_ARN="arn:aws:devicefarm:..."
+npx @perf-profiler/aws-device-farm runTest --testFile script.ts
+```
+
+#### Advanced usage
+
+For more complex cases, run from your root folder, containing `node_modules`:
+
+```sh
 npx @perf-profiler/aws-device-farm runTest \
-  --apkPath app-release.apk \
-  --deviceName "A10s" \
-  --testCommand "yarn jest appium"
+ --apkPath app-release.apk \
+ --deviceName "A10s" \
+ --testCommand "yarn jest appium"
 ```
 
 ## Flipper Plugin
@@ -170,7 +193,9 @@ Search for `android-performance-profiler` in the Flipper marketplace![image](htt
 You can profile directly in CLI with:
 
 ```
+
 npx @perf-profiler/profiler profile --fps --ram --threadNames "(mqt_js)" "UI Thread"
+
 ```
 
 You can also use a custom script:

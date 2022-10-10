@@ -1,18 +1,43 @@
 import fs from "fs";
 import path from "path";
 
-export const createTestSpecFile = ({
+const getSingleTestFileYml = ({ testFile }: { testFile: string }) => {
+  const testCode = fs.readFileSync(testFile);
+  const base64TestCode = Buffer.from(testCode).toString("base64");
+
+  const ymlTemplate = fs
+    .readFileSync(`${__dirname}/../flashlight-singlefile.yml`)
+    .toString();
+
+  return ymlTemplate.replace("<INSERT_BASE64_TEST_CODE>", base64TestCode);
+};
+
+const getTestCommandYml = ({
   testSpecsPath,
   testCommand,
 }: {
   testSpecsPath: string;
   testCommand: string;
-}): string => {
+}) => {
   const previousSpecFileContent = fs.readFileSync(testSpecsPath).toString();
-  const newContent = previousSpecFileContent.replace(
-    "INSERT_TEST_COMMAND",
-    testCommand
-  );
+  return previousSpecFileContent.replace("INSERT_TEST_COMMAND", testCommand);
+};
+
+export const createTestSpecFile = ({
+  testSpecsPath,
+  testCommand,
+  testFile,
+}: {
+  testSpecsPath: string;
+  testCommand: string;
+  testFile?: string;
+}): string => {
+  const newContent = testFile
+    ? getSingleTestFileYml({ testFile })
+    : getTestCommandYml({
+        testSpecsPath,
+        testCommand,
+      });
 
   const newSpecFilePath = `${
     path.basename(testSpecsPath).split(".")[0]
