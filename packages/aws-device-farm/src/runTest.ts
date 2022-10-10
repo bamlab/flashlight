@@ -118,3 +118,23 @@ export const checkResults = async ({
     `Results available, run "npx @perf-profiler/web-reporter ${reportDestinationPath}" to see them`
   );
 };
+
+export const uploadApk = async ({
+  apkPath,
+  projectName,
+}: {
+  apkPath: string;
+  projectName: string;
+}) => {
+  const projectArn = await projectRepository.getOrCreate({
+    name: projectName,
+  });
+
+  const apkUploadArn = await uploadRepository.upload({
+    projectArn,
+    filePath: apkPath,
+    type: UploadType.ANDROID_APP,
+  });
+
+  Logger.success(`APK uploaded: ${apkUploadArn}`);
+};
