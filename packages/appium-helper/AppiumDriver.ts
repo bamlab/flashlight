@@ -98,6 +98,10 @@ export class AppiumDriver {
     this.startApp();
   }
 
+  clearData() {
+    execSync(`adb shell pm clear ${this.bundleId}`);
+  }
+
   stopApp() {
     executeCommand(`adb shell am force-stop ${this.bundleId}`);
   }
