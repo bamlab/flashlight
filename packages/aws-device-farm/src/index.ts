@@ -2,7 +2,7 @@
 
 import path from "path";
 import { program } from "commander";
-import { checkResults, runTest } from "./runTest";
+import { checkResults, runTest, uploadApk } from "./runTest";
 
 const DEFAULT_PROJECT_NAME = "Flashlight";
 
@@ -91,6 +91,26 @@ program
   .action((options) => {
     const { testRunArn, reportDestinationPath } = options;
     checkResults({ testRunArn, reportDestinationPath });
+  });
+
+program
+  .command("uploadApk")
+  .addOption(
+    new Option(
+      "--apkPath <apkPath>",
+      "Path to the APK to be uploaded for testing"
+    )
+      .env("APK_PATH")
+      .makeOptionMandatory()
+  )
+  .option(
+    "--projectName <projectName>",
+    "AWS Device Farm project name",
+    DEFAULT_PROJECT_NAME
+  )
+  .action(async (options) => {
+    const { apkPath, projectName } = options;
+    uploadApk({ apkPath, projectName });
   });
 
 program.parse();
