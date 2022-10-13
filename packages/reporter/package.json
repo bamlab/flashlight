@@ -5,7 +5,7 @@
   "main": "dist/src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bamlab/react-native-performance.git"
+    "url": "https://github.com/bamlab/android-performance-profiler.git"
   },
   "author": {
     "name": "Almouro",
