@@ -34,7 +34,7 @@ export const CPUReport = ({
     (result) => result.reactNativeDetected
   );
   const [selectedThreads, setSelectedThreads] = React.useState<string[]>(
-    reactNativeDetected ? ["(mqt_js)"] : []
+    reactNativeDetected ? ["(mqt_js)"] : ["UI Thread"]
   );
 
   const threads = selectedThreads
