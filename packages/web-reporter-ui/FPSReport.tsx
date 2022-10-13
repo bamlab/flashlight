@@ -1,7 +1,6 @@
 import React from "react";
 import { AveragedTestCaseResult } from "@perf-profiler/types";
 import { Chart } from "./components/Chart";
-import { useTheme } from "@mui/material/styles";
 import { roundToDecimal } from "./utils/roundToDecimal";
 
 export const FPSReport = ({
@@ -19,17 +18,9 @@ export const FPSReport = ({
       })),
   }));
 
-  const { palette } = useTheme();
-
   return (
     <>
-      <Chart
-        title="FPS"
-        height={500}
-        interval={500}
-        series={ram}
-        colors={[palette.primary.main, palette.secondary.main]}
-      />
+      <Chart title="FPS" height={500} interval={500} series={ram} />
     </>
   );
 };

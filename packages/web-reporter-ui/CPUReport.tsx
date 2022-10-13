@@ -1,9 +1,8 @@
 import React from "react";
 import { AveragedTestCaseResult, Measure } from "@perf-profiler/types";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
-import { Chart } from "./components/Chart";
+import { Chart, PALETTE } from "./components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "./components/ThreadTable";
-import { useTheme } from "@mui/material/styles";
 import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -52,8 +51,6 @@ export const CPUReport = ({
     data: buildAverageCpuSeriesData(result.average.measures),
   }));
 
-  const { palette } = useTheme();
-
   return (
     <>
       <Chart
@@ -61,7 +58,6 @@ export const CPUReport = ({
         height={500}
         interval={500}
         series={totalCPUUsage}
-        colors={[palette.primary.main, palette.secondary.main]}
       />
       <Chart
         title="CPU Usage per thread (%)"
@@ -69,9 +65,7 @@ export const CPUReport = ({
         interval={500}
         series={threads}
         colors={
-          results.length > 1
-            ? [palette.primary.main, palette.secondary.main]
-            : undefined
+          results.length > 1 ? PALETTE.slice(0, results.length) : undefined
         }
         maxValue={100}
       />

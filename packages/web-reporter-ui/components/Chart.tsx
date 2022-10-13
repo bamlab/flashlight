@@ -1,6 +1,8 @@
 import React, { useMemo, ComponentProps } from "react";
 import ReactApexChart from "react-apexcharts";
 
+export const PALETTE = ["#3a86ff", "#8338ec", "#ff006e", "#fb5607", "#ffbe0b"];
+
 export const Chart = ({
   title,
   series,
@@ -8,7 +10,7 @@ export const Chart = ({
   interval = 500,
   timeLimit,
   maxValue,
-  colors,
+  colors = PALETTE,
 }: {
   title: string;
   series: { name: string; data: { x: number; y: number }[] }[];
