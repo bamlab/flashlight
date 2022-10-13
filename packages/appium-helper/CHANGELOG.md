@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/bamlab/android-performance-profiler/compare/@bam.tech/appium-helper@0.4.0...@bam.tech/appium-helper@0.5.0) (2022-10-13)
+
+### Bug Fixes
+
+- **appium:** improve accuracy of byText finder ([d255f7c](https://github.com/bamlab/android-performance-profiler/commit/d255f7c82a16d6fea1a49a1bd1fc2bbb023be833))
+
+### Features
+
+- **appium:** add clearData command ([ad4e439](https://github.com/bamlab/android-performance-profiler/commit/ad4e4392e817fbd7656dd6e2aefefa8f2dc28944))
+- **appium:** add xpath finders ([f5cab28](https://github.com/bamlab/android-performance-profiler/commit/f5cab2884e681ce57a5d14982e58a4940b0c894f))
+
 # [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@bam.tech/appium-helper@0.3.1...@bam.tech/appium-helper@0.4.0) (2022-09-27)
 
 ### Features

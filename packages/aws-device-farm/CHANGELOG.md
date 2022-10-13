@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.3.0...@perf-profiler/aws-device-farm@0.4.0) (2022-10-13)
+
+### Features
+
+- **aws:** add simplified usage ([865435e](https://github.com/bamlab/android-performance-profiler/commit/865435e35540a108a4af9c47e124b25819f05df2))
+- **aws:** add uploadApk command ([2fb058b](https://github.com/bamlab/android-performance-profiler/commit/2fb058bd204526f48e63b7a25211309228b8740e))
+
 # 0.3.0 (2022-09-14)
 
 ### Features
