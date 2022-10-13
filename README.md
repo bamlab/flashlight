@@ -11,8 +11,9 @@
 
 - [Getting started with the automated profiler](#getting-started-with-the-automated-profiler)
   - [Main usage](#main-usage)
-  - [Advanced usage](#advanced-usage)
+  - [Customizing web report](#customizing-web-report)
   - [Using other e2e frameworks](#using-other-e2e-frameworks)
+  - [Advanced usage](#advanced-usage)
   - [Comparing](#comparing)
   - [Exploiting measures](#exploiting-measures)
   - [Running in CI](#running-in-ci)
@@ -31,7 +32,7 @@
 
 ### Main usage
 
-TODO: providing a sample app here would be nice (either a production one like Twitter, or a sample APK)
+_Feel free to try this out using [our example APK](https://github.com/bamlab/android-performance-profiler/blob/main/.github/workflows/example.apk)_
 
 1. Install the profiler `yarn add --dev @perf-profiler/e2e`
 
@@ -77,13 +78,27 @@ runTest();
 npx @perf-profiler/web-reporter results.json
 ```
 
-### Advanced usage
+### Customizing web report
 
-TODO: check example folder, add several examples there
+You can change the path to which results are written
+
+```ts
+const { writeResults } = await measurePerformance(bundleId, testCase);
+writeResults({
+  title: "My awesome title",
+  path: "./awesome-results.json",
+});
+```
 
 ### Using other e2e frameworks
 
-Any e2e framework running tests via JS/TS is supported.
+Any e2e framework running tests via JS/TS should be supported. Switch `@bam.tech/appium-helper` with something else
+
+### Advanced usage
+
+Check out [the examples folder](./examples) for more advanced usage:
+
+- [Running with Jest](./examples/e2e/appium.test.ts)
 
 ### Comparing
 
