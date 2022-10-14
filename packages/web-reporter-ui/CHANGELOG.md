@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.2.2...@perf-profiler/web-reporter-ui@0.3.0) (2022-10-14)
+
+### Bug Fixes
+
+- **web-reporter:** fix color palette when 3+ results are compared ([60407d5](https://github.com/bamlab/android-performance-profiler/commit/60407d53d4ba605cb441a2b9449cf1cd0be0a59c))
+
+### Features
+
+- **web-reporter:** auto select UI thread by default ([0b15ea6](https://github.com/bamlab/android-performance-profiler/commit/0b15ea6a3198d29ebcc2fbaf18a253cf51931487))
+
 ## [0.2.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.2.1...@perf-profiler/web-reporter-ui@0.2.2) (2022-10-13)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter-ui
