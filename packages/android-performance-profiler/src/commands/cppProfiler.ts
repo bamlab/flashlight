@@ -35,6 +35,17 @@ const stopATrace = () => {
 };
 
 export const ensureCppProfilerIsInstalled = () => {
+  const sdkVersion = parseInt(
+    executeCommand("adb shell getprop ro.build.version.sdk"),
+    10
+  );
+
+  if (sdkVersion < 24) {
+    throw new Error(
+      `Your Android version (sdk API level ${sdkVersion}) is not supported. Supported versions > 23.`
+    );
+  }
+
   if (!hasInstalledProfiler) {
     const abi = getAbi();
     Logger.info(`Installing C++ profiler for ${abi} architecture`);
