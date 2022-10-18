@@ -34,16 +34,19 @@
 
 _Feel free to try this out using [our example APK](https://github.com/bamlab/android-performance-profiler/blob/main/.github/workflows/example.apk)_
 
-1. Install the profiler `yarn add --dev @bam.tech/appium-helper @perf-profiler/e2e`
+1. Install the profiler `yarn add --dev @perf-profiler/e2e`
 
-2. Create a TS script including a performance test, for instance `start.ts`
+2. Create a TS script including an e2e performance test,
+
+You can use any TS/JS based e2e framework (or just simple `adb shell` commands).
+
+Here's an example using our own [Appium Helper](./packages/appium-helper) (install it with `yarn add @bam.tech/appium-helper`)
 
 ```ts
 import { AppiumDriver } from "@bam.tech/appium-helper";
 import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
 const runTest = async () => {
-  // You can use an e2e framework other than Appium or just simple `adb shell` commands if you want ☺️
   const driver = await AppiumDriver.create({
     // `npx @perf-profiler/profiler getCurrentApp` will display info for the current app
     appPackage: "com.example",
@@ -55,7 +58,7 @@ const runTest = async () => {
       driver.stopApp();
     },
     run: async () => {
-      // run is where measuring will happen
+      // run is where measuring will happen, insert e2e logic here
       driver.startApp();
       await driver.findElementByText("KILL JS");
     },
