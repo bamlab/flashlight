@@ -40,7 +40,7 @@ _Feel free to try this out using [our example APK](https://github.com/bamlab/and
 
 You can use any TS/JS based e2e framework (or just simple `adb shell` commands).
 
-Here's an example using our own [Appium Helper](./packages/appium-helper)(install it with `yarn add @bam.tech/appium-helper`)
+Here's an example using our own [Appium Helper](./packages/appium-helper) (install it with `yarn add @bam.tech/appium-helper`)
 
 ```ts
 import { AppiumDriver } from "@bam.tech/appium-helper";
