@@ -50,7 +50,7 @@ jest.mock("child_process", () => {
   };
 });
 
-const mockSpawn = (): { stdout: EventEmitter } => {
+const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
   const mockProcess = new EventEmitter();
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -80,9 +80,7 @@ const mockSpawn = (): { stdout: EventEmitter } => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  mockProcess.kill = () => {
-    //
-  };
+  mockProcess.kill = jest.fn();
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -155,4 +153,5 @@ test("displays FPS data and scoring", async () => {
   expect(renderer.baseElement).toMatchSnapshot();
 
   fireEvent.click(screen.getByText("Stop Measuring"));
+  expect(spawn.kill).toBeCalled();
 });
