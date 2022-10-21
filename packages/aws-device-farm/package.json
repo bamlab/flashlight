@@ -3,7 +3,7 @@
   "version": "0.4.0",
   "main": "dist/index.js",
   "bin": {
-    "aws-device-farm-run-test": "dist/index.js"
+    "aws-device-farm-run-test": "dist/bin.js"
   },
   "dependencies": {
     "@aws-sdk/client-device-farm": "^3.154.0",
