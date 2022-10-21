@@ -104,6 +104,6 @@ export class FrameTimeParser {
 
     const fps = ((frameCount + idleTimeFrameCount) / timeInterval) * 1000;
 
-    return Math.min(TARGET_FRAME_RATE, fps);
+    return Math.max(0, Math.min(TARGET_FRAME_RATE, fps));
   }
 }
