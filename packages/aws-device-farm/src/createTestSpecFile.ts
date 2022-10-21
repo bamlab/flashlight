@@ -30,15 +30,21 @@ export const createTestSpecFile = ({
   testFile,
 }: {
   testSpecsPath: string;
-  testCommand: string;
+  testCommand?: string;
   testFile?: string;
 }): string => {
-  const newContent = testFile
-    ? getSingleTestFileYml({ testFile })
-    : getTestCommandYml({
-        testSpecsPath,
-        testCommand,
-      });
+  let newContent;
+
+  if (testFile) {
+    newContent = getSingleTestFileYml({ testFile });
+  } else if (testCommand) {
+    newContent = getTestCommandYml({
+      testSpecsPath,
+      testCommand,
+    });
+  } else {
+    throw new Error("Neither testCommand nor testFile was passed.");
+  }
 
   const newSpecFilePath = `${TMP_FOLDER}/${
     path.basename(testSpecsPath).split(".")[0]

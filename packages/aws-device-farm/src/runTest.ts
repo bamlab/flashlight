@@ -61,7 +61,7 @@ export const runTest = async ({
   testSpecsPath?: string;
   testFolder?: string;
   testName?: string;
-  testCommand: string;
+  testCommand?: string;
   deviceName?: string;
   apkUploadArn?: string;
   testFile?: string;
