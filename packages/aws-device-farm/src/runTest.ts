@@ -13,6 +13,7 @@ import { ProjectRepository } from "./repositories/project";
 import { TestRepository } from "./repositories/test";
 import { UploadRepository } from "./repositories/upload";
 import { zipTestFolder } from "./zipTestFolder";
+import { unzip } from "./utils/unzip";
 
 const DEFAULT_REGION = "us-west-2";
 
@@ -204,8 +205,11 @@ export const checkResults = async ({
   });
   const LOGS_FILE_TMP_PATH = "logs.zip";
   downloadFile(url, LOGS_FILE_TMP_PATH);
+
+  execSync("rm -rf Host_Machine_Files");
+  unzip(LOGS_FILE_TMP_PATH, ".");
   execSync(
-    `rm -rf Host_Machine_Files && unzip ${LOGS_FILE_TMP_PATH} && rm ${LOGS_FILE_TMP_PATH} && mv Host_Machine_Files/\\$DEVICEFARM_LOG_DIR/*.json ${reportDestinationPath} && rm -rf Host_Machine_Files`
+    `rm ${LOGS_FILE_TMP_PATH} && mv Host_Machine_Files/\\$DEVICEFARM_LOG_DIR/*.json ${reportDestinationPath} && rm -rf Host_Machine_Files`
   );
   Logger.success(
     `Results available, run "npx @perf-profiler/web-reporter ${reportDestinationPath}" to see them`
