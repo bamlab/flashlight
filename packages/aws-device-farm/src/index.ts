@@ -2,13 +2,11 @@
 
 import path from "path";
 import { Option, program } from "commander";
-import { runTest } from "./runTest";
+import { DEFAULT_RUN_TEST_OPTIONS, runTest } from "./runTest";
 import { uploadApk } from "./commands/uploadApk";
 import { checkResults } from "./commands/checkResults";
 import { projectRepository } from "./repositories";
 import { createDefaultNodeTestPackage } from "./commands/createDefaultNodeTestPackage";
-
-const DEFAULT_PROJECT_NAME = "Flashlight";
 
 program
   .command("runTest")
@@ -20,7 +18,7 @@ program
   .option(
     "--testFolder <testFolder>",
     "AWS requires us to upload the folder containing the tests including node_modules folder",
-    "."
+    DEFAULT_RUN_TEST_OPTIONS.testFolder
   )
   .option(
     "--testSpecsPath <testSpecsPath>",
@@ -30,17 +28,17 @@ program
   .option(
     "--projectName <projectName>",
     "AWS Device Farm project name",
-    DEFAULT_PROJECT_NAME
+    DEFAULT_RUN_TEST_OPTIONS.projectName
   )
   .option(
     "--testName <testName>",
     "Test name to appear on AWS Device Farm",
-    "Flashlight"
+    DEFAULT_RUN_TEST_OPTIONS.testName
   )
   .option(
     "--reportDestinationPath <reportDestinationPath>",
     "Folder where performance measures will be written",
-    "."
+    DEFAULT_RUN_TEST_OPTIONS.reportDestinationPath
   )
   .option(
     "--skipWaitingForResult",
@@ -50,7 +48,7 @@ program
   .option(
     "--deviceName <deviceName>",
     "Device on which to run tests. A device pool with devices containing this parameter in their model name will be created",
-    "A10s"
+    DEFAULT_RUN_TEST_OPTIONS.deviceName
   )
   .addOption(
     new Option(
@@ -117,7 +115,7 @@ program
   .option(
     "--projectName <projectName>",
     "AWS Device Farm project name",
-    DEFAULT_PROJECT_NAME
+    DEFAULT_RUN_TEST_OPTIONS.projectName
   )
   .action(async (options) => {
     const { apkPath, projectName } = options;
@@ -129,7 +127,7 @@ program
   .option(
     "--projectName <projectName>",
     "AWS Device Farm project name",
-    DEFAULT_PROJECT_NAME
+    DEFAULT_RUN_TEST_OPTIONS.projectName
   )
   .action(async (options) => {
     const { projectName } = options;

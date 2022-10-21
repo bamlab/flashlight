@@ -1,4 +1,5 @@
 import { UploadType } from "@aws-sdk/client-device-farm";
+import path from "path";
 import fs from "fs";
 import { Logger } from "@perf-profiler/logger";
 import { createTestSpecFile } from "./createTestSpecFile";
@@ -13,6 +14,15 @@ import {
   createDefaultNodeTestPackage,
   DEFAULT_TEST_PACKAGE_NAME,
 } from "./commands/createDefaultNodeTestPackage";
+
+export const DEFAULT_RUN_TEST_OPTIONS = {
+  testFolder: ".",
+  testSpecsPath: path.join(__dirname, "..", "flashlight.yml"),
+  projectName: "Flashlight",
+  testName: "Flashlight",
+  reportDestinationPath: ".",
+  deviceName: "A10s",
+};
 
 const getSingleFileTestFolderArn = async ({
   projectArn,
@@ -36,23 +46,23 @@ const getSingleFileTestFolderArn = async ({
 };
 
 export const runTest = async ({
-  projectName,
+  projectName = DEFAULT_RUN_TEST_OPTIONS.projectName,
   apkPath,
-  testSpecsPath,
-  testFolder,
-  testName,
+  testSpecsPath = DEFAULT_RUN_TEST_OPTIONS.testSpecsPath,
+  testFolder = DEFAULT_RUN_TEST_OPTIONS.testFolder,
+  testName = DEFAULT_RUN_TEST_OPTIONS.testName,
   testCommand,
-  deviceName,
+  deviceName = DEFAULT_RUN_TEST_OPTIONS.deviceName,
   apkUploadArn: apkUploadArnGiven,
   testFile,
 }: {
-  projectName: string;
+  projectName?: string;
   apkPath: string;
-  testSpecsPath: string;
-  testFolder: string;
-  testName: string;
+  testSpecsPath?: string;
+  testFolder?: string;
+  testName?: string;
   testCommand: string;
-  deviceName: string;
+  deviceName?: string;
   apkUploadArn?: string;
   testFile?: string;
 }): Promise<string> => {
