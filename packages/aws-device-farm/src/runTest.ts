@@ -1,43 +1,18 @@
-import {
-  ArtifactType,
-  DeviceFarmClient,
-  UploadType,
-} from "@aws-sdk/client-device-farm";
+import { ArtifactType, UploadType } from "@aws-sdk/client-device-farm";
 import fs from "fs";
 import { Logger } from "@perf-profiler/logger";
 import { execSync } from "child_process";
 import { createTestSpecFile } from "./createTestSpecFile";
 import { downloadFile } from "./utils/downloadFile";
-import { DevicePoolRepository } from "./repositories/devicePool";
-import { ProjectRepository } from "./repositories/project";
-import { TestRepository } from "./repositories/test";
-import { UploadRepository } from "./repositories/upload";
 import { zipTestFolder } from "./zipTestFolder";
 import { unzip } from "./utils/unzip";
 import { TMP_FOLDER } from "./TMP_FOLDER";
-
-const DEFAULT_REGION = "us-west-2";
-
-const { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env;
-
-if (!AWS_ACCESS_KEY_ID || !AWS_SECRET_ACCESS_KEY) {
-  throw new Error(
-    "Please provide AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY environment variables"
-  );
-}
-
-const client = new DeviceFarmClient({
-  credentials: {
-    accessKeyId: AWS_ACCESS_KEY_ID,
-    secretAccessKey: AWS_SECRET_ACCESS_KEY,
-  },
-  region: DEFAULT_REGION,
-});
-
-const projectRepository = new ProjectRepository(client);
-const devicePoolRepository = new DevicePoolRepository(client);
-const uploadRepository = new UploadRepository(client);
-const testRepository = new TestRepository(client);
+import {
+  devicePoolRepository,
+  projectRepository,
+  testRepository,
+  uploadRepository,
+} from "./repositories";
 
 const NAME = "__PERF_PROFILER_SINGLE_FILE__DEFAULT_TEST_FOLDER__";
 
