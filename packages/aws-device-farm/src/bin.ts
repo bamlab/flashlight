@@ -2,7 +2,7 @@
 
 import path from "path";
 import { Option, program } from "commander";
-import { DEFAULT_RUN_TEST_OPTIONS, runTest } from "./runTest";
+import { DEFAULT_RUN_TEST_OPTIONS, runTest } from "./commands/runTest";
 import { uploadApk } from "./commands/uploadApk";
 import { checkResults } from "./commands/checkResults";
 import { projectRepository } from "./repositories";

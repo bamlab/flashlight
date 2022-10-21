@@ -2,18 +2,18 @@ import { UploadType } from "@aws-sdk/client-device-farm";
 import path from "path";
 import fs from "fs";
 import { Logger } from "@perf-profiler/logger";
-import { createTestSpecFile } from "./createTestSpecFile";
-import { zipTestFolder } from "./zipTestFolder";
+import { createTestSpecFile } from "../createTestSpecFile";
+import { zipTestFolder } from "../zipTestFolder";
 import {
   devicePoolRepository,
   projectRepository,
   testRepository,
   uploadRepository,
-} from "./repositories";
+} from "../repositories";
 import {
   createDefaultNodeTestPackage,
   DEFAULT_TEST_PACKAGE_NAME,
-} from "./commands/createDefaultNodeTestPackage";
+} from "./createDefaultNodeTestPackage";
 
 export const DEFAULT_RUN_TEST_OPTIONS = {
   testFolder: ".",
