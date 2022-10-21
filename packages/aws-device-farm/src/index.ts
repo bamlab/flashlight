@@ -2,8 +2,9 @@
 
 import path from "path";
 import { Option, program } from "commander";
-import { checkResults, createDefaultNodeTestPackage, runTest } from "./runTest";
+import { createDefaultNodeTestPackage, runTest } from "./runTest";
 import { uploadApk } from "./commands/uploadApk";
+import { checkResults } from "./commands/checkResults";
 
 const DEFAULT_PROJECT_NAME = "Flashlight";
 
