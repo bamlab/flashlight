@@ -57,7 +57,7 @@ export const runTest = async ({
   testFile,
 }: {
   projectName?: string;
-  apkPath: string;
+  apkPath?: string;
   testSpecsPath?: string;
   testFolder?: string;
   testName?: string;
@@ -84,13 +84,19 @@ export const runTest = async ({
     });
   }
 
-  const apkUploadArn =
-    apkUploadArnGiven ||
-    (await uploadRepository.upload({
+  let apkUploadArn;
+
+  if (apkUploadArnGiven) {
+    apkUploadArn = apkUploadArnGiven;
+  } else if (apkPath) {
+    apkUploadArn = await uploadRepository.upload({
       projectArn,
       filePath: apkPath,
       type: UploadType.ANDROID_APP,
-    }));
+    });
+  } else {
+    throw new Error("Neither apkUploadArn nor apkPath was passed.");
+  }
 
   const newTestSpecPath = createTestSpecFile({
     testSpecsPath,
