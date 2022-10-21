@@ -7,6 +7,7 @@ import {
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import fs from "fs";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
+import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -17,7 +18,10 @@ export interface TestCase {
 }
 
 class PerformanceTester {
-  constructor(private bundleId: string, private testCase: TestCase) {}
+  constructor(private bundleId: string, private testCase: TestCase) {
+    // Important to ensure that the CPP profiler is initialized before we run the test!
+    ensureCppProfilerIsInstalled();
+  }
 
   private async executeTestCase(): Promise<TestCaseIterationResult> {
     const { beforeTest, run, afterTest, duration } = this.testCase;

@@ -36,6 +36,8 @@ jest.mock("child_process", () => {
             return 4096;
           case "adb shell getprop ro.product.cpu.abi":
             return "arm64-v8a";
+          case "adb shell getprop ro.build.version.sdk":
+            return "30";
           case "adb shell setprop debug.hwui.profile true":
           case "adb shell atrace --async_stop 1>/dev/null":
             return "";
@@ -56,6 +58,13 @@ const mockSpawn = (): { stdout: EventEmitter } => {
 
   jest
     .spyOn(require("child_process"), "spawn")
+    .mockImplementationOnce((...args) => {
+      expect(args).toEqual([
+        "adb",
+        ["shell", "atrace", "-c", "view", "-t", "999"],
+      ]);
+      return mockProcess;
+    })
     .mockImplementationOnce((...args) => {
       expect(args).toEqual([
         "adb",
