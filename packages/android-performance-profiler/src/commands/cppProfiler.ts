@@ -32,6 +32,7 @@ const startATrace = () => {
 
 const stopATrace = () => {
   aTraceProcess?.kill();
+  aTraceProcess = null;
 };
 
 export const ensureCppProfilerIsInstalled = () => {
