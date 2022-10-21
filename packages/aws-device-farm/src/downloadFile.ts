@@ -1,13 +1,17 @@
-import { Logger } from "@perf-profiler/logger";
-import { execSync } from "child_process";
+import axios from "axios";
+import fs from "fs";
 
+// AWS Lambda don't have curl
 export const downloadFile = async (
   url: string,
   destinationFilePath: string
 ) => {
-  Logger.info(`Downloading ${destinationFilePath}...`);
+  const { data } = await axios.get(url, {
+    responseType: "arraybuffer", // Important
+    headers: {
+      "Content-Type": "application/gzip",
+    },
+  });
 
-  execSync(`curl "${url}" -o ${destinationFilePath}`);
-
-  Logger.success(`Download of ${destinationFilePath} done`);
+  fs.writeFileSync(destinationFilePath, data);
 };

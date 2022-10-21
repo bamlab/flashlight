@@ -204,7 +204,7 @@ export const checkResults = async ({
     type: ArtifactType.CUSTOMER_ARTIFACT,
   });
   const LOGS_FILE_TMP_PATH = "logs.zip";
-  downloadFile(url, LOGS_FILE_TMP_PATH);
+  await downloadFile(url, LOGS_FILE_TMP_PATH);
 
   execSync("rm -rf Host_Machine_Files");
   unzip(LOGS_FILE_TMP_PATH, ".");
