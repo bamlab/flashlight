@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { TMP_FOLDER } from "./TMP_FOLDER";
 
 const getSingleTestFileYml = ({ testFile }: { testFile: string }) => {
   const testCode = fs.readFileSync(testFile);
@@ -39,7 +40,7 @@ export const createTestSpecFile = ({
         testCommand,
       });
 
-  const newSpecFilePath = `${
+  const newSpecFilePath = `${TMP_FOLDER}/${
     path.basename(testSpecsPath).split(".")[0]
   }_${new Date().getTime()}.yml`;
 
