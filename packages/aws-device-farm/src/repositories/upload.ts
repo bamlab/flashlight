@@ -8,7 +8,7 @@ import {
 import path from "path";
 import { Logger } from "@perf-profiler/logger";
 import { BaseRepository } from "./BaseRepository";
-import { uploadFile } from "../uploadFile";
+import { uploadFile } from "../utils/uploadFile";
 
 export class UploadRepository extends BaseRepository {
   async isUploadSucceeded({ arn }: { arn: string }) {

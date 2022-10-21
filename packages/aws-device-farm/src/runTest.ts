@@ -7,7 +7,7 @@ import fs from "fs";
 import { Logger } from "@perf-profiler/logger";
 import { execSync } from "child_process";
 import { createTestSpecFile } from "./createTestSpecFile";
-import { downloadFile } from "./downloadFile";
+import { downloadFile } from "./utils/downloadFile";
 import { DevicePoolRepository } from "./repositories/devicePool";
 import { ProjectRepository } from "./repositories/project";
 import { TestRepository } from "./repositories/test";
