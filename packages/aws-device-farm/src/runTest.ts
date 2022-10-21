@@ -1,7 +1,6 @@
 import { UploadType } from "@aws-sdk/client-device-farm";
 import fs from "fs";
 import { Logger } from "@perf-profiler/logger";
-import { execSync } from "child_process";
 import { createTestSpecFile } from "./createTestSpecFile";
 import { zipTestFolder } from "./zipTestFolder";
 import {
@@ -10,66 +9,10 @@ import {
   testRepository,
   uploadRepository,
 } from "./repositories";
-
-const NAME = "__PERF_PROFILER_SINGLE_FILE__DEFAULT_TEST_FOLDER__";
-
-const _createDefaultNodeTestPackage = async ({
-  projectArn,
-}: {
-  projectArn: string;
-}) => {
-  const testFolder = `/tmp/${NAME}`;
-  fs.rmSync(testFolder, { force: true, recursive: true });
-  fs.mkdirSync(testFolder);
-
-  const SAMPLE_PACKAGE_JSON = `{
-    "name": "test-folder",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-      "test": "echo \\"Error: no test specified\\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-      "@bam.tech/appium-helper": "latest",
-      "@perf-profiler/appium-test-cases": "latest",
-      "@perf-profiler/e2e": "latest"
-    },
-    "bundledDependencies": [
-      "@bam.tech/appium-helper",
-      "@perf-profiler/appium-test-cases",
-      "@perf-profiler/e2e"
-    ]
-  }`;
-
-  fs.writeFileSync(`${testFolder}/package.json`, SAMPLE_PACKAGE_JSON);
-  Logger.info("Installing profiler dependencies in test package...");
-  execSync(`cd ${testFolder} && npm install`);
-
-  const testFolderZipPath = zipTestFolder(testFolder);
-
-  const arn = await uploadRepository.upload({
-    projectArn,
-    name: NAME,
-    filePath: testFolderZipPath,
-    type: UploadType.APPIUM_NODE_TEST_PACKAGE,
-  });
-  fs.rmSync(testFolder, { force: true, recursive: true });
-
-  return arn;
-};
-
-export const createDefaultNodeTestPackage = async ({
-  projectName,
-}: {
-  projectName: string;
-}) => {
-  const projectArn = await projectRepository.getOrCreate({ name: projectName });
-  return _createDefaultNodeTestPackage({ projectArn });
-};
+import {
+  createDefaultNodeTestPackage,
+  DEFAULT_TEST_PACKAGE_NAME,
+} from "./commands/createDefaultNodeTestPackage";
 
 const getSingleFileTestFolderArn = async ({
   projectArn,
@@ -79,7 +22,7 @@ const getSingleFileTestFolderArn = async ({
   const testPackageArn = (
     await uploadRepository.getByName({
       projectArn,
-      name: NAME,
+      name: DEFAULT_TEST_PACKAGE_NAME,
       type: UploadType.APPIUM_NODE_TEST_PACKAGE,
     })
   )?.arn;
@@ -88,7 +31,7 @@ const getSingleFileTestFolderArn = async ({
     Logger.success("Found test folder with performance profiler upload");
     return testPackageArn;
   } else {
-    return _createDefaultNodeTestPackage({ projectArn });
+    return createDefaultNodeTestPackage({ projectArn });
   }
 };
 

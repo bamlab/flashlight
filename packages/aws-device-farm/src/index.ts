@@ -2,9 +2,11 @@
 
 import path from "path";
 import { Option, program } from "commander";
-import { createDefaultNodeTestPackage, runTest } from "./runTest";
+import { runTest } from "./runTest";
 import { uploadApk } from "./commands/uploadApk";
 import { checkResults } from "./commands/checkResults";
+import { projectRepository } from "./repositories";
+import { createDefaultNodeTestPackage } from "./commands/createDefaultNodeTestPackage";
 
 const DEFAULT_PROJECT_NAME = "Flashlight";
 
@@ -131,7 +133,10 @@ program
   )
   .action(async (options) => {
     const { projectName } = options;
-    await createDefaultNodeTestPackage({ projectName });
+    const projectArn = await projectRepository.getOrCreate({
+      name: projectName,
+    });
+    await createDefaultNodeTestPackage({ projectArn });
   });
 
 program.parse();
