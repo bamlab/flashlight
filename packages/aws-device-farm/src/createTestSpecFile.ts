@@ -2,7 +2,13 @@ import fs from "fs";
 import path from "path";
 import { TMP_FOLDER } from "./TMP_FOLDER";
 
-const getSingleTestFileYml = ({ testFile }: { testFile: string }) => {
+const getSingleTestFileYml = ({
+  testFile,
+  postTestCommand = "echo 'Tests are done!",
+}: {
+  testFile: string;
+  postTestCommand?: string;
+}) => {
   const testCode = fs.readFileSync(testFile);
   const base64TestCode = Buffer.from(testCode).toString("base64");
 
@@ -10,7 +16,9 @@ const getSingleTestFileYml = ({ testFile }: { testFile: string }) => {
     .readFileSync(`${__dirname}/../flashlight-singlefile.yml`)
     .toString();
 
-  return ymlTemplate.replace("<INSERT_BASE64_TEST_CODE>", base64TestCode);
+  return ymlTemplate
+    .replace("<INSERT_BASE64_TEST_CODE>", base64TestCode)
+    .replace("<INSERT_POST_TEST_COMMAND>", postTestCommand);
 };
 
 const getTestCommandYml = ({
@@ -28,15 +36,17 @@ export const createTestSpecFile = ({
   testSpecsPath,
   testCommand,
   testFile,
+  postTestCommand,
 }: {
   testSpecsPath: string;
   testCommand?: string;
   testFile?: string;
+  postTestCommand?: string;
 }): string => {
   let newContent;
 
   if (testFile) {
-    newContent = getSingleTestFileYml({ testFile });
+    newContent = getSingleTestFileYml({ testFile, postTestCommand });
   } else if (testCommand) {
     newContent = getTestCommandYml({
       testSpecsPath,

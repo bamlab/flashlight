@@ -60,6 +60,10 @@ program
     "--testFile <testFile>",
     "Pass a test file instead. Overrides testCommand and testSpecsPath."
   )
+  .option(
+    "--postTestCommand <postTestCommand>",
+    "Command to be run after tests are done."
+  )
   .action(async (options) => {
     // Just destructuring to have type checking on the parameters sent to runTest
     const {
@@ -74,6 +78,7 @@ program
       deviceName,
       apkUploadArn,
       testFile,
+      postTestCommand,
     } = options;
 
     const testRunArn = await runTest({
@@ -86,6 +91,7 @@ program
       deviceName,
       apkUploadArn,
       testFile,
+      postTestCommand,
     });
 
     if (!skipWaitingForResult) {

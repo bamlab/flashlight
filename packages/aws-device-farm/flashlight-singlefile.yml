@@ -69,6 +69,8 @@ phases:
   # The post test phase includes are commands that are run after your tests are executed.
   post_test:
     commands:
+      - >-
+        <INSERT_POST_TEST_COMMAND>
 
 # The artifacts phase lets you specify the location where your tests logs, device logs will be stored.
 # And also let you specify the location of your test logs and artifacts which you want to be collected by Device Farm.

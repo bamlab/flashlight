@@ -5,6 +5,7 @@ import {
   ExecutionStatus,
   GetRunCommand,
   ListArtifactsCommand,
+  ListRunsCommand,
   ScheduleRunCommand,
   TestType,
 } from "@aws-sdk/client-device-farm";
@@ -13,6 +14,14 @@ import { Logger } from "@perf-profiler/logger";
 import { BaseRepository } from "./BaseRepository";
 
 export class TestRepository extends BaseRepository {
+  async getByName({ projectArn, name }: { projectArn: string; name: string }) {
+    const { runs } = await this.client.send(
+      new ListRunsCommand({ arn: projectArn })
+    );
+
+    return runs?.find((run) => run.name === name);
+  }
+
   /**
    * aws devicefarm schedule-run --project-arn $PROJECT_ARN
    *  --app-arn $APK_UPLOAD_ARN
