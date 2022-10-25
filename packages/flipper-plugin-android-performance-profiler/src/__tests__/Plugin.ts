@@ -36,6 +36,8 @@ jest.mock("child_process", () => {
             return 4096;
           case "adb shell getprop ro.product.cpu.abi":
             return "arm64-v8a";
+          case "adb shell getprop ro.build.version.sdk":
+            return "30";
           case "adb shell setprop debug.hwui.profile true":
           case "adb shell atrace --async_stop 1>/dev/null":
             return "";
@@ -48,7 +50,7 @@ jest.mock("child_process", () => {
   };
 });
 
-const mockSpawn = (): { stdout: EventEmitter } => {
+const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
   const mockProcess = new EventEmitter();
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -56,6 +58,13 @@ const mockSpawn = (): { stdout: EventEmitter } => {
 
   jest
     .spyOn(require("child_process"), "spawn")
+    .mockImplementationOnce((...args) => {
+      expect(args).toEqual([
+        "adb",
+        ["shell", "atrace", "-c", "view", "-t", "999"],
+      ]);
+      return mockProcess;
+    })
     .mockImplementationOnce((...args) => {
       expect(args).toEqual([
         "adb",
@@ -71,9 +80,7 @@ const mockSpawn = (): { stdout: EventEmitter } => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  mockProcess.kill = () => {
-    //
-  };
+  mockProcess.kill = jest.fn();
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -146,4 +153,5 @@ test("displays FPS data and scoring", async () => {
   expect(renderer.baseElement).toMatchSnapshot();
 
   fireEvent.click(screen.getByText("Stop Measuring"));
+  expect(spawn.kill).toBeCalled();
 });

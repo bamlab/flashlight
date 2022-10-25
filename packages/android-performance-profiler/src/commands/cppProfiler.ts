@@ -32,8 +32,19 @@ const startATrace = () => {
 
 const stopATrace = () => {
   aTraceProcess?.kill();
+  aTraceProcess = null;
 };
 
+/**
+ * Main setup function for the cpp profiler
+ *
+ * It will:
+ * - install the C++ profiler for the correct architecture on the device
+ * - Starts the atrace process (the c++ profiler will then starts another thread to read from it)
+ * - Populate needed values like CPU clock tick and RAM page size
+ *
+ * This needs to be done before measures and can take a few seconds
+ */
 export const ensureCppProfilerIsInstalled = () => {
   const sdkVersion = parseInt(
     executeCommand("adb shell getprop ro.build.version.sdk"),
@@ -55,25 +66,39 @@ export const ensureCppProfilerIsInstalled = () => {
     const command = `adb push ${binaryPath} ${deviceProfilerPath}`;
     executeCommand(command);
     Logger.success(`C++ Profiler installed in ${deviceProfilerPath}`);
+
+    retrieveCpuClockTick();
+    retrieveRAMPageSize();
   }
   if (!aTraceProcess) startATrace();
   hasInstalledProfiler = true;
 };
 
-export const getCpuClockTick = () => {
-  ensureCppProfilerIsInstalled();
-  return parseInt(
+let cpuClockTick: number;
+let RAMPageSize: number;
+
+const retrieveCpuClockTick = () => {
+  cpuClockTick = parseInt(
     executeCommand(`adb shell ${deviceProfilerPath} printCpuClockTick`),
     10
   );
 };
 
-export const getRAMPageSize = () => {
-  ensureCppProfilerIsInstalled();
-  return parseInt(
+const retrieveRAMPageSize = () => {
+  RAMPageSize = parseInt(
     executeCommand(`adb shell ${deviceProfilerPath} printRAMPageSize`),
     10
   );
+};
+
+export const getCpuClockTick = () => {
+  ensureCppProfilerIsInstalled();
+  return cpuClockTick;
+};
+
+export const getRAMPageSize = () => {
+  ensureCppProfilerIsInstalled();
+  return RAMPageSize;
 };
 
 type CppPerformanceMeasure = {

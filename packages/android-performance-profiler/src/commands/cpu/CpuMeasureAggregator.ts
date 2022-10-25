@@ -3,8 +3,6 @@ import { CpuMeasure as Measure } from "@perf-profiler/types";
 import { getCpuClockTick } from "../cppProfiler";
 import { ProcessStat } from "./getCpuStatsByProcess";
 
-const SYSTEM_TICK_IN_ONE_SECOND = getCpuClockTick();
-
 export class CpuMeasureAggregator {
   private previousTotalCpuTimePerProcessId: { [processId: string]: number } =
     {};
@@ -16,8 +14,7 @@ export class CpuMeasureAggregator {
   ): {
     [by: string]: number;
   } {
-    const TICKS_FOR_TIME_INTERVAL =
-      (SYSTEM_TICK_IN_ONE_SECOND * timeInterval) / 1000;
+    const TICKS_FOR_TIME_INTERVAL = (getCpuClockTick() * timeInterval) / 1000;
 
     const toPercentage = (value: number) =>
       Math.min((value * 100) / TICKS_FOR_TIME_INTERVAL, 100);

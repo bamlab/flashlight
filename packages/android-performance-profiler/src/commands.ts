@@ -11,6 +11,7 @@ import { program } from "commander";
 import { detectCurrentAppBundleId } from "./commands/detectCurrentAppBundleId";
 import { getPidId } from "./commands/getPidId";
 import { getAbi } from "./commands/getAbi";
+import { pollPerformanceMeasures } from "./commands/pollPerformanceMeasures";
 
 const debugCppConfig = () => {
   ensureCppProfilerIsInstalled();
@@ -68,13 +69,6 @@ program
     "Display CPU Usage for a given threads (e.g. (mqt_js))"
   )
   .action((options) => {
-    const {
-      pollPerformanceMeasures,
-      // Makes sure we don't start Atrace by just requiring
-      // A better fix would be to not run atrace when requiring the file
-      // eslint-disable-next-line @typescript-eslint/no-var-requires
-    } = require("./commands/pollPerformanceMeasures");
-
     const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
     const pid = getPidId(bundleId);
 
