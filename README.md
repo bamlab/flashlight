@@ -36,7 +36,9 @@ _Feel free to try this out using [our example APK](https://github.com/bamlab/and
 
 1. Install the profiler `yarn add --dev @perf-profiler/e2e`
 
-2. Create a TS script including an e2e performance test,
+2. Branch your android phone, and launch your production app
+
+3. Create a TS script including an e2e performance test,
 
 You can use any TS/JS based e2e framework (or just simple `adb shell` commands).
 
@@ -79,9 +81,9 @@ You have to replace a few elements in this script:
 - the bundleId
 (You can use `npx @perf-profiler/profiler getCurrentApp` to display info for the app opened on your phone)
 
-3. Run `npx appium` in one tab
-4. Run `npx ts-node yourScriptName.ts` in a separate tab
-5. Open the JSON file generated in the web profiler:
+4. Run `npx appium` in one tab
+5. Run `npx ts-node yourScriptName.ts` in a separate tab
+6. Open the JSON file generated in the web profiler:
 
 ```sh
 npx @perf-profiler/web-reporter yourResultFileName.json
