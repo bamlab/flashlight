@@ -67,12 +67,17 @@ const runTest = async () => {
     duration: 10000,
   };
 
-  const { writeResults } = await measurePerformance(bundleId, testCase);
+  const { writeResults } = await measurePerformance("bundleId", testCase);
   writeResults();
 };
 
 runTest();
 ```
+
+You have to replace a few elements in this script:
+- the app package
+- the app activity
+- the bundleId
 
 3. Run `npx appium` in one tab
 4. Run `npx ts-node start.ts` in a separate tab
