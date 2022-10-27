@@ -80,12 +80,13 @@ You have to replace a few elements in this script:
 (You can use `npx @perf-profiler/profiler getCurrentApp` to display info for the app opened on your phone)
 
 3. Run `npx appium` in one tab
-4. Run `npx ts-node start.ts` in a separate tab
+4. Run `npx ts-node yourScriptName.ts` in a separate tab
 5. Open the JSON file generated in the web profiler:
 
 ```sh
-npx @perf-profiler/web-reporter results.json
+npx @perf-profiler/web-reporter yourResultFileName.json
 ```
+Replace yourResultFileName with the name of the result file that was generated. It was printed in output of the previous appium command.
 
 ### Customizing web report
 
