@@ -48,7 +48,6 @@ import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
 const runTest = async () => {
   const driver = await AppiumDriver.create({
-    // `npx @perf-profiler/profiler getCurrentApp` will display info for the current app
     appPackage: "com.example",
     appActivity: "com.example.MainActivity",
   });
@@ -78,6 +77,7 @@ You have to replace a few elements in this script:
 - the app package
 - the app activity
 - the bundleId
+(You can use `npx @perf-profiler/profiler getCurrentApp` to display info for the app opened on your phone)
 
 3. Run `npx appium` in one tab
 4. Run `npx ts-node start.ts` in a separate tab
