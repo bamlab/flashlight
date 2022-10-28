@@ -28,6 +28,13 @@ export class UploadRepository extends BaseRepository {
     );
   }
 
+  async waitForUploadToBeReady({ arn, name }: { arn: string; name: string }) {
+    while (!(await this.isUploadProcessed({ arn }))) {
+      Logger.info(`Waiting 2s for ${name} to be ready`);
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    }
+  }
+
   async getByName({
     projectArn,
     name,
@@ -133,14 +140,9 @@ export class UploadRepository extends BaseRepository {
       type,
     });
     await uploadFile(url, filePath);
-
-    while (!(await this.isUploadProcessed({ arn }))) {
-      Logger.info(`Waiting 2s for ${name} to be ready`);
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-    }
+    await this.waitForUploadToBeReady({ arn, name });
 
     const { status, metadata } = await this.getByArn({ arn });
-
     if (status === UploadStatus.FAILED) {
       Logger.error(`Upload failed: ${metadata}`);
       throw new Error(metadata);
