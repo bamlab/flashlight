@@ -32,8 +32,8 @@
     "@mui/material": "^5.5.2",
     "@mui/utils": "^5.4.4",
     "@types/lodash": "^4.14.180",
-    "@perf-profiler/profiler": "^0.3.0",
-    "@perf-profiler/web-reporter-ui": "^0.3.0",
+    "@perf-profiler/profiler": "*",
+    "@perf-profiler/web-reporter-ui": "*",
     "react": "^17.0.2",
     "use-debounce": "^7.0.1",
     "yarn": "^1.22.18"
