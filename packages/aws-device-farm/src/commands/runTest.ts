@@ -55,6 +55,7 @@ export const runTest = async ({
   deviceName = DEFAULT_RUN_TEST_OPTIONS.deviceName,
   apkUploadArn: apkUploadArnGiven,
   testFile,
+  postTestCommand,
 }: {
   projectName?: string;
   apkPath?: string;
@@ -65,6 +66,7 @@ export const runTest = async ({
   deviceName?: string;
   apkUploadArn?: string;
   testFile?: string;
+  postTestCommand?: string;
 }): Promise<string> => {
   const projectArn = await projectRepository.getOrCreate({ name: projectName });
   const devicePoolArn = await devicePoolRepository.getOrCreate({
@@ -102,6 +104,7 @@ export const runTest = async ({
     testSpecsPath,
     testCommand,
     testFile,
+    postTestCommand,
   });
   const testSpecArn = await uploadRepository.upload({
     projectArn,
