@@ -3,6 +3,7 @@ import {
   DeleteUploadCommand,
   GetUploadCommand,
   ListUploadsCommand,
+  UploadStatus,
   UploadType,
 } from "@aws-sdk/client-device-farm";
 import path from "path";
@@ -11,12 +12,20 @@ import { BaseRepository } from "./BaseRepository";
 import { uploadFile } from "../utils/uploadFile";
 
 export class UploadRepository extends BaseRepository {
-  async isUploadSucceeded({ arn }: { arn: string }) {
+  async getByArn({ arn }: { arn: string }) {
     const { upload } = await this.client.send(new GetUploadCommand({ arn }));
 
     if (!upload) throw new Error("Could not find upload");
 
-    return upload.status === "SUCCEEDED";
+    return upload;
+  }
+
+  async isUploadProcessed({ arn }: { arn: string }) {
+    const upload = await this.getByArn({ arn });
+    return (
+      upload.status !== UploadStatus.INITIALIZED &&
+      upload.status !== UploadStatus.PROCESSING
+    );
   }
 
   async getByName({
@@ -125,9 +134,16 @@ export class UploadRepository extends BaseRepository {
     });
     await uploadFile(url, filePath);
 
-    while (!(await this.isUploadSucceeded({ arn }))) {
+    while (!(await this.isUploadProcessed({ arn }))) {
       Logger.info(`Waiting 2s for ${name} to be ready`);
       await new Promise((resolve) => setTimeout(resolve, 2000));
+    }
+
+    const { status, metadata } = await this.getByArn({ arn });
+
+    if (status === UploadStatus.FAILED) {
+      Logger.error(`Upload failed: ${metadata}`);
+      throw new Error(metadata);
     }
 
     Logger.success(`Upload ${name} ready for use`);
