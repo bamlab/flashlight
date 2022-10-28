@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.4.0...@perf-profiler/aws-device-farm@0.5.0) (2022-10-28)
+
+### Bug Fixes
+
+- **aws:** throw if upload has failed ([ac59072](https://github.com/bamlab/android-performance-profiler/commit/ac5907227b30ff353f5d7f28c54e78d9d62a8351))
+
+### Features
+
+- **aws:** add postTestCommand option ([#44](https://github.com/bamlab/android-performance-profiler/issues/44)) ([133e3e6](https://github.com/bamlab/android-performance-profiler/commit/133e3e64c9dea3d602e0755bf5a1a162cdcc2397))
+- **aws:** improve compatibility with certain envs like AWS Lambda ([#43](https://github.com/bamlab/android-performance-profiler/issues/43)) ([c8597be](https://github.com/bamlab/android-performance-profiler/commit/c8597be91ca19d51a47d2466aead8bb51fbdbc05))
+
 # [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.3.0...@perf-profiler/aws-device-farm@0.4.0) (2022-10-13)
 
 ### Features

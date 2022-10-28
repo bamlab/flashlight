@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.3.2...@perf-profiler/e2e@0.4.0) (2022-10-28)
+
+### Features
+
+- **profiler:** prepare for flipper plugin publish ([#42](https://github.com/bamlab/android-performance-profiler/issues/42)) ([43e97e3](https://github.com/bamlab/android-performance-profiler/commit/43e97e380e51ea5d50c2515e16079f7a9caab8eb))
+
 ## [0.3.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.3.1...@perf-profiler/e2e@0.3.2) (2022-10-13)
 
 **Note:** Version bump only for package @perf-profiler/e2e
