@@ -21,6 +21,8 @@
     - [Reusing APK](#reusing-apk)
     - [Advanced usage](#advanced-usage-1)
 - [Flipper Plugin](#flipper-plugin)
+  - [Install](#install)
+  - [Usage](#usage)
 - [CLI](#cli)
   - [Via Custom script](#via-custom-script)
 - [Contributing](#contributing)
@@ -179,9 +181,18 @@ npx @perf-profiler/aws-device-farm runTest \
 
 ## Flipper Plugin
 
-https://user-images.githubusercontent.com/4534323/164205504-e07f4a93-25c1-4c14-82f3-5854ae11af8e.mp4
+https://user-images.githubusercontent.com/4534323/199497712-ab099530-959d-4592-b132-f0a7e00275de.mp4
 
-To install, simply search for `android-performance-profiler` in the Flipper marketplace![image](https://user-images.githubusercontent.com/4534323/165071805-bf553b14-42f5-441b-8771-139bfb613941.png)
+### Install
+
+Simply search for `android-performance-profiler` in the Flipper marketplace. No further installation required! 🥳
+<img width="762" alt="image" src="https://user-images.githubusercontent.com/4534323/199498135-153de5ef-c730-49c8-b4c5-c1e9f22b50ff.png">
+
+### Usage
+
+- Start your app
+- Click "AUTO-DETECT"
+- Then start measuring! 🚀
 
 ## CLI
 
