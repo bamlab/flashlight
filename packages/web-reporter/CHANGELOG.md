@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.2.4...@perf-profiler/web-reporter@0.3.0) (2022-11-03)
+
+### Features
+
+- **web-reporter:** add ability to set time interval to 'cut' measures ([cc506b5](https://github.com/bamlab/android-performance-profiler/commit/cc506b5ffd3112ad5dbebee69f2a455018a55254))
+
 ## [0.2.4](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.2.3...@perf-profiler/web-reporter@0.2.4) (2022-10-14)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter
