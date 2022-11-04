@@ -36,23 +36,31 @@
 
 _Feel free to try this out using [our example APK](https://github.com/bamlab/android-performance-profiler/blob/main/.github/workflows/example.apk)_
 
-1. Install the profiler `yarn add --dev @perf-profiler/e2e`
+#### Requirements
 
-2. Create a TS script including an e2e performance test,
+- [Node](https://nodejs.org/en/)
+- An Android phone plugged in 🔌 (or an emulator started)
 
-You can use any TS/JS based e2e framework (or just simple `adb shell` commands).
+#### 1. Install the profiler
 
+`yarn add --dev @perf-profiler/e2e`
+
+#### 2. Create a TS script including an e2e performance test
+
+You can use any TS/JS based e2e framework (or just simple `adb shell` commands).  
 Here's an example using our own [Appium Helper](./packages/appium-helper) (install it with `yarn add @bam.tech/appium-helper`)
 
 ```ts
 import { AppiumDriver } from "@bam.tech/appium-helper";
 import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
+const bundleId = "com.example";
+const appActivity = "com.example.MainActivity";
+
 const runTest = async () => {
   const driver = await AppiumDriver.create({
-    // `npx @perf-profiler/profiler getCurrentApp` will display info for the current app
-    appPackage: "com.example",
-    appActivity: "com.example.MainActivity",
+    appPackage: bundleId,
+    appActivity,
   });
 
   const testCase: TestCase = {
@@ -76,13 +84,28 @@ const runTest = async () => {
 runTest();
 ```
 
-3. Run `npx appium` in one tab
-4. Run `npx ts-node start.ts` in a separate tab
-5. Open the JSON file generated in the web profiler:
+You have to replace a few elements in this script:
+
+- the **bundleId** _(You can use `npx @perf-profiler/profiler getCurrentApp` to display info for the app opened on your phone)_
+- the **appActivity**
+- insert your e2e logic inside the `run` function
+
+#### 3. Run the test
+
+- Run `npx appium` in one tab
+- Run `npx ts-node yourScriptName.ts` in a separate tab
+
+This will produce a JSON file full of measures.
+
+#### 4. Open the web report
+
+Open the JSON file generated in the web profiler:
 
 ```sh
-npx @perf-profiler/web-reporter results.json
+npx @perf-profiler/web-reporter yourResultFileName.json
 ```
+
+_Replace `yourResultFileName` with the name of the result file that was generated. It was printed in output of the previous appium command._
 
 ### Customizing web report
 
