@@ -13,9 +13,5 @@
   "dependencies": {
     "@bam.tech/appium-helper": "*",
     "@perf-profiler/e2e": "*"
-  },
-  "bundledDependencies": [
-    "@bam.tech/appium-helper",
-    "@perf-profiler/e2e"
-  ]
+  }
 }
