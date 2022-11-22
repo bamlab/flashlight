@@ -10,16 +10,17 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Getting started with the automated profiler](#getting-started-with-the-automated-profiler)
+  - [Requirements](#requirements)
   - [Main usage](#main-usage)
+  - [Example using Maestro](#example-using-maestro)
   - [Customizing web report](#customizing-web-report)
-  - [Using other e2e frameworks](#using-other-e2e-frameworks)
-  - [Advanced usage](#advanced-usage)
-  - [Comparing](#comparing)
-  - [Exploiting measures](#exploiting-measures)
+  - [Comparing measures](#comparing-measures)
+  - [Advanced usage using TypeScript](#advanced-usage-using-typescript)
+    - [Examples folder](#examples-folder)
   - [Running in CI](#running-in-ci)
     - [AWS Device Farm](#aws-device-farm)
     - [Reusing APK](#reusing-apk)
-    - [Advanced usage](#advanced-usage-1)
+    - [Advanced usage](#advanced-usage)
 - [Flipper Plugin](#flipper-plugin)
   - [Install](#install)
   - [Usage](#usage)
@@ -32,104 +33,69 @@
 
 ## Getting started with the automated profiler
 
-### Main usage
-
-_Feel free to try this out using [our example APK](https://github.com/bamlab/android-performance-profiler/blob/main/.github/workflows/example.apk)_
-
-#### Requirements
+### Requirements
 
 - [Node](https://nodejs.org/en/)
 - An Android phone plugged in 🔌 (or an emulator started)
 
-#### 1. Install the profiler
+### Main usage
 
-`yarn add --dev @perf-profiler/e2e`
-
-#### 2. Create a TS script including an e2e performance test
-
-You can use any TS/JS based e2e framework (or just simple `adb shell` commands).  
-Here's an example using our own [Appium Helper](./packages/appium-helper) (install it with `yarn add @bam.tech/appium-helper`)
-
-```ts
-import { AppiumDriver } from "@bam.tech/appium-helper";
-import { TestCase, measurePerformance } from "@perf-profiler/e2e";
-
-const bundleId = "com.example";
-const appActivity = "com.example.MainActivity";
-
-const runTest = async () => {
-  const driver = await AppiumDriver.create({
-    appPackage: bundleId,
-    appActivity,
-  });
-
-  const testCase: TestCase = {
-    beforeTest: async () => {
-      driver.stopApp();
-    },
-    run: async () => {
-      // run is where measuring will happen, insert e2e logic here
-      driver.startApp();
-      await driver.findElementByText("KILL JS");
-    },
-    // Duration is optional, but helps in getting consistent measures.
-    // Measures will be taken for this duration, regardless of test duration
-    duration: 10000,
-  };
-
-  const { writeResults } = await measurePerformance(bundleId, testCase);
-  writeResults();
-};
-
-runTest();
-```
-
-You have to replace a few elements in this script:
-
-- the **bundleId** _(You can use `npx @perf-profiler/profiler getCurrentApp` to display info for the app opened on your phone)_
-- the **appActivity**
-- insert your e2e logic inside the `run` function
-
-#### 3. Run the test
-
-- Run `npx appium` in one tab
-- Run `npx ts-node yourScriptName.ts` in a separate tab
-
-This will produce a JSON file full of measures.
-
-#### 4. Open the web report
-
-Open the JSON file generated in the web profiler:
+1. If you have an e2e test script, you can run:
 
 ```sh
-npx @perf-profiler/web-reporter yourResultFileName.json
+npx @perf-profiler/e2e measure --bundleId <your app bundle id> \
+  --testCommand <your e2e test command> \
+  --duration 10000 \
+  --resultsFilePath results.json
 ```
 
-_Replace `yourResultFileName` with the name of the result file that was generated. It was printed in output of the previous appium command._
+- This will run your e2e test 10 times (by default), measure performance during 10s for each iteration and write measures to `results.json`
+- Use `npx @perf-profiler/profiler getCurrentApp` to display the bundle id of the app opened on your phone
+- _⚠️ Your e2e test command should start the app_
+
+2. You can then open the web report for those measures:
+
+```
+npx @perf-profiler/web-reporter results.json
+```
+
+### Example using Maestro
+
+For instance, if you're using [Maestro](https://github.com/mobile-dev-inc/maestro), you can measure the startup performance of the Twitter app:
+
+1. Create a `twitter.yaml` file:
+
+```yml
+appId: com.twitter.android
+---
+- launchApp
+- tapOn: Search and Explore
+```
+
+2. Measure performance 🚀
+
+```sh
+npx @perf-profiler/e2e measure --bundleId com.twitter.android \
+  --testCommand "maestro test twitter.yaml" \
+  --duration 10000 \
+  --resultsFilePath results.json
+```
+
+3. Open the report
+
+```
+npx @perf-profiler/web-reporter results.json
+```
 
 ### Customizing web report
 
-You can change the path to which results are written
+You can change the title displayed in the web report:
 
-```ts
-const { writeResults } = await measurePerformance(bundleId, testCase);
-writeResults({
-  title: "My awesome title",
-  path: "./awesome-results.json",
-});
+```sh
+npx @perf-profiler e2e --bundleId com.twitter.android --testCommand "maestro test twitter.yaml` --resultsFilePath results.json
 ```
 
-### Using other e2e frameworks
-
-Any e2e framework running tests via JS/TS should be supported. Switch `@bam.tech/appium-helper` with something else
-
-### Advanced usage
-
-Check out [the examples folder](./examples) for more advanced usage:
-
-- [Running with Jest](./examples/e2e/appium.test.ts)
-
-### Comparing
+### Comparing measures
 
 If you have several JSON files of measures, you can open the comparison view with:
 
@@ -137,26 +103,16 @@ If you have several JSON files of measures, you can open the comparison view wit
 npx @perf-profiler/web-reporter results1.json results2.json results3.json
 ```
 
-### Exploiting measures
+### Advanced usage using TypeScript
 
-Measures are also directly exploitable from the `mesurePerformance` function.
-You can install the `@perf-profiler/reporter` package to get access to reporting functions for averaging...
+You can also run measures and exploit results programmatically via TypeScript.
+See [here](./docs/advanced_typescript_usage.md)
 
-```ts
-import {
-  getAverageCpuUsage,
-  getAverageFPSUsage,
-  getAverageRAMUsage,
-} from "@perf-profiler/reporter";
+#### Examples folder
 
-...
+Check out [the examples folder](./examples) for more advanced usage:
 
-const { measures } = await measurePerformance(bundleId, testCase);
-
-const cpuPerTestIteration = measures.map((measure) =>
-  getAverageCpuUsage(measure.measures)
-);
-```
+- [Running programmatically with Jest](./examples/e2e/appium.test.ts)
 
 ### Running in CI
 
