@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import { TMP_FOLDER } from "./TMP_FOLDER";
 
-const getSingleTestFileYml = ({
+export const getSingleTestFileYml = ({
   testFile,
   postTestCommand = "echo 'Tests are done!",
 }: {
@@ -21,7 +21,7 @@ const getSingleTestFileYml = ({
     .replace("<INSERT_POST_TEST_COMMAND>", postTestCommand);
 };
 
-const getTestCommandYml = ({
+export const getTestCommandYml = ({
   testSpecsPath,
   testCommand,
 }: {
