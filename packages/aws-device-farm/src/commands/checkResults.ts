@@ -1,7 +1,6 @@
 import fs from "fs";
 import { ArtifactType } from "@aws-sdk/client-device-farm";
 import { Logger } from "@perf-profiler/logger";
-import { execSync } from "child_process";
 import { testRepository } from "../repositories";
 import { TMP_FOLDER } from "../TMP_FOLDER";
 import { downloadFile } from "../utils/downloadFile";
@@ -26,9 +25,15 @@ export const checkResults = async ({
   await downloadFile(url, LOGS_FILE_TMP_PATH);
 
   unzip(LOGS_FILE_TMP_PATH, tmpFolder);
-  execSync(
-    `rm ${LOGS_FILE_TMP_PATH} && mv ${tmpFolder}/*.json ${reportDestinationPath} && rm -rf ${tmpFolder}`
-  );
+
+  fs.rmSync(LOGS_FILE_TMP_PATH);
+  fs.readdirSync(tmpFolder).forEach((file) => {
+    if (file.endsWith(".json")) {
+      fs.renameSync(`${tmpFolder}/${file}`, `${reportDestinationPath}/${file}`);
+    }
+  });
+  fs.rmSync(tmpFolder, { recursive: true, force: true });
+
   Logger.success(
     `Results available, run "npx @perf-profiler/web-reporter ${reportDestinationPath}" to see them`
   );
