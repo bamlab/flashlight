@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { buildYmlSpec } from "./buildYmlSpec";
 import { TMP_FOLDER } from "./TMP_FOLDER";
 
 export const getSingleTestFileYml = ({
@@ -12,24 +13,20 @@ export const getSingleTestFileYml = ({
   const testCode = fs.readFileSync(testFile);
   const base64TestCode = Buffer.from(testCode).toString("base64");
 
-  const ymlTemplate = fs
-    .readFileSync(`${__dirname}/../flashlight-singlefile.yml`)
-    .toString();
-
-  return ymlTemplate
-    .replace("<INSERT_BASE64_TEST_CODE>", base64TestCode)
-    .replace("<INSERT_POST_TEST_COMMAND>", postTestCommand);
+  return buildYmlSpec({
+    testCommands: [
+      `echo ${base64TestCode} | base64 -d  > runTest.ts`,
+      "npx ts-node runTest.ts",
+    ],
+    postTestCommands: [postTestCommand].filter(Boolean),
+  });
 };
 
-export const getTestCommandYml = ({
-  testSpecsPath,
-  testCommand,
-}: {
-  testSpecsPath: string;
-  testCommand: string;
-}) => {
-  const previousSpecFileContent = fs.readFileSync(testSpecsPath).toString();
-  return previousSpecFileContent.replace("INSERT_TEST_COMMAND", testCommand);
+export const getTestCommandYml = ({ testCommand }: { testCommand: string }) => {
+  return buildYmlSpec({
+    installCommands: ["npm install --global yarn"],
+    testCommands: ["yarn", testCommand],
+  });
 };
 
 export const createTestSpecFile = ({
@@ -49,7 +46,6 @@ export const createTestSpecFile = ({
     newContent = getSingleTestFileYml({ testFile, postTestCommand });
   } else if (testCommand) {
     newContent = getTestCommandYml({
-      testSpecsPath,
       testCommand,
     });
   } else {

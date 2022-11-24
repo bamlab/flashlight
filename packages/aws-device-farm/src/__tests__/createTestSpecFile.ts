@@ -16,7 +16,6 @@ describe("createTestSpecFile", () => {
     expect(
       getTestCommandYml({
         testCommand: "echo 'this is the test command'",
-        testSpecsPath: `${__dirname}/../../flashlight.yml`,
       })
     ).toMatchSnapshot();
   });
