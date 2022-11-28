@@ -105,6 +105,16 @@ If you have several JSON files of measures, you can open the comparison view wit
 npx @perf-profiler/web-reporter results1.json results2.json results3.json
 ```
 
+### Setting number of iterations to be run
+
+By default, 10 iterations of your test will be run, and measures will be averaged. You can change this by passing `--iterationCount`:
+
+```sh
+npx @perf-profiler/e2e measure --bundleId com.twitter.android \
+ --testCommand "maestro test twitter.yaml` \
+ --iterationCount 5
+```
+
 ### Advanced usage using TypeScript
 
 You can also run measures and exploit results programmatically via TypeScript.
