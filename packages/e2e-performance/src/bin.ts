@@ -38,7 +38,10 @@ program
     "--resultsFilePath <resultsFilePath>",
     "Path where the JSON of results will be written"
   )
-  .option("--resultsTitle <resultsTitle>", "TODO, explain this")
+  .option(
+    "--resultsTitle <resultsTitle>",
+    "Result title that is displayed at the top of the report"
+  )
   .action(async (options) => {
     await runTest(options);
   });
