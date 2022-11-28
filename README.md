@@ -89,10 +89,12 @@ npx @perf-profiler/web-reporter results.json
 
 ### Customizing web report
 
-You can change the title displayed in the web report:
+You can change the title displayed in the web report by passing `--resultsTitle`:
 
 ```sh
-npx @perf-profiler e2e --bundleId com.twitter.android --testCommand "maestro test twitter.yaml` --resultsFilePath results.json
+npx @perf-profiler/e2e measure --bundleId com.twitter.android \
+ --testCommand "maestro test twitter.yaml` \
+ --resultsTitle "Twitter - App start"
 ```
 
 ### Comparing measures
