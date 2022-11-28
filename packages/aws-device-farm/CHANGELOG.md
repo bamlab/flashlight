@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.5.0...@perf-profiler/aws-device-farm@0.5.1) (2022-11-28)
+
+### Bug Fixes
+
+- **aws:** fix issue when reportDestinationPath contains space ([#56](https://github.com/bamlab/android-performance-profiler/issues/56)) ([330c4c1](https://github.com/bamlab/android-performance-profiler/commit/330c4c1d7137d85fa7ac6f1b2a6ea51569f1f9e4))
+
 # [0.5.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.4.0...@perf-profiler/aws-device-farm@0.5.0) (2022-10-28)
 
 ### Bug Fixes
