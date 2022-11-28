@@ -17,4 +17,5 @@ module.exports = {
     "!**/dist/**",
     "!**/cpp-profiler/**",
   ],
+  setupFiles: ['<rootDir>/jest-setup.ts'],
 };
