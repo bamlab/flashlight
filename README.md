@@ -261,7 +261,7 @@ setTimeout(() => {
 
 ## Contributing
 
-### web-reporter
+Start by building the whole project:
 
 At the root of the repo:
 
@@ -269,6 +269,10 @@ At the root of the repo:
 yarn
 yarn tsc --build --w
 ```
+
+Keep this open in one terminal.
+
+### web-reporter
 
 and run in another terminal:
 
@@ -287,3 +291,16 @@ testCaseResults = [require("../measures.json")];
 You should now be able to open [the local server](http://localhost:1234/)
 
 Run `yarn jest Plugin -u` after modifications.
+
+### Flipper plugin
+
+- Add the path to the `packages` folder in `~/.flipper/config.json`.
+
+For instance, my `config.json` is currently
+`{"pluginPaths":["/Users/almouro/dev/projects/android-performance-profiler/packages"],"disabledPlugins":[],"darkMode":"system","updaterEnabled":true,"launcherEnabled":true,"lastWindowPosition":{"x":-195,"y":-1415,"width":1280,"height":1415}}`
+
+- in the `packages/flipper-plugin-android-performance-profiler`, run `yarn watch`.
+
+You should now see your local plugin in Flipper (ensure you have uninstalled the one from the marketplace), in the disabled plugin section if you're installing for the first time.
+
+⚠️ _when modifying files outside of the `packages/flipper-plugin-android-performance-profiler`, live reload sometimes doesn't work and you need to re-run `yarn watch` for changes to take effect_ 😕
