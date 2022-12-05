@@ -199,6 +199,7 @@ For more complex cases, run from your root folder, containing `node_modules`:
 npx @perf-profiler/aws-device-farm runTest \
  --apkPath app-release.apk \
  --deviceName "A10s" \
+ --testFolder . \
  --testCommand "yarn jest appium"
 ```
 

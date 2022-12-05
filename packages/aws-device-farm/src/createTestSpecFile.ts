@@ -1,5 +1,4 @@
 import fs from "fs";
-import path from "path";
 import { buildYmlSpec } from "./buildYmlSpec";
 import { TMP_FOLDER } from "./TMP_FOLDER";
 
@@ -30,12 +29,10 @@ export const getTestCommandYml = ({ testCommand }: { testCommand: string }) => {
 };
 
 export const createTestSpecFile = ({
-  testSpecsPath,
   testCommand,
   testFile,
   postTestCommand,
 }: {
-  testSpecsPath: string;
   testCommand?: string;
   testFile?: string;
   postTestCommand?: string;
@@ -52,9 +49,7 @@ export const createTestSpecFile = ({
     throw new Error("Neither testCommand nor testFile was passed.");
   }
 
-  const newSpecFilePath = `${TMP_FOLDER}/${
-    path.basename(testSpecsPath).split(".")[0]
-  }_${new Date().getTime()}.yml`;
+  const newSpecFilePath = `${TMP_FOLDER}/specs_${new Date().getTime()}.yml`;
 
   fs.writeFileSync(newSpecFilePath, newContent);
 
