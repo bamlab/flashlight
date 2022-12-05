@@ -1,5 +1,5 @@
 import fs from "fs";
-import { buildYmlSpec } from "./buildYmlSpec";
+import { buildYmlSpec, Commands } from "./buildYmlSpec";
 import { TMP_FOLDER } from "./TMP_FOLDER";
 
 export const getSingleTestFileYml = ({
@@ -13,6 +13,8 @@ export const getSingleTestFileYml = ({
   const base64TestCode = Buffer.from(testCode).toString("base64");
 
   return buildYmlSpec({
+    installCommands: [...Commands.INSTALL_APPIUM],
+    preTestCommands: [...Commands.START_APPIUM],
     testCommands: [
       `echo ${base64TestCode} | base64 -d  > runTest.ts`,
       "npx ts-node runTest.ts",
@@ -23,7 +25,8 @@ export const getSingleTestFileYml = ({
 
 export const getTestCommandYml = ({ testCommand }: { testCommand: string }) => {
   return buildYmlSpec({
-    installCommands: ["npm install --global yarn"],
+    preTestCommands: [...Commands.START_APPIUM],
+    installCommands: [...Commands.INSTALL_APPIUM, "npm install --global yarn"],
     testCommands: ["yarn", testCommand],
   });
 };

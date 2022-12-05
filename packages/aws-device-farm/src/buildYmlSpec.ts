@@ -1,5 +1,5 @@
 import yaml from "js-yaml";
-const Commands = {
+export const Commands = {
   INSTALL_NVM: [
     "export NVM_DIR=$HOME/.nvm",
     ". $NVM_DIR/nvm.sh",
@@ -62,12 +62,11 @@ export const buildYmlSpec = ({
         commands: [
           ...Commands.INSTALL_NVM,
           ...Commands.UNPACKAGE_TEST_PACKAGE,
-          ...Commands.INSTALL_APPIUM,
           ...(installCommands || []),
         ],
       },
       pre_test: {
-        commands: [...Commands.START_APPIUM, ...(preTestCommands || [])],
+        commands: [...(preTestCommands || [])],
       },
       test: {
         commands: [
