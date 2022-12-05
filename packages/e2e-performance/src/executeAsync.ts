@@ -1,9 +1,23 @@
 import { spawn } from "child_process";
 import { Logger } from "@perf-profiler/logger";
 
+const isMacOs = process.platform === "darwin";
+
 export const executeAsync = (command: string) => {
-  const parts = command.split(" ");
-  const child = spawn(parts[0], parts.slice(1));
+  // Running with `script` ensures we display to the terminal exactly what the original script does
+  // For instance, maestro clears the screen multiple times which wouldn't work without calling `script`
+  /**
+   * Running with `script` ensures we display to the terminal exactly what the original script does
+   * For instance, maestro clears the screen multiple times which wouldn't work without calling `script`
+   *
+   * on macOS you would run `script -q /dev/null echo "Running command"`,
+   * but on Linux, you would run `script -q /dev/null -c "echo \"Running command\""`
+   */
+  const child = spawn("script", [
+    "-q",
+    "/dev/null",
+    ...(isMacOs ? command.split(" ") : ["-c", command]),
+  ]);
 
   return new Promise((resolve) => {
     child.stdout.on("data", (data: ReadableStream<string>) => {

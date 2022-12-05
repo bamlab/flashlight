@@ -46,11 +46,6 @@ program
     await runTest(options);
   });
 
-const executeScript = (script: string) =>
-  // This ensures we display to the terminal exactly what the original script does
-  // For instance, maestro clears the screen multiple times which wouldn't work without calling `script -q`
-  executeAsync(`script -q /dev/null ${script}`);
-
 const runTest = async ({
   duration,
   iterationCount,
@@ -70,7 +65,7 @@ const runTest = async ({
   resultFilePath?: string;
   resultsTitle?: string;
 }) => {
-  if (beforeAllCommand) await executeScript(beforeAllCommand);
+  if (beforeAllCommand) await executeAsync(beforeAllCommand);
 
   const { writeResults } = await measurePerformance(
     bundleId,
@@ -81,10 +76,10 @@ const runTest = async ({
         execSync(`adb shell am force-stop ${bundleId}`);
         await new Promise((resolve) => setTimeout(resolve, 3000));
 
-        if (beforeEachCommand) await executeScript(beforeEachCommand);
+        if (beforeEachCommand) await executeAsync(beforeEachCommand);
       },
       run: async () => {
-        await executeScript(testCommand);
+        await executeAsync(testCommand);
       },
       duration,
     },
