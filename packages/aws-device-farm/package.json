@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/aws-device-farm",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "main": "dist/index.js",
   "bin": {
     "aws-device-farm-run-test": "dist/bin.js"

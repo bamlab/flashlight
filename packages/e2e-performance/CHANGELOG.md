@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.4.1...@perf-profiler/e2e@0.5.0) (2022-12-05)
+
+### Features
+
+- **e2e:** add support for maestro and other e2e frameworks ([0c47a99](https://github.com/bamlab/android-performance-profiler/commit/0c47a994491bcdb93eed74aa18c016388dcc8687))
+
 ## [0.4.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.4.0...@perf-profiler/e2e@0.4.1) (2022-11-03)
 
 **Note:** Version bump only for package @perf-profiler/e2e

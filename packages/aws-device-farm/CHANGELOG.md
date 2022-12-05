@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.5.1...@perf-profiler/aws-device-farm@0.6.0) (2022-12-05)
+
+### Features
+
+- **aws:** provide nicer way to build yml spec files ([54d896f](https://github.com/bamlab/android-performance-profiler/commit/54d896f2166aae4662d19ce4569d0c105ee84f29))
+
+### BREAKING CHANGES
+
+- **aws:** if using `testCommand` option instead of `testFile`, you are now required to pass `testFolder`. `.` was the default
+
 ## [0.5.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.5.0...@perf-profiler/aws-device-farm@0.5.1) (2022-11-28)
 
 ### Bug Fixes
