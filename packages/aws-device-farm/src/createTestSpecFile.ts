@@ -9,14 +9,13 @@ export const getSingleTestFileYml = ({
   testFile: string;
   postTestCommand?: string;
 }) => {
-  const testCode = fs.readFileSync(testFile);
-  const base64TestCode = Buffer.from(testCode).toString("base64");
+  const testCode = fs.readFileSync(testFile).toString();
 
   return buildYmlSpec({
     installCommands: [...Commands.INSTALL_APPIUM],
     preTestCommands: [...Commands.START_APPIUM],
     testCommands: [
-      `echo ${base64TestCode} | base64 -d  > runTest.ts`,
+      ...Commands.createFile(testCode, "runTest.ts"),
       "npx ts-node runTest.ts",
     ],
     postTestCommands: [postTestCommand].filter(Boolean),

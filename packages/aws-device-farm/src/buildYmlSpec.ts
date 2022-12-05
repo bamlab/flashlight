@@ -42,6 +42,9 @@ done;`,
     'echo "Navigate to test source code"',
     "cd $DEVICEFARM_TEST_PACKAGE_PATH/node_modules/*",
   ],
+  createFile: (code: string, filePath: string) => [
+    `echo ${Buffer.from(code).toString("base64")} | base64 -d  > ${filePath}`,
+  ],
 };
 
 export const buildYmlSpec = ({
