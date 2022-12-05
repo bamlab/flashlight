@@ -1,44 +1,40 @@
 import fs from "fs";
-import path from "path";
+import { buildYmlSpec, Commands } from "./buildYmlSpec";
 import { TMP_FOLDER } from "./TMP_FOLDER";
 
-const getSingleTestFileYml = ({
+export const getSingleTestFileYml = ({
   testFile,
   postTestCommand = "echo 'Tests are done!",
 }: {
   testFile: string;
   postTestCommand?: string;
 }) => {
-  const testCode = fs.readFileSync(testFile);
-  const base64TestCode = Buffer.from(testCode).toString("base64");
+  const testCode = fs.readFileSync(testFile).toString();
 
-  const ymlTemplate = fs
-    .readFileSync(`${__dirname}/../flashlight-singlefile.yml`)
-    .toString();
-
-  return ymlTemplate
-    .replace("<INSERT_BASE64_TEST_CODE>", base64TestCode)
-    .replace("<INSERT_POST_TEST_COMMAND>", postTestCommand);
+  return buildYmlSpec({
+    installCommands: [...Commands.INSTALL_APPIUM],
+    preTestCommands: [...Commands.START_APPIUM],
+    testCommands: [
+      ...Commands.createFile(testCode, "runTest.ts"),
+      "npx ts-node runTest.ts",
+    ],
+    postTestCommands: [postTestCommand].filter(Boolean),
+  });
 };
 
-const getTestCommandYml = ({
-  testSpecsPath,
-  testCommand,
-}: {
-  testSpecsPath: string;
-  testCommand: string;
-}) => {
-  const previousSpecFileContent = fs.readFileSync(testSpecsPath).toString();
-  return previousSpecFileContent.replace("INSERT_TEST_COMMAND", testCommand);
+export const getTestCommandYml = ({ testCommand }: { testCommand: string }) => {
+  return buildYmlSpec({
+    preTestCommands: [...Commands.START_APPIUM],
+    installCommands: [...Commands.INSTALL_APPIUM, "npm install --global yarn"],
+    testCommands: ["yarn", testCommand],
+  });
 };
 
 export const createTestSpecFile = ({
-  testSpecsPath,
   testCommand,
   testFile,
   postTestCommand,
 }: {
-  testSpecsPath: string;
   testCommand?: string;
   testFile?: string;
   postTestCommand?: string;
@@ -49,16 +45,13 @@ export const createTestSpecFile = ({
     newContent = getSingleTestFileYml({ testFile, postTestCommand });
   } else if (testCommand) {
     newContent = getTestCommandYml({
-      testSpecsPath,
       testCommand,
     });
   } else {
     throw new Error("Neither testCommand nor testFile was passed.");
   }
 
-  const newSpecFilePath = `${TMP_FOLDER}/${
-    path.basename(testSpecsPath).split(".")[0]
-  }_${new Date().getTime()}.yml`;
+  const newSpecFilePath = `${TMP_FOLDER}/specs_${new Date().getTime()}.yml`;
 
   fs.writeFileSync(newSpecFilePath, newContent);
 

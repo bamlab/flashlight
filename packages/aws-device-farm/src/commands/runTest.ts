@@ -1,5 +1,4 @@
 import { UploadType } from "@aws-sdk/client-device-farm";
-import path from "path";
 import fs from "fs";
 import { Logger } from "@perf-profiler/logger";
 import { createTestSpecFile } from "../createTestSpecFile";
@@ -16,8 +15,6 @@ import {
 } from "./createDefaultNodeTestPackage";
 
 export const DEFAULT_RUN_TEST_OPTIONS = {
-  testFolder: ".",
-  testSpecsPath: path.join(__dirname, "..", "flashlight.yml"),
   projectName: "Flashlight",
   testName: "Flashlight",
   reportDestinationPath: ".",
@@ -48,8 +45,8 @@ const getSingleFileTestFolderArn = async ({
 export const runTest = async ({
   projectName = DEFAULT_RUN_TEST_OPTIONS.projectName,
   apkPath,
-  testSpecsPath = DEFAULT_RUN_TEST_OPTIONS.testSpecsPath,
-  testFolder = DEFAULT_RUN_TEST_OPTIONS.testFolder,
+  testSpecsPath: testSpecsPathGiven,
+  testFolder,
   testName = DEFAULT_RUN_TEST_OPTIONS.testName,
   testCommand,
   deviceName = DEFAULT_RUN_TEST_OPTIONS.deviceName,
@@ -75,7 +72,7 @@ export const runTest = async ({
   });
 
   let testPackageArn = null;
-  if (testFile) {
+  if (!testFolder) {
     testPackageArn = await getSingleFileTestFolderArn({ projectArn });
   } else {
     const testFolderZipPath = zipTestFolder(testFolder);
@@ -100,18 +97,19 @@ export const runTest = async ({
     throw new Error("Neither apkUploadArn nor apkPath was passed.");
   }
 
-  const newTestSpecPath = createTestSpecFile({
-    testSpecsPath,
-    testCommand,
-    testFile,
-    postTestCommand,
-  });
+  const testSpecPath =
+    testSpecsPathGiven ||
+    createTestSpecFile({
+      testCommand,
+      testFile,
+      postTestCommand,
+    });
   const testSpecArn = await uploadRepository.upload({
     projectArn,
-    filePath: newTestSpecPath,
+    filePath: testSpecPath,
     type: UploadType.APPIUM_NODE_TEST_SPEC,
   });
-  fs.rmSync(newTestSpecPath);
+  fs.rmSync(testSpecPath);
 
   Logger.info("Starting test run...");
   const testRunArn = await testRepository.scheduleRun({

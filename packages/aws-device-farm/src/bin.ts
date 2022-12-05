@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import path from "path";
 import { Option, program } from "commander";
 import { DEFAULT_RUN_TEST_OPTIONS, runTest } from "./commands/runTest";
 import { uploadApk } from "./commands/uploadApk";
@@ -17,13 +16,11 @@ program
   )
   .option(
     "--testFolder <testFolder>",
-    "AWS requires us to upload the folder containing the tests including node_modules folder",
-    DEFAULT_RUN_TEST_OPTIONS.testFolder
+    "AWS requires us to upload the folder containing the tests including node_modules folder"
   )
   .option(
     "--testSpecsPath <testSpecsPath>",
-    "Path to yml config file driving the AWS Device Farm tests",
-    path.join(__dirname, "..", "flashlight.yml")
+    "Path to yml config file driving the AWS Device Farm tests"
   )
   .option(
     "--projectName <projectName>",
