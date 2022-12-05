@@ -7,6 +7,9 @@
   },
   "license": "MIT",
   "main": "dist/index.js",
+  "bin": {
+    "perf-profiler-e2e": "dist/bin.js"
+  },
   "scripts": {
     "test": "tsc"
   },
@@ -14,6 +17,7 @@
     "@perf-profiler/logger": "^0.2.0",
     "@perf-profiler/profiler": "^0.4.1",
     "@perf-profiler/reporter": "^0.3.0",
-    "@perf-profiler/types": "^0.2.0"
+    "@perf-profiler/types": "^0.2.0",
+    "commander": "^9.4.0"
   }
 }
