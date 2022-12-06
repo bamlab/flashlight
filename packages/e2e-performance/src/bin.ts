@@ -53,7 +53,7 @@ const runTest = async ({
   beforeAllCommand,
   bundleId,
   testCommand,
-  resultFilePath,
+  resultsFilePath,
   resultsTitle,
 }: {
   duration?: number;
@@ -62,7 +62,7 @@ const runTest = async ({
   beforeEachCommand?: string;
   testCommand: string;
   bundleId: string;
-  resultFilePath?: string;
+  resultsFilePath?: string;
   resultsTitle?: string;
 }) => {
   if (beforeAllCommand) await executeAsync(beforeAllCommand);
@@ -87,7 +87,7 @@ const runTest = async ({
   );
 
   writeResults({
-    path: resultFilePath,
+    path: resultsFilePath,
     title: resultsTitle,
   });
 };
