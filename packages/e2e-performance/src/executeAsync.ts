@@ -16,7 +16,7 @@ export const executeAsync = (command: string) => {
   const child = spawn("script", [
     "-q",
     "/dev/null",
-    ...(isMacOs ? command.split(" ") : ["-c", command]),
+    ...(isMacOs ? command.split(" ") : ["-e", "-c", command]),
   ]);
 
   return new Promise((resolve) => {
