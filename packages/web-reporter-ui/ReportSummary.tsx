@@ -1,5 +1,5 @@
 import React from "react";
-import { AveragedTestCaseResult } from "@perf-profiler/types";
+import { AveragedTestCaseResult, TestCaseResult } from "@perf-profiler/types";
 import {
   getAverageCpuUsage,
   getAverageFPSUsage,
@@ -10,6 +10,10 @@ import { roundToDecimal } from "./utils/roundToDecimal";
 import { SimpleTable } from "./components/SimpleTable";
 import { Score } from "./components/Score";
 import { orderBy } from "lodash";
+import Button from "@mui/material/Button";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
+import Tooltip from "@mui/material/Tooltip";
+import { exportRawDataToJSON } from "./utils/reportRawDataExport";
 
 const HighCpuProcesses = ({
   highCpuProcesses,
@@ -66,46 +70,66 @@ const FrameworkDetection = ({
 
 export const ReportSummary = ({
   results,
+  averagedResults,
 }: {
-  results: AveragedTestCaseResult[];
+  results: TestCaseResult[];
+  averagedResults: AveragedTestCaseResult[];
 }) => {
   const table = [
-    ["", ...results.map((result) => result.name)],
-    ["Score", ...results.map((result) => <Score result={result} />)],
+    [
+      "",
+      ...averagedResults.map((result) => (
+        <Tooltip title="Save as JSON">
+          <Button
+            size="small"
+            variant="text"
+            startIcon={<FileDownloadIcon />}
+            onClick={() => {
+              exportRawDataToJSON(result.name, result);
+            }}
+          >
+            {result.name}
+          </Button>
+        </Tooltip>
+      )),
+    ],
+    ["Score", ...averagedResults.map((result) => <Score result={result} />)],
     [
       "Average Test Runtime",
-      ...results.map((result) => `${roundToDecimal(result.average.time, 0)}ms`),
+      ...averagedResults.map(
+        (result) => `${roundToDecimal(result.average.time, 0)}ms`
+      ),
     ],
     [
       "Average FPS",
-      ...results.map(
+      ...averagedResults.map(
         (result) =>
           `${roundToDecimal(getAverageFPSUsage(result.average.measures), 1)}`
       ),
     ],
     [
       "Average CPU usage",
-      ...results.map(
+      ...averagedResults.map(
         (result) =>
           `${roundToDecimal(getAverageCpuUsage(result.average.measures), 1)}%`
       ),
     ],
     [
       "Average RAM usage",
-      ...results.map(
+      ...averagedResults.map(
         (result) =>
           `${roundToDecimal(getAverageRAMUsage(result.average.measures), 1)}MB`
       ),
     ],
     [
       "Processes with high CPU usage detected",
-      ...results.map((result) => (
+      ...averagedResults.map((result) => (
         <HighCpuProcesses highCpuProcesses={result.averageHighCpuUsage} />
       )),
     ],
     [
       "Framework Detection",
-      ...results.map((result) => (
+      ...averagedResults.map((result) => (
         <FrameworkDetection reactNativeDetected={result.reactNativeDetected} />
       )),
     ],
