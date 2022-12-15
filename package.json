@@ -31,23 +31,17 @@
   "homepage": "https://github.com/bamlab/android-performance-profiler#readme",
   "devDependencies": {
     "@types/jest": "^26.0.3",
-    "assert": "^2.0.0",
-    "browserify-zlib": "^0.2.0",
     "eslint": "^8.0.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-import": "^2.26.0",
-    "events": "^3.3.0",
     "husky": ">=6",
     "jest": "^27.5.1",
     "lerna": "^4.0.0",
     "lint-staged": ">=10",
-    "path-browserify": "^1.0.1",
     "prettier": "^2.7.1",
     "process": "^0.11.10",
-    "stream-browserify": "^3.0.0",
     "ts-jest": "^27.1.4",
-    "typescript": "^4.7.4",
-    "util": "^0.12.5"
+    "typescript": "^4.7.4"
   },
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",
