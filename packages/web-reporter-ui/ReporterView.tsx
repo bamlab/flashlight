@@ -14,6 +14,9 @@ import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./FPSReport";
 import { createTheme, ThemeProvider } from "@mui/material";
+import Header from "./components/Header";
+
+import { exportRawDataToZIP } from "./utils/reportRawDataExport";
 
 const Padding = styled.div`
   height: 10px;
@@ -37,9 +40,15 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
     averageTestCaseResult
   );
 
+  const saveResultsToZIP = () => {
+    exportRawDataToZIP(results);
+  };
+
   return (
     <>
-      <ReportSummary results={averagedResults} />
+      <Header saveToZIPCallBack={saveResultsToZIP} />
+      <Padding />
+      <ReportSummary results={results} averagedResults={averagedResults} />
       <Padding />
       <Accordion defaultExpanded>
         <AccordionSectionTitle title="FPS" />
