@@ -31,6 +31,7 @@ com.example-4808  (-----) [006] .... 176340.064914: tracing_mark_write: B|4808|d
 com.example-4808  (-----) [006] .... 176340.064942: tracing_mark_write: B|4808|Record View#draw()
 com.example-4808  (-----) [006] .... 176340.065726: tracing_mark_write: E|4808
 com.example-4808  (-----) [006] .... 176340.067496: tracing_mark_write: E|4808
+com.example-4808  (-----) [005] ..s.  1799.488062: run_rebalance_domains: CPU5 FAILED TO GET (this is one line coming from Samsung A40)
 com.example-4808  (-----) [006] .... 176340.067503: tracing_mark_write: E|4808
 com.example-4808  (-----) [006] .... 176340.067509: tracing_mark_write: E|4808
 com.example-4808  (-----) [006] .... 176340.147257: tracing_mark_write: B|4808|Choreographer#onVsync 4573951
