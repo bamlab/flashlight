@@ -1,4 +1,12 @@
-export const parseLine = (line: string) => {
+import { Logger } from "@perf-profiler/logger";
+
+export const parseLine = (
+  line: string
+): {
+  timestamp: number;
+  ending: boolean;
+  methodName: string | undefined;
+} => {
   let regexMatching = line.match(
     / (\d+\.\d+): tracing_mark_write: ([A-Z])(.*)/
   );
@@ -46,27 +54,37 @@ export class FrameTimeParser {
     const frameTimes: number[] = [];
 
     lines.forEach((line) => {
-      if (!line.includes("-" + pid + " ")) return;
+      try {
+        if (!line.includes("-" + pid + " ")) return;
 
-      const { timestamp, ending, methodName } = parseLine(line);
+        const { timestamp, ending, methodName } = parseLine(line);
 
-      if (ending) {
-        this.methodStartedCount--;
-        if (this.methodStartedCount <= 0) {
-          if (this.doFrameStartedTimeStamp) {
-            frameTimes.push(timestamp - this.doFrameStartedTimeStamp);
-            this.doFrameStartedTimeStamp = null;
+        if (ending) {
+          this.methodStartedCount--;
+          if (this.methodStartedCount <= 0) {
+            if (this.doFrameStartedTimeStamp) {
+              frameTimes.push(timestamp - this.doFrameStartedTimeStamp);
+              this.doFrameStartedTimeStamp = null;
+            }
+
+            this.methodStartedCount = 0;
           }
-
-          this.methodStartedCount = 0;
-        }
-      } else {
-        if (methodName.includes("Choreographer#doFrame")) {
-          this.methodStartedCount = 1;
-          this.doFrameStartedTimeStamp = timestamp;
         } else {
-          this.methodStartedCount++;
+          if (methodName) {
+            if (methodName.includes("Choreographer#doFrame")) {
+              this.methodStartedCount = 1;
+              this.doFrameStartedTimeStamp = timestamp;
+            } else {
+              this.methodStartedCount++;
+            }
+          }
         }
+      } catch (error) {
+        Logger.error(`Failed to parse Atrace line:
+${line}
+
+Error:
+${error instanceof Error ? error.message : error}`);
       }
     });
 
