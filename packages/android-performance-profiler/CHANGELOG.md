@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.4.1...@perf-profiler/profiler@0.4.2) (2022-12-16)
+
+### Bug Fixes
+
+- **profiler:** make FPS polling safer ([#62](https://github.com/bamlab/android-performance-profiler/issues/62)) ([2c5edd8](https://github.com/bamlab/android-performance-profiler/commit/2c5edd8a4cb8b598c5cbd8a959f2d6870d5922cc))
+
 ## [0.4.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.4.0...@perf-profiler/profiler@0.4.1) (2022-11-03)
 
 ### Bug Fixes
