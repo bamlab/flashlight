@@ -28,13 +28,6 @@ An app might run at 60FPS but might be using too much processing power, so it's 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 84%
-Average RAM usage
-If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
-It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
- 
-here for more details
-)
-375.7MB
 Processes with high CPU usage detected
 Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
 One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
@@ -46,6 +39,13 @@ mqt_js
  
 0.5
 s
+Average RAM usage
+If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
+It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
+ 
+here for more details
+)
+375.7MB
 FPS
 CPU
 Threads
@@ -550,85 +550,6 @@ exports[`displays FPS data and scoring 2`] = `
                     <div
                       class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
                     >
-                      Average RAM usage
-                    </div>
-                    <div
-                      class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                    >
-                      <div
-                        class="css-1iy8n0h"
-                      >
-                        <span />
-                        <span />
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                    style="min-height: 0px;"
-                  >
-                    <div
-                      class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                    >
-                      <div
-                        class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                      >
-                        <div
-                          class="MuiAccordion-region"
-                          role="region"
-                        >
-                          <div
-                            class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                            style="padding: 2px;"
-                          >
-                            <div
-                              style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                            >
-                              If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
-                              <br />
-                              It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
-                               
-                              <a
-                                href="https://github.com/bamlab/android-performance-profiler/issues/11#issuecomment-1219317891"
-                                rel="noreferrer"
-                                target="_blank"
-                              >
-                                here for more details
-                              </a>
-                              )
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </th>
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-              >
-                375.7MB
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root css-34nofg-MuiTableRow-root"
-            >
-              <th
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-                scope="row"
-              >
-                <div
-                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-                >
-                  <div
-                    aria-expanded="false"
-                    class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                    role="button"
-                    tabindex="0"
-                  >
-                    <div
-                      class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                    >
                       Processes with high CPU usage detected
                     </div>
                     <div
@@ -697,6 +618,85 @@ exports[`displays FPS data and scoring 2`] = `
                     </div>
                   </div>
                 </div>
+              </td>
+            </tr>
+            <tr
+              class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+            >
+              <th
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
+                scope="row"
+              >
+                <div
+                  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
+                >
+                  <div
+                    aria-expanded="false"
+                    class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
+                    role="button"
+                    tabindex="0"
+                  >
+                    <div
+                      class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
+                    >
+                      Average RAM usage
+                    </div>
+                    <div
+                      class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
+                    >
+                      <div
+                        class="css-1iy8n0h"
+                      >
+                        <span />
+                        <span />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
+                    style="min-height: 0px;"
+                  >
+                    <div
+                      class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+                    >
+                      <div
+                        class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+                      >
+                        <div
+                          class="MuiAccordion-region"
+                          role="region"
+                        >
+                          <div
+                            class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
+                            style="padding: 2px;"
+                          >
+                            <div
+                              style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
+                            >
+                              If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
+                              <br />
+                              It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
+                               
+                              <a
+                                href="https://github.com/bamlab/android-performance-profiler/issues/11#issuecomment-1219317891"
+                                rel="noreferrer"
+                                target="_blank"
+                              >
+                                here for more details
+                              </a>
+                              )
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </th>
+              <td
+                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
+              >
+                375.7MB
               </td>
             </tr>
           </tbody>

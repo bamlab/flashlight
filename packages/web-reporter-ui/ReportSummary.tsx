@@ -139,6 +139,26 @@ export const ReportSummary = ({
     ],
     [
       <MetricWithExplanation
+        title="Processes with high CPU usage detected"
+        explanation={
+          <>
+            Your app might have low CPU usage overall but if one process is
+            saturating a CPU core (using close to 100% CPU), you’re likely to
+            experience unresponsiveness, for instance the app not responding to
+            touch events.
+            <br />
+            One example of this is the JS thread being overworked in a React
+            Native app, the app will become completely unresponsive even though
+            FPS could still be 60.
+          </>
+        }
+      />,
+      ...averagedResults.map((result) => (
+        <HighCpuProcesses highCpuProcesses={result.averageHighCpuUsage} />
+      )),
+    ],
+    [
+      <MetricWithExplanation
         title="Average RAM usage"
         explanation={
           <>
@@ -163,26 +183,6 @@ export const ReportSummary = ({
         (result) =>
           `${roundToDecimal(getAverageRAMUsage(result.average.measures), 1)}MB`
       ),
-    ],
-    [
-      <MetricWithExplanation
-        title="Processes with high CPU usage detected"
-        explanation={
-          <>
-            Your app might have low CPU usage overall but if one process is
-            saturating a CPU core (using close to 100% CPU), you’re likely to
-            experience unresponsiveness, for instance the app not responding to
-            touch events.
-            <br />
-            One example of this is the JS thread being overworked in a React
-            Native app, the app will become completely unresponsive even though
-            FPS could still be 60.
-          </>
-        }
-      />,
-      ...averagedResults.map((result) => (
-        <HighCpuProcesses highCpuProcesses={result.averageHighCpuUsage} />
-      )),
     ],
   ];
 
