@@ -10,7 +10,7 @@ Average Test Runtime
 Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 6647ms
-5907ms
+5908ms
 Average FPS
 Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
 See
@@ -19,7 +19,7 @@ this video
  
 for more details
 59.7
-59.7
+59.8
 Average CPU usage
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to
@@ -32,12 +32,12 @@ Processes with high CPU usage detected
 Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
 One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
 Total: 
-3.15
+3.2
 s
 mqt_js
  for
  
-3.15
+3.2
 s
 Total: 
 1
@@ -53,8 +53,8 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
-408.5MB
-413.2MB
+408.6MB
+413.3MB
 FPS
 CPU
 Threads
@@ -891,7 +891,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
           >
-            5907ms
+            5908ms
           </td>
         </tr>
         <tr
@@ -974,7 +974,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
           >
-            59.7
+            59.8
           </td>
         </tr>
         <tr
@@ -1129,11 +1129,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               <div
                 style="color: red;"
               >
-                Total: 3.15s
+                Total: 3.2s
               </div>
               <div>
                 <div>
-                  mqt_js for 3.15s
+                  mqt_js for 3.2s
                 </div>
               </div>
             </div>
@@ -1232,12 +1232,12 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
           >
-            408.5MB
+            408.6MB
           </td>
           <td
             class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
           >
-            413.2MB
+            413.3MB
           </td>
         </tr>
       </tbody>

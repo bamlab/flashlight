@@ -45,7 +45,7 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
-375.7MB
+375.8MB
 FPS
 CPU
 Threads
@@ -696,7 +696,7 @@ exports[`displays FPS data and scoring 2`] = `
               <td
                 class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
               >
-                375.7MB
+                375.8MB
               </td>
             </tr>
           </tbody>

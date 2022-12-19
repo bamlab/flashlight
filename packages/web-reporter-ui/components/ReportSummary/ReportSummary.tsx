@@ -31,7 +31,9 @@ const HighCpuProcesses = ({
     <div style={{ overflowY: "scroll", maxHeight: 100 }}>
       {processNames.length > 0 ? (
         <>
-          <div style={{ color: "red" }}>Total: {total / 1000}s</div>
+          <div style={{ color: "red" }}>
+            Total: {roundToDecimal(total / 1000, 1)}s
+          </div>
           <div>
             {orderBy(
               processNames,
@@ -40,7 +42,7 @@ const HighCpuProcesses = ({
             ).map((processName) => (
               <div key={processName}>
                 {sanitizeProcessName(processName)} for{" "}
-                {highCpuProcesses[processName] / 1000}s
+                {roundToDecimal(highCpuProcesses[processName] / 1000, 1)}s
               </div>
             ))}
           </div>
