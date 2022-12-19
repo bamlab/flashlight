@@ -123,10 +123,6 @@ ADB EXEC TIME: ${42}
   emitMeasure(2);
 };
 
-// See https://github.com/apexcharts/react-apexcharts/issues/52
-jest.mock("react-apexcharts", () => "apex-charts");
-jest.mock("apexcharts", () => ({ exec: jest.fn() }));
-
 test("displays FPS data and scoring", async () => {
   const { renderer } = TestUtils.renderDevicePlugin(Plugin);
 
