@@ -26,8 +26,6 @@ mqt_js
  
 0.5
 s
-Framework Detection
- React Native
 FPS
 CPU
 Threads
@@ -487,32 +485,6 @@ exports[`displays FPS data and scoring 2`] = `
                       0.5
                       s
                     </div>
-                  </div>
-                </div>
-              </td>
-            </tr>
-            <tr
-              class="MuiTableRow-root css-34nofg-MuiTableRow-root"
-            >
-              <th
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-                scope="row"
-              >
-                Framework Detection
-              </th>
-              <td
-                class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-              >
-                <div
-                  style="display: flex; justify-content: flex-end;"
-                >
-                  <img
-                    alt="React Native logo"
-                    src="https://d33wubrfki0l68.cloudfront.net/554c3b0e09cf167f0281fda839a5433f2040b349/ecfc9/img/header_logo.svg"
-                    style="height: 20px; width: 20px;"
-                  />
-                  <div>
-                     React Native
                   </div>
                 </div>
               </td>

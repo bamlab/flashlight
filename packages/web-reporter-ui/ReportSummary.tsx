@@ -51,23 +51,6 @@ const HighCpuProcesses = ({
   );
 };
 
-const FrameworkDetection = ({
-  reactNativeDetected,
-}: {
-  reactNativeDetected: boolean;
-}) => {
-  return reactNativeDetected ? (
-    <div style={{ display: "flex", justifyContent: "flex-end" }}>
-      <img
-        alt="React Native logo"
-        style={{ height: 20, width: 20 }}
-        src="https://d33wubrfki0l68.cloudfront.net/554c3b0e09cf167f0281fda839a5433f2040b349/ecfc9/img/header_logo.svg"
-      />
-      <div>&nbsp;React Native</div>
-    </div>
-  ) : null;
-};
-
 export const ReportSummary = ({
   results,
   averagedResults,
@@ -125,12 +108,6 @@ export const ReportSummary = ({
       "Processes with high CPU usage detected",
       ...averagedResults.map((result) => (
         <HighCpuProcesses highCpuProcesses={result.averageHighCpuUsage} />
-      )),
-    ],
-    [
-      "Framework Detection",
-      ...averagedResults.map((result) => (
-        <FrameworkDetection reactNativeDetected={result.reactNativeDetected} />
       )),
     ],
   ];
