@@ -69,7 +69,7 @@ export const CPUReport = ({
         }
         maxValue={100}
       />
-      <Accordion>
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSectionTitle title="Threads"></AccordionSectionTitle>
         <AccordionDetails>
           {results.length > 1 ? (

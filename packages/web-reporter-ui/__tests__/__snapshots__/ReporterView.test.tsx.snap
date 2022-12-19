@@ -1064,18 +1064,18 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                 type="line"
               />
               <div
-                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded MuiAccordion-gutters css-1elwnq4-MuiPaper-root-MuiAccordion-root"
+                class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1elwnq4-MuiPaper-root-MuiAccordion-root"
               >
                 <div
                   aria-controls="panel1a-content"
-                  aria-expanded="false"
-                  class="MuiButtonBase-root MuiAccordionSummary-root MuiAccordionSummary-gutters css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+                  aria-expanded="true"
+                  class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
                   id="panel1a-header"
                   role="button"
                   tabindex="0"
                 >
                   <div
-                    class="MuiAccordionSummary-content MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
+                    class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
                   >
                     <h4
                       class="MuiTypography-root MuiTypography-h4 css-1ybayhq-MuiTypography-root"
@@ -1085,7 +1085,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     </h4>
                   </div>
                   <div
-                    class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
+                    class="MuiAccordionSummary-expandIconWrapper Mui-expanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
                   >
                     <svg
                       aria-hidden="true"
@@ -1101,8 +1101,8 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </div>
                 </div>
                 <div
-                  class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                  style="min-height: 0px;"
+                  class="MuiCollapse-root MuiCollapse-vertical css-1fkrdiv-MuiCollapse-root"
+                  style="min-height: 0px; height: 0px; transition-duration: 0ms;"
                 >
                   <div
                     class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"

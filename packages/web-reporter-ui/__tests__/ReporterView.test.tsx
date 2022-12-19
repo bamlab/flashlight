@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent, screen } from "@testing-library/react";
 import { IterationsReporterView } from "../ReporterView";
 import { TestCaseResult } from "@perf-profiler/types";
 import { getText } from "../utils/getSnapshotText";
@@ -14,6 +14,7 @@ describe("<ReporterView />", () => {
     const { asFragment, baseElement } = render(
       <IterationsReporterView results={testCaseResults} />
     );
+    fireEvent.click(screen.getByText("Threads"));
 
     expect(getText(baseElement)).toMatchSnapshot();
     expect(asFragment()).toMatchSnapshot();
