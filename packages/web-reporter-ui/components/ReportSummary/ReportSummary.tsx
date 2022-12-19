@@ -5,16 +5,16 @@ import {
   getAverageFPSUsage,
   getAverageRAMUsage,
 } from "@perf-profiler/reporter";
-import { sanitizeProcessName } from "./utils/sanitizeProcessName";
-import { roundToDecimal } from "./utils/roundToDecimal";
-import { SimpleTable } from "./components/SimpleTable";
-import { Score } from "./components/Score";
+import { sanitizeProcessName } from "../../utils/sanitizeProcessName";
+import { roundToDecimal } from "../../utils/roundToDecimal";
+import { SimpleTable } from "../SimpleTable";
+import { Score } from "../Score";
 import { orderBy } from "lodash";
 import Button from "@mui/material/Button";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import Tooltip from "@mui/material/Tooltip";
-import { exportRawDataToJSON } from "./utils/reportRawDataExport";
-import { MetricWithExplanation } from "./components/ReportSummary/MetricWithExplanation";
+import { exportRawDataToJSON } from "../../utils/reportRawDataExport";
+import { MetricWithExplanation } from "./MetricWithExplanation";
 
 const HighCpuProcesses = ({
   highCpuProcesses,
