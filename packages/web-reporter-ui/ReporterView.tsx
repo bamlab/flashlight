@@ -5,7 +5,7 @@ import {
   TestCaseResult,
 } from "@perf-profiler/types";
 import { CPUReport } from "./CPUReport";
-import { ReportSummary } from "./ReportSummary";
+import { ReportSummary } from "./components/ReportSummary/ReportSummary";
 import { RAMReport } from "./RAMReport";
 import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
 import Accordion from "@mui/material/Accordion";

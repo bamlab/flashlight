@@ -30,7 +30,7 @@ export const Chart = ({
           enabled: true,
           easing: "linear",
           dynamicAnimation: {
-            speed: interval + 200,
+            speed: interval,
           },
         },
         zoom: {

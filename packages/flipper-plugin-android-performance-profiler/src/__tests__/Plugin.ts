@@ -1,6 +1,7 @@
 import { act, fireEvent, screen } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import { EventEmitter } from "events";
+import { getText } from "@perf-profiler/web-reporter-ui/utils/getSnapshotText";
 import * as Plugin from "..";
 
 // See https://github.com/facebook/flipper/pull/3327
@@ -120,23 +121,6 @@ ADB EXEC TIME: ${42}
   emitMeasure(0);
   emitMeasure(1);
   emitMeasure(2);
-};
-
-// See https://github.com/apexcharts/react-apexcharts/issues/52
-jest.mock("react-apexcharts", () => "apex-charts");
-jest.mock("apexcharts", () => ({ exec: jest.fn() }));
-
-const getText = (node: any): string | null => {
-  if (node.childNodes.length > 0) {
-    return (
-      Array.from(node.childNodes)
-        .map((child) => getText(child))
-        .filter(Boolean)
-        .join("\n") || null
-    );
-  }
-
-  return node.textContent;
 };
 
 test("displays FPS data and scoring", async () => {
