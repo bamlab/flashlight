@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.4.0...@perf-profiler/web-reporter-ui@0.5.0) (2023-01-27)
+
+### Features
+
+- **web:** Add short explanation text for metrics ([#64](https://github.com/bamlab/android-performance-profiler/issues/64)) ([411f79c](https://github.com/bamlab/android-performance-profiler/commit/411f79c8c9f7e8099cacdfdca4dc2f322c8ab940))
+
 # [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.3.0...@perf-profiler/web-reporter-ui@0.4.0) (2022-12-15)
 
 ### Features
