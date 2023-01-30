@@ -24,20 +24,24 @@ class PerformanceTester {
   }
 
   private async executeTestCase(): Promise<TestCaseIterationResult> {
-    const { beforeTest, run, afterTest, duration } = this.testCase;
+    try {
+      const { beforeTest, run, afterTest, duration } = this.testCase;
 
-    if (beforeTest) await beforeTest();
+      if (beforeTest) await beforeTest();
 
-    const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
-    // We don't await here to not block the thread
-    // but it's not ideal, we could spawn a worker for the measurer
-    performanceMeasurer.start();
-    await run();
-    const measures = await performanceMeasurer.stop(duration);
+      const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
+      // We don't await here to not block the thread
+      // but it's not ideal, we could spawn a worker for the measurer
+      performanceMeasurer.start();
+      await run();
+      const measures = await performanceMeasurer.stop(duration);
 
-    if (afterTest) await afterTest();
+      if (afterTest) await afterTest();
 
-    return measures;
+      return measures;
+    } catch (error) {
+      throw new Error("Error while running test");
+    }
   }
 
   async iterate(iterationCount: number): Promise<TestCaseIterationResult[]> {
@@ -45,11 +49,23 @@ class PerformanceTester {
 
     for (let i = 0; i < iterationCount; i++) {
       Logger.info(`Running iteration ${i + 1}/${iterationCount}`);
-      const measure = await this.executeTestCase();
-      Logger.success(
-        `Finished iteration ${i + 1}/${iterationCount} in ${measure.time}ms`
-      );
-      measures.push(measure);
+      try {
+        const measure = await this.executeTestCase();
+        Logger.success(
+          `Finished iteration ${i + 1}/${iterationCount} in ${measure.time}ms`
+        );
+        measures.push(measure);
+      } catch (error) {
+        Logger.error(
+          `Iteration ${i + 1}/${iterationCount} failed (ignoring measure): ${
+            error instanceof Error ? error.message : "unknown error"
+          }`
+        );
+      }
+    }
+
+    if (measures.length === 0) {
+      throw new Error("No measure returned");
     }
 
     return measures;
