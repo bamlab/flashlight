@@ -22,6 +22,14 @@ program
   )
   .addOption(
     new Option(
+      "--maxRetries <maxRetries>",
+      "Maximum number of retries allowed over all iterations."
+    )
+      .default(3)
+      .argParser((arg) => parseInt(arg, 10))
+  )
+  .addOption(
+    new Option(
       "--duration <duration>",
       "Duration (in ms) is optional, but helps in getting consistent measures. Measures will be taken for this duration, regardless of test duration"
     ).argParser((arg) => parseInt(arg, 10))
@@ -49,6 +57,7 @@ program
 const runTest = async ({
   duration,
   iterationCount,
+  maxRetries,
   beforeEachCommand,
   beforeAllCommand,
   bundleId,
@@ -58,6 +67,7 @@ const runTest = async ({
 }: {
   duration?: number;
   iterationCount?: number;
+  maxRetries?: number;
   beforeAllCommand?: string;
   beforeEachCommand?: string;
   testCommand: string;
@@ -83,7 +93,8 @@ const runTest = async ({
       },
       duration,
     },
-    iterationCount
+    iterationCount,
+    maxRetries
   );
 
   writeResults({
