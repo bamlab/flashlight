@@ -2,7 +2,7 @@
   "$schema": "https://fbflipper.com/schemas/plugin-package/v2.json",
   "name": "flipper-plugin-android-performance-profiler",
   "id": "android-performance-profiler",
-  "version": "0.2.0",
+  "version": "0.5.1",
   "pluginType": "device",
   "supportedDevices": [
     {
@@ -21,8 +21,8 @@
   "scripts": {
     "lint": "flipper-pkg lint",
     "prepack": "flipper-pkg lint && flipper-pkg bundle",
-    "build": "cp -R ../android-performance-profiler/cpp-profiler/bin dist && flipper-pkg bundle",
-    "watch": "cp -R ../android-performance-profiler/cpp-profiler/bin dist && flipper-pkg bundle --watch",
+    "build": "mkdir -p dist && cp -R ../android-performance-profiler/cpp-profiler/bin dist/bin && flipper-pkg bundle",
+    "watch": "mkdir -p dist && cp -R ../android-performance-profiler/cpp-profiler/bin dist/bin && flipper-pkg bundle --watch",
     "test": "tsc --noEmit"
   },
   "dependencies": {
