@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.5.3...@perf-profiler/e2e@0.6.0) (2023-01-31)
+
+### Features
+
+- **e2e:** accept failed iterations and add retry option ([#67](https://github.com/bamlab/android-performance-profiler/issues/67)) ([153fcd3](https://github.com/bamlab/android-performance-profiler/commit/153fcd362b74833c4ed66760478c85e04d9034be))
+
 ## [0.5.3](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.5.2...@perf-profiler/e2e@0.5.3) (2022-12-16)
 
 **Note:** Version bump only for package @perf-profiler/e2e
