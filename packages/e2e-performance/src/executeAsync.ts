@@ -19,7 +19,7 @@ export const executeAsync = (command: string) => {
     ...(isMacOs ? command.split(" ") : ["-e", "-c", command]),
   ]);
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     child.stdout.on("data", (data: ReadableStream<string>) => {
       console.log(data.toString());
     });
@@ -32,10 +32,12 @@ export const executeAsync = (command: string) => {
 
     child.on("close", (code: number | null) => {
       if (code !== 0) {
-        throw new Error(
+        Logger.error(
           `Error when running "${command}": exited with code ${code}`
         );
-      } else resolve(code);
+        reject(code);
+      }
+      resolve(0);
     });
   });
 };
