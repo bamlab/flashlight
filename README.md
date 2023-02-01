@@ -236,7 +236,7 @@ At the root of the repo:
 
 ```
 yarn
-yarn tsc --build --w
+yarn watch
 ```
 
 Keep this open in one terminal.
