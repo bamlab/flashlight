@@ -43,7 +43,7 @@
 1. If you have an e2e test script, you can run:
 
 ```sh
-npx @perf-profiler/e2e measure --bundleId <your app bundle id> \
+flashlight test --bundleId <your app bundle id> \
   --testCommand <your e2e test command> \
   --duration 10000 \
   --resultsFilePath results.json
@@ -56,7 +56,7 @@ npx @perf-profiler/e2e measure --bundleId <your app bundle id> \
 2. You can then open the web report for those measures:
 
 ```
-npx @perf-profiler/web-reporter results.json
+flashlight report results.json
 ```
 
 ### Example using Maestro
@@ -75,7 +75,7 @@ appId: com.twitter.android
 2. Measure performance 🚀
 
 ```sh
-npx @perf-profiler/e2e measure --bundleId com.twitter.android \
+flashlight test --bundleId com.twitter.android \
   --testCommand "maestro test twitter.yaml" \
   --duration 10000 \
   --resultsFilePath results.json
@@ -84,7 +84,7 @@ npx @perf-profiler/e2e measure --bundleId com.twitter.android \
 3. Open the report
 
 ```
-npx @perf-profiler/web-reporter results.json
+flashlight report results.json
 ```
 
 ### Customizing web report
@@ -92,7 +92,7 @@ npx @perf-profiler/web-reporter results.json
 You can change the title displayed in the web report by passing `--resultsTitle`:
 
 ```sh
-npx @perf-profiler/e2e measure --bundleId com.twitter.android \
+flashlight test --bundleId com.twitter.android \
  --testCommand "maestro test twitter.yaml` \
  --resultsTitle "Twitter - App start"
 ```
@@ -102,7 +102,7 @@ npx @perf-profiler/e2e measure --bundleId com.twitter.android \
 If you have several JSON files of measures, you can open the comparison view with:
 
 ```sh
-npx @perf-profiler/web-reporter results1.json results2.json results3.json
+flashlight report results1.json results2.json results3.json
 ```
 
 ### Setting number of iterations to be run
@@ -110,7 +110,7 @@ npx @perf-profiler/web-reporter results1.json results2.json results3.json
 By default, 10 iterations of your test will be run, and measures will be averaged. You can change this by passing `--iterationCount`:
 
 ```sh
-npx @perf-profiler/e2e measure --bundleId com.twitter.android \
+flashlight test --bundleId com.twitter.android \
  --testCommand "maestro test twitter.yaml` \
  --iterationCount 5
 ```
@@ -246,7 +246,7 @@ Keep this open in one terminal.
 and run in another terminal:
 
 ```
-yarn workspace @perf-profiler/web-reporter start
+yarn workspace @perf-profiler/web-reporter report start
 ```
 
 Then in `packages/web-reporter/src/App.tsx`, uncomment the lines to add your own measures:

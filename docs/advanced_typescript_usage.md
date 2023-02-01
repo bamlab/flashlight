@@ -77,7 +77,7 @@ This will produce a JSON file full of measures.
 Open the JSON file generated in the web profiler:
 
 ```sh
-npx @perf-profiler/web-reporter yourResultFileName.json
+flashlight report yourResultFileName.json
 ```
 
 _Replace `yourResultFileName` with the name of the result file that was generated. It was printed in output of the previous appium command._
