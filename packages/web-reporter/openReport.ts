@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import os from "os";
 import { execSync } from "child_process";
 import { program } from "commander";
 import { Logger } from "@perf-profiler/logger";
@@ -25,7 +26,7 @@ flashlight report results1.json --skip 1500 --duration 10000
   )
   .option("-s, --skip <skip>", "Skip first ms of measures in report")
   .action((args, options) => {
-    const outputDir = (options.outputDir as string) || __dirname;
+    const outputDir = options.outputDir || os.tmpdir();
     const duration = options.duration ? parseInt(options.duration, 10) : null;
     const skip = options.skip ? parseInt(options.skip, 10) : 0;
 
