@@ -1,5 +1,7 @@
 import { Logger } from "@perf-profiler/logger";
 import { ChildProcess } from "child_process";
+import fs from "fs";
+import os from "os";
 import { getAbi } from "./getAbi";
 import {
   executeAsync,
@@ -62,8 +64,13 @@ export const ensureCppProfilerIsInstalled = () => {
     Logger.info(`Installing C++ profiler for ${abi} architecture`);
 
     const binaryPath = `${binaryFolder}/${CppProfilerName}-${abi}`;
+    const binaryTmpPath = `/${os.tmpdir()}/flashlight-${CppProfilerName}-${abi}`;
 
-    const command = `adb push ${binaryPath} ${deviceProfilerPath}`;
+    // When running from standalone executable, we need to copy the binary to an actual file
+    fs.copyFileSync(binaryPath, binaryTmpPath);
+    fs.chmodSync(binaryTmpPath, "0755");
+
+    const command = `adb push ${binaryTmpPath} ${deviceProfilerPath}`;
     executeCommand(command);
     Logger.success(`C++ Profiler installed in ${deviceProfilerPath}`);
 
