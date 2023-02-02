@@ -28,7 +28,7 @@ const waitFor = async <T>(
 };
 
 export class PerformanceMeasurer {
-  cpuMeasures: Measure[] = [];
+  measures: Measure[] = [];
   polling?: { stop: () => void };
   bundleId: string;
   shouldStop = false;
@@ -62,8 +62,8 @@ export class PerformanceMeasurer {
         this.polling?.stop();
       }
 
-      this.cpuMeasures.push(measure);
-      Logger.debug(`Received measure ${this.cpuMeasures.length}`);
+      this.measures.push(measure);
+      Logger.debug(`Received measure ${this.measures.length}`);
     });
   }
 
@@ -74,13 +74,13 @@ export class PerformanceMeasurer {
     if (duration) {
       // Hack to wait for the duration to be reached in case test case has finished before
       await waitFor(
-        () => this.cpuMeasures.length * TIME_INTERVAL_IN_MS > duration,
+        () => this.measures.length * TIME_INTERVAL_IN_MS > duration,
         {
           checkInterval: TIME_INTERVAL_IN_MS,
           timeout: duration * 1000,
         }
       );
-      this.cpuMeasures = this.cpuMeasures.slice(
+      this.measures = this.measures.slice(
         0,
         duration / TIME_INTERVAL_IN_MS + 1
       );
@@ -97,7 +97,7 @@ export class PerformanceMeasurer {
 
     return {
       time: time ?? 0,
-      measures: this.cpuMeasures,
+      measures: this.measures,
     };
   }
 }
