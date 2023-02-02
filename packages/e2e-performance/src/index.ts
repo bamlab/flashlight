@@ -2,12 +2,10 @@ import { Logger } from "@perf-profiler/logger";
 import {
   AveragedTestCaseResult,
   TestCaseIterationResult,
-  TestCaseResult,
 } from "@perf-profiler/types";
-import { averageTestCaseResult } from "@perf-profiler/reporter";
-import fs from "fs";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
+import { writeReport } from "./writeReport";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -89,45 +87,6 @@ class PerformanceTester {
 
     return measures;
   }
-
-  public writeResults(
-    measures: TestCaseIterationResult[],
-    { path, title: givenTitle }: { path?: string; title?: string } = {}
-  ) {
-    const title = givenTitle || "Results";
-    const filePath =
-      path ||
-      `${process.cwd()}/${title
-        .toLocaleLowerCase()
-        .replace(/ /g, "_")}_${new Date().getTime()}.json`;
-
-    const testCase: TestCaseResult = {
-      name: title,
-      iterations: measures,
-    };
-
-    /**
-     * Might not be the best place to put this since this is reporting
-     * and not really measuring
-     */
-    if (this.testCase.getScore) {
-      const averagedResult: AveragedTestCaseResult =
-        averageTestCaseResult(testCase);
-      testCase.score = Math.max(
-        0,
-        Math.min(this.testCase.getScore(averagedResult), 100)
-      );
-    }
-
-    fs.writeFileSync(filePath, JSON.stringify(testCase));
-
-    Logger.success(
-      `Results written to ${filePath}.
-To open the web report, run:
-
-flashlight report ${filePath}`
-    );
-  }
 }
 
 export const measurePerformance = async (
@@ -142,6 +101,9 @@ export const measurePerformance = async (
   return {
     measures,
     writeResults: (options: { path?: string; title?: string } = {}) =>
-      tester.writeResults(measures, options),
+      writeReport(measures, {
+        ...options,
+        overrideScore: testCase.getScore,
+      }),
   };
 };
