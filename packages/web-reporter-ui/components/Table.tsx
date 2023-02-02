@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
-import { sanitizeProcessName } from "../utils/sanitizeProcessName";
+import { sanitizeProcessName } from "@perf-profiler/reporter";
 
 interface Data {
   name: string;
