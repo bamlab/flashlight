@@ -1,18 +1,8 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+---
+sidebar_position: 5
+---
 
-- [Running measures programmatically](#running-measures-programmatically)
-    - [1. Install the profiler](#1-install-the-profiler)
-    - [2. Create a TS script including an e2e performance test](#2-create-a-ts-script-including-an-e2e-performance-test)
-    - [3. Run the test](#3-run-the-test)
-    - [4. Open the web report](#4-open-the-web-report)
-- [Exploiting measures](#exploiting-measures)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-# Advanced Usage with Typescript
-
-## Running measures programmatically
+# Running measures programmatically
 
 _Feel free to try this out using [our example APK](https://github.com/bamlab/android-performance-profiler/blob/main/.github/workflows/example.apk)_
 
@@ -23,7 +13,7 @@ _Feel free to try this out using [our example APK](https://github.com/bamlab/and
 #### 2. Create a TS script including an e2e performance test
 
 You can use any TS/JS based e2e framework (or just simple `adb shell` commands).  
-Here's an example using our own [Appium Helper](./packages/appium-helper) (install it with `yarn add @bam.tech/appium-helper`)
+Here's an example using our own [Appium Helper](https://github.com/bamlab/android-performance-profiler/tree/main/packages/appium-helper) (install it with `yarn add @bam.tech/appium-helper`)
 
 ```ts
 import { AppiumDriver } from "@bam.tech/appium-helper";
@@ -81,21 +71,3 @@ flashlight report yourResultFileName.json
 ```
 
 _Replace `yourResultFileName` with the name of the result file that was generated. It was printed in output of the previous appium command._
-
-## Exploiting measures
-
-You can install the `@perf-profiler/reporter` package to get access to reporting functions for averaging...
-
-```ts
-import {
-  getAverageCpuUsage,
-  getAverageFPSUsage,
-  getAverageRAMUsage,
-} from "@perf-profiler/reporter";
-
-...
-
-const cpuPerTestIteration = require("./results.json").iterations.map((iteration) =>
-  getAverageCpuUsage(iteration.measures)
-);
-```
