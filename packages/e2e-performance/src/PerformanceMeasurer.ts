@@ -18,7 +18,11 @@ export class PerformanceMeasurer {
     this.bundleId = bundleId;
   }
 
-  async start() {
+  async start(
+    onMeasure: (measure: Measure) => void = () => {
+      // noop by default
+    }
+  ) {
     const pid = await waitFor(
       () => {
         try {
@@ -43,6 +47,7 @@ export class PerformanceMeasurer {
       }
 
       this.measures.push(measure);
+      onMeasure(measure);
       Logger.debug(`Received measure ${this.measures.length}`);
     });
   }
