@@ -41,6 +41,14 @@ const config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: 'https://plausible.io/js/script.js',
+      defer: true,
+      "data-domain": "docs.flashlight.dev"
+    },
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
