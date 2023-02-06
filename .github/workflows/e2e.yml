@@ -26,7 +26,7 @@ jobs:
           yarn tsc --build && yarn workspace @perf-profiler/web-reporter build
           npx link-lerna-package-binaries
           yarn test:e2e
-          npx @perf-profiler/web-reporter report -o report
+          npx @perf-profiler/web-reporter report report -o report
           ./.github/workflows/netlify-report.sh
       - name: Add PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
