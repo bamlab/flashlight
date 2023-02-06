@@ -20,6 +20,7 @@
   },
   "scripts": {
     "clean-dist": "rm -rf packages/*/dist && rm -rf packages/*/tsconfig.tsbuildinfo",
+    "watch": "tsc --build --watch",
     "test": "prettier --check . && yarn build && eslint . --max-warnings 6 && yarn workspace flipper-plugin-android-performance-profiler test && jest",
     "test:coverage": "yarn clean-dist && jest --coverage",
     "run-cli-example": "node packages/cli-example",

@@ -122,8 +122,10 @@ class PerformanceTester {
     fs.writeFileSync(filePath, JSON.stringify(testCase));
 
     Logger.success(
-      `Results written to ${filePath}. To open the web report, run:
-npx @perf-profiler/web-reporter ${filePath}`
+      `Results written to ${filePath}.
+To open the web report, run:
+
+flashlight report ${filePath}`
     );
   }
 }

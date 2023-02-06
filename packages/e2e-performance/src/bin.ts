@@ -6,7 +6,18 @@ import { measurePerformance } from ".";
 import { executeAsync } from "./executeAsync";
 
 program
-  .command("measure")
+  .command("test")
+  .summary("Run a test several times and measure performance")
+  .description(
+    `Run a test several times and measure performance.
+
+Main usage:
+flashlight test --bundleId <your app id> --testCommand <your test command>
+
+Example with Maestro:
+flashlight test --bundleId com.example.app --testCommand "maestro test flow.yml"
+`
+  )
   .requiredOption(
     "--testCommand <testCommand>",
     "Test command (e.g. `maestro test flow.yml`). App performance during execution of this script will be measured over several iterations."
