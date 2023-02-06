@@ -10,7 +10,16 @@ import { MeasureCommandUI } from "./MeasureCommandUI";
 
 program
   .command("measure")
-  .description("")
+  .summary("Measure performance of an Android app")
+  .description(
+    `Measure performance of an Android app.
+
+Main usage:
+flashlight measure
+flashlight measure --bundleId com.example.app
+
+Pressing w will write measures to a file that you can exploit with the report command`
+  )
   .option(
     "--bundleId <bundleId>",
     "Bundle id for the app (e.g. com.twitter.android). Defaults to the currently focused app."
