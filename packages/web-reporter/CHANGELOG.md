@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.3.2...@perf-profiler/web-reporter@0.4.0) (2023-02-06)
+
+- feat!: prepare for standalone executable (#71) ([3d6aa79](https://github.com/bamlab/android-performance-profiler/commit/3d6aa797164e2b566db2c5b725475addd1f6d71c)), closes [#71](https://github.com/bamlab/android-performance-profiler/issues/71)
+
+### BREAKING CHANGES
+
+- commands have additional prefix, see readme for changes
+
+- chore: ensure standalone executable work with c++ binaries
+
+- chore(web): put report in tmp dir by default
+
+This is especially important for the standalone executable
+
+- docs: revamp docs with docusaurus
+
 ## [0.3.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.3.1...@perf-profiler/web-reporter@0.3.2) (2023-01-27)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/reporter@0.3.0...@perf-profiler/reporter@0.4.0) (2023-02-06)
+
+### Features
+
+- add simpler and nicer CLI command ([#70](https://github.com/bamlab/android-performance-profiler/issues/70)) ([61c87d1](https://github.com/bamlab/android-performance-profiler/commit/61c87d1ee24581bd24b91c9f94d16029ed78cdb6))
+
 # 0.3.0 (2022-10-13)
 
 # 0.2.0 (2022-09-07)

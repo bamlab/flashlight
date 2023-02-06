@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.6.0...@perf-profiler/e2e@0.7.0) (2023-02-06)
+
+- feat!: prepare for standalone executable (#71) ([3d6aa79](https://github.com/bamlab/android-performance-profiler/commit/3d6aa797164e2b566db2c5b725475addd1f6d71c)), closes [#71](https://github.com/bamlab/android-performance-profiler/issues/71)
+
+### Features
+
+- add simpler and nicer CLI command ([#70](https://github.com/bamlab/android-performance-profiler/issues/70)) ([61c87d1](https://github.com/bamlab/android-performance-profiler/commit/61c87d1ee24581bd24b91c9f94d16029ed78cdb6))
+- **e2e:** add afterEach option ([#68](https://github.com/bamlab/android-performance-profiler/issues/68)) ([a95fb74](https://github.com/bamlab/android-performance-profiler/commit/a95fb7438c61120958f17a68f983ecec679a9ee9))
+
+### BREAKING CHANGES
+
+- commands have additional prefix, see readme for changes
+
+- chore: ensure standalone executable work with c++ binaries
+
+- chore(web): put report in tmp dir by default
+
+This is especially important for the standalone executable
+
+- docs: revamp docs with docusaurus
+
 # [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.5.3...@perf-profiler/e2e@0.6.0) (2023-01-31)
 
 ### Features
