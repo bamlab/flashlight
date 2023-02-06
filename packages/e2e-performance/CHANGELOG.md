@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.7.0...@perf-profiler/e2e@0.7.1) (2023-02-06)
+
+### Bug Fixes
+
+- **e2e:** add description for measure command ([be042c9](https://github.com/bamlab/android-performance-profiler/commit/be042c9efcf859d1205573dc9e5774105223708c))
+
 # [0.7.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.6.0...@perf-profiler/e2e@0.7.0) (2023-02-06)
 
 - feat!: prepare for standalone executable (#71) ([3d6aa79](https://github.com/bamlab/android-performance-profiler/commit/3d6aa797164e2b566db2c5b725475addd1f6d71c)), closes [#71](https://github.com/bamlab/android-performance-profiler/issues/71)
