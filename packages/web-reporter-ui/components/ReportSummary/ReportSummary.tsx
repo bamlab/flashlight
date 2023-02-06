@@ -4,8 +4,8 @@ import {
   getAverageCpuUsage,
   getAverageFPSUsage,
   getAverageRAMUsage,
+  sanitizeProcessName,
 } from "@perf-profiler/reporter";
-import { sanitizeProcessName } from "../../utils/sanitizeProcessName";
 import { roundToDecimal } from "../../utils/roundToDecimal";
 import { SimpleTable } from "../SimpleTable";
 import { Score } from "../Score";
