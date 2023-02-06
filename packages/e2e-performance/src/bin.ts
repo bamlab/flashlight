@@ -50,6 +50,10 @@ flashlight test --bundleId com.example.app --testCommand "maestro test flow.yml"
     "Command to be run before each test iteration"
   )
   .option(
+    "--afterEachCommand <afterEachCommand>",
+    "Command to be run after each test iteration"
+  )
+  .option(
     "--beforeAllCommand <beforeAllCommand>",
     "Command to be run before all test iterations"
   )
@@ -75,12 +79,14 @@ const runTest = async ({
   testCommand,
   resultsFilePath,
   resultsTitle,
+  afterEachCommand,
 }: {
   duration?: number;
   iterationCount?: number;
   maxRetries?: number;
   beforeAllCommand?: string;
   beforeEachCommand?: string;
+  afterEachCommand?: string;
   testCommand: string;
   bundleId: string;
   resultsFilePath?: string;
@@ -101,6 +107,9 @@ const runTest = async ({
       },
       run: async () => {
         await executeAsync(testCommand);
+      },
+      afterTest: async () => {
+        if (afterEachCommand) await executeAsync(afterEachCommand);
       },
       duration,
     },
