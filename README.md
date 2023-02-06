@@ -10,7 +10,7 @@ Flashlight generates a performance score for your app, aggregating different met
 
 - 🙅 No need to install anything in your app
 - 🚀 Measure performance on **production** apps
-- ✨ Generates beautiful web report ([like this Flatlist/Flashlist comparison](https://bamlab.github.io/android-performance-profiler/report/complex-list/s10/report.html))
+- ✨ Generates beautiful web report ([like this Flatlist/Flashlist comparison](https://bamlab.github.io/flashlight/report/complex-list/s10/report.html))
 - 💻 Via CLI, Flipper or E2E test for full automation
 
 <img width="596" alt="image" src="https://user-images.githubusercontent.com/4534323/187192078-402c306e-4d29-465c-bdfa-f278e7f0b927.png">
