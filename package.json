@@ -1,10 +1,10 @@
 {
-  "name": "android-performance-profiler",
-  "version": "0.0.0",
+  "name": "flashlight",
+  "version": "0.1.0",
   "private": "true",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bamlab/android-performance-profiler.git"
+    "url": "git+https://github.com/bamlab/flashlight.git"
   },
   "author": {
     "name": "Almouro",
@@ -16,7 +16,7 @@
     "examples/*"
   ],
   "bugs": {
-    "url": "https://github.com/bamlab/android-performance-profiler/issues"
+    "url": "https://github.com/bamlab/flashlight/issues"
   },
   "scripts": {
     "clean-dist": "rm -rf packages/*/dist && rm -rf packages/*/tsconfig.tsbuildinfo",
@@ -29,7 +29,7 @@
     "test:e2e": "mkdir -p report && npx @perf-profiler/aws-device-farm runTest --apkPath .github/workflows/example.apk --projectName 'Flashlight - Open Source CI' --reportDestinationPath report --testCommand 'npx ts-node examples/e2e/appium-ci.test.ts' --testFolder .",
     "prepare": "husky install"
   },
-  "homepage": "https://github.com/bamlab/android-performance-profiler#readme",
+  "homepage": "https://github.com/bamlab/flashlight#readme",
   "devDependencies": {
     "@types/jest": "^26.0.3",
     "eslint": "^8.0.0",
