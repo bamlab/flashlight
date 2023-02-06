@@ -19,6 +19,10 @@ curl https://get.flashlight.dev/ | bash
 
 Then the simplest way to get started is to [use our Flipper plugin](./flipper) or use the `measure` command:
 
+<video controls style={{width: "100%"}}>
+  <source src="https://user-images.githubusercontent.com/4534323/216979081-9caf4448-bb83-4952-bf59-797a67412309.mp4"/>
+</video>
+
 #### 1. Run the measure command
 ```bash
 flashlight measure
