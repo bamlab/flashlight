@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Running measures programmatically
 
-_Feel free to try this out using [our example APK](https://github.com/bamlab/android-performance-profiler/blob/main/.github/workflows/example.apk)_
+_Feel free to try this out using [our example APK](https://github.com/bamlab/flashlight/blob/main/.github/workflows/example.apk)_
 
 #### 1. Install the profiler
 
@@ -13,7 +13,7 @@ _Feel free to try this out using [our example APK](https://github.com/bamlab/and
 #### 2. Create a TS script including an e2e performance test
 
 You can use any TS/JS based e2e framework (or just simple `adb shell` commands).  
-Here's an example using our own [Appium Helper](https://github.com/bamlab/android-performance-profiler/tree/main/packages/appium-helper) (install it with `yarn add @bam.tech/appium-helper`)
+Here's an example using our own [Appium Helper](https://github.com/bamlab/flashlight/tree/main/packages/appium-helper) (install it with `yarn add @bam.tech/appium-helper`)
 
 ```ts
 import { AppiumDriver } from "@bam.tech/appium-helper";
