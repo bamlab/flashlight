@@ -64,7 +64,7 @@ export const ensureCppProfilerIsInstalled = () => {
     Logger.info(`Installing C++ profiler for ${abi} architecture`);
 
     const binaryPath = `${binaryFolder}/${CppProfilerName}-${abi}`;
-    const binaryTmpPath = `/${os.tmpdir()}/flashlight-${CppProfilerName}-${abi}`;
+    const binaryTmpPath = `${os.tmpdir()}/flashlight-${CppProfilerName}-${abi}`;
 
     // When running from standalone executable, we need to copy the binary to an actual file
     fs.copyFileSync(binaryPath, binaryTmpPath);
