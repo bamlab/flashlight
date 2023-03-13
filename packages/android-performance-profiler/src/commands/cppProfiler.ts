@@ -68,10 +68,10 @@ export const ensureCppProfilerIsInstalled = () => {
 
     // When running from standalone executable, we need to copy the binary to an actual file
     fs.copyFileSync(binaryPath, binaryTmpPath);
-    fs.chmodSync(binaryTmpPath, "0755");
 
-    const command = `adb push ${binaryTmpPath} ${deviceProfilerPath}`;
-    executeCommand(command);
+    executeCommand(`adb push ${binaryTmpPath} ${deviceProfilerPath}`);
+    executeCommand(`adb shell chmod 755 ${deviceProfilerPath}`);
+
     Logger.success(`C++ Profiler installed in ${deviceProfilerPath}`);
 
     retrieveCpuClockTick();
