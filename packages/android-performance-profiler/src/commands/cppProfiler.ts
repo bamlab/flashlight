@@ -27,7 +27,7 @@ let aTraceProcess: ChildProcess | null = null;
 
 const startATrace = () => {
   Logger.debug("Stopping atrace and flushing output...");
-  executeCommand("adb shell atrace --async_stop 1>/dev/null");
+  executeCommand("adb shell atrace --async_stop");
   Logger.debug("Starting atrace...");
   aTraceProcess = executeAsync("adb shell atrace -c view -t 999");
 };
