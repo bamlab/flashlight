@@ -127,7 +127,7 @@ export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
     .split(DELIMITER)
     .map((s) => s.trim());
 
-  const [timestampLine, execTimings] = timings.split("\n");
+  const [timestampLine, execTimings] = timings.split(/\r\n|\n|\r/);
 
   const timestamp = parseInt(timestampLine.split(": ")[1], 10);
 

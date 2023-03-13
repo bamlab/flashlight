@@ -12,7 +12,7 @@ export const getPidId = (bundleId: string) => {
     );
   }
 
-  const pids = commandOutput.split("\n").filter(Boolean);
+  const pids = commandOutput.split(/\r\n|\n|\r/).filter(Boolean);
 
   if (pids.length > 1) {
     console.error("Multiple pids found, selecting the first one", pids);

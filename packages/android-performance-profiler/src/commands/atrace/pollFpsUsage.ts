@@ -43,7 +43,7 @@ export class FrameTimeParser {
     frameTimes: number[];
     interval: number;
   } {
-    const lines = output.split("\n").filter(Boolean);
+    const lines = output.split(/\r\n|\n|\r/).filter(Boolean);
 
     if (lines.length === 0)
       return {
