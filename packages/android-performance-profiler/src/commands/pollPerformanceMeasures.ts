@@ -1,4 +1,3 @@
-import { Logger } from "@perf-profiler/logger";
 import { Measure } from "@perf-profiler/types";
 import { CpuMeasureAggregator } from "./cpu/CpuMeasureAggregator";
 import { processOutput } from "./cpu/getCpuStatsByProcess";
@@ -18,16 +17,14 @@ export const pollPerformanceMeasures = (
 
   return cppPollPerformanceMeasures(
     pid,
-    ({ cpu, ram: ramStr, atrace, timestamp, adbExecTime }) => {
+    ({ cpu, ram: ramStr, atrace, timestamp }) => {
       const subProcessesStats = processOutput(cpu, pid);
 
       const ram = processRamOutput(ramStr);
       const { frameTimes, interval: atraceInterval } =
         frameTimeParser.getFrameTimes(atrace, pid);
 
-      if (initialTime) {
-        Logger.debug(`ADB Exec time:${adbExecTime}ms`);
-      } else {
+      if (!initialTime) {
         initialTime = timestamp;
       }
 

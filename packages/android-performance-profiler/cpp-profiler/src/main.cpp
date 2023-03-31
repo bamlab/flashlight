@@ -55,20 +55,32 @@ long long printPerformanceMeasure(string pid)
     string separator = "=SEPARATOR=";
     log("=START MEASURE=");
     printCpuStats(pid);
+    auto cpuEnd = std::chrono::system_clock::now();
     log(separator);
     printMemoryStats(pid);
+    auto memoryEnd = std::chrono::system_clock::now();
     log(separator);
     printATraceLines();
+    auto atraceEnd = std::chrono::system_clock::now();
     log(separator);
 
     logTimestamp();
 
     auto end = std::chrono::system_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-    cout << "ADB EXEC TIME: " << duration.count() << endl;
+
+    auto cpuDuration = std::chrono::duration_cast<std::chrono::milliseconds>(cpuEnd - start);
+    auto memoryDuration = std::chrono::duration_cast<std::chrono::milliseconds>(memoryEnd - cpuEnd);
+    auto atraceDuration = std::chrono::duration_cast<std::chrono::milliseconds>(atraceEnd - memoryEnd);
+    auto totalDuration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+
+    cout << "TOTAL EXEC TIME: " << totalDuration.count() << "|";
+    cout << "CPU TIME: " << cpuDuration.count() << "|";
+    cout << "MEMORY TIME: " << memoryDuration.count() << "|";
+    cout << "ATRACE TIME: " << atraceDuration.count() << endl;
+
     log("=STOP MEASURE=");
 
-    return duration.count();
+    return totalDuration.count();
 }
 
 void pollPerformanceMeasures(char **argv)

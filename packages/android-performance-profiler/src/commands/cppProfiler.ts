@@ -113,7 +113,6 @@ type CppPerformanceMeasure = {
   ram: string;
   atrace: string;
   timestamp: number;
-  adbExecTime: number;
 };
 
 export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
@@ -127,11 +126,13 @@ export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
     .split(DELIMITER)
     .map((s) => s.trim());
 
-  const [timestamp, adbExecTime] = timings
-    .split("\n")
-    .map((line) => parseInt(line.split(": ")[1], 10));
+  const [timestampLine, execTimings] = timings.split("\n");
 
-  return { cpu, ram, atrace, timestamp, adbExecTime };
+  const timestamp = parseInt(timestampLine.split(": ")[1], 10);
+
+  Logger.debug(`C++ Exec timings:${execTimings}ms`);
+
+  return { cpu, ram, atrace, timestamp };
 };
 
 export const pollPerformanceMeasures = (
