@@ -17,6 +17,10 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import Header from "./components/Header";
 
 import { exportRawDataToZIP } from "./utils/reportRawDataExport";
+import {
+  IterationSelector,
+  useIterationSelector,
+} from "./components/IterationSelector";
 
 const Padding = styled.div`
   height: 10px;
@@ -36,19 +40,33 @@ const theme = createTheme({
 });
 
 const Report = ({ results }: { results: TestCaseResult[] }) => {
-  const averagedResults: AveragedTestCaseResult[] = results.map(
+  const minIterationCount = Math.min(
+    ...results.map((result) => result.iterations.length)
+  );
+  const iterationSelector = useIterationSelector(minIterationCount);
+  const iterationResults = results.map((result) => ({
+    ...result,
+    iterations: iterationSelector.showAverage
+      ? result.iterations
+      : [result.iterations[iterationSelector.iterationIndex]],
+  }));
+
+  const averagedResults: AveragedTestCaseResult[] = iterationResults.map(
     averageTestCaseResult
   );
 
   const saveResultsToZIP = () => {
-    exportRawDataToZIP(results);
+    exportRawDataToZIP(iterationResults);
   };
 
   return (
     <>
       <Header saveToZIPCallBack={saveResultsToZIP} />
       <Padding />
-      <ReportSummary results={results} averagedResults={averagedResults} />
+      <ReportSummary
+        results={iterationResults}
+        averagedResults={averagedResults}
+      />
       <Padding />
       <Accordion defaultExpanded>
         <AccordionSectionTitle title="FPS" />
@@ -68,6 +86,10 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
           <RAMReport results={averagedResults} />
         </AccordionDetails>
       </Accordion>
+      <IterationSelector
+        {...iterationSelector}
+        iterationCount={minIterationCount}
+      />
     </>
   );
 };
