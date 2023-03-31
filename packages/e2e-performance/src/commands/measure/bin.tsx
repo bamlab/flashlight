@@ -50,7 +50,9 @@ Pressing w will write measures to a file that you can exploit with the report co
       <MeasureCommandUI
         performanceMeasurer={performanceMeasurer}
         writeReportFile={writeReportFile}
-      />
+      />,
+      // handle it ourselves in the profiler to kill child processes
+      { exitOnCtrlC: false }
     );
   });
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Text, useInput } from "ink";
 import Table from "ink-table";
-import { Measure } from "@perf-profiler/profiler";
+import { cleanup, Measure } from "@perf-profiler/profiler";
 import {
   getAverageCpuUsage,
   sanitizeProcessName,
@@ -68,6 +68,12 @@ export const MeasureCommandUI = ({
       case "t":
         setShowThreads(!showThreads);
         return;
+      case "q":
+      case "c":
+        cleanup();
+        process.exit();
+      // eslint is complaining but we've exited the process, so no need to break
+      // eslint-disable-next-line no-fallthrough
       case "w":
         setShowUI(false);
         Logger.info("Writing report...");
