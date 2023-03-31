@@ -48,18 +48,18 @@ const stopATrace = () => {
  * This needs to be done before measures and can take a few seconds
  */
 export const ensureCppProfilerIsInstalled = () => {
-  const sdkVersion = parseInt(
-    executeCommand("adb shell getprop ro.build.version.sdk"),
-    10
-  );
-
-  if (sdkVersion < 24) {
-    throw new Error(
-      `Your Android version (sdk API level ${sdkVersion}) is not supported. Supported versions > 23.`
-    );
-  }
-
   if (!hasInstalledProfiler) {
+    const sdkVersion = parseInt(
+      executeCommand("adb shell getprop ro.build.version.sdk"),
+      10
+    );
+
+    if (sdkVersion < 24) {
+      throw new Error(
+        `Your Android version (sdk API level ${sdkVersion}) is not supported. Supported versions > 23.`
+      );
+    }
+
     const abi = getAbi();
     Logger.info(`Installing C++ profiler for ${abi} architecture`);
 
