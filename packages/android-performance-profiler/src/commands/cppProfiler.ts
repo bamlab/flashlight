@@ -117,6 +117,8 @@ type CppPerformanceMeasure = {
 };
 
 export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
+  Logger.trace(measure);
+
   const DELIMITER = "=SEPARATOR=";
   const START_MEASURE_DELIMITER = "=START MEASURE=";
 

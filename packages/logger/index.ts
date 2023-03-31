@@ -32,6 +32,10 @@ export const Logger = {
   setLogLevel: (level: ValueOf<typeof LogLevel>) => {
     logLevel = level;
   },
+  trace: (message: string) => {
+    if (logLevel < LogLevel.TRACE) return;
+    log(message);
+  },
   debug: (message: string) => {
     if (logLevel < LogLevel.DEBUG) return;
 
