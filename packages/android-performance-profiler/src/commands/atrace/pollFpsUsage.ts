@@ -103,6 +103,8 @@ ${error instanceof Error ? error.message : error}`);
   ) {
     const frameCount = frameTimes.length;
 
+    Logger.debug(`Actual drawn frame count: ${frameCount}`);
+
     const totalFrameTime = frameTimes.reduce(
       (sum, time) => sum + Math.max(TARGET_FRAME_TIME, time),
       0
