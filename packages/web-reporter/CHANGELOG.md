@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1-alpha.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.4.0...@perf-profiler/web-reporter@0.4.1-alpha.0) (2023-03-31)
+
+**Note:** Version bump only for package @perf-profiler/web-reporter
+
 # [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.3.2...@perf-profiler/web-reporter@0.4.0) (2023-02-06)
 
 - feat!: prepare for standalone executable (#71) ([3d6aa79](https://github.com/bamlab/android-performance-profiler/commit/3d6aa797164e2b566db2c5b725475addd1f6d71c)), closes [#71](https://github.com/bamlab/android-performance-profiler/issues/71)

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1-alpha.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.5.0...@perf-profiler/profiler@0.5.1-alpha.0) (2023-03-31)
+
+### Features
+
+- **cpp:** add ability to log all c++ output ([9c3fab0](https://github.com/bamlab/android-performance-profiler/commit/9c3fab027f4ca405a89ad2e6c20003b24a105a49))
+
 # [0.5.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.4.2...@perf-profiler/profiler@0.5.0) (2023-02-06)
 
 - feat!: prepare for standalone executable (#71) ([3d6aa79](https://github.com/bamlab/android-performance-profiler/commit/3d6aa797164e2b566db2c5b725475addd1f6d71c)), closes [#71](https://github.com/bamlab/android-performance-profiler/issues/71)

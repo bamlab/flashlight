@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1-alpha.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.6.0...@perf-profiler/aws-device-farm@0.6.1-alpha.0) (2023-03-31)
+
+**Note:** Version bump only for package @perf-profiler/aws-device-farm
+
 # [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.5.1...@perf-profiler/aws-device-farm@0.6.0) (2022-12-05)
 
 ### Features

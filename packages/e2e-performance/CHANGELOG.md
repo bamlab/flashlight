@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2-alpha.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.7.1...@perf-profiler/e2e@0.7.2-alpha.0) (2023-03-31)
+
+### Features
+
+- **e2e:** add --logLevel option ([440af9d](https://github.com/bamlab/android-performance-profiler/commit/440af9d9f4f363d130730c4411f8b28353315473))
+
 ## [0.7.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.7.0...@perf-profiler/e2e@0.7.1) (2023-02-06)
 
 ### Bug Fixes
