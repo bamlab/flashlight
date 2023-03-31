@@ -8,10 +8,14 @@ import { Logger } from "@perf-profiler/logger";
 
 export const pollPerformanceMeasures = (
   bundleId: string,
-  // Will refactor into an object of options later
-  dataCallback: (data: Measure) => void,
-  onStartMeasuring: () => void = () => {
-    // noop by default
+  {
+    onMeasure,
+    onStartMeasuring = () => {
+      // noop by default
+    },
+  }: {
+    onMeasure: (measure: Measure) => void;
+    onStartMeasuring?: () => void;
   }
 ) => {
   let initialTime: number | null = null;
@@ -54,7 +58,7 @@ export const pollPerformanceMeasures = (
           )
         );
 
-        dataCallback({
+        onMeasure({
           cpu: cpuMeasures,
           fps,
           ram,

@@ -72,29 +72,31 @@ program
     const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
     const pid = getPidId(bundleId);
 
-    pollPerformanceMeasures(pid, (measure: Measure) => {
-      const headers: string[] = [];
-      const values: number[] = [];
+    pollPerformanceMeasures(pid, {
+      onMeasure: (measure: Measure) => {
+        const headers: string[] = [];
+        const values: number[] = [];
 
-      if (options.fps) {
-        headers.push("FPS");
-        values.push(measure.fps);
-      }
+        if (options.fps) {
+          headers.push("FPS");
+          values.push(measure.fps);
+        }
 
-      if (options.ram) {
-        headers.push("RAM");
-        values.push(measure.ram);
-      }
+        if (options.ram) {
+          headers.push("RAM");
+          values.push(measure.ram);
+        }
 
-      if (options.threadNames) {
-        options.threadNames.forEach((thread: string) => {
-          headers.push(`CPU ${thread}`);
-          values.push(measure.cpu.perName[thread]);
-        });
-      }
+        if (options.threadNames) {
+          options.threadNames.forEach((thread: string) => {
+            headers.push(`CPU ${thread}`);
+            values.push(measure.cpu.perName[thread]);
+          });
+        }
 
-      console.log(headers.join("|"));
-      console.log(values.join("|"));
+        console.log(headers.join("|"));
+        console.log(values.join("|"));
+      },
     });
   });
 

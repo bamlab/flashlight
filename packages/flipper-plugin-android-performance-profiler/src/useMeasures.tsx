@@ -16,10 +16,12 @@ export const useMeasures = (pid: string | null) => {
     try {
       if (pid) {
         measuresRef.current = [];
-        poll.current = pollPerformanceMeasures(pid, (measure) => {
-          // Keeping a ref here in case setMeasures is too slow
-          measuresRef.current = [...measuresRef.current, measure];
-          setMeasures(measuresRef.current);
+        poll.current = pollPerformanceMeasures(pid, {
+          onMeasure: (measure) => {
+            // Keeping a ref here in case setMeasures is too slow
+            measuresRef.current = [...measuresRef.current, measure];
+            setMeasures(measuresRef.current);
+          },
         });
         setIsMeasuring(true);
       }

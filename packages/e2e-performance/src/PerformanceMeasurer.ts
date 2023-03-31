@@ -19,9 +19,8 @@ export class PerformanceMeasurer {
       // noop by default
     }
   ) {
-    this.polling = pollPerformanceMeasures(
-      this.bundleId,
-      (measure) => {
+    this.polling = pollPerformanceMeasures(this.bundleId, {
+      onMeasure: (measure) => {
         if (this.shouldStop) {
           this.polling?.stop();
         }
@@ -30,10 +29,10 @@ export class PerformanceMeasurer {
         onMeasure(measure);
         Logger.debug(`Received measure ${this.measures.length}`);
       },
-      () => {
+      onStartMeasuring: () => {
         this.timingTrace = new Trace();
-      }
-    );
+      },
+    });
   }
 
   async stop(duration?: number) {
