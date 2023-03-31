@@ -4,6 +4,7 @@ import { processOutput } from "./cpu/getCpuStatsByProcess";
 import { processOutput as processRamOutput } from "./ram/pollRamUsage";
 import { FrameTimeParser } from "./atrace/pollFpsUsage";
 import { pollPerformanceMeasures as cppPollPerformanceMeasures } from "./cppProfiler";
+import { Logger } from "@perf-profiler/logger";
 
 export const pollPerformanceMeasures = (
   pid: string,
@@ -18,6 +19,9 @@ export const pollPerformanceMeasures = (
   return cppPollPerformanceMeasures(
     pid,
     ({ cpu, ram: ramStr, atrace, timestamp }) => {
+      if (!atrace) {
+        Logger.debug("NO ATRACE OUTPUT, if the app is idle, that is normal");
+      }
       const subProcessesStats = processOutput(cpu, pid);
 
       const ram = processRamOutput(ramStr);
