@@ -4,6 +4,7 @@ import { Option, program } from "commander";
 import { execSync } from "child_process";
 import { measurePerformance } from ".";
 import { executeAsync } from "./executeAsync";
+import { applyLogLevelOption, logLevelOption } from "./commands/logLevelOption";
 
 program
   .command("test")
@@ -65,6 +66,7 @@ flashlight test --bundleId com.example.app --testCommand "maestro test flow.yml"
     "--resultsTitle <resultsTitle>",
     "Result title that is displayed at the top of the report"
   )
+  .addOption(logLevelOption)
   .action(async (options) => {
     await runTest(options);
   });
@@ -80,6 +82,7 @@ const runTest = async ({
   resultsFilePath,
   resultsTitle,
   afterEachCommand,
+  logLevel,
 }: {
   duration?: number;
   iterationCount?: number;
@@ -91,7 +94,9 @@ const runTest = async ({
   bundleId: string;
   resultsFilePath?: string;
   resultsTitle?: string;
+  logLevel?: string;
 }) => {
+  applyLogLevelOption(logLevel);
   if (beforeAllCommand) await executeAsync(beforeAllCommand);
 
   const { writeResults } = await measurePerformance(

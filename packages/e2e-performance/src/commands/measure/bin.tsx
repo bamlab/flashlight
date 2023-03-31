@@ -7,6 +7,7 @@ import { detectCurrentAppBundleId } from "@perf-profiler/profiler";
 import { PerformanceMeasurer } from "../../PerformanceMeasurer";
 import { writeReport } from "../../writeReport";
 import { MeasureCommandUI } from "./MeasureCommandUI";
+import { applyLogLevelOption, logLevelOption } from "../logLevelOption";
 
 program
   .command("measure")
@@ -32,7 +33,9 @@ Pressing w will write measures to a file that you can exploit with the report co
     "--resultsTitle <resultsTitle>",
     "Result title that is displayed at the top of the report"
   )
+  .addOption(logLevelOption)
   .action((options) => {
+    applyLogLevelOption(options.logLevel);
     const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
     const performanceMeasurer = new PerformanceMeasurer(bundleId);
 

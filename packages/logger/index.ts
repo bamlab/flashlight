@@ -7,13 +7,14 @@ const warn = kleur.bold().yellow().bgRed;
 const error = kleur.bold().red;
 const timestampColor = kleur.grey;
 
-export enum LogLevel {
-  ERROR,
-  WARN,
-  SUCCESS,
-  INFO,
-  DEBUG,
-}
+export const LogLevel = {
+  ERROR: 0,
+  WARN: 1,
+  SUCCESS: 2,
+  INFO: 3,
+  DEBUG: 4,
+  TRACE: 5,
+};
 
 let logLevel = LogLevel.INFO;
 
@@ -25,8 +26,10 @@ const log = (message: string) => {
   console.log(`${timestampLog} ${message}`);
 };
 
+type ValueOf<T> = T[keyof T];
+
 export const Logger = {
-  setLogLevel: (level: LogLevel) => {
+  setLogLevel: (level: ValueOf<typeof LogLevel>) => {
     logLevel = level;
   },
   debug: (message: string) => {
