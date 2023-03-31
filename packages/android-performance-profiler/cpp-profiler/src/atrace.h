@@ -13,6 +13,7 @@
  * stored and output them for the computer to consume
  */
 void printATraceLines();
-void readATraceThread(std::string pid);
+void readATraceThread();
+void clearATraceLines();
 
 #endif /* A_TRACE_H */

@@ -7,8 +7,12 @@ import { pollPerformanceMeasures as cppPollPerformanceMeasures } from "./cppProf
 import { Logger } from "@perf-profiler/logger";
 
 export const pollPerformanceMeasures = (
-  pid: string,
-  dataCallback: (data: Measure) => void
+  bundleId: string,
+  // Will refactor into an object of options later
+  dataCallback: (data: Measure) => void,
+  onStartMeasuring: () => void = () => {
+    // noop by default
+  }
 ) => {
   let initialTime: number | null = null;
   let previousTime: number | null = null;
@@ -17,8 +21,8 @@ export const pollPerformanceMeasures = (
   const frameTimeParser = new FrameTimeParser();
 
   return cppPollPerformanceMeasures(
-    pid,
-    ({ cpu, ram: ramStr, atrace, timestamp }) => {
+    bundleId,
+    ({ pid, cpu, ram: ramStr, atrace, timestamp }) => {
       if (!atrace) {
         Logger.debug("NO ATRACE OUTPUT, if the app is idle, that is normal");
       }
@@ -57,6 +61,7 @@ export const pollPerformanceMeasures = (
           time: timestamp - initialTime,
         });
       } else {
+        onStartMeasuring();
         cpuMeasuresAggregator.initStats(subProcessesStats);
       }
       previousTime = timestamp;

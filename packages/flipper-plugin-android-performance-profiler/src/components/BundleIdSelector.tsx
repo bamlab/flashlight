@@ -1,16 +1,13 @@
 import React from "react";
 import { AppBar, Button } from "@mui/material";
-import { CheckCircleOutline } from "@mui/icons-material";
 import { TextField } from "./TextField";
 import { detectCurrentAppBundleId } from "@perf-profiler/profiler";
 
 export const BundleIdSelector = ({
   bundleId,
-  pid,
   onChange,
 }: {
   bundleId: string | null;
-  pid: string | null;
   onChange: (bundleId: string) => void;
 }) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,12 +41,6 @@ export const BundleIdSelector = ({
         <div style={{ paddingRight: 5, paddingLeft: 5 }}>
           <TextField onChange={handleChange} value={bundleId || ""} />
         </div>
-        {pid ? (
-          <>
-            <CheckCircleOutline style={{ color: "#4BB543", marginRight: 10 }} />
-            Pid ID: {pid}
-          </>
-        ) : null}
       </div>
     </AppBar>
   );

@@ -109,6 +109,7 @@ export const getRAMPageSize = () => {
 };
 
 type CppPerformanceMeasure = {
+  pid: string;
   cpu: string;
   ram: string;
   atrace: string;
@@ -121,7 +122,7 @@ export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
   const DELIMITER = "=SEPARATOR=";
   const START_MEASURE_DELIMITER = "=START MEASURE=";
 
-  const [cpu, ram, atrace, timings] = measure
+  const [pid, cpu, ram, atrace, timings] = measure
     .replace(START_MEASURE_DELIMITER, "")
     .split(DELIMITER)
     .map((s) => s.trim());
@@ -132,7 +133,7 @@ export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
 
   Logger.debug(`C++ Exec timings:${execTimings}ms`);
 
-  return { cpu, ram, atrace, timestamp };
+  return { pid, cpu, ram, atrace, timestamp };
 };
 
 export const pollPerformanceMeasures = (

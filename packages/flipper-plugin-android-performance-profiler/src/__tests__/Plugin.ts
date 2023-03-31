@@ -20,7 +20,7 @@ jest.mock("child_process", () => {
         if (
           command.startsWith("adb push") &&
           command.endsWith(
-            "/BAMPerfProfiler-arm64-v8a /data/local/tmp/BAMPerfProfiler"
+            "BAMPerfProfiler-arm64-v8a /data/local/tmp/BAMPerfProfiler"
           )
         ) {
           return "";
@@ -31,8 +31,6 @@ jest.mock("child_process", () => {
             return 100;
           case "adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp|mInputMethodTarget|mSurface' | grep Activity":
             return "      mSurface=Surface(name=com.example/com.example.MainActivity$_21455)/@0x9110fea";
-          case "adb shell pidof com.example":
-            return "123456";
           case "adb shell /data/local/tmp/BAMPerfProfiler printRAMPageSize":
             return 4096;
           case "adb shell getprop ro.product.cpu.abi":
@@ -73,7 +71,7 @@ const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
           "shell",
           "/data/local/tmp/BAMPerfProfiler",
           "pollPerformanceMeasures",
-          "123456",
+          "com.example",
         ],
       ]);
       return mockProcess;
@@ -106,6 +104,8 @@ const emitMeasures = () => {
     spawn.stdout.emit(
       "data",
       `=START MEASURE=
+123456
+=SEPARATOR=
 ${cpuOutput}
 =SEPARATOR=
 4430198 96195 58113 3 0 398896 0

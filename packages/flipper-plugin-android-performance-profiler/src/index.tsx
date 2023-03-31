@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { DevicePluginClient, createState } from "flipper-plugin";
 import { BundleIdSelector } from "./components/BundleIdSelector";
 import { StartButton } from "./components/StartButton";
-import { usePidId } from "./usePidId";
 import { useMeasures } from "./useMeasures";
 import { ReporterView } from "@perf-profiler/web-reporter-ui";
 import { Button } from "@mui/material";
@@ -18,14 +17,14 @@ export function devicePlugin(client: DevicePluginClient) {
 
 export function Component() {
   const [bundleId, setBundleId] = useState<string | null>(null);
-  const pid = usePidId(bundleId);
-  const { start, stop, measures, isMeasuring, reset } = useMeasures(pid);
+
+  const { start, stop, measures, isMeasuring, reset } = useMeasures(bundleId);
 
   return (
     <>
-      <BundleIdSelector bundleId={bundleId} pid={pid} onChange={setBundleId} />
+      <BundleIdSelector bundleId={bundleId} onChange={setBundleId} />
       <div style={{ margin: 10 }}>
-        {pid ? (
+        {bundleId ? (
           <>
             <StartButton start={start} stop={stop} isMeasuring={isMeasuring} />
             <Button

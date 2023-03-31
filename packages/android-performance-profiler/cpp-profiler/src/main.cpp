@@ -1,4 +1,5 @@
 #include <string>
+#include <array>
 #include <iostream>
 #include <filesystem>
 #include "atrace.h"
@@ -54,6 +55,8 @@ long long printPerformanceMeasure(string pid)
 
     string separator = "=SEPARATOR=";
     log("=START MEASURE=");
+    log(pid);
+    log(separator);
     printCpuStats(pid);
     auto cpuEnd = std::chrono::system_clock::now();
     log(separator);
@@ -83,9 +86,8 @@ long long printPerformanceMeasure(string pid)
     return totalDuration.count();
 }
 
-void pollPerformanceMeasures(char **argv)
+void pollPerformanceMeasures(std::string pid)
 {
-    string pid = argv[2];
     int interval = 500;
 
     while (true)
@@ -105,16 +107,36 @@ void printRAMPageSize()
     cout << sysconf(_SC_PAGESIZE) << endl;
 }
 
+std::string pidOf(string bundleId)
+{
+    auto result = executeCommand("pidof " + bundleId);
+    return result.substr(0, result.find_first_of("\n"));
+}
+
 int main(int argc, char **argv)
 {
     string methodName = argv[1];
 
     if (methodName == "pollPerformanceMeasures")
     {
-        string pid = argv[2];
+        string bundleId = argv[2];
+        string pid = "";
 
-        std::thread aTraceReadThread(readATraceThread, pid);
-        pollPerformanceMeasures(argv);
+        // We read atrace lines before the app is started
+        // since it can take a bit of time to start and clear the traceOutputPath
+        // but we'll clear them out periodically while the app isn't started
+        std::thread aTraceReadThread(readATraceThread);
+
+        cout << "Waiting for process to start..." << endl;
+
+        while (pid == "")
+        {
+            clearATraceLines();
+            pid = pidOf(bundleId);
+            std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        }
+
+        pollPerformanceMeasures(pid);
         aTraceReadThread.join();
     }
     else if (methodName == "printPerformanceMeasure")

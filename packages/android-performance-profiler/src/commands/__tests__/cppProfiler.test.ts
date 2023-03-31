@@ -12,9 +12,12 @@ RAM Info
 on multiple lines`;
   const TIMESTAMP = 123456;
   const ADB_EXEC_TIME = 42;
+  const PID = "1234";
 
   expect(
     parseCppMeasure(`=START MEASURE=
+${PID}
+=SEPARATOR=
 ${CPU}
 =SEPARATOR=
 ${RAM}
@@ -24,10 +27,10 @@ ${ATrace}
 Timestamp: ${TIMESTAMP}
 ADB EXEC TIME: ${ADB_EXEC_TIME}`)
   ).toEqual({
+    pid: PID,
     cpu: CPU,
     ram: RAM,
     atrace: ATrace,
     timestamp: TIMESTAMP,
-    adbExecTime: ADB_EXEC_TIME,
   });
 });
