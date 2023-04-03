@@ -28,8 +28,6 @@ class PerformanceTester {
       if (beforeTest) await beforeTest();
 
       const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
-      // We don't await here to not block the thread
-      // but it's not ideal, we could spawn a worker for the measurer
       performanceMeasurer.start();
       await run();
       const measures = await performanceMeasurer.stop(duration);
