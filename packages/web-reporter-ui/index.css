@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  @apply bg-light-charcoal;
+}
+
+@layer base {
+  [data-theme="bright-yellow"] {
+    --theme-color: #fff500;
+    --theme-color-100: rgba(255, 245, 0, 0.13);
+  }
+
+  [data-theme="bright-green"] {
+    --theme-color: #00ff75;
+    --theme-color-100: rgba(0, 255, 117, 0.13);
+  }
+
+  [data-theme="bright-magenta"] {
+    --theme-color: #ff36af;
+    --theme-color-100: rgba(255, 54, 175, 0.13);
+  }
+
+  [data-theme="bright-cyan"] {
+    --theme-color: #00ffff;
+    --theme-color-100: rgba(0, 255, 255, 0.13);
+  }
+}
