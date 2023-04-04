@@ -32,6 +32,7 @@ flashlight cloud --app example.apk --test start.yml --duration 10000
 ```
 
 :::tip 
+Only `.apk` files are supported.  
 We'll soon support .aab files via the CLI
 :::
 
