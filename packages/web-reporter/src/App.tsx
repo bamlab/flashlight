@@ -1,6 +1,11 @@
 import React from "react";
 import { TestCaseResult } from "@perf-profiler/types";
-import { IterationsReporterView } from "@perf-profiler/web-reporter-ui";
+import {
+  IterationsReporterView,
+  PageBackground,
+  useSetThemeAtRandom,
+} from "@perf-profiler/web-reporter-ui";
+import "@perf-profiler/web-reporter-ui/index.css";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -20,8 +25,11 @@ let testCaseResults: TestCaseResult[] = "INSERT_HERE";
 // ];
 
 export function App() {
+  useSetThemeAtRandom();
+
   return testCaseResults ? (
     <>
+      <PageBackground />
       <IterationsReporterView results={testCaseResults} />
     </>
   ) : null;
