@@ -22,7 +22,7 @@ Create your Maestro test file, for instance `start.yml`:
 appId: com.example
 ---
 - launchApp
-- assertVisible: .*KILL JS.*
+- assertVisible: A text on your app
 ```
 
 Then run:
