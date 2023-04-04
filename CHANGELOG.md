@@ -1,3 +1,9 @@
+# [0.2.0](https://github.com/bamlab/flashlight/compare/v0.1.0...v0.2.0) (2023-04-04)
+
+### BREAKING CHANGES
+
+- `cloud`: `--apkPath` replaced by `--app`, adapt to new backend architecture
+
 # [0.1.0](https://github.com/bamlab/flashlight/compare/v0.1.0...%40perf-profiler%2Fe2e%400.6.0) (2023-02-06)
 
 `android-performance-profiler` becomes Flashlight 🔦
