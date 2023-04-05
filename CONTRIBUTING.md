@@ -11,7 +11,7 @@ yarn watch
 
 Keep this open in one terminal.
 
-## test command
+### `test` command
 
 To run the command locally:
 ```
@@ -38,9 +38,6 @@ You should now be able to open [the local server](http://localhost:1234/)
 
 Run `yarn jest Plugin -u` after modifications.
 
-### e2e
-
-You can now run `node packages/e2e-performance/dist/bin.js` instead of `npx @perf-profiler/e2e`
 
 ### Flipper plugin
 
