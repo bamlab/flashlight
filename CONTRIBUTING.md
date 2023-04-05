@@ -11,6 +11,13 @@ yarn watch
 
 Keep this open in one terminal.
 
+## test command
+
+To run the command locally:
+```
+node packages/e2e-performance/dist/bin.js test --help
+```
+
 ### web-reporter
 
 and run in another terminal:
