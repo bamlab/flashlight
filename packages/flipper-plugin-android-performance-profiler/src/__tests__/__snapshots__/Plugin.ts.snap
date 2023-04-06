@@ -44,6 +44,10 @@ It’s worth noting that results might be higher than expected since we measure 
 here for more details
 )
 375.8MB
+Videos
+ Iterate HERE 
+0
+ 
 FPS
 CPU
 Threads
@@ -690,6 +694,81 @@ exports[`displays FPS data and scoring 2`] = `
       <div
         class="css-1xehky4"
       />
+      <div
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1elwnq4-MuiPaper-root-MuiAccordion-root"
+      >
+        <div
+          aria-controls="panel1a-content"
+          aria-expanded="true"
+          class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded MuiAccordionSummary-gutters css-sh22l5-MuiButtonBase-root-MuiAccordionSummary-root"
+          id="panel1a-header"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="MuiAccordionSummary-content Mui-expanded MuiAccordionSummary-contentGutters css-o4b71y-MuiAccordionSummary-content"
+          >
+            <h4
+              class="MuiTypography-root MuiTypography-h4 css-1ybayhq-MuiTypography-root"
+              style="color: rgb(102, 102, 102); margin: 10px;"
+            >
+              Videos
+            </h4>
+          </div>
+          <div
+            class="MuiAccordionSummary-expandIconWrapper Mui-expanded css-yw020d-MuiAccordionSummary-expandIconWrapper"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </div>
+        </div>
+        <div
+          class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-entered css-pwcg7p-MuiCollapse-root"
+          style="min-height: 0px;"
+        >
+          <div
+            class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
+          >
+            <div
+              class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
+            >
+              <div
+                class="MuiAccordion-region"
+                role="region"
+              >
+                <div
+                  class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
+                >
+                  <video
+                    controls=""
+                    height="500"
+                    width="750"
+                  >
+                    <source
+                      src=""
+                      type="video/mp4"
+                    />
+                  </video>
+                  <button>
+                     Iterate HERE 
+                    0
+                     
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div
         class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiAccordion-root MuiAccordion-rounded Mui-expanded MuiAccordion-gutters css-1elwnq4-MuiPaper-root-MuiAccordion-root"
       >
