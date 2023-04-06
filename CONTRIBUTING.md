@@ -14,6 +14,7 @@ Keep this open in one terminal.
 ### `test` command
 
 To run the command locally:
+
 ```
 node packages/e2e-performance/dist/bin.js test --help
 ```
@@ -37,7 +38,6 @@ testCaseResults = [require("../measures.json")];
 You should now be able to open [the local server](http://localhost:1234/)
 
 Run `yarn jest Plugin -u` after modifications.
-
 
 ### Flipper plugin
 
