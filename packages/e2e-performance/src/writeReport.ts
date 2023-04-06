@@ -10,22 +10,15 @@ import fs from "fs";
 export const writeReport = (
   measures: TestCaseIterationResult[],
   {
-    path,
-    title: givenTitle,
+    filePath,
+    title,
     overrideScore,
   }: {
-    path?: string;
-    title?: string;
+    filePath: string;
+    title: string;
     overrideScore?: (result: AveragedTestCaseResult) => number;
-  } = {}
+  }
 ) => {
-  const title = givenTitle || "Results";
-  const filePath =
-    path ||
-    `${process.cwd()}/${title
-      .toLocaleLowerCase()
-      .replace(/ /g, "_")}_${new Date().getTime()}.json`;
-
   const testCase: TestCaseResult = {
     name: title,
     iterations: measures,

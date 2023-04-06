@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useReducer } from "react";
 import {
   AveragedTestCaseResult,
   Measure,
@@ -21,6 +21,12 @@ import {
   IterationSelector,
   useIterationSelector,
 } from "./components/IterationSelector";
+import { VideosReport } from "./VideosReport";
+import {
+  PercentageContext,
+  PercentageDispatchContext,
+} from "./context/PercentageContext";
+import { initialState, percentReducer } from "./reducers/percentageReducer";
 
 const Padding = styled.div`
   height: 10px;
@@ -51,6 +57,8 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
       : [result.iterations[iterationSelector.iterationIndex]],
   }));
 
+  const [{ value }, dispatch] = useReducer(percentReducer, initialState);
+
   const averagedResults: AveragedTestCaseResult[] = iterationResults.map(
     averageTestCaseResult
   );
@@ -60,37 +68,42 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
   };
 
   return (
-    <>
-      <Header saveToZIPCallBack={saveResultsToZIP} />
-      <Padding />
-      <ReportSummary
-        results={iterationResults}
-        averagedResults={averagedResults}
-      />
-      <Padding />
-      <Accordion defaultExpanded>
-        <AccordionSectionTitle title="FPS" />
-        <AccordionDetails>
-          <FPSReport results={averagedResults} />
-        </AccordionDetails>
-      </Accordion>
-      <Accordion defaultExpanded>
-        <AccordionSectionTitle title="CPU" />
-        <AccordionDetails>
-          <CPUReport results={averagedResults} />
-        </AccordionDetails>
-      </Accordion>
-      <Accordion defaultExpanded>
-        <AccordionSectionTitle title="RAM" />
-        <AccordionDetails>
-          <RAMReport results={averagedResults} />
-        </AccordionDetails>
-      </Accordion>
-      <IterationSelector
-        {...iterationSelector}
-        iterationCount={minIterationCount}
-      />
-    </>
+    <PercentageContext.Provider value={value}>
+      <PercentageDispatchContext.Provider value={dispatch}>
+        <Header saveToZIPCallBack={saveResultsToZIP} />
+        <Padding />
+        <ReportSummary results={results} averagedResults={averagedResults} />
+        <Padding />
+        <Accordion defaultExpanded>
+          <AccordionSectionTitle title="Videos" />
+          <AccordionDetails>
+            <VideosReport results={averagedResults} />
+          </AccordionDetails>
+        </Accordion>
+        <Accordion defaultExpanded>
+          <AccordionSectionTitle title="FPS" />
+          <AccordionDetails>
+            <FPSReport results={averagedResults} />
+          </AccordionDetails>
+        </Accordion>
+        <Accordion defaultExpanded>
+          <AccordionSectionTitle title="CPU" />
+          <AccordionDetails>
+            <CPUReport results={averagedResults} />
+          </AccordionDetails>
+        </Accordion>
+        <Accordion defaultExpanded>
+          <AccordionSectionTitle title="RAM" />
+          <AccordionDetails>
+            <RAMReport results={averagedResults} />
+          </AccordionDetails>
+        </Accordion>
+        <IterationSelector
+          {...iterationSelector}
+          iterationCount={minIterationCount}
+        />
+      </PercentageDispatchContext.Provider>
+    </PercentageContext.Provider>
   );
 };
 

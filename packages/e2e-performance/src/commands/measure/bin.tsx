@@ -41,7 +41,7 @@ Pressing w will write measures to a file that you can exploit with the report co
 
     const writeReportFile = async () => {
       writeReport([await performanceMeasurer.stop()], {
-        path: options.resultsFilePath,
+        filePath: options.resultsFilePath,
         title: options.resultsTitle,
       });
     };

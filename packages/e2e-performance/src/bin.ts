@@ -126,13 +126,14 @@ const runTest = async ({
     },
     iterationCount,
     maxRetries,
-    record
+    record,
+    {
+      path: resultsFilePath,
+      title: resultsTitle,
+    }
   );
 
-  writeResults({
-    path: resultsFilePath,
-    title: resultsTitle,
-  });
+  writeResults();
 };
 
 program.parse();

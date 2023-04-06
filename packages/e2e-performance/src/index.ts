@@ -16,6 +16,15 @@ export interface TestCase {
   getScore?: (result: AveragedTestCaseResult) => number;
 }
 
+const splitTitleAndPath = (path: string | undefined = ""): [string, string] => {
+  const split = path.split("/");
+  if (split.length === 1) {
+    return ["", path];
+  }
+  const title = split[split.length - 1];
+  return [path, title];
+};
+
 class PerformanceTester {
   constructor(private bundleId: string, private testCase: TestCase) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
@@ -24,7 +33,11 @@ class PerformanceTester {
 
   private async executeTestCase(
     iterationCount: number,
-    record: boolean
+    recordOptions: {
+      record: boolean;
+      path: string;
+      title: string;
+    }
   ): Promise<TestCaseIterationResult> {
     try {
       const { beforeTest, run, afterTest, duration } = this.testCase;
@@ -34,20 +47,27 @@ class PerformanceTester {
       const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
       performanceMeasurer.start();
 
-      if (record) {
-        await ScreenRecorder.startRecording(iterationCount);
+      if (recordOptions.record) {
+        await ScreenRecorder.startRecording(
+          recordOptions.title,
+          iterationCount
+        );
       }
       await run();
 
       const measures = await performanceMeasurer.stop(duration);
-      if (record) {
+      if (recordOptions.record) {
         await ScreenRecorder.stopRecording();
-        await ScreenRecorder.pullRecording(
-          "/Users/eliottg/Desktop/flashlight/videos"
-        );
+        await ScreenRecorder.pullRecording(recordOptions.path);
       }
 
       if (afterTest) await afterTest();
+      if (recordOptions.record) {
+        return {
+          ...measures,
+          videoPath: `${recordOptions.path}${recordOptions.title}_iter${iterationCount}.mp4`,
+        };
+      }
 
       return measures;
     } catch (error) {
@@ -58,7 +78,11 @@ class PerformanceTester {
   async iterate(
     iterationCount: number,
     maxRetries: number,
-    record: boolean
+    recordOptions: {
+      record: boolean;
+      path: string;
+      title: string;
+    }
   ): Promise<TestCaseIterationResult[]> {
     let retriesCount = 0;
     let currentIterationIndex = 0;
@@ -71,7 +95,7 @@ class PerformanceTester {
       try {
         const measure = await this.executeTestCase(
           currentIterationIndex,
-          record
+          recordOptions
         );
         Logger.success(
           `Finished iteration ${
@@ -111,16 +135,37 @@ export const measurePerformance = async (
   testCase: TestCase,
   iterationCount = 10,
   maxRetries = 3,
-  record = false
+  record = false,
+  {
+    path,
+    title: givenTitle,
+  }: {
+    path?: string;
+    title?: string;
+  } = {}
 ) => {
+  const title = givenTitle || "Results";
+
+  const [customPath, customTitle] = splitTitleAndPath(path);
+
+  const filePath = path ? customPath : `${process.cwd()}/`;
+  const fileName = path
+    ? customTitle
+    : `${title.toLocaleLowerCase().replace(/ /g, "_")}_${new Date().getTime()}`;
+
   const tester = new PerformanceTester(bundleId, testCase);
-  const measures = await tester.iterate(iterationCount, maxRetries, record);
+  const measures = await tester.iterate(iterationCount, maxRetries, {
+    record,
+    path: filePath,
+    title: fileName,
+  });
 
   return {
     measures,
-    writeResults: (options: { path?: string; title?: string } = {}) =>
+    writeResults: () =>
       writeReport(measures, {
-        ...options,
+        filePath: path ? path : filePath + fileName + ".json",
+        title,
         overrideScore: testCase.getScore,
       }),
   };

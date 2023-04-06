@@ -32,23 +32,27 @@ const runTest = jest.fn();
 
 describe("measurePerformance", () => {
   it("adds a score if a getScore function is passed", async () => {
+    const PATH = `${os.tmpdir()}/results.json`;
+    const TITLE = "TITLE";
+
     const { writeResults } = await measurePerformance(
       "com.example",
       {
         run: runTest,
         getScore: (result) => result.iterations.length,
       },
-      3
+      3,
+      3,
+      false,
+      {
+        path: PATH,
+        title: TITLE,
+      }
     );
 
     expect(runTest).toHaveBeenCalledTimes(3);
 
-    const PATH = `${os.tmpdir()}/results.json`;
-    const TITLE = "TITLE";
-    writeResults({
-      path: PATH,
-      title: TITLE,
-    });
+    writeResults();
 
     expect(JSON.parse(fs.readFileSync(PATH).toString())).toMatchInlineSnapshot(`
       Object {

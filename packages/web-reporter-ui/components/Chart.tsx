@@ -1,5 +1,6 @@
-import React, { useMemo, ComponentProps } from "react";
+import React, { useMemo, ComponentProps, useContext } from "react";
 import ReactApexChart from "react-apexcharts";
+import { PercentageDispatchContext } from "../context/PercentageContext";
 
 export const PALETTE = ["#3a86ff", "#8338ec", "#ff006e", "#fb5607", "#ffbe0b"];
 
@@ -20,6 +21,8 @@ export const Chart = ({
   maxValue?: number;
   colors?: string[];
 }) => {
+  const dispatch = useContext(PercentageDispatchContext);
+
   const options = useMemo<ComponentProps<typeof ReactApexChart>["options"]>(
     () => ({
       chart: {
@@ -33,9 +36,30 @@ export const Chart = ({
             speed: interval,
           },
         },
+        events: {
+          mouseMove(_, chart) {
+            const totalWidth =
+              chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
+            const mouseX =
+              chart.events.ctx.dimensions.dimXAxis.w.globals.clientX - 60;
+            if (mouseX > totalWidth) return;
+
+            dispatch({
+              type: "change_value",
+              payload: (mouseX * 100) / totalWidth,
+            });
+          },
+        },
         zoom: {
           enabled: false,
         },
+      },
+      tooltip: {
+        intersect: true,
+        shared: false,
+      },
+      markers: {
+        size: 1,
       },
       title: {
         text: title,

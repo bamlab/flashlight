@@ -3,14 +3,14 @@ import { executeAsync } from "./shell";
 import { ChildProcess } from "child_process";
 
 export class ScreenRecorder {
-  private static currentIteration = 0;
+  private static fileName = "";
   private static process?: ChildProcess;
 
-  static async startRecording(iteration: number): Promise<void> {
+  static async startRecording(title: string, iteration: number): Promise<void> {
     if (!this.process) {
-      this.currentIteration = iteration;
+      this.fileName = `${title}_iter${iteration}.mp4`;
       this.process = await executeAsync(
-        `adb shell screenrecord /mnt/sdcard/result_${this.currentIteration}.mp4`
+        `adb shell screenrecord /mnt/sdcard/${this.fileName}`
       );
       await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for recording to start
     } else {
@@ -32,8 +32,9 @@ export class ScreenRecorder {
 
   static async pullRecording(destinationPath: string): Promise<void> {
     await executeAsync(
-      `adb pull /mnt/sdcard/result_${this.currentIteration}.mp4 ${destinationPath}`
+      `adb pull /mnt/sdcard/${this.fileName} ${destinationPath}`
     );
+    await executeAsync(`adb shell rm /mnt/sdcard/${this.fileName}`);
     Logger.info("Recording saved to" + destinationPath);
   }
 }
