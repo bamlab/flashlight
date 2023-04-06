@@ -35,7 +35,7 @@ if (!global.Flipper) {
   process.on("SIGTERM", exit); // `kill` command
 }
 
-export const executeAsync = (command: string) => {
+export const executeAsync = (command: string): ChildProcess => {
   const parts = command.split(" ");
 
   const childProcess = spawn(parts[0], parts.slice(1));

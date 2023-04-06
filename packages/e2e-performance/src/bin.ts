@@ -51,6 +51,10 @@ flashlight test --bundleId com.example.app --testCommand "maestro test flow.yml"
     "Command to be run before each test iteration"
   )
   .option(
+    "--record",
+    "Allows you to record a video of the test. This is useful for debugging purposes."
+  )
+  .option(
     "--afterEachCommand <afterEachCommand>",
     "Command to be run after each test iteration"
   )
@@ -83,6 +87,7 @@ const runTest = async ({
   resultsTitle,
   afterEachCommand,
   logLevel,
+  record,
 }: {
   duration?: number;
   iterationCount?: number;
@@ -95,6 +100,7 @@ const runTest = async ({
   resultsFilePath?: string;
   resultsTitle?: string;
   logLevel?: string;
+  record?: boolean;
 }) => {
   applyLogLevelOption(logLevel);
   if (beforeAllCommand) await executeAsync(beforeAllCommand);
@@ -119,7 +125,8 @@ const runTest = async ({
       duration,
     },
     iterationCount,
-    maxRetries
+    maxRetries,
+    record
   );
 
   writeResults({

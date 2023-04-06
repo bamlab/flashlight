@@ -6,6 +6,7 @@ import {
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
 import { writeReport } from "./writeReport";
+import ScreenRecorder from "@perf-profiler/profiler/dist/src/commands/ScreenRecorder";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -21,7 +22,10 @@ class PerformanceTester {
     ensureCppProfilerIsInstalled();
   }
 
-  private async executeTestCase(): Promise<TestCaseIterationResult> {
+  private async executeTestCase(
+    iterationCount: number,
+    record: boolean
+  ): Promise<TestCaseIterationResult> {
     try {
       const { beforeTest, run, afterTest, duration } = this.testCase;
 
@@ -29,8 +33,19 @@ class PerformanceTester {
 
       const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
       performanceMeasurer.start();
+
+      if (record) {
+        await ScreenRecorder.startRecording(iterationCount);
+      }
       await run();
+
       const measures = await performanceMeasurer.stop(duration);
+      if (record) {
+        await ScreenRecorder.stopRecording();
+        await ScreenRecorder.pullRecording(
+          "/Users/eliottg/Desktop/flashlight/videos"
+        );
+      }
 
       if (afterTest) await afterTest();
 
@@ -42,7 +57,8 @@ class PerformanceTester {
 
   async iterate(
     iterationCount: number,
-    maxRetries: number
+    maxRetries: number,
+    record: boolean
   ): Promise<TestCaseIterationResult[]> {
     let retriesCount = 0;
     let currentIterationIndex = 0;
@@ -53,7 +69,10 @@ class PerformanceTester {
         `Running iteration ${currentIterationIndex + 1}/${iterationCount}`
       );
       try {
-        const measure = await this.executeTestCase();
+        const measure = await this.executeTestCase(
+          currentIterationIndex,
+          record
+        );
         Logger.success(
           `Finished iteration ${
             currentIterationIndex + 1
@@ -91,10 +110,11 @@ export const measurePerformance = async (
   bundleId: string,
   testCase: TestCase,
   iterationCount = 10,
-  maxRetries = 3
+  maxRetries = 3,
+  record = false
 ) => {
   const tester = new PerformanceTester(bundleId, testCase);
-  const measures = await tester.iterate(iterationCount, maxRetries);
+  const measures = await tester.iterate(iterationCount, maxRetries, record);
 
   return {
     measures,
