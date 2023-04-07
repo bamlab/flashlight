@@ -18,7 +18,11 @@ export interface HistogramValue {
 export interface TestCaseIterationResult {
   time: number;
   measures: Measure[];
-  videoPath?: string;
+  videoInfos?: {
+    path: string;
+    startOffset: number;
+    measureDuration: number;
+  };
 }
 
 export interface TestCaseResult {

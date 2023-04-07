@@ -6,7 +6,7 @@ import {
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
 import { writeReport } from "./writeReport";
-import ScreenRecorder from "@perf-profiler/profiler/dist/src/commands/ScreenRecorder";
+import { ScreenRecorder } from "@perf-profiler/profiler/dist/src/commands/ScreenRecorder";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -47,14 +47,15 @@ class PerformanceTester {
       const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
       performanceMeasurer.start();
 
+      let recordingStartTime = null;
       if (recordOptions.record) {
         await ScreenRecorder.startRecording(
           recordOptions.title,
           iterationCount
         );
+        recordingStartTime = Date.now();
       }
       await run();
-
       const measures = await performanceMeasurer.stop(duration);
       if (recordOptions.record) {
         await ScreenRecorder.stopRecording();
@@ -62,10 +63,14 @@ class PerformanceTester {
       }
 
       if (afterTest) await afterTest();
-      if (recordOptions.record) {
+      if (recordOptions.record && recordingStartTime) {
         return {
           ...measures,
-          videoPath: `${recordOptions.path}${recordOptions.title}_iter${iterationCount}.mp4`,
+          videoInfos: {
+            path: `${recordOptions.path}${recordOptions.title}_iter${iterationCount}.mp4`,
+            startOffset: Math.floor(measures.startTime - recordingStartTime),
+            measureDuration: Math.floor(measures.endTime - measures.startTime),
+          },
         };
       }
 

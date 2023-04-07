@@ -44,7 +44,7 @@ export const getMeasuresForTimeInterval = ({
 const copyVideoFiles = (results: TestCaseResult[], outputDir: string) => {
   results.forEach((result) => {
     result.iterations.forEach((iteration) => {
-      const videoPath = iteration.videoPath;
+      const videoPath = iteration.videoInfos?.path;
       if (videoPath && fs.existsSync(videoPath)) {
         const videoName = path.basename(videoPath);
         const destinationPath = path.join(outputDir, videoName);

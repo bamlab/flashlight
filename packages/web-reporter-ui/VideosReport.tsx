@@ -43,28 +43,46 @@ export const VideosReport = ({
     }
 
     if (videoRef.current && isVideoLoaded) {
-      const videoDuration = videoRef.current.duration;
-      const newTime = (videoDuration * percentage) / 100;
+      const videoOffset =
+        results[0].iterations[iteration].videoInfos?.startOffset || 0;
+      const measureDuration =
+        results[0].iterations[iteration].videoInfos?.measureDuration || 0;
+      const adjustedVideoDuration = measureDuration / 1000;
+      const newTime =
+        (adjustedVideoDuration * percentage) / 100 + videoOffset / 1000;
       if (typeof newTime !== "number") return;
       videoRef.current.currentTime = newTime;
       videoRef.current.play();
-    }
 
-    return () => {
-      if (videoRef.current) {
-        videoRef.current.removeEventListener(
-          "loadedmetadata",
-          handleMetadataLoaded
-        );
-      }
-    };
-  }, [percentage, isVideoLoaded]);
+      const endTime = videoOffset / 1000 + adjustedVideoDuration;
+
+      const handleTimeUpdate = () => {
+        if (videoRef.current && videoRef.current.currentTime >= endTime) {
+          videoRef.current.pause();
+        }
+      };
+
+      videoRef.current.addEventListener("timeupdate", handleTimeUpdate);
+
+      return () => {
+        if (videoRef.current) {
+          videoRef.current.removeEventListener(
+            "loadedmetadata",
+            handleMetadataLoaded
+          );
+          videoRef.current.removeEventListener("timeupdate", handleTimeUpdate);
+        }
+      };
+    }
+  }, [percentage, isVideoLoaded, iteration, results]);
+
+  if (!results[0].iterations[iteration].videoInfos) return null;
 
   return (
     <>
       <video key={iteration} ref={videoRef} width="750" height="500" controls>
         <source
-          src={getFileName(results[0].iterations[iteration].videoPath)}
+          src={getFileName(results[0].iterations[iteration].videoInfos?.path)}
           type="video/mp4"
         />
       </video>
