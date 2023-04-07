@@ -20,13 +20,19 @@ async function waitForFileSizeIncrease(filePath: string): Promise<void> {
   do {
     await new Promise((resolve) => setTimeout(resolve, 100)); // Check every 100ms
 
-    const sizeResult = executeCommand(`adb shell ls -l ${filePath}`).toString();
+    try {
+      const sizeResult = executeCommand(
+        `adb shell ls -l ${filePath}`
+      ).toString();
+      const sizeString = sizeResult.split(/\s+/)[4];
+      currentSize = parseInt(sizeString, 10);
 
-    const sizeString = sizeResult.split(/\s+/)[4];
-    currentSize = parseInt(sizeString, 10);
-
-    if (initialSize === -1) {
-      initialSize = currentSize;
+      if (initialSize === -1) {
+        initialSize = currentSize;
+      }
+    } catch (error) {
+      // If the file doesn't exist yet, continue checking until it does.
+      continue;
     }
   } while (currentSize <= initialSize);
 }
