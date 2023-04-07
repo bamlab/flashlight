@@ -2,8 +2,6 @@
 
 exports[`displays FPS data and scoring 1`] = `
 "Auto-Detect
-Pid ID: 
-123456
 Stop Measuring
 Reset
 Results
@@ -104,20 +102,6 @@ exports[`displays FPS data and scoring 2`] = `
             </div>
           </div>
         </div>
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-          data-testid="CheckCircleOutlineIcon"
-          focusable="false"
-          style="color: rgb(75, 181, 67); margin-right: 10px;"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M16.59 7.58 10 14.17l-3.59-3.58L5 12l5 5 8-8zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"
-          />
-        </svg>
-        Pid ID: 
-        123456
       </div>
     </header>
     <div

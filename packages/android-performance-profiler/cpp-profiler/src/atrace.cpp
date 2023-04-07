@@ -31,12 +31,20 @@ void printATraceLines()
   aTraceLines.clear();
 }
 
+// This should be run from the main thread
+void clearATraceLines()
+{
+  // Mutex between addToATraceLines and printATraceLines
+  std::lock_guard<std::mutex> guard(aTraceLinesMutex);
+  aTraceLines.clear();
+}
+
 bool includes(std::string str, std::string portion)
 {
   return str.find(portion) != std::string::npos;
 }
 
-void readATrace(std::string pid)
+void readATrace()
 {
   std::string traceOutputPath = "/sys/kernel/debug/tracing/trace_pipe";
 
@@ -57,7 +65,7 @@ void readATrace(std::string pid)
   }
 }
 
-void readATraceThread(std::string pid)
+void readATraceThread()
 {
-  readATrace(pid);
+  readATrace();
 }

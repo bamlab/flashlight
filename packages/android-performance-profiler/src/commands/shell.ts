@@ -1,5 +1,5 @@
 import { Logger } from "@perf-profiler/logger";
-import { execSync, spawn } from "child_process";
+import { execSync, spawn, ChildProcess } from "child_process";
 
 export const executeCommand = (command: string): string => {
   try {
@@ -12,24 +12,49 @@ export const executeCommand = (command: string): string => {
   }
 };
 
+const childProcesses: ChildProcess[] = [];
+
+export const cleanup = () => {
+  childProcesses.forEach((child) => {
+    child.kill();
+  });
+};
+
+const exit = () => {
+  cleanup();
+  process.exit();
+};
+
+declare const global: {
+  Flipper: unknown;
+};
+
+if (!global.Flipper) {
+  process.on("SIGINT", exit); // CTRL+C
+  process.on("SIGQUIT", exit); // Keyboard quit
+  process.on("SIGTERM", exit); // `kill` command
+}
+
 export const executeAsync = (command: string) => {
   const parts = command.split(" ");
 
-  const process = spawn(parts[0], parts.slice(1));
+  const childProcess = spawn(parts[0], parts.slice(1));
 
-  process.stdout?.on("end", () => {
+  childProcess.stdout?.on("end", () => {
     Logger.debug(`Process for ${command} ended`);
   });
 
-  process.on("close", (code) => {
+  childProcess.on("close", (code) => {
     Logger.debug(`child process exited with code ${code}`);
   });
 
-  process.on("error", (err) => {
+  childProcess.on("error", (err) => {
     Logger.error(`Process for ${command} errored with ${err}`);
   });
 
-  return process;
+  childProcesses.push(childProcess);
+
+  return childProcess;
 };
 
 export const executeLongRunningProcess = (

@@ -1,14 +1,22 @@
-import { Logger } from "@perf-profiler/logger";
 import { Measure } from "@perf-profiler/types";
 import { CpuMeasureAggregator } from "./cpu/CpuMeasureAggregator";
 import { processOutput } from "./cpu/getCpuStatsByProcess";
 import { processOutput as processRamOutput } from "./ram/pollRamUsage";
 import { FrameTimeParser } from "./atrace/pollFpsUsage";
 import { pollPerformanceMeasures as cppPollPerformanceMeasures } from "./cppProfiler";
+import { Logger } from "@perf-profiler/logger";
 
 export const pollPerformanceMeasures = (
-  pid: string,
-  dataCallback: (data: Measure) => void
+  bundleId: string,
+  {
+    onMeasure,
+    onStartMeasuring = () => {
+      // noop by default
+    },
+  }: {
+    onMeasure: (measure: Measure) => void;
+    onStartMeasuring?: () => void;
+  }
 ) => {
   let initialTime: number | null = null;
   let previousTime: number | null = null;
@@ -17,17 +25,18 @@ export const pollPerformanceMeasures = (
   const frameTimeParser = new FrameTimeParser();
 
   return cppPollPerformanceMeasures(
-    pid,
-    ({ cpu, ram: ramStr, atrace, timestamp, adbExecTime }) => {
+    bundleId,
+    ({ pid, cpu, ram: ramStr, atrace, timestamp }) => {
+      if (!atrace) {
+        Logger.debug("NO ATRACE OUTPUT, if the app is idle, that is normal");
+      }
       const subProcessesStats = processOutput(cpu, pid);
 
       const ram = processRamOutput(ramStr);
       const { frameTimes, interval: atraceInterval } =
         frameTimeParser.getFrameTimes(atrace, pid);
 
-      if (initialTime) {
-        Logger.debug(`ADB Exec time:${adbExecTime}ms`);
-      } else {
+      if (!initialTime) {
         initialTime = timestamp;
       }
 
@@ -49,13 +58,14 @@ export const pollPerformanceMeasures = (
           )
         );
 
-        dataCallback({
+        onMeasure({
           cpu: cpuMeasures,
           fps,
           ram,
           time: timestamp - initialTime,
         });
       } else {
+        onStartMeasuring();
         cpuMeasuresAggregator.initStats(subProcessesStats);
       }
       previousTime = timestamp;

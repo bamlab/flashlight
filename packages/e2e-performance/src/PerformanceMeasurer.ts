@@ -1,9 +1,5 @@
 import { Logger } from "@perf-profiler/logger";
-import {
-  getPidId,
-  Measure,
-  pollPerformanceMeasures,
-} from "@perf-profiler/profiler";
+import { Measure, pollPerformanceMeasures } from "@perf-profiler/profiler";
 import { Trace } from "./Trace";
 import { waitFor } from "./utils/waitFor";
 
@@ -23,32 +19,19 @@ export class PerformanceMeasurer {
       // noop by default
     }
   ) {
-    const pid = await waitFor(
-      () => {
-        try {
-          return getPidId(this.bundleId);
-        } catch (error) {
-          Logger.debug(`${this.bundleId} not yet started, retrying...`);
-          return null;
+    this.polling = pollPerformanceMeasures(this.bundleId, {
+      onMeasure: (measure) => {
+        if (this.shouldStop) {
+          this.polling?.stop();
         }
+
+        this.measures.push(measure);
+        onMeasure(measure);
+        Logger.debug(`Received measure ${this.measures.length}`);
       },
-      {
-        timeout: 10000,
-        // we don't add any timeout since `adb pidof` already takes a bit of time
-        checkInterval: 0,
-      }
-    );
-
-    this.timingTrace = new Trace();
-
-    this.polling = pollPerformanceMeasures(pid, (measure) => {
-      if (this.shouldStop) {
-        this.polling?.stop();
-      }
-
-      this.measures.push(measure);
-      onMeasure(measure);
-      Logger.debug(`Received measure ${this.measures.length}`);
+      onStartMeasuring: () => {
+        this.timingTrace = new Trace();
+      },
     });
   }
 

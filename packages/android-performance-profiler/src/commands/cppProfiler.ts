@@ -48,18 +48,18 @@ const stopATrace = () => {
  * This needs to be done before measures and can take a few seconds
  */
 export const ensureCppProfilerIsInstalled = () => {
-  const sdkVersion = parseInt(
-    executeCommand("adb shell getprop ro.build.version.sdk"),
-    10
-  );
-
-  if (sdkVersion < 24) {
-    throw new Error(
-      `Your Android version (sdk API level ${sdkVersion}) is not supported. Supported versions > 23.`
-    );
-  }
-
   if (!hasInstalledProfiler) {
+    const sdkVersion = parseInt(
+      executeCommand("adb shell getprop ro.build.version.sdk"),
+      10
+    );
+
+    if (sdkVersion < 24) {
+      throw new Error(
+        `Your Android version (sdk API level ${sdkVersion}) is not supported. Supported versions > 23.`
+      );
+    }
+
     const abi = getAbi();
     Logger.info(`Installing C++ profiler for ${abi} architecture`);
 
@@ -109,27 +109,31 @@ export const getRAMPageSize = () => {
 };
 
 type CppPerformanceMeasure = {
+  pid: string;
   cpu: string;
   ram: string;
   atrace: string;
   timestamp: number;
-  adbExecTime: number;
 };
 
 export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
+  Logger.trace(measure);
+
   const DELIMITER = "=SEPARATOR=";
   const START_MEASURE_DELIMITER = "=START MEASURE=";
 
-  const [cpu, ram, atrace, timings] = measure
+  const [pid, cpu, ram, atrace, timings] = measure
     .replace(START_MEASURE_DELIMITER, "")
     .split(DELIMITER)
     .map((s) => s.trim());
 
-  const [timestamp, adbExecTime] = timings
-    .split("\n")
-    .map((line) => parseInt(line.split(": ")[1], 10));
+  const [timestampLine, execTimings] = timings.split("\n");
 
-  return { cpu, ram, atrace, timestamp, adbExecTime };
+  const timestamp = parseInt(timestampLine.split(": ")[1], 10);
+
+  Logger.debug(`C++ Exec timings:${execTimings}ms`);
+
+  return { pid, cpu, ram, atrace, timestamp };
 };
 
 export const pollPerformanceMeasures = (

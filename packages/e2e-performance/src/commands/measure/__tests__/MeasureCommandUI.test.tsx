@@ -17,8 +17,8 @@ const mockPerformancePolling = new PerformancePollingMock();
 jest.mock("@perf-profiler/profiler", () => ({
   ensureCppProfilerIsInstalled: jest.fn(),
   getPidId: jest.fn(() => 123),
-  pollPerformanceMeasures: jest.fn((pid, cb) =>
-    mockPerformancePolling.setCallback(cb)
+  pollPerformanceMeasures: jest.fn((pid, { onMeasure }) =>
+    mockPerformancePolling.setCallback(onMeasure)
   ),
 }));
 
