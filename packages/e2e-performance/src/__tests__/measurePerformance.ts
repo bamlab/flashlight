@@ -58,15 +58,21 @@ describe("measurePerformance", () => {
       Object {
         "iterations": Array [
           Object {
+            "endTime": 1680878524914,
             "measures": Array [],
+            "startTime": 1680878523912,
             "time": 1000,
           },
           Object {
+            "endTime": 1680878525916,
             "measures": Array [],
+            "startTime": 1680878524914,
             "time": 1000,
           },
           Object {
+            "endTime": 1680878526927,
             "measures": Array [],
+            "startTime": 1680878525916,
             "time": 1000,
           },
         ],

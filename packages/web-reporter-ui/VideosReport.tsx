@@ -25,7 +25,6 @@ export const VideosReport = ({
   const [iteration, setIteration] = React.useState(0);
 
   const changeIteration = () => {
-    console.log(iteration, results[0].iterations.length, results.length);
     if (iteration === results[0].iterations.length - 1) {
       setIteration(0);
       return;
@@ -34,15 +33,17 @@ export const VideosReport = ({
   };
 
   useEffect(() => {
+    const videoElement = videoRef.current;
+
     const handleMetadataLoaded = () => {
       setIsVideoLoaded(true);
     };
 
-    if (videoRef.current && !isVideoLoaded) {
-      videoRef.current.addEventListener("loadedmetadata", handleMetadataLoaded);
+    if (videoElement && !isVideoLoaded) {
+      videoElement.addEventListener("loadedmetadata", handleMetadataLoaded);
     }
 
-    if (videoRef.current && isVideoLoaded) {
+    if (videoElement && isVideoLoaded) {
       const videoOffset =
         results[0].iterations[iteration].videoInfos?.startOffset || 0;
       const measureDuration =
@@ -51,26 +52,26 @@ export const VideosReport = ({
       const newTime =
         (adjustedVideoDuration * percentage) / 100 + videoOffset / 1000;
       if (typeof newTime !== "number") return;
-      videoRef.current.currentTime = newTime;
-      videoRef.current.play();
+      videoElement.currentTime = newTime;
+      videoElement.play();
 
       const endTime = videoOffset / 1000 + adjustedVideoDuration;
 
       const handleTimeUpdate = () => {
-        if (videoRef.current && videoRef.current.currentTime >= endTime) {
-          videoRef.current.pause();
+        if (videoElement && videoElement.currentTime >= endTime) {
+          videoElement.pause();
         }
       };
 
-      videoRef.current.addEventListener("timeupdate", handleTimeUpdate);
+      videoElement.addEventListener("timeupdate", handleTimeUpdate);
 
       return () => {
-        if (videoRef.current) {
-          videoRef.current.removeEventListener(
+        if (videoElement) {
+          videoElement.removeEventListener(
             "loadedmetadata",
             handleMetadataLoaded
           );
-          videoRef.current.removeEventListener("timeupdate", handleTimeUpdate);
+          videoElement.removeEventListener("timeupdate", handleTimeUpdate);
         }
       };
     }

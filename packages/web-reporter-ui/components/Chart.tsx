@@ -37,7 +37,9 @@ export const Chart = ({
           },
         },
         events: {
-          mouseMove(_, chart) {
+          click(e, chart, options) {
+            //use that if you want to change on hover
+            // mouseMove(_, chart) {
             const totalWidth =
               chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
             const mouseX =

@@ -1,6 +1,17 @@
 import { Logger } from "@perf-profiler/logger";
-import { executeAsync } from "./shell";
+import { executeAsync, executeCommand } from "./shell";
 import { ChildProcess } from "child_process";
+
+const RECORDING_FOLDER = "/data/local/tmp/";
+
+async function isProcessRunning(pid: number): Promise<boolean> {
+  try {
+    const result = executeCommand(`adb shell ps -p ${pid}`).toString();
+    return result.includes(pid.toString());
+  } catch (error) {
+    return false;
+  }
+}
 
 async function waitForFileSizeIncrease(filePath: string): Promise<void> {
   let initialSize = -1;
@@ -9,22 +20,7 @@ async function waitForFileSizeIncrease(filePath: string): Promise<void> {
   do {
     await new Promise((resolve) => setTimeout(resolve, 100)); // Check every 100ms
 
-    const sizeResult = await new Promise<string>((resolve, reject) => {
-      const process = executeAsync(`adb shell ls -l ${filePath}`);
-      let output = "";
-
-      process.stdout?.on("data", (data) => {
-        output += data.toString();
-      });
-
-      process.stdout?.on("end", () => {
-        resolve(output);
-      });
-
-      process.on("error", (error) => {
-        reject(error);
-      });
-    });
+    const sizeResult = executeCommand(`adb shell ls -l ${filePath}`).toString();
 
     const sizeString = sizeResult.split(/\s+/)[4];
     currentSize = parseInt(sizeString, 10);
@@ -36,42 +32,53 @@ async function waitForFileSizeIncrease(filePath: string): Promise<void> {
 }
 
 export class ScreenRecorder {
-  private static fileName = "";
-  private static process?: ChildProcess;
+  private fileName;
+  private process?: ChildProcess = undefined;
 
-  static async startRecording(title: string, iteration: number): Promise<void> {
+  constructor(file: string) {
+    this.fileName = file;
+  }
+
+  async startRecording(): Promise<number> {
     if (!this.process) {
-      this.fileName = `${title}_iter${iteration}.mp4`;
-      const filePath = `/data/local/tmp/${this.fileName}`;
+      const filePath = `${RECORDING_FOLDER}${this.fileName}`;
       this.process = await executeAsync(`adb shell screenrecord ${filePath}`);
       this.process.stderr?.on("data", (data) => {
         Logger.error(`screenrecord stderr: ${data}`);
       });
+
+      // Wait for recording to start, the most precise way of checking it
+      // is to check if the file size is increasing
       await waitForFileSizeIncrease(filePath);
+
       Logger.info("Recording started");
-    } else {
-      Logger.error("A screen recording is already in progress.");
+      return Date.now();
     }
+
+    Logger.error("A screen recording is already in progress.");
+    return 0;
   }
 
-  static async stopRecording(): Promise<void> {
-    if (this.process) {
-      //await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for recording to start
-      // await executeAsync(`adb shell pkill -l2 screenrecord`);
-      this.process.kill();
-      await new Promise((resolve) => setTimeout(resolve, 500)); // Wait for recording to start
-      Logger.info("Recording stopped");
-      this.process = undefined;
-    } else {
-      Logger.error("No screen recording is in progress.");
+  async stopRecording(): Promise<void> {
+    if (!this.process) return;
+
+    const pid = this.process.pid;
+    this.process.kill();
+    this.process = undefined;
+
+    // Wait for the process to stop running
+    while (pid && (await isProcessRunning(pid))) {
+      await new Promise((resolve) => setTimeout(resolve, 100)); // Check every 100ms
     }
+
+    Logger.info("Recording stopped");
   }
 
-  static async pullRecording(destinationPath: string): Promise<void> {
+  async pullRecording(destinationPath: string): Promise<void> {
     await executeAsync(
-      `adb pull /data/local/tmp/${this.fileName} ${destinationPath}`
+      `adb pull ${RECORDING_FOLDER}${this.fileName} ${destinationPath}`
     );
-    await executeAsync(`adb shell rm /data/local/tmp/${this.fileName}`);
+    await executeAsync(`adb shell rm ${RECORDING_FOLDER}${this.fileName}`);
     Logger.info("Recording saved to" + destinationPath);
   }
 }

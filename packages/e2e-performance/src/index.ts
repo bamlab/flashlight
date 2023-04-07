@@ -7,6 +7,7 @@ import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
 import { writeReport } from "./writeReport";
 import { ScreenRecorder } from "@perf-profiler/profiler/dist/src/commands/ScreenRecorder";
+import * as p from "path";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -15,16 +16,6 @@ export interface TestCase {
   duration?: number;
   getScore?: (result: AveragedTestCaseResult) => number;
 }
-
-const splitTitleAndPath = (path: string | undefined = ""): [string, string] => {
-  const split = path.split("/");
-  if (split.length === 1) {
-    return ["", path];
-  }
-  const title = split[split.length - 1];
-  return [path, title];
-};
-
 class PerformanceTester {
   constructor(private bundleId: string, private testCase: TestCase) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
@@ -48,18 +39,17 @@ class PerformanceTester {
       performanceMeasurer.start();
 
       let recordingStartTime = null;
+      const ScreenRecord = new ScreenRecorder(
+        `${recordOptions.title}_iter${iterationCount}.mp4`
+      );
       if (recordOptions.record) {
-        await ScreenRecorder.startRecording(
-          recordOptions.title,
-          iterationCount
-        );
-        recordingStartTime = Date.now();
+        recordingStartTime = await ScreenRecord.startRecording();
       }
       await run();
       const measures = await performanceMeasurer.stop(duration);
       if (recordOptions.record) {
-        await ScreenRecorder.stopRecording();
-        await ScreenRecorder.pullRecording(recordOptions.path);
+        await ScreenRecord.stopRecording();
+        await ScreenRecord.pullRecording(recordOptions.path);
       }
 
       if (afterTest) await afterTest();
@@ -151,11 +141,9 @@ export const measurePerformance = async (
 ) => {
   const title = givenTitle || "Results";
 
-  const [customPath, customTitle] = splitTitleAndPath(path);
-
-  const filePath = path ? customPath : `${process.cwd()}/`;
+  const filePath = path ? p.dirname(path) : `${process.cwd()}/`;
   const fileName = path
-    ? customTitle
+    ? p.basename(path)
     : `${title.toLocaleLowerCase().replace(/ /g, "_")}_${new Date().getTime()}`;
 
   const tester = new PerformanceTester(bundleId, testCase);

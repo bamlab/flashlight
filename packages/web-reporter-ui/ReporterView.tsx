@@ -74,12 +74,14 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
         <Padding />
         <ReportSummary results={results} averagedResults={averagedResults} />
         <Padding />
-        <Accordion defaultExpanded>
-          <AccordionSectionTitle title="Videos" />
-          <AccordionDetails>
-            <VideosReport results={averagedResults} />
-          </AccordionDetails>
-        </Accordion>
+        {averagedResults[0].iterations[0].videoInfos && (
+          <Accordion defaultExpanded>
+            <AccordionSectionTitle title="Videos" />
+            <AccordionDetails>
+              <VideosReport results={averagedResults} />
+            </AccordionDetails>
+          </Accordion>
+        )}
         <Accordion defaultExpanded>
           <AccordionSectionTitle title="FPS" />
           <AccordionDetails>
