@@ -14,9 +14,31 @@ describe("<ReporterView />", () => {
     const { asFragment, baseElement } = render(
       <IterationsReporterView results={testCaseResults} />
     );
+    expect(screen.getAllByLabelText("Score")[0].textContent).toEqual("69");
+
     fireEvent.click(screen.getByText("Threads"));
 
     expect(getText(baseElement)).toMatchSnapshot();
     expect(asFragment()).toMatchSnapshot();
+
+    /**
+     * TESTING iteration selection
+     */
+    fireEvent.click(screen.getByLabelText("Show each iteration individually"));
+
+    // iteration 10
+    fireEvent.click(screen.getByLabelText("See previous iteration"));
+    // iteration 9
+    fireEvent.click(screen.getByLabelText("See previous iteration"));
+    // back to iteration 10
+    fireEvent.click(screen.getByLabelText("See next iteration"));
+
+    expect(screen.getAllByLabelText("Score")[0].textContent).toEqual("65");
+
+    expect(getText(baseElement)).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
+    /**
+     * =========================
+     */
   });
 });

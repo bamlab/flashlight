@@ -297,6 +297,7 @@ exports[`displays FPS data and scoring 2`] = `
                     class="MuiBox-root css-1o8dslu"
                   >
                     <div
+                      aria-label="Score"
                       class="MuiTypography-root MuiTypography-caption css-4ii6uc-MuiTypography-root"
                       style="font-size: 28px; color: rgb(255, 65, 54);"
                     >

@@ -26,6 +26,7 @@ export const CircularProgressWithLabel = ({
           variant="caption"
           component="div"
           color="textSecondary"
+          aria-label="Score"
           style={{
             fontSize: 28,
             color,
