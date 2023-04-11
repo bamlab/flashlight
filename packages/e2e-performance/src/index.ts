@@ -35,9 +35,6 @@ class PerformanceTester {
 
       if (beforeTest) await beforeTest();
 
-      const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
-      performanceMeasurer.start();
-
       let recordingStartTime = null;
       const ScreenRecord = new ScreenRecorder(
         `${recordOptions.title}_iter${iterationCount}.mp4`
@@ -45,6 +42,10 @@ class PerformanceTester {
       if (recordOptions.record) {
         recordingStartTime = await ScreenRecord.startRecording();
       }
+
+      const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
+      performanceMeasurer.start();
+
       await run();
       const measures = await performanceMeasurer.stop(duration);
       if (recordOptions.record) {
