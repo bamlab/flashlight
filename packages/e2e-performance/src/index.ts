@@ -35,11 +35,11 @@ class PerformanceTester {
 
       if (beforeTest) await beforeTest();
 
-      const ScreenRecord = new ScreenRecorder(
+      const recorder = new ScreenRecorder(
         `${recordOptions.title}_iter${iterationCount}.mp4`
       );
       if (recordOptions.record) {
-        await ScreenRecord.startRecording();
+        await recorder.startRecording();
       }
 
       const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
@@ -48,8 +48,8 @@ class PerformanceTester {
       await run();
       const measures = await performanceMeasurer.stop(duration);
       if (recordOptions.record) {
-        await ScreenRecord.stopRecording();
-        await ScreenRecord.pullRecording(recordOptions.path);
+        await recorder.stopRecording();
+        await recorder.pullRecording(recordOptions.path);
       }
 
       if (afterTest) await afterTest();
@@ -60,7 +60,7 @@ class PerformanceTester {
           videoInfos: {
             path: `${recordOptions.path}${recordOptions.title}_iter${iterationCount}.mp4`,
             startOffset: Math.floor(
-              measures.startTime - ScreenRecord.getRecordingStartTime()
+              measures.startTime - recorder.getRecordingStartTime()
             ),
             measureDuration: Math.floor(measures.endTime - measures.startTime),
           },
