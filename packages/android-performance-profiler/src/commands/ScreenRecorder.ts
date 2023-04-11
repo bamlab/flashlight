@@ -13,30 +13,6 @@ async function isProcessRunning(pid: number): Promise<boolean> {
   }
 }
 
-async function waitForFileSizeIncrease(filePath: string): Promise<void> {
-  let initialSize = -1;
-  let currentSize = -1;
-
-  do {
-    await new Promise((resolve) => setTimeout(resolve, 100)); // Check every 100ms
-
-    try {
-      const sizeResult = executeCommand(
-        `adb shell ls -l ${filePath}`
-      ).toString();
-      const sizeString = sizeResult.split(/\s+/)[4];
-      currentSize = parseInt(sizeString, 10);
-
-      if (initialSize === -1) {
-        initialSize = currentSize;
-      }
-    } catch (error) {
-      // If the file doesn't exist yet, continue checking until it does.
-      continue;
-    }
-  } while (currentSize <= initialSize);
-}
-
 export class ScreenRecorder {
   private fileName;
   private process?: ChildProcess = undefined;
@@ -48,14 +24,18 @@ export class ScreenRecorder {
   async startRecording(): Promise<number> {
     if (!this.process) {
       const filePath = `${RECORDING_FOLDER}${this.fileName}`;
-      this.process = await executeAsync(`adb shell screenrecord ${filePath}`);
-      this.process.stderr?.on("data", (data) => {
-        Logger.error(`screenrecord stderr: ${data}`);
-      });
 
-      // Wait for recording to start, the most precise way of checking it
-      // is to check if the file size is increasing
-      await waitForFileSizeIncrease(filePath);
+      this.process = executeAsync(
+        `adb shell screenrecord ${filePath} --bit-rate 8000000 --verbose`
+      );
+
+      await new Promise<void>((resolve) => {
+        this.process?.stdout?.on("data", (data) => {
+          if (data.toString().includes("Content area is")) {
+            resolve();
+          }
+        });
+      });
 
       Logger.info("Recording started");
       return Date.now();
