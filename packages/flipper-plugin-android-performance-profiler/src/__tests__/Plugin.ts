@@ -29,7 +29,7 @@ jest.mock("child_process", () => {
         switch (command) {
           case "adb shell /data/local/tmp/BAMPerfProfiler printCpuClockTick":
             return 100;
-          case "adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp|mInputMethodTarget|mSurface' | grep Activity":
+          case "adb shell dumpsys window windows":
             return "      mSurface=Surface(name=com.example/com.example.MainActivity$_21455)/@0x9110fea";
           case "adb shell /data/local/tmp/BAMPerfProfiler printRAMPageSize":
             return 4096;

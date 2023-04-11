@@ -64,7 +64,7 @@ export class GfxInfoParser {
 
   public measure(): Measure {
     const gfxOutput: { [name: string]: string } = this.getGfxInfo()
-      .split("\n")
+      .split(/\r\n|\n|\r/)
       .reduce((values, line) => {
         const [name, value, value2] = line.split(": ");
 

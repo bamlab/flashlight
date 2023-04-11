@@ -7,7 +7,7 @@ export interface ProcessStat {
 
 export const processOutput = (output: string, pid: string): ProcessStat[] =>
   output
-    .split("\n")
+    .split(/\r\n|\n|\r/)
     .filter(Boolean)
     .map((stats) => stats.split(" "))
     .filter(Boolean)

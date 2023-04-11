@@ -27,7 +27,7 @@ let aTraceProcess: ChildProcess | null = null;
 
 const startATrace = () => {
   Logger.debug("Stopping atrace and flushing output...");
-  executeCommand("adb shell atrace --async_stop 1>/dev/null");
+  executeCommand("adb shell atrace --async_stop");
   Logger.debug("Starting atrace...");
   aTraceProcess = executeAsync("adb shell atrace -c view -t 999");
 };
@@ -64,14 +64,14 @@ export const ensureCppProfilerIsInstalled = () => {
     Logger.info(`Installing C++ profiler for ${abi} architecture`);
 
     const binaryPath = `${binaryFolder}/${CppProfilerName}-${abi}`;
-    const binaryTmpPath = `/${os.tmpdir()}/flashlight-${CppProfilerName}-${abi}`;
+    const binaryTmpPath = `${os.tmpdir()}/flashlight-${CppProfilerName}-${abi}`;
 
     // When running from standalone executable, we need to copy the binary to an actual file
     fs.copyFileSync(binaryPath, binaryTmpPath);
-    fs.chmodSync(binaryTmpPath, "0755");
 
-    const command = `adb push ${binaryTmpPath} ${deviceProfilerPath}`;
-    executeCommand(command);
+    executeCommand(`adb push ${binaryTmpPath} ${deviceProfilerPath}`);
+    executeCommand(`adb shell chmod 755 ${deviceProfilerPath}`);
+
     Logger.success(`C++ Profiler installed in ${deviceProfilerPath}`);
 
     retrieveCpuClockTick();
@@ -127,7 +127,7 @@ export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
     .split(DELIMITER)
     .map((s) => s.trim());
 
-  const [timestampLine, execTimings] = timings.split("\n");
+  const [timestampLine, execTimings] = timings.split(/\r\n|\n|\r/);
 
   const timestamp = parseInt(timestampLine.split(": ")[1], 10);
 

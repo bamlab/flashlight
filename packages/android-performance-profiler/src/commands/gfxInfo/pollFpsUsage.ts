@@ -9,7 +9,7 @@ enableFpsDebug();
 
 export const getCommand = (bundleId: string) => `dumpsys gfxinfo ${bundleId}`;
 export const processOutput = (result: string) => {
-  const lines = result.split("\n");
+  const lines = result.split(/\r\n|\n|\r/);
 
   const headerIndex = lines.findIndex(
     (line) => line === "\tDraw\tPrepare\tProcess\tExecute"
@@ -28,7 +28,7 @@ export const processOutput = (result: string) => {
 
   const frameTimes = lines.slice(firstRowIndex, lastLineIndex).map((line) =>
     line
-      .split("\n")
+      .split(/\r\n|\n|\r/)
       .filter(Boolean)
       .reduce((sum, currentFrameTime) => sum + parseFloat(currentFrameTime), 0)
   );
