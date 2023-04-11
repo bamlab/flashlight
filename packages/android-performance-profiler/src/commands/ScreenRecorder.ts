@@ -16,33 +16,29 @@ async function isProcessRunning(pid: number): Promise<boolean> {
 export class ScreenRecorder {
   private fileName;
   private process?: ChildProcess = undefined;
+  private recordingStartTime = 0;
 
   constructor(file: string) {
     this.fileName = file;
   }
 
-  async startRecording(): Promise<number> {
-    if (!this.process) {
-      const filePath = `${RECORDING_FOLDER}${this.fileName}`;
+  async startRecording(): Promise<void> {
+    const filePath = `${RECORDING_FOLDER}${this.fileName}`;
 
-      this.process = executeAsync(
-        `adb shell screenrecord ${filePath} --bit-rate 8000000 --verbose`
-      );
+    this.process = executeAsync(
+      `adb shell screenrecord ${filePath} --bit-rate 8000000 --verbose`
+    );
 
-      await new Promise<void>((resolve) => {
-        this.process?.stdout?.on("data", (data) => {
-          if (data.toString().includes("Content area is")) {
-            resolve();
-          }
-        });
+    await new Promise<void>((resolve) => {
+      this.process?.stdout?.on("data", (data) => {
+        if (data.toString().includes("Content area is")) {
+          resolve();
+        }
       });
+    });
 
-      Logger.info("Recording started");
-      return Date.now();
-    }
-
-    Logger.error("A screen recording is already in progress.");
-    return 0;
+    Logger.info("Recording started");
+    this.recordingStartTime = Date.now();
   }
 
   async stopRecording(): Promise<void> {
@@ -67,11 +63,15 @@ export class ScreenRecorder {
     Logger.info("Recording stopped");
   }
 
+  getRecordingStartTime(): number {
+    return this.recordingStartTime;
+  }
+
   async pullRecording(destinationPath: string): Promise<void> {
-    await executeAsync(
+    executeAsync(
       `adb pull ${RECORDING_FOLDER}${this.fileName} ${destinationPath}`
     );
-    await executeAsync(`adb shell rm ${RECORDING_FOLDER}${this.fileName}`);
+    executeAsync(`adb shell rm ${RECORDING_FOLDER}${this.fileName}`);
     Logger.info("Recording saved to" + destinationPath);
   }
 }

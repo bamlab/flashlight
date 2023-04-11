@@ -35,12 +35,11 @@ class PerformanceTester {
 
       if (beforeTest) await beforeTest();
 
-      let recordingStartTime = null;
       const ScreenRecord = new ScreenRecorder(
         `${recordOptions.title}_iter${iterationCount}.mp4`
       );
       if (recordOptions.record) {
-        recordingStartTime = await ScreenRecord.startRecording();
+        await ScreenRecord.startRecording();
       }
 
       const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
@@ -54,12 +53,15 @@ class PerformanceTester {
       }
 
       if (afterTest) await afterTest();
-      if (recordOptions.record && recordingStartTime) {
+
+      if (recordOptions.record) {
         return {
           ...measures,
           videoInfos: {
             path: `${recordOptions.path}${recordOptions.title}_iter${iterationCount}.mp4`,
-            startOffset: Math.floor(measures.startTime - recordingStartTime),
+            startOffset: Math.floor(
+              measures.startTime - ScreenRecord.getRecordingStartTime()
+            ),
             measureDuration: Math.floor(measures.endTime - measures.startTime),
           },
         };
