@@ -1,6 +1,8 @@
 import fs from "fs";
+import path from "path";
 import { ArtifactType } from "@aws-sdk/client-device-farm";
 import { Logger } from "@perf-profiler/logger";
+import { TestCaseResult } from "@perf-profiler/types";
 import { testRepository } from "../repositories";
 import { TMP_FOLDER } from "../TMP_FOLDER";
 import { downloadFile } from "../utils/downloadFile";
@@ -29,6 +31,29 @@ export const checkResults = async ({
   fs.rmSync(LOGS_FILE_TMP_PATH);
   fs.readdirSync(tmpFolder).forEach((file) => {
     if (file.endsWith(".json")) {
+      const report: TestCaseResult = JSON.parse(
+        fs.readFileSync(`${tmpFolder}/${file}`).toString()
+      );
+      fs.writeFileSync(
+        `${reportDestinationPath}/${file}`,
+        JSON.stringify({
+          ...report,
+          iterations: report.iterations.map((iteration) => ({
+            ...iteration,
+            videoInfos: iteration.videoInfos
+              ? {
+                  ...iteration.videoInfos,
+                  path: `${reportDestinationPath}/${path.basename(
+                    iteration.videoInfos.path
+                  )}`,
+                }
+              : null,
+          })),
+        })
+      );
+    }
+
+    if (file.endsWith(".mp4")) {
       fs.renameSync(`${tmpFolder}/${file}`, `${reportDestinationPath}/${file}`);
     }
   });
