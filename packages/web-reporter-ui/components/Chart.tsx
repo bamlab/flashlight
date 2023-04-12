@@ -26,11 +26,14 @@ export const Chart = ({
   interval = 500,
   timeLimit,
   maxValue,
+  // TODO: set it back to false
+  enableVideoAnnotation = true,
   colors = PALETTE,
 }: {
   title: string;
   series: { name: string; data: { x: number; y: number }[] }[];
   height: number;
+  enableVideoAnnotation?: boolean;
   interval?: number;
   timeLimit?: number | null;
   maxValue?: number;
@@ -88,7 +91,7 @@ export const Chart = ({
         },
       },
       annotations: {
-        xaxis: [videoCurrentTimeAnnotation],
+        xaxis: enableVideoAnnotation ? [videoCurrentTimeAnnotation] : [],
       },
       title: {
         text: title,
