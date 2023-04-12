@@ -38,7 +38,7 @@ export class ScreenRecorder {
     });
 
     Logger.info("Recording started");
-    this.recordingStartTime = Date.now();
+    this.recordingStartTime = performance.now();
   }
 
   async stopRecording(): Promise<void> {

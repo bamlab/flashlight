@@ -21,7 +21,6 @@ export interface TestCaseIterationResult {
   videoInfos?: {
     path: string;
     startOffset: number;
-    measureDuration: number;
   };
 }
 

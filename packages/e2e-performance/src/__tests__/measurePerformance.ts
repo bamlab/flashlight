@@ -6,6 +6,7 @@ import { PerformancePollingMock } from "../utils/PerformancePollingMock";
 const mockPerformancePolling = new PerformancePollingMock();
 
 jest.mock("@perf-profiler/profiler", () => ({
+  ...jest.requireActual("@perf-profiler/profiler"),
   ensureCppProfilerIsInstalled: jest.fn(),
   getPidId: jest.fn(() => 123),
   pollPerformanceMeasures: jest.fn((pid, { onMeasure, onStartMeasuring }) => {
@@ -58,21 +59,18 @@ describe("measurePerformance", () => {
       Object {
         "iterations": Array [
           Object {
-            "endTime": 1680878524914,
             "measures": Array [],
-            "startTime": 1680878523912,
+            "startTime": 0,
             "time": 1000,
           },
           Object {
-            "endTime": 1680878525916,
             "measures": Array [],
-            "startTime": 1680878524914,
+            "startTime": 0,
             "time": 1000,
           },
           Object {
-            "endTime": 1680878526927,
             "measures": Array [],
-            "startTime": 1680878525916,
+            "startTime": 0,
             "time": 1000,
           },
         ],
