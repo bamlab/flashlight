@@ -4,13 +4,13 @@ import { IterationsReporterView } from "../ReporterView";
 import { TestCaseResult } from "@perf-profiler/types";
 import { getText } from "../utils/getSnapshotText";
 
-const testCaseResults: TestCaseResult[] = [
-  require("../../web-reporter/src/results1.json"),
-  require("../../web-reporter/src/results2.json"),
-];
-
 describe("<ReporterView />", () => {
   it("renders the comparison view", () => {
+    const testCaseResults: TestCaseResult[] = [
+      require("../../web-reporter/src/example-reports/results1.json"),
+      require("../../web-reporter/src/example-reports/results2.json"),
+    ];
+
     const { asFragment, baseElement } = render(
       <IterationsReporterView results={testCaseResults} />
     );
