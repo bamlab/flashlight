@@ -64,7 +64,6 @@ class PerformanceTester {
             startOffset: Math.floor(
               measures.startTime - recorder.getRecordingStartTime()
             ),
-            measureDuration: Math.floor(measures.endTime - measures.startTime),
           },
         };
       }

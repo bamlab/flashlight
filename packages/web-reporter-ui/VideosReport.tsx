@@ -16,7 +16,6 @@ export const VideosReport = ({
   video: {
     path: string;
     startOffset: number;
-    measureDuration: number;
   };
 }) => {
   const currentTime = useVideoCurrentTime();
@@ -28,7 +27,7 @@ export const VideosReport = ({
     if (videoElement) {
       videoElement.currentTime = (currentTime + video.startOffset) / 1000;
     }
-  }, [video.startOffset, video.measureDuration, currentTime]);
+  }, [currentTime, video.startOffset]);
 
   return (
     <video
