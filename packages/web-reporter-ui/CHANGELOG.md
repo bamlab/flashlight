@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1-alpha.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.6.0...@perf-profiler/web-reporter-ui@0.6.1-alpha.0) (2023-04-12)
+
+### Features
+
+- show comparison view for videos ([90e6b76](https://github.com/bamlab/android-performance-profiler/commit/90e6b766f819e67e429fb959fcb3a5989d59d71f))
+- **web:** add ability to see each iteration individually ([#83](https://github.com/bamlab/android-performance-profiler/issues/83)) ([a40f955](https://github.com/bamlab/android-performance-profiler/commit/a40f955beef5d85eb899c3a5be4d827d9a974467))
+
 # [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.5.0...@perf-profiler/web-reporter-ui@0.6.0) (2023-02-06)
 
 ### Features
