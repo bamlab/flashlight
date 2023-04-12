@@ -9,7 +9,6 @@ export class PerformanceMeasurer {
   bundleId: string;
   shouldStop = false;
   timingTrace?: Trace;
-  startTime = 0;
 
   constructor(bundleId: string) {
     this.bundleId = bundleId;
@@ -31,7 +30,6 @@ export class PerformanceMeasurer {
         Logger.debug(`Received measure ${this.measures.length}`);
       },
       onStartMeasuring: () => {
-        this.startTime = Date.now();
         this.timingTrace = new Trace();
       },
     });
@@ -67,8 +65,7 @@ export class PerformanceMeasurer {
 
     return {
       time: time ?? 0,
-      startTime: this.startTime,
-      endTime: Date.now(),
+      startTime: this.timingTrace?.startTime ?? 0,
       measures: this.measures,
     };
   }
