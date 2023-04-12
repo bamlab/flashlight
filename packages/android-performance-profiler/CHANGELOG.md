@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1-alpha.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.5.0...@perf-profiler/profiler@0.5.1-alpha.1) (2023-04-12)
+
+### Bug Fixes
+
+- ensure we get whole video recording ([114e377](https://github.com/bamlab/android-performance-profiler/commit/114e377f189ffc3379871e1844fff04cac4212f3))
+- **profiler:** improve timings accuracy ([#84](https://github.com/bamlab/android-performance-profiler/issues/84)) ([1908689](https://github.com/bamlab/android-performance-profiler/commit/19086891b618382dd290431e63cf72059a729133))
+
+### BREAKING CHANGES
+
+- **profiler:** if using a custom script, pollPerformanceMeasures will now take `{ onMeasure: (Measure) => void }` as second parameter
+
 ## [0.5.1-alpha.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.5.0...@perf-profiler/profiler@0.5.1-alpha.0) (2023-04-12)
 
 ### Bug Fixes
