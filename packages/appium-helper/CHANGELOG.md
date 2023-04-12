@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1-alpha.3](https://github.com/bamlab/android-performance-profiler/compare/@bam.tech/appium-helper@0.5.0...@bam.tech/appium-helper@0.5.1-alpha.3) (2023-04-12)
+
+**Note:** Version bump only for package @bam.tech/appium-helper
+
 ## [0.5.1-alpha.2](https://github.com/bamlab/android-performance-profiler/compare/@bam.tech/appium-helper@0.5.0...@bam.tech/appium-helper@0.5.1-alpha.2) (2023-04-12)
 
 **Note:** Version bump only for package @bam.tech/appium-helper
