@@ -4,9 +4,11 @@ import {
   TestCaseIterationResult,
 } from "@perf-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
-import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
+import {
+  ensureCppProfilerIsInstalled,
+  ScreenRecorder,
+} from "@perf-profiler/profiler";
 import { writeReport } from "./writeReport";
-import { ScreenRecorder } from "@perf-profiler/profiler/dist/src/commands/ScreenRecorder";
 import * as p from "path";
 
 export interface TestCase {
