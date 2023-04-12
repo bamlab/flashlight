@@ -1,8 +1,23 @@
-import React, { useMemo, ComponentProps, useContext } from "react";
+import React, { useMemo, ComponentProps } from "react";
 import ReactApexChart from "react-apexcharts";
-import { PercentageDispatchContext } from "../context/PercentageContext";
+import { useSetVideoCurrentTime } from "../videoCurrentTimeContext";
 
 export const PALETTE = ["#3a86ff", "#8338ec", "#ff006e", "#fb5607", "#ffbe0b"];
+
+const videoCurrentTimeAnnotation = {
+  x: 0,
+  strokeDashArray: 0,
+  borderColor: PALETTE[1],
+  label: {
+    borderColor: PALETTE[1],
+    style: {
+      color: "#fff",
+      background: PALETTE[1],
+    },
+    text: "Video",
+    position: "right",
+  },
+};
 
 export const Chart = ({
   title,
@@ -21,7 +36,7 @@ export const Chart = ({
   maxValue?: number;
   colors?: string[];
 }) => {
-  const dispatch = useContext(PercentageDispatchContext);
+  const setVideoCurrentTime = useSetVideoCurrentTime();
 
   const options = useMemo<ComponentProps<typeof ReactApexChart>["options"]>(
     () => ({
@@ -37,31 +52,43 @@ export const Chart = ({
           },
         },
         events: {
-          click(e, chart, options) {
-            //use that if you want to change on hover
-            // mouseMove(_, chart) {
+          // click(e, chart, options) {
+          //use that if you want to change on hover
+          mouseMove(event, chart) {
             const totalWidth =
               chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
-            const mouseX =
-              chart.events.ctx.dimensions.dimXAxis.w.globals.clientX - 60;
-            if (mouseX > totalWidth) return;
 
-            dispatch({
-              type: "change_value",
-              payload: (mouseX * 100) / totalWidth,
-            });
+            const mouseX = Math.max(
+              0,
+              event.clientX -
+                chart.el.getBoundingClientRect().left -
+                chart.w.globals.translateX
+            );
+
+            const lastX = series[0].data[series[0].data.length - 1].x;
+            const maxX = lastX;
+
+            setVideoCurrentTime((mouseX / totalWidth) * maxX);
+
+            // Manually translate via DOM to avoid re-rendering the chart
+            const annotations = document.getElementsByClassName(
+              "apexcharts-xaxis-annotations"
+            );
+
+            for (const annotation of annotations) {
+              annotation.setAttribute(
+                "style",
+                `transform: translateX(${mouseX}px);`
+              );
+            }
           },
         },
         zoom: {
           enabled: false,
         },
       },
-      tooltip: {
-        intersect: true,
-        shared: false,
-      },
-      markers: {
-        size: 1,
+      annotations: {
+        xaxis: [videoCurrentTimeAnnotation],
       },
       title: {
         text: title,

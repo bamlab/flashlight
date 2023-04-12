@@ -1,9 +1,5 @@
-import { AveragedTestCaseResult } from "@perf-profiler/types";
-import React, { useContext, useEffect, useRef } from "react";
-import { PercentageContext } from "./context/PercentageContext";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-// const VideoUrl = new URL("../result_1.mp4", import.meta.url);
+import React, { useEffect, useRef } from "react";
+import { useVideoCurrentTime } from "./videoCurrentTimeContext";
 
 const getFileName = (path: string | undefined = ""): string => {
   const split = path.split("/");
@@ -15,79 +11,28 @@ const getFileName = (path: string | undefined = ""): string => {
 };
 
 export const VideosReport = ({
-  results,
+  video,
 }: {
-  results: AveragedTestCaseResult[];
-}) => {
-  const percentage = useContext(PercentageContext);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isVideoLoaded, setIsVideoLoaded] = React.useState(false);
-  const [iteration, setIteration] = React.useState(0);
-
-  const changeIteration = () => {
-    if (iteration === results[0].iterations.length - 1) {
-      setIteration(0);
-      return;
-    }
-    setIteration(iteration + 1);
+  video: {
+    path: string;
+    startOffset: number;
+    measureDuration: number;
   };
+}) => {
+  const currentTime = useVideoCurrentTime();
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const videoElement = videoRef.current;
 
-    const handleMetadataLoaded = () => {
-      setIsVideoLoaded(true);
-    };
-
-    if (videoElement && !isVideoLoaded) {
-      videoElement.addEventListener("loadedmetadata", handleMetadataLoaded);
+    if (videoElement) {
+      videoElement.currentTime = (currentTime + video.startOffset) / 1000;
     }
-
-    if (videoElement && isVideoLoaded) {
-      const videoOffset =
-        results[0].iterations[iteration].videoInfos?.startOffset || 0;
-      const measureDuration =
-        results[0].iterations[iteration].videoInfos?.measureDuration || 0;
-      const adjustedVideoDuration = measureDuration / 1000;
-      const newTime =
-        (adjustedVideoDuration * percentage) / 100 + videoOffset / 1000;
-      if (typeof newTime !== "number") return;
-      videoElement.currentTime = newTime;
-      videoElement.play();
-
-      const endTime = videoOffset / 1000 + adjustedVideoDuration;
-
-      const handleTimeUpdate = () => {
-        if (videoElement && videoElement.currentTime >= endTime) {
-          videoElement.pause();
-        }
-      };
-
-      videoElement.addEventListener("timeupdate", handleTimeUpdate);
-
-      return () => {
-        if (videoElement) {
-          videoElement.removeEventListener(
-            "loadedmetadata",
-            handleMetadataLoaded
-          );
-          videoElement.removeEventListener("timeupdate", handleTimeUpdate);
-        }
-      };
-    }
-  }, [percentage, isVideoLoaded, iteration, results]);
-
-  if (!results[0].iterations[iteration].videoInfos) return null;
+  }, [video.startOffset, video.measureDuration, currentTime]);
 
   return (
-    <>
-      <video key={iteration} ref={videoRef} width="750" height="500" controls>
-        <source
-          src={getFileName(results[0].iterations[iteration].videoInfos?.path)}
-          type="video/mp4"
-        />
-      </video>
-      <button onClick={changeIteration}> Iterate HERE {iteration} </button>
-    </>
+    <video ref={videoRef} width="300" height="500" controls>
+      <source src={getFileName(video.path)} type="video/mp4" />
+    </video>
   );
 };
