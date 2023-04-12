@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.1-alpha.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.6.0...@perf-profiler/aws-device-farm@0.6.1-alpha.2) (2023-04-12)
+
+### Features
+
+- add video support in aws ([5c767f6](https://github.com/bamlab/android-performance-profiler/commit/5c767f66d26944777379819113b10cbf5a10e6da))
+
 ## [0.6.1-alpha.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.6.0...@perf-profiler/aws-device-farm@0.6.1-alpha.1) (2023-04-12)
 
 ### Features
