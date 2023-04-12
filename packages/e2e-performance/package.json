@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/e2e",
-  "version": "0.7.2-alpha.1",
+  "version": "0.7.2-alpha.2",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -14,10 +14,10 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@perf-profiler/logger": "^0.2.1-alpha.1",
-    "@perf-profiler/profiler": "^0.5.1-alpha.1",
-    "@perf-profiler/reporter": "^0.4.1-alpha.1",
-    "@perf-profiler/types": "^0.2.1-alpha.1",
+    "@perf-profiler/logger": "^0.2.1-alpha.2",
+    "@perf-profiler/profiler": "^0.5.1-alpha.2",
+    "@perf-profiler/reporter": "^0.4.1-alpha.2",
+    "@perf-profiler/types": "^0.2.1-alpha.2",
     "commander": "^9.4.0",
     "ink": "^3.2.0",
     "ink-table": "^3.0.0",

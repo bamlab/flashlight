@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1-alpha.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/logger@0.2.1-alpha.1...@perf-profiler/logger@0.2.1-alpha.2) (2023-04-12)
+
+**Note:** Version bump only for package @perf-profiler/logger
+
 ## 0.2.1-alpha.1 (2023-04-12)
 
 ### Bug Fixes
