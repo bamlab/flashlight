@@ -8,8 +8,12 @@ import { IterationsReporterView } from "@perf-profiler/web-reporter-ui";
 let testCaseResults: TestCaseResult[] = "INSERT_HERE";
 
 // Uncomment with when locally testing
+// To add videos, run `cp packages/web-reporter/src/*.mp4 packages/web-reporter/dist`
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-// testCaseResults = [require("../../../results_1680787951958.json")];
+// testCaseResults = [
+//   require("./results_1681294394706.json"),
+//   require("./results_1681294744349.json"),
+// ];
 
 export function App() {
   return testCaseResults ? (
