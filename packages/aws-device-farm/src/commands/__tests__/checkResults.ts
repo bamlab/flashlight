@@ -35,7 +35,7 @@ describe("checkResults", () => {
     const OUTPUT_FILE = `${FOLDER_WITH_SPACES}/results.json`;
     expect(fs.existsSync(OUTPUT_FILE)).toBe(true);
     expect(fs.readFileSync(OUTPUT_FILE).toString()).toEqual(
-      '{ "data": { "thisIs": "data" } }'
+      `{"name":"Report","iterations":[{"videoInfos":null},{"videoInfos":{"path":"${__dirname}/My folder with spaces/video.mp4"}}]}`
     );
   });
 

@@ -54,6 +54,7 @@ phases:
       - yarn
       - echo 'this is the test command'
       - mv result*.json $DEVICEFARM_LOG_DIR
+      - mv *.mp4 $DEVICEFARM_LOG_DIR || true
   post_test: {}
 artifacts:
   - $DEVICEFARM_LOG_DIR
@@ -115,6 +116,7 @@ phases:
         runTest.ts
       - npx ts-node runTest.ts
       - mv result*.json $DEVICEFARM_LOG_DIR
+      - mv *.mp4 $DEVICEFARM_LOG_DIR || true
   post_test:
     commands:
       - >-
