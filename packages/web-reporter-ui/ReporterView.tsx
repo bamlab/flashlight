@@ -13,7 +13,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./FPSReport";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider, Typography } from "@mui/material";
 import Header from "./components/Header";
 
 import { exportRawDataToZIP } from "./utils/reportRawDataExport";
@@ -60,7 +60,13 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
     exportRawDataToZIP(iterationResults);
   };
 
-  const videoInfo = averagedResults[0].iterations[0].videoInfos;
+  const videoInfos = results.map(
+    (result) =>
+      result.iterations[
+        iterationSelector.showAverage ? 0 : iterationSelector.iterationIndex
+      ].videoInfos
+  );
+  const hasVideos = !!videoInfos.some((videoInfo) => videoInfo);
 
   return (
     <>
@@ -68,14 +74,24 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
       <Padding />
       <ReportSummary results={results} averagedResults={averagedResults} />
       <Padding />
-      {videoInfo && (
+      {hasVideos ? (
         <Accordion defaultExpanded>
           <AccordionSectionTitle title="Videos" />
           <AccordionDetails>
-            <VideosReport video={videoInfo} />
+            <div style={{ flexDirection: "row", display: "flex" }}>
+              {results.map(({ name }, index) => {
+                const video = videoInfos[index];
+                return (
+                  <div key={index}>
+                    <Typography variant="h6">{name}</Typography>
+                    {video ? <VideosReport video={video} /> : null}
+                  </div>
+                );
+              })}
+            </div>
           </AccordionDetails>
         </Accordion>
-      )}
+      ) : null}
       <Accordion defaultExpanded>
         <AccordionSectionTitle title="FPS" />
         <AccordionDetails>

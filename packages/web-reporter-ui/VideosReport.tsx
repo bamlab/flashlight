@@ -31,7 +31,13 @@ export const VideosReport = ({
   }, [video.startOffset, video.measureDuration, currentTime]);
 
   return (
-    <video ref={videoRef} width="300" height="500" controls>
+    <video
+      ref={videoRef}
+      width="300"
+      height="500"
+      controls
+      style={{ backgroundColor: "black" }}
+    >
       <source src={getFileName(video.path)} type="video/mp4" />
     </video>
   );
