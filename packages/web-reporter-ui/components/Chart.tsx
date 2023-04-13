@@ -27,11 +27,14 @@ const useSetVideoTimeOnMouseHover = ({
 }: {
   series: { name: string; data: { x: number; y: number }[] }[];
 }): ApexChart["events"] => {
-  const lastX = series[0].data[series[0].data.length - 1].x;
   const setVideoCurrentTime = useSetVideoCurrentTime();
 
   return {
     mouseMove: (event, chart) => {
+      if (series.length === 0) return;
+
+      const lastX = series[0].data[series[0].data.length - 1].x;
+
       const totalWidth =
         chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
 
