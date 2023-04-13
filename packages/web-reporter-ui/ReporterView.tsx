@@ -22,6 +22,7 @@ import {
   useIterationSelector,
 } from "./components/IterationSelector";
 import { VideoSection } from "./VideoSection";
+import { VideoEnabledContext } from "./videoCurrentTimeContext";
 
 const Padding = styled.div`
   height: 10px;
@@ -69,7 +70,7 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
   const hasVideos = !!videoInfos.some((videoInfo) => videoInfo);
 
   return (
-    <>
+    <VideoEnabledContext.Provider value={hasVideos}>
       <Header saveToZIPCallBack={saveResultsToZIP} />
       <Padding />
       <ReportSummary results={results} averagedResults={averagedResults} />
@@ -100,7 +101,7 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
         {...iterationSelector}
         iterationCount={minIterationCount}
       />
-    </>
+    </VideoEnabledContext.Provider>
   );
 };
 
