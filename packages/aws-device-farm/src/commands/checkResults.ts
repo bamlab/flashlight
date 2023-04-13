@@ -7,6 +7,7 @@ import { testRepository } from "../repositories";
 import { TMP_FOLDER } from "../TMP_FOLDER";
 import { downloadFile } from "../utils/downloadFile";
 import { unzip } from "../utils/unzip";
+import { execSync } from "child_process";
 
 export const checkResults = async ({
   testRunArn,
@@ -54,7 +55,12 @@ export const checkResults = async ({
     }
 
     if (file.endsWith(".mp4")) {
-      fs.renameSync(`${tmpFolder}/${file}`, `${reportDestinationPath}/${file}`);
+      // When coming from AWS Device Farm, it seems the video is not encoded properly
+      Logger.info(`Fixing video metadata on ${file}...`);
+      // VSync 0 is important since we have variable frame rate from adb shell screenrecord
+      execSync(
+        `ffmpeg -vsync 0 -i ${tmpFolder}/${file} -c:v libx264 -crf 23 -c:a aac -b:a 128k ${reportDestinationPath}/${file} -loglevel error`
+      );
     }
   });
   fs.rmSync(tmpFolder, { recursive: true, force: true });
