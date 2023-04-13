@@ -29,22 +29,25 @@ type IterationSelectorProps = {
   goToNextIteration: () => void;
 };
 
+export const ITERATION_SELECTOR_HEIGHT = 50;
+
 const Footer = ({ children }: { children: React.ReactNode }) => {
   const footerColor = useTheme().palette.grey[400];
-  const FOOTER_HEIGHT = 50;
 
   return (
     <>
-      <div style={{ height: FOOTER_HEIGHT }} />
+      <div style={{ height: ITERATION_SELECTOR_HEIGHT }} />
       <div
         style={{
           position: "fixed",
           backgroundColor: footerColor,
-          boxShadow: `0px 0px ${FOOTER_HEIGHT / 2}px 0px ${footerColor}`,
+          boxShadow: `0px 0px ${
+            ITERATION_SELECTOR_HEIGHT / 2
+          }px 0px ${footerColor}`,
           left: 0,
           right: 0,
           bottom: 0,
-          height: FOOTER_HEIGHT,
+          height: ITERATION_SELECTOR_HEIGHT,
           width: "100%",
           display: "flex",
           justifyContent: "center",

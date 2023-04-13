@@ -18,6 +18,7 @@ import Header from "./components/Header";
 
 import { exportRawDataToZIP } from "./utils/reportRawDataExport";
 import {
+  ITERATION_SELECTOR_HEIGHT,
   IterationSelector,
   useIterationSelector,
 } from "./components/IterationSelector";
@@ -74,24 +75,7 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
       <Padding />
       <ReportSummary results={results} averagedResults={averagedResults} />
       <Padding />
-      {hasVideos ? (
-        <Accordion defaultExpanded>
-          <AccordionSectionTitle title="Videos" />
-          <AccordionDetails>
-            <div style={{ flexDirection: "row", display: "flex" }}>
-              {results.map(({ name }, index) => {
-                const video = videoInfos[index];
-                return (
-                  <div key={index}>
-                    <Typography variant="h6">{name}</Typography>
-                    {video ? <VideosReport video={video} /> : null}
-                  </div>
-                );
-              })}
-            </div>
-          </AccordionDetails>
-        </Accordion>
-      ) : null}
+
       <Accordion defaultExpanded>
         <AccordionSectionTitle title="FPS" />
         <AccordionDetails>
@@ -110,6 +94,35 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
           <RAMReport results={averagedResults} />
         </AccordionDetails>
       </Accordion>
+      {hasVideos ? (
+        <>
+          <div style={{ height: ITERATION_SELECTOR_HEIGHT }} />
+          <Accordion
+            sx={{
+              position: "fixed",
+              bottom: ITERATION_SELECTOR_HEIGHT,
+              right: 0,
+              zIndex: 20,
+              border: `2px solid ${theme.palette.grey[400]}`,
+            }}
+          >
+            <AccordionSectionTitle title="Videos" />
+            <AccordionDetails>
+              <div style={{ flexDirection: "row", display: "flex" }}>
+                {results.map(({ name }, index) => {
+                  const video = videoInfos[index];
+                  return (
+                    <div key={index}>
+                      <Typography variant="h6">{name}</Typography>
+                      {video ? <VideosReport video={video} /> : null}
+                    </div>
+                  );
+                })}
+              </div>
+            </AccordionDetails>
+          </Accordion>
+        </>
+      ) : null}
       <IterationSelector
         {...iterationSelector}
         iterationCount={minIterationCount}
