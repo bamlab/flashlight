@@ -72,6 +72,6 @@ export class ScreenRecorder {
       `adb pull ${RECORDING_FOLDER}${this.fileName} ${destinationPath}`
     );
     executeAsync(`adb shell rm ${RECORDING_FOLDER}${this.fileName}`);
-    Logger.info("Recording saved to" + destinationPath);
+    Logger.info(`Recording saved to ${destinationPath}/${this.fileName}`);
   }
 }
