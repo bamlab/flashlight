@@ -60,7 +60,7 @@ class PerformanceTester {
         return {
           ...measures,
           videoInfos: {
-            path: `${recordOptions.path}${recordOptions.title}_iter${iterationCount}.mp4`,
+            path: `${recordOptions.path}/${recordOptions.title}_iter${iterationCount}.mp4`,
             startOffset: Math.floor(
               measures.startTime - recorder.getRecordingStartTime()
             ),
@@ -145,7 +145,9 @@ export const measurePerformance = async (
 ) => {
   const title = givenTitle || "Results";
 
-  const filePath = path ? p.dirname(path) : `${process.cwd()}/`;
+  const filePath = path
+    ? p.join(process.cwd(), p.dirname(path))
+    : `${process.cwd()}`;
   const fileName = path
     ? p.basename(path)
     : `${title.toLocaleLowerCase().replace(/ /g, "_")}_${new Date().getTime()}`;
@@ -154,7 +156,7 @@ export const measurePerformance = async (
   const measures = await tester.iterate(iterationCount, maxRetries, {
     record,
     path: filePath,
-    title: fileName,
+    title: fileName.replace(".json", ""),
   });
 
   return {
