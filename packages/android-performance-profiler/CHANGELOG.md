@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1-alpha.4](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.5.1-alpha.3...@perf-profiler/profiler@0.5.1-alpha.4) (2023-04-13)
+
+### Bug Fixes
+
+- fix video path when in same folder ([6fdb6e1](https://github.com/bamlab/android-performance-profiler/commit/6fdb6e1152067a3f537adbf23dc9098b55bd70dc))
+
 ## [0.5.1-alpha.3](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.5.0...@perf-profiler/profiler@0.5.1-alpha.3) (2023-04-12)
 
 ### Bug Fixes
