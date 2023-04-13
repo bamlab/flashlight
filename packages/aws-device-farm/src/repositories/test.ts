@@ -54,6 +54,10 @@ export class TestRepository extends BaseRepository {
           type: TestType.APPIUM_NODE,
           testPackageArn,
           testSpecArn,
+          parameters: {
+            video_recording: "true",
+            app_performance_monitoring: "false",
+          },
         },
       })
     );
