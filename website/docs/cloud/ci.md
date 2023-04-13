@@ -7,8 +7,8 @@ sidebar_position: 3
 The easiest way to setup Flashlight on your CI is to add a script installing the CLI:
 
 ```bash
-curl -Ls "https://get.maestro.mobile.dev" | bash
-export PATH="$PATH":"$HOME/.maestro/bin"
+curl https://get.flashlight.dev/ | bash
+export PATH="$HOME/.flashlight/bin:$PATH"
 ```
 
 Create your API key [here](https://app.flashlight.dev/api-key) and set it as a secret environment variable on your CI named `FLASHLIGHT_API_KEY`
