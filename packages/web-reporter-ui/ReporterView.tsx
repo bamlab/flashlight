@@ -13,16 +13,15 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./FPSReport";
-import { createTheme, ThemeProvider, Typography } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
 import Header from "./components/Header";
 
 import { exportRawDataToZIP } from "./utils/reportRawDataExport";
 import {
-  ITERATION_SELECTOR_HEIGHT,
   IterationSelector,
   useIterationSelector,
 } from "./components/IterationSelector";
-import { VideosReport } from "./VideosReport";
+import { VideoSection } from "./VideoSection";
 
 const Padding = styled.div`
   height: 10px;
@@ -95,33 +94,7 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
         </AccordionDetails>
       </Accordion>
       {hasVideos ? (
-        <>
-          <div style={{ height: ITERATION_SELECTOR_HEIGHT }} />
-          <Accordion
-            sx={{
-              position: "fixed",
-              bottom: ITERATION_SELECTOR_HEIGHT,
-              right: 0,
-              zIndex: 20,
-              border: `2px solid ${theme.palette.grey[400]}`,
-            }}
-          >
-            <AccordionSectionTitle title="Videos" />
-            <AccordionDetails>
-              <div style={{ flexDirection: "row", display: "flex" }}>
-                {results.map(({ name }, index) => {
-                  const video = videoInfos[index];
-                  return (
-                    <div key={index}>
-                      <Typography variant="h6">{name}</Typography>
-                      {video ? <VideosReport video={video} /> : null}
-                    </div>
-                  );
-                })}
-              </div>
-            </AccordionDetails>
-          </Accordion>
-        </>
+        <VideoSection videoInfos={videoInfos} results={results} />
       ) : null}
       <IterationSelector
         {...iterationSelector}
