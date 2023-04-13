@@ -56,7 +56,7 @@ export const ComparativeThreadTable = ({
     ...results.reduce(
       (threadMeasures, result, i) => ({
         ...threadMeasures,
-        [result.name]: allMeasures[i]?.[threadName]?.cpuUsage || 0,
+        [`${result.name}-${i}`]: allMeasures[i]?.[threadName]?.cpuUsage || 0,
       }),
       {}
     ),
@@ -71,8 +71,8 @@ export const ComparativeThreadTable = ({
     },
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    ...results.map((result) => ({
-      id: result.name,
+    ...results.map((result, i) => ({
+      id: `${result.name}-${i}`,
       label: result.name,
       numeric: true,
       disablePadding: false,
