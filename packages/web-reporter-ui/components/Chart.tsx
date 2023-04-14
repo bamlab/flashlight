@@ -2,7 +2,7 @@ import React, { useMemo, ComponentProps, useContext } from "react";
 import ReactApexChart from "react-apexcharts";
 import {
   VideoEnabledContext,
-  useSetVideoCurrentTime,
+  setVideoCurrentTime,
 } from "../videoCurrentTimeContext";
 
 export const PALETTE = ["#3a86ff", "#8338ec", "#ff006e", "#fb5607", "#ffbe0b"];
@@ -27,8 +27,6 @@ const useSetVideoTimeOnMouseHover = ({
 }: {
   series: { name: string; data: { x: number; y: number }[] }[];
 }): ApexChart["events"] => {
-  const setVideoCurrentTime = useSetVideoCurrentTime();
-
   return {
     mouseMove: (event, chart) => {
       if (series.length === 0) return;
@@ -38,12 +36,10 @@ const useSetVideoTimeOnMouseHover = ({
       const totalWidth =
         chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
 
-      const mouseX = Math.max(
-        0,
+      const mouseX =
         event.clientX -
-          chart.el.getBoundingClientRect().left -
-          chart.w.globals.translateX
-      );
+        chart.el.getBoundingClientRect().left -
+        chart.w.globals.translateX;
 
       const maxX = lastX;
 

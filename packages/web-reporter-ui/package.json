@@ -12,12 +12,12 @@
     "@perf-profiler/types": "^0.2.0",
     "apexcharts": "3.33.0",
     "file-saver": "^2.0.5",
-    "jotai": "^2.0.4",
     "jszip": "^3.10.1",
     "lodash": "^4.17.21",
     "process": "^0.11.10",
     "react": "^17.0.0",
-    "react-apexcharts": "1.3.9"
+    "react-apexcharts": "1.3.9",
+    "tiny-emitter": "^2.1.0"
   },
   "devDependencies": {
     "@testing-library/react": "^12.1.1",

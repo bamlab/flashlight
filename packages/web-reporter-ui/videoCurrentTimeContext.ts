@@ -1,9 +1,22 @@
 import React from "react";
-import { atom, useAtomValue, useSetAtom } from "jotai";
+import { TinyEmitter } from "tiny-emitter";
 
-const videoCurrentTimeAtom = atom(0);
+const emitter = new TinyEmitter();
 
-export const useVideoCurrentTime = () => useAtomValue(videoCurrentTimeAtom);
-export const useSetVideoCurrentTime = () => useSetAtom(videoCurrentTimeAtom);
+const SET_VIDEO_CURRENT_TIME = "SET_VIDEO_CURRENT_TIME";
+export const setVideoCurrentTime = (time: number) => {
+  emitter.emit(SET_VIDEO_CURRENT_TIME, time);
+};
+
+export const useListenToVideoCurrentTime = (
+  callback: (time: number) => void
+) => {
+  React.useEffect(() => {
+    emitter.on(SET_VIDEO_CURRENT_TIME, callback);
+    return () => {
+      emitter.off(SET_VIDEO_CURRENT_TIME, callback);
+    };
+  }, [callback]);
+};
 
 export const VideoEnabledContext = React.createContext(false);

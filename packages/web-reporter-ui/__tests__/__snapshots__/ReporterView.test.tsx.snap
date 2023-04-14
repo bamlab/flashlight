@@ -17239,6 +17239,8 @@ CPU
 Threads
 RAM
 Videos
+Reset
+Play all
 RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
 fabric-many-texts (com.fabricenabled)
 Showing average of 2 test iterations"
@@ -18184,11 +18186,40 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
             >
               <div
+                class="MuiButtonGroup-root MuiButtonGroup-contained css-zqcytf-MuiButtonGroup-root"
+                role="group"
+                style="margin-left: 10px;"
+              >
+                <button
+                  class="MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedPrimary MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedPrimary css-1w0j39k-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Reset
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+                <button
+                  class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedPrimary MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedContained MuiButtonGroup-groupedContainedHorizontal MuiButtonGroup-groupedContainedPrimary css-a4svs4-MuiButtonBase-root-MuiButton-root"
+                  tabindex="0"
+                  type="button"
+                >
+                  Play all
+                  <span
+                    class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                  />
+                </button>
+              </div>
+              <div
                 style="flex-direction: row; display: flex;"
               >
-                <div>
+                <div
+                  style="width: 300px;"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-7jk04q-MuiTypography-root"
+                    style="overflow: hidden; text-overflow: ellipsis; padding-left: 10px; padding-right: 10px;"
                   >
                     RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
                   </h6>
@@ -18204,9 +18235,12 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                     />
                   </video>
                 </div>
-                <div>
+                <div
+                  style="width: 300px;"
+                >
                   <h6
                     class="MuiTypography-root MuiTypography-h6 css-7jk04q-MuiTypography-root"
+                    style="overflow: hidden; text-overflow: ellipsis; padding-left: 10px; padding-right: 10px;"
                   >
                     fabric-many-texts (com.fabricenabled)
                   </h6>

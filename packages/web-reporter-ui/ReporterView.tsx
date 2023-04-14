@@ -61,13 +61,9 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
     exportRawDataToZIP(iterationResults);
   };
 
-  const videoInfos = results.map(
-    (result) =>
-      result.iterations[
-        iterationSelector.showAverage ? 0 : iterationSelector.iterationIndex
-      ].videoInfos
+  const hasVideos = !!iterationResults.some(
+    (iteration) => iteration.iterations[0].videoInfos
   );
-  const hasVideos = !!videoInfos.some((videoInfo) => videoInfo);
 
   return (
     <VideoEnabledContext.Provider value={hasVideos}>
@@ -94,9 +90,7 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
           <RAMReport results={averagedResults} />
         </AccordionDetails>
       </Accordion>
-      {hasVideos ? (
-        <VideoSection videoInfos={videoInfos} results={results} />
-      ) : null}
+      {hasVideos ? <VideoSection results={iterationResults} /> : null}
       <IterationSelector
         {...iterationSelector}
         iterationCount={minIterationCount}
