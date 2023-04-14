@@ -37,9 +37,8 @@ class PerformanceTester {
 
       if (beforeTest) await beforeTest();
 
-      const recorder = new ScreenRecorder(
-        `${recordOptions.title}_iter${iterationCount}.mp4`
-      );
+      const videoName = `${recordOptions.title}_iteration_${iterationCount}.mp4`;
+      const recorder = new ScreenRecorder(videoName);
       if (recordOptions.record) {
         await recorder.startRecording();
       }
@@ -60,7 +59,7 @@ class PerformanceTester {
         return {
           ...measures,
           videoInfos: {
-            path: `${recordOptions.path}/${recordOptions.title}_iter${iterationCount}.mp4`,
+            path: `${recordOptions.path}/${videoName}`,
             startOffset: Math.floor(
               measures.startTime - recorder.getRecordingStartTime()
             ),
