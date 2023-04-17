@@ -6,3 +6,4 @@ coverage
 *.js
 *.html
 results*.json
+.docusaurus
