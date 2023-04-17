@@ -17,8 +17,8 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
-import { ITERATION_SELECTOR_HEIGHT } from "./components/IterationSelector";
+import { AccordionSectionTitle } from "./src/components/AccordionSectionTitle";
+import { ITERATION_SELECTOR_HEIGHT } from "./src/components/IterationSelector";
 import { TestCaseResult } from "@perf-profiler/types";
 
 const getFileName = (path: string | undefined = ""): string => {

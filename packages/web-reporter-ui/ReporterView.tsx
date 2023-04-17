@@ -5,22 +5,22 @@ import {
   TestCaseResult,
 } from "@perf-profiler/types";
 import { CPUReport } from "./CPUReport";
-import { ReportSummary } from "./components/ReportSummary/ReportSummary";
+import { ReportSummary } from "./src/components/ReportSummary/ReportSummary";
 import { RAMReport } from "./RAMReport";
-import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
+import { AccordionSectionTitle } from "./src/components/AccordionSectionTitle";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./FPSReport";
 import { createTheme, ThemeProvider } from "@mui/material";
-import Header from "./components/Header";
+import Header from "./src/components/Header";
 
 import { exportRawDataToZIP } from "./utils/reportRawDataExport";
 import {
   IterationSelector,
   useIterationSelector,
-} from "./components/IterationSelector";
+} from "./src/components/IterationSelector";
 import { VideoSection } from "./VideoSection";
 import { VideoEnabledContext } from "./videoCurrentTimeContext";
 

@@ -6,14 +6,14 @@ import {
   getAverageRAMUsage,
   sanitizeProcessName,
 } from "@perf-profiler/reporter";
-import { roundToDecimal } from "../../utils/roundToDecimal";
+import { roundToDecimal } from "../../../utils/roundToDecimal";
 import { SimpleTable } from "../SimpleTable";
 import { Score } from "../Score";
 import { orderBy } from "lodash";
 import Button from "@mui/material/Button";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import Tooltip from "@mui/material/Tooltip";
-import { exportRawDataToJSON } from "../../utils/reportRawDataExport";
+import { exportRawDataToJSON } from "../../../utils/reportRawDataExport";
 import { MetricWithExplanation } from "./MetricWithExplanation";
 
 const HighCpuProcesses = ({
