@@ -4,8 +4,12 @@ import {
   TestCaseIterationResult,
 } from "@perf-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
-import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
+import {
+  ensureCppProfilerIsInstalled,
+  ScreenRecorder,
+} from "@perf-profiler/profiler";
 import { writeReport } from "./writeReport";
+import * as p from "path";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -14,25 +18,54 @@ export interface TestCase {
   duration?: number;
   getScore?: (result: AveragedTestCaseResult) => number;
 }
-
 class PerformanceTester {
   constructor(private bundleId: string, private testCase: TestCase) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
     ensureCppProfilerIsInstalled();
   }
 
-  private async executeTestCase(): Promise<TestCaseIterationResult> {
+  private async executeTestCase(
+    iterationCount: number,
+    recordOptions: {
+      record: boolean;
+      path: string;
+      title: string;
+    }
+  ): Promise<TestCaseIterationResult> {
     try {
       const { beforeTest, run, afterTest, duration } = this.testCase;
 
       if (beforeTest) await beforeTest();
 
+      const videoName = `${recordOptions.title}_iteration_${iterationCount}.mp4`;
+      const recorder = new ScreenRecorder(videoName);
+      if (recordOptions.record) {
+        await recorder.startRecording();
+      }
+
       const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
       performanceMeasurer.start();
+
       await run();
       const measures = await performanceMeasurer.stop(duration);
+      if (recordOptions.record) {
+        await recorder.stopRecording();
+        await recorder.pullRecording(recordOptions.path);
+      }
 
       if (afterTest) await afterTest();
+
+      if (recordOptions.record) {
+        return {
+          ...measures,
+          videoInfos: {
+            path: `${recordOptions.path}/${videoName}`,
+            startOffset: Math.floor(
+              measures.startTime - recorder.getRecordingStartTime()
+            ),
+          },
+        };
+      }
 
       return measures;
     } catch (error) {
@@ -42,7 +75,12 @@ class PerformanceTester {
 
   async iterate(
     iterationCount: number,
-    maxRetries: number
+    maxRetries: number,
+    recordOptions: {
+      record: boolean;
+      path: string;
+      title: string;
+    }
   ): Promise<TestCaseIterationResult[]> {
     let retriesCount = 0;
     let currentIterationIndex = 0;
@@ -53,7 +91,10 @@ class PerformanceTester {
         `Running iteration ${currentIterationIndex + 1}/${iterationCount}`
       );
       try {
-        const measure = await this.executeTestCase();
+        const measure = await this.executeTestCase(
+          currentIterationIndex,
+          recordOptions
+        );
         Logger.success(
           `Finished iteration ${
             currentIterationIndex + 1
@@ -91,16 +132,38 @@ export const measurePerformance = async (
   bundleId: string,
   testCase: TestCase,
   iterationCount = 10,
-  maxRetries = 3
+  maxRetries = 3,
+  record = false,
+  {
+    path,
+    title: givenTitle,
+  }: {
+    path?: string;
+    title?: string;
+  } = {}
 ) => {
+  const title = givenTitle || "Results";
+
+  const filePath = path
+    ? p.join(process.cwd(), p.dirname(path))
+    : `${process.cwd()}`;
+  const fileName = path
+    ? p.basename(path)
+    : `${title.toLocaleLowerCase().replace(/ /g, "_")}_${new Date().getTime()}`;
+
   const tester = new PerformanceTester(bundleId, testCase);
-  const measures = await tester.iterate(iterationCount, maxRetries);
+  const measures = await tester.iterate(iterationCount, maxRetries, {
+    record,
+    path: filePath,
+    title: fileName.replace(".json", ""),
+  });
 
   return {
     measures,
-    writeResults: (options: { path?: string; title?: string } = {}) =>
+    writeResults: () =>
       writeReport(measures, {
-        ...options,
+        filePath: path || `${filePath}/${fileName}.json`,
+        title,
         overrideScore: testCase.getScore,
       }),
   };

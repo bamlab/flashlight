@@ -1,5 +1,6 @@
 import fs from "fs";
 import { TestCaseResult } from "@perf-profiler/types";
+import path from "path";
 
 // We should have better management of the time interval over the repo
 const MEASURE_INTERVAL = 500;
@@ -38,6 +39,19 @@ export const getMeasuresForTimeInterval = ({
       ),
     })),
   }));
+};
+
+const copyVideoFiles = (results: TestCaseResult[], outputDir: string) => {
+  results.forEach((result) => {
+    result.iterations.forEach((iteration) => {
+      const videoPath = iteration.videoInfos?.path;
+      if (videoPath && fs.existsSync(videoPath)) {
+        const videoName = path.basename(videoPath);
+        const destinationPath = path.join(outputDir, videoName);
+        fs.copyFileSync(videoPath, destinationPath);
+      }
+    });
+  });
 };
 
 export const writeReport = ({
@@ -93,7 +107,7 @@ export const writeReport = ({
   fs.writeFileSync(`${outputDir}/report.js`, jsFileContent);
 
   const htmlFilePath = `${outputDir}/report.html`;
+  copyVideoFiles(results, outputDir);
   fs.writeFileSync(htmlFilePath, newHtmlContent);
-
   return htmlFilePath;
 };

@@ -65,6 +65,7 @@ export class PerformanceMeasurer {
 
     return {
       time: time ?? 0,
+      startTime: this.timingTrace?.startTime ?? 0,
       measures: this.measures,
     };
   }

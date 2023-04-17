@@ -24,7 +24,7 @@ node packages/e2e-performance/dist/bin.js test --help
 and run in another terminal:
 
 ```
-yarn workspace @perf-profiler/web-reporter report start
+yarn workspace @perf-profiler/web-reporter start
 ```
 
 Then in `packages/web-reporter/src/App.tsx`, uncomment the lines to add your own measures:

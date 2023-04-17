@@ -76,6 +76,7 @@ export const buildYmlSpec = ({
           ...Commands.NAVIGATE_TO_TEST_SOURCE_CODE,
           ...testCommands,
           "mv result*.json $DEVICEFARM_LOG_DIR",
+          "mv *.mp4 $DEVICEFARM_LOG_DIR || true",
         ],
       },
       post_test: {

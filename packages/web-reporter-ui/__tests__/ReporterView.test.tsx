@@ -4,13 +4,13 @@ import { IterationsReporterView } from "../ReporterView";
 import { TestCaseResult } from "@perf-profiler/types";
 import { getText } from "../utils/getSnapshotText";
 
-const testCaseResults: TestCaseResult[] = [
-  require("../../web-reporter/src/results1.json"),
-  require("../../web-reporter/src/results2.json"),
-];
-
 describe("<ReporterView />", () => {
   it("renders the comparison view", () => {
+    const testCaseResults: TestCaseResult[] = [
+      require("../../web-reporter/src/example-reports/results1.json"),
+      require("../../web-reporter/src/example-reports/results2.json"),
+    ];
+
     const { asFragment, baseElement } = render(
       <IterationsReporterView results={testCaseResults} />
     );
@@ -40,5 +40,20 @@ describe("<ReporterView />", () => {
     /**
      * =========================
      */
+  });
+
+  it("renders the comparison view with videos", () => {
+    const testCaseResults: TestCaseResult[] = [
+      require("../../web-reporter/src/example-reports/video/results_417dd25e-d901-4b1e-9d43-3b78305a48e2.json"),
+      require("../../web-reporter/src/example-reports/video/results_c7d5d17d-42ed-4354-8b43-bb26e2d6feee.json"),
+    ];
+
+    const { asFragment, baseElement } = render(
+      <IterationsReporterView results={testCaseResults} />
+    );
+    expect(screen.getAllByLabelText("Score")[0].textContent).toEqual("51");
+
+    expect(getText(baseElement)).toMatchSnapshot();
+    expect(asFragment()).toMatchSnapshot();
   });
 });

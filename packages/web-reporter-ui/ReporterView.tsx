@@ -21,6 +21,8 @@ import {
   IterationSelector,
   useIterationSelector,
 } from "./components/IterationSelector";
+import { VideoSection } from "./VideoSection";
+import { VideoEnabledContext } from "./videoCurrentTimeContext";
 
 const Padding = styled.div`
   height: 10px;
@@ -59,15 +61,17 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
     exportRawDataToZIP(iterationResults);
   };
 
+  const hasVideos = !!iterationResults.some(
+    (iteration) => iteration.iterations[0].videoInfos
+  );
+
   return (
-    <>
+    <VideoEnabledContext.Provider value={hasVideos}>
       <Header saveToZIPCallBack={saveResultsToZIP} />
       <Padding />
-      <ReportSummary
-        results={iterationResults}
-        averagedResults={averagedResults}
-      />
+      <ReportSummary results={results} averagedResults={averagedResults} />
       <Padding />
+
       <Accordion defaultExpanded>
         <AccordionSectionTitle title="FPS" />
         <AccordionDetails>
@@ -86,11 +90,12 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
           <RAMReport results={averagedResults} />
         </AccordionDetails>
       </Accordion>
+      {hasVideos ? <VideoSection results={iterationResults} /> : null}
       <IterationSelector
         {...iterationSelector}
         iterationCount={minIterationCount}
       />
-    </>
+    </VideoEnabledContext.Provider>
   );
 };
 

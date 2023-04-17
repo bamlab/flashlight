@@ -6,6 +6,7 @@ import { PerformancePollingMock } from "../utils/PerformancePollingMock";
 const mockPerformancePolling = new PerformancePollingMock();
 
 jest.mock("@perf-profiler/profiler", () => ({
+  ...jest.requireActual("@perf-profiler/profiler"),
   ensureCppProfilerIsInstalled: jest.fn(),
   getPidId: jest.fn(() => 123),
   pollPerformanceMeasures: jest.fn((pid, { onMeasure, onStartMeasuring }) => {
@@ -32,37 +33,44 @@ const runTest = jest.fn();
 
 describe("measurePerformance", () => {
   it("adds a score if a getScore function is passed", async () => {
+    const PATH = `${os.tmpdir()}/results.json`;
+    const TITLE = "TITLE";
+
     const { writeResults } = await measurePerformance(
       "com.example",
       {
         run: runTest,
         getScore: (result) => result.iterations.length,
       },
-      3
+      3,
+      3,
+      false,
+      {
+        path: PATH,
+        title: TITLE,
+      }
     );
 
     expect(runTest).toHaveBeenCalledTimes(3);
 
-    const PATH = `${os.tmpdir()}/results.json`;
-    const TITLE = "TITLE";
-    writeResults({
-      path: PATH,
-      title: TITLE,
-    });
+    writeResults();
 
     expect(JSON.parse(fs.readFileSync(PATH).toString())).toMatchInlineSnapshot(`
       Object {
         "iterations": Array [
           Object {
             "measures": Array [],
+            "startTime": 0,
             "time": 1000,
           },
           Object {
             "measures": Array [],
+            "startTime": 0,
             "time": 1000,
           },
           Object {
             "measures": Array [],
+            "startTime": 0,
             "time": 1000,
           },
         ],

@@ -11,7 +11,7 @@ export const unzip = (path: string, destinationFolder: string) => {
 
     fs.writeFileSync(
       `${destinationFolder}/${parts[parts.length - 1]}`,
-      zipEntry.getData().toString("utf8")
+      zipEntry.getData()
     );
   }
 };

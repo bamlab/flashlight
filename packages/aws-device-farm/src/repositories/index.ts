@@ -14,7 +14,7 @@ if (!AWS_ACCESS_KEY_ID || !AWS_SECRET_ACCESS_KEY) {
   );
 }
 
-const client = new DeviceFarmClient({
+export const client = new DeviceFarmClient({
   credentials: {
     accessKeyId: AWS_ACCESS_KEY_ID,
     secretAccessKey: AWS_SECRET_ACCESS_KEY,
