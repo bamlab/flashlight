@@ -225,7 +225,7 @@ exports[`displays FPS data and scoring 2`] = `
             class="h-8"
           />
           <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800"
+            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
           >
             <div
               class="text-neutral-300"
@@ -253,7 +253,7 @@ exports[`displays FPS data and scoring 2`] = `
             class="h-2"
           />
           <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800"
+            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
           >
             <div
               class="text-neutral-300"
@@ -281,7 +281,7 @@ exports[`displays FPS data and scoring 2`] = `
             class="h-2"
           />
           <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800"
+            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
           >
             <div
               class="text-neutral-300"
@@ -309,7 +309,7 @@ exports[`displays FPS data and scoring 2`] = `
             class="h-2"
           />
           <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800"
+            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
           >
             <div
               class="text-neutral-300"
@@ -337,7 +337,7 @@ exports[`displays FPS data and scoring 2`] = `
             class="h-2"
           />
           <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800"
+            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
           >
             <div
               class="text-neutral-300"

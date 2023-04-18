@@ -11,7 +11,7 @@ export const ReportSummaryCardInfoRow: FunctionComponent<Props> = ({
   value,
   unit,
 }) => (
-  <div className="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800">
+  <div className="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer">
     <div className="text-neutral-300">{title}</div>
 
     <div className="grow" />
