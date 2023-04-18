@@ -13,7 +13,12 @@ export const processOutput = (output: string, pid: string): ProcessStat[] =>
     .filter(Boolean)
     .map((subProcessStats) => {
       const processId = subProcessStats[0];
-      const processName = processId === pid ? "UI Thread" : subProcessStats[1];
+      let processName = processId === pid ? "UI Thread" : subProcessStats[1];
+
+      if (processName.includes(`Binder:${pid}_`)) {
+        processName = processName.replace(`Binder:${pid}_`, "Binder #");
+      }
+
       const utime = parseInt(subProcessStats[13], 10);
       const stime = parseInt(subProcessStats[14], 10);
       const cutime = parseInt(subProcessStats[15], 10);

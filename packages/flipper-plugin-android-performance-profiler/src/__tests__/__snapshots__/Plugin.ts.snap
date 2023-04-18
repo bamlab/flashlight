@@ -96,13 +96,13 @@ FinalizerDaemon
 FinalizerWatchd
 0
 0
-Binder:123456_1
+Binder #1
 0
 0
-Binder:123456_2
+Binder #2
 0
 0
-Binder:123456_3
+Binder #3
 0
 0
 Profile
@@ -150,10 +150,10 @@ CookieMonsterBa
 alhost:8097/...
 0
 0
-Binder:123456_4
+Binder #4
 0
 0
-Binder:123456_5
+Binder #5
 0
 0
 RAM"
@@ -1901,7 +1901,7 @@ exports[`displays FPS data and scoring 2`] = `
                                         id="enhanced-table-checkbox-15"
                                         scope="row"
                                       >
-                                        Binder:123456_1
+                                        Binder #1
                                       </th>
                                       <td
                                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall css-tqm498-MuiTableCell-root"
@@ -1953,7 +1953,7 @@ exports[`displays FPS data and scoring 2`] = `
                                         id="enhanced-table-checkbox-16"
                                         scope="row"
                                       >
-                                        Binder:123456_2
+                                        Binder #2
                                       </th>
                                       <td
                                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall css-tqm498-MuiTableCell-root"
@@ -2005,7 +2005,7 @@ exports[`displays FPS data and scoring 2`] = `
                                         id="enhanced-table-checkbox-17"
                                         scope="row"
                                       >
-                                        Binder:123456_3
+                                        Binder #3
                                       </th>
                                       <td
                                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall css-tqm498-MuiTableCell-root"
@@ -2837,7 +2837,7 @@ exports[`displays FPS data and scoring 2`] = `
                                         id="enhanced-table-checkbox-33"
                                         scope="row"
                                       >
-                                        Binder:123456_4
+                                        Binder #4
                                       </th>
                                       <td
                                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall css-tqm498-MuiTableCell-root"
@@ -2889,7 +2889,7 @@ exports[`displays FPS data and scoring 2`] = `
                                         id="enhanced-table-checkbox-34"
                                         scope="row"
                                       >
-                                        Binder:123456_5
+                                        Binder #5
                                       </th>
                                       <td
                                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall css-tqm498-MuiTableCell-root"
