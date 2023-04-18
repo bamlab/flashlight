@@ -1,13 +1,13 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { AveragedTestCaseResult, TestCaseResult } from "@perf-profiler/types";
 import {
   getAverageCpuUsage,
   getAverageFPSUsage,
   getAverageRAMUsage,
+  getAverageTotalHightCPUUsage,
   sanitizeProcessName,
 } from "@perf-profiler/reporter";
 import { roundToDecimal } from "../../../utils/roundToDecimal";
-import { SimpleTable } from "../SimpleTable";
 import { Score } from "../Score";
 import { orderBy } from "lodash";
 import Button from "@mui/material/Button";
@@ -189,8 +189,103 @@ export const ReportSummary = ({
   ];
 
   return (
-    <>
-      <SimpleTable rows={table} />
-    </>
+    <div className="flex flex-row overflow-x-scroll px-32 pt-12">
+      {averagedResults
+        .map((result) => (
+          <ReportSummaryCard key={result.name} averagedResult={result} />
+        ))
+        .reduce((acc, curr, index) => {
+          if (index === 0) return [curr];
+          return [...acc, <div className="w-24" />, curr];
+        }, [] as React.ReactNode[])}
+    </div>
   );
 };
+
+type ReportSummaryCardProps = {
+  averagedResult: AveragedTestCaseResult;
+};
+
+const ReportSummaryCard: FunctionComponent<ReportSummaryCardProps> = ({
+  averagedResult,
+}) => {
+  return (
+    <div className="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]">
+      <div className="text-neutral-300">{averagedResult.name}</div>
+
+      <div className="h-8" />
+
+      <Score result={averagedResult} />
+
+      <div className="h-8" />
+
+      <ReportSummaryCardInfoRow
+        title="Average Test Runtime"
+        value={roundToDecimal(
+          getAverageCpuUsage(averagedResult.average.measures),
+          1
+        )}
+        unit="ms"
+      />
+      <div className="h-2" />
+      <ReportSummaryCardInfoRow
+        title="Average FPS"
+        value={roundToDecimal(
+          getAverageRAMUsage(averagedResult.average.measures),
+          1
+        )}
+        unit="FPS"
+      />
+      <div className="h-2" />
+      <ReportSummaryCardInfoRow
+        title="Average CPU usage"
+        value={roundToDecimal(
+          getAverageCpuUsage(averagedResult.average.measures),
+          1
+        )}
+        unit="%"
+      />
+      <div className="h-2" />
+      <ReportSummaryCardInfoRow
+        title="Hight CPU Usage"
+        value={roundToDecimal(
+          getAverageTotalHightCPUUsage(averagedResult.averageHighCpuUsage) /
+            1000,
+          1
+        )}
+        unit="s"
+      />
+      <div className="h-2" />
+      <ReportSummaryCardInfoRow
+        title="Average RAM usage"
+        value={roundToDecimal(
+          getAverageRAMUsage(averagedResult.average.measures),
+          1
+        )}
+        unit="MB"
+      />
+    </div>
+  );
+};
+
+type ReportSummaryCardInfoRowProps = {
+  title: string;
+  value: number;
+  unit?: string;
+};
+
+const ReportSummaryCardInfoRow: FunctionComponent<
+  ReportSummaryCardInfoRowProps
+> = ({ title, value, unit }) => (
+  <div className="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800">
+    <div className="text-neutral-300">{title}</div>
+
+    <div className="grow" />
+
+    <p className="text-neutral-300 whitespace-pre">{`${value} ${unit}`}</p>
+
+    <div className="w-2" />
+
+    <div className="text-neutral-300"> v </div>
+  </div>
+);
