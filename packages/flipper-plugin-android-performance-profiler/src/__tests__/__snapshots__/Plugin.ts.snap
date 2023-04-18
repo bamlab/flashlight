@@ -7,10 +7,10 @@ Reset
 Results
 47
 Average Test Runtime
-84 ms
+1000 ms
  v 
 Average FPS
-375.8 FPS
+60 FPS
  v 
 Average CPU usage
 84 %
@@ -238,7 +238,7 @@ exports[`displays FPS data and scoring 2`] = `
             <p
               class="text-neutral-300 whitespace-pre"
             >
-              84 ms
+              1000 ms
             </p>
             <div
               class="w-2"
@@ -266,7 +266,7 @@ exports[`displays FPS data and scoring 2`] = `
             <p
               class="text-neutral-300 whitespace-pre"
             >
-              375.8 FPS
+              60 FPS
             </p>
             <div
               class="w-2"

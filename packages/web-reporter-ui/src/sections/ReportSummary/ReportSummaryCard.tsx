@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import {
   getAverageCpuUsage,
+  getAverageFPSUsage,
   getAverageRAMUsage,
   getAverageTotalHighCPUUsage,
 } from "@perf-profiler/reporter";
@@ -28,17 +29,14 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
 
       <ReportSummaryCardInfoRow
         title="Average Test Runtime"
-        value={roundToDecimal(
-          getAverageCpuUsage(averagedResult.average.measures),
-          1
-        )}
+        value={roundToDecimal(averagedResult.average.time, 0)}
         unit="ms"
       />
       <div className="h-2" />
       <ReportSummaryCardInfoRow
         title="Average FPS"
         value={roundToDecimal(
-          getAverageRAMUsage(averagedResult.average.measures),
+          getAverageFPSUsage(averagedResult.average.measures),
           1
         )}
         unit="FPS"
