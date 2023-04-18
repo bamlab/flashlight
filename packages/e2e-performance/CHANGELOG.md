@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.7.1...@perf-profiler/e2e@0.8.0) (2023-04-18)
+
+### Bug Fixes
+
+- **profiler:** improve timings accuracy ([#84](https://github.com/bamlab/android-performance-profiler/issues/84)) ([1908689](https://github.com/bamlab/android-performance-profiler/commit/19086891b618382dd290431e63cf72059a729133))
+
+### Features
+
+- add --record options to have videos in report ([#86](https://github.com/bamlab/android-performance-profiler/issues/86)) ([2094d38](https://github.com/bamlab/android-performance-profiler/commit/2094d38845a8e96696fea94e91a91cc9f174931d))
+- add windows support ([#77](https://github.com/bamlab/android-performance-profiler/issues/77)) ([b6d152c](https://github.com/bamlab/android-performance-profiler/commit/b6d152c88d6fd2e51ee02c75113ff51b076df386))
+
+### BREAKING CHANGES
+
+- **profiler:** if using a custom script, pollPerformanceMeasures will now take `{ onMeasure: (Measure) => void }` as second parameter
+
 ## [0.7.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.7.0...@perf-profiler/e2e@0.7.1) (2023-02-06)
 
 ### Bug Fixes

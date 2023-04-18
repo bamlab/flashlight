@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.4.0...@perf-profiler/web-reporter@0.5.0) (2023-04-18)
+
+### Features
+
+- add --record options to have videos in report ([#86](https://github.com/bamlab/android-performance-profiler/issues/86)) ([2094d38](https://github.com/bamlab/android-performance-profiler/commit/2094d38845a8e96696fea94e91a91cc9f174931d))
+- add windows support ([#77](https://github.com/bamlab/android-performance-profiler/issues/77)) ([b6d152c](https://github.com/bamlab/android-performance-profiler/commit/b6d152c88d6fd2e51ee02c75113ff51b076df386))
+- **web:** add ability to see each iteration individually ([#83](https://github.com/bamlab/android-performance-profiler/issues/83)) ([a40f955](https://github.com/bamlab/android-performance-profiler/commit/a40f955beef5d85eb899c3a5be4d827d9a974467))
+
 # [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.3.2...@perf-profiler/web-reporter@0.4.0) (2023-02-06)
 
 - feat!: prepare for standalone executable (#71) ([3d6aa79](https://github.com/bamlab/android-performance-profiler/commit/3d6aa797164e2b566db2c5b725475addd1f6d71c)), closes [#71](https://github.com/bamlab/android-performance-profiler/issues/71)
