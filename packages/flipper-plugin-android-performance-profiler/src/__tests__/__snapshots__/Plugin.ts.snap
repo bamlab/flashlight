@@ -15,7 +15,7 @@ Average FPS
 Average CPU usage
 84 %
  v 
-Hight CPU Usage
+High CPU Usage
 0.5 s
  v 
 Average RAM usage
@@ -314,7 +314,7 @@ exports[`displays FPS data and scoring 2`] = `
             <div
               class="text-neutral-300"
             >
-              Hight CPU Usage
+              High CPU Usage
             </div>
             <div
               class="grow"

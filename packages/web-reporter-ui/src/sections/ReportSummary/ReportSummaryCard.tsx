@@ -2,7 +2,7 @@ import React, { FunctionComponent } from "react";
 import {
   getAverageCpuUsage,
   getAverageRAMUsage,
-  getAverageTotalHightCPUUsage,
+  getAverageTotalHighCPUUsage,
 } from "@perf-profiler/reporter";
 import { AveragedTestCaseResult } from "@perf-profiler/types";
 import { roundToDecimal } from "../../../utils/roundToDecimal";
@@ -54,9 +54,9 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
       />
       <div className="h-2" />
       <ReportSummaryCardInfoRow
-        title="Hight CPU Usage"
+        title="High CPU Usage"
         value={roundToDecimal(
-          getAverageTotalHightCPUUsage(averagedResult.averageHighCpuUsage) /
+          getAverageTotalHighCPUUsage(averagedResult.averageHighCpuUsage) /
             1000,
           1
         )}
