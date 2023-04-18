@@ -171,7 +171,7 @@ exports[`displays FPS data and scoring 2`] = `
           class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
         >
           <div
-            class="text-neutral-300"
+            class="text-neutral-300 text-center"
           >
             Results
           </div>
