@@ -133,6 +133,8 @@ test("displays FPS data and scoring", async () => {
   act(() => emitMeasures());
 
   await screen.findByText("Threads");
+  fireEvent.click(screen.getByText("Threads"));
+
   expect(getText(renderer.baseElement as HTMLBodyElement)).toMatchSnapshot();
   expect(renderer.baseElement).toMatchSnapshot();
 
