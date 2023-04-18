@@ -165,7 +165,7 @@ exports[`displays FPS data and scoring 2`] = `
         class="css-1xehky4"
       />
       <div
-        class="flex flex-row overflow-x-scroll px-32 pt-12"
+        class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24"
       >
         <div
           class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
