@@ -7,14 +7,14 @@ import {
   getAverageTotalHightCPUUsage,
   sanitizeProcessName,
 } from "@perf-profiler/reporter";
-import { roundToDecimal } from "../../../utils/roundToDecimal";
-import { Score } from "../Score";
+import { roundToDecimal } from "../../utils/roundToDecimal";
+import { Score } from "../components/Score";
 import { orderBy } from "lodash";
 import Button from "@mui/material/Button";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import Tooltip from "@mui/material/Tooltip";
-import { exportRawDataToJSON } from "../../../utils/reportRawDataExport";
-import { MetricWithExplanation } from "./MetricWithExplanation";
+import { exportRawDataToJSON } from "../../utils/reportRawDataExport";
+import { MetricWithExplanation } from "../components/ReportSummary/MetricWithExplanation";
 
 const HighCpuProcesses = ({
   highCpuProcesses,

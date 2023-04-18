@@ -1,9 +1,9 @@
 import React from "react";
 import { AveragedTestCaseResult } from "@perf-profiler/types";
-import { Chart } from "./src/components/Chart";
-import { roundToDecimal } from "./utils/roundToDecimal";
+import { Chart } from "../components/Chart";
+import { roundToDecimal } from "../../utils/roundToDecimal";
 
-export const RAMReport = ({
+export const FPSReport = ({
   results,
 }: {
   results: AveragedTestCaseResult[];
@@ -11,7 +11,7 @@ export const RAMReport = ({
   const ram = results.map((result) => ({
     name: result.name,
     data: result.average.measures
-      .map((measure) => measure.ram)
+      .map((measure) => measure.fps)
       .map((value, i) => ({
         x: i * 500,
         y: roundToDecimal(value, 0),
@@ -20,7 +20,7 @@ export const RAMReport = ({
 
   return (
     <>
-      <Chart title="RAM Usage (MB)" height={500} interval={500} series={ram} />
+      <Chart title="FPS" height={500} interval={500} series={ram} />
     </>
   );
 };
