@@ -5,7 +5,7 @@ exports[`displays FPS data and scoring 1`] = `
 Stop Measuring
 Reset
 Results
-47%
+47
 Average Test Runtime
 84 ms
  v 
@@ -205,7 +205,7 @@ exports[`displays FPS data and scoring 2`] = `
                 x="100"
                 y="100"
               >
-                47%
+                47
               </text>
             </g>
             <defs>

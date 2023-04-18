@@ -54,7 +54,7 @@ export const Score: FunctionComponent<Props> = ({
           textAnchor="middle"
           className="text-center text-4xl font-semibold fill-white"
         >
-          {`${roundToDecimal(score, 1)}%`}
+          {roundToDecimal(score, 1)}
         </text>
       </g>
 
