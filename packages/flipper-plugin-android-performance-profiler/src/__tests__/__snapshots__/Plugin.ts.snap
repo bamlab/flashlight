@@ -5,7 +5,7 @@ exports[`displays FPS data and scoring 1`] = `
 Stop Measuring
 Reset
 Results
-47
+47%
 Average Test Runtime
 84 ms
  v 
@@ -178,42 +178,49 @@ exports[`displays FPS data and scoring 2`] = `
           <div
             class="h-8"
           />
-          <div
-            class="MuiBox-root css-rmz4vk"
+          <svg
+            fill="none"
+            height="200"
+            viewBox="0 0 200 200"
+            width="200"
           >
-            <span
-              aria-valuenow="47"
-              class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary css-1rn30mb-MuiCircularProgress-root"
-              role="progressbar"
-              style="width: 80px; height: 80px; transform: rotate(-90deg); color: rgb(255, 65, 54);"
-            >
-              <svg
-                class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
-                viewBox="22 22 44 44"
+            <g>
+              <circle
+                cx="100"
+                cy="100"
+                r="90"
+                stroke="white"
+                stroke-opacity="0.1"
+                stroke-width="20"
+              />
+              <path
+                class="stroke-theme-color"
+                d="M 116.8643183127152 188.405852565582 A 90 90 0 0 0 100 10"
+                stroke-width="20"
+              />
+              <text
+                class="text-center text-4xl font-semibold fill-white"
+                dominant-baseline="middle"
+                text-anchor="middle"
+                x="100"
+                y="100"
               >
-                <circle
-                  class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-oxts8u-MuiCircularProgress-circle"
-                  cx="44"
-                  cy="44"
-                  fill="none"
-                  r="20.2"
-                  stroke-width="3.6"
-                  style="stroke-dasharray: 126.920; stroke-dashoffset: 67.268px;"
+                47%
+              </text>
+            </g>
+            <defs>
+              <clippath
+                id="clip0_556_1188"
+              >
+                <rect
+                  fill="white"
+                  height="200"
+                  transform="translate(0.5)"
+                  width="200"
                 />
-              </svg>
-            </span>
-            <div
-              class="MuiBox-root css-1o8dslu"
-            >
-              <div
-                aria-label="Score"
-                class="MuiTypography-root MuiTypography-caption css-4ii6uc-MuiTypography-root"
-                style="font-size: 28px; color: rgb(255, 65, 54);"
-              >
-                47
-              </div>
-            </div>
-          </div>
+              </clippath>
+            </defs>
+          </svg>
           <div
             class="h-8"
           />
