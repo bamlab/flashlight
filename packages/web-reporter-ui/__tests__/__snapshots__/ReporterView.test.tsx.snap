@@ -5,36 +5,26 @@ exports[`<ReporterView /> renders the comparison view 1`] = `
 69
 Average Test Runtime
 6647 ms
- v 
 Average FPS
 59.7 FPS
- v 
 Average CPU usage
 57.1 %
- v 
 High CPU Usage
 3.2 s
- v 
 Average RAM usage
 408.6 MB
- v 
 2-after-memo.apk
 68.3
 Average Test Runtime
 5908 ms
- v 
 Average FPS
 59.8 FPS
- v 
 Average CPU usage
 29.5 %
- v 
 High CPU Usage
 1 s
- v 
 Average RAM usage
 413.3 MB
- v 
 FPS
 CPU
 Threads
@@ -630,7 +620,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
     class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
   >
     <div
-      class="m-auto"
+      class="mx-auto"
       data-theme="bright-yellow"
     >
       <div
@@ -678,146 +668,261 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="h-8"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average Test Runtime
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            6647 ms
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average Test Runtime
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    6647 ms
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average FPS
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            59.7 FPS
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average FPS
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    59.7 FPS
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average CPU usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            57.1 %
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average CPU usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    57.1 %
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            High CPU Usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            3.2 s
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    High CPU Usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    3.2 s
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average RAM usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            408.6 MB
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average RAM usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    408.6 MB
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="m-auto"
+      class="mx-auto"
       data-theme="bright-green"
     >
       <div
@@ -865,140 +970,255 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="h-8"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average Test Runtime
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            5908 ms
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average Test Runtime
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    5908 ms
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average FPS
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            59.8 FPS
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average FPS
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    59.8 FPS
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average CPU usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            29.5 %
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average CPU usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    29.5 %
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            High CPU Usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            1 s
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    High CPU Usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    1 s
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average RAM usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            413.3 MB
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average RAM usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    413.3 MB
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -10983,36 +11203,26 @@ exports[`<ReporterView /> renders the comparison view 3`] = `
 65
 Average Test Runtime
 6812 ms
- v 
 Average FPS
 59.6 FPS
- v 
 Average CPU usage
 64.8 %
- v 
 High CPU Usage
 3.5 s
- v 
 Average RAM usage
 404.4 MB
- v 
 2-after-memo.apk
 68.3
 Average Test Runtime
 5818 ms
- v 
 Average FPS
 59.9 FPS
- v 
 Average CPU usage
 29.7 %
- v 
 High CPU Usage
 1 s
- v 
 Average RAM usage
 407.4 MB
- v 
 FPS
 CPU
 Threads
@@ -11321,7 +11531,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
     class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
   >
     <div
-      class="m-auto"
+      class="mx-auto"
       data-theme="bright-yellow"
     >
       <div
@@ -11369,146 +11579,261 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="h-8"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average Test Runtime
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            6812 ms
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average Test Runtime
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    6812 ms
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average FPS
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            59.6 FPS
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average FPS
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    59.6 FPS
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average CPU usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            64.8 %
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average CPU usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    64.8 %
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            High CPU Usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            3.5 s
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    High CPU Usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    3.5 s
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average RAM usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            404.4 MB
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average RAM usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    404.4 MB
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="m-auto"
+      class="mx-auto"
       data-theme="bright-green"
     >
       <div
@@ -11556,140 +11881,255 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="h-8"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average Test Runtime
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            5818 ms
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average Test Runtime
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    5818 ms
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average FPS
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            59.9 FPS
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average FPS
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    59.9 FPS
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average CPU usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            29.7 %
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average CPU usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    29.7 %
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            High CPU Usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            1 s
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    High CPU Usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    1 s
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average RAM usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            407.4 MB
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average RAM usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    407.4 MB
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -16685,36 +17125,26 @@ exports[`<ReporterView /> renders the comparison view with videos 1`] = `
 51
 Average Test Runtime
 401 ms
- v 
 Average FPS
 45.3 FPS
- v 
 Average CPU usage
 79.4 %
- v 
 High CPU Usage
 4 s
- v 
 Average RAM usage
 108.7 MB
- v 
 fabric-many-texts (com.fabricenabled)
 39
 Average Test Runtime
 135 ms
- v 
 Average FPS
 38.2 FPS
- v 
 Average CPU usage
 92.2 %
- v 
 High CPU Usage
 5 s
- v 
 Average RAM usage
 109.5 MB
- v 
 FPS
 CPU
 Threads
@@ -16759,7 +17189,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
     class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
   >
     <div
-      class="m-auto"
+      class="mx-auto"
       data-theme="bright-yellow"
     >
       <div
@@ -16807,146 +17237,261 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="h-8"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average Test Runtime
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            401 ms
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average Test Runtime
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    401 ms
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average FPS
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            45.3 FPS
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average FPS
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    45.3 FPS
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average CPU usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            79.4 %
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average CPU usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    79.4 %
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            High CPU Usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            4 s
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    High CPU Usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    4 s
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average RAM usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            108.7 MB
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average RAM usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    108.7 MB
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="m-auto"
+      class="mx-auto"
       data-theme="bright-green"
     >
       <div
@@ -16994,140 +17539,255 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="h-8"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average Test Runtime
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            135 ms
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average Test Runtime
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    135 ms
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average FPS
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            38.2 FPS
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average FPS
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    38.2 FPS
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average CPU usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            92.2 %
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average CPU usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    92.2 %
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            High CPU Usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            5 s
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    High CPU Usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    5 s
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
         <div
           class="h-2"
         />
         <div
-          class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+          class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
         >
-          <div
-            class="text-neutral-300"
-          >
-            Average RAM usage
-          </div>
-          <div
-            class="grow"
-          />
-          <p
-            class="text-neutral-300 whitespace-pre"
-          >
-            109.5 MB
-          </p>
-          <div
-            class="w-2"
-          />
-          <div
-            class="text-neutral-300"
-          >
-             v 
+          <div>
+            <div
+              class="flex flex-row cursor-pointer w-full"
+            >
+              <div
+                class="flex-1"
+              >
+                <div
+                  class="flex flex-row"
+                >
+                  <div
+                    class="text-neutral-300"
+                  >
+                    Average RAM usage
+                  </div>
+                  <div
+                    class="grow"
+                  />
+                  <p
+                    class="text-neutral-300 whitespace-pre"
+                  >
+                    109.5 MB
+                  </p>
+                  <div
+                    class="w-2"
+                  />
+                </div>
+              </div>
+              <svg
+                fill="none"
+                height="24"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  class="stroke-white"
+                  d="m8.5 10 4 4 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                />
+              </svg>
+            </div>
           </div>
         </div>
       </div>

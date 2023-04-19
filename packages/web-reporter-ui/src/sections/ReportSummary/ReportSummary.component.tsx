@@ -15,7 +15,7 @@ export const ReportSummary = ({
       {averagedResults.map((result, index) => (
         <div
           key={result.name}
-          className="m-auto"
+          className="mx-auto"
           {...(averagedResults.length > 1
             ? { "data-theme": themeColors[index % themeColors.length] }
             : {})}
