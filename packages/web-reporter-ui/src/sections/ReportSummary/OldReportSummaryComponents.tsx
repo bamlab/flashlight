@@ -1,20 +1,19 @@
-import React from "react";
-import { AveragedTestCaseResult, TestCaseResult } from "@perf-profiler/types";
+import { Tooltip, Button } from "@mui/material";
 import {
-  getAverageCpuUsage,
-  getAverageFPSUsage,
-  getAverageRAMUsage,
   sanitizeProcessName,
+  getAverageFPSUsage,
+  getAverageCpuUsage,
+  getAverageRAMUsage,
 } from "@perf-profiler/reporter";
-import { roundToDecimal } from "../../utils/roundToDecimal";
-import { SimpleTable } from "../SimpleTable";
-import { Score } from "../Score";
-import { orderBy } from "lodash";
-import Button from "@mui/material/Button";
+import { TestCaseResult, AveragedTestCaseResult } from "@perf-profiler/types";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import Tooltip from "@mui/material/Tooltip";
-import { exportRawDataToJSON } from "../../utils/reportRawDataExport";
-import { MetricWithExplanation } from "./MetricWithExplanation";
+import { orderBy } from "lodash";
+import React from "react";
+import { exportRawDataToJSON } from "../../../utils/reportRawDataExport";
+import { roundToDecimal } from "../../../utils/roundToDecimal";
+import { MetricWithExplanation } from "../../components/ReportSummary/MetricWithExplanation";
+import { Score } from "../../components/Score";
+import { SimpleTable } from "../../components/SimpleTable";
 
 const HighCpuProcesses = ({
   highCpuProcesses,
@@ -54,7 +53,7 @@ const HighCpuProcesses = ({
   );
 };
 
-export const ReportSummary = ({
+export const OldReportSummary = ({
   results,
   averagedResults,
 }: {
@@ -188,9 +187,5 @@ export const ReportSummary = ({
     ],
   ];
 
-  return (
-    <>
-      <SimpleTable rows={table} />
-    </>
-  );
+  return <SimpleTable rows={table} />;
 };

@@ -56,3 +56,11 @@ export const getAverageFPSUsage = (measures: Measure[]) =>
 
 export const getAverageRAMUsage = (measures: Measure[]) =>
   average(measures.map((measure) => measure.ram));
+
+export const getAverageTotalHighCPUUsage = (highCpuProcesses: {
+  [processName: string]: number;
+}) =>
+  Object.keys(highCpuProcesses).reduce(
+    (sum, name) => sum + highCpuProcesses[name],
+    0
+  );

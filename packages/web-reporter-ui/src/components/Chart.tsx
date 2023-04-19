@@ -3,7 +3,7 @@ import ReactApexChart from "react-apexcharts";
 import {
   VideoEnabledContext,
   setVideoCurrentTime,
-} from "../videoCurrentTimeContext";
+} from "../../videoCurrentTimeContext";
 
 export const PALETTE = ["#3a86ff", "#8338ec", "#ff006e", "#fb5607", "#ffbe0b"];
 

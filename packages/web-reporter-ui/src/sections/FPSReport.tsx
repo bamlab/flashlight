@@ -1,7 +1,7 @@
 import React from "react";
 import { AveragedTestCaseResult } from "@perf-profiler/types";
-import { Chart } from "./components/Chart";
-import { roundToDecimal } from "./utils/roundToDecimal";
+import { Chart } from "../components/Chart";
+import { roundToDecimal } from "../../utils/roundToDecimal";
 
 export const FPSReport = ({
   results,

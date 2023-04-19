@@ -2,59 +2,39 @@
 
 exports[`<ReporterView /> renders the comparison view 1`] = `
 "1-before-memo.apk
-2-after-memo.apk
-Score
 69
-68
 Average Test Runtime
-Time taken to run the test.
-Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
-6647ms
-5908ms
+6647 ms
+ v 
 Average FPS
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
-See
- 
-this video
- 
-for more details
-59.7
-59.8
+59.7 FPS
+ v 
 Average CPU usage
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
- Depending on the device, this value can go up to
- 
-100% x number of cores
-. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
-57.1%
-29.5%
-Processes with high CPU usage detected
-Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
-One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
-Total: 
-3.2
-s
-mqt_js
- for
- 
-3.2
-s
-Total: 
-1
-s
-mqt_js
- for
- 
-1
-s
+57.1 %
+ v 
+High CPU Usage
+3.2 s
+ v 
 Average RAM usage
-If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
-It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
- 
-here for more details
-)
-408.6MB
-413.3MB
+408.6 MB
+ v 
+2-after-memo.apk
+68.3
+Average Test Runtime
+5908 ms
+ v 
+Average FPS
+59.8 FPS
+ v 
+Average CPU usage
+29.5 %
+ v 
+High CPU Usage
+1 s
+ v 
+Average RAM usage
+413.3 MB
+ v 
 FPS
 CPU
 Threads
@@ -647,604 +627,400 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
     class="css-1xehky4"
   />
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+    class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24"
   >
-    <table
-      aria-label="simple table"
-      class="MuiTable-root css-1anlgyr-MuiTable-root"
+    <div
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
     >
-      <thead
-        class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+      <div
+        class="text-neutral-300 text-center"
       >
-        <tr
-          class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
-        >
-          <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1fgflyl-MuiTableCell-root"
-            scope="col"
+        1-before-memo.apk
+      </div>
+      <div
+        class="h-8"
+      />
+      <svg
+        fill="none"
+        height="200"
+        viewBox="0 0 200 200"
+        width="200"
+      >
+        <g>
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            stroke="white"
+            stroke-opacity="0.1"
+            stroke-width="20"
           />
-          <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-2scw9v-MuiTableCell-root"
-            scope="col"
+          <path
+            class="stroke-theme-color"
+            d="M 16.32011627005737 133.131209741621 A 90 90 0 1 0 100 10"
+            stroke-width="20"
+          />
+          <text
+            aria-label="Score"
+            class="text-center text-4xl font-semibold fill-white"
+            dominant-baseline="middle"
+            text-anchor="middle"
+            x="100"
+            y="100"
           >
-            <button
-              aria-label="Save as JSON"
-              class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonBase-root  css-1mk0oes-MuiButtonBase-root-MuiButton-root"
-              data-mui-internal-clone-element="true"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-startIcon MuiButton-iconSizeSmall css-y6rp3m-MuiButton-startIcon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="FileDownloadIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                  />
-                </svg>
-              </span>
-              1-before-memo.apk
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </th>
-          <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-2scw9v-MuiTableCell-root"
-            scope="col"
+            69
+          </text>
+        </g>
+        <defs>
+          <clippath
+            id="clip0_556_1188"
           >
-            <button
-              aria-label="Save as JSON"
-              class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonBase-root  css-1mk0oes-MuiButtonBase-root-MuiButton-root"
-              data-mui-internal-clone-element="true"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-startIcon MuiButton-iconSizeSmall css-y6rp3m-MuiButton-startIcon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="FileDownloadIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                  />
-                </svg>
-              </span>
-              2-after-memo.apk
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+            <rect
+              fill="white"
+              height="200"
+              transform="translate(0.5)"
+              width="200"
+            />
+          </clippath>
+        </defs>
+      </svg>
+      <div
+        class="h-8"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
       >
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            Score
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              class="MuiBox-root css-rmz4vk"
-            >
-              <span
-                aria-valuenow="69"
-                class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary css-1rn30mb-MuiCircularProgress-root"
-                role="progressbar"
-                style="width: 80px; height: 80px; transform: rotate(-90deg); color: rgb(255, 133, 27);"
-              >
-                <svg
-                  class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
-                  viewBox="22 22 44 44"
-                >
-                  <circle
-                    class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-oxts8u-MuiCircularProgress-circle"
-                    cx="44"
-                    cy="44"
-                    fill="none"
-                    r="20.2"
-                    stroke-width="3.6"
-                    style="stroke-dasharray: 126.920; stroke-dashoffset: 39.345px;"
-                  />
-                </svg>
-              </span>
-              <div
-                class="MuiBox-root css-1o8dslu"
-              >
-                <div
-                  aria-label="Score"
-                  class="MuiTypography-root MuiTypography-caption css-4ii6uc-MuiTypography-root"
-                  style="font-size: 28px; color: rgb(255, 133, 27);"
-                >
-                  69
-                </div>
-              </div>
-            </div>
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              class="MuiBox-root css-rmz4vk"
-            >
-              <span
-                aria-valuenow="68"
-                class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary css-1rn30mb-MuiCircularProgress-root"
-                role="progressbar"
-                style="width: 80px; height: 80px; transform: rotate(-90deg); color: rgb(255, 133, 27);"
-              >
-                <svg
-                  class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
-                  viewBox="22 22 44 44"
-                >
-                  <circle
-                    class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-oxts8u-MuiCircularProgress-circle"
-                    cx="44"
-                    cy="44"
-                    fill="none"
-                    r="20.2"
-                    stroke-width="3.6"
-                    style="stroke-dasharray: 126.920; stroke-dashoffset: 40.236px;"
-                  />
-                </svg>
-              </span>
-              <div
-                class="MuiBox-root css-1o8dslu"
-              >
-                <div
-                  aria-label="Score"
-                  class="MuiTypography-root MuiTypography-caption css-4ii6uc-MuiTypography-root"
-                  style="font-size: 28px; color: rgb(255, 133, 27);"
-                >
-                  68
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          Average Test Runtime
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average Test Runtime
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          Time taken to run the test.
-                          <br />
-                          Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            6647ms
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            5908ms
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          6647 ms
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average FPS
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
-                          <br />
-                          See 
-                          <a
-                            href="https://www.youtube.com/watch?v=CaMTIgxCSqU"
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            this video
-                          </a>
-                           for more details
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            59.7
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            59.8
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average CPU usage
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
-                          <br />
-                           Depending on the device, this value can go up to 
-                          <code>
-                            100% x number of cores
-                          </code>
-                          . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            57.1%
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            29.5%
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          Average FPS
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Processes with high CPU usage detected
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
-                          <br />
-                          One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              style="overflow-y: scroll; max-height: 100px;"
-            >
-              <div
-                style="color: red;"
-              >
-                Total: 3.2s
-              </div>
-              <div>
-                <div>
-                  mqt_js for 3.2s
-                </div>
-              </div>
-            </div>
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              style="overflow-y: scroll; max-height: 100px;"
-            >
-              <div
-                style="color: red;"
-              >
-                Total: 1s
-              </div>
-              <div>
-                <div>
-                  mqt_js for 1s
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          59.7 FPS
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average CPU usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          57.1 %
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          High CPU Usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          3.2 s
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average RAM usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          408.6 MB
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
+    >
+      <div
+        class="text-neutral-300 text-center"
+      >
+        2-after-memo.apk
+      </div>
+      <div
+        class="h-8"
+      />
+      <svg
+        fill="none"
+        height="200"
+        viewBox="0 0 200 200"
+        width="200"
+      >
+        <g>
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            stroke="white"
+            stroke-opacity="0.1"
+            stroke-width="20"
+          />
+          <path
+            class="stroke-theme-color"
+            d="M 17.861891403278747 136.78764896202563 A 90 90 0 1 0 100 10"
+            stroke-width="20"
+          />
+          <text
+            aria-label="Score"
+            class="text-center text-4xl font-semibold fill-white"
+            dominant-baseline="middle"
+            text-anchor="middle"
+            x="100"
+            y="100"
           >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average RAM usage
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
-                          <br />
-                          It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See 
-                          <a
-                            href="https://github.com/bamlab/android-performance-profiler/issues/11#issuecomment-1219317891"
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            here for more details
-                          </a>
-                          )
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
+            68.3
+          </text>
+        </g>
+        <defs>
+          <clippath
+            id="clip0_556_1188"
           >
-            408.6MB
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            413.3MB
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <rect
+              fill="white"
+              height="200"
+              transform="translate(0.5)"
+              width="200"
+            />
+          </clippath>
+        </defs>
+      </svg>
+      <div
+        class="h-8"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average Test Runtime
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          5908 ms
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average FPS
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          59.8 FPS
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average CPU usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          29.5 %
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          High CPU Usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          1 s
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average RAM usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          413.3 MB
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="css-1xehky4"
@@ -11222,59 +10998,39 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
 
 exports[`<ReporterView /> renders the comparison view 3`] = `
 "1-before-memo.apk
-2-after-memo.apk
-Score
 65
-68
 Average Test Runtime
-Time taken to run the test.
-Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
-6812ms
-5818ms
+6812 ms
+ v 
 Average FPS
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
-See
- 
-this video
- 
-for more details
-59.6
-59.9
+59.6 FPS
+ v 
 Average CPU usage
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
- Depending on the device, this value can go up to
- 
-100% x number of cores
-. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
-64.8%
-29.7%
-Processes with high CPU usage detected
-Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
-One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
-Total: 
-3.5
-s
-mqt_js
- for
- 
-3.5
-s
-Total: 
-1
-s
-mqt_js
- for
- 
-1
-s
+64.8 %
+ v 
+High CPU Usage
+3.5 s
+ v 
 Average RAM usage
-If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
-It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
- 
-here for more details
-)
-404.4MB
-407.4MB
+404.4 MB
+ v 
+2-after-memo.apk
+68.3
+Average Test Runtime
+5818 ms
+ v 
+Average FPS
+59.9 FPS
+ v 
+Average CPU usage
+29.7 %
+ v 
+High CPU Usage
+1 s
+ v 
+Average RAM usage
+407.4 MB
+ v 
 FPS
 CPU
 Threads
@@ -11580,604 +11336,400 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
     class="css-1xehky4"
   />
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+    class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24"
   >
-    <table
-      aria-label="simple table"
-      class="MuiTable-root css-1anlgyr-MuiTable-root"
+    <div
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
     >
-      <thead
-        class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+      <div
+        class="text-neutral-300 text-center"
       >
-        <tr
-          class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
-        >
-          <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1fgflyl-MuiTableCell-root"
-            scope="col"
+        1-before-memo.apk
+      </div>
+      <div
+        class="h-8"
+      />
+      <svg
+        fill="none"
+        height="200"
+        viewBox="0 0 200 200"
+        width="200"
+      >
+        <g>
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            stroke="white"
+            stroke-opacity="0.1"
+            stroke-width="20"
           />
-          <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-2scw9v-MuiTableCell-root"
-            scope="col"
+          <path
+            class="stroke-theme-color"
+            d="M 27.188470506254745 152.9006727063226 A 90 90 0 1 0 100 10"
+            stroke-width="20"
+          />
+          <text
+            aria-label="Score"
+            class="text-center text-4xl font-semibold fill-white"
+            dominant-baseline="middle"
+            text-anchor="middle"
+            x="100"
+            y="100"
           >
-            <button
-              aria-label="Save as JSON"
-              class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonBase-root  css-1mk0oes-MuiButtonBase-root-MuiButton-root"
-              data-mui-internal-clone-element="true"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-startIcon MuiButton-iconSizeSmall css-y6rp3m-MuiButton-startIcon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="FileDownloadIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                  />
-                </svg>
-              </span>
-              1-before-memo.apk
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </th>
-          <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-2scw9v-MuiTableCell-root"
-            scope="col"
+            65
+          </text>
+        </g>
+        <defs>
+          <clippath
+            id="clip0_556_1188"
           >
-            <button
-              aria-label="Save as JSON"
-              class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonBase-root  css-1mk0oes-MuiButtonBase-root-MuiButton-root"
-              data-mui-internal-clone-element="true"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-startIcon MuiButton-iconSizeSmall css-y6rp3m-MuiButton-startIcon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="FileDownloadIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                  />
-                </svg>
-              </span>
-              2-after-memo.apk
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+            <rect
+              fill="white"
+              height="200"
+              transform="translate(0.5)"
+              width="200"
+            />
+          </clippath>
+        </defs>
+      </svg>
+      <div
+        class="h-8"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
       >
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            Score
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              class="MuiBox-root css-rmz4vk"
-            >
-              <span
-                aria-valuenow="65"
-                class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary css-1rn30mb-MuiCircularProgress-root"
-                role="progressbar"
-                style="width: 80px; height: 80px; transform: rotate(-90deg); color: rgb(255, 133, 27);"
-              >
-                <svg
-                  class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
-                  viewBox="22 22 44 44"
-                >
-                  <circle
-                    class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-oxts8u-MuiCircularProgress-circle"
-                    cx="44"
-                    cy="44"
-                    fill="none"
-                    r="20.2"
-                    stroke-width="3.6"
-                    style="stroke-dasharray: 126.920; stroke-dashoffset: 44.422px;"
-                  />
-                </svg>
-              </span>
-              <div
-                class="MuiBox-root css-1o8dslu"
-              >
-                <div
-                  aria-label="Score"
-                  class="MuiTypography-root MuiTypography-caption css-4ii6uc-MuiTypography-root"
-                  style="font-size: 28px; color: rgb(255, 133, 27);"
-                >
-                  65
-                </div>
-              </div>
-            </div>
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              class="MuiBox-root css-rmz4vk"
-            >
-              <span
-                aria-valuenow="68"
-                class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary css-1rn30mb-MuiCircularProgress-root"
-                role="progressbar"
-                style="width: 80px; height: 80px; transform: rotate(-90deg); color: rgb(255, 133, 27);"
-              >
-                <svg
-                  class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
-                  viewBox="22 22 44 44"
-                >
-                  <circle
-                    class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-oxts8u-MuiCircularProgress-circle"
-                    cx="44"
-                    cy="44"
-                    fill="none"
-                    r="20.2"
-                    stroke-width="3.6"
-                    style="stroke-dasharray: 126.920; stroke-dashoffset: 40.236px;"
-                  />
-                </svg>
-              </span>
-              <div
-                class="MuiBox-root css-1o8dslu"
-              >
-                <div
-                  aria-label="Score"
-                  class="MuiTypography-root MuiTypography-caption css-4ii6uc-MuiTypography-root"
-                  style="font-size: 28px; color: rgb(255, 133, 27);"
-                >
-                  68
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          Average Test Runtime
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average Test Runtime
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          Time taken to run the test.
-                          <br />
-                          Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            6812ms
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            5818ms
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          6812 ms
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average FPS
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
-                          <br />
-                          See 
-                          <a
-                            href="https://www.youtube.com/watch?v=CaMTIgxCSqU"
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            this video
-                          </a>
-                           for more details
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            59.6
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            59.9
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average CPU usage
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
-                          <br />
-                           Depending on the device, this value can go up to 
-                          <code>
-                            100% x number of cores
-                          </code>
-                          . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            64.8%
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            29.7%
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          Average FPS
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Processes with high CPU usage detected
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
-                          <br />
-                          One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              style="overflow-y: scroll; max-height: 100px;"
-            >
-              <div
-                style="color: red;"
-              >
-                Total: 3.5s
-              </div>
-              <div>
-                <div>
-                  mqt_js for 3.5s
-                </div>
-              </div>
-            </div>
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              style="overflow-y: scroll; max-height: 100px;"
-            >
-              <div
-                style="color: red;"
-              >
-                Total: 1s
-              </div>
-              <div>
-                <div>
-                  mqt_js for 1s
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          59.6 FPS
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average CPU usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          64.8 %
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          High CPU Usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          3.5 s
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average RAM usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          404.4 MB
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
+    >
+      <div
+        class="text-neutral-300 text-center"
+      >
+        2-after-memo.apk
+      </div>
+      <div
+        class="h-8"
+      />
+      <svg
+        fill="none"
+        height="200"
+        viewBox="0 0 200 200"
+        width="200"
+      >
+        <g>
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            stroke="white"
+            stroke-opacity="0.1"
+            stroke-width="20"
+          />
+          <path
+            class="stroke-theme-color"
+            d="M 17.861891403278747 136.78764896202563 A 90 90 0 1 0 100 10"
+            stroke-width="20"
+          />
+          <text
+            aria-label="Score"
+            class="text-center text-4xl font-semibold fill-white"
+            dominant-baseline="middle"
+            text-anchor="middle"
+            x="100"
+            y="100"
           >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average RAM usage
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
-                          <br />
-                          It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See 
-                          <a
-                            href="https://github.com/bamlab/android-performance-profiler/issues/11#issuecomment-1219317891"
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            here for more details
-                          </a>
-                          )
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
+            68.3
+          </text>
+        </g>
+        <defs>
+          <clippath
+            id="clip0_556_1188"
           >
-            404.4MB
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            407.4MB
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <rect
+              fill="white"
+              height="200"
+              transform="translate(0.5)"
+              width="200"
+            />
+          </clippath>
+        </defs>
+      </svg>
+      <div
+        class="h-8"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average Test Runtime
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          5818 ms
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average FPS
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          59.9 FPS
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average CPU usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          29.7 %
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          High CPU Usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          1 s
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average RAM usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          407.4 MB
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="css-1xehky4"
@@ -17166,74 +16718,39 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
 
 exports[`<ReporterView /> renders the comparison view with videos 1`] = `
 "RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
-fabric-many-texts (com.fabricenabled)
-Score
 51
+Average Test Runtime
+401 ms
+ v 
+Average FPS
+45.3 FPS
+ v 
+Average CPU usage
+79.4 %
+ v 
+High CPU Usage
+4 s
+ v 
+Average RAM usage
+108.7 MB
+ v 
+fabric-many-texts (com.fabricenabled)
 39
 Average Test Runtime
-Time taken to run the test.
-Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
-401ms
-135ms
+135 ms
+ v 
 Average FPS
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
-See
- 
-this video
- 
-for more details
-45.3
-38.2
+38.2 FPS
+ v 
 Average CPU usage
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
- Depending on the device, this value can go up to
- 
-100% x number of cores
-. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
-79.4%
-92.2%
-Processes with high CPU usage detected
-Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
-One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
-Total: 
-4
-s
-mqt_js
- for
- 
-2.3
-s
-UI Thread
- for
- 
-1.8
-s
-Total: 
-5
-s
-UI Thread
- for
- 
-3.3
-s
-mqt_js
- for
- 
-1.5
-s
-fabric_bg
- for
- 
-0.3
-s
+92.2 %
+ v 
+High CPU Usage
+5 s
+ v 
 Average RAM usage
-If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
-It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
- 
-here for more details
-)
-108.7MB
-109.5MB
+109.5 MB
+ v 
 FPS
 CPU
 Threads
@@ -17275,613 +16792,400 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
     class="css-1xehky4"
   />
   <div
-    class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 MuiTableContainer-root css-11xur9t-MuiPaper-root-MuiTableContainer-root"
+    class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24"
   >
-    <table
-      aria-label="simple table"
-      class="MuiTable-root css-1anlgyr-MuiTable-root"
+    <div
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
     >
-      <thead
-        class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
+      <div
+        class="text-neutral-300 text-center"
       >
-        <tr
-          class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
-        >
-          <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium css-1fgflyl-MuiTableCell-root"
-            scope="col"
+        RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
+      </div>
+      <div
+        class="h-8"
+      />
+      <svg
+        fill="none"
+        height="200"
+        viewBox="0 0 200 200"
+        width="200"
+      >
+        <g>
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            stroke="white"
+            stroke-opacity="0.1"
+            stroke-width="20"
           />
-          <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-2scw9v-MuiTableCell-root"
-            scope="col"
+          <path
+            class="stroke-theme-color"
+            d="M 94.34885324236181 189.82240555854446 A 90 90 0 1 0 100 10"
+            stroke-width="20"
+          />
+          <text
+            aria-label="Score"
+            class="text-center text-4xl font-semibold fill-white"
+            dominant-baseline="middle"
+            text-anchor="middle"
+            x="100"
+            y="100"
           >
-            <button
-              aria-label="Save as JSON"
-              class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonBase-root  css-1mk0oes-MuiButtonBase-root-MuiButton-root"
-              data-mui-internal-clone-element="true"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-startIcon MuiButton-iconSizeSmall css-y6rp3m-MuiButton-startIcon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="FileDownloadIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                  />
-                </svg>
-              </span>
-              RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </th>
-          <th
-            class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeMedium css-2scw9v-MuiTableCell-root"
-            scope="col"
+            51
+          </text>
+        </g>
+        <defs>
+          <clippath
+            id="clip0_556_1188"
           >
-            <button
-              aria-label="Save as JSON"
-              class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeSmall MuiButton-textSizeSmall MuiButtonBase-root  css-1mk0oes-MuiButtonBase-root-MuiButton-root"
-              data-mui-internal-clone-element="true"
-              tabindex="0"
-              type="button"
-            >
-              <span
-                class="MuiButton-startIcon MuiButton-iconSizeSmall css-y6rp3m-MuiButton-startIcon"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                  data-testid="FileDownloadIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"
-                  />
-                </svg>
-              </span>
-              fabric-many-texts (com.fabricenabled)
-              <span
-                class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-              />
-            </button>
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
+            <rect
+              fill="white"
+              height="200"
+              transform="translate(0.5)"
+              width="200"
+            />
+          </clippath>
+        </defs>
+      </svg>
+      <div
+        class="h-8"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
       >
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            Score
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              class="MuiBox-root css-rmz4vk"
-            >
-              <span
-                aria-valuenow="51"
-                class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary css-1rn30mb-MuiCircularProgress-root"
-                role="progressbar"
-                style="width: 80px; height: 80px; transform: rotate(-90deg); color: rgb(255, 133, 27);"
-              >
-                <svg
-                  class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
-                  viewBox="22 22 44 44"
-                >
-                  <circle
-                    class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-oxts8u-MuiCircularProgress-circle"
-                    cx="44"
-                    cy="44"
-                    fill="none"
-                    r="20.2"
-                    stroke-width="3.6"
-                    style="stroke-dasharray: 126.920; stroke-dashoffset: 62.191px;"
-                  />
-                </svg>
-              </span>
-              <div
-                class="MuiBox-root css-1o8dslu"
-              >
-                <div
-                  aria-label="Score"
-                  class="MuiTypography-root MuiTypography-caption css-4ii6uc-MuiTypography-root"
-                  style="font-size: 28px; color: rgb(255, 133, 27);"
-                >
-                  51
-                </div>
-              </div>
-            </div>
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              class="MuiBox-root css-rmz4vk"
-            >
-              <span
-                aria-valuenow="39"
-                class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary css-1rn30mb-MuiCircularProgress-root"
-                role="progressbar"
-                style="width: 80px; height: 80px; transform: rotate(-90deg); color: rgb(255, 65, 54);"
-              >
-                <svg
-                  class="MuiCircularProgress-svg css-1idz92c-MuiCircularProgress-svg"
-                  viewBox="22 22 44 44"
-                >
-                  <circle
-                    class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-oxts8u-MuiCircularProgress-circle"
-                    cx="44"
-                    cy="44"
-                    fill="none"
-                    r="20.2"
-                    stroke-width="3.6"
-                    style="stroke-dasharray: 126.920; stroke-dashoffset: 77.421px;"
-                  />
-                </svg>
-              </span>
-              <div
-                class="MuiBox-root css-1o8dslu"
-              >
-                <div
-                  aria-label="Score"
-                  class="MuiTypography-root MuiTypography-caption css-4ii6uc-MuiTypography-root"
-                  style="font-size: 28px; color: rgb(255, 65, 54);"
-                >
-                  39
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          Average Test Runtime
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average Test Runtime
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          Time taken to run the test.
-                          <br />
-                          Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            401ms
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            135ms
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          401 ms
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average FPS
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
-                          <br />
-                          See 
-                          <a
-                            href="https://www.youtube.com/watch?v=CaMTIgxCSqU"
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            this video
-                          </a>
-                           for more details
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            45.3
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            38.2
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average CPU usage
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
-                          <br />
-                           Depending on the device, this value can go up to 
-                          <code>
-                            100% x number of cores
-                          </code>
-                          . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            79.4%
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            92.2%
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          Average FPS
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
-          >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Processes with high CPU usage detected
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
-                          <br />
-                          One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              style="overflow-y: scroll; max-height: 100px;"
-            >
-              <div
-                style="color: red;"
-              >
-                Total: 4s
-              </div>
-              <div>
-                <div>
-                  mqt_js for 2.3s
-                </div>
-                <div>
-                  UI Thread for 1.8s
-                </div>
-              </div>
-            </div>
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            <div
-              style="overflow-y: scroll; max-height: 100px;"
-            >
-              <div
-                style="color: red;"
-              >
-                Total: 5s
-              </div>
-              <div>
-                <div>
-                  UI Thread for 3.3s
-                </div>
-                <div>
-                  mqt_js for 1.5s
-                </div>
-                <div>
-                  fabric_bg for 0.3s
-                </div>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr
-          class="MuiTableRow-root css-34nofg-MuiTableRow-root"
+          45.3 FPS
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
         >
-          <th
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium css-gvg19x-MuiTableCell-root"
-            scope="row"
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average CPU usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          79.4 %
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          High CPU Usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          4 s
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average RAM usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          108.7 MB
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
+    >
+      <div
+        class="text-neutral-300 text-center"
+      >
+        fabric-many-texts (com.fabricenabled)
+      </div>
+      <div
+        class="h-8"
+      />
+      <svg
+        fill="none"
+        height="200"
+        viewBox="0 0 200 200"
+        width="200"
+      >
+        <g>
+          <circle
+            cx="100"
+            cy="100"
+            r="90"
+            stroke="white"
+            stroke-opacity="0.1"
+            stroke-width="20"
+          />
+          <path
+            class="stroke-theme-color"
+            d="M 157.36815907738207 169.34619184982103 A 90 90 0 0 0 100 10"
+            stroke-width="20"
+          />
+          <text
+            aria-label="Score"
+            class="text-center text-4xl font-semibold fill-white"
+            dominant-baseline="middle"
+            text-anchor="middle"
+            x="100"
+            y="100"
           >
-            <div
-              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiAccordion-root MuiAccordion-rounded css-9sgtv1-MuiPaper-root-MuiAccordion-root"
-            >
-              <div
-                aria-expanded="false"
-                class="MuiButtonBase-root MuiAccordionSummary-root css-1m6wnpa-MuiButtonBase-root-MuiAccordionSummary-root"
-                role="button"
-                tabindex="0"
-              >
-                <div
-                  class="MuiAccordionSummary-content css-1betqn-MuiAccordionSummary-content"
-                >
-                  Average RAM usage
-                </div>
-                <div
-                  class="MuiAccordionSummary-expandIconWrapper css-yw020d-MuiAccordionSummary-expandIconWrapper"
-                >
-                  <div
-                    class="css-1iy8n0h"
-                  >
-                    <span />
-                    <span />
-                  </div>
-                </div>
-              </div>
-              <div
-                class="MuiCollapse-root MuiCollapse-vertical MuiCollapse-hidden css-bz4dnt-MuiCollapse-root"
-                style="min-height: 0px;"
-              >
-                <div
-                  class="MuiCollapse-wrapper MuiCollapse-vertical css-smkl36-MuiCollapse-wrapper"
-                >
-                  <div
-                    class="MuiCollapse-wrapperInner MuiCollapse-vertical css-9l5vo-MuiCollapse-wrapperInner"
-                  >
-                    <div
-                      class="MuiAccordion-region"
-                      role="region"
-                    >
-                      <div
-                        class="MuiAccordionDetails-root css-15v22id-MuiAccordionDetails-root"
-                        style="padding: 2px;"
-                      >
-                        <div
-                          style="font-weight: normal; color: rgb(51, 51, 51); font-size: 12px;"
-                        >
-                          If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
-                          <br />
-                          It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See 
-                          <a
-                            href="https://github.com/bamlab/android-performance-profiler/issues/11#issuecomment-1219317891"
-                            rel="noreferrer"
-                            target="_blank"
-                          >
-                            here for more details
-                          </a>
-                          )
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </th>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
+            39
+          </text>
+        </g>
+        <defs>
+          <clippath
+            id="clip0_556_1188"
           >
-            108.7MB
-          </td>
-          <td
-            class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeMedium css-1umlcas-MuiTableCell-root"
-          >
-            109.5MB
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <rect
+              fill="white"
+              height="200"
+              transform="translate(0.5)"
+              width="200"
+            />
+          </clippath>
+        </defs>
+      </svg>
+      <div
+        class="h-8"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average Test Runtime
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          135 ms
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average FPS
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          38.2 FPS
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average CPU usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          92.2 %
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          High CPU Usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          5 s
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+      <div
+        class="h-2"
+      />
+      <div
+        class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+      >
+        <div
+          class="text-neutral-300"
+        >
+          Average RAM usage
+        </div>
+        <div
+          class="grow"
+        />
+        <p
+          class="text-neutral-300 whitespace-pre"
+        >
+          109.5 MB
+        </p>
+        <div
+          class="w-2"
+        />
+        <div
+          class="text-neutral-300"
+        >
+           v 
+        </div>
+      </div>
+    </div>
   </div>
   <div
     class="css-1xehky4"
