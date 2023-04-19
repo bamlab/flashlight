@@ -1,12 +1,12 @@
 import React from "react";
 import { AveragedTestCaseResult, Measure } from "@perf-profiler/types";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
-import { Chart, PALETTE } from "./components/Chart";
-import { ComparativeThreadTable, ThreadTable } from "./components/ThreadTable";
-import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
+import { Chart, PALETTE } from "../components/Chart";
+import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
+import { AccordionSectionTitle } from "../components/AccordionSectionTitle";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import { roundToDecimal } from "./utils/roundToDecimal";
+import { roundToDecimal } from "../../utils/roundToDecimal";
 
 const buildSeriesData = (
   measures: Measure[],

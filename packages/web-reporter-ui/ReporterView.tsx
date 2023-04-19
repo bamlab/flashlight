@@ -4,24 +4,24 @@ import {
   Measure,
   TestCaseResult,
 } from "@perf-profiler/types";
-import { CPUReport } from "./CPUReport";
-import { ReportSummary } from "./components/ReportSummary/ReportSummary";
-import { RAMReport } from "./RAMReport";
-import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
+import { CPUReport } from "./src/sections/CPUReport";
+import { ReportSummary } from "./src/sections/ReportSummary/ReportSummary.component";
+import { RAMReport } from "./src/sections/RAMReport";
+import { AccordionSectionTitle } from "./src/components/AccordionSectionTitle";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
-import { FPSReport } from "./FPSReport";
+import { FPSReport } from "./src/sections/FPSReport";
 import { createTheme, ThemeProvider } from "@mui/material";
-import Header from "./components/Header";
+import Header from "./src/components/Header";
 
 import { exportRawDataToZIP } from "./utils/reportRawDataExport";
 import {
   IterationSelector,
   useIterationSelector,
-} from "./components/IterationSelector";
-import { VideoSection } from "./VideoSection";
+} from "./src/components/IterationSelector";
+import { VideoSection } from "./src/sections/VideoSection";
 import { VideoEnabledContext } from "./videoCurrentTimeContext";
 
 const Padding = styled.div`

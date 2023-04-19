@@ -5,7 +5,6 @@ import {
   PageBackground,
   useSetThemeAtRandom,
 } from "@perf-profiler/web-reporter-ui";
-import "@perf-profiler/web-reporter-ui/index.css";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
