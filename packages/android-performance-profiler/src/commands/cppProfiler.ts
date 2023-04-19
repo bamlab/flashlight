@@ -29,7 +29,7 @@ const startATrace = () => {
   Logger.debug("Stopping atrace and flushing output...");
   executeCommand("adb shell atrace --async_stop 1>/dev/null");
   Logger.debug("Starting atrace...");
-  aTraceProcess = executeAsync("adb shell atrace -c view -t 999");
+  aTraceProcess = executeAsync("adb shell atrace -c gfx -t 999");
 };
 
 const stopATrace = () => {

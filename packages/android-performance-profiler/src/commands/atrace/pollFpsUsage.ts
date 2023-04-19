@@ -43,7 +43,7 @@ export class FrameTimeParser {
     frameTimes: number[];
     interval: number;
   } {
-    const lines = output.split("\n").filter(Boolean);
+    const lines = output.split("\n").filter(Boolean).filter(line => !line.includes("C|"));
 
     if (lines.length === 0)
       return {
@@ -55,7 +55,7 @@ export class FrameTimeParser {
 
     lines.forEach((line) => {
       try {
-        if (!line.includes("-" + pid + " ")) return;
+        // if (!line.includes("-" + pid + " ")) return;
 
         const { timestamp, ending, methodName } = parseLine(line);
 
@@ -71,7 +71,8 @@ export class FrameTimeParser {
           }
         } else {
           if (methodName) {
-            if (methodName.includes("Choreographer#doFrame")) {
+            if (methodName.includes("SurfaceView") && line.includes("surfaceflinger")) {
+              console.log(line)
               this.methodStartedCount = 1;
               this.doFrameStartedTimeStamp = timestamp;
             } else {
@@ -102,6 +103,12 @@ ${error instanceof Error ? error.message : error}`);
     uiCpuUsage: number
   ) {
     const frameCount = frameTimes.length;
+
+    console.log({
+      frameCount,
+      timeInterval,
+      uiCpuUsage,
+    })
 
     const totalFrameTime = frameTimes.reduce(
       (sum, time) => sum + Math.max(TARGET_FRAME_TIME, time),
