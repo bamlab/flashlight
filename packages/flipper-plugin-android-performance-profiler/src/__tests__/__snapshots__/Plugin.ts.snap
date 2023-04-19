@@ -199,6 +199,7 @@ exports[`displays FPS data and scoring 2`] = `
                 stroke-width="20"
               />
               <text
+                aria-label="Score"
                 class="text-center text-4xl font-semibold fill-white"
                 dominant-baseline="middle"
                 text-anchor="middle"

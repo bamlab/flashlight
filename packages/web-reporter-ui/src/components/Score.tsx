@@ -52,6 +52,7 @@ export const Score: FunctionComponent<Props> = ({
           y={100}
           dominantBaseline="middle"
           textAnchor="middle"
+          aria-label="Score"
           className="text-center text-4xl font-semibold fill-white"
         >
           {roundToDecimal(score, 1)}
