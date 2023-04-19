@@ -165,7 +165,7 @@ exports[`displays FPS data and scoring 2`] = `
         class="css-1xehky4"
       />
       <div
-        class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24 w-full hide-scrollbar"
+        class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
       >
         <div
           class="m-auto"

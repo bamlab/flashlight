@@ -11,7 +11,7 @@ export const ReportSummary = ({
   averagedResults: AveragedTestCaseResult[];
 }) => {
   return (
-    <div className="flex flex-row overflow-x-scroll px-32 pt-12 gap-24 w-full hide-scrollbar">
+    <div className="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar">
       {averagedResults.map((result, index) => (
         <div
           key={result.name}
