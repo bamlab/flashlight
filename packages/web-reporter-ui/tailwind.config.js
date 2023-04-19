@@ -19,7 +19,15 @@ module.exports = {
         "light-sky-blue": "#1199EE",
         "dark-charcoal": "#131313",
         "light-charcoal": "#1B1B1D",
-        "theme-color": { DEFAULT: "var(--theme-color)", 100: "var(--theme-color-100)" },
+
+        "bright-yellow": "#fff500",
+        "bright-green": "#00ff75",
+        "bright-magenta": "#ff36af",
+        "bright-cyan": "#00ffff",
+        "theme-color": {
+          DEFAULT: "var(--theme-color)",
+          100: "var(--theme-color-100)",
+        },
       },
       boxShadow: {
         glow: "0 0 10px 0 var(--theme-color)",

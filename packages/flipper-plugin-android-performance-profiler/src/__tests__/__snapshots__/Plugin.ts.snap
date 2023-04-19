@@ -168,184 +168,188 @@ exports[`displays FPS data and scoring 2`] = `
         class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24 w-full hide-scrollbar"
       >
         <div
-          class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0 m-auto"
+          class="m-auto"
         >
           <div
-            class="text-neutral-300 text-center"
-          >
-            Results
-          </div>
-          <div
-            class="h-8"
-          />
-          <svg
-            fill="none"
-            height="200"
-            viewBox="0 0 200 200"
-            width="200"
-          >
-            <circle
-              cx="100"
-              cy="100"
-              r="90"
-              stroke="white"
-              stroke-opacity="0.1"
-              stroke-width="20"
-            />
-            <path
-              class="stroke-theme-color"
-              d="M 116.8643183127152 188.405852565582 A 90 90 0 0 0 100 10"
-              stroke-width="20"
-            />
-            <text
-              aria-label="Score"
-              class="text-center text-4xl font-semibold fill-white"
-              dominant-baseline="middle"
-              text-anchor="middle"
-              x="100"
-              y="100"
-            >
-              47
-            </text>
-          </svg>
-          <div
-            class="h-8"
-          />
-          <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300"
+              class="text-neutral-300 text-center"
             >
-              Average Test Runtime
+              Results
             </div>
             <div
-              class="grow"
+              class="h-8"
             />
-            <p
-              class="text-neutral-300 whitespace-pre"
+            <svg
+              fill="none"
+              height="200"
+              viewBox="0 0 200 200"
+              width="200"
             >
-              1000 ms
-            </p>
+              <circle
+                cx="100"
+                cy="100"
+                r="90"
+                stroke="white"
+                stroke-opacity="0.1"
+                stroke-width="20"
+              />
+              <path
+                class="stroke-theme-color"
+                d="M 116.8643183127152 188.405852565582 A 90 90 0 0 0 100 10"
+                stroke-width="20"
+              />
+              <text
+                aria-label="Score"
+                class="text-center text-4xl font-semibold fill-white"
+                dominant-baseline="middle"
+                text-anchor="middle"
+                x="100"
+                y="100"
+              >
+                47
+              </text>
+            </svg>
             <div
-              class="w-2"
-            />
-            <div
-              class="text-neutral-300"
-            >
-               v 
-            </div>
-          </div>
-          <div
-            class="h-2"
-          />
-          <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
-          >
-            <div
-              class="text-neutral-300"
-            >
-              Average FPS
-            </div>
-            <div
-              class="grow"
-            />
-            <p
-              class="text-neutral-300 whitespace-pre"
-            >
-              60 FPS
-            </p>
-            <div
-              class="w-2"
+              class="h-8"
             />
             <div
-              class="text-neutral-300"
+              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
             >
-               v 
-            </div>
-          </div>
-          <div
-            class="h-2"
-          />
-          <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
-          >
-            <div
-              class="text-neutral-300"
-            >
-              Average CPU usage
-            </div>
-            <div
-              class="grow"
-            />
-            <p
-              class="text-neutral-300 whitespace-pre"
-            >
-              84 %
-            </p>
-            <div
-              class="w-2"
-            />
-            <div
-              class="text-neutral-300"
-            >
-               v 
-            </div>
-          </div>
-          <div
-            class="h-2"
-          />
-          <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
-          >
-            <div
-              class="text-neutral-300"
-            >
-              High CPU Usage
+              <div
+                class="text-neutral-300"
+              >
+                Average Test Runtime
+              </div>
+              <div
+                class="grow"
+              />
+              <p
+                class="text-neutral-300 whitespace-pre"
+              >
+                1000 ms
+              </p>
+              <div
+                class="w-2"
+              />
+              <div
+                class="text-neutral-300"
+              >
+                 v 
+              </div>
             </div>
             <div
-              class="grow"
-            />
-            <p
-              class="text-neutral-300 whitespace-pre"
-            >
-              0.5 s
-            </p>
-            <div
-              class="w-2"
+              class="h-2"
             />
             <div
-              class="text-neutral-300"
+              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
             >
-               v 
+              <div
+                class="text-neutral-300"
+              >
+                Average FPS
+              </div>
+              <div
+                class="grow"
+              />
+              <p
+                class="text-neutral-300 whitespace-pre"
+              >
+                60 FPS
+              </p>
+              <div
+                class="w-2"
+              />
+              <div
+                class="text-neutral-300"
+              >
+                 v 
+              </div>
             </div>
-          </div>
-          <div
-            class="h-2"
-          />
-          <div
-            class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
-          >
             <div
-              class="text-neutral-300"
+              class="h-2"
+            />
+            <div
+              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
             >
-              Average RAM usage
+              <div
+                class="text-neutral-300"
+              >
+                Average CPU usage
+              </div>
+              <div
+                class="grow"
+              />
+              <p
+                class="text-neutral-300 whitespace-pre"
+              >
+                84 %
+              </p>
+              <div
+                class="w-2"
+              />
+              <div
+                class="text-neutral-300"
+              >
+                 v 
+              </div>
             </div>
             <div
-              class="grow"
-            />
-            <p
-              class="text-neutral-300 whitespace-pre"
-            >
-              375.8 MB
-            </p>
-            <div
-              class="w-2"
+              class="h-2"
             />
             <div
-              class="text-neutral-300"
+              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
             >
-               v 
+              <div
+                class="text-neutral-300"
+              >
+                High CPU Usage
+              </div>
+              <div
+                class="grow"
+              />
+              <p
+                class="text-neutral-300 whitespace-pre"
+              >
+                0.5 s
+              </p>
+              <div
+                class="w-2"
+              />
+              <div
+                class="text-neutral-300"
+              >
+                 v 
+              </div>
+            </div>
+            <div
+              class="h-2"
+            />
+            <div
+              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+            >
+              <div
+                class="text-neutral-300"
+              >
+                Average RAM usage
+              </div>
+              <div
+                class="grow"
+              />
+              <p
+                class="text-neutral-300 whitespace-pre"
+              >
+                375.8 MB
+              </p>
+              <div
+                class="w-2"
+              />
+              <div
+                class="text-neutral-300"
+              >
+                 v 
+              </div>
             </div>
           </div>
         </div>

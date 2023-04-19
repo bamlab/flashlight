@@ -11,6 +11,7 @@ type Props = {
 export const Score: FunctionComponent<Props> = ({
   size = 200,
   result,
+  color = "#fff500",
   ...svgProps
 }) => {
   const displayPlaceholder = result.average.measures.length === 0;
