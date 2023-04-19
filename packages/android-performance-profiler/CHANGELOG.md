@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.6.0...@perf-profiler/profiler@0.7.0) (2023-04-19)
+
+### Features
+
+- **profiler:** group binder threads together in measures ([#89](https://github.com/bamlab/android-performance-profiler/issues/89)) ([543ffa7](https://github.com/bamlab/android-performance-profiler/commit/543ffa7f115b2f8dd62a01dca25f21d4b8fdd24d))
+
 # [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.5.0...@perf-profiler/profiler@0.6.0) (2023-04-18)
 
 ### Bug Fixes
