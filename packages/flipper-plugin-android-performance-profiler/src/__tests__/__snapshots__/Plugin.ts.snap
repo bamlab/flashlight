@@ -184,43 +184,29 @@ exports[`displays FPS data and scoring 2`] = `
             viewBox="0 0 200 200"
             width="200"
           >
-            <g>
-              <circle
-                cx="100"
-                cy="100"
-                r="90"
-                stroke="white"
-                stroke-opacity="0.1"
-                stroke-width="20"
-              />
-              <path
-                class="stroke-theme-color"
-                d="M 116.8643183127152 188.405852565582 A 90 90 0 0 0 100 10"
-                stroke-width="20"
-              />
-              <text
-                aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
-                text-anchor="middle"
-                x="100"
-                y="100"
-              >
-                47
-              </text>
-            </g>
-            <defs>
-              <clippath
-                id="clip0_556_1188"
-              >
-                <rect
-                  fill="white"
-                  height="200"
-                  transform="translate(0.5)"
-                  width="200"
-                />
-              </clippath>
-            </defs>
+            <circle
+              cx="100"
+              cy="100"
+              r="90"
+              stroke="white"
+              stroke-opacity="0.1"
+              stroke-width="20"
+            />
+            <path
+              class="stroke-theme-color"
+              d="M 116.8643183127152 188.405852565582 A 90 90 0 0 0 100 10"
+              stroke-width="20"
+            />
+            <text
+              aria-label="Score"
+              class="text-center text-4xl font-semibold fill-white"
+              dominant-baseline="middle"
+              text-anchor="middle"
+              x="100"
+              y="100"
+            >
+              47
+            </text>
           </svg>
           <div
             class="h-8"
