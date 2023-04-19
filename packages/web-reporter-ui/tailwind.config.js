@@ -20,10 +20,6 @@ module.exports = {
         "dark-charcoal": "#131313",
         "light-charcoal": "#1B1B1D",
 
-        "bright-yellow": "#fff500",
-        "bright-green": "#00ff75",
-        "bright-magenta": "#ff36af",
-        "bright-cyan": "#00ffff",
         "theme-color": {
           DEFAULT: "var(--theme-color)",
           100: "var(--theme-color-100)",
