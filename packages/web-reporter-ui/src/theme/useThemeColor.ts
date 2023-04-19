@@ -1,6 +1,6 @@
 import { useCallback, useEffect } from "react";
 
-const themeColors = [
+export const themeColors = [
   "bright-yellow",
   "bright-green",
   "bright-magenta",
