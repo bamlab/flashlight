@@ -1,3 +1,3 @@
 export { IterationsReporterView, ReporterView } from "./ReporterView";
-export { PageBackground } from "./components/PageBackground";
-export { useSetThemeAtRandom } from "./useThemeColor";
+export { PageBackground } from "./src/components/PageBackground";
+export { useSetThemeAtRandom } from "./src/theme/useThemeColor";

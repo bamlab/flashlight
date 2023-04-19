@@ -11,7 +11,11 @@ module.exports = {
     "import/no-extraneous-dependencies": [
       "error",
       {
-        devDependencies: ["**/__tests__/**", "packages/web-reporter/src/**"],
+        devDependencies: [
+          "**/__tests__/**",
+          "packages/web-reporter/src/**",
+          "**/*.config.js", // This is necessary for tailwind.config.js in both web-reporter and web-reporter-ui
+        ],
       },
     ],
   },

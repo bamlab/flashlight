@@ -8,7 +8,7 @@ import React, {
 import {
   setVideoCurrentTime,
   useListenToVideoCurrentTime,
-} from "./videoCurrentTimeContext";
+} from "../../videoCurrentTimeContext";
 import {
   Accordion,
   AccordionDetails,
@@ -17,8 +17,8 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { AccordionSectionTitle } from "./components/AccordionSectionTitle";
-import { ITERATION_SELECTOR_HEIGHT } from "./components/IterationSelector";
+import { AccordionSectionTitle } from "../components/AccordionSectionTitle";
+import { ITERATION_SELECTOR_HEIGHT } from "../components/IterationSelector";
 import { TestCaseResult } from "@perf-profiler/types";
 
 const getFileName = (path: string | undefined = ""): string => {
