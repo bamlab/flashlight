@@ -10,16 +10,26 @@ export const Collapsible: FunctionComponent<Props> = ({ header, children }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div>
-      <div
-        className="flex flex-row cursor-pointer w-full"
-        onClick={() => setIsExpanded((prevIsExpanded) => !prevIsExpanded)}
-      >
+    <div
+      className="cursor-pointer"
+      onClick={() => setIsExpanded((prevIsExpanded) => !prevIsExpanded)}
+    >
+      <div className="flex flex-row w-full">
         <div className="flex-1">{header}</div>
-        <ArrowDownIcon />
+        <ArrowDownIcon
+          className={`${
+            isExpanded ? "rotate-180" : "rotate-0"
+          } transition-transform ease-linear`}
+        />
       </div>
 
-      {isExpanded && <div>{children}</div>}
+      <div
+        className={`${
+          isExpanded ? "max-h-72" : "max-h-0"
+        } overflow-hidden transition-[max-height] duration-500 ease-linear`}
+      >
+        {children}
+      </div>
     </div>
   );
 };
