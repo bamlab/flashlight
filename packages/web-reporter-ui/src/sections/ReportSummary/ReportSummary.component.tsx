@@ -10,7 +10,7 @@ export const ReportSummary = ({
   averagedResults: AveragedTestCaseResult[];
 }) => {
   return (
-    <div className="flex flex-row overflow-x-scroll px-32 pt-12 gap-24">
+    <div className="flex flex-row overflow-x-scroll px-32 pt-12 gap-24 w-full hide-scrollbar">
       {averagedResults.map((result) => (
         <ReportSummaryCard key={result.name} averagedResult={result} />
       ))}

@@ -627,10 +627,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
     class="css-1xehky4"
   />
   <div
-    class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24"
+    class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24 w-full hide-scrollbar"
   >
     <div
-      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0 m-auto"
     >
       <div
         class="text-neutral-300 text-center"
@@ -646,43 +646,29 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
         viewBox="0 0 200 200"
         width="200"
       >
-        <g>
-          <circle
-            cx="100"
-            cy="100"
-            r="90"
-            stroke="white"
-            stroke-opacity="0.1"
-            stroke-width="20"
-          />
-          <path
-            class="stroke-theme-color"
-            d="M 16.32011627005737 133.131209741621 A 90 90 0 1 0 100 10"
-            stroke-width="20"
-          />
-          <text
-            aria-label="Score"
-            class="text-center text-4xl font-semibold fill-white"
-            dominant-baseline="middle"
-            text-anchor="middle"
-            x="100"
-            y="100"
-          >
-            69
-          </text>
-        </g>
-        <defs>
-          <clippath
-            id="clip0_556_1188"
-          >
-            <rect
-              fill="white"
-              height="200"
-              transform="translate(0.5)"
-              width="200"
-            />
-          </clippath>
-        </defs>
+        <circle
+          cx="100"
+          cy="100"
+          r="90"
+          stroke="white"
+          stroke-opacity="0.1"
+          stroke-width="20"
+        />
+        <path
+          class="stroke-theme-color"
+          d="M 16.32011627005737 133.131209741621 A 90 90 0 1 0 100 10"
+          stroke-width="20"
+        />
+        <text
+          aria-label="Score"
+          class="text-center text-4xl font-semibold fill-white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          x="100"
+          y="100"
+        >
+          69
+        </text>
       </svg>
       <div
         class="h-8"
@@ -826,7 +812,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
       </div>
     </div>
     <div
-      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0 m-auto"
     >
       <div
         class="text-neutral-300 text-center"
@@ -842,43 +828,29 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
         viewBox="0 0 200 200"
         width="200"
       >
-        <g>
-          <circle
-            cx="100"
-            cy="100"
-            r="90"
-            stroke="white"
-            stroke-opacity="0.1"
-            stroke-width="20"
-          />
-          <path
-            class="stroke-theme-color"
-            d="M 17.861891403278747 136.78764896202563 A 90 90 0 1 0 100 10"
-            stroke-width="20"
-          />
-          <text
-            aria-label="Score"
-            class="text-center text-4xl font-semibold fill-white"
-            dominant-baseline="middle"
-            text-anchor="middle"
-            x="100"
-            y="100"
-          >
-            68.3
-          </text>
-        </g>
-        <defs>
-          <clippath
-            id="clip0_556_1188"
-          >
-            <rect
-              fill="white"
-              height="200"
-              transform="translate(0.5)"
-              width="200"
-            />
-          </clippath>
-        </defs>
+        <circle
+          cx="100"
+          cy="100"
+          r="90"
+          stroke="white"
+          stroke-opacity="0.1"
+          stroke-width="20"
+        />
+        <path
+          class="stroke-theme-color"
+          d="M 17.861891403278747 136.78764896202563 A 90 90 0 1 0 100 10"
+          stroke-width="20"
+        />
+        <text
+          aria-label="Score"
+          class="text-center text-4xl font-semibold fill-white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          x="100"
+          y="100"
+        >
+          68.3
+        </text>
       </svg>
       <div
         class="h-8"
@@ -11336,10 +11308,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
     class="css-1xehky4"
   />
   <div
-    class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24"
+    class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24 w-full hide-scrollbar"
   >
     <div
-      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0 m-auto"
     >
       <div
         class="text-neutral-300 text-center"
@@ -11355,43 +11327,29 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
         viewBox="0 0 200 200"
         width="200"
       >
-        <g>
-          <circle
-            cx="100"
-            cy="100"
-            r="90"
-            stroke="white"
-            stroke-opacity="0.1"
-            stroke-width="20"
-          />
-          <path
-            class="stroke-theme-color"
-            d="M 27.188470506254745 152.9006727063226 A 90 90 0 1 0 100 10"
-            stroke-width="20"
-          />
-          <text
-            aria-label="Score"
-            class="text-center text-4xl font-semibold fill-white"
-            dominant-baseline="middle"
-            text-anchor="middle"
-            x="100"
-            y="100"
-          >
-            65
-          </text>
-        </g>
-        <defs>
-          <clippath
-            id="clip0_556_1188"
-          >
-            <rect
-              fill="white"
-              height="200"
-              transform="translate(0.5)"
-              width="200"
-            />
-          </clippath>
-        </defs>
+        <circle
+          cx="100"
+          cy="100"
+          r="90"
+          stroke="white"
+          stroke-opacity="0.1"
+          stroke-width="20"
+        />
+        <path
+          class="stroke-theme-color"
+          d="M 27.188470506254745 152.9006727063226 A 90 90 0 1 0 100 10"
+          stroke-width="20"
+        />
+        <text
+          aria-label="Score"
+          class="text-center text-4xl font-semibold fill-white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          x="100"
+          y="100"
+        >
+          65
+        </text>
       </svg>
       <div
         class="h-8"
@@ -11535,7 +11493,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
       </div>
     </div>
     <div
-      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0 m-auto"
     >
       <div
         class="text-neutral-300 text-center"
@@ -11551,43 +11509,29 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
         viewBox="0 0 200 200"
         width="200"
       >
-        <g>
-          <circle
-            cx="100"
-            cy="100"
-            r="90"
-            stroke="white"
-            stroke-opacity="0.1"
-            stroke-width="20"
-          />
-          <path
-            class="stroke-theme-color"
-            d="M 17.861891403278747 136.78764896202563 A 90 90 0 1 0 100 10"
-            stroke-width="20"
-          />
-          <text
-            aria-label="Score"
-            class="text-center text-4xl font-semibold fill-white"
-            dominant-baseline="middle"
-            text-anchor="middle"
-            x="100"
-            y="100"
-          >
-            68.3
-          </text>
-        </g>
-        <defs>
-          <clippath
-            id="clip0_556_1188"
-          >
-            <rect
-              fill="white"
-              height="200"
-              transform="translate(0.5)"
-              width="200"
-            />
-          </clippath>
-        </defs>
+        <circle
+          cx="100"
+          cy="100"
+          r="90"
+          stroke="white"
+          stroke-opacity="0.1"
+          stroke-width="20"
+        />
+        <path
+          class="stroke-theme-color"
+          d="M 17.861891403278747 136.78764896202563 A 90 90 0 1 0 100 10"
+          stroke-width="20"
+        />
+        <text
+          aria-label="Score"
+          class="text-center text-4xl font-semibold fill-white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          x="100"
+          y="100"
+        >
+          68.3
+        </text>
       </svg>
       <div
         class="h-8"
@@ -16792,10 +16736,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
     class="css-1xehky4"
   />
   <div
-    class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24"
+    class="flex flex-row overflow-x-scroll px-32 pt-12 gap-24 w-full hide-scrollbar"
   >
     <div
-      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0 m-auto"
     >
       <div
         class="text-neutral-300 text-center"
@@ -16811,43 +16755,29 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         viewBox="0 0 200 200"
         width="200"
       >
-        <g>
-          <circle
-            cx="100"
-            cy="100"
-            r="90"
-            stroke="white"
-            stroke-opacity="0.1"
-            stroke-width="20"
-          />
-          <path
-            class="stroke-theme-color"
-            d="M 94.34885324236181 189.82240555854446 A 90 90 0 1 0 100 10"
-            stroke-width="20"
-          />
-          <text
-            aria-label="Score"
-            class="text-center text-4xl font-semibold fill-white"
-            dominant-baseline="middle"
-            text-anchor="middle"
-            x="100"
-            y="100"
-          >
-            51
-          </text>
-        </g>
-        <defs>
-          <clippath
-            id="clip0_556_1188"
-          >
-            <rect
-              fill="white"
-              height="200"
-              transform="translate(0.5)"
-              width="200"
-            />
-          </clippath>
-        </defs>
+        <circle
+          cx="100"
+          cy="100"
+          r="90"
+          stroke="white"
+          stroke-opacity="0.1"
+          stroke-width="20"
+        />
+        <path
+          class="stroke-theme-color"
+          d="M 94.34885324236181 189.82240555854446 A 90 90 0 1 0 100 10"
+          stroke-width="20"
+        />
+        <text
+          aria-label="Score"
+          class="text-center text-4xl font-semibold fill-white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          x="100"
+          y="100"
+        >
+          51
+        </text>
       </svg>
       <div
         class="h-8"
@@ -16991,7 +16921,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       </div>
     </div>
     <div
-      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]"
+      class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0 m-auto"
     >
       <div
         class="text-neutral-300 text-center"
@@ -17007,43 +16937,29 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         viewBox="0 0 200 200"
         width="200"
       >
-        <g>
-          <circle
-            cx="100"
-            cy="100"
-            r="90"
-            stroke="white"
-            stroke-opacity="0.1"
-            stroke-width="20"
-          />
-          <path
-            class="stroke-theme-color"
-            d="M 157.36815907738207 169.34619184982103 A 90 90 0 0 0 100 10"
-            stroke-width="20"
-          />
-          <text
-            aria-label="Score"
-            class="text-center text-4xl font-semibold fill-white"
-            dominant-baseline="middle"
-            text-anchor="middle"
-            x="100"
-            y="100"
-          >
-            39
-          </text>
-        </g>
-        <defs>
-          <clippath
-            id="clip0_556_1188"
-          >
-            <rect
-              fill="white"
-              height="200"
-              transform="translate(0.5)"
-              width="200"
-            />
-          </clippath>
-        </defs>
+        <circle
+          cx="100"
+          cy="100"
+          r="90"
+          stroke="white"
+          stroke-opacity="0.1"
+          stroke-width="20"
+        />
+        <path
+          class="stroke-theme-color"
+          d="M 157.36815907738207 169.34619184982103 A 90 90 0 0 0 100 10"
+          stroke-width="20"
+        />
+        <text
+          aria-label="Score"
+          class="text-center text-4xl font-semibold fill-white"
+          dominant-baseline="middle"
+          text-anchor="middle"
+          x="100"
+          y="100"
+        >
+          39
+        </text>
       </svg>
       <div
         class="h-8"
