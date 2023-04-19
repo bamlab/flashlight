@@ -1,9 +1,12 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const tailwindConfig = require('@perf-profiler/web-reporter-ui/tailwind.config');
+
 module.exports = {
   content: [
-    ...require('@perf-profiler/web-reporter-ui/tailwind.config').content,
+    ...tailwindConfig.content,
     "./src/App.tsx"
   ],
   presets: [
-    require('@perf-profiler/web-reporter-ui/tailwind.config')
+    tailwindConfig
   ],
 }
