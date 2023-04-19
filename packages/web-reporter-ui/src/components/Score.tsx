@@ -11,6 +11,7 @@ type Props = {
 export const Score: FunctionComponent<Props> = ({
   size = 200,
   result,
+  color = "#fff500",
   ...svgProps
 }) => {
   const displayPlaceholder = result.average.measures.length === 0;
@@ -33,42 +34,25 @@ export const Score: FunctionComponent<Props> = ({
       fill="none"
       {...svgProps}
     >
-      <g>
-        <circle
-          cx={100}
-          cy={100}
-          r={90}
-          stroke="white"
-          strokeOpacity="0.1"
-          strokeWidth={20}
-        />
-        <path
-          d={scoreSvgPath}
-          strokeWidth={20}
-          className="stroke-theme-color"
-        />
-        <text
-          x={100}
-          y={100}
-          dominantBaseline="middle"
-          textAnchor="middle"
-          aria-label="Score"
-          className="text-center text-4xl font-semibold fill-white"
-        >
-          {roundToDecimal(score, 1)}
-        </text>
-      </g>
-
-      <defs>
-        <clipPath id="clip0_556_1188">
-          <rect
-            width="200"
-            height="200"
-            fill="white"
-            transform="translate(0.5)"
-          />
-        </clipPath>
-      </defs>
+      <circle
+        cx={100}
+        cy={100}
+        r={90}
+        stroke="white"
+        strokeOpacity="0.1"
+        strokeWidth={20}
+      />
+      <path d={scoreSvgPath} strokeWidth={20} className="stroke-theme-color" />
+      <text
+        x={100}
+        y={100}
+        dominantBaseline="middle"
+        textAnchor="middle"
+        aria-label="Score"
+        className="text-center text-4xl font-semibold fill-white"
+      >
+        {roundToDecimal(score, 1)}
+      </text>
     </svg>
   );
 };

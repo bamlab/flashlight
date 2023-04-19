@@ -18,7 +18,7 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
   averagedResult,
 }) => {
   return (
-    <div className="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px]">
+    <div className="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0">
       <div className="text-neutral-300 text-center">{averagedResult.name}</div>
 
       <div className="h-8" />

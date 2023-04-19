@@ -34,3 +34,14 @@ body {
     --theme-color-100: rgba(0, 255, 255, 0.13);
   }
 }
+
+@layer utilities {
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
