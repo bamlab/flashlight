@@ -27,8 +27,12 @@ An app might run at 60FPS but might be using too much processing power, so it's 
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 0.5 s
-Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
-One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+mqt_js
+ for
+ 
+0.5
+s
 Average RAM usage
 375.8 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -252,11 +256,11 @@ exports[`displays FPS data and scoring 2`] = `
                       <div
                         class="grow"
                       />
-                      <p
+                      <div
                         class="text-neutral-300 whitespace-pre"
                       >
                         1000 ms
-                      </p>
+                      </div>
                       <div
                         class="w-2"
                       />
@@ -320,11 +324,11 @@ exports[`displays FPS data and scoring 2`] = `
                       <div
                         class="grow"
                       />
-                      <p
+                      <div
                         class="text-neutral-300 whitespace-pre"
                       >
                         60 FPS
-                      </p>
+                      </div>
                       <div
                         class="w-2"
                       />
@@ -398,11 +402,11 @@ exports[`displays FPS data and scoring 2`] = `
                       <div
                         class="grow"
                       />
-                      <p
+                      <div
                         class="text-neutral-300 whitespace-pre"
                       >
                         84 %
-                      </p>
+                      </div>
                       <div
                         class="w-2"
                       />
@@ -471,11 +475,15 @@ exports[`displays FPS data and scoring 2`] = `
                       <div
                         class="grow"
                       />
-                      <p
+                      <div
                         class="text-neutral-300 whitespace-pre"
                       >
-                        0.5 s
-                      </p>
+                        <div
+                          style="color: red;"
+                        >
+                          0.5 s
+                        </div>
+                      </div>
                       <div
                         class="w-2"
                       />
@@ -506,9 +514,24 @@ exports[`displays FPS data and scoring 2`] = `
                   <div
                     class="text-neutral-400 text-sm"
                   >
-                    Your app might have low CPU usage overall but if one process is saturating a CPU core (using close to 100% CPU), you’re likely to experience unresponsiveness, for instance the app not responding to touch events.
-                    <br />
-                    One example of this is the JS thread being overworked in a React Native app, the app will become completely unresponsive even though FPS could still be 60.
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div>
+                        High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+                      </div>
+                      <div
+                        class="whitespace-pre pl-1"
+                      >
+                        <div>
+                          mqt_js
+                           for
+                           
+                          0.5
+                          s
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -539,11 +562,11 @@ exports[`displays FPS data and scoring 2`] = `
                       <div
                         class="grow"
                       />
-                      <p
+                      <div
                         class="text-neutral-300 whitespace-pre"
                       >
                         375.8 MB
-                      </p>
+                      </div>
                       <div
                         class="w-2"
                       />

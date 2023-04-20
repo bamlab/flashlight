@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from "react";
 import {
+  sanitizeProcessName,
   getAverageCpuUsage,
   getAverageFPSUsage,
   getAverageRAMUsage,
@@ -9,6 +10,7 @@ import { AveragedTestCaseResult } from "@perf-profiler/types";
 import { roundToDecimal } from "../../../utils/roundToDecimal";
 import { ReportSummaryCardInfoRow } from "./ReportSummaryCardInfoRow";
 import { Score } from "../../components/Score";
+import { orderBy } from "lodash";
 
 type Props = {
   averagedResult: AveragedTestCaseResult;
@@ -17,6 +19,23 @@ type Props = {
 export const ReportSummaryCard: FunctionComponent<Props> = ({
   averagedResult,
 }) => {
+  const averageTestRuntime = roundToDecimal(averagedResult.average.time, 0);
+  const averageFPS = roundToDecimal(
+    getAverageFPSUsage(averagedResult.average.measures),
+    1
+  );
+  const averageCPU = roundToDecimal(
+    getAverageCpuUsage(averagedResult.average.measures),
+    1
+  );
+  const averageTotalHighCPU = roundToDecimal(
+    getAverageTotalHighCPUUsage(averagedResult.averageHighCpuUsage) / 1000,
+    1
+  );
+  const averageRAM = roundToDecimal(
+    getAverageRAMUsage(averagedResult.average.measures),
+    1
+  );
   return (
     <div className="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0">
       <div className="text-neutral-300 text-center">{averagedResult.name}</div>
@@ -29,8 +48,7 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
 
       <ReportSummaryCardInfoRow
         title="Average Test Runtime"
-        value={roundToDecimal(averagedResult.average.time, 0)}
-        unit="ms"
+        value={`${averageTestRuntime} ms`}
         explanation={
           <>
             Time taken to run the test.
@@ -41,13 +59,10 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
         }
       />
       <div className="h-2" />
+
       <ReportSummaryCardInfoRow
         title="Average FPS"
-        value={roundToDecimal(
-          getAverageFPSUsage(averagedResult.average.measures),
-          1
-        )}
-        unit="FPS"
+        value={`${averageFPS} FPS`}
         explanation={
           <>
             Frame Per Second. Your app should display 60 Frames Per Second to
@@ -66,13 +81,10 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
         }
       />
       <div className="h-2" />
+
       <ReportSummaryCardInfoRow
         title="Average CPU usage"
-        value={roundToDecimal(
-          getAverageCpuUsage(averagedResult.average.measures),
-          1
-        )}
-        unit="%"
+        value={`${averageCPU} %`}
         explanation={
           <>
             An app might run at 60FPS but might be using too much processing
@@ -84,35 +96,47 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
         }
       />
       <div className="h-2" />
+
       <ReportSummaryCardInfoRow
         title="High CPU Usage"
-        value={roundToDecimal(
-          getAverageTotalHighCPUUsage(averagedResult.averageHighCpuUsage) /
-            1000,
-          1
-        )}
-        unit="s"
+        value={
+          <div style={averageTotalHighCPU > 0 ? { color: "red" } : {}}>
+            {averageTotalHighCPU > 0 ? `${averageTotalHighCPU} s` : "None ✅"}
+          </div>
+        }
         explanation={
-          <>
-            Your app might have low CPU usage overall but if one process is
-            saturating a CPU core (using close to 100% CPU), you’re likely to
-            experience unresponsiveness, for instance the app not responding to
-            touch events.
-            <br />
-            One example of this is the JS thread being overworked in a React
-            Native app, the app will become completely unresponsive even though
-            FPS could still be 60.
-          </>
+          <div className="flex flex-row">
+            <div>
+              High CPU usage by a single process can cause app unresponsiveness,
+              even with low overall CPU usage. For instance, an overworked JS
+              thread in a React Native app may lead to unresponsiveness despite
+              maintaining 60 FPS.
+            </div>
+            <div className="whitespace-pre pl-1">
+              {orderBy(
+                Object.keys(averagedResult.averageHighCpuUsage),
+                (processName) =>
+                  averagedResult.averageHighCpuUsage[processName],
+                "desc"
+              ).map((processName) => (
+                <div key={processName}>
+                  {sanitizeProcessName(processName)} for{" "}
+                  {roundToDecimal(
+                    averagedResult.averageHighCpuUsage[processName] / 1000,
+                    1
+                  )}
+                  s
+                </div>
+              ))}
+            </div>
+          </div>
         }
       />
       <div className="h-2" />
+
       <ReportSummaryCardInfoRow
         title="Average RAM usage"
-        value={roundToDecimal(
-          getAverageRAMUsage(averagedResult.average.measures),
-          1
-        )}
-        unit="MB"
+        value={`${averageRAM} MB`}
         explanation={
           <>
             If an app consumes a large amount of RAM (random-access memory), it
