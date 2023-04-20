@@ -8,19 +8,40 @@ Results
 47
 Average Test Runtime
 1000 ms
- v 
+Time taken to run the test.
+Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
 60 FPS
- v 
+Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+See
+ 
+this video
+ 
+for more details
 Average CPU usage
 84 %
- v 
+An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+ Depending on the device, this value can go up to
+ 
+100% x number of cores
+. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 0.5 s
- v 
+Impacted threads:
+- 
+mqt_js
+ for
+ 
+0.5
+s
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 375.8 MB
- v 
+If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
+It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
+ 
+here for more details
+)
 FPS
 CPU
 Threads
@@ -277,7 +298,7 @@ exports[`displays FPS data and scoring 2`] = `
         class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
       >
         <div
-          class="m-auto"
+          class="mx-auto"
         >
           <div
             class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
@@ -324,140 +345,388 @@ exports[`displays FPS data and scoring 2`] = `
               class="h-8"
             />
             <div
-              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="text-neutral-300"
+                class="cursor-pointer px-6 py-4 "
               >
-                Average Test Runtime
-              </div>
-              <div
-                class="grow"
-              />
-              <p
-                class="text-neutral-300 whitespace-pre"
-              >
-                1000 ms
-              </p>
-              <div
-                class="w-2"
-              />
-              <div
-                class="text-neutral-300"
-              >
-                 v 
+                <div
+                  class="flex flex-row w-full items-center"
+                >
+                  <div
+                    class="flex-1"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="text-neutral-300"
+                      >
+                        Average Test Runtime
+                      </div>
+                      <div
+                        class="grow"
+                      />
+                      <div
+                        class="text-neutral-300 whitespace-pre"
+                      >
+                        1000 ms
+                      </div>
+                      <div
+                        class="w-2"
+                      />
+                    </div>
+                  </div>
+                  <svg
+                    class="rotate-0 transition-transform ease-linear"
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      class="stroke-white"
+                      d="m8.5 10 4 4 4-4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
+                >
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    Time taken to run the test.
+                    <br />
+                    Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
+                  </div>
+                </div>
               </div>
             </div>
             <div
               class="h-2"
             />
             <div
-              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="text-neutral-300"
+                class="cursor-pointer px-6 py-4 "
               >
-                Average FPS
-              </div>
-              <div
-                class="grow"
-              />
-              <p
-                class="text-neutral-300 whitespace-pre"
-              >
-                60 FPS
-              </p>
-              <div
-                class="w-2"
-              />
-              <div
-                class="text-neutral-300"
-              >
-                 v 
+                <div
+                  class="flex flex-row w-full items-center"
+                >
+                  <div
+                    class="flex-1"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="text-neutral-300"
+                      >
+                        Average FPS
+                      </div>
+                      <div
+                        class="grow"
+                      />
+                      <div
+                        class="text-neutral-300 whitespace-pre"
+                      >
+                        60 FPS
+                      </div>
+                      <div
+                        class="w-2"
+                      />
+                    </div>
+                  </div>
+                  <svg
+                    class="rotate-0 transition-transform ease-linear"
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      class="stroke-white"
+                      d="m8.5 10 4 4 4-4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
+                >
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+                    <br />
+                    See
+                     
+                    <a
+                      href="https://www.youtube.com/watch?v=CaMTIgxCSqU"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      this video
+                    </a>
+                     
+                    for more details
+                  </div>
+                </div>
               </div>
             </div>
             <div
               class="h-2"
             />
             <div
-              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="text-neutral-300"
+                class="cursor-pointer px-6 py-4 "
               >
-                Average CPU usage
-              </div>
-              <div
-                class="grow"
-              />
-              <p
-                class="text-neutral-300 whitespace-pre"
-              >
-                84 %
-              </p>
-              <div
-                class="w-2"
-              />
-              <div
-                class="text-neutral-300"
-              >
-                 v 
+                <div
+                  class="flex flex-row w-full items-center"
+                >
+                  <div
+                    class="flex-1"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="text-neutral-300"
+                      >
+                        Average CPU usage
+                      </div>
+                      <div
+                        class="grow"
+                      />
+                      <div
+                        class="text-neutral-300 whitespace-pre"
+                      >
+                        84 %
+                      </div>
+                      <div
+                        class="w-2"
+                      />
+                    </div>
+                  </div>
+                  <svg
+                    class="rotate-0 transition-transform ease-linear"
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      class="stroke-white"
+                      d="m8.5 10 4 4 4-4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
+                >
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+                    <br />
+                     Depending on the device, this value can go up to
+                     
+                    <code>
+                      100% x number of cores
+                    </code>
+                    . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                  </div>
+                </div>
               </div>
             </div>
             <div
               class="h-2"
             />
             <div
-              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="text-neutral-300"
+                class="cursor-pointer px-6 py-4 "
               >
-                High CPU Usage
-              </div>
-              <div
-                class="grow"
-              />
-              <p
-                class="text-neutral-300 whitespace-pre"
-              >
-                0.5 s
-              </p>
-              <div
-                class="w-2"
-              />
-              <div
-                class="text-neutral-300"
-              >
-                 v 
+                <div
+                  class="flex flex-row w-full items-center"
+                >
+                  <div
+                    class="flex-1"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="text-neutral-300"
+                      >
+                        High CPU Usage
+                      </div>
+                      <div
+                        class="grow"
+                      />
+                      <div
+                        class="text-neutral-300 whitespace-pre"
+                      >
+                        <div
+                          style="color: red;"
+                        >
+                          0.5 s
+                        </div>
+                      </div>
+                      <div
+                        class="w-2"
+                      />
+                    </div>
+                  </div>
+                  <svg
+                    class="rotate-0 transition-transform ease-linear"
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      class="stroke-white"
+                      d="m8.5 10 4 4 4-4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
+                >
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="mb-2"
+                    >
+                      <p>
+                        Impacted threads:
+                      </p>
+                      <p
+                        class="whitespace-pre"
+                      >
+                        - 
+                        mqt_js
+                         for
+                         
+                        0.5
+                        s
+                      </p>
+                    </div>
+                    High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+                  </div>
+                </div>
               </div>
             </div>
             <div
               class="h-2"
             />
             <div
-              class="flex flex-row w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="text-neutral-300"
+                class="cursor-pointer px-6 py-4 "
               >
-                Average RAM usage
-              </div>
-              <div
-                class="grow"
-              />
-              <p
-                class="text-neutral-300 whitespace-pre"
-              >
-                375.8 MB
-              </p>
-              <div
-                class="w-2"
-              />
-              <div
-                class="text-neutral-300"
-              >
-                 v 
+                <div
+                  class="flex flex-row w-full items-center"
+                >
+                  <div
+                    class="flex-1"
+                  >
+                    <div
+                      class="flex flex-row"
+                    >
+                      <div
+                        class="text-neutral-300"
+                      >
+                        Average RAM usage
+                      </div>
+                      <div
+                        class="grow"
+                      />
+                      <div
+                        class="text-neutral-300 whitespace-pre"
+                      >
+                        375.8 MB
+                      </div>
+                      <div
+                        class="w-2"
+                      />
+                    </div>
+                  </div>
+                  <svg
+                    class="rotate-0 transition-transform ease-linear"
+                    fill="none"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    width="24"
+                  >
+                    <path
+                      class="stroke-white"
+                      d="m8.5 10 4 4 4-4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
+                >
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
+                    <br />
+                    It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
+                     
+                    <a
+                      href="https://github.com/bamlab/android-performance-profiler/issues/11#issuecomment-1219317891"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      here for more details
+                    </a>
+                    )
+                  </div>
+                </div>
               </div>
             </div>
           </div>
