@@ -27,8 +27,8 @@ export const ReportSummaryCardInfoRow: FunctionComponent<Props> = ({
     [title, value]
   );
   return (
-    <div className="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer">
-      <Collapsible header={collapsibleHeader}>
+    <div className="w-full border rounded-lg border-gray-800">
+      <Collapsible header={collapsibleHeader} className="px-6 py-4 ">
         <div className="h-2" />
         <div className="text-neutral-400 text-sm">{explanation}</div>
       </Collapsible>

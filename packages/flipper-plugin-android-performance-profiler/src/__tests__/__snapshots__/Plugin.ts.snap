@@ -236,13 +236,13 @@ exports[`displays FPS data and scoring 2`] = `
               class="h-8"
             />
             <div
-              class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="cursor-pointer"
+                class="cursor-pointer px-6 py-4 "
               >
                 <div
-                  class="flex flex-row w-full"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -285,7 +285,8 @@ exports[`displays FPS data and scoring 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-linear"
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
                 >
                   <div
                     class="h-2"
@@ -304,13 +305,13 @@ exports[`displays FPS data and scoring 2`] = `
               class="h-2"
             />
             <div
-              class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="cursor-pointer"
+                class="cursor-pointer px-6 py-4 "
               >
                 <div
-                  class="flex flex-row w-full"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -353,7 +354,8 @@ exports[`displays FPS data and scoring 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-linear"
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
                 >
                   <div
                     class="h-2"
@@ -382,13 +384,13 @@ exports[`displays FPS data and scoring 2`] = `
               class="h-2"
             />
             <div
-              class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="cursor-pointer"
+                class="cursor-pointer px-6 py-4 "
               >
                 <div
-                  class="flex flex-row w-full"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -431,7 +433,8 @@ exports[`displays FPS data and scoring 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-linear"
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
                 >
                   <div
                     class="h-2"
@@ -455,13 +458,13 @@ exports[`displays FPS data and scoring 2`] = `
               class="h-2"
             />
             <div
-              class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="cursor-pointer"
+                class="cursor-pointer px-6 py-4 "
               >
                 <div
-                  class="flex flex-row w-full"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -508,7 +511,8 @@ exports[`displays FPS data and scoring 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-linear"
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
                 >
                   <div
                     class="h-2"
@@ -542,13 +546,13 @@ exports[`displays FPS data and scoring 2`] = `
               class="h-2"
             />
             <div
-              class="w-full px-6 py-4 border rounded-lg border-gray-800 cursor-pointer"
+              class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="cursor-pointer"
+                class="cursor-pointer px-6 py-4 "
               >
                 <div
-                  class="flex flex-row w-full"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -591,7 +595,8 @@ exports[`displays FPS data and scoring 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="max-h-0 overflow-hidden transition-[max-height] duration-500 ease-linear"
+                  class="overflow-hidden transition-[height] duration-300"
+                  style="height: 0px;"
                 >
                   <div
                     class="h-2"

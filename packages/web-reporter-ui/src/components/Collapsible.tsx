@@ -1,4 +1,11 @@
-import React, { FunctionComponent, PropsWithChildren, useState } from "react";
+import React, {
+  FunctionComponent,
+  PropsWithChildren,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { ArrowDownIcon } from "./icons/ArrowDownIcon";
 
 type Props = PropsWithChildren<{
@@ -6,15 +13,30 @@ type Props = PropsWithChildren<{
   className?: string;
 }>;
 
-export const Collapsible: FunctionComponent<Props> = ({ header, children }) => {
+export const Collapsible: FunctionComponent<Props> = ({
+  header,
+  className,
+  children,
+}) => {
+  const childrenContainerRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
+  const toggleIsExpanded = useCallback(
+    () => setIsExpanded((prevIsExpanded) => !prevIsExpanded),
+    []
+  );
+  const childrenContainerStyle = useMemo(
+    () => ({
+      height: isExpanded ? childrenContainerRef.current?.scrollHeight : 0,
+    }),
+    [isExpanded]
+  );
 
   return (
     <div
-      className="cursor-pointer"
-      onClick={() => setIsExpanded((prevIsExpanded) => !prevIsExpanded)}
+      className={`cursor-pointer ${className ? className : ""}`}
+      onClick={toggleIsExpanded}
     >
-      <div className="flex flex-row w-full">
+      <div className="flex flex-row w-full items-center">
         <div className="flex-1">{header}</div>
         <ArrowDownIcon
           className={`${
@@ -24,9 +46,9 @@ export const Collapsible: FunctionComponent<Props> = ({ header, children }) => {
       </div>
 
       <div
-        className={`${
-          isExpanded ? "max-h-72" : "max-h-0"
-        } overflow-hidden transition-[max-height] duration-500 ease-linear`}
+        ref={childrenContainerRef}
+        className={`overflow-hidden transition-[height] duration-300`}
+        style={childrenContainerStyle}
       >
         {children}
       </div>
