@@ -9,6 +9,7 @@ import { AveragedTestCaseResult } from "@perf-profiler/types";
 import { roundToDecimal } from "../../../utils/roundToDecimal";
 import { ReportSummaryCardInfoRow } from "./ReportSummaryCardInfoRow";
 import { Score } from "../../components/Score";
+import { Explanations } from "./Explanations";
 
 type Props = {
   averagedResult: AveragedTestCaseResult;
@@ -17,6 +18,23 @@ type Props = {
 export const ReportSummaryCard: FunctionComponent<Props> = ({
   averagedResult,
 }) => {
+  const averageTestRuntime = roundToDecimal(averagedResult.average.time, 0);
+  const averageFPS = roundToDecimal(
+    getAverageFPSUsage(averagedResult.average.measures),
+    1
+  );
+  const averageCPU = roundToDecimal(
+    getAverageCpuUsage(averagedResult.average.measures),
+    1
+  );
+  const averageTotalHighCPU = roundToDecimal(
+    getAverageTotalHighCPUUsage(averagedResult.averageHighCpuUsage) / 1000,
+    1
+  );
+  const averageRAM = roundToDecimal(
+    getAverageRAMUsage(averagedResult.average.measures),
+    1
+  );
   return (
     <div className="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0">
       <div className="text-neutral-300 text-center">{averagedResult.name}</div>
@@ -29,45 +47,42 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
 
       <ReportSummaryCardInfoRow
         title="Average Test Runtime"
-        value={roundToDecimal(averagedResult.average.time, 0)}
-        unit="ms"
+        value={`${averageTestRuntime} ms`}
+        explanation={<Explanations.AverageTestRuntimeExplanation />}
       />
       <div className="h-2" />
+
       <ReportSummaryCardInfoRow
         title="Average FPS"
-        value={roundToDecimal(
-          getAverageFPSUsage(averagedResult.average.measures),
-          1
-        )}
-        unit="FPS"
+        value={`${averageFPS} FPS`}
+        explanation={<Explanations.AverageFPSExplanation />}
       />
       <div className="h-2" />
+
       <ReportSummaryCardInfoRow
         title="Average CPU usage"
-        value={roundToDecimal(
-          getAverageCpuUsage(averagedResult.average.measures),
-          1
-        )}
-        unit="%"
+        value={`${averageCPU} %`}
+        explanation={<Explanations.AverageCPUUsageExplanation />}
       />
       <div className="h-2" />
+
       <ReportSummaryCardInfoRow
         title="High CPU Usage"
-        value={roundToDecimal(
-          getAverageTotalHighCPUUsage(averagedResult.averageHighCpuUsage) /
-            1000,
-          1
-        )}
-        unit="s"
+        value={
+          <div style={averageTotalHighCPU > 0 ? { color: "red" } : {}}>
+            {averageTotalHighCPU > 0 ? `${averageTotalHighCPU} s` : "None ✅"}
+          </div>
+        }
+        explanation={
+          <Explanations.HighCPUUsageExplanation result={averagedResult} />
+        }
       />
       <div className="h-2" />
+
       <ReportSummaryCardInfoRow
         title="Average RAM usage"
-        value={roundToDecimal(
-          getAverageRAMUsage(averagedResult.average.measures),
-          1
-        )}
-        unit="MB"
+        value={`${averageRAM} MB`}
+        explanation={<Explanations.AverageRAMUsageExplanation />}
       />
     </div>
   );
