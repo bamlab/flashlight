@@ -64,25 +64,24 @@ const HighCPUUsageExplanation = ({
 }: {
   result: AveragedTestCaseResult;
 }) => (
-  <div className="flex flex-row">
-    <div>
-      High CPU usage by a single process can cause app unresponsiveness, even
-      with low overall CPU usage. For instance, an overworked JS thread in a
-      React Native app may lead to unresponsiveness despite maintaining 60 FPS.
-    </div>
-    <div className="whitespace-pre pl-1">
+  <>
+    <div className="mb-2">
+      <p>Impacted threads:</p>
       {orderBy(
         Object.keys(result.averageHighCpuUsage),
         (processName) => result.averageHighCpuUsage[processName],
         "desc"
       ).map((processName) => (
-        <div key={processName}>
-          {sanitizeProcessName(processName)} for{" "}
+        <p key={processName} className="whitespace-pre">
+          - {sanitizeProcessName(processName)} for{" "}
           {roundToDecimal(result.averageHighCpuUsage[processName] / 1000, 1)}s
-        </div>
+        </p>
       ))}
     </div>
-  </div>
+    High CPU usage by a single process can cause app unresponsiveness, even with
+    low overall CPU usage. For instance, an overworked JS thread in a React
+    Native app may lead to unresponsiveness despite maintaining 60 FPS.
+  </>
 );
 
 export const Explanations = {

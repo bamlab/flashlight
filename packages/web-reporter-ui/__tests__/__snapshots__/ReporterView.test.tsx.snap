@@ -24,12 +24,14 @@ An app might run at 60FPS but might be using too much processing power, so it's 
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 3.2 s
-High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Impacted threads:
+- 
 mqt_js
  for
  
 3.2
 s
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 408.6 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -60,12 +62,14 @@ An app might run at 60FPS but might be using too much processing power, so it's 
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 1 s
-High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Impacted threads:
+- 
 mqt_js
  for
  
 1
 s
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 413.3 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -994,19 +998,18 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                 class="text-neutral-400 text-sm"
               >
                 <div
-                  class="flex flex-row"
+                  class="mb-2"
                 >
-                  <div>
-                    High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
-                  </div>
-                  <div
-                    class="whitespace-pre pl-1"
+                  <p>
+                    Impacted threads:
+                  </p>
+                  <p
+                    class="whitespace-pre"
                   >
-                    <div>
-                      mqt_js for 3.2s
-                    </div>
-                  </div>
+                    - mqt_js for 3.2s
+                  </p>
                 </div>
+                High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
               </div>
             </div>
           </div>
@@ -1416,19 +1419,18 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                 class="text-neutral-400 text-sm"
               >
                 <div
-                  class="flex flex-row"
+                  class="mb-2"
                 >
-                  <div>
-                    High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
-                  </div>
-                  <div
-                    class="whitespace-pre pl-1"
+                  <p>
+                    Impacted threads:
+                  </p>
+                  <p
+                    class="whitespace-pre"
                   >
-                    <div>
-                      mqt_js for 1s
-                    </div>
-                  </div>
+                    - mqt_js for 1s
+                  </p>
                 </div>
+                High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
               </div>
             </div>
           </div>
@@ -11510,12 +11512,14 @@ An app might run at 60FPS but might be using too much processing power, so it's 
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 3.5 s
-High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Impacted threads:
+- 
 mqt_js
  for
  
 3.5
 s
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 404.4 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -11546,12 +11550,14 @@ An app might run at 60FPS but might be using too much processing power, so it's 
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 1 s
-High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Impacted threads:
+- 
 mqt_js
  for
  
 1
 s
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 407.4 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -12193,19 +12199,18 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                 class="text-neutral-400 text-sm"
               >
                 <div
-                  class="flex flex-row"
+                  class="mb-2"
                 >
-                  <div>
-                    High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
-                  </div>
-                  <div
-                    class="whitespace-pre pl-1"
+                  <p>
+                    Impacted threads:
+                  </p>
+                  <p
+                    class="whitespace-pre"
                   >
-                    <div>
-                      mqt_js for 3.5s
-                    </div>
-                  </div>
+                    - mqt_js for 3.5s
+                  </p>
                 </div>
+                High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
               </div>
             </div>
           </div>
@@ -12615,19 +12620,18 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                 class="text-neutral-400 text-sm"
               >
                 <div
-                  class="flex flex-row"
+                  class="mb-2"
                 >
-                  <div>
-                    High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
-                  </div>
-                  <div
-                    class="whitespace-pre pl-1"
+                  <p>
+                    Impacted threads:
+                  </p>
+                  <p
+                    class="whitespace-pre"
                   >
-                    <div>
-                      mqt_js for 1s
-                    </div>
-                  </div>
+                    - mqt_js for 1s
+                  </p>
                 </div>
+                High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
               </div>
             </div>
           </div>
@@ -17720,17 +17724,20 @@ An app might run at 60FPS but might be using too much processing power, so it's 
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 4 s
-High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Impacted threads:
+- 
 mqt_js
  for
  
 2.3
 s
+- 
 UI Thread
  for
  
 1.8
 s
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 108.7 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -17761,22 +17768,26 @@ An app might run at 60FPS but might be using too much processing power, so it's 
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 5 s
-High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Impacted threads:
+- 
 UI Thread
  for
  
 3.3
 s
+- 
 mqt_js
  for
  
 1.5
 s
+- 
 fabric_bg
  for
  
 0.3
 s
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 109.5 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -18154,22 +18165,23 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                 class="text-neutral-400 text-sm"
               >
                 <div
-                  class="flex flex-row"
+                  class="mb-2"
                 >
-                  <div>
-                    High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
-                  </div>
-                  <div
-                    class="whitespace-pre pl-1"
+                  <p>
+                    Impacted threads:
+                  </p>
+                  <p
+                    class="whitespace-pre"
                   >
-                    <div>
-                      mqt_js for 2.3s
-                    </div>
-                    <div>
-                      UI Thread for 1.8s
-                    </div>
-                  </div>
+                    - mqt_js for 2.3s
+                  </p>
+                  <p
+                    class="whitespace-pre"
+                  >
+                    - UI Thread for 1.8s
+                  </p>
                 </div>
+                High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
               </div>
             </div>
           </div>
@@ -18579,25 +18591,28 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                 class="text-neutral-400 text-sm"
               >
                 <div
-                  class="flex flex-row"
+                  class="mb-2"
                 >
-                  <div>
-                    High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
-                  </div>
-                  <div
-                    class="whitespace-pre pl-1"
+                  <p>
+                    Impacted threads:
+                  </p>
+                  <p
+                    class="whitespace-pre"
                   >
-                    <div>
-                      UI Thread for 3.3s
-                    </div>
-                    <div>
-                      mqt_js for 1.5s
-                    </div>
-                    <div>
-                      fabric_bg for 0.3s
-                    </div>
-                  </div>
+                    - UI Thread for 3.3s
+                  </p>
+                  <p
+                    class="whitespace-pre"
+                  >
+                    - mqt_js for 1.5s
+                  </p>
+                  <p
+                    class="whitespace-pre"
+                  >
+                    - fabric_bg for 0.3s
+                  </p>
                 </div>
+                High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
               </div>
             </div>
           </div>
