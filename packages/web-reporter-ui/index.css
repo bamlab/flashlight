@@ -14,6 +14,13 @@ body {
 }
 
 @layer base {
+  html {
+    --bright-yellow: #fff500;
+    --bright-green: #00ff75;
+    --bright-magenta: #ff36af;
+    --bright-cyan: #00ffff;
+  }
+
   [data-theme="bright-yellow"] {
     --theme-color: #fff500;
     --theme-color-100: rgba(255, 245, 0, 0.13);
