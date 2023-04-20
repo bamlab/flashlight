@@ -7,9 +7,6 @@ import {
 import { CPUReport } from "./src/sections/CPUReport";
 import { ReportSummary } from "./src/sections/ReportSummary/ReportSummary.component";
 import { RAMReport } from "./src/sections/RAMReport";
-import { AccordionSectionTitle } from "./src/components/AccordionSectionTitle";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./src/sections/FPSReport";
@@ -70,26 +67,23 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
       <Header saveToZIPCallBack={saveResultsToZIP} />
       <Padding />
       <ReportSummary results={results} averagedResults={averagedResults} />
-      <Padding />
+      <div className="h-16" />
 
-      <Accordion defaultExpanded>
-        <AccordionSectionTitle title="FPS" />
-        <AccordionDetails>
-          <FPSReport results={averagedResults} />
-        </AccordionDetails>
-      </Accordion>
-      <Accordion defaultExpanded>
-        <AccordionSectionTitle title="CPU" />
-        <AccordionDetails>
-          <CPUReport results={averagedResults} />
-        </AccordionDetails>
-      </Accordion>
-      <Accordion defaultExpanded>
-        <AccordionSectionTitle title="RAM" />
-        <AccordionDetails>
-          <RAMReport results={averagedResults} />
-        </AccordionDetails>
-      </Accordion>
+      <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
+        <FPSReport results={averagedResults} />
+      </div>
+      <div className="h-10" />
+
+      <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
+        <CPUReport results={averagedResults} />
+      </div>
+      <div className="h-10" />
+
+      <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
+        <RAMReport results={averagedResults} />
+      </div>
+      <div className="h-10" />
+
       {hasVideos ? <VideoSection results={iterationResults} /> : null}
       <IterationSelector
         {...iterationSelector}
