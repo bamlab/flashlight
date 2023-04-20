@@ -13,6 +13,10 @@ import { TestCaseResult } from "@perf-profiler/types";
 import { Button } from "../components/Button";
 
 const getFileName = (path: string | undefined = ""): string => {
+  if (path.startsWith("http")) {
+    return path;
+  }
+
   const split = path.split("/");
   if (split.length === 1) {
     return path;
