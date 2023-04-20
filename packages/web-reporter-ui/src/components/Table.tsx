@@ -9,6 +9,7 @@ import TableSortLabel from "@mui/material/TableSortLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { visuallyHidden } from "@mui/utils";
 import { sanitizeProcessName } from "@perf-profiler/reporter";
+import { ArrowDownIcon } from "./icons/ArrowDownIcon";
 
 interface Data {
   name: string;
@@ -28,7 +29,7 @@ function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
 
 type Order = "asc" | "desc";
 
-function getComparator<Key extends keyof any>(
+function getComparator<Key extends string>(
   order: Order,
   orderBy: Key
 ): (
@@ -87,18 +88,27 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox"></TableCell>
+        <TableCell padding="checkbox" className="text-neutral-300"></TableCell>
         {props.headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? "right" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
+            className="text-neutral-300"
           >
             <TableSortLabel
               active={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : "asc"}
               onClick={createSortHandler(headCell.id)}
+              className="text-neutral-300 "
+              style={{
+                color: "white",
+                fontWeight: orderBy === headCell.id ? 700 : 400,
+              }}
+              IconComponent={({ className }) => (
+                <ArrowDownIcon className={className} />
+              )}
             >
               {headCell.label}
               {orderBy === headCell.id ? (
@@ -194,20 +204,34 @@ export default function EnhancedTable({
               key={row.name}
               selected={isItemSelected}
             >
-              <TableCell padding="checkbox">
+              <TableCell
+                padding="checkbox"
+                className="text-neutral-300 border-b-neutral-500"
+              >
                 <Checkbox
                   color="primary"
                   checked={isItemSelected}
                   inputProps={{
                     "aria-labelledby": labelId,
                   }}
+                  className="text-neutral-300"
                 />
               </TableCell>
-              <TableCell component="th" id={labelId} scope="row" padding="none">
+              <TableCell
+                component="th"
+                id={labelId}
+                scope="row"
+                padding="none"
+                className="text-neutral-300 border-b-neutral-500"
+              >
                 {sanitizeProcessName(row.name)}
               </TableCell>
               {headCells.slice(1).map((headCell) => (
-                <TableCell align="right" key={headCell.id}>
+                <TableCell
+                  align="right"
+                  key={headCell.id}
+                  className="text-neutral-300 border-b-neutral-500"
+                >
                   {row[headCell.id]}
                 </TableCell>
               ))}
