@@ -1,12 +1,13 @@
-import React, { useMemo, ComponentProps, useContext } from "react";
+import React, { useMemo, useContext } from "react";
 import ReactApexChart from "react-apexcharts";
 import {
   VideoEnabledContext,
   setVideoCurrentTime,
 } from "../../videoCurrentTimeContext";
+import { ApexOptions } from "apexcharts";
+import { themeColors } from "../theme/useThemeColor";
 
-export const PALETTE = ["#3a86ff", "#8338ec", "#ff006e", "#fb5607", "#ffbe0b"];
-
+export const PALETTE = [...themeColors.map((color) => `var(--${color})`)];
 const videoCurrentTimeAnnotation = {
   x: 0,
   strokeDashArray: 0,
@@ -79,7 +80,7 @@ export const Chart = ({
   });
   const videoEnabled = useContext(VideoEnabledContext);
 
-  const options = useMemo<ComponentProps<typeof ReactApexChart>["options"]>(
+  const options = useMemo<ApexOptions>(
     () => ({
       chart: {
         id: title,
@@ -103,18 +104,19 @@ export const Chart = ({
       title: {
         text: title,
         align: "left",
+        style: {
+          color: "#FFFFFF",
+          fontSize: "24px",
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 500,
+        },
       },
       dataLabels: {
         enabled: false,
       },
       stroke: {
         curve: "smooth",
-      },
-      grid: {
-        row: {
-          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-          opacity: 0.5,
-        },
+        width: 2,
       },
       xaxis: timeLimit
         ? { type: "numeric", min: 0, max: timeLimit }
@@ -124,8 +126,26 @@ export const Chart = ({
         max: maxValue,
       },
       colors,
+      legend: {
+        labels: {
+          colors: "#FFFFFF99",
+        },
+      },
+
+      grid: {
+        borderColor: "#FFFFFF33",
+        strokeDashArray: 3,
+      },
     }),
-    [title, timeLimit]
+    [
+      title,
+      interval,
+      videoEnabled,
+      setVideoCurrentTimeOnMouseHover,
+      timeLimit,
+      maxValue,
+      colors,
+    ]
   );
 
   return (
