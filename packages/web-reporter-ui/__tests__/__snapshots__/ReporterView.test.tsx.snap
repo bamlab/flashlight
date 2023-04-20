@@ -723,10 +723,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -792,10 +792,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -869,10 +869,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -942,10 +942,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -1025,10 +1025,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -1149,10 +1149,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -1218,10 +1218,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -1295,10 +1295,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -1368,10 +1368,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -1451,10 +1451,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -11934,10 +11934,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -12003,10 +12003,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -12080,10 +12080,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -12153,10 +12153,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -12236,10 +12236,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -12360,10 +12360,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -12429,10 +12429,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -12506,10 +12506,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -12579,10 +12579,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -12662,10 +12662,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -17910,10 +17910,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -17979,10 +17979,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -18056,10 +18056,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -18129,10 +18129,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -18217,10 +18217,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -18341,10 +18341,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -18410,10 +18410,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -18487,10 +18487,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -18560,10 +18560,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"
@@ -18653,10 +18653,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="w-full border rounded-lg border-gray-800"
         >
           <div
-            class="cursor-pointer px-6 py-4 "
+            class="px-6 py-4 "
           >
             <div
-              class="flex flex-row w-full items-center"
+              class="flex flex-row w-full items-center cursor-pointer"
             >
               <div
                 class="flex-1"

@@ -32,11 +32,11 @@ export const Collapsible: FunctionComponent<Props> = ({
   );
 
   return (
-    <div
-      className={`cursor-pointer ${className ? className : ""}`}
-      onClick={toggleIsExpanded}
-    >
-      <div className="flex flex-row w-full items-center">
+    <div className={className}>
+      <div
+        className="flex flex-row w-full items-center cursor-pointer"
+        onClick={toggleIsExpanded}
+      >
         <div className="flex-1">{header}</div>
         <ArrowDownIcon
           className={`${
