@@ -8,20 +8,23 @@ import { ApexOptions } from "apexcharts";
 import { themeColors } from "../theme/useThemeColor";
 
 export const PALETTE = [...themeColors.map((color) => `var(--${color})`)];
-const videoCurrentTimeAnnotation = {
+export const getPalette = (numberOfSeries: number) =>
+  numberOfSeries > 1 ? PALETTE : ["var(--theme-color)"];
+
+const getVideoCurrentTimeAnnotation = (numberOfSeries: number) => ({
   x: 0,
   strokeDashArray: 0,
-  borderColor: PALETTE[1],
+  borderColor: getPalette(numberOfSeries)[0],
   label: {
-    borderColor: PALETTE[1],
+    borderColor: getPalette(numberOfSeries)[0],
     style: {
       color: "#fff",
-      background: PALETTE[1],
+      background: getPalette(numberOfSeries)[0],
     },
     text: "Video",
     position: "right",
   },
-};
+});
 
 const useSetVideoTimeOnMouseHover = ({
   series,
@@ -99,7 +102,9 @@ export const Chart = ({
         },
       },
       annotations: {
-        xaxis: videoEnabled ? [videoCurrentTimeAnnotation] : [],
+        xaxis: videoEnabled
+          ? [getVideoCurrentTimeAnnotation(series.length)]
+          : [],
       },
       title: {
         text: title,
@@ -129,7 +134,7 @@ export const Chart = ({
         max: maxValue,
         labels: { style: { colors: "#FFFFFF99" } },
       },
-      colors,
+      colors: getPalette(series.length),
       legend: {
         labels: {
           colors: "#FFFFFF99",
@@ -148,7 +153,7 @@ export const Chart = ({
       setVideoCurrentTimeOnMouseHover,
       timeLimit,
       maxValue,
-      colors,
+      series.length,
     ]
   );
 
