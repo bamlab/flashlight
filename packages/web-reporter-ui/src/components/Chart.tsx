@@ -118,22 +118,16 @@ export const Chart = ({
         curve: "smooth",
         width: 2,
       },
-      xaxis: timeLimit
-        ? {
-            type: "numeric",
-            min: 0,
-            max: timeLimit,
-            labels: { style: { colors: "#FFFFFF99" } },
-          }
-        : {
-            type: "numeric",
-            min: 0,
-            max: undefined,
-            labels: { style: { colors: "#FFFFFF99" } },
-          },
+      xaxis: {
+        type: "numeric",
+        min: 0,
+        max: timeLimit || undefined,
+        labels: { style: { colors: "#FFFFFF99" } },
+      },
       yaxis: {
         min: 0,
         max: maxValue,
+        labels: { style: { colors: "#FFFFFF99" } },
       },
       colors,
       legend: {
