@@ -119,8 +119,18 @@ export const Chart = ({
         width: 2,
       },
       xaxis: timeLimit
-        ? { type: "numeric", min: 0, max: timeLimit }
-        : { type: "numeric", min: 0, max: undefined },
+        ? {
+            type: "numeric",
+            min: 0,
+            max: timeLimit,
+            labels: { style: { colors: "#FFFFFF99" } },
+          }
+        : {
+            type: "numeric",
+            min: 0,
+            max: undefined,
+            labels: { style: { colors: "#FFFFFF99" } },
+          },
       yaxis: {
         min: 0,
         max: maxValue,
