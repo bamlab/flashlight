@@ -50,26 +50,34 @@ export const checkResults = async ({
   }
 
   unzip(LOGS_FILE_TMP_PATH, tmpFolder);
-
   fs.rmSync(LOGS_FILE_TMP_PATH);
+
+  const processReportFile = (fileName: string) => {
+    const report: TestCaseResult = JSON.parse(
+      fs.readFileSync(`${tmpFolder}/${fileName}`).toString()
+    );
+    fs.writeFileSync(
+      `${reportDestinationPath}/${fileName}`,
+      JSON.stringify(changeVideoPathsOnResult(report, reportDestinationPath))
+    );
+  };
+
+  const processVideoFile = (fileName: string) => {
+    // When coming from AWS Device Farm, it seems the video is not encoded properly
+    Logger.info(`Fixing video metadata on ${fileName}...`);
+    // VSync 0 is important since we have variable frame rate from adb shell screenrecord
+    execSync(
+      `ffmpeg -vsync 0 -i ${tmpFolder}/${fileName} -c:v libx264 -crf 23 -c:a aac -b:a 128k ${reportDestinationPath}/${fileName} -loglevel error`
+    );
+  };
+
   fs.readdirSync(tmpFolder).forEach((file) => {
     if (file.endsWith(".json")) {
-      const report: TestCaseResult = JSON.parse(
-        fs.readFileSync(`${tmpFolder}/${file}`).toString()
-      );
-      fs.writeFileSync(
-        `${reportDestinationPath}/${file}`,
-        JSON.stringify(changeVideoPathsOnResult(report, reportDestinationPath))
-      );
+      processReportFile(file);
     }
 
     if (file.endsWith(".mp4")) {
-      // When coming from AWS Device Farm, it seems the video is not encoded properly
-      Logger.info(`Fixing video metadata on ${file}...`);
-      // VSync 0 is important since we have variable frame rate from adb shell screenrecord
-      execSync(
-        `ffmpeg -vsync 0 -i ${tmpFolder}/${file} -c:v libx264 -crf 23 -c:a aac -b:a 128k ${reportDestinationPath}/${file} -loglevel error`
-      );
+      processVideoFile(file);
     }
   });
 
