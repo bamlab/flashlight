@@ -27,6 +27,10 @@ export const checkResults = async ({
   const LOGS_FILE_TMP_PATH = `${tmpFolder}/logs.zip`;
   await downloadFile(url, LOGS_FILE_TMP_PATH);
 
+  if (!fs.existsSync(reportDestinationPath)) {
+    fs.mkdirSync(reportDestinationPath);
+  }
+
   unzip(LOGS_FILE_TMP_PATH, tmpFolder);
 
   fs.rmSync(LOGS_FILE_TMP_PATH);
