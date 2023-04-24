@@ -2,6 +2,7 @@ import React, {
   FunctionComponent,
   PropsWithChildren,
   useCallback,
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -13,23 +14,60 @@ type Props = PropsWithChildren<{
   className?: string;
 }>;
 
+type COLLAPSE_STATE = "EXPANDING" | "COLLAPSING" | "COLLAPSED" | "EXPANDED";
+
+const TRANSITION_DURATION = 300;
+
+const useCollapsible = () => {
+  const [collapseState, setCollapseState] =
+    useState<COLLAPSE_STATE>("COLLAPSED");
+
+  const toggleIsExpanded = useCallback(() => {
+    if (collapseState === "COLLAPSED") {
+      setCollapseState("EXPANDING");
+    } else if (collapseState === "EXPANDED") {
+      setCollapseState("COLLAPSING");
+    }
+  }, [collapseState]);
+
+  useEffect(() => {
+    let timeout: NodeJS.Timeout;
+
+    if (collapseState === "EXPANDING") {
+      setCollapseState("EXPANDED");
+    } else if (collapseState === "COLLAPSING") {
+      timeout = setTimeout(
+        () => setCollapseState("COLLAPSED"),
+        TRANSITION_DURATION
+      );
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [collapseState]);
+
+  return {
+    isExpanded: collapseState === "EXPANDED",
+    showChildren: ["EXPANDING", "EXPANDED", "COLLAPSING"].includes(
+      collapseState
+    ),
+    toggleIsExpanded,
+  };
+};
+
 export const Collapsible: FunctionComponent<Props> = ({
   header,
   className,
   children,
 }) => {
   const childrenContainerRef = useRef<HTMLDivElement>(null);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const toggleIsExpanded = useCallback(
-    () => setIsExpanded((prevIsExpanded) => !prevIsExpanded),
-    []
-  );
-  const childrenContainerStyle = useMemo(
-    () => ({
-      height: isExpanded ? childrenContainerRef.current?.scrollHeight : 0,
-    }),
-    [isExpanded]
-  );
+
+  const { isExpanded, showChildren, toggleIsExpanded } = useCollapsible();
+
+  const childrenContainerStyle = {
+    height: isExpanded ? childrenContainerRef.current?.scrollHeight : 0,
+  };
 
   return (
     <div className={className}>
@@ -50,7 +88,7 @@ export const Collapsible: FunctionComponent<Props> = ({
         className={`overflow-hidden transition-[height] duration-300`}
         style={childrenContainerStyle}
       >
-        {children}
+        {showChildren ? children : null}
       </div>
     </div>
   );
