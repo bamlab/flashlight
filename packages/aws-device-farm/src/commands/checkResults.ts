@@ -7,7 +7,23 @@ import { testRepository } from "../repositories";
 import { TMP_FOLDER } from "../TMP_FOLDER";
 import { downloadFile } from "../utils/downloadFile";
 import { unzip } from "../utils/unzip";
-import { execSync } from "child_process";
+import { spawn } from "child_process";
+
+const execAsync = (command: string) =>
+  new Promise<void>((resolve, reject) => {
+    const parts = command.split(" ");
+    const proc = spawn(parts[0], parts.slice(1));
+
+    proc.on("close", (code) => {
+      if (code !== 0) {
+        reject(new Error(`Command ${command} failed with code ${code}`));
+      } else {
+        resolve();
+      }
+    });
+
+    proc.on("error", reject);
+  });
 
 const changeVideoPathsOnResult = (
   report: TestCaseResult,
@@ -43,6 +59,7 @@ export const checkResults = async ({
   fs.mkdirSync(tmpFolder);
 
   const LOGS_FILE_TMP_PATH = `${tmpFolder}/logs.zip`;
+  Logger.info("Downloading artifacts...");
   await downloadFile(url, LOGS_FILE_TMP_PATH);
 
   if (!fs.existsSync(reportDestinationPath)) {
@@ -62,24 +79,29 @@ export const checkResults = async ({
     );
   };
 
-  const processVideoFile = (fileName: string) => {
+  const processVideoFile = async (fileName: string) => {
     // When coming from AWS Device Farm, it seems the video is not encoded properly
     Logger.info(`Fixing video metadata on ${fileName}...`);
     // VSync 0 is important since we have variable frame rate from adb shell screenrecord
-    execSync(
-      `ffmpeg -vsync 0 -i ${tmpFolder}/${fileName} -c:v libx264 -crf 23 -c:a aac -b:a 128k ${reportDestinationPath}/${fileName} -loglevel error`
+    await execAsync(
+      `ffmpeg -y -vsync 0 -i ${tmpFolder}/${fileName} -c:v libx264 -crf 23 -c:a aac -b:a 128k ${reportDestinationPath}/${fileName} -loglevel error`
     );
+    Logger.info(`Video ${fileName} processed ✅`);
   };
 
-  fs.readdirSync(tmpFolder).forEach((file) => {
-    if (file.endsWith(".json")) {
-      processReportFile(file);
-    }
+  await Promise.all(
+    fs.readdirSync(tmpFolder).map((file) => {
+      if (file.endsWith(".json")) {
+        return processReportFile(file);
+      }
 
-    if (file.endsWith(".mp4")) {
-      processVideoFile(file);
-    }
-  });
+      if (file.endsWith(".mp4")) {
+        return processVideoFile(file);
+      }
+
+      return Promise.resolve();
+    })
+  );
 
   fs.rmSync(tmpFolder, { recursive: true, force: true });
 
