@@ -9,6 +9,24 @@ import { downloadFile } from "../utils/downloadFile";
 import { unzip } from "../utils/unzip";
 import { execSync } from "child_process";
 
+const changeVideoPathsOnResult = (
+  report: TestCaseResult,
+  reportDestinationPath: string
+): TestCaseResult => ({
+  ...report,
+  iterations: report.iterations.map((iteration) => ({
+    ...iteration,
+    videoInfos: iteration.videoInfos
+      ? {
+          ...iteration.videoInfos,
+          path: `${reportDestinationPath}/${path.basename(
+            iteration.videoInfos.path
+          )}`,
+        }
+      : undefined,
+  })),
+});
+
 export const checkResults = async ({
   testRunArn,
   reportDestinationPath,
@@ -41,20 +59,7 @@ export const checkResults = async ({
       );
       fs.writeFileSync(
         `${reportDestinationPath}/${file}`,
-        JSON.stringify({
-          ...report,
-          iterations: report.iterations.map((iteration) => ({
-            ...iteration,
-            videoInfos: iteration.videoInfos
-              ? {
-                  ...iteration.videoInfos,
-                  path: `${reportDestinationPath}/${path.basename(
-                    iteration.videoInfos.path
-                  )}`,
-                }
-              : null,
-          })),
-        })
+        JSON.stringify(changeVideoPathsOnResult(report, reportDestinationPath))
       );
     }
 
@@ -67,6 +72,7 @@ export const checkResults = async ({
       );
     }
   });
+
   fs.rmSync(tmpFolder, { recursive: true, force: true });
 
   Logger.success(
