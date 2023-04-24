@@ -15,7 +15,6 @@ describe("checkResults", () => {
     if (fs.existsSync(FOLDER_WITH_SPACES)) {
       fs.rmSync(FOLDER_WITH_SPACES, { recursive: true, force: true });
     }
-    fs.mkdirSync(FOLDER_WITH_SPACES);
   });
 
   it("writes results to a folder with spaces", async () => {
