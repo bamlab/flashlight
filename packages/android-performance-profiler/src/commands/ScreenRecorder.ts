@@ -22,11 +22,19 @@ export class ScreenRecorder {
     this.fileName = file;
   }
 
-  async startRecording(): Promise<void> {
+  async startRecording({
+    bitRate = 8000000,
+    size,
+  }: {
+    bitRate?: number;
+    size?: string;
+  } = {}): Promise<void> {
     const filePath = `${RECORDING_FOLDER}${this.fileName}`;
 
     this.process = executeAsync(
-      `adb shell screenrecord ${filePath} --bit-rate 8000000 --verbose`
+      `adb shell screenrecord ${filePath} --bit-rate ${bitRate} ${
+        size ? `--size ${size}` : ""
+      } --verbose`
     );
 
     await new Promise<void>((resolve) => {

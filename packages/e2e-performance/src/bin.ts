@@ -51,10 +51,6 @@ flashlight test --bundleId com.example.app --testCommand "maestro test flow.yml"
     "Command to be run before each test iteration"
   )
   .option(
-    "--record",
-    "Allows you to record a video of the test. This is useful for debugging purposes."
-  )
-  .option(
     "--afterEachCommand <afterEachCommand>",
     "Command to be run after each test iteration"
   )
@@ -69,6 +65,18 @@ flashlight test --bundleId com.example.app --testCommand "maestro test flow.yml"
   .option(
     "--resultsTitle <resultsTitle>",
     "Result title that is displayed at the top of the report"
+  )
+  .option(
+    "--record",
+    "Allows you to record a video of the test. This is useful for debugging purposes."
+  )
+  .option(
+    "--recordBitRate <recordBitRate>",
+    "Set the video bit rate, in bits per second.  Value may be specified as bits or megabits, e.g. '4000000' is equivalent to '4M'."
+  )
+  .option(
+    "--recordSize <recordSize>",
+    'Set the video size, e.g. "1280x720".  Default is the device\'s main display resolution (if supported), 1280x720 if not.  For best results, use a size supported by the AVC encoder.'
   )
   .addOption(logLevelOption)
   .action(async (options) => {
@@ -88,6 +96,8 @@ const runTest = async ({
   afterEachCommand,
   logLevel,
   record,
+  recordSize,
+  recordBitRate,
 }: {
   duration?: number;
   iterationCount?: number;
@@ -101,6 +111,8 @@ const runTest = async ({
   resultsTitle?: string;
   logLevel?: string;
   record?: boolean;
+  recordSize?: string;
+  recordBitRate?: number;
 }) => {
   applyLogLevelOption(logLevel);
   if (beforeAllCommand) await executeAsync(beforeAllCommand);
@@ -126,7 +138,7 @@ const runTest = async ({
     },
     iterationCount,
     maxRetries,
-    record,
+    { record: !!record, size: recordSize, bitRate: recordBitRate },
     {
       path: resultsFilePath,
       title: resultsTitle,

@@ -22,13 +22,9 @@ const runTest = async () => {
     duration: 10000,
   };
 
-  const { writeResults } = await measurePerformance(
-    bundleId,
-    testCase,
-    3,
-    0,
-    true
-  );
+  const { writeResults } = await measurePerformance(bundleId, testCase, 3, 0, {
+    record: true,
+  });
   writeResults();
 };
 

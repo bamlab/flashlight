@@ -44,7 +44,7 @@ describe("measurePerformance", () => {
       },
       3,
       3,
-      false,
+      { record: false },
       {
         path: PATH,
         title: TITLE,
