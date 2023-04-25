@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.8.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.8.0...@perf-profiler/web-reporter-ui@0.8.1) (2023-04-25)
+
+### Bug Fixes
+
+- **web:** ensure thread table displays white colors ([fbf03c6](https://github.com/bamlab/android-performance-profiler/commit/fbf03c6bc169ca87a5e8621057ef8a2abe087a60))
+
 # [0.8.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.7.0...@perf-profiler/web-reporter-ui@0.8.0) (2023-04-25)
 
 ### Features
