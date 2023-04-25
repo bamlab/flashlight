@@ -10,7 +10,7 @@ import { RAMReport } from "./src/sections/RAMReport";
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./src/sections/FPSReport";
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Header from "./src/components/Header";
 import { exportRawDataToZIP } from "./utils/reportRawDataExport";
 import {

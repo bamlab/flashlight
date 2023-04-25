@@ -4,7 +4,7 @@ import { BundleIdSelector } from "./components/BundleIdSelector";
 import { StartButton } from "./components/StartButton";
 import { useMeasures } from "./useMeasures";
 import { ReporterView } from "@perf-profiler/web-reporter-ui";
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 import { Delete } from "@mui/icons-material";
 import { ScrollContainer } from "./components/ScrollContainer";
 
