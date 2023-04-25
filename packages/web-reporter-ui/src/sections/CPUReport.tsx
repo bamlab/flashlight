@@ -68,6 +68,7 @@ export const CPUReport = ({
         maxValue={100}
       />
       <Collapsible
+        unmountOnExit
         header={<div className="text-neutral-200 text-xl">{"Threads"}</div>}
         className="border rounded-lg border-gray-800 py-4 px-4"
       >
