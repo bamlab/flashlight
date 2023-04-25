@@ -1,7 +1,6 @@
 import React from "react";
 import { AveragedTestCaseResult, Measure } from "@perf-profiler/types";
 import { getAverageCpuUsagePerProcess } from "@perf-profiler/reporter";
-import { Paper, TableContainer } from "@mui/material";
 import { keyBy, uniq } from "lodash";
 import Table, { HeadCell } from "./Table";
 
@@ -80,16 +79,14 @@ export const ComparativeThreadTable = ({
   ];
 
   return (
-    <TableContainer component={Paper}>
-      <Table
-        headCells={headCells}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        rows={rows}
-        selected={selectedThreads}
-        setSelected={setSelectedThreads}
-      />
-    </TableContainer>
+    <Table
+      headCells={headCells}
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      rows={rows}
+      selected={selectedThreads}
+      setSelected={setSelectedThreads}
+    />
   );
 };
 
@@ -117,13 +114,11 @@ export const ThreadTable = ({
   }));
 
   return (
-    <TableContainer component={Paper}>
-      <Table
-        headCells={reportHeadCells}
-        rows={rows}
-        selected={selectedThreads}
-        setSelected={setSelectedThreads}
-      />
-    </TableContainer>
+    <Table
+      headCells={reportHeadCells}
+      rows={rows}
+      selected={selectedThreads}
+      setSelected={setSelectedThreads}
+    />
   );
 };

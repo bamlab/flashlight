@@ -1,26 +1,30 @@
-import React, { useMemo, ComponentProps, useContext } from "react";
+import React, { useMemo, useContext } from "react";
 import ReactApexChart from "react-apexcharts";
 import {
   VideoEnabledContext,
   setVideoCurrentTime,
 } from "../../videoCurrentTimeContext";
+import { ApexOptions } from "apexcharts";
+import { themeColors } from "../theme/useThemeColor";
 
-export const PALETTE = ["#3a86ff", "#8338ec", "#ff006e", "#fb5607", "#ffbe0b"];
+export const PALETTE = [...themeColors.map((color) => `var(--${color})`)];
+export const getPalette = (numberOfSeries: number) =>
+  numberOfSeries > 1 ? PALETTE : ["var(--theme-color)"];
 
-const videoCurrentTimeAnnotation = {
+const getVideoCurrentTimeAnnotation = (numberOfSeries: number) => ({
   x: 0,
   strokeDashArray: 0,
-  borderColor: PALETTE[1],
+  borderColor: getPalette(numberOfSeries)[0],
   label: {
-    borderColor: PALETTE[1],
+    borderColor: getPalette(numberOfSeries)[0],
     style: {
       color: "#fff",
-      background: PALETTE[1],
+      background: getPalette(numberOfSeries)[0],
     },
     text: "Video",
     position: "right",
   },
-};
+});
 
 const useSetVideoTimeOnMouseHover = ({
   series,
@@ -79,7 +83,7 @@ export const Chart = ({
   });
   const videoEnabled = useContext(VideoEnabledContext);
 
-  const options = useMemo<ComponentProps<typeof ReactApexChart>["options"]>(
+  const options = useMemo<ApexOptions>(
     () => ({
       chart: {
         id: title,
@@ -98,34 +102,59 @@ export const Chart = ({
         },
       },
       annotations: {
-        xaxis: videoEnabled ? [videoCurrentTimeAnnotation] : [],
+        xaxis: videoEnabled
+          ? [getVideoCurrentTimeAnnotation(series.length)]
+          : [],
       },
       title: {
         text: title,
         align: "left",
+        style: {
+          color: "#FFFFFF",
+          fontSize: "24px",
+          fontFamily: "Inter, sans-serif",
+          fontWeight: 500,
+        },
       },
       dataLabels: {
         enabled: false,
       },
       stroke: {
         curve: "smooth",
+        width: 2,
       },
-      grid: {
-        row: {
-          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-          opacity: 0.5,
-        },
+      xaxis: {
+        type: "numeric",
+        min: 0,
+        max: timeLimit || undefined,
+        labels: { style: { colors: "#FFFFFF99" } },
       },
-      xaxis: timeLimit
-        ? { type: "numeric", min: 0, max: timeLimit }
-        : { type: "numeric", min: 0, max: undefined },
       yaxis: {
         min: 0,
         max: maxValue,
+        labels: { style: { colors: "#FFFFFF99" } },
       },
-      colors,
+      colors: getPalette(series.length),
+      legend: {
+        labels: {
+          colors: "#FFFFFF99",
+        },
+      },
+
+      grid: {
+        borderColor: "#FFFFFF33",
+        strokeDashArray: 3,
+      },
     }),
-    [title, timeLimit]
+    [
+      title,
+      interval,
+      videoEnabled,
+      setVideoCurrentTimeOnMouseHover,
+      timeLimit,
+      maxValue,
+      series.length,
+    ]
   );
 
   return (

@@ -2,8 +2,8 @@ import {
   ArrowBackIosNewOutlined,
   ArrowForwardIosOutlined,
 } from "@mui/icons-material";
-import { Button, Switch, Typography, useTheme } from "@mui/material";
 import React, { useState } from "react";
+import { Switch } from "./Switch";
 
 export const useIterationSelector = (iterationCount: number) => {
   const [iterationIndex, setIterationIndex] = useState(0);
@@ -32,26 +32,16 @@ type IterationSelectorProps = {
 export const ITERATION_SELECTOR_HEIGHT = 50;
 
 const Footer = ({ children }: { children: React.ReactNode }) => {
-  const footerColor = useTheme().palette.grey[400];
-
   return (
     <>
       <div style={{ height: ITERATION_SELECTOR_HEIGHT }} />
       <div
+        className="bg-dark-charcoal fixed items-center justify-center flex w-full bottom-0 left-0 right-0 shadow-lg z-50"
         style={{
-          position: "fixed",
-          backgroundColor: footerColor,
+          height: ITERATION_SELECTOR_HEIGHT,
           boxShadow: `0px 0px ${
             ITERATION_SELECTOR_HEIGHT / 2
-          }px 0px ${footerColor}`,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          height: ITERATION_SELECTOR_HEIGHT,
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          }px 0px rgb(19 19 19)`,
         }}
       >
         {children}
@@ -73,28 +63,23 @@ export const IterationSelector = ({
   return (
     <Footer>
       <Switch
-        defaultChecked
-        inputProps={{
-          "aria-label": showAverage
-            ? "Show each iteration individually"
-            : "Show average",
-        }}
-        onChange={(_, checked) => setShowAverage(checked)}
+        value={showAverage}
+        onChange={setShowAverage}
+        accessibilityLabel={
+          showAverage ? "Show each iteration individually" : "Show average"
+        }
       />
+      <div className="w-4" />
       {!showAverage && (
-        <Button
-          onClick={goToPreviousIteration}
+        <button
           aria-label="See previous iteration"
+          onClick={goToPreviousIteration}
+          className="ml-2 mr-2"
         >
-          <ArrowBackIosNewOutlined />
-        </Button>
+          <ArrowBackIosNewOutlined className="text-theme-color" />
+        </button>
       )}
-      <Typography
-        color="#333"
-        style={{
-          textAlign: "center",
-        }}
-      >
+      <div className="text-[#8B8B8B] font-medium">
         {showAverage ? (
           `Showing average of ${iterationCount} test iterations`
         ) : (
@@ -104,11 +89,15 @@ export const IterationSelector = ({
             <span style={{ fontWeight: "bold" }}>{iterationCount}</span>
           </span>
         )}
-      </Typography>
+      </div>
       {!showAverage && (
-        <Button onClick={goToNextIteration} aria-label="See next iteration">
-          <ArrowForwardIosOutlined />
-        </Button>
+        <button
+          onClick={goToNextIteration}
+          aria-label="See next iteration"
+          className="ml-2 mr-2"
+        >
+          <ArrowForwardIosOutlined className="text-theme-color" />
+        </button>
       )}
     </Footer>
   );

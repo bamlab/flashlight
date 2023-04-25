@@ -19,8 +19,6 @@ export const FPSReport = ({
   }));
 
   return (
-    <>
-      <Chart title="FPS" height={500} interval={500} series={ram} />
-    </>
+    <Chart title="Frame rate (FPS)" height={500} interval={500} series={ram} />
   );
 };
