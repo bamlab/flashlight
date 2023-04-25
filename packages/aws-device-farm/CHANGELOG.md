@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.7.0...@perf-profiler/aws-device-farm@0.7.1) (2023-04-25)
+
+### Bug Fixes
+
+- **aws:** create report destination folder if not existing ([923f9c2](https://github.com/bamlab/android-performance-profiler/commit/923f9c23c293104af79bb8594bd4deefab9fa03b))
+
 # [0.7.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.6.0...@perf-profiler/aws-device-farm@0.7.0) (2023-04-18)
 
 ### Features

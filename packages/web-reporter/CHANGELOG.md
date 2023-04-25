@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.5.0...@perf-profiler/web-reporter@0.6.0) (2023-04-25)
+
+### Features
+
+- **web:** redesign reports/single card summary design ([#88](https://github.com/bamlab/android-performance-profiler/issues/88)) ([337c585](https://github.com/bamlab/android-performance-profiler/commit/337c585d1e72b55fd13e5acd0010f79fba43ffc2))
+
 # [0.5.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.4.0...@perf-profiler/web-reporter@0.5.0) (2023-04-18)
 
 ### Features
