@@ -18,6 +18,10 @@ module.exports = {
         ],
       },
     ],
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }]
   },
   overrides: [
     {

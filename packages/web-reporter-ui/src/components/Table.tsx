@@ -88,7 +88,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox" className="text-neutral-300"></TableCell>
+        <TableCell padding="checkbox" className="text-neutral-300" />
         {props.headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
