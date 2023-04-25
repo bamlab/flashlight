@@ -3,7 +3,6 @@ import React, {
   PropsWithChildren,
   useCallback,
   useEffect,
-  useMemo,
   useRef,
   useState,
 } from "react";
@@ -12,13 +11,14 @@ import { ArrowDownIcon } from "./icons/ArrowDownIcon";
 type Props = PropsWithChildren<{
   header: React.ReactNode;
   className?: string;
+  unmountOnExit?: boolean;
 }>;
 
 type COLLAPSE_STATE = "EXPANDING" | "COLLAPSING" | "COLLAPSED" | "EXPANDED";
 
 const TRANSITION_DURATION = 300;
 
-const useCollapsible = () => {
+const useCollapsible = (unmountOnExit: boolean) => {
   const [collapseState, setCollapseState] =
     useState<COLLAPSE_STATE>("COLLAPSED");
 
@@ -49,9 +49,9 @@ const useCollapsible = () => {
 
   return {
     isExpanded: collapseState === "EXPANDED",
-    showChildren: ["EXPANDING", "EXPANDED", "COLLAPSING"].includes(
-      collapseState
-    ),
+    showChildren: unmountOnExit
+      ? ["EXPANDING", "EXPANDED", "COLLAPSING"].includes(collapseState)
+      : true,
     toggleIsExpanded,
   };
 };
@@ -60,10 +60,12 @@ export const Collapsible: FunctionComponent<Props> = ({
   header,
   className,
   children,
+  unmountOnExit = false,
 }) => {
   const childrenContainerRef = useRef<HTMLDivElement>(null);
 
-  const { isExpanded, showChildren, toggleIsExpanded } = useCollapsible();
+  const { isExpanded, showChildren, toggleIsExpanded } =
+    useCollapsible(unmountOnExit);
 
   const childrenContainerStyle = {
     height: isExpanded ? childrenContainerRef.current?.scrollHeight : 0,
