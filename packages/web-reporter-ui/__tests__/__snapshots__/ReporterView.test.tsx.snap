@@ -11289,37 +11289,30 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
     style="height: 50px;"
   />
   <div
-    style="position: fixed; background-color: rgb(189, 189, 189); box-shadow: 0px 0px 25px 0px #bdbdbd; left: 0px; right: 0px; bottom: 0px; height: 50px; width: 100%; display: flex; justify-content: center; align-items: center;"
+    class="bg-dark-charcoal fixed items-center justify-center flex w-full bottom-0 left-0 right-0 shadow-lg z-50"
+    style="height: 50px; box-shadow: 0px 0px 25px 0px rgb(19 19 19);"
   >
-    <span
-      class="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+    <label
+      class="inline-flex relative items-center cursor-pointer"
     >
-      <span
-        class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root Mui-checked css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
-      >
-        <input
-          aria-label="Show each iteration individually"
-          checked=""
-          class="MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3"
-          type="checkbox"
-        />
-        <span
-          class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+      <input
+        aria-label="Show each iteration individually"
+        checked=""
+        class="sr-only peer"
+        type="checkbox"
       />
-    </span>
-    <p
-      class="MuiTypography-root MuiTypography-body1 css-13wn3so-MuiTypography-root"
-      style="text-align: center;"
+      <div
+        class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-theme-color"
+      />
+    </label>
+    <div
+      class="w-4"
+    />
+    <div
+      class="text-[#8B8B8B] font-medium"
     >
       Showing average of 10 test iterations
-    </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -17282,40 +17275,32 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
     style="height: 50px;"
   />
   <div
-    style="position: fixed; background-color: rgb(189, 189, 189); box-shadow: 0px 0px 25px 0px #bdbdbd; left: 0px; right: 0px; bottom: 0px; height: 50px; width: 100%; display: flex; justify-content: center; align-items: center;"
+    class="bg-dark-charcoal fixed items-center justify-center flex w-full bottom-0 left-0 right-0 shadow-lg z-50"
+    style="height: 50px; box-shadow: 0px 0px 25px 0px rgb(19 19 19);"
   >
-    <span
-      class="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+    <label
+      class="inline-flex relative items-center cursor-pointer"
     >
-      <span
-        class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
-      >
-        <input
-          aria-label="Show average"
-          checked=""
-          class="MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3"
-          type="checkbox"
-        />
-        <span
-          class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+      <input
+        aria-label="Show average"
+        checked=""
+        class="sr-only peer"
+        type="checkbox"
       />
-    </span>
+      <div
+        class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-theme-color"
+      />
+    </label>
+    <div
+      class="w-4"
+    />
     <button
       aria-label="See previous iteration"
-      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1b68ns9-MuiButtonBase-root-MuiButton-root"
-      tabindex="0"
-      type="button"
+      class="ml-2 mr-2"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium text-theme-color css-i4bv87-MuiSvgIcon-root"
         data-testid="ArrowBackIosNewOutlinedIcon"
         focusable="false"
         viewBox="0 0 24 24"
@@ -17324,13 +17309,9 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           d="M17.77 3.77 16 2 6 12l10 10 1.77-1.77L9.54 12z"
         />
       </svg>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
     </button>
-    <p
-      class="MuiTypography-root MuiTypography-body1 css-13wn3so-MuiTypography-root"
-      style="text-align: center;"
+    <div
+      class="text-[#8B8B8B] font-medium"
     >
       <span>
         Iteration 
@@ -17346,16 +17327,14 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           10
         </span>
       </span>
-    </p>
+    </div>
     <button
       aria-label="See next iteration"
-      class="MuiButton-root MuiButton-text MuiButton-textPrimary MuiButton-sizeMedium MuiButton-textSizeMedium MuiButtonBase-root  css-1b68ns9-MuiButtonBase-root-MuiButton-root"
-      tabindex="0"
-      type="button"
+      class="ml-2 mr-2"
     >
       <svg
         aria-hidden="true"
-        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+        class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium text-theme-color css-i4bv87-MuiSvgIcon-root"
         data-testid="ArrowForwardIosOutlinedIcon"
         focusable="false"
         viewBox="0 0 24 24"
@@ -17364,9 +17343,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           d="M6.23 20.23 8 22l10-10L8 2 6.23 3.77 14.46 12z"
         />
       </svg>
-      <span
-        class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-      />
     </button>
   </div>
 </DocumentFragment>
@@ -20364,37 +20340,30 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
     style="height: 50px;"
   />
   <div
-    style="position: fixed; background-color: rgb(189, 189, 189); box-shadow: 0px 0px 25px 0px #bdbdbd; left: 0px; right: 0px; bottom: 0px; height: 50px; width: 100%; display: flex; justify-content: center; align-items: center;"
+    class="bg-dark-charcoal fixed items-center justify-center flex w-full bottom-0 left-0 right-0 shadow-lg z-50"
+    style="height: 50px; box-shadow: 0px 0px 25px 0px rgb(19 19 19);"
   >
-    <span
-      class="MuiSwitch-root MuiSwitch-sizeMedium css-julti5-MuiSwitch-root"
+    <label
+      class="inline-flex relative items-center cursor-pointer"
     >
-      <span
-        class="MuiSwitch-switchBase MuiSwitch-colorPrimary MuiButtonBase-root MuiSwitch-switchBase MuiSwitch-colorPrimary PrivateSwitchBase-root Mui-checked css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase"
-      >
-        <input
-          aria-label="Show each iteration individually"
-          checked=""
-          class="MuiSwitch-input PrivateSwitchBase-input css-1m9pwf3"
-          type="checkbox"
-        />
-        <span
-          class="MuiSwitch-thumb css-jsexje-MuiSwitch-thumb"
-        />
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </span>
-      <span
-        class="MuiSwitch-track css-1yjjitx-MuiSwitch-track"
+      <input
+        aria-label="Show each iteration individually"
+        checked=""
+        class="sr-only peer"
+        type="checkbox"
       />
-    </span>
-    <p
-      class="MuiTypography-root MuiTypography-body1 css-13wn3so-MuiTypography-root"
-      style="text-align: center;"
+      <div
+        class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-theme-color"
+      />
+    </label>
+    <div
+      class="w-4"
+    />
+    <div
+      class="text-[#8B8B8B] font-medium"
     >
       Showing average of 2 test iterations
-    </p>
+    </div>
   </div>
 </DocumentFragment>
 `;
