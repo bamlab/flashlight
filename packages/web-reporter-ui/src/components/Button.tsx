@@ -6,7 +6,7 @@ export const Button = ({
   disabled,
 }: {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLElement>) => void;
   disabled?: boolean;
   className?: string;
 }) => {

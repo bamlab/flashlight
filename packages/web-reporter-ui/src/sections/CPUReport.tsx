@@ -3,10 +3,8 @@ import { AveragedTestCaseResult, Measure } from "@perf-profiler/types";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
 import { Chart, PALETTE } from "../components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
-import { AccordionSectionTitle } from "../components/AccordionSectionTitle";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
 import { roundToDecimal } from "../../utils/roundToDecimal";
+import { Collapsible } from "../components/Collapsible";
 
 const buildSeriesData = (
   measures: Measure[],
@@ -69,24 +67,25 @@ export const CPUReport = ({
         }
         maxValue={100}
       />
-      <Accordion TransitionProps={{ unmountOnExit: true }}>
-        <AccordionSectionTitle title="Threads"></AccordionSectionTitle>
-        <AccordionDetails>
-          {results.length > 1 ? (
-            <ComparativeThreadTable
-              results={results}
-              selectedThreads={selectedThreads}
-              setSelectedThreads={setSelectedThreads}
-            />
-          ) : (
-            <ThreadTable
-              measures={results[0].average.measures}
-              selectedThreads={selectedThreads}
-              setSelectedThreads={setSelectedThreads}
-            />
-          )}
-        </AccordionDetails>
-      </Accordion>
+      <Collapsible
+        unmountOnExit
+        header={<div className="text-neutral-200 text-xl">{"Threads"}</div>}
+        className="border rounded-lg border-gray-800 py-4 px-4"
+      >
+        {results.length > 1 ? (
+          <ComparativeThreadTable
+            results={results}
+            selectedThreads={selectedThreads}
+            setSelectedThreads={setSelectedThreads}
+          />
+        ) : (
+          <ThreadTable
+            measures={results[0].average.measures}
+            selectedThreads={selectedThreads}
+            setSelectedThreads={setSelectedThreads}
+          />
+        )}
+      </Collapsible>
     </>
   );
 };

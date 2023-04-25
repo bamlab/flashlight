@@ -9,17 +9,8 @@ import {
   setVideoCurrentTime,
   useListenToVideoCurrentTime,
 } from "../../videoCurrentTimeContext";
-import {
-  Accordion,
-  AccordionDetails,
-  Button,
-  ButtonGroup,
-  Typography,
-  useTheme,
-} from "@mui/material";
-import { AccordionSectionTitle } from "../components/AccordionSectionTitle";
-import { ITERATION_SELECTOR_HEIGHT } from "../components/IterationSelector";
 import { TestCaseResult } from "@perf-profiler/types";
+import { Button } from "../components/Button";
 
 const getFileName = (path: string | undefined = ""): string => {
   const split = path.split("/");
@@ -72,20 +63,19 @@ const Video = forwardRef<
   );
 
   return (
-    <video
-      ref={videoRef}
-      width={VIDEO_SIZE.width}
-      height={VIDEO_SIZE.height}
-      controls
-      style={{ backgroundColor: "black" }}
-    >
-      <source src={getFileName(video.path)} type="video/mp4" />
-    </video>
+    <div className="flex flex-1 relative">
+      <video
+        ref={videoRef}
+        controls
+        className="bg-black w-full h-full absolute top-0 bottom-0 left-0 right-0"
+      >
+        <source src={getFileName(video.path)} type="video/mp4" />
+      </video>
+    </div>
   );
 });
 
 export const VideoSection = ({ results }: { results: TestCaseResult[] }) => {
-  const theme = useTheme();
   const videoRefs = results.map(() => React.createRef<VideoHandle>());
 
   const resetVideos = () => {
@@ -106,79 +96,66 @@ export const VideoSection = ({ results }: { results: TestCaseResult[] }) => {
   }, []);
 
   return (
-    <>
-      <div style={{ height: ITERATION_SELECTOR_HEIGHT }} />
-      <Accordion
-        defaultExpanded
-        sx={{
-          position: "fixed",
-          bottom: ITERATION_SELECTOR_HEIGHT,
-          right: 0,
-          zIndex: 20,
-          border: `2px solid ${theme.palette.grey[400]}`,
-        }}
-      >
-        <AccordionSectionTitle title="Videos" />
-        <AccordionDetails>
-          {results.length > 1 ? (
-            <ButtonGroup variant="contained" style={{ marginLeft: 10 }}>
-              <Button color="secondary" onClick={resetVideos}>
-                Reset
-              </Button>
-              <Button color="primary" onClick={playVideos}>
-                Play all
-              </Button>
-            </ButtonGroup>
-          ) : null}
-          <div
-            style={{
-              flexDirection: "row",
-              display: "flex",
-            }}
-          >
-            {results.map(({ name, iterations: [iteration] }, index) => {
-              const video = iteration.videoInfos;
-
-              return (
-                <div key={index} style={{ width: VIDEO_SIZE.width }}>
-                  {results.length > 1 ? (
-                    <Typography
-                      variant="h6"
-                      style={{
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        paddingLeft: 10,
-                        paddingRight: 10,
-                      }}
-                    >
-                      {name}
-                    </Typography>
-                  ) : null}
-                  {video ? (
-                    <Video
-                      video={{
-                        ...video,
-                        startOffset:
-                          /**
-                           * Point for x = 0 in the graph actually corresponds to the first 500ms of measure
-                           * So we need to add 500ms (iteration.measures[0].time) to the startOffset to
-                           * have the video start at the right time
-                           *
-                           * we divide by 2 at the moment to center the measure in the video but we should
-                           * rethink how we display the graph
-                           */
-                          video.startOffset + iteration.measures[0].time / 2,
-                      }}
-                      key={video.path}
-                      ref={videoRefs[index]}
-                    />
-                  ) : null}
-                </div>
-              );
-            })}
+    <div className="flex flex-col h-full justify-center bg-dark-charcoal p-8 overflow-x-auto flex-shrink-0 max-w-[50vw]">
+      <div className="flex flex-row">
+        {results.length > 1 ? (
+          <div className="flex flex-row">
+            <Button
+              onClick={(event) => {
+                event.stopPropagation();
+                resetVideos();
+              }}
+            >
+              Reset
+            </Button>
+            <div className="w-2" />
+            <Button
+              onClick={(event) => {
+                event.stopPropagation();
+                playVideos();
+              }}
+            >
+              Play all
+            </Button>
           </div>
-        </AccordionDetails>
-      </Accordion>
-    </>
+        ) : null}
+      </div>
+      <div className="flex flex-1 flex-row max-h-[600px]">
+        {results.map(({ name, iterations: [iteration] }, index) => {
+          const video = iteration.videoInfos;
+
+          return (
+            <div
+              key={index}
+              style={{ width: VIDEO_SIZE.width }}
+              className="flex flex-1 flex-col"
+            >
+              {results.length > 1 ? (
+                <h6 className="text-white truncate m-1">{name}</h6>
+              ) : null}
+              {video ? (
+                <Video
+                  video={{
+                    ...video,
+                    startOffset:
+                      /**
+                       * Point for x = 0 in the graph actually corresponds to the first 500ms of measure
+                       * So we need to add 500ms (iteration.measures[0].time) to the startOffset to
+                       * have the video start at the right time
+                       *
+                       * we divide by 2 at the moment to center the measure in the video but we should
+                       * rethink how we display the graph
+                       */
+                      video.startOffset + iteration.measures[0].time / 2,
+                  }}
+                  key={video.path}
+                  ref={videoRefs[index]}
+                />
+              ) : null}
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 };
