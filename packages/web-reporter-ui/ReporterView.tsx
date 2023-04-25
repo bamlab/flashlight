@@ -65,7 +65,7 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
     <>
       <VideoEnabledContext.Provider value={hasVideos}>
         <div className="flex flex-row w-full h-[calc(100%-50px)] overflow-y-hidden">
-          <div className="overflow-x-auto overflow-y-auto w-full">
+          <div className="overflow-auto w-full">
             <Header saveToZIPCallBack={saveResultsToZIP} />
             <Padding />
             <ReportSummary

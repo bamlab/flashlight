@@ -643,7 +643,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
     class="flex flex-row w-full h-[calc(100%-50px)] overflow-y-hidden"
   >
     <div
-      class="overflow-x-auto overflow-y-auto w-full"
+      class="overflow-auto w-full"
     >
       <button
         aria-haspopup="true"
@@ -11681,7 +11681,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
     class="flex flex-row w-full h-[calc(100%-50px)] overflow-y-hidden"
   >
     <div
-      class="overflow-x-auto overflow-y-auto w-full"
+      class="overflow-auto w-full"
     >
       <button
         aria-haspopup="true"
@@ -17473,7 +17473,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
     class="flex flex-row w-full h-[calc(100%-50px)] overflow-y-hidden"
   >
     <div
-      class="overflow-x-auto overflow-y-auto w-full"
+      class="overflow-auto w-full"
     >
       <button
         aria-haspopup="true"
