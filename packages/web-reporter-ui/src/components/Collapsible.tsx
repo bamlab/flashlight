@@ -72,11 +72,8 @@ export const Collapsible: FunctionComponent<Props> = ({
   };
 
   return (
-    <div className={className}>
-      <div
-        className="flex flex-row w-full items-center cursor-pointer"
-        onClick={toggleIsExpanded}
-      >
+    <div className={`${className} cursor-pointer`} onClick={toggleIsExpanded}>
+      <div className="flex flex-row w-full items-center">
         <div className="flex-1">{header}</div>
         <ArrowDownIcon
           className={`${
@@ -87,8 +84,9 @@ export const Collapsible: FunctionComponent<Props> = ({
 
       <div
         ref={childrenContainerRef}
-        className={`overflow-hidden transition-[height] duration-300`}
+        className={`cursor-default overflow-hidden transition-[height] duration-300`}
         style={childrenContainerStyle}
+        onClick={(event) => event.stopPropagation()}
       >
         {showChildren ? children : null}
       </div>

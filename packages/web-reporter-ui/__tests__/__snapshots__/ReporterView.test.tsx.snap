@@ -726,10 +726,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -772,7 +772,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -795,10 +795,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -841,7 +841,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -872,10 +872,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -918,7 +918,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -945,10 +945,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -995,7 +995,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -1028,10 +1028,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -1074,7 +1074,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -1152,10 +1152,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -1198,7 +1198,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -1221,10 +1221,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -1267,7 +1267,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -1298,10 +1298,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -1344,7 +1344,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -1371,10 +1371,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -1421,7 +1421,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -1454,10 +1454,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -1500,7 +1500,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -1559,10 +1559,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           type="line"
         />
         <div
-          class="border rounded-lg border-gray-800 py-4 px-4"
+          class="border rounded-lg border-gray-800 py-4 px-4 cursor-pointer"
         >
           <div
-            class="flex flex-row w-full items-center cursor-pointer"
+            class="flex flex-row w-full items-center"
           >
             <div
               class="flex-1"
@@ -1590,7 +1590,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
             </svg>
           </div>
           <div
-            class="overflow-hidden transition-[height] duration-300"
+            class="cursor-default overflow-hidden transition-[height] duration-300"
             style="height: 0px;"
           >
             <table
@@ -11764,10 +11764,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -11810,7 +11810,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -11833,10 +11833,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -11879,7 +11879,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -11910,10 +11910,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -11956,7 +11956,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -11983,10 +11983,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -12033,7 +12033,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -12066,10 +12066,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -12112,7 +12112,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -12190,10 +12190,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -12236,7 +12236,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -12259,10 +12259,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -12305,7 +12305,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -12336,10 +12336,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -12382,7 +12382,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -12409,10 +12409,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -12459,7 +12459,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -12492,10 +12492,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -12538,7 +12538,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -12597,10 +12597,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           type="line"
         />
         <div
-          class="border rounded-lg border-gray-800 py-4 px-4"
+          class="border rounded-lg border-gray-800 py-4 px-4 cursor-pointer"
         >
           <div
-            class="flex flex-row w-full items-center cursor-pointer"
+            class="flex flex-row w-full items-center"
           >
             <div
               class="flex-1"
@@ -12628,7 +12628,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
             </svg>
           </div>
           <div
-            class="overflow-hidden transition-[height] duration-300"
+            class="cursor-default overflow-hidden transition-[height] duration-300"
             style="height: 0px;"
           >
             <table
@@ -17556,10 +17556,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -17602,7 +17602,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -17625,10 +17625,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -17671,7 +17671,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -17702,10 +17702,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -17748,7 +17748,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -17775,10 +17775,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -17825,7 +17825,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -17863,10 +17863,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -17909,7 +17909,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -17987,10 +17987,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -18033,7 +18033,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -18056,10 +18056,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -18102,7 +18102,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -18133,10 +18133,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -18179,7 +18179,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -18206,10 +18206,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -18256,7 +18256,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -18299,10 +18299,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="w-full border rounded-lg border-gray-800"
             >
               <div
-                class="px-6 py-4 "
+                class="px-6 py-4  cursor-pointer"
               >
                 <div
-                  class="flex flex-row w-full items-center cursor-pointer"
+                  class="flex flex-row w-full items-center"
                 >
                   <div
                     class="flex-1"
@@ -18345,7 +18345,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   </svg>
                 </div>
                 <div
-                  class="overflow-hidden transition-[height] duration-300"
+                  class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
                   <div
@@ -18404,10 +18404,10 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           type="line"
         />
         <div
-          class="border rounded-lg border-gray-800 py-4 px-4"
+          class="border rounded-lg border-gray-800 py-4 px-4 cursor-pointer"
         >
           <div
-            class="flex flex-row w-full items-center cursor-pointer"
+            class="flex flex-row w-full items-center"
           >
             <div
               class="flex-1"
@@ -18435,7 +18435,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
             </svg>
           </div>
           <div
-            class="overflow-hidden transition-[height] duration-300"
+            class="cursor-default overflow-hidden transition-[height] duration-300"
             style="height: 0px;"
           />
         </div>
