@@ -1,3 +1,37 @@
+# [0.4.0](https://github.com/bamlab/flashlight/compare/v0.3.0...v0.4.0) (2023-04-26)
+
+### Bug Fixes
+
+- **aws:** create report destination folder if not existing ([923f9c2](https://github.com/bamlab/flashlight/commit/923f9c23c293104af79bb8594bd4deefab9fa03b))
+- hotfix for flashlight measure ([66a7f89](https://github.com/bamlab/flashlight/commit/66a7f89a74f32c8159a30136e47b4c82b86b8f4a))
+- **web:** ensure thread table displays white colors ([fbf03c6](https://github.com/bamlab/flashlight/commit/fbf03c6bc169ca87a5e8621057ef8a2abe087a60))
+
+### Features
+
+- **report:** support http video ([05044c4](https://github.com/bamlab/flashlight/commit/05044c4d90b6cca8de35d8a5737a920cc34e704f))
+- **test:** add record bitRate and size option ([#97](https://github.com/bamlab/flashlight/issues/97)) ([364f58a](https://github.com/bamlab/flashlight/commit/364f58a973ad336e1e810b6c6b83c48c709c6ead))
+- **web:** redesign charts and layout ([#96](https://github.com/bamlab/flashlight/issues/96)) ([d26d24a](https://github.com/bamlab/flashlight/commit/d26d24a045488002aa0f5e0c0c0be1ba674f04eb))
+- **web:** redesign reports/add collapsible metrics explanation ([#94](https://github.com/bamlab/flashlight/issues/94)) ([bb08d0e](https://github.com/bamlab/flashlight/commit/bb08d0e045db33c2000dbd35f7e4450138657837))
+- **web:** redesign reports/handle multiple reports ([#92](https://github.com/bamlab/flashlight/issues/92)) ([23e77a1](https://github.com/bamlab/flashlight/commit/23e77a1667757d11b17973be945a0f7bbdac358d))
+- **web:** redesign reports/single card summary design ([#88](https://github.com/bamlab/flashlight/issues/88)) ([337c585](https://github.com/bamlab/flashlight/commit/337c585d1e72b55fd13e5acd0010f79fba43ffc2))
+
+## [0.3.1](https://github.com/bamlab/flashlight/compare/v0.3.0...v0.3.1) (2023-04-26)
+
+### Bug Fixes
+
+- **aws:** create report destination folder if not existing ([923f9c2](https://github.com/bamlab/flashlight/commit/923f9c23c293104af79bb8594bd4deefab9fa03b))
+- hotfix for flashlight measure ([66a7f89](https://github.com/bamlab/flashlight/commit/66a7f89a74f32c8159a30136e47b4c82b86b8f4a))
+- **web:** ensure thread table displays white colors ([fbf03c6](https://github.com/bamlab/flashlight/commit/fbf03c6bc169ca87a5e8621057ef8a2abe087a60))
+
+### Features
+
+- **report:** support http video ([05044c4](https://github.com/bamlab/flashlight/commit/05044c4d90b6cca8de35d8a5737a920cc34e704f))
+- **test:** add record bitRate and size option ([#97](https://github.com/bamlab/flashlight/issues/97)) ([364f58a](https://github.com/bamlab/flashlight/commit/364f58a973ad336e1e810b6c6b83c48c709c6ead))
+- **web:** redesign charts and layout ([#96](https://github.com/bamlab/flashlight/issues/96)) ([d26d24a](https://github.com/bamlab/flashlight/commit/d26d24a045488002aa0f5e0c0c0be1ba674f04eb))
+- **web:** redesign reports/add collapsible metrics explanation ([#94](https://github.com/bamlab/flashlight/issues/94)) ([bb08d0e](https://github.com/bamlab/flashlight/commit/bb08d0e045db33c2000dbd35f7e4450138657837))
+- **web:** redesign reports/handle multiple reports ([#92](https://github.com/bamlab/flashlight/issues/92)) ([23e77a1](https://github.com/bamlab/flashlight/commit/23e77a1667757d11b17973be945a0f7bbdac358d))
+- **web:** redesign reports/single card summary design ([#88](https://github.com/bamlab/flashlight/issues/88)) ([337c585](https://github.com/bamlab/flashlight/commit/337c585d1e72b55fd13e5acd0010f79fba43ffc2))
+
 # [0.3.0](https://github.com/bamlab/flashlight/compare/v0.2.0...v0.3.0) (2023-04-19)
 
 ### Bug Fixes
