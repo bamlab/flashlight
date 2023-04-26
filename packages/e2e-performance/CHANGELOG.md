@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.8.2...@perf-profiler/e2e@0.9.0) (2023-04-26)
+
+### Bug Fixes
+
+- hotfix for flashlight measure ([66a7f89](https://github.com/bamlab/android-performance-profiler/commit/66a7f89a74f32c8159a30136e47b4c82b86b8f4a))
+
+### Features
+
+- **test:** add record bitRate and size option ([#97](https://github.com/bamlab/android-performance-profiler/issues/97)) ([364f58a](https://github.com/bamlab/android-performance-profiler/commit/364f58a973ad336e1e810b6c6b83c48c709c6ead))
+
 ## [0.8.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.8.1...@perf-profiler/e2e@0.8.2) (2023-04-25)
 
 **Note:** Version bump only for package @perf-profiler/e2e

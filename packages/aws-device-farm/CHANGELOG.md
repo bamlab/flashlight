@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.7.1...@perf-profiler/aws-device-farm@0.8.0) (2023-04-26)
+
+### Features
+
+- **test:** add record bitRate and size option ([#97](https://github.com/bamlab/android-performance-profiler/issues/97)) ([364f58a](https://github.com/bamlab/android-performance-profiler/commit/364f58a973ad336e1e810b6c6b83c48c709c6ead))
+
 ## [0.7.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.7.0...@perf-profiler/aws-device-farm@0.7.1) (2023-04-25)
 
 ### Bug Fixes
