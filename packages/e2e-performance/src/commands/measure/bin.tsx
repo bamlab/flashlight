@@ -34,26 +34,40 @@ Pressing w will write measures to a file that you can exploit with the report co
     "Result title that is displayed at the top of the report"
   )
   .addOption(logLevelOption)
-  .action((options) => {
-    applyLogLevelOption(options.logLevel);
-    const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
-    const performanceMeasurer = new PerformanceMeasurer(bundleId);
+  .action(
+    (options: {
+      bundleId?: string;
+      resultsFilePath?: string;
+      resultsTitle?: string;
+      logLevel?: string;
+    }) => {
+      applyLogLevelOption(options.logLevel);
+      const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
+      const performanceMeasurer = new PerformanceMeasurer(bundleId);
 
-    const writeReportFile = async () => {
-      writeReport([await performanceMeasurer.stop()], {
-        filePath: options.resultsFilePath,
-        title: options.resultsTitle,
-      });
-    };
+      const title = options.resultsTitle || "Results";
+      const filePath =
+        options.resultsFilePath ||
+        `${process.cwd()}/${title
+          .toLocaleLowerCase()
+          .replace(/ /g, "_")}_${new Date().getTime()}.json`;
 
-    render(
-      <MeasureCommandUI
-        performanceMeasurer={performanceMeasurer}
-        writeReportFile={writeReportFile}
-      />,
-      // handle it ourselves in the profiler to kill child processes
-      { exitOnCtrlC: false }
-    );
-  });
+      const writeReportFile = async () => {
+        writeReport([await performanceMeasurer.stop()], {
+          filePath,
+          title,
+        });
+      };
+
+      render(
+        <MeasureCommandUI
+          performanceMeasurer={performanceMeasurer}
+          writeReportFile={writeReportFile}
+        />,
+        // handle it ourselves in the profiler to kill child processes
+        { exitOnCtrlC: false }
+      );
+    }
+  );
 
 program.parse();
