@@ -7,7 +7,41 @@ import { testRepository } from "../repositories";
 import { TMP_FOLDER } from "../TMP_FOLDER";
 import { downloadFile } from "../utils/downloadFile";
 import { unzip } from "../utils/unzip";
-import { execSync } from "child_process";
+import { spawn } from "child_process";
+
+const execAsync = (command: string) =>
+  new Promise<void>((resolve, reject) => {
+    const parts = command.split(" ");
+    const proc = spawn(parts[0], parts.slice(1));
+
+    proc.on("close", (code) => {
+      if (code !== 0) {
+        reject(new Error(`Command ${command} failed with code ${code}`));
+      } else {
+        resolve();
+      }
+    });
+
+    proc.on("error", reject);
+  });
+
+const changeVideoPathsOnResult = (
+  report: TestCaseResult,
+  reportDestinationPath: string
+): TestCaseResult => ({
+  ...report,
+  iterations: report.iterations.map((iteration) => ({
+    ...iteration,
+    videoInfos: iteration.videoInfos
+      ? {
+          ...iteration.videoInfos,
+          path: `${reportDestinationPath}/${path.basename(
+            iteration.videoInfos.path
+          )}`,
+        }
+      : undefined,
+  })),
+});
 
 export const checkResults = async ({
   testRunArn,
@@ -25,6 +59,7 @@ export const checkResults = async ({
   fs.mkdirSync(tmpFolder);
 
   const LOGS_FILE_TMP_PATH = `${tmpFolder}/logs.zip`;
+  Logger.info("Downloading artifacts...");
   await downloadFile(url, LOGS_FILE_TMP_PATH);
 
   if (!fs.existsSync(reportDestinationPath)) {
@@ -32,41 +67,42 @@ export const checkResults = async ({
   }
 
   unzip(LOGS_FILE_TMP_PATH, tmpFolder);
-
   fs.rmSync(LOGS_FILE_TMP_PATH);
-  fs.readdirSync(tmpFolder).forEach((file) => {
-    if (file.endsWith(".json")) {
-      const report: TestCaseResult = JSON.parse(
-        fs.readFileSync(`${tmpFolder}/${file}`).toString()
-      );
-      fs.writeFileSync(
-        `${reportDestinationPath}/${file}`,
-        JSON.stringify({
-          ...report,
-          iterations: report.iterations.map((iteration) => ({
-            ...iteration,
-            videoInfos: iteration.videoInfos
-              ? {
-                  ...iteration.videoInfos,
-                  path: `${reportDestinationPath}/${path.basename(
-                    iteration.videoInfos.path
-                  )}`,
-                }
-              : null,
-          })),
-        })
-      );
-    }
 
-    if (file.endsWith(".mp4")) {
-      // When coming from AWS Device Farm, it seems the video is not encoded properly
-      Logger.info(`Fixing video metadata on ${file}...`);
-      // VSync 0 is important since we have variable frame rate from adb shell screenrecord
-      execSync(
-        `ffmpeg -vsync 0 -i ${tmpFolder}/${file} -c:v libx264 -crf 23 -c:a aac -b:a 128k ${reportDestinationPath}/${file} -loglevel error`
-      );
-    }
-  });
+  const processReportFile = (fileName: string) => {
+    const report: TestCaseResult = JSON.parse(
+      fs.readFileSync(`${tmpFolder}/${fileName}`).toString()
+    );
+    fs.writeFileSync(
+      `${reportDestinationPath}/${fileName}`,
+      JSON.stringify(changeVideoPathsOnResult(report, reportDestinationPath))
+    );
+  };
+
+  const processVideoFile = async (fileName: string) => {
+    // When coming from AWS Device Farm, it seems the video is not encoded properly
+    Logger.info(`Fixing video metadata on ${fileName}...`);
+    // VSync 0 is important since we have variable frame rate from adb shell screenrecord
+    await execAsync(
+      `ffmpeg -y -vsync 0 -i ${tmpFolder}/${fileName} -c:v libx264 -crf 23 -c:a aac -b:a 128k ${reportDestinationPath}/${fileName} -loglevel error`
+    );
+    Logger.info(`Video ${fileName} processed ✅`);
+  };
+
+  await Promise.all(
+    fs.readdirSync(tmpFolder).map((file) => {
+      if (file.endsWith(".json")) {
+        return processReportFile(file);
+      }
+
+      if (file.endsWith(".mp4")) {
+        return processVideoFile(file);
+      }
+
+      return Promise.resolve();
+    })
+  );
+
   fs.rmSync(tmpFolder, { recursive: true, force: true });
 
   Logger.success(

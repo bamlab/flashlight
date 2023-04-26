@@ -18,6 +18,15 @@ export interface TestCase {
   duration?: number;
   getScore?: (result: AveragedTestCaseResult) => number;
 }
+
+export interface RecordOptions {
+  record: boolean;
+  path: string;
+  title: string;
+  bitRate?: number;
+  size?: string;
+}
+
 class PerformanceTester {
   constructor(private bundleId: string, private testCase: TestCase) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
@@ -26,11 +35,7 @@ class PerformanceTester {
 
   private async executeTestCase(
     iterationCount: number,
-    recordOptions: {
-      record: boolean;
-      path: string;
-      title: string;
-    }
+    recordOptions: RecordOptions
   ): Promise<TestCaseIterationResult> {
     try {
       const { beforeTest, run, afterTest, duration } = this.testCase;
@@ -40,7 +45,8 @@ class PerformanceTester {
       const videoName = `${recordOptions.title}_iteration_${iterationCount}.mp4`;
       const recorder = new ScreenRecorder(videoName);
       if (recordOptions.record) {
-        await recorder.startRecording();
+        const { bitRate, size } = recordOptions;
+        await recorder.startRecording({ bitRate, size });
       }
 
       const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
@@ -76,11 +82,7 @@ class PerformanceTester {
   async iterate(
     iterationCount: number,
     maxRetries: number,
-    recordOptions: {
-      record: boolean;
-      path: string;
-      title: string;
-    }
+    recordOptions: RecordOptions
   ): Promise<TestCaseIterationResult[]> {
     let retriesCount = 0;
     let currentIterationIndex = 0;
@@ -133,7 +135,13 @@ export const measurePerformance = async (
   testCase: TestCase,
   iterationCount = 10,
   maxRetries = 3,
-  record = false,
+  recordOptions: {
+    record: boolean;
+    size?: string;
+    bitRate?: number;
+  } = {
+    record: false,
+  },
   {
     path,
     title: givenTitle,
@@ -153,7 +161,7 @@ export const measurePerformance = async (
 
   const tester = new PerformanceTester(bundleId, testCase);
   const measures = await tester.iterate(iterationCount, maxRetries, {
-    record,
+    ...recordOptions,
     path: filePath,
     title: fileName.replace(".json", ""),
   });
