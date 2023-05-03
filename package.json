@@ -26,7 +26,7 @@
     "run-cli-example": "node packages/cli-example",
     "build": "rm -rf .parcel-cache && yarn clean-dist && tsc --build && yarn workspace @perf-profiler/web-reporter build && yarn workspace flipper-plugin-android-performance-profiler build",
     "release": "yarn build && lerna publish",
-    "test:e2e": "mkdir -p report && npx @perf-profiler/aws-device-farm runTest --apkPath .github/workflows/example.apk --projectName 'Flashlight-Serverless' --reportDestinationPath report --testCommand 'npx ts-node examples/e2e/appium-ci.test.ts' --testFolder .",
+    "test:e2e": "mkdir -p report && npx @perf-profiler/aws-device-farm runTest --apkPath .github/workflows/example.apk --projectName 'Flashlight-Serverless' --reportDestinationPath report --testCommand 'npx ts-node examples/e2e/appium-ci.test.ts' --testFolder . --deviceName 'Xiaomi Redmi Note 10 5G'",
     "prepare": "husky install"
   },
   "homepage": "https://github.com/bamlab/flashlight#readme",
