@@ -32,6 +32,7 @@ if [ "$EAS_BUILD_PROFILE" = "e2e" ] && [ "$EAS_BUILD_PLATFORM" = "android" ]; th
     export PATH="$HOME/.flashlight/bin:$PATH"
 
     flashlight cloud --app android/app/build/outputs/apk/release/app-release.apk --test e2e/test.yml --apiKey $FLASHLIGHT_API_KEY
+    // Or android/app/build/outputs/bundle/release/app-release.aab if you are using an aab
 fi
 ```
 
@@ -74,31 +75,3 @@ chmod +x eas-build-on-success.sh
 
 ✅ Check:
 - Now, your builds should be automatically uploaded to Flashlight when they are successfuly completed on EAS with the selected profile.
-
-#### Advanced usage - use flashlight on production builds
-
-If you want to use Flashlight on production builds, you can extend the `eas-build-on-success.sh` script to upload the production build to Flashlight. To do so, you need to install `bundletool` to convert the `.aab` file to `.apk` file and you need to generate a `keystore` to sign the `.apk` file.
-
-Here's an example of script that does all of that:
-
-```bash
-if [ "$EAS_BUILD_PROFILE" = "production" ] && [ "$EAS_BUILD_PLATFORM" = "android" ]; then
-    curl https://get.flashlight.dev/ | bash
-    export PATH="$HOME/.flashlight/bin:$PATH"
-
-    keytool -genkey -v -dname OU=flashlight -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000 -storepass azerty -keypass azerty
-
-    curl https://github.com/google/bundletool/releases/download/1.14.0/bundletool-all-1.14.0.jar -L -o bundletool.jar
-
-    java -jar bundletool.jar build-apks --bundle=android/app/build/outputs/bundle/release/app-release.aab \
-        --output=myapp.apks \
-        --mode=universal \
-        --ks=my-release-key.keystore \
-        --ks-key-alias=alias_name \
-        --ks-pass=pass:azerty
-
-    unzip myapp.apks -d apks
-
-    flashlight cloud --app apks/universal.apk --test e2e/test.yml --apiKey $FLASHLIGHT_API_KEY
-fi
-```
