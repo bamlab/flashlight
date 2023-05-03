@@ -44,25 +44,41 @@ bool includes(std::string str, std::string portion)
   return str.find(portion) != std::string::npos;
 }
 
+std::ifstream getTraceStream()
+{
+  std::string traceOutputPath1 = "/sys/kernel/debug/tracing/trace_pipe";
+  // This seems to be an alternative path for certain devices
+  std::string traceOutputPath2 = "/sys/kernel/tracing/trace_pipe";
+
+  std::ifstream traceFile1(traceOutputPath1);
+
+  if (traceFile1.is_open())
+  {
+    return traceFile1;
+  }
+
+  traceFile1.close();
+
+  std::ifstream traceFile2(traceOutputPath2);
+  if (traceFile2.is_open())
+  {
+    return traceFile2;
+  }
+
+  throw std::runtime_error("Unable to find Atrace output file");
+}
+
 void readATrace()
 {
-  std::string traceOutputPath = "/sys/kernel/debug/tracing/trace_pipe";
+  std::ifstream traceFile = getTraceStream();
 
-  std::ifstream traceFile(traceOutputPath);
-  if (traceFile.is_open())
+  while (traceFile.good())
   {
-    while (traceFile.good())
-    {
-      std::string line;
-      std::getline(traceFile, line);
-      addToATraceLines(line);
-    }
-    traceFile.close();
+    std::string line;
+    std::getline(traceFile, line);
+    addToATraceLines(line);
   }
-  else
-  {
-    std::cout << "Unable to open file";
-  }
+  traceFile.close();
 }
 
 void readATraceThread()
