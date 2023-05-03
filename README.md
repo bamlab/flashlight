@@ -18,3 +18,7 @@ Flashlight generates a performance score for your app, aggregating different met
 ## Usage
 
 Head over to the docs at [docs.flashlight.dev](https://docs.flashlight.dev)
+
+## Contributing
+
+We love pull requests! Head over to [the contribution guide](./CONTRIBUTING.md) to get started.
