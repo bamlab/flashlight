@@ -8,6 +8,11 @@ module.exports = {
     `${__dirname}/*.{html,js,ts,jsx,tsx}`,
     `${__dirname}/../../node_modules/flowbite/**/*.js`
   ],
+  safelist: [
+    'stroke-success',
+    'stroke-warning',
+    'stroke-error',
+  ],
   theme: {
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
@@ -20,6 +25,10 @@ module.exports = {
         "light-sky-blue": "#1199EE",
         "dark-charcoal": "#131313",
         "light-charcoal": "#1B1B1D",
+
+        error: "#E62E2E",
+        warning: "#E67F17",
+        success: "#158000",
 
         "theme-color": {
           DEFAULT: "var(--theme-color)",
