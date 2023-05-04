@@ -1,7 +1,7 @@
 import React from "react";
 import { AveragedTestCaseResult, TestCaseResult } from "@perf-profiler/types";
 import { ReportSummaryCard } from "./ReportSummaryCard";
-import { getThemeColorPalette } from "../../theme/useThemeColor";
+import { getThemeColorPalette } from "../../theme/colors";
 
 export const ReportSummary = ({
   results,

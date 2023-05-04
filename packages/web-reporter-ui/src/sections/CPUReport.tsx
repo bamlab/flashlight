@@ -5,7 +5,7 @@ import { Chart } from "../components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
 import { roundToDecimal } from "../../utils/roundToDecimal";
 import { Collapsible } from "../components/Collapsible";
-import { getColorPalette } from "../theme/useThemeColor";
+import { getColorPalette } from "../theme/colors";
 
 const buildSeriesData = (
   measures: Measure[],

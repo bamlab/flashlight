@@ -5,7 +5,7 @@ import {
   setVideoCurrentTime,
 } from "../../videoCurrentTimeContext";
 import { ApexOptions } from "apexcharts";
-import { getColorPalette } from "../theme/useThemeColor";
+import { getColorPalette } from "../theme/colors";
 
 const getVideoCurrentTimeAnnotation = () => {
   const palette = getColorPalette();
