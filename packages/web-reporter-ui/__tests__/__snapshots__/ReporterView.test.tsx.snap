@@ -672,14 +672,14 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
         class="css-1xehky4"
       />
       <div
-        class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
+        class="flex flex-row overflow-x-scroll px-12 gap-12 w-full hide-scrollbar"
       >
         <div
-          class="mx-auto"
+          class="ml-auto "
           data-theme="bright-yellow"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
               class="text-neutral-300 text-center line-clamp-1"
@@ -691,9 +691,9 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -710,8 +710,8 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
@@ -1101,11 +1101,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           </div>
         </div>
         <div
-          class="mx-auto"
+          class=" mr-auto"
           data-theme="bright-green"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
               class="text-neutral-300 text-center line-clamp-1"
@@ -1117,9 +1117,9 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -1136,8 +1136,8 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
@@ -11710,14 +11710,14 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
         class="css-1xehky4"
       />
       <div
-        class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
+        class="flex flex-row overflow-x-scroll px-12 gap-12 w-full hide-scrollbar"
       >
         <div
-          class="mx-auto"
+          class="ml-auto "
           data-theme="bright-yellow"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
               class="text-neutral-300 text-center line-clamp-1"
@@ -11729,9 +11729,9 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -11748,8 +11748,8 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
@@ -12139,11 +12139,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           </div>
         </div>
         <div
-          class="mx-auto"
+          class=" mr-auto"
           data-theme="bright-green"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
               class="text-neutral-300 text-center line-clamp-1"
@@ -12155,9 +12155,9 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -12174,8 +12174,8 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
@@ -17502,14 +17502,14 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         class="css-1xehky4"
       />
       <div
-        class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
+        class="flex flex-row overflow-x-scroll px-12 gap-12 w-full hide-scrollbar"
       >
         <div
-          class="mx-auto"
+          class="ml-auto "
           data-theme="bright-yellow"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
               class="text-neutral-300 text-center line-clamp-1"
@@ -17521,9 +17521,9 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -17540,8 +17540,8 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
@@ -17936,11 +17936,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           </div>
         </div>
         <div
-          class="mx-auto"
+          class=" mr-auto"
           data-theme="bright-green"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
               class="text-neutral-300 text-center line-clamp-1"
@@ -17952,9 +17952,9 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -17971,8 +17971,8 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"

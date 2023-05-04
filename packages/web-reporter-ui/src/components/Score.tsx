@@ -18,7 +18,7 @@ export const getScoreClassName = (score: number) => {
   }
 };
 
-export const Score: FunctionComponent<Props> = ({ size = 200, result }) => {
+export const Score: FunctionComponent<Props> = ({ size = 152, result }) => {
   const displayPlaceholder = result.average.measures.length === 0;
   const score = displayPlaceholder ? 100 : result.score ?? getScore(result);
 
@@ -49,10 +49,10 @@ export const Score: FunctionComponent<Props> = ({ size = 200, result }) => {
       <text
         x={100}
         y={100}
-        dominantBaseline="middle"
+        dominantBaseline="central"
         textAnchor="middle"
         aria-label="Score"
-        className="text-center text-4xl font-semibold fill-white"
+        className="text-center text-6xl font-semibold fill-white"
       >
         {roundToDecimal(score, 0)}
       </text>
