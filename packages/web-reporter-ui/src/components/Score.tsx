@@ -54,7 +54,7 @@ export const Score: FunctionComponent<Props> = ({ size = 200, result }) => {
         aria-label="Score"
         className="text-center text-4xl font-semibold fill-white"
       >
-        {roundToDecimal(score, 1)}
+        {roundToDecimal(score, 0)}
       </text>
     </svg>
   );

@@ -40,7 +40,7 @@ It’s worth noting that results might be higher than expected since we measure 
 here for more details
 )
 2-after-memo.apk
-68.3
+68
 Average Test Runtime
 5908 ms
 Time taken to run the test.
@@ -1142,7 +1142,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                 x="100"
                 y="100"
               >
-                68.3
+                68
               </text>
             </svg>
             <div
@@ -11365,7 +11365,7 @@ It’s worth noting that results might be higher than expected since we measure 
 here for more details
 )
 2-after-memo.apk
-68.3
+68
 Average Test Runtime
 5818 ms
 Time taken to run the test.
@@ -12180,7 +12180,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                 x="100"
                 y="100"
               >
-                68.3
+                68
               </text>
             </svg>
             <div
