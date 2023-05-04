@@ -307,9 +307,16 @@ exports[`displays FPS data and scoring 2`] = `
                 class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
               >
                 <div
-                  class="text-neutral-300 text-center line-clamp-1"
+                  class="flex flex-row items-center gap-2"
                 >
-                  Results
+                  <div
+                    class="bg-theme-color rounded-full w-[12px] h-[12px]"
+                  />
+                  <div
+                    class="text-neutral-300 text-center line-clamp-1"
+                  >
+                    Results
+                  </div>
                 </div>
                 <div
                   class="h-8"

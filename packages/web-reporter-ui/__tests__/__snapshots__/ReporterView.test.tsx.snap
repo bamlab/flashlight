@@ -676,15 +676,21 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
       >
         <div
           class="ml-auto "
-          data-theme="bright-yellow"
         >
           <div
             class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              1-before-memo.apk
+              <div
+                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                1-before-memo.apk
+              </div>
             </div>
             <div
               class="h-8"
@@ -1102,15 +1108,22 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
         </div>
         <div
           class=" mr-auto"
-          data-theme="bright-green"
+          data-theme="bright-yellow"
         >
           <div
             class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              2-after-memo.apk
+              <div
+                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                2-after-memo.apk
+              </div>
             </div>
             <div
               class="h-8"
@@ -11714,15 +11727,21 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
       >
         <div
           class="ml-auto "
-          data-theme="bright-yellow"
         >
           <div
             class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              1-before-memo.apk
+              <div
+                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                1-before-memo.apk
+              </div>
             </div>
             <div
               class="h-8"
@@ -12140,15 +12159,22 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
         </div>
         <div
           class=" mr-auto"
-          data-theme="bright-green"
+          data-theme="bright-yellow"
         >
           <div
             class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              2-after-memo.apk
+              <div
+                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                2-after-memo.apk
+              </div>
             </div>
             <div
               class="h-8"
@@ -17506,15 +17532,21 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       >
         <div
           class="ml-auto "
-          data-theme="bright-yellow"
         >
           <div
             class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
+              <div
+                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
+              </div>
             </div>
             <div
               class="h-8"
@@ -17937,15 +17969,22 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         </div>
         <div
           class=" mr-auto"
-          data-theme="bright-green"
+          data-theme="bright-yellow"
         >
           <div
             class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              fabric-many-texts (com.fabricenabled)
+              <div
+                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                fabric-many-texts (com.fabricenabled)
+              </div>
             </div>
             <div
               class="h-8"

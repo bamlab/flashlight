@@ -7,7 +7,7 @@ import {
 import { ApexOptions } from "apexcharts";
 import { getThemeColor, themeColors } from "../theme/useThemeColor";
 
-export const getPalette = () => {
+export const getThemeColorPalette = () => {
   const mainThemeColor = getThemeColor();
 
   const colorsStartingWithMainTheme = themeColors.map(
@@ -17,8 +17,11 @@ export const getPalette = () => {
       ]
   );
 
-  return colorsStartingWithMainTheme.map((color) => `var(--${color})`);
+  return colorsStartingWithMainTheme;
 };
+
+export const getPalette = () =>
+  getThemeColorPalette().map((color) => `var(--${color})`);
 
 const getVideoCurrentTimeAnnotation = () => {
   const palette = getPalette();
