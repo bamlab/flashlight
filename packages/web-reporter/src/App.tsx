@@ -23,9 +23,33 @@ let testCaseResults: TestCaseResult[] = "INSERT_HERE";
 //   require("./example-reports/video/results_c7d5d17d-42ed-4354-8b43-bb26e2d6feee.json"),
 // ];
 
+// Uncomment when testing with time simulation
+// -------------------------------------------
+// const useTimeSimulationResults = () => {
+//   // increment i every 500ms
+//   const [measureIndex, setMeasureIndex] = React.useState(1);
+
+//   React.useEffect(() => {
+//     const interval = setInterval(() => {
+//       setMeasureIndex((measureIndex) => measureIndex + 1);
+//     }, 500);
+//     return () => clearInterval(interval);
+//   }, []);
+
+//   return testCaseResults.map((testCaseResult) => ({
+//     ...testCaseResult,
+//     iterations: testCaseResult.iterations.map((iteration) => ({
+//       ...iteration,
+//       measures: iteration.measures.slice(0, measureIndex),
+//     })),
+//   }));
+// };
+
 setThemeAtRandom();
 
 export function App() {
+  // testCaseResults = useTimeSimulationResults();
+
   return testCaseResults ? (
     <>
       <PageBackground />
