@@ -1,7 +1,7 @@
 import React from "react";
 import { AveragedTestCaseResult, Measure } from "@perf-profiler/types";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
-import { Chart, PALETTE } from "../components/Chart";
+import { Chart, getPalette } from "../components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
 import { roundToDecimal } from "../../utils/roundToDecimal";
 import { Collapsible } from "../components/Collapsible";
@@ -63,7 +63,7 @@ export const CPUReport = ({
         interval={500}
         series={threads}
         colors={
-          results.length > 1 ? PALETTE.slice(0, results.length) : undefined
+          results.length > 1 ? getPalette().slice(0, results.length) : undefined
         }
         maxValue={100}
       />
