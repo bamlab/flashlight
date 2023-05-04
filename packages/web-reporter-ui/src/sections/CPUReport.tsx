@@ -1,10 +1,11 @@
 import React from "react";
 import { AveragedTestCaseResult, Measure } from "@perf-profiler/types";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
-import { Chart, getPalette } from "../components/Chart";
+import { Chart } from "../components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
 import { roundToDecimal } from "../../utils/roundToDecimal";
 import { Collapsible } from "../components/Collapsible";
+import { getColorPalette } from "../theme/useThemeColor";
 
 const buildSeriesData = (
   measures: Measure[],
@@ -63,7 +64,9 @@ export const CPUReport = ({
         interval={500}
         series={threads}
         colors={
-          results.length > 1 ? getPalette().slice(0, results.length) : undefined
+          results.length > 1
+            ? getColorPalette().slice(0, results.length)
+            : undefined
         }
         maxValue={100}
       />

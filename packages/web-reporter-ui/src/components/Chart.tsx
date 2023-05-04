@@ -5,26 +5,10 @@ import {
   setVideoCurrentTime,
 } from "../../videoCurrentTimeContext";
 import { ApexOptions } from "apexcharts";
-import { getThemeColor, themeColors } from "../theme/useThemeColor";
-
-export const getThemeColorPalette = () => {
-  const mainThemeColor = getThemeColor();
-
-  const colorsStartingWithMainTheme = themeColors.map(
-    (_, i) =>
-      themeColors[
-        (themeColors.indexOf(mainThemeColor) + i) % themeColors.length
-      ]
-  );
-
-  return colorsStartingWithMainTheme;
-};
-
-export const getPalette = () =>
-  getThemeColorPalette().map((color) => `var(--${color})`);
+import { getColorPalette } from "../theme/useThemeColor";
 
 const getVideoCurrentTimeAnnotation = () => {
-  const palette = getPalette();
+  const palette = getColorPalette();
   const lastColor = palette[palette.length - 1];
 
   return {
@@ -85,7 +69,7 @@ export const Chart = ({
   interval = 500,
   timeLimit,
   maxValue,
-  colors = getPalette(),
+  colors = getColorPalette(),
 }: {
   title: string;
   series: { name: string; data: { x: number; y: number }[] }[];

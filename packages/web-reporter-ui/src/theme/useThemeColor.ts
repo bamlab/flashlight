@@ -13,3 +13,19 @@ export const setThemeAtRandom = () => {
   document.documentElement.dataset.theme =
     themeColors[Math.floor(Math.random() * themeColors.length)];
 };
+
+export const getThemeColorPalette = () => {
+  const mainThemeColor = getThemeColor();
+
+  const colorsStartingWithMainTheme = themeColors.map(
+    (_, i) =>
+      themeColors[
+        (themeColors.indexOf(mainThemeColor) + i) % themeColors.length
+      ]
+  );
+
+  return colorsStartingWithMainTheme;
+};
+
+export const getColorPalette = () =>
+  getThemeColorPalette().map((color) => `var(--${color})`);
