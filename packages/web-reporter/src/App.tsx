@@ -3,7 +3,7 @@ import { TestCaseResult } from "@perf-profiler/types";
 import {
   IterationsReporterView,
   PageBackground,
-  useSetThemeAtRandom,
+  setThemeAtRandom,
 } from "@perf-profiler/web-reporter-ui";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -23,9 +23,9 @@ let testCaseResults: TestCaseResult[] = "INSERT_HERE";
 //   require("./example-reports/video/results_c7d5d17d-42ed-4354-8b43-bb26e2d6feee.json"),
 // ];
 
-export function App() {
-  useSetThemeAtRandom();
+setThemeAtRandom();
 
+export function App() {
   return testCaseResults ? (
     <>
       <PageBackground />

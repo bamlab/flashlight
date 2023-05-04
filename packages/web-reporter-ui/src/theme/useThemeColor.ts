@@ -1,5 +1,3 @@
-import { useCallback, useEffect } from "react";
-
 export const themeColors = [
   "bright-yellow",
   "bright-green",
@@ -8,19 +6,10 @@ export const themeColors = [
 ] as const;
 type ThemeColor = typeof themeColors[number];
 
-export const useSetThemeColor = () => {
-  const setThemeColor = useCallback((theme: ThemeColor) => {
-    document.documentElement.dataset.theme = theme;
-  }, []);
+export const getThemeColor = (): ThemeColor =>
+  document.documentElement.dataset.theme as ThemeColor;
 
-  return setThemeColor;
-};
-
-export const useSetThemeAtRandom = () => {
-  const setThemeColor = useSetThemeColor();
-
-  useEffect(() => {
-    const theme = themeColors[Math.floor(Math.random() * themeColors.length)];
-    setThemeColor(theme);
-  }, [setThemeColor]);
+export const setThemeAtRandom = () => {
+  document.documentElement.dataset.theme =
+    themeColors[Math.floor(Math.random() * themeColors.length)];
 };
