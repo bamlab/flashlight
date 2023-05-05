@@ -40,7 +40,7 @@ It’s worth noting that results might be higher than expected since we measure 
 here for more details
 )
 2-after-memo.apk
-68.3
+68
 Average Test Runtime
 5908 ms
 Time taken to run the test.
@@ -672,28 +672,34 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
         class="css-1xehky4"
       />
       <div
-        class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
+        class="flex flex-row overflow-x-scroll px-12 gap-12 w-full hide-scrollbar"
       >
         <div
-          class="mx-auto"
-          data-theme="bright-yellow"
+          class="ml-auto "
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              1-before-memo.apk
+              <div
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                1-before-memo.apk
+              </div>
             </div>
             <div
               class="h-8"
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -704,14 +710,14 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                 stroke-width="20"
               />
               <path
-                class="stroke-theme-color"
+                class="stroke-warning"
                 d="M 16.32011627005737 133.131209741621 A 90 90 0 1 0 100 10"
                 stroke-width="20"
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
@@ -1101,25 +1107,32 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           </div>
         </div>
         <div
-          class="mx-auto"
-          data-theme="bright-green"
+          class=" mr-auto"
+          data-theme="bright-yellow"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              2-after-memo.apk
+              <div
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                2-after-memo.apk
+              </div>
             </div>
             <div
               class="h-8"
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -1130,19 +1143,19 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                 stroke-width="20"
               />
               <path
-                class="stroke-theme-color"
+                class="stroke-warning"
                 d="M 17.861891403278747 136.78764896202563 A 90 90 0 1 0 100 10"
                 stroke-width="20"
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
               >
-                68.3
+                68
               </text>
             </svg>
             <div
@@ -11365,7 +11378,7 @@ It’s worth noting that results might be higher than expected since we measure 
 here for more details
 )
 2-after-memo.apk
-68.3
+68
 Average Test Runtime
 5818 ms
 Time taken to run the test.
@@ -11710,28 +11723,34 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
         class="css-1xehky4"
       />
       <div
-        class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
+        class="flex flex-row overflow-x-scroll px-12 gap-12 w-full hide-scrollbar"
       >
         <div
-          class="mx-auto"
-          data-theme="bright-yellow"
+          class="ml-auto "
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              1-before-memo.apk
+              <div
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                1-before-memo.apk
+              </div>
             </div>
             <div
               class="h-8"
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -11742,14 +11761,14 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                 stroke-width="20"
               />
               <path
-                class="stroke-theme-color"
+                class="stroke-warning"
                 d="M 27.188470506254745 152.9006727063226 A 90 90 0 1 0 100 10"
                 stroke-width="20"
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
@@ -12139,25 +12158,32 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           </div>
         </div>
         <div
-          class="mx-auto"
-          data-theme="bright-green"
+          class=" mr-auto"
+          data-theme="bright-yellow"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              2-after-memo.apk
+              <div
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                2-after-memo.apk
+              </div>
             </div>
             <div
               class="h-8"
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -12168,19 +12194,19 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                 stroke-width="20"
               />
               <path
-                class="stroke-theme-color"
+                class="stroke-warning"
                 d="M 17.861891403278747 136.78764896202563 A 90 90 0 1 0 100 10"
                 stroke-width="20"
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
               >
-                68.3
+                68
               </text>
             </svg>
             <div
@@ -17502,28 +17528,34 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         class="css-1xehky4"
       />
       <div
-        class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
+        class="flex flex-row overflow-x-scroll px-12 gap-12 w-full hide-scrollbar"
       >
         <div
-          class="mx-auto"
-          data-theme="bright-yellow"
+          class="ml-auto "
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
+              <div
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
+              </div>
             </div>
             <div
               class="h-8"
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -17534,14 +17566,14 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                 stroke-width="20"
               />
               <path
-                class="stroke-theme-color"
+                class="stroke-warning"
                 d="M 94.34885324236181 189.82240555854446 A 90 90 0 1 0 100 10"
                 stroke-width="20"
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"
@@ -17936,25 +17968,32 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           </div>
         </div>
         <div
-          class="mx-auto"
-          data-theme="bright-green"
+          class=" mr-auto"
+          data-theme="bright-yellow"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
           >
             <div
-              class="text-neutral-300 text-center line-clamp-1"
+              class="flex flex-row items-center gap-2"
             >
-              fabric-many-texts (com.fabricenabled)
+              <div
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
+              />
+              <div
+                class="text-neutral-300 text-center line-clamp-1"
+              >
+                fabric-many-texts (com.fabricenabled)
+              </div>
             </div>
             <div
               class="h-8"
             />
             <svg
               fill="none"
-              height="200"
+              height="152"
               viewBox="0 0 200 200"
-              width="200"
+              width="152"
             >
               <circle
                 cx="100"
@@ -17965,14 +18004,14 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                 stroke-width="20"
               />
               <path
-                class="stroke-theme-color"
+                class="stroke-error"
                 d="M 157.36815907738207 169.34619184982103 A 90 90 0 0 0 100 10"
                 stroke-width="20"
               />
               <text
                 aria-label="Score"
-                class="text-center text-4xl font-semibold fill-white"
-                dominant-baseline="middle"
+                class="text-center text-6xl font-semibold fill-white"
+                dominant-baseline="central"
                 text-anchor="middle"
                 x="100"
                 y="100"

@@ -5,26 +5,27 @@ import {
   setVideoCurrentTime,
 } from "../../videoCurrentTimeContext";
 import { ApexOptions } from "apexcharts";
-import { themeColors } from "../theme/useThemeColor";
+import { getColorPalette } from "../theme/colors";
 
-export const PALETTE = [...themeColors.map((color) => `var(--${color})`)];
-export const getPalette = (numberOfSeries: number) =>
-  numberOfSeries > 1 ? PALETTE : ["var(--theme-color)"];
+const getVideoCurrentTimeAnnotation = () => {
+  const palette = getColorPalette();
+  const lastColor = palette[palette.length - 1];
 
-const getVideoCurrentTimeAnnotation = (numberOfSeries: number) => ({
-  x: 0,
-  strokeDashArray: 0,
-  borderColor: getPalette(numberOfSeries)[0],
-  label: {
-    borderColor: getPalette(numberOfSeries)[0],
-    style: {
-      color: "#fff",
-      background: getPalette(numberOfSeries)[0],
+  return {
+    x: 0,
+    strokeDashArray: 0,
+    borderColor: lastColor,
+    label: {
+      borderColor: lastColor,
+      style: {
+        color: "#fff",
+        background: lastColor,
+      },
+      text: "Video",
+      position: "right",
     },
-    text: "Video",
-    position: "right",
-  },
-});
+  };
+};
 
 const useSetVideoTimeOnMouseHover = ({
   series,
@@ -68,7 +69,7 @@ export const Chart = ({
   interval = 500,
   timeLimit,
   maxValue,
-  colors = PALETTE,
+  colors = getColorPalette(),
 }: {
   title: string;
   series: { name: string; data: { x: number; y: number }[] }[];
@@ -102,9 +103,7 @@ export const Chart = ({
         },
       },
       annotations: {
-        xaxis: videoEnabled
-          ? [getVideoCurrentTimeAnnotation(series.length)]
-          : [],
+        xaxis: videoEnabled ? [getVideoCurrentTimeAnnotation()] : [],
       },
       title: {
         text: title,
@@ -134,7 +133,7 @@ export const Chart = ({
         max: maxValue,
         labels: { style: { colors: "#FFFFFF99" } },
       },
-      colors: getPalette(series.length),
+      colors,
       legend: {
         labels: {
           colors: "#FFFFFF99",
@@ -153,7 +152,7 @@ export const Chart = ({
       setVideoCurrentTimeOnMouseHover,
       timeLimit,
       maxValue,
-      series.length,
+      colors,
     ]
   );
 

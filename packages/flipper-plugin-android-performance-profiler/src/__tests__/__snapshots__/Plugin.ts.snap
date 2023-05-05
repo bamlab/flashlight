@@ -298,27 +298,34 @@ exports[`displays FPS data and scoring 2`] = `
             class="css-1xehky4"
           />
           <div
-            class="flex flex-row overflow-x-scroll px-32 gap-24 w-full hide-scrollbar"
+            class="flex flex-row overflow-x-scroll px-12 gap-12 w-full hide-scrollbar"
           >
             <div
-              class="mx-auto"
+              class="ml-auto mr-auto"
             >
               <div
-                class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[520px] flex-shrink-0"
+                class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
               >
                 <div
-                  class="text-neutral-300 text-center line-clamp-1"
+                  class="flex flex-row items-center gap-2"
                 >
-                  Results
+                  <div
+                    class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
+                  />
+                  <div
+                    class="text-neutral-300 text-center line-clamp-1"
+                  >
+                    Results
+                  </div>
                 </div>
                 <div
                   class="h-8"
                 />
                 <svg
                   fill="none"
-                  height="200"
+                  height="152"
                   viewBox="0 0 200 200"
-                  width="200"
+                  width="152"
                 >
                   <circle
                     cx="100"
@@ -329,14 +336,14 @@ exports[`displays FPS data and scoring 2`] = `
                     stroke-width="20"
                   />
                   <path
-                    class="stroke-theme-color"
+                    class="stroke-error"
                     d="M 116.8643183127152 188.405852565582 A 90 90 0 0 0 100 10"
                     stroke-width="20"
                   />
                   <text
                     aria-label="Score"
-                    class="text-center text-4xl font-semibold fill-white"
-                    dominant-baseline="middle"
+                    class="text-center text-6xl font-semibold fill-white"
+                    dominant-baseline="central"
                     text-anchor="middle"
                     x="100"
                     y="100"
