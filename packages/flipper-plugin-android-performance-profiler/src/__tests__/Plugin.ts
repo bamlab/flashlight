@@ -12,6 +12,8 @@ require("@testing-library/react");
 
 window.alert = console.error;
 
+Math.random = () => 0.5;
+
 jest.mock("child_process", () => {
   return {
     spawn: jest.requireActual("child_process").spawn,
