@@ -44,6 +44,10 @@ export const executeAsync = (command: string): ChildProcess => {
     Logger.debug(`Process for ${command} ended`);
   });
 
+  childProcess.stderr?.on("data", (data) => {
+    Logger.error(`Process for ${command} errored with ${data.toString()}`);
+  });
+
   childProcess.on("close", (code) => {
     Logger.debug(`child process exited with code ${code}`);
   });
