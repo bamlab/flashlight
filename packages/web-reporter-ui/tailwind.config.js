@@ -12,6 +12,7 @@ module.exports = {
     'stroke-success',
     'stroke-warning',
     'stroke-error',
+    'bg-light-charcoal',
   ],
   theme: {
     fontFamily: {

@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-#app {
-  height: 100%;
-  width: 100%;
-}
-
-body {
-  @apply bg-light-charcoal;
-}
-
 @layer base {
   html {
     --bright-yellow: #fff500;
