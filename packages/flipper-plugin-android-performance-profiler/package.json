@@ -21,8 +21,10 @@
   "scripts": {
     "lint": "flipper-pkg lint",
     "prepack": "flipper-pkg lint && flipper-pkg bundle",
-    "build": "mkdir -p dist && cp -R ../android-performance-profiler/cpp-profiler/bin dist/bin && flipper-pkg bundle",
-    "watch": "mkdir -p dist && cp -R ../android-performance-profiler/cpp-profiler/bin dist/bin && flipper-pkg bundle --watch",
+    "copy:cpp": "cp -R ../android-performance-profiler/cpp-profiler/bin dist/bin",
+    "prebundle": "mkdir -p dist && yarn copy:cpp",
+    "build": "yarn prebundle && flipper-pkg bundle",
+    "watch": "yarn prebundle && flipper-pkg bundle --watch",
     "test": "tsc --noEmit"
   },
   "dependencies": {
