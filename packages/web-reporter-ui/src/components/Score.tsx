@@ -22,8 +22,12 @@ export const Score: FunctionComponent<Props> = ({ size = 152, result }) => {
   const displayPlaceholder = result.average.measures.length === 0;
   const score = displayPlaceholder ? 100 : result.score ?? getScore(result);
 
+  // Makes sure the arc is displayed when the score is 100, otherwise gets treated like 0
+  const epsilon = 0.000001;
+
   // Path calculations inspired by https://stackoverflow.com/a/18473154/18205154
-  const angleInRadians = ((score * 3.6 - 90) * Math.PI) / 180.0;
+  const angleInRadians =
+    ((Math.min(score, 100 - epsilon) * 3.6 - 90) * Math.PI) / 180.0;
   const startX = 100 + 90 * Math.cos(angleInRadians);
   const startY = 100 + 90 * Math.sin(angleInRadians);
 
