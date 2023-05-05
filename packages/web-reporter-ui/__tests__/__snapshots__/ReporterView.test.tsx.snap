@@ -684,7 +684,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="flex flex-row items-center gap-2"
             >
               <div
-                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
               />
               <div
                 class="text-neutral-300 text-center line-clamp-1"
@@ -1117,7 +1117,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               class="flex flex-row items-center gap-2"
             >
               <div
-                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
               />
               <div
                 class="text-neutral-300 text-center line-clamp-1"
@@ -11735,7 +11735,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="flex flex-row items-center gap-2"
             >
               <div
-                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
               />
               <div
                 class="text-neutral-300 text-center line-clamp-1"
@@ -12168,7 +12168,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               class="flex flex-row items-center gap-2"
             >
               <div
-                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
               />
               <div
                 class="text-neutral-300 text-center line-clamp-1"
@@ -17540,7 +17540,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="flex flex-row items-center gap-2"
             >
               <div
-                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
               />
               <div
                 class="text-neutral-300 text-center line-clamp-1"
@@ -17978,7 +17978,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               class="flex flex-row items-center gap-2"
             >
               <div
-                class="bg-theme-color rounded-full w-[12px] h-[12px]"
+                class="bg-theme-color rounded-full min-w-[12px] w-[12px] min-h-[12px]"
               />
               <div
                 class="text-neutral-300 text-center line-clamp-1"
