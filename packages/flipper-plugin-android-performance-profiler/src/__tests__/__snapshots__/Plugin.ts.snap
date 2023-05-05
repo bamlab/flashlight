@@ -1,7 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`displays FPS data and scoring 1`] = `
-"Auto-Detect
+"/* Mock CSS file for tests */
+/* otherwise dist/index.css will be used */
+
+Auto-Detect
 Stop Measuring
 Reset
 Results
@@ -157,114 +160,112 @@ Binder #5
 exports[`displays FPS data and scoring 2`] = `
 <body>
   <div>
-    <header
-      class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionRelative css-1vazdj7-MuiPaper-root-MuiAppBar-root"
+    <div
+      class="bg-light-charcoal h-full text-black"
     >
-      <div
-        style="flex-direction: row; display: flex; align-items: center; padding: 10px;"
+      <style>
+        /* Mock CSS file for tests */
+/* otherwise dist/index.css will be used */
+
+      </style>
+      <header
+        class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionRelative bg-dark-charcoal css-1vazdj7-MuiPaper-root-MuiAppBar-root"
       >
-        <button
-          class="MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-zcbmsk-MuiButtonBase-root-MuiButton-root"
-          tabindex="0"
-          type="button"
-        >
-          Auto-Detect
-          <span
-            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-          />
-        </button>
         <div
-          style="padding-right: 5px; padding-left: 5px;"
+          style="flex-direction: row; display: flex; align-items: center; padding: 10px;"
         >
+          <button
+            class="text-sm font-medium px-4 py-2 rounded bg-theme-color shadow-theme-color shadow-glow text-black  "
+          >
+            Auto-Detect
+          </button>
           <div
-            class="css-6jtk0h"
+            style="padding-right: 5px; padding-left: 5px;"
           >
             <div
-              class="css-ci6nnc"
+              class="css-6jtk0h"
+            >
+              <div
+                class="css-ci6nnc"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="AndroidRoundedIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="m17.6 9.48 1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"
+                  />
+                </svg>
+              </div>
+              <div
+                class="MuiInputBase-root MuiInputBase-colorPrimary css-18nogfb-MuiInputBase-root"
+              >
+                <input
+                  class="MuiInputBase-input css-yz9k0d-MuiInputBase-input"
+                  placeholder="Fill in your app bundle id"
+                  type="text"
+                  value="com.example"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div
+        style="margin: 10px;"
+      >
+        <div
+          class="flex flex-row gap-2"
+        >
+          <button
+            class="text-sm font-medium px-4 py-2 rounded bg-theme-color shadow-theme-color shadow-glow text-black  flex items-center"
+          >
+            <span
+              class="mr-1"
             >
               <svg
                 aria-hidden="true"
                 class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                data-testid="AndroidRoundedIcon"
+                data-testid="StopIcon"
                 focusable="false"
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="m17.6 9.48 1.84-3.18c.16-.31.04-.69-.26-.85-.29-.15-.65-.06-.83.22l-1.88 3.24c-2.86-1.21-6.08-1.21-8.94 0L5.65 5.67c-.19-.29-.58-.38-.87-.2-.28.18-.37.54-.22.83L6.4 9.48C3.3 11.25 1.28 14.44 1 18h22c-.28-3.56-2.3-6.75-5.4-8.52zM7 15.25c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25zm10 0c-.69 0-1.25-.56-1.25-1.25s.56-1.25 1.25-1.25 1.25.56 1.25 1.25-.56 1.25-1.25 1.25z"
+                  d="M6 6h12v12H6z"
                 />
               </svg>
-            </div>
-            <div
-              class="MuiInputBase-root MuiInputBase-colorPrimary css-18nogfb-MuiInputBase-root"
+            </span>
+            Stop Measuring
+          </button>
+          <div
+            data-theme="bright-yellow"
+          >
+            <button
+              class="text-sm font-medium px-4 py-2 rounded bg-theme-color shadow-theme-color shadow-glow text-black  flex items-center"
             >
-              <input
-                class="MuiInputBase-input css-yz9k0d-MuiInputBase-input"
-                placeholder="Fill in your app bundle id"
-                type="text"
-                value="com.example"
-              />
-            </div>
+              <span
+                class="mr-1"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                  data-testid="DeleteIcon"
+                  focusable="false"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
+                  />
+                </svg>
+              </span>
+              Reset
+            </button>
           </div>
         </div>
       </div>
-    </header>
-    <div
-      style="margin: 10px;"
-    >
-      <button
-        class="MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-zcbmsk-MuiButtonBase-root-MuiButton-root"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="StopIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6 6h12v12H6z"
-            />
-          </svg>
-        </span>
-        Stop Measuring
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-      <button
-        class="MuiButton-root MuiButton-contained MuiButton-containedWarning MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButtonBase-root  css-1qtu9q6-MuiButtonBase-root-MuiButton-root"
-        tabindex="0"
-        type="button"
-      >
-        <span
-          class="MuiButton-startIcon MuiButton-iconSizeMedium css-1d6wzja-MuiButton-startIcon"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-            data-testid="DeleteIcon"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"
-            />
-          </svg>
-        </span>
-        Reset
-        <span
-          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
-        />
-      </button>
-    </div>
-    <div
-      class="css-1v8x7dw"
-    >
       <div
         class="flex flex-row w-full h-[calc(100%-50px)] overflow-y-hidden"
       >

@@ -1,5 +1,5 @@
 import { PlayArrow, Stop } from "@mui/icons-material";
-import Button from "@mui/material/Button";
+import { Button } from "@perf-profiler/web-reporter-ui";
 import React from "react";
 
 export const StartButton = ({
@@ -12,21 +12,11 @@ export const StartButton = ({
   stop: () => void;
 }) =>
   isMeasuring ? (
-    <Button
-      variant="contained"
-      color="secondary"
-      onClick={stop}
-      startIcon={<Stop />}
-    >
+    <Button onClick={stop} icon={<Stop />}>
       Stop Measuring
     </Button>
   ) : (
-    <Button
-      variant="contained"
-      color="primary"
-      onClick={start}
-      startIcon={<PlayArrow />}
-    >
+    <Button onClick={start} icon={<PlayArrow />}>
       Start Measuring
     </Button>
   );
