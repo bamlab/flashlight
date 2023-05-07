@@ -69,6 +69,7 @@ export const Chart = ({
   interval = 500,
   timeLimit,
   maxValue,
+  showLegendForSingleSeries,
   colors = getColorPalette(),
 }: {
   title: string;
@@ -77,6 +78,7 @@ export const Chart = ({
   interval?: number;
   timeLimit?: number | null;
   maxValue?: number;
+  showLegendForSingleSeries?: boolean;
   colors?: string[];
 }) => {
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
@@ -135,6 +137,7 @@ export const Chart = ({
       },
       colors,
       legend: {
+        showForSingleSeries: showLegendForSingleSeries,
         labels: {
           colors: "#FFFFFF99",
         },
@@ -153,6 +156,7 @@ export const Chart = ({
       timeLimit,
       maxValue,
       colors,
+      showLegendForSingleSeries,
     ]
   );
 
