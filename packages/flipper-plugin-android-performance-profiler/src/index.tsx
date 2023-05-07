@@ -11,6 +11,7 @@ import { useMeasures } from "./useMeasures";
 import { Delete } from "@mui/icons-material";
 import fs from "fs";
 import { getThemeColorPalette } from "@perf-profiler/web-reporter-ui/dist/src/theme/colors";
+import { AppBar } from "./components/AppBar";
 
 setThemeAtRandom();
 
@@ -35,8 +36,8 @@ export function Component() {
   return (
     <div className="bg-light-charcoal h-full text-black">
       <CssStyle />
-      <BundleIdSelector bundleId={bundleId} onChange={setBundleId} />
-      <div style={{ margin: 10 }}>
+      <AppBar>
+        <BundleIdSelector bundleId={bundleId} onChange={setBundleId} />
         {bundleId ? (
           <div className="flex flex-row gap-2">
             <StartButton start={start} stop={stop} isMeasuring={isMeasuring} />
@@ -47,7 +48,7 @@ export function Component() {
             </div>
           </div>
         ) : null}
-      </div>
+      </AppBar>
       <ReporterView measures={measures} />
     </div>
   );
