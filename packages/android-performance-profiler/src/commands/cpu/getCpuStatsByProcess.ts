@@ -1,3 +1,5 @@
+import { Logger } from "@perf-profiler/logger";
+
 export interface ProcessStat {
   processId: string;
   processName: string;
@@ -9,6 +11,14 @@ export const processOutput = (output: string, pid: string): ProcessStat[] =>
   output
     .split(/\r\n|\n|\r/)
     .filter(Boolean)
+    .filter((line) => {
+      // Ignore errors, it might be that the thread is dead and we can read stats anymore
+      if (line.includes("C++ Error")) {
+        Logger.debug(line);
+        return false;
+      }
+      return true;
+    })
     .map((stats) => stats.split(" "))
     .filter(Boolean)
     .map((subProcessStats) => {
