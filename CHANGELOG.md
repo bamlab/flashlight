@@ -1,3 +1,14 @@
+# [0.7.0](https://github.com/bamlab/flashlight/compare/v0.5.0...v0.7.0) (2023-05-08)
+
+### Bug Fixes
+
+- **profiler:** fallback on alternative atrace file for certain devices ([#100](https://github.com/bamlab/flashlight/issues/100)) ([93ad2c8](https://github.com/bamlab/flashlight/commit/93ad2c84f9a4bc2cdb2d1f5e42841b906c1a0adb))
+
+### Features
+
+- **flipper:** integrate new design ([#104](https://github.com/bamlab/flashlight/issues/104)) ([b3410b5](https://github.com/bamlab/flashlight/commit/b3410b5848f715d2475bc12d6d13e28bc78b79ad))
+- **report:** design adjustments ([#102](https://github.com/bamlab/flashlight/issues/102)) ([5a55689](https://github.com/bamlab/flashlight/commit/5a5568922c5768fb3d01fa9027d23bb71c89c3f3))
+
 # [0.6.0](https://github.com/bamlab/flashlight/compare/v0.5.0...v0.6.0) (2023-05-03)
 
 # [0.5.0](https://github.com/bamlab/flashlight/compare/v0.4.0...v0.5.0) (2023-04-28)
