@@ -69,6 +69,7 @@ export const CPUReport = ({
             : undefined
         }
         maxValue={100}
+        showLegendForSingleSeries
       />
       <Collapsible
         unmountOnExit

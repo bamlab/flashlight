@@ -32,6 +32,7 @@ const Header = ({ saveToZIPCallBack }: { saveToZIPCallBack: () => void }) => {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
+        className="text-neutral-300"
         style={{
           float: "right",
         }}

@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { DevicePluginClient, createState } from "flipper-plugin";
+import {
+  Button,
+  ReporterView,
+  setThemeAtRandom,
+} from "@perf-profiler/web-reporter-ui";
 import { BundleIdSelector } from "./components/BundleIdSelector";
 import { StartButton } from "./components/StartButton";
 import { useMeasures } from "./useMeasures";
-import { ReporterView } from "@perf-profiler/web-reporter-ui";
-import Button from "@mui/material/Button";
 import { Delete } from "@mui/icons-material";
-import { ScrollContainer } from "./components/ScrollContainer";
+import fs from "fs";
+import { getThemeColorPalette } from "@perf-profiler/web-reporter-ui/dist/src/theme/colors";
+import { AppBar } from "./components/AppBar";
+
+setThemeAtRandom();
 
 // We don't actually use the device plugin functionalities
 export function devicePlugin(client: DevicePluginClient) {
@@ -15,32 +22,34 @@ export function devicePlugin(client: DevicePluginClient) {
   return { data };
 }
 
+const CssStyle = React.memo(() => {
+  const style = fs.readFileSync(`${__dirname}/index.css`, "utf8");
+
+  return <style>{style}</style>;
+});
+
 export function Component() {
   const [bundleId, setBundleId] = useState<string | null>(null);
 
   const { start, stop, measures, isMeasuring, reset } = useMeasures(bundleId);
 
   return (
-    <>
-      <BundleIdSelector bundleId={bundleId} onChange={setBundleId} />
-      <div style={{ margin: 10 }}>
+    <div className="bg-light-charcoal h-full text-black">
+      <CssStyle />
+      <AppBar>
+        <BundleIdSelector bundleId={bundleId} onChange={setBundleId} />
         {bundleId ? (
-          <>
+          <div className="flex flex-row gap-2">
             <StartButton start={start} stop={stop} isMeasuring={isMeasuring} />
-            <Button
-              variant="contained"
-              color="warning"
-              onClick={reset}
-              startIcon={<Delete />}
-            >
-              Reset
-            </Button>
-          </>
+            <div data-theme={getThemeColorPalette()[1]}>
+              <Button onClick={reset} icon={<Delete />}>
+                Reset
+              </Button>
+            </div>
+          </div>
         ) : null}
-      </div>
-      <ScrollContainer>
-        <ReporterView measures={measures} />
-      </ScrollContainer>
-    </>
+      </AppBar>
+      <ReporterView measures={measures} />
+    </div>
   );
 }

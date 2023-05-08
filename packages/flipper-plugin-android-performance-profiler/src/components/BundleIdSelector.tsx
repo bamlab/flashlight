@@ -1,8 +1,7 @@
 import React from "react";
-import Button from "@mui/material/Button";
-import AppBar from "@mui/material/AppBar";
 import { TextField } from "./TextField";
 import { detectCurrentAppBundleId } from "@perf-profiler/profiler";
+import { Button } from "@perf-profiler/web-reporter-ui";
 
 export const BundleIdSelector = ({
   bundleId,
@@ -27,22 +26,11 @@ export const BundleIdSelector = ({
   };
 
   return (
-    <AppBar position="relative">
-      <div
-        style={{
-          flexDirection: "row",
-          display: "flex",
-          alignItems: "center",
-          padding: 10,
-        }}
-      >
-        <Button onClick={autodetect} color="secondary" variant="contained">
-          Auto-Detect
-        </Button>
-        <div style={{ paddingRight: 5, paddingLeft: 5 }}>
-          <TextField onChange={handleChange} value={bundleId || ""} />
-        </div>
+    <>
+      <Button onClick={autodetect}>Auto-Detect</Button>
+      <div style={{ paddingRight: 5, paddingLeft: 5 }}>
+        <TextField onChange={handleChange} value={bundleId || ""} />
       </div>
-    </AppBar>
+    </>
   );
 };

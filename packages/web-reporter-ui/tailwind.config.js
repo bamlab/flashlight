@@ -6,12 +6,12 @@ module.exports = {
   content: [
     `${__dirname}/src/**/*.{html,js,ts,jsx,tsx}`,
     `${__dirname}/*.{html,js,ts,jsx,tsx}`,
-    `${__dirname}/../../node_modules/flowbite/**/*.js`
   ],
   safelist: [
     'stroke-success',
     'stroke-warning',
     'stroke-error',
+    'bg-light-charcoal',
   ],
   theme: {
     fontFamily: {
@@ -44,6 +44,5 @@ module.exports = {
     },
   },
   plugins: [
-    require('flowbite/plugin'),
   ]
 };
