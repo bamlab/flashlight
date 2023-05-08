@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.8.0...@perf-profiler/profiler@0.9.0) (2023-05-08)
+
+### Bug Fixes
+
+- **profiler:** fallback on alternative atrace file for certain devices ([#100](https://github.com/bamlab/android-performance-profiler/issues/100)) ([93ad2c8](https://github.com/bamlab/android-performance-profiler/commit/93ad2c84f9a4bc2cdb2d1f5e42841b906c1a0adb))
+
+### Features
+
+- **flipper:** integrate new design ([#104](https://github.com/bamlab/android-performance-profiler/issues/104)) ([b3410b5](https://github.com/bamlab/android-performance-profiler/commit/b3410b5848f715d2475bc12d6d13e28bc78b79ad))
+
 # [0.8.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.7.0...@perf-profiler/profiler@0.8.0) (2023-04-26)
 
 ### Features
