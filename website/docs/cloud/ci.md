@@ -32,7 +32,7 @@ if [ "$EAS_BUILD_PROFILE" = "e2e" ] && [ "$EAS_BUILD_PLATFORM" = "android" ]; th
     export PATH="$HOME/.flashlight/bin:$PATH"
 
     flashlight cloud --app android/app/build/outputs/apk/release/app-release.apk --test e2e/test.yml --apiKey $FLASHLIGHT_API_KEY
-    // Or android/app/build/outputs/bundle/release/app-release.aab if you are using an aab
+    # Or android/app/build/outputs/bundle/release/app-release.aab if you are using an aab
 fi
 ```
 
@@ -75,3 +75,15 @@ chmod +x eas-build-on-success.sh
 
 ✅ Check:
 - Now, your builds should be automatically uploaded to Flashlight when they are successfuly completed on EAS with the selected profile.
+
+#### Advanced usage - use flashlight on production builds
+
+If you want to use Flashlight on production builds, you can extend the `eas-build-on-success.sh` script to upload the production build to Flashlight.
+
+Here's an example of script that does all of that:
+
+```bash
+if [ "$EAS_BUILD_PROFILE" = "production" ] && [ "$EAS_BUILD_PLATFORM" = "android" ]; then
+  flashlight cloud --app android/app/build/outputs/bundle/release/app-release.aab --test e2e/test.yml --apiKey $FLASHLIGHT_API_KEY
+fi
+```
