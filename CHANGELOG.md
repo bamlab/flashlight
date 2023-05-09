@@ -1,3 +1,9 @@
+## [0.7.1](https://github.com/bamlab/flashlight/compare/v0.7.0...v0.7.1) (2023-05-09)
+
+### Bug Fixes
+
+- **test:** stop polling measures on failure ([e5500bf](https://github.com/bamlab/flashlight/commit/e5500bf9d251e12503fb8331df2eee1fbfa4f47d))
+
 # [0.7.0](https://github.com/bamlab/flashlight/compare/v0.5.0...v0.7.0) (2023-05-08)
 
 ### Bug Fixes
