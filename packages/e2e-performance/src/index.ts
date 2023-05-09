@@ -37,6 +37,8 @@ class PerformanceTester {
     iterationCount: number,
     recordOptions: RecordOptions
   ): Promise<TestCaseIterationResult> {
+    let performanceMeasurer: PerformanceMeasurer | null = null;
+
     try {
       const { beforeTest, run, afterTest, duration } = this.testCase;
 
@@ -49,7 +51,7 @@ class PerformanceTester {
         await recorder.startRecording({ bitRate, size });
       }
 
-      const performanceMeasurer = new PerformanceMeasurer(this.bundleId);
+      performanceMeasurer = new PerformanceMeasurer(this.bundleId);
       performanceMeasurer.start();
 
       await run();
@@ -75,6 +77,7 @@ class PerformanceTester {
 
       return measures;
     } catch (error) {
+      performanceMeasurer?.forceStop();
       throw new Error("Error while running test");
     }
   }

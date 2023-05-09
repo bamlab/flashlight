@@ -35,6 +35,10 @@ export class PerformanceMeasurer {
     });
   }
 
+  forceStop() {
+    this.polling?.stop();
+  }
+
   async stop(duration?: number) {
     const time = this.timingTrace?.stop();
 
