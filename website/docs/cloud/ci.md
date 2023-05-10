@@ -84,6 +84,8 @@ Here's an example of script that does all of that:
 
 ```bash
 if [ "$EAS_BUILD_PROFILE" = "production" ] && [ "$EAS_BUILD_PLATFORM" = "android" ]; then
+  curl https://get.flashlight.dev/ | bash
+  export PATH="$HOME/.flashlight/bin:$PATH"
   flashlight cloud --app android/app/build/outputs/bundle/release/app-release.aab --test e2e/test.yml --apiKey $FLASHLIGHT_API_KEY
 fi
 ```
