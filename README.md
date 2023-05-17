@@ -12,7 +12,7 @@ You can run locally or in the cloud with [flashlight.dev](https://flashlight.dev
 
 - 🙅 No need to install anything in your app
 - 🚀 Measure performance on **production** apps
-- ✨ Generates beautiful web report ([like this Flatlist/Flashlist comparison](https://bamlab.github.io/flashlight/report/complex-list/s10/report.html))
+- ✨ Generates beautiful web report ([like this Flatlist/Flashlist comparison](https://bamlab.github.io/flashlight/flashlist/report.html))
 - 💻 Via CLI, Flipper or E2E test for full automation
 
 <img width="596" alt="image" src="https://github.com/bamlab/flashlight/assets/4534323/c3cb4aa2-f1de-40e2-a208-5e7cb97f7488">
