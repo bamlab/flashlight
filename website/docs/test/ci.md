@@ -10,4 +10,4 @@ To run in CI, you'll need the CI to be connected to an Android device. An emulat
 - Saucelabs with Entreprise plan and [Virtual USB](https://docs.saucelabs.com/mobile-apps/features/virtual-usb/)
 - [Genymotion Cloud](https://www.genymotion.com/pricing/) (using emulators will not accurately reproduce the performance of a real device)
 
-Our own cloud version will be publicly available soon! If you'd like to participate in the private beta, register on [https://flashlight.dev](https://flashlight.dev)
+Our own cloud version, [flashlight.dev](https://flashlight.dev) is in open beta, check out the docs [here](../cloud)

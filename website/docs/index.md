@@ -36,7 +36,7 @@ From this JSON file, you can generate a full web report with your performance sc
 flashlight report <your results.json>
 ```
 
-See more on how to customize reports, generate comparison views... [here](/category/-customize-reports) .
+See more on how to customize reports, generate comparison views... [here](report) .
 
 ## Going further
 
@@ -49,4 +49,4 @@ Performance measures are usually not deterministic, the best way to combat this 
 
 But let's face it, that's just super cumbersome to do!   
 Luckily we got you covered:  
-[check out the test command](./category/-automate-measures) to do this automatically for you!
+[check out the test command](test) to do this automatically for you!

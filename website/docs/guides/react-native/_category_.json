@@ -2,6 +2,7 @@
   "label": "⚛️ React Native",
   "position": 4,
   "link": {
-    "type": "generated-index"
+    "type": "generated-index",
+    "slug": "/guides/react-native"
   }
 }
