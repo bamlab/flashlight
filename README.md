@@ -6,6 +6,8 @@
 
 Flashlight generates a performance score for your app, aggregating different metrics.
 
+You can run locally or in the cloud with [flashlight.dev](https://flashlight.dev/)
+
 > **Full documentation** can be found at [docs.flashlight.dev](https://docs.flashlight.dev)
 
 - 🙅 No need to install anything in your app
@@ -13,7 +15,7 @@ Flashlight generates a performance score for your app, aggregating different met
 - ✨ Generates beautiful web report ([like this Flatlist/Flashlist comparison](https://bamlab.github.io/flashlight/report/complex-list/s10/report.html))
 - 💻 Via CLI, Flipper or E2E test for full automation
 
-<img width="596" alt="image" src="https://user-images.githubusercontent.com/4534323/187192078-402c306e-4d29-465c-bdfa-f278e7f0b927.png">
+<img width="596" alt="image" src="https://github.com/bamlab/flashlight/assets/4534323/c3cb4aa2-f1de-40e2-a208-5e7cb97f7488">
 
 ## Usage
 

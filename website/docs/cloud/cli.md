@@ -4,9 +4,7 @@ sidebar_position: 2
 
 # Run via CLI
 
-:::info
-Flashlight Cloud supports only Maestro for now, if you wish to have support for more testing frameworks, reach out on Slack or via mail
-:::
+[flashlight.dev](https://flashlight.dev) is now in open beta! 🥳   
 
 ## Usage
 
@@ -24,6 +22,10 @@ appId: com.example
 - launchApp
 - assertVisible: A text on your app
 ```
+
+:::info
+Flashlight Cloud supports only Maestro for now, if you wish to have support for more testing frameworks, feel free to reach out!
+:::
 
 Then run:
 
