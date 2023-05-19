@@ -1,3 +1,9 @@
+## [0.7.2](https://github.com/bamlab/flashlight/compare/v0.7.1...v0.7.2) (2023-05-19)
+
+### Bug Fixes
+
+- **profiler:** fix buffer overflow when running atrace async_stop ([#107](https://github.com/bamlab/flashlight/issues/107)) ([f06a849](https://github.com/bamlab/flashlight/commit/f06a849d9c3acc70ca8da488b93e269b27d54484))
+
 ## [0.7.1](https://github.com/bamlab/flashlight/compare/v0.7.0...v0.7.1) (2023-05-09)
 
 ### Bug Fixes
