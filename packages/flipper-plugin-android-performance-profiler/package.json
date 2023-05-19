@@ -1,8 +1,8 @@
 {
   "$schema": "https://fbflipper.com/schemas/plugin-package/v2.json",
-  "name": "flipper-plugin-flashlight",
+  "name": "flipper-plugin-android-performance-profiler",
   "id": "flashlight",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "pluginType": "device",
   "supportedDevices": [
     {
