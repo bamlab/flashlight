@@ -1,5 +1,5 @@
 import { Logger } from "@perf-profiler/logger";
-import { ChildProcess } from "child_process";
+import { ChildProcess, execSync } from "child_process";
 import fs from "fs";
 import os from "os";
 import { getAbi } from "./getAbi";
@@ -27,7 +27,14 @@ let aTraceProcess: ChildProcess | null = null;
 
 const startATrace = () => {
   Logger.debug("Stopping atrace and flushing output...");
-  executeCommand("adb shell atrace --async_stop");
+  /**
+   * Since output from the atrace --async_stop
+   * command can be quite big, seems like buffer overflow can happen
+   * Let's ignore the output then
+   *
+   * See https://stackoverflow.com/questions/63796633/spawnsync-bin-sh-enobufs
+   */
+  execSync("adb shell atrace --async_stop", { stdio: "ignore" });
   Logger.debug("Starting atrace...");
   aTraceProcess = executeAsync("adb shell atrace -c view -t 999");
 };
