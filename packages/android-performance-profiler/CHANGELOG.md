@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.9.0...@perf-profiler/profiler@0.9.1) (2023-05-19)
+
+### Bug Fixes
+
+- **profiler:** fix buffer overflow when running atrace async_stop ([#107](https://github.com/bamlab/android-performance-profiler/issues/107)) ([f06a849](https://github.com/bamlab/android-performance-profiler/commit/f06a849d9c3acc70ca8da488b93e269b27d54484))
+
 # [0.9.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.8.0...@perf-profiler/profiler@0.9.0) (2023-05-08)
 
 ### Bug Fixes
