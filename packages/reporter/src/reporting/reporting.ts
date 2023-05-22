@@ -4,7 +4,7 @@ import { Measure, POLLING_INTERVAL } from "@perf-profiler/types";
 const round = (n: number, decimals: number) =>
   Math.floor(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
 
-export const getAverageCpuUsagePerProcess = (measures: Measure[]) =>
+const _getAverageCpuUsagePerProcess = (measures: Measure[]) =>
   _(measures)
     .map((measure) => measure.cpu)
     .map(({ perName }) =>
@@ -17,16 +17,20 @@ export const getAverageCpuUsagePerProcess = (measures: Measure[]) =>
     .groupBy((measure) => measure.processName)
     .map((measure, processName) => ({
       processName,
-      cpuUsage: round(
+      cpuUsage:
         _.sumBy(measure, (measure) => measure.cpuUsage) / measures.length,
-        1
-      ),
     }))
     .orderBy((measure) => measure.cpuUsage, "desc")
     .value();
 
+export const getAverageCpuUsagePerProcess = (measures: Measure[]) =>
+  _getAverageCpuUsagePerProcess(measures).map((measure) => ({
+    ...measure,
+    cpuUsage: round(measure.cpuUsage, 1),
+  }));
+
 export const getAverageCpuUsage = (measures: Measure[]) =>
-  getAverageCpuUsagePerProcess(measures).reduce<number>(
+  _getAverageCpuUsagePerProcess(measures).reduce<number>(
     (sum, { cpuUsage }) => sum + cpuUsage,
     0
   );

@@ -16,7 +16,7 @@ this video
  
 for more details
 Average CPU usage
-57.1 %
+58.6 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to
  
@@ -54,7 +54,7 @@ this video
  
 for more details
 Average CPU usage
-29.5 %
+30.8 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to
  
@@ -100,12 +100,12 @@ hades
 glide-disk-cach
 0.7
 0.7
-HeapTaskDaemon
-0.6
-0.5
 mali-cmar-backe
 0.6
 0.2
+HeapTaskDaemon
+0.6
+0.5
 Measurement
 0.5
 0.5
@@ -115,20 +115,116 @@ f.c0
 Jit
 0.1
 0.2
-ReferenceQueueD
+HybridData
+0.1
+0.1
+pool-15-thread-
 0.1
 0
 mali-mem-purge
 0.1
 0
-HybridData
+ReferenceQueueD
 0.1
-0.1
+0
 AsyncTask
 0.1
 0.1
-pool-15-thread-
+m.batch.android
+0
 0.1
+pool-5-thread-1
+0
+0
+firebase-instal
+0
+0
+FrameMetricsAgg
+0
+0
+Binder:32265_3
+0
+0
+Binder:30620_4
+0
+0
+Binder:29476_3
+0
+0
+Profile
+0
+0
+Binder:809_4
+0
+0
+queued-work-loo
+0
+0
+Binder:1619_1
+0
+0
+Binder:31707_4
+0
+0
+Binder:31178_2
+0
+0
+Binder:28305_5
+0
+0
+pool-11-thread-
+0
+0
+Binder:28910_1
+0
+0
+FinalizerDaemon
+0
+0
+Binder:31707_1
+0
+0
+Binder:30068_4
+0
+0
+Binder:31178_3
+0
+0
+Binder:1619_3
+0
+0
+Binder:30068_3
+0
+0
+glide-source-th
+0
+0
+Binder:1619_5
+0
+0
+ScionFrontendAp
+0
+0
+Binder:809_1
+0
+0
+Binder:29476_1
+0
+0
+Binder:28910_5
+0
+0
+algolia.net/...
+0
+0
+Binder:29476_4
+0
+0
+Binder:28305_2
+0
+0
+Binder:30620_2
+0
 0
 Runtime
 0
@@ -139,31 +235,13 @@ Signal
 perfetto_hprof_
 0
 0
-FinalizerDaemon
-0
-0
 FinalizerWatchd
 0
 0
 Binder:28305_1
 0
 0
-Binder:28305_2
-0
-0
-Profile
-0
-0
-queued-work-loo
-0
-0
 pool-4-thread-1
-0
-0
-ScionFrontendAp
-0
-0
-pool-11-thread-
 0
 0
 Firebase-Messag
@@ -184,25 +262,13 @@ pool-17-thread-
 GmsDynamite
 0
 0
-firebase-instal
-0
-0
 mali-utility-wo
-0
-0
-FrameMetricsAgg
 0
 0
 WifiManagerThre
 0
 0
 Timer-0
-0
-0
-m.batch.android
-0
-0.1
-pool-5-thread-1
 0
 0
 pool-6-thread-1
@@ -322,9 +388,6 @@ FrescoDecodeExe
 glide-active-re
 0
 0
-Binder:28910_1
-0
-0
 Binder:28910_2
 0
 0
@@ -358,19 +421,10 @@ pool-54-thread-
 Binder:28910_4
 0
 0
-Binder:29476_1
-0
-0
 Binder:29476_2
 0
 0
-Binder:29476_3
-0
-0
 Thread-9
-0
-0
-Binder:29476_4
 0
 0
 Binder:30068_1
@@ -379,46 +433,22 @@ Binder:30068_1
 Binder:30068_2
 0
 0
-Binder:30068_3
-0
-0
-Binder:30068_4
-0
-0
 Binder:30620_1
-0
-0
-Binder:30620_2
 0
 0
 Binder:30620_3
 0
 0
-Binder:30620_4
-0
-0
 Binder:31178_1
 0
 0
-Binder:31178_2
-0
-0
-Binder:31178_3
-0
-0
 Binder:31178_4
-0
-0
-Binder:31707_1
 0
 0
 Binder:31707_2
 0
 0
 Binder:31707_3
-0
-0
-Binder:31707_4
 0
 0
 grpc-okhttp-2
@@ -430,16 +460,7 @@ Binder:32265_1
 Binder:32265_2
 0
 0
-Binder:32265_3
-0
-0
 Binder:32265_4
-0
-0
-Binder:809_4
-0
-0
-Binder:809_1
 0
 0
 Binder:809_2
@@ -451,28 +472,10 @@ Binder:809_3
 pool-41-thread-
 0
 0
-Binder:1619_1
-0
-0
 Binder:1619_2
 0
 0
-Binder:1619_3
-0
-0
 Binder:1619_4
-0
-0
-Binder:28305_5
-0
-0
-algolia.net/...
-0
-0
-Binder:1619_5
-0
-0
-Binder:28910_5
 0
 0
 Binder:30068_5
@@ -484,31 +487,85 @@ Binder:31178_5
 s.ctfassets.net
 0
 0
-glide-source-th
-0
-0
 Binder:809_5
 0
 0
-Binder:3243_1
-0
-0
-Binder:3243_2
-0
-0
-Binder:3243_3
+pool-10-thread-
 0
 0
 ulture.team/...
 0
 0
+Binder:3978_2
+0
+0
+Binder:3243_3
+0
+0
+Binder:8461_3
+0
+0
+Binder:4646_3
+0
+0
+Binder:7853_1
+0
+0
+Binder:7291_5
+0
+0
+Binder:7291_1
+0
+0
+Binder:6737_3
+0
+0
+Binder:9067_2
+0
+0
+Binder:6118_4
+0
+0
+Binder:9067_3
+0
+0
+Binder:4646_4
+0
+0
+Binder:5301_2
+0
+0
+Binder:7853_4
+0
+0
 Binder:3243_4
 0
 0
+Binder:8461_2
+0
+0
+Binder:6737_4
+0
+0
+Binder:6118_2
+0
+0
+Binder:6118_3
+0
+0
+Binder:9067_5
+0
+0
+Binder:5301_4
+0
+0
+Binder:3243_2
+0
+0
+Binder:3243_1
+0
+0
 Binder:3978_1
-0
-0
-Binder:3978_2
 0
 0
 Binder:3978_3
@@ -523,52 +580,19 @@ Binder:4646_1
 Binder:4646_2
 0
 0
-Binder:4646_3
-0
-0
-Binder:4646_4
-0
-0
 Binder:5301_1
-0
-0
-Binder:5301_2
 0
 0
 Binder:5301_3
 0
 0
-Binder:5301_4
-0
-0
 Binder:6118_1
-0
-0
-Binder:6118_2
-0
-0
-pool-10-thread-
-0
-0
-Binder:6118_3
-0
-0
-Binder:6118_4
 0
 0
 Binder:6737_1
 0
 0
 Binder:6737_2
-0
-0
-Binder:6737_3
-0
-0
-Binder:6737_4
-0
-0
-Binder:7291_1
 0
 0
 Binder:7291_2
@@ -580,25 +604,13 @@ Binder:7291_3
 Binder:7291_4
 0
 0
-Binder:7853_1
-0
-0
 Binder:7853_2
 0
 0
 Binder:7853_3
 0
 0
-Binder:7853_4
-0
-0
 Binder:8461_1
-0
-0
-Binder:8461_2
-0
-0
-Binder:8461_3
 0
 0
 Binder:8461_4
@@ -610,22 +622,10 @@ Binder:8461_5
 Binder:9067_1
 0
 0
-Binder:9067_2
-0
-0
-Binder:9067_3
-0
-0
 Binder:9067_4
 0
 0
-Binder:9067_5
-0
-0
 Binder:5301_5
-0
-0
-Binder:7291_5
 0
 0
 Binder:4646_5
@@ -900,7 +900,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <div
                         class="text-neutral-300 whitespace-pre"
                       >
-                        57.1 %
+                        58.6 %
                       </div>
                       <div
                         class="w-2"
@@ -1333,7 +1333,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <div
                         class="text-neutral-300 whitespace-pre"
                       >
-                        29.5 %
+                        30.8 %
                       </div>
                       <div
                         class="w-2"
@@ -2066,7 +2066,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-6"
                     scope="row"
                   >
-                    HeapTaskDaemon
+                    mali-cmar-backe
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2076,7 +2076,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0.5
+                    0.2
                   </td>
                 </tr>
                 <tr
@@ -2118,7 +2118,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-7"
                     scope="row"
                   >
-                    mali-cmar-backe
+                    HeapTaskDaemon
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2128,7 +2128,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0.2
+                    0.5
                   </td>
                 </tr>
                 <tr
@@ -2326,7 +2326,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-11"
                     scope="row"
                   >
-                    ReferenceQueueD
+                    HybridData
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2336,7 +2336,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0
+                    0.1
                   </td>
                 </tr>
                 <tr
@@ -2378,7 +2378,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-12"
                     scope="row"
                   >
-                    mali-mem-purge
+                    pool-15-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2430,7 +2430,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-13"
                     scope="row"
                   >
-                    HybridData
+                    mali-mem-purge
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2440,7 +2440,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0.1
+                    0
                   </td>
                 </tr>
                 <tr
@@ -2482,7 +2482,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-14"
                     scope="row"
                   >
-                    AsyncTask
+                    ReferenceQueueD
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2492,7 +2492,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0.1
+                    0
                   </td>
                 </tr>
                 <tr
@@ -2534,7 +2534,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-15"
                     scope="row"
                   >
-                    pool-15-thread-
+                    AsyncTask
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2544,7 +2544,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0
+                    0.1
                   </td>
                 </tr>
                 <tr
@@ -2586,7 +2586,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-16"
                     scope="row"
                   >
-                    Runtime
+                    m.batch.android
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2596,7 +2596,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0
+                    0.1
                   </td>
                 </tr>
                 <tr
@@ -2638,7 +2638,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-17"
                     scope="row"
                   >
-                    Signal
+                    pool-5-thread-1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2690,7 +2690,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-18"
                     scope="row"
                   >
-                    perfetto_hprof_
+                    firebase-instal
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2742,7 +2742,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-19"
                     scope="row"
                   >
-                    FinalizerDaemon
+                    FrameMetricsAgg
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2794,7 +2794,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-20"
                     scope="row"
                   >
-                    FinalizerWatchd
+                    Binder:32265_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2846,7 +2846,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-21"
                     scope="row"
                   >
-                    Binder:28305_1
+                    Binder:30620_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2898,7 +2898,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-22"
                     scope="row"
                   >
-                    Binder:28305_2
+                    Binder:29476_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3002,7 +3002,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-24"
                     scope="row"
                   >
-                    queued-work-loo
+                    Binder:809_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3054,7 +3054,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-25"
                     scope="row"
                   >
-                    pool-4-thread-1
+                    queued-work-loo
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3106,7 +3106,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-26"
                     scope="row"
                   >
-                    ScionFrontendAp
+                    Binder:1619_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3158,7 +3158,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-27"
                     scope="row"
                   >
-                    pool-11-thread-
+                    Binder:31707_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3210,7 +3210,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-28"
                     scope="row"
                   >
-                    Firebase-Messag
+                    Binder:31178_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3262,7 +3262,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-29"
                     scope="row"
                   >
-                    pool-16-thread-
+                    Binder:28305_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3314,7 +3314,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-30"
                     scope="row"
                   >
-                    pool-18-thread-
+                    pool-11-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3366,7 +3366,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-31"
                     scope="row"
                   >
-                    pool-19-thread-
+                    Binder:28910_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3418,7 +3418,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-32"
                     scope="row"
                   >
-                    pool-17-thread-
+                    FinalizerDaemon
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3470,7 +3470,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-33"
                     scope="row"
                   >
-                    GmsDynamite
+                    Binder:31707_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3522,7 +3522,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-34"
                     scope="row"
                   >
-                    firebase-instal
+                    Binder:30068_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3574,7 +3574,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-35"
                     scope="row"
                   >
-                    mali-utility-wo
+                    Binder:31178_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3626,7 +3626,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-36"
                     scope="row"
                   >
-                    FrameMetricsAgg
+                    Binder:1619_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3678,7 +3678,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-37"
                     scope="row"
                   >
-                    WifiManagerThre
+                    Binder:30068_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3730,7 +3730,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-38"
                     scope="row"
                   >
-                    Timer-0
+                    glide-source-th
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3782,7 +3782,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-39"
                     scope="row"
                   >
-                    m.batch.android
+                    Binder:1619_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3792,7 +3792,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0.1
+                    0
                   </td>
                 </tr>
                 <tr
@@ -3834,7 +3834,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-40"
                     scope="row"
                   >
-                    pool-5-thread-1
+                    ScionFrontendAp
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3886,7 +3886,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-41"
                     scope="row"
                   >
-                    pool-6-thread-1
+                    Binder:809_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3938,7 +3938,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-42"
                     scope="row"
                   >
-                    pool-24-thread-
+                    Binder:29476_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3990,7 +3990,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-43"
                     scope="row"
                   >
-                    pool-25-thread-
+                    Binder:28910_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4042,7 +4042,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-44"
                     scope="row"
                   >
-                    pool-23-thread-
+                    algolia.net/...
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4094,7 +4094,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-45"
                     scope="row"
                   >
-                    hwuiTask0
+                    Binder:29476_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4146,7 +4146,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-46"
                     scope="row"
                   >
-                    hwuiTask1
+                    Binder:28305_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4198,7 +4198,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-47"
                     scope="row"
                   >
-                    OkHttp
+                    Binder:30620_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4250,7 +4250,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-48"
                     scope="row"
                   >
-                    Binder:28305_3
+                    Runtime
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4302,7 +4302,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-49"
                     scope="row"
                   >
-                    Okio
+                    Signal
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4354,7 +4354,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-50"
                     scope="row"
                   >
-                    ConnectivityThr
+                    perfetto_hprof_
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4406,7 +4406,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-51"
                     scope="row"
                   >
-                    firebase-iid-ex
+                    FinalizerWatchd
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4458,7 +4458,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-52"
                     scope="row"
                   >
-                    Timer-1
+                    Binder:28305_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4510,7 +4510,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-53"
                     scope="row"
                   >
-                    pool-31-thread-
+                    pool-4-thread-1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4562,7 +4562,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-54"
                     scope="row"
                   >
-                    SentryHostnameC
+                    Firebase-Messag
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4614,7 +4614,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-55"
                     scope="row"
                   >
-                    Thread-7
+                    pool-16-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4666,7 +4666,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-56"
                     scope="row"
                   >
-                    pool-39-thread-
+                    pool-18-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4718,7 +4718,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-57"
                     scope="row"
                   >
-                    pool-38-thread-
+                    pool-19-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4770,7 +4770,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-58"
                     scope="row"
                   >
-                    FileObserver
+                    pool-17-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4822,7 +4822,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-59"
                     scope="row"
                   >
-                    |ANR-WatchDog|
+                    GmsDynamite
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4874,7 +4874,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-60"
                     scope="row"
                   >
-                    Timer-2
+                    mali-utility-wo
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4926,7 +4926,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-61"
                     scope="row"
                   >
-                    SentryAsyncConn
+                    WifiManagerThre
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -4978,7 +4978,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-62"
                     scope="row"
                   >
-                    Thread-11
+                    Timer-0
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5030,7 +5030,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-63"
                     scope="row"
                   >
-                    pool-50-thread-
+                    pool-6-thread-1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5082,7 +5082,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-64"
                     scope="row"
                   >
-                    FirestoreWorker
+                    pool-24-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5134,7 +5134,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-65"
                     scope="row"
                   >
-                    CrAsyncTask
+                    pool-25-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5186,7 +5186,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-66"
                     scope="row"
                   >
-                    grpc-timer-0
+                    pool-23-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5238,7 +5238,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-67"
                     scope="row"
                   >
-                    grpc-default-ex
+                    hwuiTask0
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5290,7 +5290,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-68"
                     scope="row"
                   >
-                    CookieMonsterCl
+                    hwuiTask1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5342,7 +5342,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-69"
                     scope="row"
                   >
-                    CookieMonsterBa
+                    OkHttp
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5394,7 +5394,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-70"
                     scope="row"
                   >
-                    grpc-okhttp-0
+                    Binder:28305_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5446,7 +5446,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-71"
                     scope="row"
                   >
-                    assculture.team
+                    Okio
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5498,7 +5498,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-72"
                     scope="row"
                   >
-                    sh.appcenter.ms
+                    ConnectivityThr
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5550,7 +5550,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-73"
                     scope="row"
                   >
-                    Binder:28305_4
+                    firebase-iid-ex
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5602,7 +5602,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-74"
                     scope="row"
                   >
-                    OkHttpClientTra
+                    Timer-1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5654,7 +5654,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-75"
                     scope="row"
                   >
-                    pool-55-thread-
+                    pool-31-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5706,7 +5706,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-76"
                     scope="row"
                   >
-                    FrescoLightWeig
+                    SentryHostnameC
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5758,7 +5758,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-77"
                     scope="row"
                   >
-                    FrescoIoBoundEx
+                    Thread-7
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5810,7 +5810,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-78"
                     scope="row"
                   >
-                    FrescoDecodeExe
+                    pool-39-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5862,7 +5862,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-79"
                     scope="row"
                   >
-                    glide-active-re
+                    pool-38-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5914,7 +5914,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-80"
                     scope="row"
                   >
-                    Binder:28910_1
+                    FileObserver
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -5966,7 +5966,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-81"
                     scope="row"
                   >
-                    Binder:28910_2
+                    |ANR-WatchDog|
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6018,7 +6018,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-82"
                     scope="row"
                   >
-                    Binder:28910_3
+                    Timer-2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6070,7 +6070,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-83"
                     scope="row"
                   >
-                    pool-13-thread-
+                    SentryAsyncConn
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6122,7 +6122,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-84"
                     scope="row"
                   >
-                    pool-14-thread-
+                    Thread-11
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6174,7 +6174,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-85"
                     scope="row"
                   >
-                    pool-12-thread-
+                    pool-50-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6226,7 +6226,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-86"
                     scope="row"
                   >
-                    keychain-warmin
+                    FirestoreWorker
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6278,7 +6278,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-87"
                     scope="row"
                   >
-                    Thread-8
+                    CrAsyncTask
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6330,7 +6330,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-88"
                     scope="row"
                   >
-                    pool-47-thread-
+                    grpc-timer-0
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6382,7 +6382,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-89"
                     scope="row"
                   >
-                    pool-49-thread-
+                    grpc-default-ex
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6434,7 +6434,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-90"
                     scope="row"
                   >
-                    pool-54-thread-
+                    CookieMonsterCl
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6486,7 +6486,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-91"
                     scope="row"
                   >
-                    Binder:28910_4
+                    CookieMonsterBa
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6538,7 +6538,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-92"
                     scope="row"
                   >
-                    Binder:29476_1
+                    grpc-okhttp-0
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6590,7 +6590,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-93"
                     scope="row"
                   >
-                    Binder:29476_2
+                    assculture.team
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6642,7 +6642,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-94"
                     scope="row"
                   >
-                    Binder:29476_3
+                    sh.appcenter.ms
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6694,7 +6694,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-95"
                     scope="row"
                   >
-                    Thread-9
+                    Binder:28305_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6746,7 +6746,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-96"
                     scope="row"
                   >
-                    Binder:29476_4
+                    OkHttpClientTra
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6798,7 +6798,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-97"
                     scope="row"
                   >
-                    Binder:30068_1
+                    pool-55-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6850,7 +6850,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-98"
                     scope="row"
                   >
-                    Binder:30068_2
+                    FrescoLightWeig
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6902,7 +6902,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-99"
                     scope="row"
                   >
-                    Binder:30068_3
+                    FrescoIoBoundEx
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -6954,7 +6954,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-100"
                     scope="row"
                   >
-                    Binder:30068_4
+                    FrescoDecodeExe
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7006,7 +7006,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-101"
                     scope="row"
                   >
-                    Binder:30620_1
+                    glide-active-re
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7058,7 +7058,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-102"
                     scope="row"
                   >
-                    Binder:30620_2
+                    Binder:28910_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7110,7 +7110,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-103"
                     scope="row"
                   >
-                    Binder:30620_3
+                    Binder:28910_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7162,7 +7162,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-104"
                     scope="row"
                   >
-                    Binder:30620_4
+                    pool-13-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7214,7 +7214,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-105"
                     scope="row"
                   >
-                    Binder:31178_1
+                    pool-14-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7266,7 +7266,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-106"
                     scope="row"
                   >
-                    Binder:31178_2
+                    pool-12-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7318,7 +7318,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-107"
                     scope="row"
                   >
-                    Binder:31178_3
+                    keychain-warmin
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7370,7 +7370,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-108"
                     scope="row"
                   >
-                    Binder:31178_4
+                    Thread-8
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7422,7 +7422,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-109"
                     scope="row"
                   >
-                    Binder:31707_1
+                    pool-47-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7474,7 +7474,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-110"
                     scope="row"
                   >
-                    Binder:31707_2
+                    pool-49-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7526,7 +7526,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-111"
                     scope="row"
                   >
-                    Binder:31707_3
+                    pool-54-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7578,7 +7578,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-112"
                     scope="row"
                   >
-                    Binder:31707_4
+                    Binder:28910_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7630,7 +7630,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-113"
                     scope="row"
                   >
-                    grpc-okhttp-2
+                    Binder:29476_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7682,7 +7682,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-114"
                     scope="row"
                   >
-                    Binder:32265_1
+                    Thread-9
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7734,7 +7734,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-115"
                     scope="row"
                   >
-                    Binder:32265_2
+                    Binder:30068_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7786,7 +7786,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-116"
                     scope="row"
                   >
-                    Binder:32265_3
+                    Binder:30068_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7838,7 +7838,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-117"
                     scope="row"
                   >
-                    Binder:32265_4
+                    Binder:30620_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7890,7 +7890,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-118"
                     scope="row"
                   >
-                    Binder:809_4
+                    Binder:30620_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7942,7 +7942,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-119"
                     scope="row"
                   >
-                    Binder:809_1
+                    Binder:31178_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -7994,7 +7994,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-120"
                     scope="row"
                   >
-                    Binder:809_2
+                    Binder:31178_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8046,7 +8046,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-121"
                     scope="row"
                   >
-                    Binder:809_3
+                    Binder:31707_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8098,7 +8098,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-122"
                     scope="row"
                   >
-                    pool-41-thread-
+                    Binder:31707_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8150,7 +8150,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-123"
                     scope="row"
                   >
-                    Binder:1619_1
+                    grpc-okhttp-2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8202,7 +8202,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-124"
                     scope="row"
                   >
-                    Binder:1619_2
+                    Binder:32265_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8254,7 +8254,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-125"
                     scope="row"
                   >
-                    Binder:1619_3
+                    Binder:32265_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8306,7 +8306,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-126"
                     scope="row"
                   >
-                    Binder:1619_4
+                    Binder:32265_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8358,7 +8358,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-127"
                     scope="row"
                   >
-                    Binder:28305_5
+                    Binder:809_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8410,7 +8410,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-128"
                     scope="row"
                   >
-                    algolia.net/...
+                    Binder:809_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8462,7 +8462,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-129"
                     scope="row"
                   >
-                    Binder:1619_5
+                    pool-41-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8514,7 +8514,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-130"
                     scope="row"
                   >
-                    Binder:28910_5
+                    Binder:1619_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8566,7 +8566,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-131"
                     scope="row"
                   >
-                    Binder:30068_5
+                    Binder:1619_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8618,7 +8618,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-132"
                     scope="row"
                   >
-                    Binder:31178_5
+                    Binder:30068_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8670,7 +8670,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-133"
                     scope="row"
                   >
-                    s.ctfassets.net
+                    Binder:31178_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8722,7 +8722,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-134"
                     scope="row"
                   >
-                    glide-source-th
+                    s.ctfassets.net
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8826,7 +8826,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-136"
                     scope="row"
                   >
-                    Binder:3243_1
+                    pool-10-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8878,7 +8878,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-137"
                     scope="row"
                   >
-                    Binder:3243_2
+                    ulture.team/...
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8930,7 +8930,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-138"
                     scope="row"
                   >
-                    Binder:3243_3
+                    Binder:3978_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -8982,7 +8982,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-139"
                     scope="row"
                   >
-                    ulture.team/...
+                    Binder:3243_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9034,7 +9034,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-140"
                     scope="row"
                   >
-                    Binder:3243_4
+                    Binder:8461_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9086,7 +9086,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-141"
                     scope="row"
                   >
-                    Binder:3978_1
+                    Binder:4646_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9138,7 +9138,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-142"
                     scope="row"
                   >
-                    Binder:3978_2
+                    Binder:7853_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9190,7 +9190,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-143"
                     scope="row"
                   >
-                    Binder:3978_3
+                    Binder:7291_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9242,7 +9242,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-144"
                     scope="row"
                   >
-                    pool-42-thread-
+                    Binder:7291_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9294,7 +9294,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-145"
                     scope="row"
                   >
-                    Binder:4646_1
+                    Binder:6737_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9346,7 +9346,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-146"
                     scope="row"
                   >
-                    Binder:4646_2
+                    Binder:9067_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9398,7 +9398,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-147"
                     scope="row"
                   >
-                    Binder:4646_3
+                    Binder:6118_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9450,7 +9450,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-148"
                     scope="row"
                   >
-                    Binder:4646_4
+                    Binder:9067_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9502,7 +9502,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-149"
                     scope="row"
                   >
-                    Binder:5301_1
+                    Binder:4646_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9606,7 +9606,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-151"
                     scope="row"
                   >
-                    Binder:5301_3
+                    Binder:7853_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9658,7 +9658,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-152"
                     scope="row"
                   >
-                    Binder:5301_4
+                    Binder:3243_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9710,7 +9710,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-153"
                     scope="row"
                   >
-                    Binder:6118_1
+                    Binder:8461_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9762,7 +9762,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-154"
                     scope="row"
                   >
-                    Binder:6118_2
+                    Binder:6737_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9814,7 +9814,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-155"
                     scope="row"
                   >
-                    pool-10-thread-
+                    Binder:6118_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9918,7 +9918,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-157"
                     scope="row"
                   >
-                    Binder:6118_4
+                    Binder:9067_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -9970,7 +9970,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-158"
                     scope="row"
                   >
-                    Binder:6737_1
+                    Binder:5301_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10022,7 +10022,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-159"
                     scope="row"
                   >
-                    Binder:6737_2
+                    Binder:3243_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10074,7 +10074,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-160"
                     scope="row"
                   >
-                    Binder:6737_3
+                    Binder:3243_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10126,7 +10126,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-161"
                     scope="row"
                   >
-                    Binder:6737_4
+                    Binder:3978_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10178,7 +10178,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-162"
                     scope="row"
                   >
-                    Binder:7291_1
+                    Binder:3978_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10230,7 +10230,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-163"
                     scope="row"
                   >
-                    Binder:7291_2
+                    pool-42-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10282,7 +10282,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-164"
                     scope="row"
                   >
-                    Binder:7291_3
+                    Binder:4646_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10334,7 +10334,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-165"
                     scope="row"
                   >
-                    Binder:7291_4
+                    Binder:4646_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10386,7 +10386,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-166"
                     scope="row"
                   >
-                    Binder:7853_1
+                    Binder:5301_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10438,7 +10438,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-167"
                     scope="row"
                   >
-                    Binder:7853_2
+                    Binder:5301_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10490,7 +10490,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-168"
                     scope="row"
                   >
-                    Binder:7853_3
+                    Binder:6118_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10542,7 +10542,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-169"
                     scope="row"
                   >
-                    Binder:7853_4
+                    Binder:6737_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10594,7 +10594,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-170"
                     scope="row"
                   >
-                    Binder:8461_1
+                    Binder:6737_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10646,7 +10646,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-171"
                     scope="row"
                   >
-                    Binder:8461_2
+                    Binder:7291_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10698,7 +10698,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-172"
                     scope="row"
                   >
-                    Binder:8461_3
+                    Binder:7291_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10750,7 +10750,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-173"
                     scope="row"
                   >
-                    Binder:8461_4
+                    Binder:7291_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10802,7 +10802,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-174"
                     scope="row"
                   >
-                    Binder:8461_5
+                    Binder:7853_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10854,7 +10854,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-175"
                     scope="row"
                   >
-                    Binder:9067_1
+                    Binder:7853_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10906,7 +10906,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-176"
                     scope="row"
                   >
-                    Binder:9067_2
+                    Binder:8461_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -10958,7 +10958,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-177"
                     scope="row"
                   >
-                    Binder:9067_3
+                    Binder:8461_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -11010,7 +11010,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-178"
                     scope="row"
                   >
-                    Binder:9067_4
+                    Binder:8461_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -11062,7 +11062,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-179"
                     scope="row"
                   >
-                    Binder:9067_5
+                    Binder:9067_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -11114,7 +11114,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-180"
                     scope="row"
                   >
-                    Binder:5301_5
+                    Binder:9067_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -11166,7 +11166,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     id="enhanced-table-checkbox-181"
                     scope="row"
                   >
-                    Binder:7291_5
+                    Binder:5301_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -11354,7 +11354,7 @@ this video
  
 for more details
 Average CPU usage
-64.8 %
+66.1 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to
  
@@ -11392,7 +11392,7 @@ this video
  
 for more details
 Average CPU usage
-29.7 %
+30.9 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to
  
@@ -11438,12 +11438,12 @@ hades
 HeapTaskDaemon
 0.8
 0.5
-mali-cmar-backe
-0.7
-0.2
 glide-disk-cach
 0.7
 0.7
+mali-cmar-backe
+0.7
+0.2
 Measurement
 0.6
 0.5
@@ -11453,27 +11453,39 @@ Jit
 HybridData
 0.2
 0.1
-ReferenceQueueD
-0.1
-0.1
 Binder:1619_1
+0.1
+0
+mali-mem-purge
 0.1
 0
 pool-15-thread-
 0.1
 0.1
-mali-mem-purge
-0.1
-0
-m.batch.android
+f.c0
 0.1
 0.1
 AsyncTask
 0.1
 0.1
-f.c0
+m.batch.android
 0.1
 0.1
+ReferenceQueueD
+0.1
+0.1
+Binder:1619_3
+0
+0
+pool-5-thread-1
+0
+0
+Binder:1619_5
+0
+0
+FrameMetricsAgg
+0
+0
 Runtime
 0
 0
@@ -11528,16 +11540,10 @@ mali-utility-wo
 firebase-instal
 0
 0
-FrameMetricsAgg
-0
-0
 WifiManagerThre
 0
 0
 Timer-0
-0
-0
-pool-5-thread-1
 0
 0
 pool-6-thread-1
@@ -11559,9 +11565,6 @@ hwuiTask1
 0
 0
 OkHttp
-0
-0
-Binder:1619_3
 0
 0
 firebase-iid-ex
@@ -11654,16 +11657,19 @@ glide-active-re
 Binder:1619_4
 0
 0
-Binder:1619_5
-0
-0
 Binder:9067_2
 0
 0.1
-Binder:9067_1
-0
-0
 Binder:9067_3
+0
+0
+ulture.team/...
+0
+0
+Binder:9067_5
+0
+0
+Binder:9067_1
 0
 0
 keychain-warmin
@@ -11673,12 +11679,6 @@ Binder:9067_4
 0
 0
 pool-47-thread-
-0
-0
-ulture.team/...
-0
-0
-Binder:9067_5
 0
 0
 Iteration
@@ -11951,7 +11951,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       <div
                         class="text-neutral-300 whitespace-pre"
                       >
-                        64.8 %
+                        66.1 %
                       </div>
                       <div
                         class="w-2"
@@ -12384,7 +12384,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       <div
                         class="text-neutral-300 whitespace-pre"
                       >
-                        29.7 %
+                        30.9 %
                       </div>
                       <div
                         class="w-2"
@@ -13117,7 +13117,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-6"
                     scope="row"
                   >
-                    mali-cmar-backe
+                    glide-disk-cach
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13127,7 +13127,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0.2
+                    0.7
                   </td>
                 </tr>
                 <tr
@@ -13169,7 +13169,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-7"
                     scope="row"
                   >
-                    glide-disk-cach
+                    mali-cmar-backe
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13179,7 +13179,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0.7
+                    0.2
                   </td>
                 </tr>
                 <tr
@@ -13377,7 +13377,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-11"
                     scope="row"
                   >
-                    ReferenceQueueD
+                    Binder:1619_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13387,7 +13387,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0.1
+                    0
                   </td>
                 </tr>
                 <tr
@@ -13429,7 +13429,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-12"
                     scope="row"
                   >
-                    Binder:1619_1
+                    mali-mem-purge
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13533,7 +13533,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-14"
                     scope="row"
                   >
-                    mali-mem-purge
+                    f.c0
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13543,7 +13543,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                   >
-                    0
+                    0.1
                   </td>
                 </tr>
                 <tr
@@ -13585,7 +13585,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-15"
                     scope="row"
                   >
-                    m.batch.android
+                    AsyncTask
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13637,7 +13637,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-16"
                     scope="row"
                   >
-                    AsyncTask
+                    m.batch.android
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13689,7 +13689,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-17"
                     scope="row"
                   >
-                    f.c0
+                    ReferenceQueueD
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13741,7 +13741,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-18"
                     scope="row"
                   >
-                    Runtime
+                    Binder:1619_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13793,7 +13793,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-19"
                     scope="row"
                   >
-                    Signal
+                    pool-5-thread-1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13845,7 +13845,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-20"
                     scope="row"
                   >
-                    perfetto_hprof_
+                    Binder:1619_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13897,7 +13897,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-21"
                     scope="row"
                   >
-                    FinalizerDaemon
+                    FrameMetricsAgg
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13949,7 +13949,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-22"
                     scope="row"
                   >
-                    FinalizerWatchd
+                    Runtime
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14001,7 +14001,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-23"
                     scope="row"
                   >
-                    Binder:1619_2
+                    Signal
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14053,7 +14053,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-24"
                     scope="row"
                   >
-                    Profile
+                    perfetto_hprof_
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14105,7 +14105,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-25"
                     scope="row"
                   >
-                    queued-work-loo
+                    FinalizerDaemon
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14157,7 +14157,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-26"
                     scope="row"
                   >
-                    pool-4-thread-1
+                    FinalizerWatchd
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14209,7 +14209,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-27"
                     scope="row"
                   >
-                    ScionFrontendAp
+                    Binder:1619_2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14261,7 +14261,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-28"
                     scope="row"
                   >
-                    pool-11-thread-
+                    Profile
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14313,7 +14313,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-29"
                     scope="row"
                   >
-                    pool-13-thread-
+                    queued-work-loo
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14365,7 +14365,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-30"
                     scope="row"
                   >
-                    pool-14-thread-
+                    pool-4-thread-1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14417,7 +14417,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-31"
                     scope="row"
                   >
-                    Firebase-Messag
+                    ScionFrontendAp
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14469,7 +14469,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-32"
                     scope="row"
                   >
-                    pool-12-thread-
+                    pool-11-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14521,7 +14521,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-33"
                     scope="row"
                   >
-                    GmsDynamite
+                    pool-13-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14573,7 +14573,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-34"
                     scope="row"
                   >
-                    mali-utility-wo
+                    pool-14-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14625,7 +14625,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-35"
                     scope="row"
                   >
-                    firebase-instal
+                    Firebase-Messag
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14677,7 +14677,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-36"
                     scope="row"
                   >
-                    FrameMetricsAgg
+                    pool-12-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14729,7 +14729,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-37"
                     scope="row"
                   >
-                    WifiManagerThre
+                    GmsDynamite
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14781,7 +14781,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-38"
                     scope="row"
                   >
-                    Timer-0
+                    mali-utility-wo
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14833,7 +14833,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-39"
                     scope="row"
                   >
-                    pool-5-thread-1
+                    firebase-instal
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14885,7 +14885,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-40"
                     scope="row"
                   >
-                    pool-6-thread-1
+                    WifiManagerThre
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14937,7 +14937,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-41"
                     scope="row"
                   >
-                    pool-24-thread-
+                    Timer-0
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -14989,7 +14989,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-42"
                     scope="row"
                   >
-                    pool-25-thread-
+                    pool-6-thread-1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15041,7 +15041,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-43"
                     scope="row"
                   >
-                    pool-23-thread-
+                    pool-24-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15093,7 +15093,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-44"
                     scope="row"
                   >
-                    hwuiTask0
+                    pool-25-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15145,7 +15145,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-45"
                     scope="row"
                   >
-                    hwuiTask1
+                    pool-23-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15197,7 +15197,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-46"
                     scope="row"
                   >
-                    OkHttp
+                    hwuiTask0
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15249,7 +15249,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-47"
                     scope="row"
                   >
-                    Binder:1619_3
+                    hwuiTask1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15301,7 +15301,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-48"
                     scope="row"
                   >
-                    firebase-iid-ex
+                    OkHttp
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15353,7 +15353,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-49"
                     scope="row"
                   >
-                    Okio
+                    firebase-iid-ex
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15405,7 +15405,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-50"
                     scope="row"
                   >
-                    Timer-1
+                    Okio
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15457,7 +15457,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-51"
                     scope="row"
                   >
-                    ConnectivityThr
+                    Timer-1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15509,7 +15509,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-52"
                     scope="row"
                   >
-                    pool-31-thread-
+                    ConnectivityThr
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15561,7 +15561,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-53"
                     scope="row"
                   >
-                    Thread-7
+                    pool-31-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15613,7 +15613,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-54"
                     scope="row"
                   >
-                    SentryHostnameC
+                    Thread-7
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15665,7 +15665,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-55"
                     scope="row"
                   >
-                    Thread-8
+                    SentryHostnameC
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15717,7 +15717,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-56"
                     scope="row"
                   >
-                    pool-38-thread-
+                    Thread-8
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15769,7 +15769,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-57"
                     scope="row"
                   >
-                    FileObserver
+                    pool-38-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15821,7 +15821,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-58"
                     scope="row"
                   >
-                    |ANR-WatchDog|
+                    FileObserver
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15873,7 +15873,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-59"
                     scope="row"
                   >
-                    Timer-2
+                    |ANR-WatchDog|
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15925,7 +15925,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-60"
                     scope="row"
                   >
-                    SentryAsyncConn
+                    Timer-2
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -15977,7 +15977,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-61"
                     scope="row"
                   >
-                    pool-49-thread-
+                    SentryAsyncConn
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16029,7 +16029,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-62"
                     scope="row"
                   >
-                    CrAsyncTask
+                    pool-49-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16081,7 +16081,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-63"
                     scope="row"
                   >
-                    CookieMonsterCl
+                    CrAsyncTask
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16133,7 +16133,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-64"
                     scope="row"
                   >
-                    CookieMonsterBa
+                    CookieMonsterCl
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16185,7 +16185,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-65"
                     scope="row"
                   >
-                    FirestoreWorker
+                    CookieMonsterBa
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16237,7 +16237,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-66"
                     scope="row"
                   >
-                    assculture.team
+                    FirestoreWorker
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16289,7 +16289,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-67"
                     scope="row"
                   >
-                    sh.appcenter.ms
+                    assculture.team
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16341,7 +16341,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-68"
                     scope="row"
                   >
-                    grpc-timer-0
+                    sh.appcenter.ms
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16393,7 +16393,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-69"
                     scope="row"
                   >
-                    grpc-default-ex
+                    grpc-timer-0
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16445,7 +16445,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-70"
                     scope="row"
                   >
-                    pool-54-thread-
+                    grpc-default-ex
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16497,7 +16497,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-71"
                     scope="row"
                   >
-                    grpc-okhttp-0
+                    pool-54-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16549,7 +16549,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-72"
                     scope="row"
                   >
-                    OkHttpClientTra
+                    grpc-okhttp-0
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16601,7 +16601,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-73"
                     scope="row"
                   >
-                    FrescoLightWeig
+                    OkHttpClientTra
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16653,7 +16653,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-74"
                     scope="row"
                   >
-                    FrescoIoBoundEx
+                    FrescoLightWeig
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16705,7 +16705,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-75"
                     scope="row"
                   >
-                    FrescoDecodeExe
+                    FrescoIoBoundEx
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16757,7 +16757,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-76"
                     scope="row"
                   >
-                    glide-active-re
+                    FrescoDecodeExe
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16809,7 +16809,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-77"
                     scope="row"
                   >
-                    Binder:1619_4
+                    glide-active-re
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16861,7 +16861,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-78"
                     scope="row"
                   >
-                    Binder:1619_5
+                    Binder:1619_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -16965,7 +16965,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-80"
                     scope="row"
                   >
-                    Binder:9067_1
+                    Binder:9067_3
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -17017,7 +17017,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-81"
                     scope="row"
                   >
-                    Binder:9067_3
+                    ulture.team/...
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -17069,7 +17069,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-82"
                     scope="row"
                   >
-                    keychain-warmin
+                    Binder:9067_5
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -17121,7 +17121,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-83"
                     scope="row"
                   >
-                    Binder:9067_4
+                    Binder:9067_1
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -17173,7 +17173,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-84"
                     scope="row"
                   >
-                    pool-47-thread-
+                    keychain-warmin
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -17225,7 +17225,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-85"
                     scope="row"
                   >
-                    ulture.team/...
+                    Binder:9067_4
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -17277,7 +17277,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     id="enhanced-table-checkbox-86"
                     scope="row"
                   >
-                    Binder:9067_5
+                    pool-47-thread-
                   </th>
                   <td
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -17406,7 +17406,7 @@ this video
  
 for more details
 Average CPU usage
-79.4 %
+79.9 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to
  
@@ -17450,7 +17450,7 @@ this video
  
 for more details
 Average CPU usage
-92.2 %
+92.8 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to
  
@@ -17756,7 +17756,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <div
                         class="text-neutral-300 whitespace-pre"
                       >
-                        79.4 %
+                        79.9 %
                       </div>
                       <div
                         class="w-2"
@@ -18194,7 +18194,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <div
                         class="text-neutral-300 whitespace-pre"
                       >
-                        92.2 %
+                        92.8 %
                       </div>
                       <div
                         class="w-2"
