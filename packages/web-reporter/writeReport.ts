@@ -1,14 +1,11 @@
 import fs from "fs";
-import { TestCaseResult } from "@perf-profiler/types";
+import { POLLING_INTERVAL, TestCaseResult } from "@perf-profiler/types";
 import path from "path";
 
-// We should have better management of the time interval over the repo
-const MEASURE_INTERVAL = 500;
-
 const assertTimeIntervalMultiple = (n: number) => {
-  if (n % MEASURE_INTERVAL !== 0) {
+  if (n % POLLING_INTERVAL !== 0) {
     throw new Error(
-      `Only multiples of the measure interval (${MEASURE_INTERVAL}ms) are supported`
+      `Only multiples of the measure interval (${POLLING_INTERVAL}ms) are supported`
     );
   }
 };
@@ -25,7 +22,7 @@ export const getMeasuresForTimeInterval = ({
   assertTimeIntervalMultiple(skip);
   if (duration !== null) assertTimeIntervalMultiple(duration);
 
-  const firstMeasureIndex = skip / MEASURE_INTERVAL;
+  const firstMeasureIndex = skip / POLLING_INTERVAL;
 
   return results.map((result) => ({
     ...result,
@@ -34,7 +31,7 @@ export const getMeasuresForTimeInterval = ({
       measures: iteration.measures.slice(
         firstMeasureIndex,
         duration
-          ? firstMeasureIndex + duration / MEASURE_INTERVAL + 1
+          ? firstMeasureIndex + duration / POLLING_INTERVAL + 1
           : iteration.measures.length
       ),
     })),

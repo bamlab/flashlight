@@ -1,4 +1,4 @@
-import { AveragedTestCaseResult } from "@perf-profiler/types";
+import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
 import { round } from "lodash";
 import { getAverageCpuUsage, getAverageFPSUsage } from "./reporting";
 
@@ -22,7 +22,7 @@ export const getScore = (result: AveragedTestCaseResult) => {
   const fpsScore = (averageUIFPS * 100) / 60;
   const cpuScore = calculateCpuScore(averageCPUUsage);
 
-  const totalMeasureTime = result.average.measures.length * 500;
+  const totalMeasureTime = result.average.measures.length * POLLING_INTERVAL;
   const timePercentageThreadlocked = totalTimeThreadlocked / totalMeasureTime;
 
   return round(

@@ -2,6 +2,7 @@ import { Logger } from "@perf-profiler/logger";
 import { Measure, pollPerformanceMeasures } from "@perf-profiler/profiler";
 import { Trace } from "./Trace";
 import { waitFor } from "./utils/waitFor";
+import { POLLING_INTERVAL } from "@perf-profiler/types";
 
 export class PerformanceMeasurer {
   measures: Measure[] = [];
@@ -42,26 +43,17 @@ export class PerformanceMeasurer {
   async stop(duration?: number) {
     const time = this.timingTrace?.stop();
 
-    const TIME_INTERVAL_IN_MS = 500;
     if (duration) {
       // Hack to wait for the duration to be reached in case test case has finished before
-      await waitFor(
-        () => this.measures.length * TIME_INTERVAL_IN_MS > duration,
-        {
-          checkInterval: TIME_INTERVAL_IN_MS,
-          timeout: duration * 1000,
-        }
-      );
-      this.measures = this.measures.slice(
-        0,
-        duration / TIME_INTERVAL_IN_MS + 1
-      );
+      await waitFor(() => this.measures.length * POLLING_INTERVAL > duration, {
+        checkInterval: POLLING_INTERVAL,
+        timeout: duration * 1000,
+      });
+      this.measures = this.measures.slice(0, duration / POLLING_INTERVAL + 1);
     } else {
       this.shouldStop = true;
       // Hack to wait for the last measures to be received
-      await new Promise((resolve) =>
-        setTimeout(resolve, TIME_INTERVAL_IN_MS * 2)
-      );
+      await new Promise((resolve) => setTimeout(resolve, POLLING_INTERVAL * 2));
     }
 
     // Ensure polling has stopped

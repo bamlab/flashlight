@@ -1,5 +1,5 @@
 import React from "react";
-import { AveragedTestCaseResult } from "@perf-profiler/types";
+import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
 import { Chart } from "../components/Chart";
 import { roundToDecimal } from "../../utils/roundToDecimal";
 
@@ -13,12 +13,17 @@ export const FPSReport = ({
     data: result.average.measures
       .map((measure) => measure.fps)
       .map((value, i) => ({
-        x: i * 500,
+        x: i * POLLING_INTERVAL,
         y: roundToDecimal(value, 0),
       })),
   }));
 
   return (
-    <Chart title="Frame rate (FPS)" height={500} interval={500} series={ram} />
+    <Chart
+      title="Frame rate (FPS)"
+      height={500}
+      interval={POLLING_INTERVAL}
+      series={ram}
+    />
   );
 };
