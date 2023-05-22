@@ -20,16 +20,20 @@ export class CpuMeasureAggregator {
       Math.min((value * 100) / TICKS_FOR_TIME_INTERVAL, 100);
 
     return mapValues(
-      stats.reduce<{ [by: string]: number }>(
-        (aggr, stat) => ({
+      stats.reduce<{ [by: string]: number }>((aggr, stat) => {
+        const cpuTimeDiff =
+          stat.totalCpuTime -
+          (this.previousTotalCpuTimePerProcessId[stat.processId] || 0);
+
+        return {
           ...aggr,
           [groupByIteratee(stat)]:
             (aggr[groupByIteratee(stat)] || 0) +
-            stat.totalCpuTime -
-            (this.previousTotalCpuTimePerProcessId[stat.processId] || 0),
-        }),
-        {}
-      ),
+            // if the diff is < 0, likely the process was restarted
+            // so we count the new cpu time
+            (cpuTimeDiff >= 0 ? cpuTimeDiff : stat.totalCpuTime),
+        };
+      }, {}),
       toPercentage
     );
   }
