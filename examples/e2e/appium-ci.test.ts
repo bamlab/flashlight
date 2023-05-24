@@ -1,7 +1,7 @@
 import { AppiumDriver } from "@bam.tech/appium-helper";
 import { TestCase, measurePerformance } from "@perf-profiler/e2e";
 
-const bundleId = "com.example";
+const bundleId = "com.apkpure.aegon";
 
 const runTest = async () => {
   const driver = await AppiumDriver.create({
@@ -12,12 +12,9 @@ const runTest = async () => {
   const testCase: TestCase = {
     beforeTest: async () => {
       driver.stopApp();
-      driver.startApp();
-      await driver.findElementById("kill_ui");
     },
     run: async () => {
-      await driver.clickElementById("kill_js");
-      await driver.clickElementById("kill_ui");
+      driver.startApp();
     },
     duration: 10000,
   };
