@@ -1,0 +1,15 @@
+{
+  "name": "@perf-profiler/measure",
+  "version": "0.1.0",
+  "author": {
+    "name": "Almouro",
+    "email": "alexandrem@bam.tech"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "bin": {
+    "perf-profiler-e2e": "dist/bin.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

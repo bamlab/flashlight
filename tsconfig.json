@@ -21,6 +21,7 @@
     { "path": "./packages/web-reporter" },
     { "path": "./packages/appium-test-cases" },
     { "path": "./packages/aws-device-farm" },
+    { "path": "./packages/measure" },
     { "path": "./examples/cli" },
     { "path": "./examples/e2e" }
   ],
