@@ -1,4 +1,5 @@
 import { Logger } from "@perf-profiler/logger";
+import { POLLING_INTERVAL } from "@perf-profiler/types";
 
 export const parseLine = (
   line: string
@@ -48,7 +49,7 @@ export class FrameTimeParser {
     if (lines.length === 0)
       return {
         frameTimes: [],
-        interval: 500,
+        interval: POLLING_INTERVAL,
       };
 
     const frameTimes: number[] = [];

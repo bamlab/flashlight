@@ -31,11 +31,10 @@ export const processOutput = (output: string, pid: string): ProcessStat[] =>
 
       const utime = parseInt(subProcessStats[13], 10);
       const stime = parseInt(subProcessStats[14], 10);
-      const cutime = parseInt(subProcessStats[15], 10);
-      const cstime = parseInt(subProcessStats[16], 10);
+
       const cpuNumber = subProcessStats[38];
 
-      const totalCpuTime = utime + stime + cutime + cstime;
+      const totalCpuTime = utime + stime;
 
       return { processId, processName, totalCpuTime, cpuNumber };
     });

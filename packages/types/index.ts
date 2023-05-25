@@ -38,3 +38,7 @@ export interface AveragedTestCaseResult {
   averageHighCpuUsage: { [processName: string]: number };
   reactNativeDetected: boolean;
 }
+
+// Shouldn't really be here but @perf-profiler/types is imported by everyone and doesn't contain any logic
+// so nice to have it here for now
+export const POLLING_INTERVAL = 500;

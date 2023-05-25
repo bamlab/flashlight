@@ -2,6 +2,7 @@ import React from "react";
 import {
   AveragedTestCaseResult,
   Measure,
+  POLLING_INTERVAL,
   TestCaseResult,
 } from "@perf-profiler/types";
 import { CPUReport } from "./src/sections/CPUReport";
@@ -124,7 +125,7 @@ export const ReporterView = ({ measures }: { measures: Measure[] }) => (
             iterations: [
               {
                 measures,
-                time: measures.length * 500,
+                time: measures.length * POLLING_INTERVAL,
               },
             ],
           },

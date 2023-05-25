@@ -6,6 +6,7 @@ import {
 } from "../../videoCurrentTimeContext";
 import { ApexOptions } from "apexcharts";
 import { getColorPalette } from "../theme/colors";
+import { POLLING_INTERVAL } from "@perf-profiler/types";
 
 const getVideoCurrentTimeAnnotation = () => {
   const palette = getColorPalette();
@@ -66,7 +67,7 @@ export const Chart = ({
   title,
   series,
   height,
-  interval = 500,
+  interval = POLLING_INTERVAL,
   timeLimit,
   maxValue,
   showLegendForSingleSeries,

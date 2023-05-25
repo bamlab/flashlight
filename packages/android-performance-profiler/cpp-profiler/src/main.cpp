@@ -86,10 +86,8 @@ long long printPerformanceMeasure(string pid)
     return totalDuration.count();
 }
 
-void pollPerformanceMeasures(std::string pid)
+void pollPerformanceMeasures(std::string pid, int interval)
 {
-    int interval = 500;
-
     while (true)
     {
         auto duration = printPerformanceMeasure(pid);
@@ -120,6 +118,7 @@ int main(int argc, char **argv)
     if (methodName == "pollPerformanceMeasures")
     {
         string bundleId = argv[2];
+        int interval = std::stoi(argv[3]);
         string pid = "";
 
         // We read atrace lines before the app is started
@@ -136,7 +135,7 @@ int main(int argc, char **argv)
             std::this_thread::sleep_for(std::chrono::milliseconds(50));
         }
 
-        pollPerformanceMeasures(pid);
+        pollPerformanceMeasures(pid, interval);
         aTraceReadThread.join();
     }
     else if (methodName == "printPerformanceMeasure")

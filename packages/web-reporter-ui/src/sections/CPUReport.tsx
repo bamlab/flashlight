@@ -1,5 +1,9 @@
 import React from "react";
-import { AveragedTestCaseResult, Measure } from "@perf-profiler/types";
+import {
+  AveragedTestCaseResult,
+  Measure,
+  POLLING_INTERVAL,
+} from "@perf-profiler/types";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
 import { Chart } from "../components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
@@ -14,7 +18,7 @@ const buildSeriesData = (
   measures
     .map((measure) => calculate(measure) || 0)
     .map((value, i) => ({
-      x: i * 500,
+      x: i * POLLING_INTERVAL,
       y: roundToDecimal(value, 1),
     }));
 
@@ -55,13 +59,13 @@ export const CPUReport = ({
       <Chart
         title="Total CPU Usage (%)"
         height={500}
-        interval={500}
+        interval={POLLING_INTERVAL}
         series={totalCPUUsage}
       />
       <Chart
         title="CPU Usage per thread (%)"
         height={500}
-        interval={500}
+        interval={POLLING_INTERVAL}
         series={threads}
         colors={
           results.length > 1

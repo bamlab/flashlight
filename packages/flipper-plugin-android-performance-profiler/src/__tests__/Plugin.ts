@@ -74,6 +74,7 @@ const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
           "/data/local/tmp/BAMPerfProfiler",
           "pollPerformanceMeasures",
           "com.example",
+          "500",
         ],
       ]);
       return mockProcess;

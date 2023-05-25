@@ -8,6 +8,7 @@ import {
   executeCommand,
   executeLongRunningProcess,
 } from "./shell";
+import { POLLING_INTERVAL } from "@perf-profiler/types";
 
 const CppProfilerName = `BAMPerfProfiler`;
 const deviceProfilerPath = `/data/local/tmp/${CppProfilerName}`;
@@ -152,7 +153,7 @@ export const pollPerformanceMeasures = (
   const DELIMITER = "=STOP MEASURE=";
 
   const process = executeLongRunningProcess(
-    `adb shell ${deviceProfilerPath} pollPerformanceMeasures ${pid}`,
+    `adb shell ${deviceProfilerPath} pollPerformanceMeasures ${pid} ${POLLING_INTERVAL}`,
     DELIMITER,
     (data: string) => {
       onData(parseCppMeasure(data));

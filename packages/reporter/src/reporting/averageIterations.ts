@@ -1,6 +1,7 @@
 import {
   AveragedTestCaseResult,
   Measure,
+  POLLING_INTERVAL,
   TestCaseIterationResult,
   TestCaseResult,
 } from "@perf-profiler/types";
@@ -36,7 +37,7 @@ const averageMeasures = (measures: Measure[]): Measure => {
     },
     ram: average(measures.map((m) => m.ram)),
     fps: average(measures.map((m) => m.fps)),
-    time: 500,
+    time: POLLING_INTERVAL,
   };
 };
 

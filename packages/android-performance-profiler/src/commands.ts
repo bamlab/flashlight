@@ -70,9 +70,8 @@ program
   )
   .action((options) => {
     const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
-    const pid = getPidId(bundleId);
 
-    pollPerformanceMeasures(pid, {
+    pollPerformanceMeasures(bundleId, {
       onMeasure: (measure: Measure) => {
         const headers: string[] = [];
         const values: number[] = [];
