@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.7.0...@perf-profiler/web-reporter@0.7.1) (2023-05-25)
+
+### Bug Fixes
+
+- **profiler:** fix some cpu measuring inaccuracies ([#109](https://github.com/bamlab/android-performance-profiler/issues/109)) ([79b6f79](https://github.com/bamlab/android-performance-profiler/commit/79b6f79f3d9c60581fdaadf5a52a053b2b64320c)), closes [392744175c4de67dc98e72da6745e6351118c985/toolbox/top.c#422](https://github.com/392744175c4de67dc98e72da6745e6351118c985/toolbox/top.c/issues/422)
+
 # [0.7.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.6.1...@perf-profiler/web-reporter@0.7.0) (2023-05-08)
 
 ### Features
