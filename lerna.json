@@ -1,6 +1,7 @@
 {
   "packages": [
     "./packages/logger",
+    "./packages/shell",
     "./packages/types",
     "./packages/android-performance-profiler",
     "./packages/appium-helper",

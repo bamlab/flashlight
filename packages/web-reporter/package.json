@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "@perf-profiler/logger": "^0.3.0",
+    "@perf-profiler/shell": "^0.1.0",
     "@perf-profiler/types": "^0.3.1",
     "commander": "^9.4.0"
   },

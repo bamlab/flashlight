@@ -1,21 +1,10 @@
 #!/usr/bin/env node
 
 import os from "os";
-import { execSync } from "child_process";
 import { program } from "commander";
 import { Logger } from "@perf-profiler/logger";
+import { open } from "@perf-profiler/shell";
 import { writeReport } from "./writeReport";
-
-const getOpenReportCommand = () => {
-  switch (process.platform) {
-    case "darwin":
-      return "open";
-    case "win32":
-      return "start";
-    default:
-      return "xdg-open";
-  }
-};
 
 program
   .command("report")
@@ -50,11 +39,7 @@ flashlight report results1.json --skip 1500 --duration 10000
     });
 
     Logger.success(`Opening report: ${htmlFilePath}`);
-    try {
-      execSync(`${getOpenReportCommand()} ${htmlFilePath}`);
-    } catch {
-      Logger.warn(`Failed to run "open ${htmlFilePath}"`);
-    }
+    open(htmlFilePath);
   });
 
 program.parse();

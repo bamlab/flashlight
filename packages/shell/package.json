@@ -1,0 +1,14 @@
+{
+  "name": "@perf-profiler/shell",
+  "version": "0.1.0",
+  "author": {
+    "name": "Almouro",
+    "email": "alexandrem@bam.tech"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "dependencies": {
+    "@perf-profiler/logger": "^0.3.0"
+  },
+  "devDependencies": {}
+}
