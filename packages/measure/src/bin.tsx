@@ -4,10 +4,13 @@ import React from "react";
 import { render } from "ink";
 import { program } from "commander";
 import { detectCurrentAppBundleId } from "@perf-profiler/profiler";
-import { PerformanceMeasurer } from "../../PerformanceMeasurer";
-import { writeReport } from "../../writeReport";
+import {
+  PerformanceMeasurer,
+  writeReport,
+  applyLogLevelOption,
+  logLevelOption,
+} from "@perf-profiler/e2e";
 import { MeasureCommandUI } from "./MeasureCommandUI";
-import { applyLogLevelOption, logLevelOption } from "../logLevelOption";
 
 program
   .command("measure")

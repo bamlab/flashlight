@@ -8,8 +8,20 @@
   "license": "MIT",
   "main": "dist/index.js",
   "bin": {
-    "perf-profiler-e2e": "dist/bin.js"
+    "perf-profiler-measure": "dist/bin.js"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@perf-profiler/e2e": "^0.9.4",
+    "@perf-profiler/logger": "^0.3.0",
+    "@perf-profiler/profiler": "^0.9.2",
+    "@perf-profiler/reporter": "^0.5.1",
+    "@perf-profiler/types": "^0.3.1",
+    "commander": "^9.4.0",
+    "ink": "^3.2.0",
+    "ink-table": "^3.0.0",
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "ink-testing-library": "^2.1.0"
+  }
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import { render } from "ink-testing-library";
 import { MeasureCommandUI } from "../MeasureCommandUI";
-import { PerformanceMeasurer } from "../../../PerformanceMeasurer";
-import { PerformancePollingMock } from "../../../utils/PerformancePollingMock";
-import { waitFor } from "../../../utils/waitFor";
+import { PerformanceMeasurer } from "@perf-profiler/e2e";
+import { PerformancePollingMock } from "@perf-profiler/e2e/src/utils/PerformancePollingMock";
+import { waitFor } from "@perf-profiler/e2e/src/utils/waitFor";
 
 const writeReport = jest.fn();
 jest.spyOn(process, "exit").mockImplementation(() => {
