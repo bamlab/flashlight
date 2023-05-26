@@ -28,6 +28,14 @@ const buildAverageCpuSeriesData = (measures: Measure[]) =>
 const buildCpuPerThreadSeriesData = (measures: Measure[], threadName: string) =>
   buildSeriesData(measures, (measure) => measure.cpu.perName[threadName]);
 
+const totalCpuAnnotationInterval = [
+  { y: 180, y2: 1000, color: "#E62E2E", label: "Danger Zone" },
+];
+
+const perThreadCpuAnnotationInterval = [
+  { y: 90, y2: 100, color: "#E62E2E", label: "Danger Zone" },
+];
+
 export const CPUReport = ({
   results,
 }: {
@@ -61,6 +69,7 @@ export const CPUReport = ({
         height={500}
         interval={POLLING_INTERVAL}
         series={totalCPUUsage}
+        annotationIntervalList={totalCpuAnnotationInterval}
       />
       <Chart
         title="CPU Usage per thread (%)"
@@ -74,6 +83,7 @@ export const CPUReport = ({
         }
         maxValue={100}
         showLegendForSingleSeries
+        annotationIntervalList={perThreadCpuAnnotationInterval}
       />
       <Collapsible
         unmountOnExit

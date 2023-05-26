@@ -3,6 +3,10 @@ import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
 import { Chart } from "../components/Chart";
 import { roundToDecimal } from "../../utils/roundToDecimal";
 
+const fpsAnnotationInterval = [
+  { y: 57, y2: 60, color: "#158000", label: "Safe Zone" },
+];
+
 export const FPSReport = ({
   results,
 }: {
@@ -24,6 +28,7 @@ export const FPSReport = ({
       height={500}
       interval={POLLING_INTERVAL}
       series={ram}
+      annotationIntervalList={fpsAnnotationInterval}
     />
   );
 };
