@@ -16,9 +16,9 @@ type AnnotationInterval = {
 };
 
 const getAnnotationInterval = (
-  annotationIntervalList: AnnotationInterval[]
+  annotationIntervalList: AnnotationInterval[] | undefined
 ) => {
-  const layout = annotationIntervalList.map(({ y, y2, label, color }) => ({
+  const layout = annotationIntervalList?.map(({ y, y2, label, color }) => ({
     y,
     y2,
     borderColor: color,
@@ -100,7 +100,7 @@ export const Chart = ({
   maxValue,
   showLegendForSingleSeries,
   colors = getColorPalette(),
-  annotationIntervalList = [],
+  annotationIntervalList = undefined,
 }: {
   title: string;
   series: { name: string; data: { x: number; y: number }[] }[];
