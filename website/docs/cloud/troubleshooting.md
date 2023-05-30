@@ -15,13 +15,20 @@ Assert that ".*The text.*" is visible... ❌
 ```
 Compare with the video of the failed test to make sure the app content was what you had expected.
 
-## Run Maestro test locally 
+## Use Maestro locally
 
-Flashlight runs Maestro tests in the cloud, so if the test is failing and still can't figure out why, it could be useful to run it locally on a device.
+Flashlight runs Maestro tests in the cloud, so if the test is failing and still can't figure out why, it could be useful to test it locally on a device.
 
 See how to:
 - [Install Maestro locally](https://maestro.mobile.dev/getting-started/installing-maestro) 
-- and [run your test](https://maestro.mobile.dev/getting-started/writing-your-first-flow)
+
+### Check wordings with Maestro Studio
+
+Using [Maestro Studio](https://maestro.mobile.dev/getting-started/maestro-studio), you can check if the wording you passed to Flashlight matches what Maestro expects.
+
+### Run Maestro test locally
+
+You can also [run your test](https://maestro.mobile.dev/getting-started/writing-your-first-flow)
 
 Since in the cloud, devices will have a blank state, it might be useful to clear data on your local device to reproduce the same behavior by adding a `clearState`(https://maestro.mobile.dev/api-reference/commands/clearstate) step,  e.g.:
 
