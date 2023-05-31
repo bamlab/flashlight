@@ -29,7 +29,7 @@ const buildCpuPerThreadSeriesData = (measures: Measure[], threadName: string) =>
   buildSeriesData(measures, (measure) => measure.cpu.perName[threadName]);
 
 const totalCpuAnnotationInterval = [
-  { y: 180, y2: 1000, color: "#E62E2E", label: "Danger Zone" },
+  { y: 300, y2: 1000, color: "#E62E2E", label: "Danger Zone" },
 ];
 
 const perThreadCpuAnnotationInterval = [
