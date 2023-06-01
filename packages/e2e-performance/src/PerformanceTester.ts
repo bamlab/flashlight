@@ -27,6 +27,11 @@ export interface RecordOptions {
 
 export class PerformanceTester {
   public measures: TestCaseIterationResult[] = [];
+  private currentTestCaseIterationResult: TestCaseIterationResult = {
+    measures: [],
+    time: 0,
+  };
+
   constructor(private bundleId: string, private testCase: TestCase) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
     ensureCppProfilerIsInstalled();
@@ -35,22 +40,23 @@ export class PerformanceTester {
   private async executeTestCase(
     iterationCount: number,
     recordOptions: RecordOptions
-  ): Promise<TestCaseIterationResult> {
+  ): Promise<void> {
     let performanceMeasurer: PerformanceMeasurer | null = null;
 
+    const { beforeTest, run, afterTest, duration } = this.testCase;
+
+    if (beforeTest) await beforeTest();
+
+    const videoName = `${recordOptions.title}_iteration_${iterationCount}.mp4`;
+    const recorder = new ScreenRecorder(videoName);
+    if (recordOptions.record) {
+      const { bitRate, size } = recordOptions;
+      await recorder.startRecording({ bitRate, size });
+    }
+
+    performanceMeasurer = new PerformanceMeasurer(this.bundleId);
+
     try {
-      const { beforeTest, run, afterTest, duration } = this.testCase;
-
-      if (beforeTest) await beforeTest();
-
-      const videoName = `${recordOptions.title}_iteration_${iterationCount}.mp4`;
-      const recorder = new ScreenRecorder(videoName);
-      if (recordOptions.record) {
-        const { bitRate, size } = recordOptions;
-        await recorder.startRecording({ bitRate, size });
-      }
-
-      performanceMeasurer = new PerformanceMeasurer(this.bundleId);
       performanceMeasurer.start();
 
       await run();
@@ -63,7 +69,7 @@ export class PerformanceTester {
       if (afterTest) await afterTest();
 
       if (recordOptions.record) {
-        return {
+        this.currentTestCaseIterationResult = {
           ...measures,
           videoInfos: {
             path: `${recordOptions.path}/${videoName}`,
@@ -72,10 +78,13 @@ export class PerformanceTester {
             ),
           },
         };
+        return;
       }
 
-      return measures;
+      this.currentTestCaseIterationResult = measures;
+      return;
     } catch (error) {
+      this.currentTestCaseIterationResult = await performanceMeasurer.stop();
       performanceMeasurer?.forceStop();
       throw new Error("Error while running test");
     }
@@ -95,18 +104,17 @@ export class PerformanceTester {
         `Running iteration ${currentIterationIndex + 1}/${iterationCount}`
       );
       try {
-        const measure = await this.executeTestCase(
-          currentIterationIndex,
-          recordOptions
-        );
+        await this.executeTestCase(currentIterationIndex, recordOptions);
         Logger.success(
           `Finished iteration ${
             currentIterationIndex + 1
-          }/${iterationCount} in ${measure.time}ms (${retriesCount} ${
+          }/${iterationCount} in ${
+            this.currentTestCaseIterationResult.time
+          }ms (${retriesCount} ${
             retriesCount > 1 ? "retries" : "retry"
           } so far)`
         );
-        this.measures.push(measure);
+
         currentIterationIndex++;
       } catch (error) {
         Logger.error(
@@ -121,6 +129,12 @@ export class PerformanceTester {
         if (retriesCount > maxRetries) {
           throw new Error("Max number of retries reached.");
         }
+      } finally {
+        this.measures.push(this.currentTestCaseIterationResult);
+        this.currentTestCaseIterationResult = {
+          measures: [],
+          time: 0,
+        };
       }
     }
 
