@@ -36,7 +36,7 @@ describe("measurePerformance", () => {
     const PATH = `${os.tmpdir()}/results.json`;
     const TITLE = "TITLE";
 
-    const { writeResults } = await measurePerformance(
+    await measurePerformance(
       "com.example",
       {
         run: runTest,
@@ -52,8 +52,6 @@ describe("measurePerformance", () => {
     );
 
     expect(runTest).toHaveBeenCalledTimes(3);
-
-    writeResults();
 
     expect(JSON.parse(fs.readFileSync(PATH).toString())).toMatchInlineSnapshot(`
       Object {

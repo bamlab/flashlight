@@ -26,6 +26,7 @@ export interface RecordOptions {
 }
 
 export class PerformanceTester {
+  public measures: TestCaseIterationResult[] = [];
   constructor(private bundleId: string, private testCase: TestCase) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
     ensureCppProfilerIsInstalled();
@@ -84,10 +85,10 @@ export class PerformanceTester {
     iterationCount: number,
     maxRetries: number,
     recordOptions: RecordOptions
-  ): Promise<TestCaseIterationResult[]> {
+  ): Promise<void> {
     let retriesCount = 0;
     let currentIterationIndex = 0;
-    const measures: TestCaseIterationResult[] = [];
+    this.measures = [];
 
     while (currentIterationIndex < iterationCount) {
       Logger.info(
@@ -105,7 +106,7 @@ export class PerformanceTester {
             retriesCount > 1 ? "retries" : "retry"
           } so far)`
         );
-        measures.push(measure);
+        this.measures.push(measure);
         currentIterationIndex++;
       } catch (error) {
         Logger.error(
@@ -123,10 +124,8 @@ export class PerformanceTester {
       }
     }
 
-    if (measures.length === 0) {
+    if (this.measures.length === 0) {
       throw new Error("No measure returned");
     }
-
-    return measures;
   }
 }
