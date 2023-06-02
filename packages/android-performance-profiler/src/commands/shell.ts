@@ -33,6 +33,8 @@ if (!global.Flipper) {
   process.on("SIGTERM", exit); // `kill` command
 }
 
+class AsyncExecutionError extends Error {}
+
 export const executeAsync = (command: string): ChildProcess => {
   const parts = command.split(" ");
 
@@ -48,6 +50,12 @@ export const executeAsync = (command: string): ChildProcess => {
 
   childProcess.on("close", (code) => {
     Logger.debug(`child process exited with code ${code}`);
+
+    if (code) {
+      throw new AsyncExecutionError(
+        `Process for ${command} exited with code ${code}`
+      );
+    }
   });
 
   childProcess.on("error", (err) => {
