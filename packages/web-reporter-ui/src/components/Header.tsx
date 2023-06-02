@@ -32,12 +32,11 @@ const Header = ({ saveToZIPCallBack }: { saveToZIPCallBack: () => void }) => {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
-        className="text-neutral-300"
         style={{
           float: "right",
         }}
       >
-        <MoreIcon fontSize="inherit" />
+        <MoreIcon fontSize="inherit" className="text-neutral-300" />
       </IconButton>
       <Menu
         id="export"
