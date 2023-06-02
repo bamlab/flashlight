@@ -8,6 +8,34 @@ import { ApexOptions } from "apexcharts";
 import { getColorPalette } from "../theme/colors";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
 
+type AnnotationInterval = {
+  y: number;
+  y2: number;
+  label: string;
+  color: string;
+};
+
+const getAnnotationInterval = (
+  annotationIntervalList: AnnotationInterval[] | undefined
+) => {
+  const layout = annotationIntervalList?.map(({ y, y2, label, color }) => ({
+    y,
+    y2,
+    borderColor: color,
+    fillColor: color,
+    opacity: 0.2,
+    label: {
+      borderColor: color,
+      style: {
+        color: "#fff",
+        background: color,
+      },
+      text: label,
+    },
+  }));
+  return layout;
+};
+
 const getVideoCurrentTimeAnnotation = () => {
   const palette = getColorPalette();
   const lastColor = palette[palette.length - 1];
@@ -72,6 +100,7 @@ export const Chart = ({
   maxValue,
   showLegendForSingleSeries,
   colors = getColorPalette(),
+  annotationIntervalList = undefined,
 }: {
   title: string;
   series: { name: string; data: { x: number; y: number }[] }[];
@@ -81,6 +110,7 @@ export const Chart = ({
   maxValue?: number;
   showLegendForSingleSeries?: boolean;
   colors?: string[];
+  annotationIntervalList?: AnnotationInterval[];
 }) => {
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
     series,
@@ -107,6 +137,7 @@ export const Chart = ({
       },
       annotations: {
         xaxis: videoEnabled ? [getVideoCurrentTimeAnnotation()] : [],
+        yaxis: getAnnotationInterval(annotationIntervalList),
       },
       title: {
         text: title,
@@ -154,6 +185,7 @@ export const Chart = ({
       interval,
       videoEnabled,
       setVideoCurrentTimeOnMouseHover,
+      annotationIntervalList,
       timeLimit,
       maxValue,
       colors,
