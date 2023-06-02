@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.9.1...@perf-profiler/web-reporter-ui@0.10.0) (2023-06-02)
+
+### Bug Fixes
+
+- put the color class name on the icon and not the container ([#115](https://github.com/bamlab/android-performance-profiler/issues/115)) ([fd45757](https://github.com/bamlab/android-performance-profiler/commit/fd45757cfd4033841b4e86172037864e82131762))
+
+### Features
+
+- ✨ add danger and safe zone to charts ([#111](https://github.com/bamlab/android-performance-profiler/issues/111)) ([da0d803](https://github.com/bamlab/android-performance-profiler/commit/da0d8039b1cf5466d17ada104badaddbb72105ea))
+
 ## [0.9.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.9.0...@perf-profiler/web-reporter-ui@0.9.1) (2023-05-25)
 
 ### Bug Fixes
