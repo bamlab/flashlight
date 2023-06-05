@@ -122,6 +122,7 @@ export const ReporterView = ({ measures }: { measures: Measure[] }) => (
         results={[
           {
             name: "Results",
+            status: "SUCCESS",
             iterations: [
               {
                 measures,

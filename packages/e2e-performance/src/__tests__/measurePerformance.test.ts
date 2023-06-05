@@ -77,6 +77,7 @@ describe("measurePerformance", () => {
         ],
         "name": "TITLE",
         "score": 3,
+        "status": "SUCCESS",
       }
     `);
   });
