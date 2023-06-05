@@ -27,10 +27,8 @@ export interface RecordOptions {
 
 export class PerformanceTester {
   public measures: TestCaseIterationResult[] = [];
-  private currentTestCaseIterationResult: TestCaseIterationResult = {
-    measures: [],
-    time: 0,
-  };
+  private currentTestCaseIterationResult: TestCaseIterationResult | undefined =
+    undefined;
 
   constructor(private bundleId: string, private testCase: TestCase) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
@@ -109,7 +107,7 @@ export class PerformanceTester {
           `Finished iteration ${
             currentIterationIndex + 1
           }/${iterationCount} in ${
-            this.currentTestCaseIterationResult.time
+            this.currentTestCaseIterationResult?.time
           }ms (${retriesCount} ${
             retriesCount > 1 ? "retries" : "retry"
           } so far)`
@@ -130,11 +128,10 @@ export class PerformanceTester {
           throw new Error("Max number of retries reached.");
         }
       } finally {
-        this.measures.push(this.currentTestCaseIterationResult);
-        this.currentTestCaseIterationResult = {
-          measures: [],
-          time: 0,
-        };
+        if (this.currentTestCaseIterationResult) {
+          this.measures.push(this.currentTestCaseIterationResult);
+          this.currentTestCaseIterationResult = undefined;
+        }
       }
     }
 
