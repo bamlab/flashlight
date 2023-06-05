@@ -126,6 +126,7 @@ export const ReporterView = ({ measures }: { measures: Measure[] }) => (
               {
                 measures,
                 time: measures.length * POLLING_INTERVAL,
+                status: "SUCCESS",
               },
             ],
           },

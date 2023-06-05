@@ -15,9 +15,12 @@ export interface HistogramValue {
   frameCount: number;
 }
 
+export type TestCaseIterationStatus = "SUCCESS" | "FAILURE";
+
 export interface TestCaseIterationResult {
   time: number;
   measures: Measure[];
+  status: TestCaseIterationStatus;
   videoInfos?: {
     path: string;
     startOffset: number;

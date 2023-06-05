@@ -1,4 +1,4 @@
-import { Measure } from "@perf-profiler/types";
+import { Measure, TestCaseIterationResult } from "@perf-profiler/types";
 import { getMeasuresForTimeInterval } from "./writeReport";
 
 const mockMeasure = (name: string) => {
@@ -6,9 +6,10 @@ const mockMeasure = (name: string) => {
   return name as unknown as Measure;
 };
 
-const mockResultIteration = (name: string[]) => ({
+const mockResultIteration = (name: string[]): TestCaseIterationResult => ({
   measures: name.map(mockMeasure),
   time: 0,
+  status: "SUCCESS",
 });
 
 describe("getMeasuresForTimeInterval", () => {

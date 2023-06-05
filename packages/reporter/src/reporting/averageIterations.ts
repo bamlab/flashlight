@@ -53,6 +53,7 @@ export const averageIterations = (
       averageMeasures(results.map((result) => result.measures[i]))
     ),
     time: average(results.map((result) => result.time)),
+    status: "SUCCESS",
   };
 };
 

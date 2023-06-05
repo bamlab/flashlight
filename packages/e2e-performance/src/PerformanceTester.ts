@@ -69,6 +69,7 @@ export class PerformanceTester {
       if (recordOptions.record) {
         this.currentTestCaseIterationResult = {
           ...measures,
+          status: "SUCCESS",
           videoInfos: {
             path: `${recordOptions.path}/${videoName}`,
             startOffset: Math.floor(
@@ -79,10 +80,11 @@ export class PerformanceTester {
         return;
       }
 
-      this.currentTestCaseIterationResult = measures;
+      this.currentTestCaseIterationResult = { ...measures, status: "SUCCESS" };
       return;
     } catch (error) {
-      this.currentTestCaseIterationResult = await performanceMeasurer.stop();
+      const measures = await performanceMeasurer.stop();
+      this.currentTestCaseIterationResult = { ...measures, status: "FAILURE" };
       performanceMeasurer?.forceStop();
       throw new Error("Error while running test");
     }

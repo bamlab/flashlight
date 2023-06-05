@@ -59,16 +59,19 @@ describe("measurePerformance", () => {
           Object {
             "measures": Array [],
             "startTime": 0,
+            "status": "SUCCESS",
             "time": 1000,
           },
           Object {
             "measures": Array [],
             "startTime": 0,
+            "status": "SUCCESS",
             "time": 1000,
           },
           Object {
             "measures": Array [],
             "startTime": 0,
+            "status": "SUCCESS",
             "time": 1000,
           },
         ],
