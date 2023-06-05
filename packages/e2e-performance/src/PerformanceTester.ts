@@ -41,20 +41,21 @@ export class PerformanceTester {
   ): Promise<void> {
     let performanceMeasurer: PerformanceMeasurer | null = null;
 
-    const { beforeTest, run, afterTest, duration } = this.testCase;
-
-    if (beforeTest) await beforeTest();
-
     const videoName = `${recordOptions.title}_iteration_${iterationCount}.mp4`;
     const recorder = new ScreenRecorder(videoName);
-    if (recordOptions.record) {
-      const { bitRate, size } = recordOptions;
-      await recorder.startRecording({ bitRate, size });
-    }
 
-    performanceMeasurer = new PerformanceMeasurer(this.bundleId);
+    const { beforeTest, run, afterTest, duration } = this.testCase;
 
     try {
+      if (beforeTest) await beforeTest();
+
+      if (recordOptions.record) {
+        const { bitRate, size } = recordOptions;
+        await recorder.startRecording({ bitRate, size });
+      }
+
+      performanceMeasurer = new PerformanceMeasurer(this.bundleId);
+
       performanceMeasurer.start();
 
       await run();
@@ -83,8 +84,29 @@ export class PerformanceTester {
       this.currentTestCaseIterationResult = { ...measures, status: "SUCCESS" };
       return;
     } catch (error) {
-      const measures = await performanceMeasurer.stop();
-      this.currentTestCaseIterationResult = { ...measures, status: "FAILURE" };
+      const measures = await performanceMeasurer?.stop();
+      if (measures) {
+        if (recordOptions.record) {
+          await recorder?.stopRecording();
+          await recorder?.pullRecording(recordOptions.path);
+          this.currentTestCaseIterationResult = {
+            ...measures,
+            status: "SUCCESS",
+            videoInfos: {
+              path: `${recordOptions.path}/${videoName}`,
+              startOffset: Math.floor(
+                measures.startTime - recorder.getRecordingStartTime()
+              ),
+            },
+          };
+        } else {
+          this.currentTestCaseIterationResult = {
+            ...measures,
+            status: "FAILURE",
+          };
+        }
+      }
+
       performanceMeasurer?.forceStop();
       throw new Error("Error while running test");
     }
