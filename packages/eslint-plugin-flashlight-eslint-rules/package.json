@@ -1,0 +1,18 @@
+{
+  "name": "@flashlight/custom-eslint-rules",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "Thomas Niebojewski",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/parser": "^5.15.0",
+    "@typescript-eslint/utils": "^5.15.0",
+    "eslint": "^8.11.0",
+    "requireindex": "^1.2.0"
+  },
+  "scripts": {
+    "build": "tsc && cp ./index.js dist/ && cp package.json dist/"
+  }
+}
