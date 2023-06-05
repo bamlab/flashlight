@@ -1,4 +1,0 @@
-appId: com.example
----
-- launchApp
-- assertVisible: ".*OJASOI.*"
