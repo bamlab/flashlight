@@ -69,10 +69,7 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
           <div className="overflow-auto w-full">
             <Header saveToZIPCallBack={saveResultsToZIP} />
             <Padding />
-            <ReportSummary
-              results={results}
-              averagedResults={averagedResults}
-            />
+            <ReportSummary averagedResults={averagedResults} />
             <div className="h-16" />
 
             <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">

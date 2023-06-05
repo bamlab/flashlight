@@ -1,13 +1,12 @@
 import React from "react";
-import { AveragedTestCaseResult, TestCaseResult } from "@perf-profiler/types";
+import { AveragedTestCaseResult } from "@perf-profiler/types";
 import { ReportSummaryCard } from "./ReportSummaryCard";
 import { getThemeColorPalette } from "../../theme/colors";
+import { FailedReportSummaryCard } from "./FailedReportSummaryCard";
 
 export const ReportSummary = ({
-  results,
   averagedResults,
 }: {
-  results: TestCaseResult[];
   averagedResults: AveragedTestCaseResult[];
 }) => {
   const palette = getThemeColorPalette();
@@ -28,7 +27,11 @@ export const ReportSummary = ({
               ? { "data-theme": palette[index % palette.length] }
               : {})}
           >
-            <ReportSummaryCard averagedResult={result} />
+            {result.status === "FAILURE" ? (
+              <FailedReportSummaryCard averagedResult={result} />
+            ) : (
+              <ReportSummaryCard averagedResult={result} />
+            )}
           </div>
         );
       })}
