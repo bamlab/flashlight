@@ -23,6 +23,7 @@
     "watch": "tsc --build --watch",
     "test": "prettier --check . && yarn build && eslint . --max-warnings 6 && yarn workspace flipper-plugin-android-performance-profiler test && jest",
     "test:coverage": "yarn clean-dist && jest --coverage",
+    "test:lint": "eslint . --ext .js,.ts,.tsx --cache",
     "run-cli-example": "node packages/cli-example",
     "build": "rm -rf .parcel-cache && yarn clean-dist && tsc --build && yarn workspace @perf-profiler/web-reporter build && yarn workspace flipper-plugin-android-performance-profiler build",
     "release": "yarn build && lerna publish",
