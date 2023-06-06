@@ -37,13 +37,18 @@ export const measurePerformance = async (
     ? p.basename(path)
     : `${title.toLocaleLowerCase().replace(/ /g, "_")}_${new Date().getTime()}`;
 
-  const tester = new PerformanceTester(bundleId, testCase);
-  try {
-    await tester.iterate(iterationCount, maxRetries, {
-      ...recordOptions,
+  const tester = new PerformanceTester(bundleId, testCase, {
+    iterationCount,
+    maxRetries,
+    recordOptions,
+    resultsFileOptions: {
       path: filePath,
       title: fileName.replace(".json", ""),
-    });
+    },
+  });
+
+  try {
+    await tester.iterate();
   } finally {
     writeReport(tester.measures, {
       filePath: path || `${filePath}/${fileName}.json`,
