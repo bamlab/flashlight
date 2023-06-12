@@ -46,6 +46,9 @@ export class PerformanceTester {
         if (this.retryCount > this.options.maxRetries) {
           throw new Error("Max number of retries reached.");
         }
+        Logger.error(
+          `Ignoring measure and retrying... (retry ${this.retryCount}/${this.options.maxRetries})`
+        );
       } finally {
         const currentTestCaseIterationResult =
           singleIterationTester.getCurrentTestCaseIterationResult();
@@ -70,9 +73,9 @@ export class PerformanceTester {
 
   private logFailedIteration(currentIterationIndex: number, error: unknown) {
     Logger.error(
-      `Iteration ${currentIterationIndex + 1}/${
-        this.options.iterationCount
-      } failed (ignoring measure): ${
+      `Iteration ${
+        currentIterationIndex + 1
+      }/${currentIterationIndex} failed: ${
         error instanceof Error ? error.message : "unknown error"
       }`
     );

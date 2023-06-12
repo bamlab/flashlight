@@ -69,7 +69,7 @@ export class SingleIterationTester {
       await this.maybeStopRecording();
       this.setCurrentTestCaseIterationResult(measures, "FAILURE");
       this.performanceMeasurer.forceStop();
-      throw new Error("Error while running test");
+      throw error;
     }
   }
 
