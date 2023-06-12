@@ -3,6 +3,7 @@ import {
   AveragedTestCaseResult,
   Measure,
   TestCaseIterationResult,
+  TestCaseIterationStatus,
 } from "@perf-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import {
@@ -83,18 +84,12 @@ export class PerformanceTester {
 
       if (afterTest) await afterTest();
 
-      this.currentTestCaseIterationResult = {
-        ...measures,
-        status: "SUCCESS",
-        videoInfos: this.options.recordOptions.record
-          ? {
-              path: `${this.options.resultsFileOptions.path}/${videoName}`,
-              startOffset: Math.floor(
-                measures.startTime - recorder.getRecordingStartTime()
-              ),
-            }
-          : undefined,
-      };
+      this.setCurrentTestCaseIterationResult(
+        measures,
+        recorder,
+        videoName,
+        "SUCCESS"
+      );
     } catch (error) {
       const measures = await this.performanceMeasurer?.stop();
       if (measures) {
@@ -102,7 +97,12 @@ export class PerformanceTester {
           await recorder?.stopRecording();
           await recorder?.pullRecording(this.options.resultsFileOptions.path);
         }
-        this.setCurrentTestCaseIterationResult(measures, recorder, videoName);
+        this.setCurrentTestCaseIterationResult(
+          measures,
+          recorder,
+          videoName,
+          "FAILURE"
+        );
       }
 
       this.performanceMeasurer?.forceStop();
@@ -117,11 +117,12 @@ export class PerformanceTester {
       measures: Measure[];
     },
     recorder: ScreenRecorder,
-    videoName: string
+    videoName: string,
+    status: TestCaseIterationStatus
   ) {
     this.currentTestCaseIterationResult = {
       ...measures,
-      status: "FAILURE",
+      status,
       videoInfos: this.options.recordOptions.record
         ? {
             path: `${this.options.resultsFileOptions.path}/${videoName}`,
