@@ -1,12 +1,8 @@
 import { writeReport } from "./writeReport";
 import * as p from "path";
-import {
-  PerformanceTester,
-  TestCase,
-  RecordOptions,
-} from "./PerformanceTester";
+import { PerformanceTester, TestCase } from "./PerformanceTester";
 
-export { TestCase, RecordOptions };
+export { TestCase };
 
 export const measurePerformance = async (
   bundleId: string,

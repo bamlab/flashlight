@@ -33,14 +33,6 @@ export interface Options {
   };
 }
 
-export interface RecordOptions {
-  record: boolean;
-  path: string;
-  title: string;
-  bitRate?: number;
-  size?: string;
-}
-
 export class PerformanceTester {
   public measures: TestCaseIterationResult[] = [];
   private currentTestCaseIterationResult: TestCaseIterationResult | undefined =
