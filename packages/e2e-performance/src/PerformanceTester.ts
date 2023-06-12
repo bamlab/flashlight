@@ -59,19 +59,13 @@ class SingleIterationTester {
     try {
       if (beforeTest) await beforeTest();
 
-      if (this.options.recordOptions.record) {
-        const { bitRate, size } = this.options.recordOptions;
-        await this.recorder.startRecording({ bitRate, size });
-      }
+      await this.maybeStartRecording();
 
       this.performanceMeasurer.start();
 
       await run();
       const measures = await this.performanceMeasurer.stop(duration);
-      if (this.options.recordOptions.record) {
-        await this.recorder.stopRecording();
-        await this.recorder.pullRecording(this.options.resultsFileOptions.path);
-      }
+      await this.maybeStopRecording();
 
       if (afterTest) await afterTest();
 
@@ -79,17 +73,26 @@ class SingleIterationTester {
     } catch (error) {
       const measures = await this.performanceMeasurer?.stop();
       if (measures) {
-        if (this.options.recordOptions.record) {
-          await this.recorder.stopRecording();
-          await this.recorder.pullRecording(
-            this.options.resultsFileOptions.path
-          );
-        }
+        await this.maybeStopRecording();
         this.setCurrentTestCaseIterationResult(measures, "FAILURE");
       }
 
       this.performanceMeasurer.forceStop();
       throw new Error("Error while running test");
+    }
+  }
+
+  private async maybeStartRecording() {
+    if (this.options.recordOptions.record) {
+      const { bitRate, size } = this.options.recordOptions;
+      await this.recorder.startRecording({ bitRate, size });
+    }
+  }
+
+  private async maybeStopRecording() {
+    if (this.options.recordOptions.record) {
+      await this.recorder.stopRecording();
+      await this.recorder.pullRecording(this.options.resultsFileOptions.path);
     }
   }
 
