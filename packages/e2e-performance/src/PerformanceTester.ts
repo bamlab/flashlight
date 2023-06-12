@@ -42,13 +42,7 @@ export class PerformanceTester {
         currentIterationIndex++;
       } catch (error) {
         this.logFailedIteration(currentIterationIndex, error);
-        this.retryCount++;
-        if (this.retryCount > this.options.maxRetries) {
-          throw new Error("Max number of retries reached.");
-        }
-        Logger.error(
-          `Ignoring measure and retrying... (retry ${this.retryCount}/${this.options.maxRetries})`
-        );
+        this.checkRetryIsPossible();
       } finally {
         const currentTestCaseIterationResult =
           singleIterationTester.getCurrentTestCaseIterationResult();
@@ -61,6 +55,16 @@ export class PerformanceTester {
     if (this.measures.length === 0) {
       throw new Error("No measure returned");
     }
+  }
+
+  private checkRetryIsPossible() {
+    this.retryCount++;
+    if (this.retryCount > this.options.maxRetries) {
+      throw new Error("Max number of retries reached.");
+    }
+    Logger.error(
+      `Ignoring measure and retrying... (retry ${this.retryCount}/${this.options.maxRetries})`
+    );
   }
 
   private logIterationStart(currentIterationIndex: number) {
