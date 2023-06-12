@@ -37,7 +37,8 @@ class SingleIterationTester {
   constructor(
     private bundleId: string,
     private testCase: TestCase,
-    private options: Options
+    private options: Options,
+    private iterationCount: number
   ) {}
 
   private currentTestCaseIterationResult: TestCaseIterationResult | undefined =
@@ -50,8 +51,8 @@ class SingleIterationTester {
     return this.currentTestCaseIterationResult;
   }
 
-  public async executeTestCase(iterationCount: number): Promise<void> {
-    const videoName = `${this.options.resultsFileOptions.title}_iteration_${iterationCount}.mp4`;
+  public async executeTestCase(): Promise<void> {
+    const videoName = `${this.options.resultsFileOptions.title}_iteration_${this.iterationCount}.mp4`;
     const recorder = new ScreenRecorder(videoName);
 
     const { beforeTest, run, afterTest, duration } = this.testCase;
@@ -145,9 +146,10 @@ export class PerformanceTester {
     const singleIterationTester = new SingleIterationTester(
       this.bundleId,
       this.testCase,
-      this.options
+      this.options,
+      iterationCount
     );
-    await singleIterationTester.executeTestCase(iterationCount);
+    await singleIterationTester.executeTestCase();
     this.currentTestCaseIterationResult =
       singleIterationTester.getCurrentTestCaseIterationResult();
   }
