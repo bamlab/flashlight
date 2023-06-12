@@ -141,14 +141,7 @@ export class PerformanceTester {
         this.logSuccessfulIteration(currentIterationIndex);
         currentIterationIndex++;
       } catch (error) {
-        Logger.error(
-          `Iteration ${currentIterationIndex + 1}/${
-            this.options.iterationCount
-          } failed (ignoring measure): ${
-            error instanceof Error ? error.message : "unknown error"
-          }`
-        );
-
+        this.logFailedIteration(currentIterationIndex, error);
         this.retryCount++;
         if (this.retryCount > this.options.maxRetries) {
           throw new Error("Max number of retries reached.");
@@ -164,6 +157,16 @@ export class PerformanceTester {
     if (this.measures.length === 0) {
       throw new Error("No measure returned");
     }
+  }
+
+  private logFailedIteration(currentIterationIndex: number, error: unknown) {
+    Logger.error(
+      `Iteration ${currentIterationIndex + 1}/${
+        this.options.iterationCount
+      } failed (ignoring measure): ${
+        error instanceof Error ? error.message : "unknown error"
+      }`
+    );
   }
 
   private logSuccessfulIteration(currentIterationIndex: number) {
