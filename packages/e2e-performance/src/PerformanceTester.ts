@@ -146,11 +146,7 @@ export class PerformanceTester {
     this.measures = [];
 
     while (currentIterationIndex < this.options.iterationCount) {
-      Logger.info(
-        `Running iteration ${currentIterationIndex + 1}/${
-          this.options.iterationCount
-        }`
-      );
+      this.logIterationStart(currentIterationIndex);
       try {
         await this.executeTestCase(currentIterationIndex);
         this.logSuccessfulIteration(currentIterationIndex);
@@ -172,6 +168,14 @@ export class PerformanceTester {
     if (this.measures.length === 0) {
       throw new Error("No measure returned");
     }
+  }
+
+  private logIterationStart(currentIterationIndex: number) {
+    Logger.info(
+      `Running iteration ${currentIterationIndex + 1}/${
+        this.options.iterationCount
+      }`
+    );
   }
 
   private logFailedIteration(currentIterationIndex: number, error: unknown) {
