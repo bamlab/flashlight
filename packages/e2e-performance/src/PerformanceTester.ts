@@ -1,6 +1,7 @@
 import { Logger } from "@perf-profiler/logger";
 import {
   AveragedTestCaseResult,
+  Measure,
   TestCaseIterationResult,
 } from "@perf-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
@@ -104,23 +105,41 @@ export class PerformanceTester {
           await recorder?.stopRecording();
           await recorder?.pullRecording(recordOptions.path);
         }
-        this.currentTestCaseIterationResult = {
-          ...measures,
-          status: "FAILURE",
-          videoInfos: recordOptions.record
-            ? {
-                path: `${recordOptions.path}/${videoName}`,
-                startOffset: Math.floor(
-                  measures.startTime - recorder.getRecordingStartTime()
-                ),
-              }
-            : undefined,
-        };
+        this.setCurrentTestCaseIterationResult(
+          measures,
+          recorder,
+          videoName,
+          recordOptions
+        );
       }
 
       this.performanceMeasurer?.forceStop();
       throw new Error("Error while running test");
     }
+  }
+
+  private setCurrentTestCaseIterationResult(
+    measures: {
+      time: number;
+      startTime: number;
+      measures: Measure[];
+    },
+    recorder: ScreenRecorder,
+    videoName: string,
+    recordOptions: RecordOptions
+  ) {
+    this.currentTestCaseIterationResult = {
+      ...measures,
+      status: "FAILURE",
+      videoInfos: recordOptions.record
+        ? {
+            path: `${recordOptions.path}/${videoName}`,
+            startOffset: Math.floor(
+              measures.startTime - recorder.getRecordingStartTime()
+            ),
+          }
+        : undefined,
+    };
   }
 
   async iterate(): Promise<void> {
