@@ -58,11 +58,8 @@ export class PerformanceTester {
     ensureCppProfilerIsInstalled();
   }
 
-  private async executeTestCase(
-    iterationCount: number,
-    recordOptions: RecordOptions
-  ): Promise<void> {
-    const videoName = `${recordOptions.title}_iteration_${iterationCount}.mp4`;
+  private async executeTestCase(iterationCount: number): Promise<void> {
+    const videoName = `${this.options.resultsFileOptions.title}_iteration_${iterationCount}.mp4`;
     const recorder = new ScreenRecorder(videoName);
 
     const { beforeTest, run, afterTest, duration } = this.testCase;
@@ -70,8 +67,8 @@ export class PerformanceTester {
     try {
       if (beforeTest) await beforeTest();
 
-      if (recordOptions.record) {
-        const { bitRate, size } = recordOptions;
+      if (this.options.recordOptions.record) {
+        const { bitRate, size } = this.options.recordOptions;
         await recorder.startRecording({ bitRate, size });
       }
 
@@ -79,9 +76,9 @@ export class PerformanceTester {
 
       await run();
       const measures = await this.performanceMeasurer.stop(duration);
-      if (recordOptions.record) {
+      if (this.options.recordOptions.record) {
         await recorder.stopRecording();
-        await recorder.pullRecording(recordOptions.path);
+        await recorder.pullRecording(this.options.resultsFileOptions.path);
       }
 
       if (afterTest) await afterTest();
@@ -89,9 +86,9 @@ export class PerformanceTester {
       this.currentTestCaseIterationResult = {
         ...measures,
         status: "SUCCESS",
-        videoInfos: recordOptions.record
+        videoInfos: this.options.recordOptions.record
           ? {
-              path: `${recordOptions.path}/${videoName}`,
+              path: `${this.options.resultsFileOptions.path}/${videoName}`,
               startOffset: Math.floor(
                 measures.startTime - recorder.getRecordingStartTime()
               ),
@@ -101,16 +98,11 @@ export class PerformanceTester {
     } catch (error) {
       const measures = await this.performanceMeasurer?.stop();
       if (measures) {
-        if (recordOptions.record) {
+        if (this.options.recordOptions.record) {
           await recorder?.stopRecording();
-          await recorder?.pullRecording(recordOptions.path);
+          await recorder?.pullRecording(this.options.resultsFileOptions.path);
         }
-        this.setCurrentTestCaseIterationResult(
-          measures,
-          recorder,
-          videoName,
-          recordOptions
-        );
+        this.setCurrentTestCaseIterationResult(measures, recorder, videoName);
       }
 
       this.performanceMeasurer?.forceStop();
@@ -125,15 +117,14 @@ export class PerformanceTester {
       measures: Measure[];
     },
     recorder: ScreenRecorder,
-    videoName: string,
-    recordOptions: RecordOptions
+    videoName: string
   ) {
     this.currentTestCaseIterationResult = {
       ...measures,
       status: "FAILURE",
-      videoInfos: recordOptions.record
+      videoInfos: this.options.recordOptions.record
         ? {
-            path: `${recordOptions.path}/${videoName}`,
+            path: `${this.options.resultsFileOptions.path}/${videoName}`,
             startOffset: Math.floor(
               measures.startTime - recorder.getRecordingStartTime()
             ),
@@ -153,10 +144,7 @@ export class PerformanceTester {
         }`
       );
       try {
-        await this.executeTestCase(currentIterationIndex, {
-          ...this.options.recordOptions,
-          ...this.options.resultsFileOptions,
-        });
+        await this.executeTestCase(currentIterationIndex);
         this.logSuccessfulIteration(currentIterationIndex);
         currentIterationIndex++;
       } catch (error) {
