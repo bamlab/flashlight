@@ -33,25 +33,24 @@ export interface Options {
   };
 }
 
-export class PerformanceTester {
-  public measures: TestCaseIterationResult[] = [];
-  private currentTestCaseIterationResult: TestCaseIterationResult | undefined =
-    undefined;
-  private retryCount = 0;
-  private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(
-    this.bundleId
-  );
-
+class SingleIterationTester {
   constructor(
     private bundleId: string,
     private testCase: TestCase,
     private options: Options
-  ) {
-    // Important to ensure that the CPP profiler is initialized before we run the test!
-    ensureCppProfilerIsInstalled();
+  ) {}
+
+  private currentTestCaseIterationResult: TestCaseIterationResult | undefined =
+    undefined;
+  private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(
+    this.bundleId
+  );
+
+  public getCurrentTestCaseIterationResult() {
+    return this.currentTestCaseIterationResult;
   }
 
-  private async executeTestCase(iterationCount: number): Promise<void> {
+  public async executeTestCase(iterationCount: number): Promise<void> {
     const videoName = `${this.options.resultsFileOptions.title}_iteration_${iterationCount}.mp4`;
     const recorder = new ScreenRecorder(videoName);
 
@@ -124,6 +123,33 @@ export class PerformanceTester {
           }
         : undefined,
     };
+  }
+}
+
+export class PerformanceTester {
+  public measures: TestCaseIterationResult[] = [];
+  private currentTestCaseIterationResult: TestCaseIterationResult | undefined =
+    undefined;
+  private retryCount = 0;
+
+  constructor(
+    private bundleId: string,
+    private testCase: TestCase,
+    private options: Options
+  ) {
+    // Important to ensure that the CPP profiler is initialized before we run the test!
+    ensureCppProfilerIsInstalled();
+  }
+
+  private async executeTestCase(iterationCount: number): Promise<void> {
+    const singleIterationTester = new SingleIterationTester(
+      this.bundleId,
+      this.testCase,
+      this.options
+    );
+    await singleIterationTester.executeTestCase(iterationCount);
+    this.currentTestCaseIterationResult =
+      singleIterationTester.getCurrentTestCaseIterationResult();
   }
 
   async iterate(): Promise<void> {
