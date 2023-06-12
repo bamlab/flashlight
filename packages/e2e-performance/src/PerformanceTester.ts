@@ -46,15 +46,14 @@ class SingleIterationTester {
   private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(
     this.bundleId
   );
+  private videoName = `${this.options.resultsFileOptions.title}_iteration_${this.iterationCount}.mp4`;
+  private recorder = new ScreenRecorder(this.videoName);
 
   public getCurrentTestCaseIterationResult() {
     return this.currentTestCaseIterationResult;
   }
 
   public async executeTestCase(): Promise<void> {
-    const videoName = `${this.options.resultsFileOptions.title}_iteration_${this.iterationCount}.mp4`;
-    const recorder = new ScreenRecorder(videoName);
-
     const { beforeTest, run, afterTest, duration } = this.testCase;
 
     try {
@@ -62,7 +61,7 @@ class SingleIterationTester {
 
       if (this.options.recordOptions.record) {
         const { bitRate, size } = this.options.recordOptions;
-        await recorder.startRecording({ bitRate, size });
+        await this.recorder.startRecording({ bitRate, size });
       }
 
       this.performanceMeasurer.start();
@@ -70,34 +69,26 @@ class SingleIterationTester {
       await run();
       const measures = await this.performanceMeasurer.stop(duration);
       if (this.options.recordOptions.record) {
-        await recorder.stopRecording();
-        await recorder.pullRecording(this.options.resultsFileOptions.path);
+        await this.recorder.stopRecording();
+        await this.recorder.pullRecording(this.options.resultsFileOptions.path);
       }
 
       if (afterTest) await afterTest();
 
-      this.setCurrentTestCaseIterationResult(
-        measures,
-        recorder,
-        videoName,
-        "SUCCESS"
-      );
+      this.setCurrentTestCaseIterationResult(measures, "SUCCESS");
     } catch (error) {
       const measures = await this.performanceMeasurer?.stop();
       if (measures) {
         if (this.options.recordOptions.record) {
-          await recorder?.stopRecording();
-          await recorder?.pullRecording(this.options.resultsFileOptions.path);
+          await this.recorder.stopRecording();
+          await this.recorder.pullRecording(
+            this.options.resultsFileOptions.path
+          );
         }
-        this.setCurrentTestCaseIterationResult(
-          measures,
-          recorder,
-          videoName,
-          "FAILURE"
-        );
+        this.setCurrentTestCaseIterationResult(measures, "FAILURE");
       }
 
-      this.performanceMeasurer?.forceStop();
+      this.performanceMeasurer.forceStop();
       throw new Error("Error while running test");
     }
   }
@@ -108,8 +99,6 @@ class SingleIterationTester {
       startTime: number;
       measures: Measure[];
     },
-    recorder: ScreenRecorder,
-    videoName: string,
     status: TestCaseIterationStatus
   ) {
     this.currentTestCaseIterationResult = {
@@ -117,9 +106,9 @@ class SingleIterationTester {
       status,
       videoInfos: this.options.recordOptions.record
         ? {
-            path: `${this.options.resultsFileOptions.path}/${videoName}`,
+            path: `${this.options.resultsFileOptions.path}/${this.videoName}`,
             startOffset: Math.floor(
-              measures.startTime - recorder.getRecordingStartTime()
+              measures.startTime - this.recorder.getRecordingStartTime()
             ),
           }
         : undefined,
