@@ -1,6 +1,7 @@
 import { writeReport } from "./writeReport";
 import * as p from "path";
-import { PerformanceTester, TestCase } from "./PerformanceTester";
+import { PerformanceTester } from "./PerformanceTester";
+import { TestCase } from "./SingleIterationTester";
 
 export { TestCase };
 
