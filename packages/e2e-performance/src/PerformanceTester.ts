@@ -116,8 +116,6 @@ class SingleIterationTester {
 
 export class PerformanceTester {
   public measures: TestCaseIterationResult[] = [];
-  private currentTestCaseIterationResult: TestCaseIterationResult | undefined =
-    undefined;
   private retryCount = 0;
 
   constructor(
@@ -129,27 +127,25 @@ export class PerformanceTester {
     ensureCppProfilerIsInstalled();
   }
 
-  private async executeTestCase(iterationCount: number): Promise<void> {
-    const singleIterationTester = new SingleIterationTester(
-      this.bundleId,
-      this.testCase,
-      this.options,
-      iterationCount
-    );
-    await singleIterationTester.executeTestCase();
-    this.currentTestCaseIterationResult =
-      singleIterationTester.getCurrentTestCaseIterationResult();
-  }
-
   async iterate(): Promise<void> {
     let currentIterationIndex = 0;
     this.measures = [];
 
     while (currentIterationIndex < this.options.iterationCount) {
+      const singleIterationTester = new SingleIterationTester(
+        this.bundleId,
+        this.testCase,
+        this.options,
+        currentIterationIndex
+      );
+
       this.logIterationStart(currentIterationIndex);
       try {
-        await this.executeTestCase(currentIterationIndex);
-        this.logSuccessfulIteration(currentIterationIndex);
+        await singleIterationTester.executeTestCase();
+        this.logSuccessfulIteration(
+          currentIterationIndex,
+          singleIterationTester.getCurrentTestCaseIterationResult()?.time
+        );
         currentIterationIndex++;
       } catch (error) {
         this.logFailedIteration(currentIterationIndex, error);
@@ -158,9 +154,10 @@ export class PerformanceTester {
           throw new Error("Max number of retries reached.");
         }
       } finally {
-        if (this.currentTestCaseIterationResult) {
-          this.measures.push(this.currentTestCaseIterationResult);
-          this.currentTestCaseIterationResult = undefined;
+        const currentTestCaseIterationResult =
+          singleIterationTester.getCurrentTestCaseIterationResult();
+        if (currentTestCaseIterationResult) {
+          this.measures.push(currentTestCaseIterationResult);
         }
       }
     }
@@ -188,11 +185,14 @@ export class PerformanceTester {
     );
   }
 
-  private logSuccessfulIteration(currentIterationIndex: number) {
+  private logSuccessfulIteration(
+    currentIterationIndex: number,
+    time: number | undefined
+  ) {
     Logger.success(
       `Finished iteration ${currentIterationIndex + 1}/${
         this.options.iterationCount
-      } in ${this.currentTestCaseIterationResult?.time}ms (${this.retryCount} ${
+      } in ${time ?? "unknown"}ms (${this.retryCount} ${
         this.retryCount > 1 ? "retries" : "retry"
       } so far)`
     );
