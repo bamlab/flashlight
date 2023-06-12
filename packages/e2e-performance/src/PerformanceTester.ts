@@ -72,8 +72,9 @@ class SingleIterationTester {
       this.setCurrentTestCaseIterationResult(measures, "SUCCESS");
     } catch (error) {
       const measures = await this.performanceMeasurer?.stop();
+      await this.maybeStopRecording();
+
       if (measures) {
-        await this.maybeStopRecording();
         this.setCurrentTestCaseIterationResult(measures, "FAILURE");
       }
 
