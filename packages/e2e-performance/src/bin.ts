@@ -155,11 +155,11 @@ const runTest = async ({
     await performanceTester.iterate();
     performanceTester.writeResults();
   } catch (error) {
-    performanceTester.writeResults();
+    // We'll soon be writing results even if test fails
+    // performanceTester.writeResults();
 
     if (error instanceof Error) {
-      Logger.error(`Flashlight test FAILED ❌: ${error.message}
-You can still open a degraded view of the report`);
+      Logger.error(`Flashlight test FAILED ❌: ${error.message}`);
     }
 
     process.exit(1);

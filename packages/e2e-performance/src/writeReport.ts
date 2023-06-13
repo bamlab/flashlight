@@ -19,13 +19,14 @@ export const writeReport = (
     overrideScore?: (result: AveragedTestCaseResult) => number;
   }
 ) => {
-  const containsFailedIterations = measures.some(
-    (measure) => measure.status === "FAILURE"
+  // We'll soon handle failed iterations as well
+  const successfulMeasures = measures.filter(
+    (measure) => measure.status !== "FAILURE"
   );
   const testCase: TestCaseResult = {
     name: title,
-    iterations: measures,
-    status: containsFailedIterations ? "FAILURE" : "SUCCESS",
+    iterations: successfulMeasures,
+    status: "SUCCESS",
   };
 
   /**
