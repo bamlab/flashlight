@@ -2,9 +2,11 @@
 
 import { Option, program } from "commander";
 import { execSync } from "child_process";
-import { TestCase, measurePerformance } from ".";
+import { TestCase } from ".";
 import { executeAsync } from "./executeAsync";
 import { applyLogLevelOption, logLevelOption } from "./commands/logLevelOption";
+import { PerformanceTester } from "./PerformanceTester";
+import { Logger } from "@perf-profiler/logger";
 
 program
   .command("test")
@@ -135,7 +137,7 @@ const runTest = async ({
     duration,
   };
 
-  const { writeResults } = await measurePerformance(bundleId, testCase, {
+  const performanceTester = new PerformanceTester(bundleId, testCase, {
     iterationCount,
     maxRetries,
     recordOptions: {
@@ -149,7 +151,19 @@ const runTest = async ({
     },
   });
 
-  writeResults();
+  try {
+    await performanceTester.iterate();
+    performanceTester.writeResults();
+  } catch (error) {
+    performanceTester.writeResults();
+
+    if (error instanceof Error) {
+      Logger.error(`Flashlight test FAILED ❌: ${error.message}
+You can still open a degraded view of the report`);
+    }
+
+    throw error;
+  }
 };
 
 program.parse();
