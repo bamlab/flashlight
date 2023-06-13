@@ -39,10 +39,9 @@ export const executeAsync = (command: string) => {
 
     child.on("close", (code: number | null) => {
       if (code !== 0) {
-        Logger.error(
-          `Error when running "${command}": exited with code ${code}`
+        reject(
+          new Error(`Error when running "${command}": exited with code ${code}`)
         );
-        reject(code);
       }
       resolve(0);
     });

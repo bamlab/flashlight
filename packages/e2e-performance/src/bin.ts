@@ -162,7 +162,7 @@ const runTest = async ({
 You can still open a degraded view of the report`);
     }
 
-    throw error;
+    process.exit(1);
   }
 };
 
