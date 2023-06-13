@@ -6,6 +6,7 @@ import {
   SingleIterationTester,
   TestCase,
 } from "./SingleIterationTester";
+import { writeReport } from "./writeReport";
 
 export class PerformanceTester {
   public measures: TestCaseIterationResult[] = [];
@@ -55,6 +56,15 @@ export class PerformanceTester {
     if (this.measures.length === 0) {
       throw new Error("No measure returned");
     }
+  }
+
+  writeResults() {
+    const { path, title } = this.options.resultsFileOptions;
+    writeReport(this.measures, {
+      filePath: path,
+      title,
+      overrideScore: this.testCase.getScore,
+    });
   }
 
   private checkRetryIsPossible() {

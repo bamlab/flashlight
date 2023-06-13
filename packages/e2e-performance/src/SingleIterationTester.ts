@@ -6,6 +6,7 @@ import {
 } from "@perf-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { ScreenRecorder } from "@perf-profiler/profiler";
+import { basename, dirname } from "path";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -42,8 +43,11 @@ export class SingleIterationTester {
   private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(
     this.bundleId
   );
-  private videoName = `${this.options.resultsFileOptions.title}_iteration_${this.iterationIndex}.mp4`;
-  private recorder = new ScreenRecorder(this.videoName);
+  private videoPath = `${this.options.resultsFileOptions.path.replace(
+    ".json",
+    ""
+  )}_iteration_${this.iterationIndex}.mp4`;
+  private recorder = new ScreenRecorder(basename(this.videoPath));
 
   public getCurrentTestCaseIterationResult() {
     return this.currentTestCaseIterationResult;
@@ -83,7 +87,9 @@ export class SingleIterationTester {
   private async maybeStopRecording() {
     if (this.options.recordOptions.record) {
       await this.recorder.stopRecording();
-      await this.recorder.pullRecording(this.options.resultsFileOptions.path);
+      await this.recorder.pullRecording(
+        dirname(this.options.resultsFileOptions.path)
+      );
     }
   }
 
@@ -100,7 +106,7 @@ export class SingleIterationTester {
       status,
       videoInfos: this.options.recordOptions.record
         ? {
-            path: `${this.options.resultsFileOptions.path}/${this.videoName}`,
+            path: this.videoPath,
             startOffset: Math.floor(
               measures.startTime - this.recorder.getRecordingStartTime()
             ),

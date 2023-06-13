@@ -1,4 +1,3 @@
-import { writeReport } from "./writeReport";
 import * as p from "path";
 import { PerformanceTester } from "./PerformanceTester";
 import { TestCase } from "./SingleIterationTester";
@@ -39,23 +38,15 @@ export const measurePerformance = async (
       record: false,
     },
     resultsFileOptions: {
-      path: filePath,
-      title: fileName.replace(".json", ""),
+      path: path || `${filePath}/${fileName}.json`,
+      title,
     },
   });
-
-  const writeResults = () => {
-    writeReport(tester.measures, {
-      filePath: path || `${filePath}/${fileName}.json`,
-      title,
-      overrideScore: testCase.getScore,
-    });
-  };
 
   await tester.iterate();
 
   return {
     measures: tester.measures,
-    writeResults,
+    writeResults: () => tester.writeResults(),
   };
 };
