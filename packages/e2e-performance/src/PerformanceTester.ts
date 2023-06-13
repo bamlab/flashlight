@@ -9,6 +9,19 @@ import {
 } from "./SingleIterationTester";
 import { writeReport } from "./writeReport";
 
+export type PerformanceTesterOptions = Omit<
+  Options,
+  "resultsFileOptions" | "iterationCount" | "recordOptions" | "maxRetries"
+> & {
+  recordOptions?: Options["recordOptions"];
+  maxRetries?: Options["maxRetries"];
+  iterationCount?: Options["iterationCount"];
+  resultsFileOptions?: {
+    path?: string;
+    title?: string;
+  };
+};
+
 export class PerformanceTester {
   public measures: TestCaseIterationResult[] = [];
   private retryCount = 0;
@@ -17,12 +30,7 @@ export class PerformanceTester {
   constructor(
     private bundleId: string,
     private testCase: TestCase,
-    options: Omit<Options, "resultsFileOptions"> & {
-      resultsFileOptions?: {
-        path?: string;
-        title?: string;
-      };
-    }
+    options: PerformanceTesterOptions = {}
   ) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
     ensureCppProfilerIsInstalled();
@@ -41,6 +49,11 @@ export class PerformanceTester {
 
     this.options = {
       ...options,
+      iterationCount: options.iterationCount ?? 10,
+      maxRetries: options.maxRetries || 0,
+      recordOptions: options.recordOptions || {
+        record: false,
+      },
       resultsFileOptions: {
         path: path || `${filePath}/${fileName}.json`,
         title,
