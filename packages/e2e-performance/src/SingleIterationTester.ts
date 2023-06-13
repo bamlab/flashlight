@@ -34,7 +34,7 @@ export class SingleIterationTester {
     private bundleId: string,
     private testCase: TestCase,
     private options: Options,
-    private iterationCount: number
+    private iterationIndex: number
   ) {}
 
   private currentTestCaseIterationResult: TestCaseIterationResult | undefined =
@@ -42,7 +42,7 @@ export class SingleIterationTester {
   private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(
     this.bundleId
   );
-  private videoName = `${this.options.resultsFileOptions.title}_iteration_${this.iterationCount}.mp4`;
+  private videoName = `${this.options.resultsFileOptions.title}_iteration_${this.iterationIndex}.mp4`;
   private recorder = new ScreenRecorder(this.videoName);
 
   public getCurrentTestCaseIterationResult() {
