@@ -44,17 +44,22 @@ export const measurePerformance = async (
     },
   });
 
-  try {
-    await tester.iterate();
-  } finally {
+  const writeResults = () => {
     writeReport(tester.measures, {
       filePath: path || `${filePath}/${fileName}.json`,
       title,
       overrideScore: testCase.getScore,
     });
+  };
+
+  try {
+    await tester.iterate();
+  } finally {
+    writeResults();
   }
 
   return {
     measures: tester.measures,
+    writeResults,
   };
 };
