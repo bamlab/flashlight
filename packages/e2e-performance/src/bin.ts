@@ -117,7 +117,7 @@ const runTest = async ({
   applyLogLevelOption(logLevel);
   if (beforeAllCommand) await executeAsync(beforeAllCommand);
 
-  await measurePerformance(
+  const { writeResults } = await measurePerformance(
     bundleId,
     {
       beforeTest: async () => {
@@ -144,6 +144,8 @@ const runTest = async ({
       title: resultsTitle,
     }
   );
+
+  writeResults();
 };
 
 program.parse();

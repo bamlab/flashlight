@@ -52,11 +52,7 @@ export const measurePerformance = async (
     });
   };
 
-  try {
-    await tester.iterate();
-  } finally {
-    writeResults();
-  }
+  await tester.iterate();
 
   return {
     measures: tester.measures,
