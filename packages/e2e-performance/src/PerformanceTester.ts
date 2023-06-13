@@ -127,11 +127,9 @@ export class PerformanceTester {
 
   private logFailedIteration(currentIterationIndex: number, error: unknown) {
     Logger.error(
-      `Iteration ${
-        currentIterationIndex + 1
-      }/${currentIterationIndex} failed: ${
-        error instanceof Error ? error.message : "unknown error"
-      }`
+      `Iteration ${currentIterationIndex + 1}/${
+        this.options.iterationCount
+      } failed: ${error instanceof Error ? error.message : "unknown error"}`
     );
   }
 
