@@ -21,26 +21,13 @@ export const measurePerformance = async (
     };
   } = {}
 ) => {
-  const title = options.resultsFileOptions?.title || "Results";
-
-  const path = options.resultsFileOptions?.path;
-  const filePath = path
-    ? p.join(process.cwd(), p.dirname(path))
-    : `${process.cwd()}`;
-  const fileName = path
-    ? p.basename(path)
-    : `${title.toLocaleLowerCase().replace(/ /g, "_")}_${new Date().getTime()}`;
-
   const tester = new PerformanceTester(bundleId, testCase, {
     iterationCount: options.iterationCount ?? 10,
     maxRetries: options.maxRetries || 0,
     recordOptions: options.recordOptions || {
       record: false,
     },
-    resultsFileOptions: {
-      path: path || `${filePath}/${fileName}.json`,
-      title,
-    },
+    resultsFileOptions: options.resultsFileOptions,
   });
 
   await tester.iterate();

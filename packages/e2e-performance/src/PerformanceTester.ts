@@ -1,6 +1,7 @@
 import { Logger } from "@perf-profiler/logger";
 import { TestCaseIterationResult } from "@perf-profiler/types";
 import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
+import * as p from "path";
 import {
   Options,
   SingleIterationTester,
@@ -11,14 +12,40 @@ import { writeReport } from "./writeReport";
 export class PerformanceTester {
   public measures: TestCaseIterationResult[] = [];
   private retryCount = 0;
+  options: Options;
 
   constructor(
     private bundleId: string,
     private testCase: TestCase,
-    private options: Options
+    options: Omit<Options, "resultsFileOptions"> & {
+      resultsFileOptions?: {
+        path?: string;
+        title?: string;
+      };
+    }
   ) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
     ensureCppProfilerIsInstalled();
+
+    const title = options.resultsFileOptions?.title || "Results";
+
+    const path = options.resultsFileOptions?.path;
+    const filePath = path
+      ? p.join(process.cwd(), p.dirname(path))
+      : `${process.cwd()}`;
+    const fileName = path
+      ? p.basename(path)
+      : `${title
+          .toLocaleLowerCase()
+          .replace(/ /g, "_")}_${new Date().getTime()}`;
+
+    this.options = {
+      ...options,
+      resultsFileOptions: {
+        path: path || `${filePath}/${fileName}.json`,
+        title,
+      },
+    };
   }
 
   async iterate(): Promise<void> {
