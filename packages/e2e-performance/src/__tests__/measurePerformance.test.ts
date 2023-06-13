@@ -2,6 +2,9 @@ import os from "os";
 import fs from "fs";
 import { measurePerformance } from "..";
 import { PerformancePollingMock } from "../utils/PerformancePollingMock";
+import * as PerformanceTester from "../PerformanceTester";
+import * as writeReport from "../writeReport";
+import { Logger, LogLevel } from "@perf-profiler/logger";
 
 const mockPerformancePolling = new PerformancePollingMock();
 
@@ -14,6 +17,8 @@ jest.mock("@perf-profiler/profiler", () => ({
     onStartMeasuring();
   }),
 }));
+
+Logger.setLogLevel(LogLevel.SILENT);
 
 jest.setTimeout(10000);
 
@@ -31,6 +36,16 @@ jest.mock("perf_hooks", () => {
 });
 const runTest = jest.fn();
 
+const mockDate = () => {
+  const MOCK_DATE = new Date(1686650793058);
+  jest
+    .spyOn(global, "Date")
+    // Mocking date
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    .mockImplementation(() => MOCK_DATE);
+};
+
 describe("measurePerformance", () => {
   it("adds a score if a getScore function is passed", async () => {
     const PATH = `${os.tmpdir()}/results.json`;
@@ -42,12 +57,14 @@ describe("measurePerformance", () => {
         run: runTest,
         getScore: (result) => result.iterations.length,
       },
-      3,
-      3,
-      { record: false },
       {
-        path: PATH,
-        title: TITLE,
+        iterationCount: 3,
+        maxRetries: 3,
+        recordOptions: { record: false },
+        resultsFileOptions: {
+          path: PATH,
+          title: TITLE,
+        },
       }
     );
 
@@ -90,7 +107,7 @@ describe("measurePerformance", () => {
     const { measures } = await measurePerformance(
       "com.example",
       { run: runTest, duration: DURATION },
-      1
+      { iterationCount: 1 }
     );
 
     // DURATION is 1500
@@ -111,18 +128,74 @@ describe("measurePerformance", () => {
 
     const MAX_RETRIES = 2;
     mockFailingTest(2);
-    await measurePerformance("com.example", { run: runTest }, 3, MAX_RETRIES);
+    await measurePerformance(
+      "com.example",
+      { run: runTest },
+      {
+        iterationCount: 3,
+        maxRetries: MAX_RETRIES,
+      }
+    );
 
     mockFailingTest(3);
     await expect(
-      measurePerformance("com.example", { run: runTest }, 3, MAX_RETRIES)
+      measurePerformance(
+        "com.example",
+        { run: runTest },
+        {
+          iterationCount: 3,
+          maxRetries: MAX_RETRIES,
+        }
+      )
     ).rejects.toThrowError("Max number of retries reached.");
   });
 
   it("throws an error if no measures are returned", async () => {
     runTest.mockImplementationOnce(async () => Promise.resolve());
     await expect(
-      measurePerformance("com.example", { run: runTest }, 0)
+      measurePerformance(
+        "com.example",
+        { run: runTest },
+        {
+          iterationCount: 0,
+        }
+      )
     ).rejects.toThrowError("No measure returned");
+  });
+
+  describe("writeResults", () => {
+    const actualPerformanceTester = jest.requireActual(
+      "../PerformanceTester"
+    ).PerformanceTester;
+
+    beforeAll(() => {
+      jest
+        .spyOn(PerformanceTester, "PerformanceTester")
+        .mockImplementation((...args) => {
+          const tester = new actualPerformanceTester(...args);
+
+          jest.spyOn(tester, "iterate").mockResolvedValue(undefined);
+
+          return tester;
+        });
+    });
+
+    const writeReportSpy = jest.spyOn(writeReport, "writeReport");
+
+    it("writes results to a file", async () => {
+      mockDate();
+      const { writeResults } = await measurePerformance(
+        "com.example",
+        { run: runTest },
+        { iterationCount: 0 }
+      );
+
+      writeResults();
+      expect(writeReportSpy).toHaveBeenCalledWith([], {
+        filePath: `${process.cwd()}/results_1686650793058.json`,
+        overrideScore: undefined,
+        title: "Results",
+      });
+    });
   });
 });

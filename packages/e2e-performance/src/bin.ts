@@ -136,12 +136,18 @@ const runTest = async ({
       },
       duration,
     },
-    iterationCount,
-    maxRetries,
-    { record: !!record, size: recordSize, bitRate: recordBitRate },
     {
-      path: resultsFilePath,
-      title: resultsTitle,
+      iterationCount,
+      maxRetries,
+      recordOptions: {
+        record: !!record,
+        size: recordSize,
+        bitRate: recordBitRate,
+      },
+      resultsFileOptions: {
+        path: resultsFilePath,
+        title: resultsTitle,
+      },
     }
   );
 

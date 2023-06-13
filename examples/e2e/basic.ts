@@ -20,11 +20,7 @@ const startTestCase: TestCase = {
 };
 
 const test = async () => {
-  const { writeResults } = await measurePerformance(
-    bundleId,
-    startTestCase,
-    10
-  );
+  const { writeResults } = await measurePerformance(bundleId, startTestCase);
   writeResults();
 };
 

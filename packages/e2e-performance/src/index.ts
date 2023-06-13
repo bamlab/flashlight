@@ -8,25 +8,23 @@ export { TestCase };
 export const measurePerformance = async (
   bundleId: string,
   testCase: TestCase,
-  iterationCount = 10,
-  maxRetries = 3,
-  recordOptions: {
-    record: boolean;
-    size?: string;
-    bitRate?: number;
-  } = {
-    record: false,
-  },
-  {
-    path,
-    title: givenTitle,
-  }: {
-    path?: string;
-    title?: string;
+  options: {
+    iterationCount?: number;
+    maxRetries?: number;
+    recordOptions?: {
+      record: boolean;
+      size?: string;
+      bitRate?: number;
+    };
+    resultsFileOptions?: {
+      path?: string;
+      title?: string;
+    };
   } = {}
 ) => {
-  const title = givenTitle || "Results";
+  const title = options.resultsFileOptions?.title || "Results";
 
+  const path = options.resultsFileOptions?.path;
   const filePath = path
     ? p.join(process.cwd(), p.dirname(path))
     : `${process.cwd()}`;
@@ -35,9 +33,11 @@ export const measurePerformance = async (
     : `${title.toLocaleLowerCase().replace(/ /g, "_")}_${new Date().getTime()}`;
 
   const tester = new PerformanceTester(bundleId, testCase, {
-    iterationCount,
-    maxRetries,
-    recordOptions,
+    iterationCount: options.iterationCount ?? 10,
+    maxRetries: options.maxRetries || 0,
+    recordOptions: options.recordOptions || {
+      record: false,
+    },
     resultsFileOptions: {
       path: filePath,
       title: fileName.replace(".json", ""),
