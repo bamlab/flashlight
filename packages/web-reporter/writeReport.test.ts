@@ -1,4 +1,8 @@
-import { Measure } from "@perf-profiler/types";
+import {
+  Measure,
+  TestCaseIterationResult,
+  TestCaseResult,
+} from "@perf-profiler/types";
 import { getMeasuresForTimeInterval } from "./writeReport";
 
 const mockMeasure = (name: string) => {
@@ -6,9 +10,10 @@ const mockMeasure = (name: string) => {
   return name as unknown as Measure;
 };
 
-const mockResultIteration = (name: string[]) => ({
+const mockResultIteration = (name: string[]): TestCaseIterationResult => ({
   measures: name.map(mockMeasure),
   time: 0,
+  status: "SUCCESS",
 });
 
 describe("getMeasuresForTimeInterval", () => {
@@ -27,7 +32,7 @@ describe("getMeasuresForTimeInterval", () => {
   });
 
   it("doesn't cut measures by default", () => {
-    const RESULT = {
+    const RESULT: TestCaseResult = {
       iterations: [
         mockResultIteration([
           "ITERATION1_0_ms",
@@ -37,6 +42,7 @@ describe("getMeasuresForTimeInterval", () => {
         mockResultIteration(["ITERATION2_0_ms", "ITERATION2_500_ms"]),
       ],
       name: "Result",
+      status: "SUCCESS",
     };
 
     expect(
@@ -49,7 +55,7 @@ describe("getMeasuresForTimeInterval", () => {
   });
 
   it("skips first measures", () => {
-    const RESULT = {
+    const RESULT: TestCaseResult = {
       iterations: [
         mockResultIteration([
           "ITERATION1_0_ms",
@@ -59,6 +65,7 @@ describe("getMeasuresForTimeInterval", () => {
         mockResultIteration(["ITERATION2_0_ms", "ITERATION2_500_ms"]),
       ],
       name: "Result",
+      status: "SUCCESS",
     };
 
     expect(
@@ -74,6 +81,7 @@ describe("getMeasuresForTimeInterval", () => {
           mockResultIteration([]),
         ],
         name: "Result",
+        status: "SUCCESS",
       },
     ]);
   });
@@ -97,6 +105,7 @@ describe("getMeasuresForTimeInterval", () => {
               mockResultIteration(["ITERATION2_0_ms", "ITERATION2_500_ms"]),
             ],
             name: "Result 1",
+            status: "SUCCESS",
           },
           {
             iterations: [
@@ -108,6 +117,7 @@ describe("getMeasuresForTimeInterval", () => {
               ]),
             ],
             name: "Result 2",
+            status: "SUCCESS",
           },
         ],
       })
@@ -122,6 +132,7 @@ describe("getMeasuresForTimeInterval", () => {
           mockResultIteration(["ITERATION2_500_ms"]),
         ],
         name: "Result 1",
+        status: "SUCCESS",
       },
       {
         iterations: [
@@ -132,6 +143,7 @@ describe("getMeasuresForTimeInterval", () => {
           ]),
         ],
         name: "Result 2",
+        status: "SUCCESS",
       },
     ]);
   });

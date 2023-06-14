@@ -2,9 +2,11 @@
 
 import { Option, program } from "commander";
 import { execSync } from "child_process";
-import { measurePerformance } from ".";
+import { TestCase } from ".";
 import { executeAsync } from "./executeAsync";
 import { applyLogLevelOption, logLevelOption } from "./commands/logLevelOption";
+import { PerformanceTester } from "./PerformanceTester";
+import { Logger } from "@perf-profiler/logger";
 
 program
   .command("test")
@@ -117,35 +119,51 @@ const runTest = async ({
   applyLogLevelOption(logLevel);
   if (beforeAllCommand) await executeAsync(beforeAllCommand);
 
-  const { writeResults } = await measurePerformance(
-    bundleId,
-    {
-      beforeTest: async () => {
-        // This is needed in case the e2e test script actually restarts the app
-        // So far this method of measuring only works if e2e test actually starts the app
-        execSync(`adb shell am force-stop ${bundleId}`);
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+  const testCase: TestCase = {
+    beforeTest: async () => {
+      // This is needed in case the e2e test script actually restarts the app
+      // So far this method of measuring only works if e2e test actually starts the app
+      execSync(`adb shell am force-stop ${bundleId}`);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
 
-        if (beforeEachCommand) await executeAsync(beforeEachCommand);
-      },
-      run: async () => {
-        await executeAsync(testCommand);
-      },
-      afterTest: async () => {
-        if (afterEachCommand) await executeAsync(afterEachCommand);
-      },
-      duration,
+      if (beforeEachCommand) await executeAsync(beforeEachCommand);
     },
+    run: async () => {
+      await executeAsync(testCommand);
+    },
+    afterTest: async () => {
+      if (afterEachCommand) await executeAsync(afterEachCommand);
+    },
+    duration,
+  };
+
+  const performanceTester = new PerformanceTester(bundleId, testCase, {
     iterationCount,
     maxRetries,
-    { record: !!record, size: recordSize, bitRate: recordBitRate },
-    {
+    recordOptions: {
+      record: !!record,
+      size: recordSize,
+      bitRate: recordBitRate,
+    },
+    resultsFileOptions: {
       path: resultsFilePath,
       title: resultsTitle,
-    }
-  );
+    },
+  });
 
-  writeResults();
+  try {
+    await performanceTester.iterate();
+    performanceTester.writeResults();
+  } catch (error) {
+    // We'll soon be writing results even if test fails
+    // performanceTester.writeResults();
+
+    if (error instanceof Error) {
+      Logger.error(`Flashlight test FAILED ❌: ${error.message}`);
+    }
+
+    process.exit(1);
+  }
 };
 
 program.parse();

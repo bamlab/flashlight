@@ -2,6 +2,7 @@ import os from "os";
 import fs from "fs";
 import { measurePerformance } from "..";
 import { PerformancePollingMock } from "../utils/PerformancePollingMock";
+import { Logger, LogLevel } from "@perf-profiler/logger";
 
 const mockPerformancePolling = new PerformancePollingMock();
 
@@ -14,6 +15,8 @@ jest.mock("@perf-profiler/profiler", () => ({
     onStartMeasuring();
   }),
 }));
+
+Logger.setLogLevel(LogLevel.SILENT);
 
 jest.setTimeout(10000);
 
@@ -42,12 +45,14 @@ describe("measurePerformance", () => {
         run: runTest,
         getScore: (result) => result.iterations.length,
       },
-      3,
-      3,
-      { record: false },
       {
-        path: PATH,
-        title: TITLE,
+        iterationCount: 3,
+        maxRetries: 3,
+        recordOptions: { record: false },
+        resultsFileOptions: {
+          path: PATH,
+          title: TITLE,
+        },
       }
     );
 
@@ -61,21 +66,25 @@ describe("measurePerformance", () => {
           Object {
             "measures": Array [],
             "startTime": 0,
+            "status": "SUCCESS",
             "time": 1000,
           },
           Object {
             "measures": Array [],
             "startTime": 0,
+            "status": "SUCCESS",
             "time": 1000,
           },
           Object {
             "measures": Array [],
             "startTime": 0,
+            "status": "SUCCESS",
             "time": 1000,
           },
         ],
         "name": "TITLE",
         "score": 3,
+        "status": "SUCCESS",
       }
     `);
   });
@@ -86,7 +95,7 @@ describe("measurePerformance", () => {
     const { measures } = await measurePerformance(
       "com.example",
       { run: runTest, duration: DURATION },
-      1
+      { iterationCount: 1 }
     );
 
     // DURATION is 1500
@@ -107,18 +116,38 @@ describe("measurePerformance", () => {
 
     const MAX_RETRIES = 2;
     mockFailingTest(2);
-    await measurePerformance("com.example", { run: runTest }, 3, MAX_RETRIES);
+    await measurePerformance(
+      "com.example",
+      { run: runTest },
+      {
+        iterationCount: 3,
+        maxRetries: MAX_RETRIES,
+      }
+    );
 
     mockFailingTest(3);
     await expect(
-      measurePerformance("com.example", { run: runTest }, 3, MAX_RETRIES)
+      measurePerformance(
+        "com.example",
+        { run: runTest },
+        {
+          iterationCount: 3,
+          maxRetries: MAX_RETRIES,
+        }
+      )
     ).rejects.toThrowError("Max number of retries reached.");
   });
 
   it("throws an error if no measures are returned", async () => {
     runTest.mockImplementationOnce(async () => Promise.resolve());
     await expect(
-      measurePerformance("com.example", { run: runTest }, 0)
+      measurePerformance(
+        "com.example",
+        { run: runTest },
+        {
+          iterationCount: 0,
+        }
+      )
     ).rejects.toThrowError("No measure returned");
   });
 });

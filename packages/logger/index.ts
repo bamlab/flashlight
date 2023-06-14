@@ -8,6 +8,7 @@ const error = kleur.bold().red;
 const timestampColor = kleur.grey;
 
 export const LogLevel = {
+  SILENT: -1,
   ERROR: 0,
   WARN: 1,
   SUCCESS: 2,

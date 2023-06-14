@@ -53,10 +53,13 @@ Pressing w will write measures to a file that you can exploit with the report co
           .replace(/ /g, "_")}_${new Date().getTime()}.json`;
 
       const writeReportFile = async () => {
-        writeReport([await performanceMeasurer.stop()], {
-          filePath,
-          title,
-        });
+        writeReport(
+          [{ ...(await performanceMeasurer.stop()), status: "SUCCESS" }],
+          {
+            filePath,
+            title,
+          }
+        );
       };
 
       render(

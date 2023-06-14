@@ -43,10 +43,6 @@ const getTestCases = async () => {
 test.skip("e2e", async () => {
   const testCases = await getTestCases();
 
-  const { writeResults } = await measurePerformance(
-    bundleId,
-    testCases.START,
-    10
-  );
+  const { writeResults } = await measurePerformance(bundleId, testCases.START);
   writeResults();
 });

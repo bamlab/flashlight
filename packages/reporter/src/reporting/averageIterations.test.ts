@@ -29,6 +29,7 @@ const ITERATION_1: TestCaseIterationResult = {
     },
   ],
   time: 0,
+  status: "SUCCESS",
 };
 
 const ITERATION_2: TestCaseIterationResult = {
@@ -59,6 +60,7 @@ const ITERATION_2: TestCaseIterationResult = {
     },
   ],
   time: 0,
+  status: "SUCCESS",
 };
 
 it("average measures", () => {
@@ -92,6 +94,7 @@ it("average measures", () => {
       },
     ],
     time: 0,
+    status: "SUCCESS",
   });
 });
 

@@ -22,8 +22,12 @@ const runTest = async () => {
     duration: 10000,
   };
 
-  const { writeResults } = await measurePerformance(bundleId, testCase, 3, 0, {
-    record: true,
+  const { writeResults } = await measurePerformance(bundleId, testCase, {
+    iterationCount: 3,
+    maxRetries: 0,
+    recordOptions: {
+      record: true,
+    },
   });
   writeResults();
 };
