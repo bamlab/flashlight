@@ -1,6 +1,7 @@
 {
   "packages": [
     "./packages/logger",
+    "./packages/shell",
     "./packages/types",
     "./packages/android-performance-profiler",
     "./packages/appium-helper",
@@ -9,7 +10,8 @@
     "./packages/web-reporter-ui",
     "./packages/web-reporter",
     "./packages/appium-test-cases",
-    "./packages/aws-device-farm"
+    "./packages/aws-device-farm",
+    "./packages/measure"
   ],
   "useWorkspaces": false,
   "npmClient": "yarn",

@@ -7,7 +7,7 @@ import {
   sanitizeProcessName,
 } from "@perf-profiler/reporter";
 import { Logger } from "@perf-profiler/logger";
-import { PerformanceMeasurer } from "../../PerformanceMeasurer";
+import { PerformanceMeasurer } from "@perf-profiler/e2e";
 
 const MeasureSummary = ({ measure }: { measure: Measure }) => {
   return (
