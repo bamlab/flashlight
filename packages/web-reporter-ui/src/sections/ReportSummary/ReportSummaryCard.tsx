@@ -18,6 +18,7 @@ type Props = {
 export const ReportSummaryCard: FunctionComponent<Props> = ({
   averagedResult,
 }) => {
+  const displayPlaceholder = averagedResult.average.measures.length === 0;
   const averageTestRuntime = roundToDecimal(averagedResult.average.time, 0);
   const averageFPS = roundToDecimal(
     getAverageFPSUsage(averagedResult.average.measures),
@@ -53,21 +54,21 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
 
       <ReportSummaryCardInfoRow
         title="Average Test Runtime"
-        value={`${averageTestRuntime} ms`}
+        value={displayPlaceholder ? "-" : `${averageTestRuntime} ms`}
         explanation={<Explanations.AverageTestRuntimeExplanation />}
       />
       <div className="h-2" />
 
       <ReportSummaryCardInfoRow
         title="Average FPS"
-        value={`${averageFPS} FPS`}
+        value={displayPlaceholder ? "-" : `${averageFPS} FPS`}
         explanation={<Explanations.AverageFPSExplanation />}
       />
       <div className="h-2" />
 
       <ReportSummaryCardInfoRow
         title="Average CPU usage"
-        value={`${averageCPU} %`}
+        value={displayPlaceholder ? "-" : `${averageCPU} %`}
         explanation={<Explanations.AverageCPUUsageExplanation />}
       />
       <div className="h-2" />
@@ -75,9 +76,13 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
       <ReportSummaryCardInfoRow
         title="High CPU Usage"
         value={
-          <div style={averageTotalHighCPU > 0 ? { color: "red" } : {}}>
-            {averageTotalHighCPU > 0 ? `${averageTotalHighCPU} s` : "None ✅"}
-          </div>
+          displayPlaceholder ? (
+            "-"
+          ) : (
+            <div style={averageTotalHighCPU > 0 ? { color: "red" } : {}}>
+              {averageTotalHighCPU > 0 ? `${averageTotalHighCPU} s` : "None ✅"}
+            </div>
+          )
         }
         explanation={
           <Explanations.HighCPUUsageExplanation result={averagedResult} />
@@ -87,7 +92,7 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
 
       <ReportSummaryCardInfoRow
         title="Average RAM usage"
-        value={`${averageRAM} MB`}
+        value={displayPlaceholder ? "-" : `${averageRAM} MB`}
         explanation={<Explanations.AverageRAMUsageExplanation />}
       />
     </div>

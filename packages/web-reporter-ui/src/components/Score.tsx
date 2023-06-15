@@ -48,7 +48,7 @@ export const Score: FunctionComponent<Props> = ({ size = 152, result }) => {
       <path
         d={scoreSvgPath}
         strokeWidth={20}
-        className={getScoreClassName(score)}
+        className={displayPlaceholder ? undefined : getScoreClassName(score)}
       />
       <text
         x={100}
@@ -58,7 +58,7 @@ export const Score: FunctionComponent<Props> = ({ size = 152, result }) => {
         aria-label="Score"
         className="text-center text-6xl font-semibold fill-white"
       >
-        {roundToDecimal(score, 0)}
+        {displayPlaceholder ? "" : roundToDecimal(score, 0)}
       </text>
     </svg>
   );
