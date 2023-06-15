@@ -6,12 +6,15 @@ export const themeColors = [
 ] as const;
 type ThemeColor = typeof themeColors[number];
 
+let COLOR_PALETTE: string[] = [];
+
 export const getThemeColor = (): ThemeColor =>
   document.documentElement.dataset.theme as ThemeColor;
 
 export const setThemeAtRandom = () => {
   document.documentElement.dataset.theme =
     themeColors[Math.floor(Math.random() * themeColors.length)];
+  COLOR_PALETTE = getThemeColorPalette().map((color) => `var(--${color})`);
 };
 
 export const getThemeColorPalette = () => {
@@ -27,5 +30,4 @@ export const getThemeColorPalette = () => {
   return colorsStartingWithMainTheme;
 };
 
-export const getColorPalette = () =>
-  getThemeColorPalette().map((color) => `var(--${color})`);
+export const getColorPalette = () => COLOR_PALETTE;

@@ -1,4 +1,4 @@
-import React, { useMemo, useContext } from "react";
+import React, { useMemo, useContext, useRef } from "react";
 import ReactApexChart from "react-apexcharts";
 import {
   VideoEnabledContext,
@@ -61,34 +61,45 @@ const useSetVideoTimeOnMouseHover = ({
 }: {
   series: { name: string; data: { x: number; y: number }[] }[];
 }): ApexChart["events"] => {
-  return {
-    mouseMove: (event, chart) => {
-      if (series.length === 0) return;
+  const seriesRef = useRef(series);
+  // Just making sure the useMemo doesn't depend on series since it doesn't need to
+  seriesRef.current = series;
 
-      const lastX = series[0].data[series[0].data.length - 1].x;
+  return useMemo(
+    () => ({
+      mouseMove: (event, chart) => {
+        if (seriesRef.current.length === 0) return;
 
-      const totalWidth =
-        chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
+        const lastX =
+          seriesRef.current[0].data[seriesRef.current[0].data.length - 1].x;
 
-      const mouseX =
-        event.clientX -
-        chart.el.getBoundingClientRect().left -
-        chart.w.globals.translateX;
+        const totalWidth =
+          chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
 
-      const maxX = lastX;
+        const mouseX =
+          event.clientX -
+          chart.el.getBoundingClientRect().left -
+          chart.w.globals.translateX;
 
-      setVideoCurrentTime((mouseX / totalWidth) * maxX);
+        const maxX = lastX;
 
-      // Manually translate via DOM to avoid re-rendering the chart
-      const annotations = document.getElementsByClassName(
-        "apexcharts-xaxis-annotations"
-      );
+        setVideoCurrentTime((mouseX / totalWidth) * maxX);
 
-      for (const annotation of annotations) {
-        annotation.setAttribute("style", `transform: translateX(${mouseX}px);`);
-      }
-    },
-  };
+        // Manually translate via DOM to avoid re-rendering the chart
+        const annotations = document.getElementsByClassName(
+          "apexcharts-xaxis-annotations"
+        );
+
+        for (const annotation of annotations) {
+          annotation.setAttribute(
+            "style",
+            `transform: translateX(${mouseX}px);`
+          );
+        }
+      },
+    }),
+    []
+  );
 };
 
 export const Chart = ({
