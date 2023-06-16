@@ -22,6 +22,8 @@
     "react": "^17.0.2"
   },
   "devDependencies": {
+    "@mui/icons-material": "^5.5.1",
+    "@mui/material": "^5.5.2",
     "@perf-profiler/web-reporter-ui": "^0.10.0",
     "ink-testing-library": "^2.1.0",
     "parcel": "^2.7.0",
