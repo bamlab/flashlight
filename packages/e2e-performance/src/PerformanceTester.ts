@@ -83,7 +83,7 @@ export class PerformanceTester {
         currentIterationIndex++;
       } catch (error) {
         this.logFailedIteration(currentIterationIndex, error);
-        this.checkRetryIsPossible();
+        this.checkRetryIsPossible(singleIterationTester);
       } finally {
         const currentTestCaseIterationResult =
           singleIterationTester.getCurrentTestCaseIterationResult();
@@ -107,11 +107,12 @@ export class PerformanceTester {
     });
   }
 
-  private checkRetryIsPossible() {
+  private checkRetryIsPossible(singleIterationTester: SingleIterationTester) {
     this.retryCount++;
     if (this.retryCount > this.options.maxRetries) {
       throw new Error("Max number of retries reached.");
     }
+    singleIterationTester.setIsRetry(true);
     Logger.error(
       `Ignoring measure and retrying... (retry ${this.retryCount}/${this.options.maxRetries})`
     );

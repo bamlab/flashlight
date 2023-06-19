@@ -20,13 +20,13 @@ export const writeReport = (
   }
 ) => {
   // We'll soon handle failed iterations as well
-  const successfulMeasures = measures.filter(
-    (measure) => measure.status !== "FAILURE"
+  const containsFailedIterations = measures.some(
+    (measure) => measure.status === "FAILURE"
   );
   const testCase: TestCaseResult = {
     name: title,
-    iterations: successfulMeasures,
-    status: "SUCCESS",
+    iterations: measures,
+    status: containsFailedIterations ? "FAILURE" : "SUCCESS",
   };
 
   /**

@@ -84,6 +84,12 @@ export class SingleIterationTester {
     }
   }
 
+  public setIsRetry(isRetry: boolean) {
+    if (this.currentTestCaseIterationResult) {
+      this.currentTestCaseIterationResult.isRetriedIteration = isRetry;
+    }
+  }
+
   private async maybeStopRecording() {
     if (this.options.recordOptions.record) {
       await this.recorder.stopRecording();

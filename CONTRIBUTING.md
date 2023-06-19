@@ -16,7 +16,13 @@ Keep this open in one terminal.
 To run the command locally:
 
 ```
-node packages/e2e-performance/dist/bin.js test --help
+node packages/e2e-performance/dist/bin.js test
+```
+
+This command is the equivalent of
+
+```
+flashlight test
 ```
 
 ### web-reporter
