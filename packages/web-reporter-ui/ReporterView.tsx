@@ -43,7 +43,13 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
     ...results.map((result) => result.iterations.length)
   );
   const iterationSelector = useIterationSelector(minIterationCount);
-  const iterationResults = results.map((result) => ({
+  const filteredIterationsResults = results.map((result) => ({
+    ...result,
+    iterations: result.iterations.filter(
+      (iteration) => !iteration.isRetriedIteration
+    ),
+  }));
+  const iterationResults = filteredIterationsResults.map((result) => ({
     ...result,
     iterations: iterationSelector.showAverage
       ? result.iterations

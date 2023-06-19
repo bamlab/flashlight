@@ -25,6 +25,7 @@ export interface TestCaseIterationResult {
     path: string;
     startOffset: number;
   };
+  isRetriedIteration?: boolean;
 }
 
 export type TestCaseResultStatus = "SUCCESS" | "FAILURE"; // Todo: add "SUCCESS_WITH_SOME_ITERATIONS_FAILED"
