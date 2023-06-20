@@ -39,16 +39,20 @@ const theme = createTheme({
 });
 
 const Report = ({ results }: { results: TestCaseResult[] }) => {
+  const filteredIterationsResults = results.map((result) => ({
+    ...result,
+    iterations: result.iterations.filter((iteration) => {
+      return (
+        iteration.isRetriedIteration === false ||
+        iteration.isRetriedIteration === undefined
+      );
+    }),
+  }));
   const minIterationCount = Math.min(
     ...results.map((result) => result.iterations.length)
   );
   const iterationSelector = useIterationSelector(minIterationCount);
-  const filteredIterationsResults = results.map((result) => ({
-    ...result,
-    iterations: result.iterations.filter(
-      (iteration) => !iteration.isRetriedIteration
-    ),
-  }));
+
   const iterationResults = filteredIterationsResults.map((result) => ({
     ...result,
     iterations: iterationSelector.showAverage
