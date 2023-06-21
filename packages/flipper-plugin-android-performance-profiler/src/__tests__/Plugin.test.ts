@@ -1,8 +1,8 @@
 import { act, fireEvent, screen } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import { EventEmitter } from "events";
-import { getText } from "@perf-profiler/web-reporter-ui/utils/getSnapshotText";
 import * as Plugin from "..";
+import { getText } from "@perf-profiler/web-reporter-ui/utils/testUtils";
 
 // See https://github.com/facebook/flipper/pull/3327
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
