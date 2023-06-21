@@ -4,6 +4,7 @@ import { MeasureCommandUI } from "../MeasureCommandUI";
 import { PerformanceMeasurer } from "@perf-profiler/e2e";
 import { PerformancePollingMock } from "@perf-profiler/e2e/src/utils/PerformancePollingMock";
 import { waitFor } from "@perf-profiler/e2e/src/utils/waitFor";
+import { removeCLIColors } from "./utils/removeCLIColors";
 
 const writeReport = jest.fn();
 jest.spyOn(process, "exit").mockImplementation(() => {
@@ -21,12 +22,6 @@ jest.mock("@perf-profiler/profiler", () => ({
     mockPerformancePolling.setCallback(onMeasure)
   ),
 }));
-
-// from https://stackoverflow.com/questions/17998978/removing-colors-from-output
-// Remove colors so that snapshots are not polluted
-const removeColors = (str?: string) =>
-  // eslint-disable-next-line no-control-regex
-  str?.replace(/\x1B\[([0-9]{1,3}(;[0-9]{1,2};?)?)?[mGK]/g, "");
 
 describe("MeasureCommandUI", () => {
   it("should render", async () => {
@@ -61,7 +56,7 @@ describe("MeasureCommandUI", () => {
       />
     );
 
-    expect(removeColors(lastFrame())).toMatchInlineSnapshot(`
+    expect(removeCLIColors(lastFrame())).toMatchInlineSnapshot(`
       "
       ┌──────┬─────────────────────┬──────────┐
       │ FPS  │ Total CPU Usage (%) │ RAM (MB) │
@@ -75,7 +70,7 @@ describe("MeasureCommandUI", () => {
 
     stdin.write("t");
 
-    expect(removeColors(lastFrame())).toMatchInlineSnapshot(`
+    expect(removeCLIColors(lastFrame())).toMatchInlineSnapshot(`
       "
       ┌──────┬─────────────────────┬──────────┐
       │ FPS  │ Total CPU Usage (%) │ RAM (MB) │
