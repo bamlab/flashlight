@@ -1,6 +1,14 @@
+// We'll remove the flipper plugin at some point so it's ok to just import those
+// from another package in the test
+// eslint-disable-next-line import/no-extraneous-dependencies
+import "@perf-profiler/measure/src/__tests__/utils/mockChildProcess";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import {
+  emitMeasures,
+  spawn,
+} from "@perf-profiler/measure/src/__tests__/utils/mockEmitMeasures";
 import { act, fireEvent, screen } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
-import { EventEmitter } from "events";
 import * as Plugin from "..";
 import { getText } from "@perf-profiler/web-reporter-ui/utils/testUtils";
 
@@ -18,118 +26,6 @@ jest.mock("uuid", () => ({
 window.alert = console.error;
 
 Math.random = () => 0.5;
-
-jest.mock("child_process", () => {
-  return {
-    spawn: jest.requireActual("child_process").spawn,
-    execSync: (command: string) => ({
-      toString: () => {
-        if (
-          command.startsWith("adb push") &&
-          command.endsWith(
-            "BAMPerfProfiler-arm64-v8a /data/local/tmp/BAMPerfProfiler"
-          )
-        ) {
-          return "";
-        }
-
-        switch (command) {
-          case "adb shell /data/local/tmp/BAMPerfProfiler printCpuClockTick":
-            return 100;
-          case "adb shell dumpsys window windows":
-            return "      mSurface=Surface(name=com.example/com.example.MainActivity$_21455)/@0x9110fea";
-          case "adb shell /data/local/tmp/BAMPerfProfiler printRAMPageSize":
-            return 4096;
-          case "adb shell getprop ro.product.cpu.abi":
-            return "arm64-v8a";
-          case "adb shell getprop ro.build.version.sdk":
-            return "30";
-          case "adb shell setprop debug.hwui.profile true":
-          case "adb shell atrace --async_stop 1>/dev/null":
-            return "";
-          default:
-            console.error(`Unknown command: ${command}`);
-            return "";
-        }
-      },
-    }),
-  };
-});
-
-const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
-  const mockProcess = new EventEmitter();
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  mockProcess.stdout = new EventEmitter();
-
-  jest
-    .spyOn(require("child_process"), "spawn")
-    .mockImplementationOnce((...args) => {
-      expect(args).toEqual([
-        "adb",
-        ["shell", "atrace", "-c", "view", "-t", "999"],
-      ]);
-      return mockProcess;
-    })
-    .mockImplementationOnce((...args) => {
-      expect(args).toEqual([
-        "adb",
-        [
-          "shell",
-          "/data/local/tmp/BAMPerfProfiler",
-          "pollPerformanceMeasures",
-          "com.example",
-          "500",
-        ],
-      ]);
-      return mockProcess;
-    });
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  mockProcess.kill = jest.fn();
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  return mockProcess;
-};
-
-const spawn = mockSpawn();
-
-const emitMeasures = () => {
-  const emitMeasure = (measureIndex: number) => {
-    const cpuOutput: string = require("fs").readFileSync(
-      `${__dirname}/sample-command-output-${
-        measureIndex === 0 ? "1" : "2"
-      }.txt`,
-      "utf8"
-    );
-    const aTraceOutput: string = require("fs").readFileSync(
-      `${__dirname}/sample-atrace-output.txt`,
-      "utf8"
-    );
-
-    spawn.stdout.emit(
-      "data",
-      `=START MEASURE=
-123456
-=SEPARATOR=
-${cpuOutput}
-=SEPARATOR=
-4430198 96195 58113 3 0 398896 0
-=SEPARATOR=
-${aTraceOutput}
-=SEPARATOR=
-Timestamp: ${1651248790047 + measureIndex * 500}
-ADB EXEC TIME: ${42}
-=STOP MEASURE=`
-    );
-  };
-
-  emitMeasure(0);
-  emitMeasure(1);
-  emitMeasure(2);
-};
 
 test("displays FPS data and scoring", async () => {
   const { renderer } = TestUtils.renderDevicePlugin(Plugin);

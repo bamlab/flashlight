@@ -7,6 +7,7 @@ const commonOptions = {
     "/node_modules/",
     "/dist/",
     "/examples/e2e/",
+    "/measure/src/__tests__/utils/"
   ],
   setupFiles: ["<rootDir>/jest-setup.ts"],
 };
