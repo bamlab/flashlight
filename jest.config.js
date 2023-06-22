@@ -51,7 +51,6 @@ module.exports = {
     ...commonOptions,
     displayName: name,
     testEnvironment,
-    // testRegex: "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     testMatch: [`<rootDir>/packages/${name}/**/__tests__/*.{ts,tsx}`],
   })),
 };
