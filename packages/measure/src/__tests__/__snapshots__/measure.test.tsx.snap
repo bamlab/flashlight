@@ -21,8 +21,7 @@ for more details
 Average CPU usage
 80 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
- Depending on the device, this value can go up to
- 
+ Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
@@ -2763,8 +2762,7 @@ for more details
 Average CPU usage
 -
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
- Depending on the device, this value can go up to
- 
+ Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
