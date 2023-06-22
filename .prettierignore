@@ -3,7 +3,7 @@ node_modules
 docs
 cpp-profiler
 coverage
-*.js
-*.html
+report.js
+report.html
 results*.json
 .docusaurus
