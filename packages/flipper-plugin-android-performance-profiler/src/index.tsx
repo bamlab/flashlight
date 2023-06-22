@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { DevicePluginClient, createState } from "flipper-plugin";
-import {
-  Button,
-  ReporterView,
-  setThemeAtRandom,
-} from "@perf-profiler/web-reporter-ui";
+import { Button, ReporterView, setThemeAtRandom } from "@perf-profiler/web-reporter-ui";
 import { BundleIdSelector } from "./components/BundleIdSelector";
 import { StartButton } from "./components/StartButton";
 import { useMeasures } from "./useMeasures";

@@ -7,20 +7,13 @@ const mockSpawn = (): { stdout: EventEmitter } => {
   // @ts-ignore
   mockProcess.stdout = new EventEmitter();
 
-  jest
-    .spyOn(require("child_process"), "spawn")
-    .mockImplementationOnce((...args) => {
-      expect(args).toEqual([
-        "adb",
-        [
-          "shell",
-          "/data/local/tmp/BAMPerfProfiler",
-          "pollPerformanceMeasures",
-          "PID_ID",
-        ],
-      ]);
-      return mockProcess;
-    });
+  jest.spyOn(require("child_process"), "spawn").mockImplementationOnce((...args) => {
+    expect(args).toEqual([
+      "adb",
+      ["shell", "/data/local/tmp/BAMPerfProfiler", "pollPerformanceMeasures", "PID_ID"],
+    ]);
+    return mockProcess;
+  });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

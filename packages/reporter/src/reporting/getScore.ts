@@ -8,8 +8,7 @@ import { getAverageCpuUsage, getAverageFPSUsage } from "./reporting";
  * 200 -> 50
  * 300 -> 15
  */
-const calculateCpuScore = (x: number) =>
-  Math.min(Math.max(0, -0.31666666666667 * x + 116), 100);
+const calculateCpuScore = (x: number) => Math.min(Math.max(0, -0.31666666666667 * x + 116), 100);
 
 export const getScore = (result: AveragedTestCaseResult) => {
   const averageUIFPS = getAverageFPSUsage(result.average.measures);
@@ -25,8 +24,5 @@ export const getScore = (result: AveragedTestCaseResult) => {
   const totalMeasureTime = result.average.measures.length * POLLING_INTERVAL;
   const timePercentageThreadlocked = totalTimeThreadlocked / totalMeasureTime;
 
-  return round(
-    Math.max(0, ((fpsScore + cpuScore) / 2) * (1 - timePercentageThreadlocked)),
-    0
-  );
+  return round(Math.max(0, ((fpsScore + cpuScore) / 2) * (1 - timePercentageThreadlocked)), 0);
 };

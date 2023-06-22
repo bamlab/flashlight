@@ -32,16 +32,12 @@ export const executeAsync = (command: string) => {
     });
 
     child.stderr.on("data", (data: ReadableStream<string>) => {
-      Logger.error(
-        `Error when running "${command}": ${"\n"}${data.toString()}`
-      );
+      Logger.error(`Error when running "${command}": ${"\n"}${data.toString()}`);
     });
 
     child.on("close", (code: number | null) => {
       if (code !== 0) {
-        reject(
-          new Error(`Error when running "${command}": exited with code ${code}`)
-        );
+        reject(new Error(`Error when running "${command}": exited with code ${code}`));
       }
       resolve(0);
     });

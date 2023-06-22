@@ -8,9 +8,7 @@ export const setVideoCurrentTime = (time: number) => {
   emitter.emit(SET_VIDEO_CURRENT_TIME, time);
 };
 
-export const useListenToVideoCurrentTime = (
-  callback: (time: number) => void
-) => {
+export const useListenToVideoCurrentTime = (callback: (time: number) => void) => {
   React.useEffect(() => {
     emitter.on(SET_VIDEO_CURRENT_TIME, callback);
     return () => {

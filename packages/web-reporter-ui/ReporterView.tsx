@@ -14,10 +14,7 @@ import { FPSReport } from "./src/sections/FPSReport";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Header from "./src/components/Header";
 import { exportRawDataToZIP } from "./utils/reportRawDataExport";
-import {
-  IterationSelector,
-  useIterationSelector,
-} from "./src/components/IterationSelector";
+import { IterationSelector, useIterationSelector } from "./src/components/IterationSelector";
 import { VideoSection } from "./src/sections/VideoSection";
 import { VideoEnabledContext } from "./videoCurrentTimeContext";
 
@@ -27,13 +24,7 @@ const Padding = styled.div`
 
 const theme = createTheme({
   typography: {
-    fontFamily: [
-      "open-sans",
-      "Roboto",
-      "Helvetica",
-      "Arial",
-      "sans-serif",
-    ].join(","),
+    fontFamily: ["open-sans", "Roboto", "Helvetica", "Arial", "sans-serif"].join(","),
     fontWeightBold: 600,
   },
 });
@@ -42,15 +33,10 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
   const filteredIterationsResults = results.map((result) => ({
     ...result,
     iterations: result.iterations.filter((iteration) => {
-      return (
-        iteration.isRetriedIteration === false ||
-        iteration.isRetriedIteration === undefined
-      );
+      return iteration.isRetriedIteration === false || iteration.isRetriedIteration === undefined;
     }),
   }));
-  const minIterationCount = Math.min(
-    ...results.map((result) => result.iterations.length)
-  );
+  const minIterationCount = Math.min(...results.map((result) => result.iterations.length));
   const iterationSelector = useIterationSelector(minIterationCount);
 
   const iterationResults = filteredIterationsResults.map((result) => ({
@@ -60,17 +46,13 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
       : [result.iterations[iterationSelector.iterationIndex]],
   }));
 
-  const averagedResults: AveragedTestCaseResult[] = iterationResults.map(
-    averageTestCaseResult
-  );
+  const averagedResults: AveragedTestCaseResult[] = iterationResults.map(averageTestCaseResult);
 
   const saveResultsToZIP = () => {
     exportRawDataToZIP(iterationResults);
   };
 
-  const hasVideos = !!iterationResults.some(
-    (iteration) => iteration.iterations[0]?.videoInfos
-  );
+  const hasVideos = !!iterationResults.some((iteration) => iteration.iterations[0]?.videoInfos);
 
   const hasMeasures = averagedResults[0]?.iterations[0]?.measures.length > 0;
 
@@ -108,19 +90,12 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
         </div>
       </VideoEnabledContext.Provider>
 
-      <IterationSelector
-        {...iterationSelector}
-        iterationCount={minIterationCount}
-      />
+      <IterationSelector {...iterationSelector} iterationCount={minIterationCount} />
     </>
   );
 };
 
-export const IterationsReporterView = ({
-  results,
-}: {
-  results: TestCaseResult[];
-}) => {
+export const IterationsReporterView = ({ results }: { results: TestCaseResult[] }) => {
   return results.length > 0 ? (
     <ThemeProvider theme={theme}>
       <Report results={results} />

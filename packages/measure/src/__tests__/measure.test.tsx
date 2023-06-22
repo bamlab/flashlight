@@ -1,12 +1,6 @@
 import "./utils/mockChildProcess";
 import { spawn, emitMeasures } from "./utils/mockEmitMeasures";
-import {
-  fireEvent,
-  render as webRender,
-  screen,
-  waitFor,
-  act,
-} from "@testing-library/react";
+import { fireEvent, render as webRender, screen, waitFor, act } from "@testing-library/react";
 import { render as cliRender } from "ink-testing-library";
 import { MeasureWebApp } from "../webapp/MeasureWebApp";
 import React from "react";
@@ -49,8 +43,7 @@ describe("flashlight measure interactive", () => {
 
     return {
       closeWebApp: renderer.unmount,
-      expectWebAppToMatchSnapshot: (snapshotName: string) =>
-        matchSnapshot(renderer, snapshotName),
+      expectWebAppToMatchSnapshot: (snapshotName: string) => matchSnapshot(renderer, snapshotName),
     };
   };
 

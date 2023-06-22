@@ -3,11 +3,7 @@ import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
 import { Chart } from "../components/Chart";
 import { roundToDecimal } from "../../utils/roundToDecimal";
 
-export const RAMReport = ({
-  results,
-}: {
-  results: AveragedTestCaseResult[];
-}) => {
+export const RAMReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
   const ram = results.map((result) => ({
     name: result.name,
     data: result.average.measures
@@ -20,12 +16,7 @@ export const RAMReport = ({
 
   return (
     <>
-      <Chart
-        title="RAM Usage (MB)"
-        height={500}
-        interval={POLLING_INTERVAL}
-        series={ram}
-      />
+      <Chart title="RAM Usage (MB)" height={500} interval={POLLING_INTERVAL} series={ram} />
     </>
   );
 };

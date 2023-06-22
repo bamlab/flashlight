@@ -16,26 +16,14 @@ import { SocketState } from "./components/SocketState";
 setThemeAtRandom();
 
 export const MeasureWebApp = () => {
-  const {
-    autodetect,
-    bundleId,
-    start,
-    stop,
-    results,
-    isMeasuring,
-    reset,
-    setBundleId,
-  } = useMeasures();
+  const { autodetect, bundleId, start, stop, results, isMeasuring, reset, setBundleId } =
+    useMeasures();
 
   return (
     <div className="bg-light-charcoal h-full text-black">
       <SocketState />
       <AppBar>
-        <BundleIdSelector
-          autodetect={autodetect}
-          bundleId={bundleId}
-          onChange={setBundleId}
-        />
+        <BundleIdSelector autodetect={autodetect} bundleId={bundleId} onChange={setBundleId} />
         {bundleId ? (
           <div className="flex flex-row gap-2">
             <StartButton start={start} stop={stop} isMeasuring={isMeasuring} />

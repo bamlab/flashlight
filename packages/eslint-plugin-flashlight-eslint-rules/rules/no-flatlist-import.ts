@@ -4,9 +4,7 @@ type MessageId = "no-flatlist-import";
 
 type Options = [];
 
-const createRule = ESLintUtils.RuleCreator(
-  (name) => `https://flashlight.dev/rule/${name}`
-);
+const createRule = ESLintUtils.RuleCreator((name) => `https://flashlight.dev/rule/${name}`);
 
 export const rule = createRule<Options, MessageId>({
   name: "no-flatlist-import",
@@ -19,8 +17,7 @@ export const rule = createRule<Options, MessageId>({
           source.value === "react-native" &&
           specifiers.some(
             (specifier) =>
-              specifier.local.name === "FlatList" ||
-              specifier.local.name === "SectionList"
+              specifier.local.name === "FlatList" || specifier.local.name === "SectionList"
           )
         ) {
           context.report({

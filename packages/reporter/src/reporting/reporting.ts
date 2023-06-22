@@ -17,8 +17,7 @@ const _getAverageCpuUsagePerProcess = (measures: Measure[]) =>
     .groupBy((measure) => measure.processName)
     .map((measure, processName) => ({
       processName,
-      cpuUsage:
-        _.sumBy(measure, (measure) => measure.cpuUsage) / measures.length,
+      cpuUsage: _.sumBy(measure, (measure) => measure.cpuUsage) / measures.length,
     }))
     .orderBy((measure) => measure.cpuUsage, "desc")
     .value();
@@ -30,10 +29,7 @@ export const getAverageCpuUsagePerProcess = (measures: Measure[]) =>
   }));
 
 export const getAverageCpuUsage = (measures: Measure[]) =>
-  _getAverageCpuUsagePerProcess(measures).reduce<number>(
-    (sum, { cpuUsage }) => sum + cpuUsage,
-    0
-  );
+  _getAverageCpuUsagePerProcess(measures).reduce<number>((sum, { cpuUsage }) => sum + cpuUsage, 0);
 
 export const getHighCpuUsageStats = (
   measures: Measure[],
@@ -61,10 +57,5 @@ export const getAverageFPSUsage = (measures: Measure[]) =>
 export const getAverageRAMUsage = (measures: Measure[]) =>
   average(measures.map((measure) => measure.ram));
 
-export const getAverageTotalHighCPUUsage = (highCpuProcesses: {
-  [processName: string]: number;
-}) =>
-  Object.keys(highCpuProcesses).reduce(
-    (sum, name) => sum + highCpuProcesses[name],
-    0
-  );
+export const getAverageTotalHighCPUUsage = (highCpuProcesses: { [processName: string]: number }) =>
+  Object.keys(highCpuProcesses).reduce((sum, name) => sum + highCpuProcesses[name], 0);

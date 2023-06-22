@@ -19,9 +19,7 @@ export const BundleIdSelector = ({
       const { bundleId: detectedBundleId } = detectCurrentAppBundleId();
       onChange(detectedBundleId);
     } catch (error) {
-      alert(
-        error instanceof Error ? error.message : "An unknown error has occurred"
-      );
+      alert(error instanceof Error ? error.message : "An unknown error has occurred");
     }
   };
 

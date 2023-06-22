@@ -38,15 +38,11 @@ export class SingleIterationTester {
     private iterationIndex: number
   ) {}
 
-  private currentTestCaseIterationResult: TestCaseIterationResult | undefined =
-    undefined;
-  private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(
-    this.bundleId
-  );
-  private videoPath = `${this.options.resultsFileOptions.path.replace(
-    ".json",
-    ""
-  )}_iteration_${this.iterationIndex}.mp4`;
+  private currentTestCaseIterationResult: TestCaseIterationResult | undefined = undefined;
+  private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(this.bundleId);
+  private videoPath = `${this.options.resultsFileOptions.path.replace(".json", "")}_iteration_${
+    this.iterationIndex
+  }.mp4`;
   private recorder = new ScreenRecorder(basename(this.videoPath));
 
   public getCurrentTestCaseIterationResult() {
@@ -93,9 +89,7 @@ export class SingleIterationTester {
   private async maybeStopRecording() {
     if (this.options.recordOptions.record) {
       await this.recorder.stopRecording();
-      await this.recorder.pullRecording(
-        dirname(this.options.resultsFileOptions.path)
-      );
+      await this.recorder.pullRecording(dirname(this.options.resultsFileOptions.path));
     }
   }
 
@@ -113,9 +107,7 @@ export class SingleIterationTester {
       videoInfos: this.options.recordOptions.record
         ? {
             path: this.videoPath,
-            startOffset: Math.floor(
-              measures.startTime - this.recorder.getRecordingStartTime()
-            ),
+            startOffset: Math.floor(measures.startTime - this.recorder.getRecordingStartTime()),
           }
         : undefined,
     };

@@ -2,9 +2,7 @@ import { parseGfxInfo } from "../parseGfxInfo";
 
 jest
   .spyOn(require("../../shell"), "executeCommand")
-  .mockImplementation(() =>
-    require("fs").readFileSync(`${__dirname}/GfxInfoSample.txt`, "utf8")
-  );
+  .mockImplementation(() => require("fs").readFileSync(`${__dirname}/GfxInfoSample.txt`, "utf8"));
 
 const bundleId = "mockPackage";
 test("GfxInfoParser", () => {

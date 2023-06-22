@@ -21,11 +21,7 @@ export const Button = ({
   ];
 
   return (
-    <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`${classNames.join(" ")}`}
-    >
+    <button onClick={onClick} disabled={disabled} className={`${classNames.join(" ")}`}>
       {icon && <span className="mr-1">{icon}</span>}
       {children}
     </button>

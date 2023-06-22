@@ -4,19 +4,11 @@ import { Measure } from "@perf-profiler/types";
 import React, { useCallback, useEffect } from "react";
 import { HostAndPortInfo } from "./components/HostAndPortInfo";
 import { SocketType } from "./socket/socketInterface";
-import {
-  useSocketState,
-  updateMeasuresReducer,
-  addNewResultReducer,
-} from "./socket/socketState";
+import { useSocketState, updateMeasuresReducer, addNewResultReducer } from "./socket/socketState";
 import { useBundleIdControls } from "./useBundleIdControls";
 import { useLogSocketEvents } from "../common/useLogSocketEvents";
 
-export const ServerSocketConnectionApp = ({
-  socket,
-}: {
-  socket: SocketType;
-}) => {
+export const ServerSocketConnectionApp = ({ socket }: { socket: SocketType }) => {
   useLogSocketEvents(socket);
   const [state, setState] = useSocketState(socket);
   const performanceMeasureRef = React.useRef<PerformanceMeasurer | null>(null);

@@ -24,51 +24,44 @@ export const pollPerformanceMeasures = (
   const cpuMeasuresAggregator = new CpuMeasureAggregator();
   const frameTimeParser = new FrameTimeParser();
 
-  return cppPollPerformanceMeasures(
-    bundleId,
-    ({ pid, cpu, ram: ramStr, atrace, timestamp }) => {
-      if (!atrace) {
-        Logger.debug("NO ATRACE OUTPUT, if the app is idle, that is normal");
-      }
-      const subProcessesStats = processOutput(cpu, pid);
-
-      const ram = processRamOutput(ramStr);
-      const { frameTimes, interval: atraceInterval } =
-        frameTimeParser.getFrameTimes(atrace, pid);
-
-      if (!initialTime) {
-        initialTime = timestamp;
-      }
-
-      if (previousTime) {
-        const interval = timestamp - previousTime;
-
-        const cpuMeasures = cpuMeasuresAggregator.process(
-          subProcessesStats,
-          interval
-        );
-
-        const fps = FrameTimeParser.getFps(
-          frameTimes,
-          atraceInterval,
-          Math.max(
-            cpuMeasures.perName["UI Thread"] || 0,
-            // Hack for Flutter apps - if this thread is heavy app will be laggy
-            cpuMeasures.perName["(1.ui)"] || 0
-          )
-        );
-
-        onMeasure({
-          cpu: cpuMeasures,
-          fps,
-          ram,
-          time: timestamp - initialTime,
-        });
-      } else {
-        onStartMeasuring();
-        cpuMeasuresAggregator.initStats(subProcessesStats);
-      }
-      previousTime = timestamp;
+  return cppPollPerformanceMeasures(bundleId, ({ pid, cpu, ram: ramStr, atrace, timestamp }) => {
+    if (!atrace) {
+      Logger.debug("NO ATRACE OUTPUT, if the app is idle, that is normal");
     }
-  );
+    const subProcessesStats = processOutput(cpu, pid);
+
+    const ram = processRamOutput(ramStr);
+    const { frameTimes, interval: atraceInterval } = frameTimeParser.getFrameTimes(atrace, pid);
+
+    if (!initialTime) {
+      initialTime = timestamp;
+    }
+
+    if (previousTime) {
+      const interval = timestamp - previousTime;
+
+      const cpuMeasures = cpuMeasuresAggregator.process(subProcessesStats, interval);
+
+      const fps = FrameTimeParser.getFps(
+        frameTimes,
+        atraceInterval,
+        Math.max(
+          cpuMeasures.perName["UI Thread"] || 0,
+          // Hack for Flutter apps - if this thread is heavy app will be laggy
+          cpuMeasures.perName["(1.ui)"] || 0
+        )
+      );
+
+      onMeasure({
+        cpu: cpuMeasures,
+        fps,
+        ram,
+        time: timestamp - initialTime,
+      });
+    } else {
+      onStartMeasuring();
+      cpuMeasuresAggregator.initStats(subProcessesStats);
+    }
+    previousTime = timestamp;
+  });
 };

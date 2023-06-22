@@ -1,7 +1,4 @@
-import {
-  PerformanceTester,
-  PerformanceTesterOptions,
-} from "./PerformanceTester";
+import { PerformanceTester, PerformanceTesterOptions } from "./PerformanceTester";
 import { TestCase } from "./SingleIterationTester";
 
 export { TestCase };

@@ -22,26 +22,19 @@ const mockDate = () => {
 };
 
 const mockPerformanceTester = () => {
-  const actualPerformanceTester = jest.requireActual(
-    "../PerformanceTester"
-  ).PerformanceTester;
-  jest
-    .spyOn(PerformanceTester, "PerformanceTester")
-    .mockImplementation((...args) => {
-      const tester = new actualPerformanceTester(...args);
+  const actualPerformanceTester = jest.requireActual("../PerformanceTester").PerformanceTester;
+  jest.spyOn(PerformanceTester, "PerformanceTester").mockImplementation((...args) => {
+    const tester = new actualPerformanceTester(...args);
 
-      jest.spyOn(tester, "iterate").mockResolvedValue(undefined);
+    jest.spyOn(tester, "iterate").mockResolvedValue(undefined);
 
-      return tester;
-    });
+    return tester;
+  });
 };
 
 const runTest = jest.fn();
 
-const runMeasures = async (resultsFileOptions?: {
-  path?: string;
-  title?: string;
-}) => {
+const runMeasures = async (resultsFileOptions?: { path?: string; title?: string }) => {
   const { writeResults } = await measurePerformance(
     "com.example",
     {

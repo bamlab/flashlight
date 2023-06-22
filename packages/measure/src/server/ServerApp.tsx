@@ -19,10 +19,7 @@ const createExpressApp = () => {
   return app;
 };
 
-const allowOnlyOneSocketClient = (
-  io: SocketServer,
-  onConnect: (socket: SocketType) => void
-) => {
+const allowOnlyOneSocketClient = (io: SocketServer, onConnect: (socket: SocketType) => void) => {
   let currentSocketClient: SocketType | null = null;
 
   io.on("connection", (socket) => {
@@ -69,9 +66,5 @@ export const ServerApp = () => {
   }, []);
   useCleanupOnManualExit();
 
-  return socket ? (
-    <ServerSocketConnectionApp socket={socket} />
-  ) : (
-    <HostAndPortInfo />
-  );
+  return socket ? <ServerSocketConnectionApp socket={socket} /> : <HostAndPortInfo />;
 };

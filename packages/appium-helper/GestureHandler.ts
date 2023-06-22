@@ -48,24 +48,14 @@ export class GestureHandler {
    * @param {number} maxScrolls
    * @param {number} amount
    */
-  async checkIfDisplayedWithScrollDown(
-    element: webdriver.Element,
-    maxScrolls = 5,
-    amount = 0
-  ) {
+  async checkIfDisplayedWithScrollDown(element: webdriver.Element, maxScrolls = 5, amount = 0) {
     const isExisting = await element.isExisting();
     const isDisplayed = await element.isDisplayed();
     if ((!isExisting || !isDisplayed) && amount <= maxScrolls) {
       await this.swipeUp(0.85);
-      await this.checkIfDisplayedWithScrollDown(
-        element,
-        maxScrolls,
-        amount + 1
-      );
+      await this.checkIfDisplayedWithScrollDown(element, maxScrolls, amount + 1);
     } else if (amount > maxScrolls) {
-      throw new Error(
-        `The element '${element}' could not be found or is not visible.`
-      );
+      throw new Error(`The element '${element}' could not be found or is not visible.`);
     }
   }
 
@@ -131,19 +121,10 @@ export class GestureHandler {
    *   const to = { x: 25, y:50 }
    * </pre>
    */
-  async swipeOnPercentage(
-    from: { x: number; y: number },
-    to: { x: number; y: number }
-  ) {
+  async swipeOnPercentage(from: { x: number; y: number }, to: { x: number; y: number }) {
     this.SCREEN_SIZE = await this.client.getWindowRect();
-    const pressOptions = this._getDeviceScreenCoordinates(
-      this.SCREEN_SIZE,
-      from
-    );
-    const moveToScreenCoordinates = this._getDeviceScreenCoordinates(
-      this.SCREEN_SIZE,
-      to
-    );
+    const pressOptions = this._getDeviceScreenCoordinates(this.SCREEN_SIZE, from);
+    const moveToScreenCoordinates = this._getDeviceScreenCoordinates(this.SCREEN_SIZE, to);
     await this.swipe(pressOptions, moveToScreenCoordinates);
   }
 
@@ -210,10 +191,7 @@ export class GestureHandler {
    *
    * @private
    */
-  _calculateXY(
-    { x, y }: { x: number; y: number },
-    percentage: number
-  ): { x: number; y: number } {
+  _calculateXY({ x, y }: { x: number; y: number }, percentage: number): { x: number; y: number } {
     return {
       x: x * percentage,
       y: y * percentage,

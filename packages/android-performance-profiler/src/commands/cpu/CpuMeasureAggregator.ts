@@ -4,8 +4,7 @@ import { getCpuClockTick } from "../cppProfiler";
 import { ProcessStat } from "./getCpuStatsByProcess";
 
 export class CpuMeasureAggregator {
-  private previousTotalCpuTimePerProcessId: { [processId: string]: number } =
-    {};
+  private previousTotalCpuTimePerProcessId: { [processId: string]: number } = {};
 
   private groupCpuUsage(
     stats: ProcessStat[],
@@ -16,14 +15,12 @@ export class CpuMeasureAggregator {
   } {
     const TICKS_FOR_TIME_INTERVAL = (getCpuClockTick() * timeInterval) / 1000;
 
-    const toPercentage = (value: number) =>
-      Math.min((value * 100) / TICKS_FOR_TIME_INTERVAL, 100);
+    const toPercentage = (value: number) => Math.min((value * 100) / TICKS_FOR_TIME_INTERVAL, 100);
 
     return mapValues(
       stats.reduce<{ [by: string]: number }>((aggr, stat) => {
         const cpuTimeDiff =
-          stat.totalCpuTime -
-          (this.previousTotalCpuTimePerProcessId[stat.processId] || 0);
+          stat.totalCpuTime - (this.previousTotalCpuTimePerProcessId[stat.processId] || 0);
 
         return {
           ...aggr,

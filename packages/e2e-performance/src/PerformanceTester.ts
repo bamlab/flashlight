@@ -2,11 +2,7 @@ import { Logger } from "@perf-profiler/logger";
 import { TestCaseIterationResult } from "@perf-profiler/types";
 import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
 import * as p from "path";
-import {
-  Options,
-  SingleIterationTester,
-  TestCase,
-} from "./SingleIterationTester";
+import { Options, SingleIterationTester, TestCase } from "./SingleIterationTester";
 import { writeReport } from "./writeReport";
 
 export type PerformanceTesterOptions = Omit<
@@ -38,14 +34,10 @@ export class PerformanceTester {
     const title = options.resultsFileOptions?.title || "Results";
 
     const path = options.resultsFileOptions?.path;
-    const filePath = path
-      ? p.join(process.cwd(), p.dirname(path))
-      : `${process.cwd()}`;
+    const filePath = path ? p.join(process.cwd(), p.dirname(path)) : `${process.cwd()}`;
     const fileName = path
       ? p.basename(path)
-      : `${title
-          .toLocaleLowerCase()
-          .replace(/ /g, "_")}_${new Date().getTime()}`;
+      : `${title.toLocaleLowerCase().replace(/ /g, "_")}_${new Date().getTime()}`;
 
     this.options = {
       ...options,
@@ -119,31 +111,22 @@ export class PerformanceTester {
   }
 
   private logIterationStart(currentIterationIndex: number) {
-    Logger.info(
-      `Running iteration ${currentIterationIndex + 1}/${
-        this.options.iterationCount
-      }`
-    );
+    Logger.info(`Running iteration ${currentIterationIndex + 1}/${this.options.iterationCount}`);
   }
 
   private logFailedIteration(currentIterationIndex: number, error: unknown) {
     Logger.error(
-      `Iteration ${currentIterationIndex + 1}/${
-        this.options.iterationCount
-      } failed: ${error instanceof Error ? error.message : "unknown error"}`
+      `Iteration ${currentIterationIndex + 1}/${this.options.iterationCount} failed: ${
+        error instanceof Error ? error.message : "unknown error"
+      }`
     );
   }
 
-  private logSuccessfulIteration(
-    currentIterationIndex: number,
-    time: number | undefined
-  ) {
+  private logSuccessfulIteration(currentIterationIndex: number, time: number | undefined) {
     Logger.success(
-      `Finished iteration ${currentIterationIndex + 1}/${
-        this.options.iterationCount
-      } in ${time ?? "unknown"}ms (${this.retryCount} ${
-        this.retryCount > 1 ? "retries" : "retry"
-      } so far)`
+      `Finished iteration ${currentIterationIndex + 1}/${this.options.iterationCount} in ${
+        time ?? "unknown"
+      }ms (${this.retryCount} ${this.retryCount > 1 ? "retries" : "retry"} so far)`
     );
   }
 }

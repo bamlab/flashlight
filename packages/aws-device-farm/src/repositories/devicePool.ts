@@ -1,26 +1,15 @@
-import {
-  CreateDevicePoolCommand,
-  ListDevicePoolsCommand,
-} from "@aws-sdk/client-device-farm";
+import { CreateDevicePoolCommand, ListDevicePoolsCommand } from "@aws-sdk/client-device-farm";
 import { Logger } from "@perf-profiler/logger";
 import { BaseRepository } from "./BaseRepository";
 
 export class DevicePoolRepository extends BaseRepository {
   async getByName({ projectArn, name }: { projectArn: string; name: string }) {
-    const { devicePools } = await this.client.send(
-      new ListDevicePoolsCommand({ arn: projectArn })
-    );
+    const { devicePools } = await this.client.send(new ListDevicePoolsCommand({ arn: projectArn }));
 
     return devicePools?.find((pool) => pool.name === name);
   }
 
-  async create({
-    projectArn,
-    deviceName,
-  }: {
-    projectArn: string;
-    deviceName: string;
-  }) {
+  async create({ projectArn, deviceName }: { projectArn: string; deviceName: string }) {
     return this.client.send(
       new CreateDevicePoolCommand({
         projectArn,

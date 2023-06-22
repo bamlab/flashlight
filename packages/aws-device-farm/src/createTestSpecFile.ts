@@ -14,10 +14,7 @@ export const getSingleTestFileYml = ({
   return buildYmlSpec({
     installCommands: [...Commands.INSTALL_APPIUM],
     preTestCommands: [...Commands.START_APPIUM],
-    testCommands: [
-      ...Commands.createFile(testCode, "runTest.ts"),
-      "npx ts-node runTest.ts",
-    ],
+    testCommands: [...Commands.createFile(testCode, "runTest.ts"), "npx ts-node runTest.ts"],
     postTestCommands: [postTestCommand].filter(Boolean),
   });
 };

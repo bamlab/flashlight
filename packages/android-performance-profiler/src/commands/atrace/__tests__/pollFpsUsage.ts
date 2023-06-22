@@ -13,9 +13,7 @@ describe("parseLine", () => {
     });
 
     expect(
-      parseLine(
-        "<...>-14862 (-----) [001] ...1  5199.779518: tracing_mark_write: E|14862"
-      )
+      parseLine("<...>-14862 (-----) [001] ...1  5199.779518: tracing_mark_write: E|14862")
     ).toEqual({ ending: true, methodName: "|14862", timestamp: 5199779.518 });
   });
 });

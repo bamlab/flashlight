@@ -3,10 +3,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "@perf-profiler/measure/src/__tests__/utils/mockChildProcess";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import {
-  emitMeasures,
-  spawn,
-} from "@perf-profiler/measure/src/__tests__/utils/mockEmitMeasures";
+import { emitMeasures, spawn } from "@perf-profiler/measure/src/__tests__/utils/mockEmitMeasures";
 import { act, fireEvent, screen } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import * as Plugin from "..";

@@ -9,9 +9,6 @@ export const unzip = (path: string, destinationFolder: string) => {
   for (const zipEntry of zipEntries) {
     const parts = zipEntry.entryName.split("/");
 
-    fs.writeFileSync(
-      `${destinationFolder}/${parts[parts.length - 1]}`,
-      zipEntry.getData()
-    );
+    fs.writeFileSync(`${destinationFolder}/${parts[parts.length - 1]}`, zipEntry.getData());
   }
 };

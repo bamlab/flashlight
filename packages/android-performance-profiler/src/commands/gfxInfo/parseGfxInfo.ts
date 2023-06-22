@@ -44,14 +44,11 @@ export class GfxInfoParser {
     });
   }
 
-  public static getRenderingTimeMeasures(
-    histogram: HistogramValue[]
-  ): RenderingTimeMeasures {
+  public static getRenderingTimeMeasures(histogram: HistogramValue[]): RenderingTimeMeasures {
     const { totalFramesRendered, totalRenderTime } = histogram.reduce(
       (aggregator, { renderingTime, frameCount }) => ({
         totalFramesRendered: aggregator.totalFramesRendered + frameCount,
-        totalRenderTime:
-          aggregator.totalRenderTime + frameCount * renderingTime,
+        totalRenderTime: aggregator.totalRenderTime + frameCount * renderingTime,
       }),
       { totalFramesRendered: 0, totalRenderTime: 0 }
     );
@@ -96,5 +93,4 @@ export class GfxInfoParser {
   }
 }
 
-export const parseGfxInfo = (bundleId: string) =>
-  new GfxInfoParser({ bundleId }).measure();
+export const parseGfxInfo = (bundleId: string) => new GfxInfoParser({ bundleId }).measure();

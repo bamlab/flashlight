@@ -19,8 +19,7 @@ type COLLAPSE_STATE = "EXPANDING" | "COLLAPSING" | "COLLAPSED" | "EXPANDED";
 const TRANSITION_DURATION = 300;
 
 const useCollapsible = (unmountOnExit: boolean) => {
-  const [collapseState, setCollapseState] =
-    useState<COLLAPSE_STATE>("COLLAPSED");
+  const [collapseState, setCollapseState] = useState<COLLAPSE_STATE>("COLLAPSED");
 
   const toggleIsExpanded = useCallback(() => {
     if (collapseState === "COLLAPSED") {
@@ -36,10 +35,7 @@ const useCollapsible = (unmountOnExit: boolean) => {
     if (collapseState === "EXPANDING") {
       setCollapseState("EXPANDED");
     } else if (collapseState === "COLLAPSING") {
-      timeout = setTimeout(
-        () => setCollapseState("COLLAPSED"),
-        TRANSITION_DURATION
-      );
+      timeout = setTimeout(() => setCollapseState("COLLAPSED"), TRANSITION_DURATION);
     }
 
     return () => {
@@ -64,8 +60,7 @@ export const Collapsible: FunctionComponent<Props> = ({
 }) => {
   const childrenContainerRef = useRef<HTMLDivElement>(null);
 
-  const { isExpanded, showChildren, toggleIsExpanded } =
-    useCollapsible(unmountOnExit);
+  const { isExpanded, showChildren, toggleIsExpanded } = useCollapsible(unmountOnExit);
 
   const childrenContainerStyle = {
     height: isExpanded ? childrenContainerRef.current?.scrollHeight : 0,
@@ -76,9 +71,7 @@ export const Collapsible: FunctionComponent<Props> = ({
       <div className="flex flex-row w-full items-center">
         <div className="flex-1">{header}</div>
         <ArrowDownIcon
-          className={`${
-            isExpanded ? "rotate-180" : "rotate-0"
-          } transition-transform ease-linear`}
+          className={`${isExpanded ? "rotate-180" : "rotate-0"} transition-transform ease-linear`}
         />
       </div>
 

@@ -5,14 +5,9 @@ import { execSync } from "child_process";
 import { zipTestFolder } from "../zipTestFolder";
 import { uploadRepository } from "../repositories";
 
-export const DEFAULT_TEST_PACKAGE_NAME =
-  "__PERF_PROFILER_SINGLE_FILE__DEFAULT_TEST_FOLDER__";
+export const DEFAULT_TEST_PACKAGE_NAME = "__PERF_PROFILER_SINGLE_FILE__DEFAULT_TEST_FOLDER__";
 
-export const createDefaultNodeTestPackage = async ({
-  projectArn,
-}: {
-  projectArn: string;
-}) => {
+export const createDefaultNodeTestPackage = async ({ projectArn }: { projectArn: string }) => {
   const testFolder = `/tmp/${DEFAULT_TEST_PACKAGE_NAME}`;
   fs.rmSync(testFolder, { force: true, recursive: true });
   fs.mkdirSync(testFolder);

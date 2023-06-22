@@ -36,20 +36,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export const TextField = ({
-  onChange,
-  value,
-}: React.ComponentProps<typeof StyledInputBase>) => {
+export const TextField = ({ onChange, value }: React.ComponentProps<typeof StyledInputBase>) => {
   return (
     <Search>
       <SearchIconWrapper>
         <AndroidRounded />
       </SearchIconWrapper>
-      <StyledInputBase
-        placeholder="Fill in your app id"
-        onChange={onChange}
-        value={value}
-      />
+      <StyledInputBase placeholder="Fill in your app id" onChange={onChange} value={value} />
     </Search>
   );
 };

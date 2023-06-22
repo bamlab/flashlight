@@ -20,9 +20,7 @@ export const LogLevel = {
 let logLevel = LogLevel.INFO;
 
 const log = (message: string) => {
-  const timestamp = DateTime.now().toLocaleString(
-    DateTime.TIME_24_WITH_SECONDS
-  );
+  const timestamp = DateTime.now().toLocaleString(DateTime.TIME_24_WITH_SECONDS);
   const timestampLog = timestampColor(`[${timestamp}]`);
   console.log(`${timestampLog} ${message}`);
 };

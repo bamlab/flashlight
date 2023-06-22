@@ -11,9 +11,7 @@ const executeCommand = (command: string): string => {
   try {
     return execSync(command, { stdio: "pipe" }).toString();
   } catch (error: any) {
-    Logger.debug(
-      `Error while executing command "${command}": ${error.stderr.toString()}`
-    );
+    Logger.debug(`Error while executing command "${command}": ${error.stderr.toString()}`);
     throw error;
   }
 };
@@ -88,9 +86,7 @@ export class AppiumDriver {
   }
 
   startApp() {
-    executeCommand(
-      `adb shell monkey -p ${this.bundleId} -c android.intent.category.LAUNCHER 1`
-    );
+    executeCommand(`adb shell monkey -p ${this.bundleId} -c android.intent.category.LAUNCHER 1`);
   }
 
   restartApp() {
@@ -126,19 +122,14 @@ export class AppiumDriver {
   }
 
   async byText(text: string) {
-    return this.client.$(
-      `//*[contains(@text,'${text}')] | //*[contains(@content-desc,'${text}')]`
-    );
+    return this.client.$(`//*[contains(@text,'${text}')] | //*[contains(@content-desc,'${text}')]`);
   }
 
   async waitForElement(element: webdriver.Element) {
     await element.waitForExist({ timeout: this.timeout, interval: 100 });
   }
 
-  async takeScreenshotOnFailure(
-    command: () => Promise<void>,
-    errorScreenshotName: string
-  ) {
+  async takeScreenshotOnFailure(command: () => Promise<void>, errorScreenshotName: string) {
     // eslint-disable-next-line no-useless-catch
     try {
       await command();
@@ -163,29 +154,17 @@ export class AppiumDriver {
     return element;
   }
 
-  async checkIfDisplayedWithScrollDown(
-    elementText: string,
-    maxScrolls = 10,
-    amount = 0
-  ) {
+  async checkIfDisplayedWithScrollDown(elementText: string, maxScrolls = 10, amount = 0) {
     const element = await this.byText(elementText);
     await this.takeScreenshotOnFailure(
-      () =>
-        this.gestures.checkIfDisplayedWithScrollDown(
-          element,
-          maxScrolls,
-          amount
-        ),
+      () => this.gestures.checkIfDisplayedWithScrollDown(element, maxScrolls, amount),
       `checkIfDisplayedWithScrollDown_${elementText}`
     );
   }
 
   async findElementByText(text: string) {
     const element = await this.byText(text);
-    await this.takeScreenshotOnFailure(
-      () => this.waitForElement(element),
-      `${text}_NOT_FOUND`
-    );
+    await this.takeScreenshotOnFailure(() => this.waitForElement(element), `${text}_NOT_FOUND`);
 
     return element;
   }

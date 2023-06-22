@@ -1,13 +1,9 @@
 import { GfxInfoParser, HistogramValue, Measure } from "./parseGfxInfo";
 
-export const compareGfxMeasures = (
-  firstMeasure: Measure,
-  secondMeasure: Measure
-) => {
+export const compareGfxMeasures = (firstMeasure: Measure, secondMeasure: Measure) => {
   const totalTime = secondMeasure.realtime - firstMeasure.realtime;
   const renderTime =
-    secondMeasure.renderingTime.totalRenderTime -
-    firstMeasure.renderingTime.totalRenderTime;
+    secondMeasure.renderingTime.totalRenderTime - firstMeasure.renderingTime.totalRenderTime;
   const frameCount =
     secondMeasure.renderingTime.totalFramesRendered -
     firstMeasure.renderingTime.totalFramesRendered;
@@ -17,8 +13,7 @@ export const compareGfxMeasures = (
       aggr.concat([
         {
           ...value,
-          frameCount:
-            value.frameCount - firstMeasure.histogram[currentIndex].frameCount,
+          frameCount: value.frameCount - firstMeasure.histogram[currentIndex].frameCount,
         },
       ]),
     []
