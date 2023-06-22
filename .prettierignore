@@ -1,9 +1,7 @@
 dist
 node_modules
-docs
 cpp-profiler
 coverage
 report.js
 report.html
 results*.json
-.docusaurus

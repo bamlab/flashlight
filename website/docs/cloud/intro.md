@@ -4,8 +4,8 @@ sidebar_position: 1
 
 # Getting started
 
-[flashlight.dev](https://flashlight.dev) is now in open beta! 🥳   
-With just a few clicks, you can get an app start performance score:  
+[flashlight.dev](https://flashlight.dev) is now in open beta! 🥳  
+With just a few clicks, you can get an app start performance score:
 
 ## Get your app start performance score
 
@@ -18,7 +18,6 @@ Go to [app.flashlight.dev](https://app.flashlight.dev) and upload your APK 👇
 <br />
 <br />
 <br />
-
 
 ### Step 2
 
@@ -45,6 +44,7 @@ In case of failure, you'll also receive a video, check the [troubleshooting sect
 ## Download APK from Play Store
 
 You can download a universal APK that Flashlight can install on any device from the [play store console](https://play.google.com/console) by:
+
 - opening "App bundle explorer"
 - clicking any app version
 - on the "Downloads" tab, download the "Signed, universal APK"

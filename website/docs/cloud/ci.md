@@ -14,6 +14,7 @@ export PATH="$HOME/.flashlight/bin:$PATH"
 Create your API key [here](https://app.flashlight.dev/api-key) and set it as a secret environment variable on your CI named `FLASHLIGHT_API_KEY`
 
 Then use the `flashlight cloud` command (see [here for more details](./cli.md)):
+
 ```bash
 flashlight cloud --app your/path/example.apk --test start.yml --apiKey $FLASHLIGHT_API_KEY
 ```
@@ -37,6 +38,7 @@ fi
 ```
 
 Notes:
+
 - `EAS_BUILD_PROFILE` is an environment variable set by EAS. You should specify the name of the profile used to build your app that is compatible with Flashlight. In the example above, we use the `e2e` profile that set the following:
 
 ```json
@@ -74,6 +76,7 @@ chmod +x eas-build-on-success.sh
 ```
 
 ✅ Check:
+
 - Now, your builds should be automatically uploaded to Flashlight when they are successfuly completed on EAS with the selected profile.
 
 #### Advanced usage - use flashlight on production builds

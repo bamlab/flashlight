@@ -5,6 +5,7 @@ sidebar_position: 8
 # Flipper Plugin
 
 <video controls style={{width: "100%"}}>
+
   <source src="https://user-images.githubusercontent.com/4534323/199497712-ab099530-959d-4592-b132-f0a7e00275de.mp4"/>
 </video>
 
