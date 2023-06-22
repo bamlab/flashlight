@@ -10,6 +10,11 @@ import * as Plugin from "..";
 global.electronRequire = require;
 require("@testing-library/react");
 
+// This is a dependency of flipper-common, but we hit SyntaxError: Unexpected token 'export' with jest >= 28 and uuid v < 9
+jest.mock("uuid", () => ({
+  v4: () => "uuid",
+}));
+
 window.alert = console.error;
 
 Math.random = () => 0.5;
