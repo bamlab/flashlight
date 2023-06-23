@@ -61,22 +61,22 @@ describe("measurePerformance", () => {
     writeResults();
 
     expect(JSON.parse(fs.readFileSync(PATH).toString())).toMatchInlineSnapshot(`
-      Object {
-        "iterations": Array [
-          Object {
-            "measures": Array [],
+      {
+        "iterations": [
+          {
+            "measures": [],
             "startTime": 0,
             "status": "SUCCESS",
             "time": 1000,
           },
-          Object {
-            "measures": Array [],
+          {
+            "measures": [],
             "startTime": 0,
             "status": "SUCCESS",
             "time": 1000,
           },
-          Object {
-            "measures": Array [],
+          {
+            "measures": [],
             "startTime": 0,
             "status": "SUCCESS",
             "time": 1000,

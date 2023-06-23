@@ -3,7 +3,7 @@ import {
   TestCaseIterationResult,
   TestCaseResult,
 } from "@perf-profiler/types";
-import { getMeasuresForTimeInterval } from "./writeReport";
+import { getMeasuresForTimeInterval } from "../writeReport";
 
 const mockMeasure = (name: string) => {
   // We're just mocking measure to make tests more readable here
