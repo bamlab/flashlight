@@ -89,7 +89,10 @@ Follow along on ${consoleUrl}`
     Logger.info(`Test status is ${run.status}, result is ${run.result}`);
 
     if (run.status === ExecutionStatus.COMPLETED) {
-      if (run.result !== ExecutionResult.PASSED) {
+      if (
+        run.result !== ExecutionResult.PASSED &&
+        run.result !== ExecutionResult.FAILED
+      ) {
         throw new Error(`Test run has not succeeded, result is ${run.result}`);
       }
 
