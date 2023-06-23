@@ -69,8 +69,10 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
   };
 
   const hasVideos = !!iterationResults.some(
-    (iteration) => iteration.iterations[0].videoInfos
+    (iteration) => iteration.iterations[0]?.videoInfos
   );
+
+  const hasMeasures = averagedResults[0]?.iterations[0]?.measures.length > 0;
 
   return (
     <>
@@ -82,20 +84,24 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
             <ReportSummary averagedResults={averagedResults} />
             <div className="h-16" />
 
-            <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
-              <FPSReport results={averagedResults} />
-            </div>
-            <div className="h-10" />
+            {hasMeasures ? (
+              <>
+                <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
+                  <FPSReport results={averagedResults} />
+                </div>
+                <div className="h-10" />
 
-            <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
-              <CPUReport results={averagedResults} />
-            </div>
-            <div className="h-10" />
+                <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
+                  <CPUReport results={averagedResults} />
+                </div>
+                <div className="h-10" />
 
-            <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
-              <RAMReport results={averagedResults} />
-            </div>
-            <div className="h-10" />
+                <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
+                  <RAMReport results={averagedResults} />
+                </div>
+                <div className="h-10" />
+              </>
+            ) : null}
           </div>
 
           {hasVideos ? <VideoSection results={iterationResults} /> : null}
@@ -115,11 +121,11 @@ export const IterationsReporterView = ({
 }: {
   results: TestCaseResult[];
 }) => {
-  return (
+  return results.length > 0 ? (
     <ThemeProvider theme={theme}>
       <Report results={results} />
     </ThemeProvider>
-  );
+  ) : null;
 };
 
 export const ReporterView = ({ measures }: { measures: Measure[] }) => (

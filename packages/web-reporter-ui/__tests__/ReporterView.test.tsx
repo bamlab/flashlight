@@ -2,7 +2,7 @@ import React from "react";
 import { render, fireEvent, screen } from "@testing-library/react";
 import { IterationsReporterView } from "../ReporterView";
 import { TestCaseResult } from "@perf-profiler/types";
-import { getText } from "../utils/getSnapshotText";
+import { getText } from "../utils/testUtils";
 
 describe("<ReporterView />", () => {
   it("renders the comparison view", () => {

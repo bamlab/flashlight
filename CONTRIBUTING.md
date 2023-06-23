@@ -11,18 +11,36 @@ yarn watch
 
 Keep this open in one terminal.
 
+### `measure` command
+
+Start the webapp with
+
+```bash
+yarn workspace @perf-profiler/measure start
+```
+
+Then run the `measure` commmand with:
+
+```bash
+DEVELOPMENT_MODE=true node packages/measure/dist/server/bin.js measure
+```
+
 ### `test` command
 
 To run the command locally:
 
 ```
+
 node packages/e2e-performance/dist/bin.js test
+
 ```
 
 This command is the equivalent of
 
 ```
+
 flashlight test
+
 ```
 
 ### web-reporter
@@ -30,7 +48,9 @@ flashlight test
 and run in another terminal:
 
 ```
+
 yarn workspace @perf-profiler/web-reporter start
+
 ```
 
 Then in `packages/web-reporter/src/App.tsx`, uncomment the lines to add your own measures:

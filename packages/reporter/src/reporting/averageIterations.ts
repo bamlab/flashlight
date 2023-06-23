@@ -44,9 +44,10 @@ const averageMeasures = (measures: Measure[]): Measure => {
 export const averageIterations = (
   results: TestCaseIterationResult[]
 ): TestCaseIterationResult => {
-  const minLength = Math.min(
-    ...results.map((result) => result.measures.length)
-  );
+  const minLength =
+    results.length > 0
+      ? Math.min(...results.map((result) => result.measures.length))
+      : 0;
 
   return {
     measures: range(minLength).map((i) =>

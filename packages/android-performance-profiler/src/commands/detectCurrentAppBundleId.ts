@@ -20,7 +20,11 @@ export const detectCurrentAppBundleId = () => {
 
   if (!regexMatching) {
     throw new Error(
-      `Could not detect app, output of "${command}" was ${commandOutput}`
+      `Could not detect currently opened app, ${
+        commandOutput
+          ? `output of ${command} was ${commandOutput}`
+          : "do you have an Android device connected and unlocked?"
+      }`
     );
   }
 
