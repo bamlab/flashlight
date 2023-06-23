@@ -39,6 +39,8 @@ export const MeasureWebApp = () => {
         {bundleId ? (
           <div className="flex flex-row gap-2">
             <StartButton start={start} stop={stop} isMeasuring={isMeasuring} />
+            {/* It's assumed that the color palette is fixed randomly by setThemeAtRandom
+             and is an array of >= 4 colors */}
             <div data-theme={getThemeColorPalette()[1]}>
               <Button onClick={reset} icon={<Delete />}>
                 Reset
