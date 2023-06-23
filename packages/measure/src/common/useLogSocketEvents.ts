@@ -5,15 +5,15 @@ import type { Socket as ClientSocket } from "socket.io-client";
 
 export const useLogSocketEvents = (socket: Socket | ClientSocket) => {
   useEffect(() => {
-    function onAny(event: string, ...args: unknown[]) {
+    function onSocketEvent(event: string, ...args: unknown[]) {
       Logger.debug(
         `Received socket event: ${event} with ${JSON.stringify(args)}`
       );
     }
-    socket.onAny(onAny);
+    socket.onAny(onSocketEvent);
 
     return () => {
-      socket.offAny(onAny);
+      socket.offAny(onSocketEvent);
     };
   }, [socket]);
 };
