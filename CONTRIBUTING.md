@@ -22,7 +22,7 @@ yarn workspace @perf-profiler/measure start
 Then run the `measure` commmand with:
 
 ```bash
-API_URL=local node packages/measure/dist/server/bin.js measure
+DEVELOPMENT_MODE=true node packages/measure/dist/server/bin.js measure
 ```
 
 ### `test` command
