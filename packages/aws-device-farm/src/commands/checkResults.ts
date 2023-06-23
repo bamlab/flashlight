@@ -35,9 +35,7 @@ const changeVideoPathsOnResult = (
     videoInfos: iteration.videoInfos
       ? {
           ...iteration.videoInfos,
-          path: `${reportDestinationPath}/${path.basename(
-            iteration.videoInfos.path
-          )}`,
+          path: `${reportDestinationPath}/${path.basename(iteration.videoInfos.path)}`,
         }
       : undefined,
   })),

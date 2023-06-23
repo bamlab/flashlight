@@ -32,10 +32,7 @@ type Order = "asc" | "desc";
 function getComparator<Key extends string>(
   order: Order,
   orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
+): (a: { [key in Key]: number | string }, b: { [key in Key]: number | string }) => number {
   return order === "desc"
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
@@ -43,10 +40,7 @@ function getComparator<Key extends string>(
 
 // This method is created for cross-browser compatibility, if you don't
 // need to support IE11, you can use Array.prototype.sort() directly
-function stableSort<T>(
-  array: readonly T[],
-  comparator: (a: T, b: T) => number
-) {
+function stableSort<T>(array: readonly T[], comparator: (a: T, b: T) => number) {
   const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
   stabilizedThis.sort((a, b) => {
     const order = comparator(a[0], b[0]);
@@ -68,10 +62,7 @@ export interface HeadCell {
 interface EnhancedTableProps {
   headCells: HeadCell[];
   numSelected: number;
-  onRequestSort: (
-    event: React.MouseEvent<unknown>,
-    property: keyof Data
-  ) => void;
+  onRequestSort: (event: React.MouseEvent<unknown>, property: keyof Data) => void;
   onSelectAllClick: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
   orderBy: string;
@@ -80,10 +71,9 @@ interface EnhancedTableProps {
 
 function EnhancedTableHead(props: EnhancedTableProps) {
   const { order, orderBy, onRequestSort } = props;
-  const createSortHandler =
-    (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
-      onRequestSort(event, property);
-    };
+  const createSortHandler = (property: keyof Data) => (event: React.MouseEvent<unknown>) => {
+    onRequestSort(event, property);
+  };
 
   return (
     <TableHead>
@@ -106,9 +96,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
                 color: "white",
                 fontWeight: orderBy === headCell.id ? 700 : 400,
               }}
-              IconComponent={({ className }) => (
-                <ArrowDownIcon className={className} />
-              )}
+              IconComponent={({ className }) => <ArrowDownIcon className={className} />}
             >
               {headCell.label}
               {orderBy === headCell.id ? (
@@ -138,10 +126,7 @@ export default function EnhancedTable({
   const [order, setOrder] = React.useState<Order>("desc");
   const [orderBy, setOrderBy] = React.useState<keyof Data>(headCells[1].id);
 
-  const handleRequestSort = (
-    event: React.MouseEvent<unknown>,
-    property: keyof Data
-  ) => {
+  const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
@@ -204,10 +189,7 @@ export default function EnhancedTable({
               key={row.name}
               selected={isItemSelected}
             >
-              <TableCell
-                padding="checkbox"
-                className="!text-neutral-300 border-b-neutral-500"
-              >
+              <TableCell padding="checkbox" className="!text-neutral-300 border-b-neutral-500">
                 <Checkbox
                   color="primary"
                   checked={isItemSelected}

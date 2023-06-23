@@ -76,9 +76,7 @@ export class ScreenRecorder {
   }
 
   async pullRecording(destinationPath: string): Promise<void> {
-    executeCommand(
-      `adb pull ${RECORDING_FOLDER}${this.fileName} ${destinationPath}`
-    );
+    executeCommand(`adb pull ${RECORDING_FOLDER}${this.fileName} ${destinationPath}`);
     executeCommand(`adb shell rm ${RECORDING_FOLDER}${this.fileName}`);
     Logger.info(`Recording saved to ${destinationPath}/${this.fileName}`);
   }

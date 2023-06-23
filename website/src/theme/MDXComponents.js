@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
-import React from 'react';
+import React from "react";
 // Import the original mapper
-import MDXComponents from '@theme-original/MDXComponents';
-import Contact from '@site/src/components/Contact.mdx';
+import MDXComponents from "@theme-original/MDXComponents";
+import Contact from "@site/src/components/Contact.mdx";
 
 export default {
   // Re-use the default mapping

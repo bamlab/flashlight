@@ -15,9 +15,7 @@ import { BaseRepository } from "./BaseRepository";
 
 export class TestRepository extends BaseRepository {
   async getByName({ projectArn, name }: { projectArn: string; name: string }) {
-    const { runs } = await this.client.send(
-      new ListRunsCommand({ arn: projectArn })
-    );
+    const { runs } = await this.client.send(new ListRunsCommand({ arn: projectArn }));
 
     return runs?.find((run) => run.name === name);
   }
@@ -89,10 +87,7 @@ Follow along on ${consoleUrl}`
     Logger.info(`Test status is ${run.status}, result is ${run.result}`);
 
     if (run.status === ExecutionStatus.COMPLETED) {
-      if (
-        run.result !== ExecutionResult.PASSED &&
-        run.result !== ExecutionResult.FAILED
-      ) {
+      if (run.result !== ExecutionResult.PASSED && run.result !== ExecutionResult.FAILED) {
         throw new Error(`Test run has not succeeded, result is ${run.result}`);
       }
 

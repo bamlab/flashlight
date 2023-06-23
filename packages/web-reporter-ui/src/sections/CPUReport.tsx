@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  AveragedTestCaseResult,
-  Measure,
-  POLLING_INTERVAL,
-} from "@perf-profiler/types";
+import { AveragedTestCaseResult, Measure, POLLING_INTERVAL } from "@perf-profiler/types";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
 import { Chart } from "../components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
@@ -11,10 +7,7 @@ import { roundToDecimal } from "../../utils/roundToDecimal";
 import { Collapsible } from "../components/Collapsible";
 import { getColorPalette } from "../theme/colors";
 
-const buildSeriesData = (
-  measures: Measure[],
-  calculate: (measure: Measure) => number
-) =>
+const buildSeriesData = (measures: Measure[], calculate: (measure: Measure) => number) =>
   measures
     .map((measure) => calculate(measure) || 0)
     .map((value, i) => ({
@@ -28,22 +21,12 @@ const buildAverageCpuSeriesData = (measures: Measure[]) =>
 const buildCpuPerThreadSeriesData = (measures: Measure[], threadName: string) =>
   buildSeriesData(measures, (measure) => measure.cpu.perName[threadName]);
 
-const totalCpuAnnotationInterval = [
-  { y: 300, y2: 1000, color: "#E62E2E", label: "Danger Zone" },
-];
+const totalCpuAnnotationInterval = [{ y: 300, y2: 1000, color: "#E62E2E", label: "Danger Zone" }];
 
-const perThreadCpuAnnotationInterval = [
-  { y: 90, y2: 100, color: "#E62E2E", label: "Danger Zone" },
-];
+const perThreadCpuAnnotationInterval = [{ y: 90, y2: 100, color: "#E62E2E", label: "Danger Zone" }];
 
-export const CPUReport = ({
-  results,
-}: {
-  results: AveragedTestCaseResult[];
-}) => {
-  const reactNativeDetected = results.every(
-    (result) => result.reactNativeDetected
-  );
+export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
+  const reactNativeDetected = results.every((result) => result.reactNativeDetected);
   const [selectedThreads, setSelectedThreads] = React.useState<string[]>(
     reactNativeDetected ? ["(mqt_js)"] : ["UI Thread"]
   );
@@ -76,11 +59,7 @@ export const CPUReport = ({
         height={500}
         interval={POLLING_INTERVAL}
         series={threads}
-        colors={
-          results.length > 1
-            ? getColorPalette().slice(0, results.length)
-            : undefined
-        }
+        colors={results.length > 1 ? getColorPalette().slice(0, results.length) : undefined}
         maxValue={100}
         showLegendForSingleSeries
         annotationIntervalList={perThreadCpuAnnotationInterval}

@@ -37,30 +37,22 @@ program
     "Folder where performance measures will be written",
     DEFAULT_RUN_TEST_OPTIONS.reportDestinationPath
   )
-  .option(
-    "--skipWaitingForResult",
-    "Skip waiting for test to be done after scheduling run.",
-    false
-  )
+  .option("--skipWaitingForResult", "Skip waiting for test to be done after scheduling run.", false)
   .option(
     "--deviceName <deviceName>",
     "Device on which to run tests. A device pool with devices containing this parameter in their model name will be created",
     DEFAULT_RUN_TEST_OPTIONS.deviceName
   )
   .addOption(
-    new Option(
-      "--apkUploadArn <apkUploadArn>",
-      "APK Upload ARN. Overrides apkPath option"
-    ).env("APK_UPLOAD_ARN")
+    new Option("--apkUploadArn <apkUploadArn>", "APK Upload ARN. Overrides apkPath option").env(
+      "APK_UPLOAD_ARN"
+    )
   )
   .option(
     "--testFile <testFile>",
     "Pass a test file instead. Overrides testCommand and testSpecsPath."
   )
-  .option(
-    "--postTestCommand <postTestCommand>",
-    "Command to be run after tests are done."
-  )
+  .option("--postTestCommand <postTestCommand>", "Command to be run after tests are done.")
   .action(async (options) => {
     // Just destructuring to have type checking on the parameters sent to runTest
     const {
@@ -111,10 +103,7 @@ program
 
 program
   .command("uploadApk")
-  .requiredOption(
-    "--apkPath <apkPath>",
-    "Path to the APK to be uploaded for testing"
-  )
+  .requiredOption("--apkPath <apkPath>", "Path to the APK to be uploaded for testing")
   .option(
     "--projectName <projectName>",
     "AWS Device Farm project name",

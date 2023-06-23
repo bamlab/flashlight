@@ -63,13 +63,9 @@ export const SocketState = () => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          🚨 Woups, something happened
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">🚨 Woups, something happened</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            {error}
-          </DialogContentText>
+          <DialogContentText id="alert-dialog-description">{error}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={closeModal} autoFocus>

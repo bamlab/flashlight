@@ -19,9 +19,7 @@ describe("checkResults", () => {
 
   it("writes results to a folder with spaces", async () => {
     jest.spyOn(testRepository, "waitForCompletion").mockResolvedValueOnce();
-    jest
-      .spyOn(testRepository, "getArtifactUrl")
-      .mockResolvedValueOnce("https://url.com");
+    jest.spyOn(testRepository, "getArtifactUrl").mockResolvedValueOnce("https://url.com");
     jest.spyOn(axios, "get").mockResolvedValueOnce({
       data: fs.readFileSync(`${__dirname}/results.json.zip`),
     });

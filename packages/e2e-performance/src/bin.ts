@@ -48,22 +48,10 @@ flashlight test --bundleId com.example.app --testCommand "maestro test flow.yml"
       "Duration (in ms) is optional, but helps in getting consistent measures. Measures will be taken for this duration, regardless of test duration"
     ).argParser((arg) => parseInt(arg, 10))
   )
-  .option(
-    "--beforeEachCommand <beforeEachCommand>",
-    "Command to be run before each test iteration"
-  )
-  .option(
-    "--afterEachCommand <afterEachCommand>",
-    "Command to be run after each test iteration"
-  )
-  .option(
-    "--beforeAllCommand <beforeAllCommand>",
-    "Command to be run before all test iterations"
-  )
-  .option(
-    "--resultsFilePath <resultsFilePath>",
-    "Path where the JSON of results will be written"
-  )
+  .option("--beforeEachCommand <beforeEachCommand>", "Command to be run before each test iteration")
+  .option("--afterEachCommand <afterEachCommand>", "Command to be run after each test iteration")
+  .option("--beforeAllCommand <beforeAllCommand>", "Command to be run before all test iterations")
+  .option("--resultsFilePath <resultsFilePath>", "Path where the JSON of results will be written")
   .option(
     "--resultsTitle <resultsTitle>",
     "Result title that is displayed at the top of the report"

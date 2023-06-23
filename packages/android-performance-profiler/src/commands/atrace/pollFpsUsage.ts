@@ -8,9 +8,7 @@ export const parseLine = (
   ending: boolean;
   methodName: string | undefined;
 } => {
-  let regexMatching = line.match(
-    / (\d+\.\d+): tracing_mark_write: ([A-Z])(.*)/
-  );
+  let regexMatching = line.match(/ (\d+\.\d+): tracing_mark_write: ([A-Z])(.*)/);
 
   if (!regexMatching) {
     regexMatching = line.match(/ (\d+\.\d+): (.*)/);
@@ -91,17 +89,11 @@ ${error instanceof Error ? error.message : error}`);
 
     return {
       frameTimes,
-      interval:
-        parseLine(lines[lines.length - 1]).timestamp -
-        parseLine(lines[0]).timestamp,
+      interval: parseLine(lines[lines.length - 1]).timestamp - parseLine(lines[0]).timestamp,
     };
   }
 
-  static getFps(
-    frameTimes: number[],
-    timeInterval: number,
-    uiCpuUsage: number
-  ) {
+  static getFps(frameTimes: number[], timeInterval: number, uiCpuUsage: number) {
     const frameCount = frameTimes.length;
 
     const totalFrameTime = frameTimes.reduce(

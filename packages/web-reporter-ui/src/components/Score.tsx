@@ -26,8 +26,7 @@ export const Score: FunctionComponent<Props> = ({ size = 152, result }) => {
   const epsilon = 0.000001;
 
   // Path calculations inspired by https://stackoverflow.com/a/18473154/18205154
-  const angleInRadians =
-    ((Math.min(score, 100 - epsilon) * 3.6 - 90) * Math.PI) / 180.0;
+  const angleInRadians = ((Math.min(score, 100 - epsilon) * 3.6 - 90) * Math.PI) / 180.0;
   const startX = 100 + 90 * Math.cos(angleInRadians);
   const startY = 100 + 90 * Math.sin(angleInRadians);
 
@@ -37,14 +36,7 @@ export const Score: FunctionComponent<Props> = ({ size = 152, result }) => {
 
   return (
     <svg width={size} height={size} viewBox="0 0 200 200" fill="none">
-      <circle
-        cx={100}
-        cy={100}
-        r={90}
-        stroke="white"
-        strokeOpacity="0.1"
-        strokeWidth={20}
-      />
+      <circle cx={100} cy={100} r={90} stroke="white" strokeOpacity="0.1" strokeWidth={20} />
       <path
         d={scoreSvgPath}
         strokeWidth={20}

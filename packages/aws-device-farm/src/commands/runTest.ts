@@ -21,11 +21,7 @@ export const DEFAULT_RUN_TEST_OPTIONS = {
   deviceName: "A10s",
 };
 
-const getSingleFileTestFolderArn = async ({
-  projectArn,
-}: {
-  projectArn: string;
-}) => {
+const getSingleFileTestFolderArn = async ({ projectArn }: { projectArn: string }) => {
   const testPackageArn = (
     await uploadRepository.getByName({
       projectArn,

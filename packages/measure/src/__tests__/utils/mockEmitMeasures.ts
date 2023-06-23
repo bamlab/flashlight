@@ -9,10 +9,7 @@ const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
   jest
     .spyOn(require("child_process"), "spawn")
     .mockImplementationOnce((...args) => {
-      expect(args).toEqual([
-        "adb",
-        ["shell", "atrace", "-c", "view", "-t", "999"],
-      ]);
+      expect(args).toEqual(["adb", ["shell", "atrace", "-c", "view", "-t", "999"]]);
       return mockProcess;
     })
     .mockImplementationOnce((...args) => {
@@ -43,9 +40,7 @@ export const spawn = mockSpawn();
 export const emitMeasures = () => {
   const emitMeasure = (measureIndex: number) => {
     const cpuOutput: string = require("fs").readFileSync(
-      `${__dirname}/sample-command-output-${
-        measureIndex === 0 ? "1" : "2"
-      }.txt`,
+      `${__dirname}/sample-command-output-${measureIndex === 0 ? "1" : "2"}.txt`,
       "utf8"
     );
     const aTraceOutput: string = require("fs").readFileSync(

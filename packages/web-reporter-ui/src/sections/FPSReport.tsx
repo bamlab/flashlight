@@ -3,15 +3,9 @@ import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
 import { Chart } from "../components/Chart";
 import { roundToDecimal } from "../../utils/roundToDecimal";
 
-const fpsAnnotationInterval = [
-  { y: 57, y2: 60, color: "#158000", label: "Safe Zone" },
-];
+const fpsAnnotationInterval = [{ y: 57, y2: 60, color: "#158000", label: "Safe Zone" }];
 
-export const FPSReport = ({
-  results,
-}: {
-  results: AveragedTestCaseResult[];
-}) => {
+export const FPSReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
   const ram = results.map((result) => ({
     name: result.name,
     data: result.average.measures

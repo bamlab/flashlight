@@ -22,10 +22,7 @@ export class UploadRepository extends BaseRepository {
 
   async isUploadProcessed({ arn }: { arn: string }) {
     const upload = await this.getByArn({ arn });
-    return (
-      upload.status !== UploadStatus.INITIALIZED &&
-      upload.status !== UploadStatus.PROCESSING
-    );
+    return upload.status !== UploadStatus.INITIALIZED && upload.status !== UploadStatus.PROCESSING;
   }
 
   async waitForUploadToBeReady({ arn, name }: { arn: string; name: string }) {
@@ -44,22 +41,12 @@ export class UploadRepository extends BaseRepository {
     name: string;
     type: UploadType;
   }) {
-    const { uploads } = await this.client.send(
-      new ListUploadsCommand({ arn: projectArn, type })
-    );
+    const { uploads } = await this.client.send(new ListUploadsCommand({ arn: projectArn, type }));
 
     return uploads?.find((upload) => upload.name === name);
   }
 
-  async create({
-    projectArn,
-    name,
-    type,
-  }: {
-    projectArn: string;
-    name: string;
-    type: UploadType;
-  }) {
+  async create({ projectArn, name, type }: { projectArn: string; name: string; type: UploadType }) {
     return this.client.send(
       new CreateUploadCommand({
         projectArn,
@@ -94,22 +81,12 @@ export class UploadRepository extends BaseRepository {
 
     if (!arn) throw new Error(`Upload has no arn`);
     if (!url) throw new Error(`Upload has no url`);
-    Logger.info(
-      `Created upload entry ready to receive file for ${upload.name}...`
-    );
+    Logger.info(`Created upload entry ready to receive file for ${upload.name}...`);
 
     return { arn, url };
   }
 
-  async delete({
-    projectArn,
-    name,
-    type,
-  }: {
-    projectArn: string;
-    name: string;
-    type: UploadType;
-  }) {
+  async delete({ projectArn, name, type }: { projectArn: string; name: string; type: UploadType }) {
     const upload = await this.getByName({ projectArn, name, type });
 
     if (upload?.arn) {

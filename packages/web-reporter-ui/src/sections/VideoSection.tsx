@@ -1,14 +1,5 @@
-import React, {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-} from "react";
-import {
-  setVideoCurrentTime,
-  useListenToVideoCurrentTime,
-} from "../../videoCurrentTimeContext";
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from "react";
+import { setVideoCurrentTime, useListenToVideoCurrentTime } from "../../videoCurrentTimeContext";
 import { TestCaseResult } from "@perf-profiler/types";
 import { Button } from "../components/Button";
 
@@ -129,14 +120,8 @@ export const VideoSection = ({ results }: { results: TestCaseResult[] }) => {
           const video = iteration.videoInfos;
 
           return (
-            <div
-              key={index}
-              style={{ width: VIDEO_SIZE.width }}
-              className="flex flex-1 flex-col"
-            >
-              {results.length > 1 ? (
-                <h6 className="text-white truncate m-1">{name}</h6>
-              ) : null}
+            <div key={index} style={{ width: VIDEO_SIZE.width }} className="flex flex-1 flex-col">
+              {results.length > 1 ? <h6 className="text-white truncate m-1">{name}</h6> : null}
               {video ? (
                 <Video
                   video={{

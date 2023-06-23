@@ -1,10 +1,7 @@
 import { detectCurrentAppBundleId } from "../detectCurrentAppBundleId";
 import fs from "fs";
 
-const sampleOutput = fs.readFileSync(
-  `${__dirname}/dumpsys-window.txt`,
-  "utf-8"
-);
+const sampleOutput = fs.readFileSync(`${__dirname}/dumpsys-window.txt`, "utf-8");
 
 const sampleOutputWithoutDollars = `
 mSurface=Surface(name=com.example.staging/com.example.MainActivity)/@0x993d3ae

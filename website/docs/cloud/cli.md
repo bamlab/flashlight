@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Run via CLI
 
-[flashlight.dev](https://flashlight.dev) is now in open beta! 🥳   
+[flashlight.dev](https://flashlight.dev) is now in open beta! 🥳
 
 ## Usage
 
@@ -33,13 +33,13 @@ Then run:
 flashlight cloud --app example.apk --test start.yml --duration 10000
 ```
 
-:::tip 
+:::tip
 Both `.apk` and `.aab` are supported.
 :::
 
 ## Run before measuring (log in/accept cookies...)
 
-You might need to run some custom things before measuring performance, for instance accepting cookies or logging in. 
+You might need to run some custom things before measuring performance, for instance accepting cookies or logging in.
 
 Create a new Maestro test file, for instance `beforeAll.yml`:
 

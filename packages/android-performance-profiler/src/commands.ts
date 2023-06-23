@@ -19,10 +19,7 @@ const debugCppConfig = () => {
   Logger.success(`RAM Page size: ${getRAMPageSize()}`);
 };
 
-program
-  .command("debugCppConfig")
-  .description("Debug CPP Config")
-  .action(debugCppConfig);
+program.command("debugCppConfig").description("Debug CPP Config").action(debugCppConfig);
 
 program
   .command("getCurrentAppBundleId")
@@ -64,10 +61,7 @@ program
   )
   .option("--fps", "Display FPS")
   .option("--ram", "Display RAM Usage")
-  .option(
-    "--threadNames <threadNames...>",
-    "Display CPU Usage for a given threads (e.g. (mqt_js))"
-  )
+  .option("--threadNames <threadNames...>", "Display CPU Usage for a given threads (e.g. (mqt_js))")
   .action((options) => {
     const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
 

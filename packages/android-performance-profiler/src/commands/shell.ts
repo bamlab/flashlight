@@ -5,9 +5,7 @@ export const executeCommand = (command: string): string => {
   try {
     return execSync(command, { stdio: "pipe" }).toString();
   } catch (error: any) {
-    Logger.debug(
-      `Error while executing command "${command}": ${error.stderr.toString()}`
-    );
+    Logger.debug(`Error while executing command "${command}": ${error.stderr.toString()}`);
     throw error;
   }
 };

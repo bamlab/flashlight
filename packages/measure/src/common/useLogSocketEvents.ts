@@ -6,9 +6,7 @@ import type { Socket as ClientSocket } from "socket.io-client";
 export const useLogSocketEvents = (socket: Socket | ClientSocket) => {
   useEffect(() => {
     function onSocketEvent(event: string, ...args: unknown[]) {
-      Logger.debug(
-        `Received socket event: ${event} with ${JSON.stringify(args)}`
-      );
+      Logger.debug(`Received socket event: ${event} with ${JSON.stringify(args)}`);
     }
     socket.onAny(onSocketEvent);
 

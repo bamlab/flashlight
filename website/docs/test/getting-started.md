@@ -19,10 +19,9 @@ flashlight test --bundleId <your app bundle id> \
 - Use `npx @perf-profiler/profiler getCurrentApp` to display the bundle id of the app opened on your phone
 - _⚠️ Your e2e test command should start the app_
 
-
 ### Example: quickly measure startup performance
 
-Using `adb shell` you can start the app with `adb shell monkey -p <bundleid>  -c android.intent.category.LAUNCHER 1`
+Using `adb shell` you can start the app with `adb shell monkey -p <bundleid> -c android.intent.category.LAUNCHER 1`
 
 You can just pass this to `flashlight test`, for instance, measure startup performance of the Twitter app with:
 
@@ -34,11 +33,11 @@ flashlight test --bundleId "com.twitter.android" \
 
 ### Going further
 
-You'll notice in the previous example that the "Average Test runtime" metric will not give you a proper Time To Interactive metric. 
+You'll notice in the previous example that the "Average Test runtime" metric will not give you a proper Time To Interactive metric.
 
-To go further, use a proper e2e testing framework (Appium, Detox, Maestro...). 
+To go further, use a proper e2e testing framework (Appium, Detox, Maestro...).
 
-If you're not using one yet, we recommend to use [Maestro](https://github.com/mobile-dev-inc/maestro)! 
+If you're not using one yet, we recommend to use [Maestro](https://github.com/mobile-dev-inc/maestro)!
 Check out our [Maestro guide](./maestro) to get started quickly with Flashlight and Maestro.
 
 ## 2. Open the web report

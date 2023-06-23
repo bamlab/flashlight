@@ -3,16 +3,8 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    `${__dirname}/src/**/*.{html,js,ts,jsx,tsx}`,
-    `${__dirname}/*.{html,js,ts,jsx,tsx}`,
-  ],
-  safelist: [
-    'stroke-success',
-    'stroke-warning',
-    'stroke-error',
-    'bg-light-charcoal',
-  ],
+  content: [`${__dirname}/src/**/*.{html,js,ts,jsx,tsx}`, `${__dirname}/*.{html,js,ts,jsx,tsx}`],
+  safelist: ["stroke-success", "stroke-warning", "stroke-error", "bg-light-charcoal"],
   theme: {
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
@@ -43,6 +35,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-  ]
+  plugins: [],
 };

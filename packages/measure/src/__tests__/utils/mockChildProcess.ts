@@ -5,9 +5,7 @@ jest.mock("child_process", () => {
       toString: () => {
         if (
           command.startsWith("adb push") &&
-          command.endsWith(
-            "BAMPerfProfiler-arm64-v8a /data/local/tmp/BAMPerfProfiler"
-          )
+          command.endsWith("BAMPerfProfiler-arm64-v8a /data/local/tmp/BAMPerfProfiler")
         ) {
           return "";
         }

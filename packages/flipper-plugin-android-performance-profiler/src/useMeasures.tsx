@@ -26,9 +26,7 @@ export const useMeasures = (pid: string | null) => {
         setIsMeasuring(true);
       }
     } catch (error) {
-      alert(
-        error instanceof Error ? error.message : "An unknown error has occurred"
-      );
+      alert(error instanceof Error ? error.message : "An unknown error has occurred");
     }
   };
 

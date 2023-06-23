@@ -7,11 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-export const SimpleTable = ({
-  rows,
-}: {
-  rows: (string | React.ReactNode)[][];
-}) => {
+export const SimpleTable = ({ rows }: { rows: (string | React.ReactNode)[][] }) => {
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
@@ -19,11 +15,7 @@ export const SimpleTable = ({
           <TableRow>
             <TableCell>{rows[0][0]}</TableCell>
             {rows[0].slice(1).map((cell, i) => (
-              <TableCell
-                align="right"
-                key={i}
-                sx={{ fontWeight: "bold", fontFamily: "open-sans" }}
-              >
+              <TableCell align="right" key={i} sx={{ fontWeight: "bold", fontFamily: "open-sans" }}>
                 {cell}
               </TableCell>
             ))}
@@ -31,10 +23,7 @@ export const SimpleTable = ({
         </TableHead>
         <TableBody>
           {rows.slice(1).map((row, i) => (
-            <TableRow
-              key={i}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
+            <TableRow key={i} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
               <TableCell component="th" scope="row" sx={{ fontWeight: "bold" }}>
                 {row[0]}
               </TableCell>

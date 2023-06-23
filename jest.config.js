@@ -7,16 +7,13 @@ const commonOptions = {
     "/node_modules/",
     "/dist/",
     "/examples/e2e/",
-    "/measure/src/__tests__/utils/"
+    "/measure/src/__tests__/utils/",
   ],
   setupFiles: ["<rootDir>/jest-setup.ts"],
 };
 
-const WEB_PACKAGES = [
-  "flipper-plugin-android-performance-profiler",
-  "measure",
-  "web-reporter-ui",
-];
+const WEB_PACKAGES = ["flipper-plugin-android-performance-profiler", "measure", "web-reporter-ui"];
+
 const NODE_PACKAGES = [
   "android-performance-profiler",
   "appium-helper",

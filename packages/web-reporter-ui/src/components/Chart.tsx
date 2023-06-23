@@ -1,9 +1,6 @@
 import React, { useMemo, useContext, useRef } from "react";
 import ReactApexChart from "react-apexcharts";
-import {
-  VideoEnabledContext,
-  setVideoCurrentTime,
-} from "../../videoCurrentTimeContext";
+import { VideoEnabledContext, setVideoCurrentTime } from "../../videoCurrentTimeContext";
 import { ApexOptions } from "apexcharts";
 import { getColorPalette } from "../theme/colors";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
@@ -15,9 +12,7 @@ type AnnotationInterval = {
   color: string;
 };
 
-const getAnnotationInterval = (
-  annotationIntervalList: AnnotationInterval[] | undefined
-) => {
+const getAnnotationInterval = (annotationIntervalList: AnnotationInterval[] | undefined) => {
   const layout = annotationIntervalList?.map(({ y, y2, label, color }) => ({
     y,
     y2,
@@ -70,31 +65,22 @@ const useSetVideoTimeOnMouseHover = ({
       mouseMove: (event, chart) => {
         if (seriesRef.current.length === 0) return;
 
-        const lastX =
-          seriesRef.current[0].data[seriesRef.current[0].data.length - 1].x;
+        const lastX = seriesRef.current[0].data[seriesRef.current[0].data.length - 1].x;
 
-        const totalWidth =
-          chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
+        const totalWidth = chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
 
         const mouseX =
-          event.clientX -
-          chart.el.getBoundingClientRect().left -
-          chart.w.globals.translateX;
+          event.clientX - chart.el.getBoundingClientRect().left - chart.w.globals.translateX;
 
         const maxX = lastX;
 
         setVideoCurrentTime((mouseX / totalWidth) * maxX);
 
         // Manually translate via DOM to avoid re-rendering the chart
-        const annotations = document.getElementsByClassName(
-          "apexcharts-xaxis-annotations"
-        );
+        const annotations = document.getElementsByClassName("apexcharts-xaxis-annotations");
 
         for (const annotation of annotations) {
-          annotation.setAttribute(
-            "style",
-            `transform: translateX(${mouseX}px);`
-          );
+          annotation.setAttribute("style", `transform: translateX(${mouseX}px);`);
         }
       },
     }),
@@ -204,12 +190,5 @@ export const Chart = ({
     ]
   );
 
-  return (
-    <ReactApexChart
-      options={options}
-      series={series}
-      type="line"
-      height={height}
-    />
-  );
+  return <ReactApexChart options={options} series={series} type="line" height={height} />;
 };

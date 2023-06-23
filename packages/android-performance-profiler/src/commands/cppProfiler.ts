@@ -3,11 +3,7 @@ import { ChildProcess, execSync } from "child_process";
 import fs from "fs";
 import os from "os";
 import { getAbi } from "./getAbi";
-import {
-  executeAsync,
-  executeCommand,
-  executeLongRunningProcess,
-} from "./shell";
+import { executeAsync, executeCommand, executeLongRunningProcess } from "./shell";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
 
 const CppProfilerName = `BAMPerfProfiler`;
@@ -19,9 +15,7 @@ const deviceProfilerPath = `/data/local/tmp/${CppProfilerName}`;
 // @ts-ignore
 const binaryFolder = global.Flipper
   ? `${__dirname}/bin`
-  : `${__dirname}/../..${
-      __dirname.includes("dist") ? "/.." : ""
-    }/cpp-profiler/bin`;
+  : `${__dirname}/../..${__dirname.includes("dist") ? "/.." : ""}/cpp-profiler/bin`;
 
 let hasInstalledProfiler = false;
 let aTraceProcess: ChildProcess | null = null;
@@ -57,10 +51,7 @@ const stopATrace = () => {
  */
 export const ensureCppProfilerIsInstalled = () => {
   if (!hasInstalledProfiler) {
-    const sdkVersion = parseInt(
-      executeCommand("adb shell getprop ro.build.version.sdk"),
-      10
-    );
+    const sdkVersion = parseInt(executeCommand("adb shell getprop ro.build.version.sdk"), 10);
 
     if (sdkVersion < 24) {
       throw new Error(
@@ -93,17 +84,11 @@ let cpuClockTick: number;
 let RAMPageSize: number;
 
 const retrieveCpuClockTick = () => {
-  cpuClockTick = parseInt(
-    executeCommand(`adb shell ${deviceProfilerPath} printCpuClockTick`),
-    10
-  );
+  cpuClockTick = parseInt(executeCommand(`adb shell ${deviceProfilerPath} printCpuClockTick`), 10);
 };
 
 const retrieveRAMPageSize = () => {
-  RAMPageSize = parseInt(
-    executeCommand(`adb shell ${deviceProfilerPath} printRAMPageSize`),
-    10
-  );
+  RAMPageSize = parseInt(executeCommand(`adb shell ${deviceProfilerPath} printRAMPageSize`), 10);
 };
 
 export const getCpuClockTick = () => {

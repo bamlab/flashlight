@@ -3,17 +3,14 @@ import { executeCommand } from "../shell";
 
 const TIME_INTERVAL = 500;
 
-const enableFpsDebug = () =>
-  executeCommand("adb shell setprop debug.hwui.profile true");
+const enableFpsDebug = () => executeCommand("adb shell setprop debug.hwui.profile true");
 enableFpsDebug();
 
 export const getCommand = (bundleId: string) => `dumpsys gfxinfo ${bundleId}`;
 export const processOutput = (result: string) => {
   const lines = result.split(/\r\n|\n|\r/);
 
-  const headerIndex = lines.findIndex(
-    (line) => line === "\tDraw\tPrepare\tProcess\tExecute"
-  );
+  const headerIndex = lines.findIndex((line) => line === "\tDraw\tPrepare\tProcess\tExecute");
   if (headerIndex === -1) {
     Logger.warn(
       `FPS data not found, defaulting to 0, refer to https://github.com/bamlab/android-performance-profiler#getting-fps-data`
@@ -23,8 +20,7 @@ export const processOutput = (result: string) => {
   }
 
   const firstRowIndex = headerIndex + 1;
-  const lastLineIndex =
-    lines.slice(firstRowIndex).findIndex((line) => line === "") + firstRowIndex;
+  const lastLineIndex = lines.slice(firstRowIndex).findIndex((line) => line === "") + firstRowIndex;
 
   const frameTimes = lines.slice(firstRowIndex, lastLineIndex).map((line) =>
     line

@@ -5,9 +5,7 @@ const bundleId = "com.reactnativefeed";
 
 const stopApp = () => execSync(`adb shell am force-stop ${bundleId}`);
 const startApp = () =>
-  execSync(
-    `adb shell monkey -p ${bundleId} -c android.intent.category.LAUNCHER 1`
-  );
+  execSync(`adb shell monkey -p ${bundleId} -c android.intent.category.LAUNCHER 1`);
 
 const startTestCase: TestCase = {
   duration: 10000,

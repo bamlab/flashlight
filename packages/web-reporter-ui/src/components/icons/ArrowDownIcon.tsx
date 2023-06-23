@@ -4,18 +4,9 @@ type Props = {
   size?: number;
 } & React.SVGProps<SVGSVGElement>;
 
-export const ArrowDownIcon: FunctionComponent<Props> = ({
-  size = 24,
-  ...svgProps
-}) => {
+export const ArrowDownIcon: FunctionComponent<Props> = ({ size = 24, ...svgProps }) => {
   return (
-    <svg
-      width={size}
-      height={size}
-      fill="none"
-      viewBox="0 0 24 24"
-      {...svgProps}
-    >
+    <svg width={size} height={size} fill="none" viewBox="0 0 24 24" {...svgProps}>
       <path
         className="stroke-white"
         strokeLinecap="round"

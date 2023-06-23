@@ -4,9 +4,7 @@ import path from "path";
 
 const assertTimeIntervalMultiple = (n: number) => {
   if (n % POLLING_INTERVAL !== 0) {
-    throw new Error(
-      `Only multiples of the measure interval (${POLLING_INTERVAL}ms) are supported`
-    );
+    throw new Error(`Only multiples of the measure interval (${POLLING_INTERVAL}ms) are supported`);
   }
 };
 
@@ -30,9 +28,7 @@ export const getMeasuresForTimeInterval = ({
       ...iteration,
       measures: iteration.measures.slice(
         firstMeasureIndex,
-        duration
-          ? firstMeasureIndex + duration / POLLING_INTERVAL + 1
-          : iteration.measures.length
+        duration ? firstMeasureIndex + duration / POLLING_INTERVAL + 1 : iteration.measures.length
       ),
     })),
   }));
@@ -93,9 +89,7 @@ export const writeReport = ({
     JSON.parse(fs.readFileSync(path, "utf8"))
   );
 
-  const report = JSON.stringify(
-    getMeasuresForTimeInterval({ results, skip, duration })
-  );
+  const report = JSON.stringify(getMeasuresForTimeInterval({ results, skip, duration }));
 
   const jsFileContent = fs
     .readFileSync(`${__dirname}/${scriptName}`, "utf8")

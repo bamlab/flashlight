@@ -29,10 +29,7 @@ export const useSocketState = (socket: SocketType) => {
   return [state, setState] as const;
 };
 
-export const updateMeasuresReducer = (
-  state: SocketData,
-  measures: Measure[]
-): SocketData => ({
+export const updateMeasuresReducer = (state: SocketData, measures: Measure[]): SocketData => ({
   ...state,
   results: [
     ...state.results.slice(0, state.results.length - 1),
@@ -49,10 +46,7 @@ export const updateMeasuresReducer = (
   ],
 });
 
-export const addNewResultReducer = (
-  state: SocketData,
-  bundleId: string
-): SocketData => ({
+export const addNewResultReducer = (state: SocketData, bundleId: string): SocketData => ({
   ...state,
   results: [
     ...state.results,

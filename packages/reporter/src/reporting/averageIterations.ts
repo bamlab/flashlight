@@ -15,9 +15,7 @@ const range = (n: number) =>
 
 const average = (arr: number[]) => arr.reduce((p, c) => p + c, 0) / arr.length;
 
-const averageMaps = (
-  maps: { [key: string]: number }[]
-): { [key: string]: number } => {
+const averageMaps = (maps: { [key: string]: number }[]): { [key: string]: number } => {
   const totalByThread = maps.reduce((aggr, map) => {
     Object.keys(map).forEach((key) => {
       aggr[key] = aggr[key] || 0;
@@ -41,13 +39,9 @@ const averageMeasures = (measures: Measure[]): Measure => {
   };
 };
 
-export const averageIterations = (
-  results: TestCaseIterationResult[]
-): TestCaseIterationResult => {
+export const averageIterations = (results: TestCaseIterationResult[]): TestCaseIterationResult => {
   const minLength =
-    results.length > 0
-      ? Math.min(...results.map((result) => result.measures.length))
-      : 0;
+    results.length > 0 ? Math.min(...results.map((result) => result.measures.length)) : 0;
 
   return {
     measures: range(minLength).map((i) =>
@@ -58,20 +52,13 @@ export const averageIterations = (
   };
 };
 
-export const averageHighCpuUsage = (
-  results: TestCaseIterationResult[],
-  cpuUsageThreshold = 90
-) => {
+export const averageHighCpuUsage = (results: TestCaseIterationResult[], cpuUsageThreshold = 90) => {
   return averageMaps(
-    results.map((result) =>
-      getHighCpuUsageStats(result.measures, cpuUsageThreshold)
-    )
+    results.map((result) => getHighCpuUsageStats(result.measures, cpuUsageThreshold))
   );
 };
 
-export const averageTestCaseResult = (
-  result: TestCaseResult
-): AveragedTestCaseResult => {
+export const averageTestCaseResult = (result: TestCaseResult): AveragedTestCaseResult => {
   const averagedIterations = averageIterations(result.iterations);
 
   return {

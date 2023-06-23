@@ -8,8 +8,7 @@ type ThemeColor = typeof themeColors[number];
 
 let COLOR_PALETTE: string[] = [];
 
-export const getThemeColor = (): ThemeColor =>
-  document.documentElement.dataset.theme as ThemeColor;
+export const getThemeColor = (): ThemeColor => document.documentElement.dataset.theme as ThemeColor;
 
 export const setThemeAtRandom = () => {
   document.documentElement.dataset.theme =
@@ -21,10 +20,7 @@ export const getThemeColorPalette = () => {
   const mainThemeColor = getThemeColor();
 
   const colorsStartingWithMainTheme = themeColors.map(
-    (_, i) =>
-      themeColors[
-        (themeColors.indexOf(mainThemeColor) + i) % themeColors.length
-      ]
+    (_, i) => themeColors[(themeColors.indexOf(mainThemeColor) + i) % themeColors.length]
   );
 
   return colorsStartingWithMainTheme;

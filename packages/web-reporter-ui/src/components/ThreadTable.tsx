@@ -37,10 +37,7 @@ export const ComparativeThreadTable = ({
   const allMeasures = results.map((result) => {
     const measures = result.average.measures;
     // TODO: performance is probably not great here
-    return keyBy(
-      getAverageCpuUsagePerProcess(measures),
-      (measure) => measure.processName
-    );
+    return keyBy(getAverageCpuUsagePerProcess(measures), (measure) => measure.processName);
   });
 
   const allThreadNames = uniq(

@@ -23,8 +23,7 @@ export const writeReport = (
     name: title,
     iterations: measures,
     status:
-      measures.length === 0 ||
-      measures[measures.length - 1].status === "FAILURE"
+      measures.length === 0 || measures[measures.length - 1].status === "FAILURE"
         ? "FAILURE"
         : "SUCCESS",
   };
@@ -34,8 +33,7 @@ export const writeReport = (
    * and not really measuring
    */
   if (overrideScore) {
-    const averagedResult: AveragedTestCaseResult =
-      averageTestCaseResult(testCase);
+    const averagedResult: AveragedTestCaseResult = averageTestCaseResult(testCase);
     testCase.score = Math.max(0, Math.min(overrideScore(averagedResult), 100));
   }
 

@@ -36,9 +36,6 @@ export const exportRawDataToZIP = (rawData: TestCaseResult[]) => {
   });
 
   zip.generateAsync({ type: "blob" }).then((content: Blob) => {
-    saveAs(
-      content,
-      `results${DEFAULT_FILE_NAME_SEPARATOR}${timeStampAsString}.zip`
-    );
+    saveAs(content, `results${DEFAULT_FILE_NAME_SEPARATOR}${timeStampAsString}.zip`);
   });
 };

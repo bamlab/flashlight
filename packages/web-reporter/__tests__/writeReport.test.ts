@@ -1,8 +1,4 @@
-import {
-  Measure,
-  TestCaseIterationResult,
-  TestCaseResult,
-} from "@perf-profiler/types";
+import { Measure, TestCaseIterationResult, TestCaseResult } from "@perf-profiler/types";
 import { getMeasuresForTimeInterval } from "../writeReport";
 
 const mockMeasure = (name: string) => {
@@ -34,11 +30,7 @@ describe("getMeasuresForTimeInterval", () => {
   it("doesn't cut measures by default", () => {
     const RESULT: TestCaseResult = {
       iterations: [
-        mockResultIteration([
-          "ITERATION1_0_ms",
-          "ITERATION1_500_ms",
-          "ITERATION1_1000_ms",
-        ]),
+        mockResultIteration(["ITERATION1_0_ms", "ITERATION1_500_ms", "ITERATION1_1000_ms"]),
         mockResultIteration(["ITERATION2_0_ms", "ITERATION2_500_ms"]),
       ],
       name: "Result",
@@ -57,11 +49,7 @@ describe("getMeasuresForTimeInterval", () => {
   it("skips first measures", () => {
     const RESULT: TestCaseResult = {
       iterations: [
-        mockResultIteration([
-          "ITERATION1_0_ms",
-          "ITERATION1_500_ms",
-          "ITERATION1_1000_ms",
-        ]),
+        mockResultIteration(["ITERATION1_0_ms", "ITERATION1_500_ms", "ITERATION1_1000_ms"]),
         mockResultIteration(["ITERATION2_0_ms", "ITERATION2_500_ms"]),
       ],
       name: "Result",
@@ -76,10 +64,7 @@ describe("getMeasuresForTimeInterval", () => {
       })
     ).toEqual([
       {
-        iterations: [
-          mockResultIteration(["ITERATION1_1000_ms"]),
-          mockResultIteration([]),
-        ],
+        iterations: [mockResultIteration(["ITERATION1_1000_ms"]), mockResultIteration([])],
         name: "Result",
         status: "SUCCESS",
       },
@@ -124,11 +109,7 @@ describe("getMeasuresForTimeInterval", () => {
     ).toEqual([
       {
         iterations: [
-          mockResultIteration([
-            "ITERATION1_500_ms",
-            "ITERATION1_1000_ms",
-            "ITERATION1_1500_ms",
-          ]),
+          mockResultIteration(["ITERATION1_500_ms", "ITERATION1_1000_ms", "ITERATION1_1500_ms"]),
           mockResultIteration(["ITERATION2_500_ms"]),
         ],
         name: "Result 1",
@@ -136,11 +117,7 @@ describe("getMeasuresForTimeInterval", () => {
       },
       {
         iterations: [
-          mockResultIteration([
-            "ITERATION3_500_ms",
-            "ITERATION3_1000_ms",
-            "ITERATION3_1500_ms",
-          ]),
+          mockResultIteration(["ITERATION3_500_ms", "ITERATION3_1000_ms", "ITERATION3_1500_ms"]),
         ],
         name: "Result 2",
         status: "SUCCESS",

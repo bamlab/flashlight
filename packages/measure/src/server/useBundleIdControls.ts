@@ -23,10 +23,7 @@ export const useBundleIdControls = (
           bundleId,
         });
       } catch (error) {
-        socket.emit(
-          "sendError",
-          error instanceof Error ? error.message : "unknown error"
-        );
+        socket.emit("sendError", error instanceof Error ? error.message : "unknown error");
       }
     });
 
