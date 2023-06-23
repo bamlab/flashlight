@@ -22,8 +22,6 @@ jest.mock("@perf-profiler/shell", () => ({
 
 Math.random = () => 0.5;
 
-jest.setTimeout(20000);
-
 // Set me to LogLevel.DEBUG to see the debug logs
 Logger.setLogLevel(LogLevel.SILENT);
 
