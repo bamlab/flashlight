@@ -21,5 +21,5 @@ then you can run with:
 ```sh
 ./run.sh [command] <arguments>
 # For instance
-./run.sh pollPerformanceMeasures $(adb shell pidof com.example)
+./run.sh pollPerformanceMeasures com.example 500
 ```
