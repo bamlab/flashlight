@@ -86,13 +86,37 @@ long long printPerformanceMeasure(string pid)
     return totalDuration.count();
 }
 
-void pollPerformanceMeasures(std::string pid, int interval)
+std::string pidOf(string bundleId)
 {
+    auto result = executeCommand("pidof " + bundleId);
+    return result.substr(0, result.find_first_of("\n"));
+}
+
+void pollPerformanceMeasures(std::string bundleId, int interval)
+{
+    string pid = "";
+
+    // We read atrace lines before the app is started
+    // since it can take a bit of time to start and clear the traceOutputPath
+    // but we'll clear them out periodically while the app isn't started
+    std::thread aTraceReadThread(readATraceThread);
+
+    cout << "Waiting for process to start..." << endl;
+
+    while (pid == "")
+    {
+        clearATraceLines();
+        pid = pidOf(bundleId);
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+    }
+
     while (true)
     {
         auto duration = printPerformanceMeasure(pid);
         std::this_thread::sleep_for(std::chrono::milliseconds(interval - duration));
     }
+
+    aTraceReadThread.join();
 }
 
 void printCpuClockTick()
@@ -105,12 +129,6 @@ void printRAMPageSize()
     cout << sysconf(_SC_PAGESIZE) << endl;
 }
 
-std::string pidOf(string bundleId)
-{
-    auto result = executeCommand("pidof " + bundleId);
-    return result.substr(0, result.find_first_of("\n"));
-}
-
 int main(int argc, char **argv)
 {
     string methodName = argv[1];
@@ -119,24 +137,8 @@ int main(int argc, char **argv)
     {
         string bundleId = argv[2];
         int interval = std::stoi(argv[3]);
-        string pid = "";
 
-        // We read atrace lines before the app is started
-        // since it can take a bit of time to start and clear the traceOutputPath
-        // but we'll clear them out periodically while the app isn't started
-        std::thread aTraceReadThread(readATraceThread);
-
-        cout << "Waiting for process to start..." << endl;
-
-        while (pid == "")
-        {
-            clearATraceLines();
-            pid = pidOf(bundleId);
-            std::this_thread::sleep_for(std::chrono::milliseconds(50));
-        }
-
-        pollPerformanceMeasures(pid, interval);
-        aTraceReadThread.join();
+        pollPerformanceMeasures(bundleId, interval);
     }
     else if (methodName == "printPerformanceMeasure")
     {
