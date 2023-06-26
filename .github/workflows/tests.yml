@@ -14,6 +14,8 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -23,3 +25,9 @@ jobs:
         run: yarn
       - name: Run tests
         run: yarn test
+      - name: Push yarn.lock update
+        run: |
+          git config --global user.email "bam.flashlight@gmail.com"
+          git config --global user.name "flashlight-bot"
+          git add yarn.lock && git diff --staged --quiet || git commit -m "chore: update yarn.lock"
+          git push
