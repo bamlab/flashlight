@@ -3,3 +3,5 @@ import { ServerToClientEvents, ClientToServerEvents } from "../server/socket/soc
 
 export const socket: Socket<ServerToClientEvents, ClientToServerEvents> =
   io("http://localhost:3000/");
+
+socket.on("disconnect", () => socket.close());
