@@ -32,9 +32,21 @@ void readFile(string filePath)
     }
 }
 
+class PidClosedError : public std::runtime_error
+{
+public:
+    PidClosedError(const std::string &message)
+        : std::runtime_error(message) {}
+};
+
 void printCpuStats(string pid)
 {
     string path = "/proc/" + pid + "/task";
+
+    if (!fs::exists(path))
+    {
+        throw PidClosedError("Directory does not exist: " + path);
+    }
 
     for (const auto &entry : fs::directory_iterator(path))
     {
