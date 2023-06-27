@@ -1,5 +1,5 @@
-import "./utils/mockChildProcess";
-import { spawn, emitMeasures } from "./utils/mockEmitMeasures";
+import "@perf-profiler/e2e/src/utils/test/mockChildProcess";
+import { spawn, emitMeasures } from "@perf-profiler/e2e/src/utils/test/mockEmitMeasures";
 import { fireEvent, render as webRender, screen, waitFor, act } from "@testing-library/react";
 import { render as cliRender } from "ink-testing-library";
 import { MeasureWebApp } from "../webapp/MeasureWebApp";

@@ -1,7 +1,7 @@
 import os from "os";
 import fs from "fs";
 import { measurePerformance } from "..";
-import { PerformancePollingMock } from "../utils/PerformancePollingMock";
+import { PerformancePollingMock } from "../utils/test/PerformancePollingMock";
 import { Logger, LogLevel } from "@perf-profiler/logger";
 
 const mockPerformancePolling = new PerformancePollingMock();

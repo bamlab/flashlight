@@ -1,9 +1,9 @@
 // We'll remove the flipper plugin at some point so it's ok to just import those
 // from another package in the test
 // eslint-disable-next-line import/no-extraneous-dependencies
-import "@perf-profiler/measure/src/__tests__/utils/mockChildProcess";
+import "@perf-profiler/e2e/src/utils/test/mockChildProcess";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { emitMeasures, spawn } from "@perf-profiler/measure/src/__tests__/utils/mockEmitMeasures";
+import { emitMeasures, spawn } from "@perf-profiler/e2e/src/utils/test/mockEmitMeasures";
 import { act, fireEvent, screen } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import * as Plugin from "..";

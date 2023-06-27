@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import EventEmitter from "events";
+import { ChildProcess } from "child_process";
 
 const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
   const mockProcess = new EventEmitter();
@@ -10,7 +12,7 @@ const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
     .spyOn(require("child_process"), "spawn")
     .mockImplementationOnce((...args) => {
       expect(args).toEqual(["adb", ["shell", "atrace", "-c", "view", "-t", "999"]]);
-      return mockProcess;
+      return mockProcess as ChildProcess;
     })
     .mockImplementationOnce((...args) => {
       expect(args).toEqual([
@@ -23,7 +25,7 @@ const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
           "500",
         ],
       ]);
-      return mockProcess;
+      return mockProcess as ChildProcess;
     });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
