@@ -22,7 +22,7 @@ save() {
 
     xctrace export --input $1 --xpath '/trace-toc/run[@number="1"]/data/table[@schema="cpu-profile"]' --output ./report/$output_file.xml
     # TODO: use TS
-    node xml.js ./report/$output_file.xml ./report.json
+    node dist/xml.js ./report/$output_file.xml ./report.json
 }
 
 launch_test() {

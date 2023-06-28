@@ -11,7 +11,7 @@ setThemeAtRandom();
 
 const INTERVAL_MS = 10;
 
-const getData = (res) => {
+const getData = (res: any) => {
   const data: [number, number][] = res.map(([x, y]: [number, number]) => [
     x / 1_000_000,
     y,
