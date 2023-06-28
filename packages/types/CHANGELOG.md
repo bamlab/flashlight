@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/types@0.3.1...@perf-profiler/types@0.4.0) (2023-06-28)
+
+### Features
+
+- Filter retries on web reporter ([9d9f192](https://github.com/bamlab/android-performance-profiler/commit/9d9f1929b3b54bfae5951fca561dfe729e75b075))
+
 ## [0.3.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/types@0.3.0...@perf-profiler/types@0.3.1) (2023-05-25)
 
 ### Bug Fixes

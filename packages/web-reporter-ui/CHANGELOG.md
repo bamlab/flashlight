@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.10.0...@perf-profiler/web-reporter-ui@0.11.0) (2023-06-28)
+
+### Features
+
+- Filter retries on web reporter ([9d9f192](https://github.com/bamlab/android-performance-profiler/commit/9d9f1929b3b54bfae5951fca561dfe729e75b075))
+- **measure:** measure in webapp without need for flipper ([#121](https://github.com/bamlab/android-performance-profiler/issues/121)) ([6f68b55](https://github.com/bamlab/android-performance-profiler/commit/6f68b55cfaccfd18273bec96a06e9fd38d9edc5d))
+- remove retries from report options (average, etc) ([#123](https://github.com/bamlab/android-performance-profiler/issues/123)) ([1e7a092](https://github.com/bamlab/android-performance-profiler/commit/1e7a0924e1433e94c8f6d38a75bf036531d288e5))
+
 # [0.10.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.9.1...@perf-profiler/web-reporter-ui@0.10.0) (2023-06-02)
 
 ### Bug Fixes

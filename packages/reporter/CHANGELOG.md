@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/reporter@0.5.1...@perf-profiler/reporter@0.6.0) (2023-06-28)
+
+### Features
+
+- **measure:** measure in webapp without need for flipper ([#121](https://github.com/bamlab/android-performance-profiler/issues/121)) ([6f68b55](https://github.com/bamlab/android-performance-profiler/commit/6f68b55cfaccfd18273bec96a06e9fd38d9edc5d))
+
 ## [0.5.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/reporter@0.5.0...@perf-profiler/reporter@0.5.1) (2023-05-25)
 
 ### Bug Fixes

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.7.2...@perf-profiler/web-reporter@0.8.0) (2023-06-28)
+
+### Features
+
+- **measure:** measure in webapp without need for flipper ([#121](https://github.com/bamlab/android-performance-profiler/issues/121)) ([6f68b55](https://github.com/bamlab/android-performance-profiler/commit/6f68b55cfaccfd18273bec96a06e9fd38d9edc5d))
+
 ## [0.7.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.7.1...@perf-profiler/web-reporter@0.7.2) (2023-06-02)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.8.1...@perf-profiler/aws-device-farm@0.9.0) (2023-06-28)
+
+### Features
+
+- **aws:** ensure report gets deployed even for failed tests ([#126](https://github.com/bamlab/android-performance-profiler/issues/126)) ([53ebba8](https://github.com/bamlab/android-performance-profiler/commit/53ebba82a1d0aca24c27e7b0ca3012d2944e88d0))
+
 ## [0.8.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.8.0...@perf-profiler/aws-device-farm@0.8.1) (2023-05-25)
 
 **Note:** Version bump only for package @perf-profiler/aws-device-farm

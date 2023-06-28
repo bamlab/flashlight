@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.9.4...@perf-profiler/e2e@0.10.0) (2023-06-28)
+
+### Features
+
+- Filter retries on web reporter ([9d9f192](https://github.com/bamlab/android-performance-profiler/commit/9d9f1929b3b54bfae5951fca561dfe729e75b075))
+- remove retries from report options (average, etc) ([#123](https://github.com/bamlab/android-performance-profiler/issues/123)) ([1e7a092](https://github.com/bamlab/android-performance-profiler/commit/1e7a0924e1433e94c8f6d38a75bf036531d288e5))
+- Revert failed report inspection ([94c980e](https://github.com/bamlab/android-performance-profiler/commit/94c980e7367958972af016e90ee29c057398696a))
+
 ## [0.9.4](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.9.3...@perf-profiler/e2e@0.9.4) (2023-05-25)
 
 ### Bug Fixes
