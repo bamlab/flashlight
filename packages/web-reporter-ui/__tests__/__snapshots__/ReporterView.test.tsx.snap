@@ -646,7 +646,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
       <button
         aria-haspopup="true"
         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-        id="export-menu-button"
+        id="report-menu-button"
         style="float: right;"
         tabindex="0"
         type="button"
@@ -11694,7 +11694,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
       <button
         aria-haspopup="true"
         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-        id="export-menu-button"
+        id="report-menu-button"
         style="float: right;"
         tabindex="0"
         type="button"
@@ -17497,7 +17497,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       <button
         aria-haspopup="true"
         class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-        id="export-menu-button"
+        id="report-menu-button"
         style="float: right;"
         tabindex="0"
         type="button"
