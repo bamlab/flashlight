@@ -1,3 +1,18 @@
+# [0.8.0](https://github.com/bamlab/flashlight/compare/v0.7.3...v0.8.0) (2023-06-28)
+
+### Features
+
+- **measure:** measure in webapp without need for flipper ([#121](https://github.com/bamlab/flashlight/issues/121)) ([6f68b55](https://github.com/bamlab/flashlight/commit/6f68b55cfaccfd18273bec96a06e9fd38d9edc5d))
+- **report** add danger and safe zone to charts ([#111](https://github.com/bamlab/flashlight/issues/111)) ([da0d803](https://github.com/bamlab/flashlight/commit/da0d8039b1cf5466d17ada104badaddbb72105ea))
+- **aws:** ensure report gets deployed even for failed tests ([#126](https://github.com/bamlab/flashlight/issues/126)) ([53ebba8](https://github.com/bamlab/flashlight/commit/53ebba82a1d0aca24c27e7b0ca3012d2944e88d0))
+- Filter retries on web reporter ([9d9f192](https://github.com/bamlab/flashlight/commit/9d9f1929b3b54bfae5951fca561dfe729e75b075))
+
+### Bug Fixes
+
+- **ESlint:** deactivate no require rule ([23abeeb](https://github.com/bamlab/flashlight/commit/23abeebacafd81d0a38e7f6a56d8cb73eb901740))
+- **measure:** ensure we have only one socket connection between web and cli ([#130](https://github.com/bamlab/flashlight/issues/130)) ([4b59cd1](https://github.com/bamlab/flashlight/commit/4b59cd151bac7e04f050bb9410938bcfb233c088))
+- **report** fix dropdown menu color ([#115](https://github.com/bamlab/flashlight/issues/115)) ([fd45757](https://github.com/bamlab/flashlight/commit/fd45757cfd4033841b4e86172037864e82131762))
+
 ## [0.7.3](https://github.com/bamlab/flashlight/compare/v0.7.1...v0.7.3) (2023-05-25)
 
 ### Bug Fixes
