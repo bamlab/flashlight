@@ -21,9 +21,8 @@ save() {
     echo "Trace $1 saved in ./report/$output_file.xml"
 
     xctrace export --input $1 --xpath '/trace-toc/run[@number="1"]/data/table[@schema="cpu-profile"]' --output ./report/$output_file.xml
-
-    python3 ./xml2json.py ./report/$output_file.xml > ./report/$output_file.json
-
+    # TODO: use TS
+    node xml.js ./report/$output_file.xml ./report.json
 }
 
 launch_test() {
@@ -39,7 +38,9 @@ launch_test() {
     maestro test launch.yaml --no-ansi
     start_record $simulator_id $trace_file
     maestro test test.yaml --no-ansi
+    # TODO : check if need to wait for the test to finish
     sleep 5
+    # Needed because start_record is a background process
     wait
     save $trace_file
 }

@@ -1,5 +1,5 @@
 var parseString = require('xml2js').parseString;
-var xml = require("fs").readFileSync("./report/cpu-profile-sr.xml")
+var xml = require("fs").readFileSync(process.argv[2], "utf8")
 parseString(xml, function (err, result) {
     const rows = result['trace-query-result'].node[0].row
 
@@ -33,7 +33,7 @@ parseString(xml, function (err, result) {
         }
     }
 
-    require("fs").writeFileSync("./cpu-profile-sr.json", JSON.stringify(values, null, 2))
+    require("fs").writeFileSync(process.argv[3], JSON.stringify(values, null, 2))
 });
 
 // ["trace-query-result"]["@children"][0]["node"]["@children"][1:]
