@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { DevicePluginClient, createState } from "flipper-plugin";
+import React, { useEffect, useState } from "react";
+import { DevicePluginClient, Dialog, createState } from "flipper-plugin";
 import { Button, ReporterView, setThemeAtRandom } from "@perf-profiler/web-reporter-ui";
 import { BundleIdSelector } from "./components/BundleIdSelector";
 import { StartButton } from "./components/StartButton";
@@ -26,6 +26,24 @@ const CssStyle = React.memo(() => {
 
 export function Component() {
   const [bundleId, setBundleId] = useState<string | null>(null);
+
+  useEffect(() => {
+    Dialog.alert({
+      title: "Deprecated",
+      message: (
+        <div>
+          The Flashlight Flipper plugin is deprecated, please use the{" "}
+          <code>flashlight measure</code> command instead.
+          <br />
+          <br /> See how to get started at{" "}
+          <a href="https://docs.flashlight.dev" target="_blank" rel="noreferrer">
+            https://docs.flashlight.dev
+          </a>
+        </div>
+      ),
+      type: "warning",
+    });
+  }, []);
 
   const { start, stop, measures, isMeasuring, reset } = useMeasures(bundleId);
 
