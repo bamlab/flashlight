@@ -11,8 +11,9 @@ import { RAMReport } from "./src/sections/RAMReport";
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./src/sections/FPSReport";
+import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Header from "./src/components/Header";
+import { Header, MenuOption } from "./src/components/Header";
 import { exportRawDataToZIP } from "./utils/reportRawDataExport";
 import { IterationSelector, useIterationSelector } from "./src/components/IterationSelector";
 import { VideoSection } from "./src/sections/VideoSection";
@@ -29,7 +30,13 @@ const theme = createTheme({
   },
 });
 
-const Report = ({ results }: { results: TestCaseResult[] }) => {
+const Report = ({
+  results,
+  additionalMenuOptions,
+}: {
+  results: TestCaseResult[];
+  additionalMenuOptions?: MenuOption[];
+}) => {
   const filteredIterationsResults = results.map((result) => ({
     ...result,
     iterations: result.iterations.filter((iteration) => {
@@ -61,7 +68,16 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
       <VideoEnabledContext.Provider value={hasVideos}>
         <div className="flex flex-row w-full h-[calc(100%-50px)] overflow-y-hidden">
           <div className="overflow-auto w-full">
-            <Header saveToZIPCallBack={saveResultsToZIP} />
+            <Header
+              menuOptions={[
+                {
+                  label: "Save all as ZIP",
+                  icon: <FileDownloadIcon fontSize="small" />,
+                  onClick: saveResultsToZIP,
+                },
+                ...(additionalMenuOptions ? additionalMenuOptions : []),
+              ]}
+            />
             <Padding />
             <ReportSummary averagedResults={averagedResults} />
             <div className="h-16" />
@@ -95,10 +111,16 @@ const Report = ({ results }: { results: TestCaseResult[] }) => {
   );
 };
 
-export const IterationsReporterView = ({ results }: { results: TestCaseResult[] }) => {
+export const IterationsReporterView = ({
+  results,
+  additionalMenuOptions,
+}: {
+  results: TestCaseResult[];
+  additionalMenuOptions?: MenuOption[];
+}) => {
   return results.length > 0 ? (
     <ThemeProvider theme={theme}>
-      <Report results={results} />
+      <Report results={results} additionalMenuOptions={additionalMenuOptions} />
     </ThemeProvider>
   ) : null;
 };

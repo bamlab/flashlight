@@ -282,7 +282,7 @@ exports[`displays FPS data and scoring 2`] = `
           <button
             aria-haspopup="true"
             class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-            id="export-menu-button"
+            id="report-menu-button"
             style="float: right;"
             tabindex="0"
             type="button"

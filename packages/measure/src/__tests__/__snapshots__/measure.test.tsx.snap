@@ -261,7 +261,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
         <button
           aria-haspopup="true"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-          id="export-menu-button"
+          id="report-menu-button"
           style="float: right;"
           tabindex="0"
           type="button"
@@ -2886,7 +2886,7 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
         <button
           aria-haspopup="true"
           class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-78trlr-MuiButtonBase-root-MuiIconButton-root"
-          id="export-menu-button"
+          id="report-menu-button"
           style="float: right;"
           tabindex="0"
           type="button"
