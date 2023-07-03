@@ -31,6 +31,7 @@ export class PerformanceMeasurer {
         Logger.debug(`Received measure ${this.measures.length}`);
       },
       onStartMeasuring: () => {
+        this.measures = [];
         this.timingTrace = new Trace();
       },
     });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PerformanceMeasurer ignores when stat file cannot be opened since it's likely the thread is dead 1`] = `
+exports[`PerformanceMeasurer handles c++ errors correctly 1`] = `
 [
   {
     "cpu": {

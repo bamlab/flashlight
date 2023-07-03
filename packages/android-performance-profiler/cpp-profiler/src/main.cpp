@@ -123,10 +123,19 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 
-    while (true)
+    try
     {
-        auto duration = printPerformanceMeasure(pid);
-        std::this_thread::sleep_for(std::chrono::milliseconds(interval - duration));
+        while (true)
+        {
+            auto duration = printPerformanceMeasure(pid);
+            std::this_thread::sleep_for(std::chrono::milliseconds(interval - duration));
+        }
+    }
+    catch (const PidClosedError &e)
+    {
+        cerr << "CPP_ERROR_MAIN_PID_CLOSED " + pid << endl;
+        pollPerformanceMeasures(bundleId, interval);
+        return;
     }
 
     aTraceReadThread.join();

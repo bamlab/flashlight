@@ -115,10 +115,10 @@ export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
   const DELIMITER = "=SEPARATOR=";
   const START_MEASURE_DELIMITER = "=START MEASURE=";
 
-  const [pid, cpu, ram, atrace, timings] = measure
-    .replace(START_MEASURE_DELIMITER, "")
-    .split(DELIMITER)
-    .map((s) => s.trim());
+  const measureSplit = measure.split(START_MEASURE_DELIMITER);
+  const measureContent = measureSplit[measureSplit.length - 1];
+
+  const [pid, cpu, ram, atrace, timings] = measureContent.split(DELIMITER).map((s) => s.trim());
 
   const [timestampLine, execTimings] = timings.split(/\r\n|\n|\r/);
 
@@ -131,7 +131,8 @@ export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
 
 export const pollPerformanceMeasures = (
   pid: string,
-  onData: (measure: CppPerformanceMeasure) => void
+  onData: (measure: CppPerformanceMeasure) => void,
+  onPidChanged?: (pid: string) => void
 ) => {
   ensureCppProfilerIsInstalled();
 
@@ -151,6 +152,8 @@ export const pollPerformanceMeasures = (
     // Ignore errors, it might be that the thread is dead and we can read stats anymore
     if (log.includes("CPP_ERROR_CANNOT_OPEN_FILE")) {
       Logger.debug(log);
+    } else if (log.includes("CPP_ERROR_MAIN_PID_CLOSED")) {
+      onPidChanged?.(pid);
     } else {
       Logger.error(log);
     }

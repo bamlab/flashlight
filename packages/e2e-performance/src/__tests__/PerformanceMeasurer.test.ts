@@ -1,7 +1,7 @@
+import "../utils/test/mockChildProcess";
 import { LogLevel, Logger } from "@perf-profiler/logger";
 import { PerformanceMeasurer } from "../PerformanceMeasurer";
 import { emitMeasure, perfProfilerMock } from "../utils/test/mockEmitMeasures";
-import "../utils/test/mockChildProcess";
 
 Logger.setLogLevel(LogLevel.SILENT);
 
@@ -9,7 +9,7 @@ const loggerDebug = jest.spyOn(Logger, "debug");
 const loggerError = jest.spyOn(Logger, "error");
 
 describe("PerformanceMeasurer", () => {
-  it("ignores when stat file cannot be opened since it's likely the thread is dead", () => {
+  it("handles c++ errors correctly", () => {
     const measurer = new PerformanceMeasurer("com.example");
     measurer.start();
     emitMeasure(0);
@@ -24,5 +24,15 @@ describe("PerformanceMeasurer", () => {
 
     expect(measurer.measures).toHaveLength(2);
     expect(measurer.measures).toMatchSnapshot();
+
+    // Reset measures when pid changes
+    perfProfilerMock.stderr?.emit("data", "CPP_ERROR_MAIN_PID_CLOSED 1234");
+    emitMeasure(0);
+    expect(measurer.measures).toHaveLength(0);
+
+    emitMeasure(1);
+    emitMeasure(2);
+
+    expect(measurer.measures).toHaveLength(2);
   });
 });

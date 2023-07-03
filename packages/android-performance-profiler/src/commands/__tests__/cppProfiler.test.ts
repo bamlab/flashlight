@@ -16,6 +16,11 @@ on multiple lines`;
 
   expect(
     parseCppMeasure(`=START MEASURE=
+ANOTHER_PID
+=SEPARATOR=
+Beginning of CPU info but wait we're restarting
+Waiting for process start...
+=START MEASURE=
 ${PID}
 =SEPARATOR=
 ${CPU}
