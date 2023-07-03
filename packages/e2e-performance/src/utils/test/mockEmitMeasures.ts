@@ -10,6 +10,10 @@ const mockSpawn = (): ChildProcess => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
+  mockProcess.stderr = new EventEmitter();
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   mockProcess.kill = jest.fn();
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

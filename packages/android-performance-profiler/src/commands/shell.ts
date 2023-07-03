@@ -75,7 +75,9 @@ export const executeLongRunningProcess = (
   delimiter: string,
   onData: (data: string) => void
 ) => {
-  const process = executeAsync(command);
+  const process = executeAsync(command, {
+    logStderr: false,
+  });
   let currentChunk = "";
 
   process.stdout?.on("data", (data: ReadableStream<string>) => {
@@ -94,9 +96,5 @@ export const executeLongRunningProcess = (
     }
   });
 
-  return {
-    stop: () => {
-      process.kill();
-    },
-  };
+  return process;
 };

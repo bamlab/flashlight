@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include "utils.h"
 
+using std::cerr;
 using std::cout;
 using std::endl;
 using std::string;
@@ -28,7 +29,7 @@ void readFile(string filePath)
     }
     else
     {
-        cout << "C++ Error, file couldn't be opened" << endl;
+        cerr << "CPP_ERROR_CANNOT_OPEN_FILE " + filePath << endl;
     }
 }
 

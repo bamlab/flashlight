@@ -145,9 +145,20 @@ export const pollPerformanceMeasures = (
     }
   );
 
+  process.stderr?.on("data", (data) => {
+    const log = data.toString();
+
+    // Ignore errors, it might be that the thread is dead and we can read stats anymore
+    if (log.includes("CPP_ERROR_CANNOT_OPEN_FILE")) {
+      Logger.debug(log);
+    } else {
+      Logger.error(log);
+    }
+  });
+
   return {
     stop: () => {
-      process.stop();
+      process.kill();
       // We need to close this process, otherwise tests will hang
       Logger.debug("Stopping atrace process...");
       stopATrace();
