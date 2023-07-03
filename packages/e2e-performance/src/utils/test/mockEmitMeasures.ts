@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import EventEmitter from "events";
 import { ChildProcess } from "child_process";
+import fs from "fs";
 
-const mockSpawn = (): { stdout: EventEmitter; kill: () => void } => {
+const mockSpawn = (): ChildProcess => {
   const mockProcess = new EventEmitter();
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -21,30 +21,28 @@ export const aTraceMock = mockSpawn();
 export const perfProfilerMock = mockSpawn();
 
 jest
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   .spyOn(require("child_process"), "spawn")
   .mockImplementationOnce((...args) => {
     expect(args).toEqual(["adb", ["shell", "atrace", "-c", "view", "-t", "999"]]);
-    return aTraceMock as ChildProcess;
+    return aTraceMock;
   })
   .mockImplementationOnce((...args) => {
     expect(args).toEqual([
       "adb",
       ["shell", "/data/local/tmp/BAMPerfProfiler", "pollPerformanceMeasures", "com.example", "500"],
     ]);
-    return perfProfilerMock as ChildProcess;
+    return perfProfilerMock;
   });
 
 export const emitMeasure = (measureIndex: number) => {
-  const cpuOutput: string = require("fs").readFileSync(
+  const cpuOutput: string = fs.readFileSync(
     `${__dirname}/sample-command-output-${measureIndex === 0 ? "1" : "2"}.txt`,
     "utf8"
   );
-  const aTraceOutput: string = require("fs").readFileSync(
-    `${__dirname}/sample-atrace-output.txt`,
-    "utf8"
-  );
+  const aTraceOutput: string = fs.readFileSync(`${__dirname}/sample-atrace-output.txt`, "utf8");
 
-  perfProfilerMock.stdout.emit(
+  perfProfilerMock.stdout?.emit(
     "data",
     `=START MEASURE=
 123456
