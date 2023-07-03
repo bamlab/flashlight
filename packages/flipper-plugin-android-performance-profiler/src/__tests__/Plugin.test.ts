@@ -3,7 +3,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import "@perf-profiler/e2e/src/utils/test/mockChildProcess";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { emitMeasures, spawn } from "@perf-profiler/e2e/src/utils/test/mockEmitMeasures";
+import {
+  emitMeasures,
+  aTraceMock,
+  perfProfilerMock,
+} from "@perf-profiler/e2e/src/utils/test/mockEmitMeasures";
 import { act, fireEvent, screen } from "@testing-library/react";
 import { TestUtils } from "flipper-plugin";
 import * as Plugin from "..";
@@ -40,5 +44,6 @@ test("displays FPS data and scoring", async () => {
   expect(renderer.baseElement).toMatchSnapshot();
 
   fireEvent.click(screen.getByText("Stop Measuring"));
-  expect(spawn.kill).toBeCalled();
+  expect(perfProfilerMock.kill).toBeCalled();
+  expect(aTraceMock.kill).toBeCalled();
 });
