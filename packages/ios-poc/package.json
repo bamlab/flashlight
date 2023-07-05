@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@perf-profiler/types": "^0.3.1",
     "xml2js": "^0.6.0"
   },
   "devDependencies": {

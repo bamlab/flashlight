@@ -49,3 +49,8 @@ export interface AveragedTestCaseResult {
 // Shouldn't really be here but @perf-profiler/types is imported by everyone and doesn't contain any logic
 // so nice to have it here for now
 export const POLLING_INTERVAL = 500;
+
+export interface IOSTestCaseResult {
+  type: "IOS_EXPERIMENTAL";
+  measures: [number, number][];
+}

@@ -1,12 +1,13 @@
 import { parseString } from "xml2js";
 import fs from "fs";
+import { IOSTestCaseResult } from "@perf-profiler/types";
 
 const xml = fs.readFileSync(process.argv[2], "utf8");
 
 parseString(xml, function (err, result) {
   const rows = result["trace-query-result"].node[0].row;
 
-  const values = [];
+  const values: [number, number][] = [];
 
   const cycleRefs: { [id: string]: number } = {};
 
@@ -36,7 +37,12 @@ parseString(xml, function (err, result) {
     }
   }
 
-  fs.writeFileSync(process.argv[3], JSON.stringify(values, null, 2));
+  const results: IOSTestCaseResult = {
+    measures: values,
+    type: "IOS_EXPERIMENTAL",
+  };
+
+  fs.writeFileSync(process.argv[3], JSON.stringify(results, null, 2));
 });
 
 // ["trace-query-result"]["@children"][0]["node"]["@children"][1:]
