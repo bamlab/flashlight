@@ -1,5 +1,9 @@
 import React from "react";
-import { IOSTestCaseResult, TestCaseResult } from "@perf-profiler/types";
+import {
+  IOSTestCaseResult,
+  isIOSTestCaseResult,
+  TestCaseResult,
+} from "@perf-profiler/types";
 import {
   IterationsReporterView,
   PageBackground,
@@ -10,7 +14,9 @@ import { IOSApp } from "./IOSApp";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line prefer-const
-let testCaseResults: TestCaseResult[] | IOSTestCaseResult[] = "INSERT_HERE";
+let testCaseResults: TestCaseResult[] | IOSTestCaseResult[] =
+  // Use very long string so that Parcel won't use it more than once, would be nice to find a better solution
+  "THIS_IS_A_VERY_LONG_STRING_THAT_IS_UNLIKELY_TO_BE_FOUND_IN_A_TEST_CASE_RESULT";
 
 // Uncomment with when locally testing
 // // Without videos
@@ -57,16 +63,13 @@ export function App() {
   // testCaseResults = useTimeSimulationResults();
   if (!testCaseResults) return null;
 
-  const isIosExperimentalResults = testCaseResults[0]?.type;
-
-  // TODO: was not able to refine this properly with TS
-  if (isIosExperimentalResults)
-    return <IOSApp results={testCaseResults as IOSTestCaseResult[]} />;
+  if (isIOSTestCaseResult(testCaseResults))
+    return <IOSApp results={testCaseResults} />;
 
   return (
     <>
       <PageBackground />
-      <IterationsReporterView results={testCaseResults as TestCaseResult[]} />
+      <IterationsReporterView results={testCaseResults} />
     </>
   );
 }

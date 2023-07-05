@@ -22,5 +22,4 @@ Requirements:
 
 ## Next steps
 
-- ensure we don't break (comme des shlags) `report` command, for now we'll add a flag `if (process.env.EXPERIMENTAL_IOS_REPORT)` to use the ios version of the report
 - rewrite ios.sh in TS

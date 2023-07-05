@@ -147,7 +147,7 @@ export const Chart = ({
         },
       },
       dataLabels: {
-        enabled: true,
+        enabled: false,
       },
       stroke: {
         curve: "smooth",

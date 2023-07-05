@@ -34,6 +34,7 @@ export interface TestCaseResult {
   score?: number;
   status: TestCaseResultStatus;
   iterations: TestCaseIterationResult[];
+  type?: undefined;
 }
 
 export interface AveragedTestCaseResult {
@@ -54,3 +55,10 @@ export interface IOSTestCaseResult {
   type: "IOS_EXPERIMENTAL";
   measures: [number, number][];
 }
+
+// TODO: have better type refinement
+export const isIOSTestCaseResult = (
+  result: IOSTestCaseResult[] | TestCaseResult[]
+): result is IOSTestCaseResult[] => {
+  return result[0].type === "IOS_EXPERIMENTAL";
+};
