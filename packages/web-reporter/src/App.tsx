@@ -18,10 +18,10 @@ let testCaseResults: TestCaseResult[] = "INSERT_HERE";
 //   require("./example-reports/results2.json"),
 // ];
 // // With videos, you have to run `cp packages/web-reporter/src/example-reports/**/*.mp4 packages/web-reporter/dist`
-testCaseResults = [
-  require("./example-reports/video/results_417dd25e-d901-4b1e-9d43-3b78305a48e2.json"),
-  require("./example-reports/video/results_c7d5d17d-42ed-4354-8b43-bb26e2d6feee.json"),
-];
+// testCaseResults = [
+//   require("./example-reports/video/results_417dd25e-d901-4b1e-9d43-3b78305a48e2.json"),
+//   require("./example-reports/video/results_c7d5d17d-42ed-4354-8b43-bb26e2d6feee.json"),
+// ];
 
 // Uncomment when testing with time simulation
 // -------------------------------------------
