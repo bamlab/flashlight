@@ -1,7 +1,11 @@
 import { AppiumDriver } from "@bam.tech/appium-helper";
 import { TestCase, measurePerformance } from "@perf-profiler/e2e";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { LogLevel, Logger } from "@perf-profiler/logger";
 
 const bundleId = "com.example";
+
+Logger.setLogLevel(LogLevel.DEBUG);
 
 const runTest = async () => {
   const driver = await AppiumDriver.create({
