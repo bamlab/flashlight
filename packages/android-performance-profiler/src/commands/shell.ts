@@ -56,7 +56,14 @@ export const executeAsync = (
   childProcess.on("close", (code) => {
     Logger.debug(`child process exited with code ${code}`);
 
-    if (code) {
+    const AUTHORIZED_CODES = [
+      0, // Success
+      140, // SIGKILL
+      143, // SIGTERM
+    ];
+
+    // SIGKILL or SIGTERM are likely to be normal, since we request termination from JS side
+    if (code && !AUTHORIZED_CODES.includes(code)) {
       throw new AsyncExecutionError(`Process for ${command} exited with code ${code}`);
     }
   });
