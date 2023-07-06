@@ -18512,7 +18512,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         </svg>
       </div>
       <div
-        class="flex flex-col overflow-hidden"
+        class="flex flex-col justify-center overflow-hidden"
       >
         <div
           class="flex flex-row"

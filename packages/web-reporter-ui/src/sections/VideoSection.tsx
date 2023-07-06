@@ -114,7 +114,7 @@ export const VideoSection = ({ results }: { results: TestCaseResult[] }) => {
           }`}
         />
       </div>
-      <div className="flex flex-col overflow-hidden">
+      <div className="flex flex-col justify-center overflow-hidden">
         <div className="flex flex-row">
           {results.length > 1 ? (
             <div className="flex flex-row">
