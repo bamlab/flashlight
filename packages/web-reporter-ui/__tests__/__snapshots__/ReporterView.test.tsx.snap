@@ -18490,76 +18490,99 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       />
     </div>
     <div
-      class="flex flex-col h-full justify-center bg-dark-charcoal p-8 overflow-x-auto flex-shrink-0 max-w-[50vw]"
+      class="flex flex-row flex-nowrap h-full justify-center bg-dark-charcoal overflow-auto py-8 flex-shrink-0 transition-[max-width] max-w-[50vw]"
     >
       <div
-        class="flex flex-row"
+        class="self-center py-8 cursor-pointer"
+      >
+        <svg
+          class="transition-transform ease-linear -rotate-90"
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <path
+            class="stroke-white"
+            d="m8.5 10 4 4 4-4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+          />
+        </svg>
+      </div>
+      <div
+        class="flex flex-col justify-center overflow-hidden"
       >
         <div
           class="flex flex-row"
         >
-          <button
-            class="text-sm font-medium px-4 py-2 rounded bg-theme-color shadow-theme-color shadow-glow text-black  "
-          >
-            Reset
-          </button>
           <div
-            class="w-2"
-          />
-          <button
-            class="text-sm font-medium px-4 py-2 rounded bg-theme-color shadow-theme-color shadow-glow text-black  "
+            class="flex flex-row"
           >
-            Play all
-          </button>
-        </div>
-      </div>
-      <div
-        class="flex flex-1 flex-row max-h-[600px]"
-      >
-        <div
-          class="flex flex-1 flex-col"
-          style="width: 300px;"
-        >
-          <h6
-            class="text-white truncate m-1"
-          >
-            RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
-          </h6>
-          <div
-            class="flex flex-1 relative"
-          >
-            <video
-              class="bg-black w-full h-full absolute top-0 bottom-0 left-0 right-0"
-              controls=""
+            <button
+              class="text-sm font-medium px-4 py-2 rounded bg-theme-color shadow-theme-color shadow-glow text-black  "
             >
-              <source
-                src="results_417dd25e-d901-4b1e-9d43-3b78305a48e2_iteration_0.mp4"
-                type="video/mp4"
-              />
-            </video>
+              Reset
+            </button>
+            <div
+              class="w-2"
+            />
+            <button
+              class="text-sm font-medium px-4 py-2 rounded bg-theme-color shadow-theme-color shadow-glow text-black  "
+            >
+              Play all
+            </button>
           </div>
         </div>
         <div
-          class="flex flex-1 flex-col"
-          style="width: 300px;"
+          class="flex flex-1 flex-row max-h-[600px] gap-4 overflow-scroll pr-6"
         >
-          <h6
-            class="text-white truncate m-1"
-          >
-            fabric-many-texts (com.fabricenabled)
-          </h6>
           <div
-            class="flex flex-1 relative"
+            class="flex flex-col"
+            style="width: 300px;"
           >
-            <video
-              class="bg-black w-full h-full absolute top-0 bottom-0 left-0 right-0"
-              controls=""
+            <h6
+              class="text-white truncate m-1"
             >
-              <source
-                src="results_c7d5d17d-42ed-4354-8b43-bb26e2d6feee_iteration_0.mp4"
-                type="video/mp4"
-              />
-            </video>
+              RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
+            </h6>
+            <div
+              class="flex flex-1 relative"
+            >
+              <video
+                class="bg-black w-full h-full absolute top-0 bottom-0 left-0 right-0"
+                controls=""
+              >
+                <source
+                  src="results_417dd25e-d901-4b1e-9d43-3b78305a48e2_iteration_0.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+          </div>
+          <div
+            class="flex flex-col"
+            style="width: 300px;"
+          >
+            <h6
+              class="text-white truncate m-1"
+            >
+              fabric-many-texts (com.fabricenabled)
+            </h6>
+            <div
+              class="flex flex-1 relative"
+            >
+              <video
+                class="bg-black w-full h-full absolute top-0 bottom-0 left-0 right-0"
+                controls=""
+              >
+                <source
+                  src="results_c7d5d17d-42ed-4354-8b43-bb26e2d6feee_iteration_0.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
           </div>
         </div>
       </div>
