@@ -1,5 +1,9 @@
-import "./utils/mockChildProcess";
-import { spawn, emitMeasures } from "./utils/mockEmitMeasures";
+import "@perf-profiler/e2e/src/utils/test/mockChildProcess";
+import {
+  emitMeasures,
+  perfProfilerMock,
+  aTraceMock,
+} from "@perf-profiler/e2e/src/utils/test/mockEmitMeasures";
 import { fireEvent, render as webRender, screen, waitFor, act } from "@testing-library/react";
 import { render as cliRender } from "ink-testing-library";
 import { MeasureWebApp } from "../webapp/MeasureWebApp";
@@ -84,7 +88,8 @@ describe("flashlight measure interactive", () => {
 
     // Stop measuring
     fireEvent.click(screen.getByText("Stop Measuring"));
-    await waitFor(() => expect(spawn.kill).toBeCalled());
+    await waitFor(() => expect(aTraceMock.kill).toBeCalled());
+    await waitFor(() => expect(perfProfilerMock.kill).toBeCalled());
 
     // Close apps
 

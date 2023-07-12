@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include "utils.h"
 
+using std::cerr;
 using std::cout;
 using std::endl;
 using std::string;
@@ -28,13 +29,25 @@ void readFile(string filePath)
     }
     else
     {
-        cout << "C++ Error, file couldn't be opened" << endl;
+        cerr << "CPP_ERROR_CANNOT_OPEN_FILE " + filePath << endl;
     }
 }
+
+class PidClosedError : public std::runtime_error
+{
+public:
+    PidClosedError(const std::string &message)
+        : std::runtime_error(message) {}
+};
 
 void printCpuStats(string pid)
 {
     string path = "/proc/" + pid + "/task";
+
+    if (!fs::exists(path))
+    {
+        throw PidClosedError("Directory does not exist: " + path);
+    }
 
     for (const auto &entry : fs::directory_iterator(path))
     {
@@ -86,13 +99,46 @@ long long printPerformanceMeasure(string pid)
     return totalDuration.count();
 }
 
-void pollPerformanceMeasures(std::string pid, int interval)
+std::string pidOf(string bundleId)
 {
-    while (true)
+    auto result = executeCommand("pidof " + bundleId);
+    return result.substr(0, result.find_first_of("\n"));
+}
+
+void pollPerformanceMeasures(std::string bundleId, int interval)
+{
+    string pid = "";
+
+    // We read atrace lines before the app is started
+    // since it can take a bit of time to start and clear the traceOutputPath
+    // but we'll clear them out periodically while the app isn't started
+    std::thread aTraceReadThread(readATraceThread);
+
+    cout << "Waiting for process to start..." << endl;
+
+    while (pid == "")
     {
-        auto duration = printPerformanceMeasure(pid);
-        std::this_thread::sleep_for(std::chrono::milliseconds(interval - duration));
+        clearATraceLines();
+        pid = pidOf(bundleId);
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
+
+    try
+    {
+        while (true)
+        {
+            auto duration = printPerformanceMeasure(pid);
+            std::this_thread::sleep_for(std::chrono::milliseconds(interval - duration));
+        }
+    }
+    catch (const PidClosedError &e)
+    {
+        cerr << "CPP_ERROR_MAIN_PID_CLOSED " + pid << endl;
+        pollPerformanceMeasures(bundleId, interval);
+        return;
+    }
+
+    aTraceReadThread.join();
 }
 
 void printCpuClockTick()
@@ -105,12 +151,6 @@ void printRAMPageSize()
     cout << sysconf(_SC_PAGESIZE) << endl;
 }
 
-std::string pidOf(string bundleId)
-{
-    auto result = executeCommand("pidof " + bundleId);
-    return result.substr(0, result.find_first_of("\n"));
-}
-
 int main(int argc, char **argv)
 {
     string methodName = argv[1];
@@ -119,24 +159,8 @@ int main(int argc, char **argv)
     {
         string bundleId = argv[2];
         int interval = std::stoi(argv[3]);
-        string pid = "";
 
-        // We read atrace lines before the app is started
-        // since it can take a bit of time to start and clear the traceOutputPath
-        // but we'll clear them out periodically while the app isn't started
-        std::thread aTraceReadThread(readATraceThread);
-
-        cout << "Waiting for process to start..." << endl;
-
-        while (pid == "")
-        {
-            clearATraceLines();
-            pid = pidOf(bundleId);
-            std::this_thread::sleep_for(std::chrono::milliseconds(50));
-        }
-
-        pollPerformanceMeasures(pid, interval);
-        aTraceReadThread.join();
+        pollPerformanceMeasures(bundleId, interval);
     }
     else if (methodName == "printPerformanceMeasure")
     {

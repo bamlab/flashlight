@@ -33,7 +33,14 @@ if (!global.Flipper) {
   process.on("SIGTERM", exit); // `kill` command
 }
 
-export const executeAsync = (command: string): ChildProcess => {
+class AsyncExecutionError extends Error {}
+
+export const executeAsync = (
+  command: string,
+  { logStderr } = {
+    logStderr: true,
+  }
+): ChildProcess => {
   const parts = command.split(" ");
 
   const childProcess = spawn(parts[0], parts.slice(1));
@@ -43,11 +50,22 @@ export const executeAsync = (command: string): ChildProcess => {
   });
 
   childProcess.stderr?.on("data", (data) => {
-    Logger.error(`Process for ${command} errored with ${data.toString()}`);
+    if (logStderr) Logger.error(`Process for ${command} errored with ${data.toString()}`);
   });
 
   childProcess.on("close", (code) => {
     Logger.debug(`child process exited with code ${code}`);
+
+    const AUTHORIZED_CODES = [
+      0, // Success
+      140, // SIGKILL
+      143, // SIGTERM
+    ];
+
+    // SIGKILL or SIGTERM are likely to be normal, since we request termination from JS side
+    if (code && !AUTHORIZED_CODES.includes(code)) {
+      throw new AsyncExecutionError(`Process for ${command} exited with code ${code}`);
+    }
   });
 
   childProcess.on("error", (err) => {
@@ -64,7 +82,9 @@ export const executeLongRunningProcess = (
   delimiter: string,
   onData: (data: string) => void
 ) => {
-  const process = executeAsync(command);
+  const process = executeAsync(command, {
+    logStderr: false,
+  });
   let currentChunk = "";
 
   process.stdout?.on("data", (data: ReadableStream<string>) => {
@@ -83,9 +103,5 @@ export const executeLongRunningProcess = (
     }
   });
 
-  return {
-    stop: () => {
-      process.kill();
-    },
-  };
+  return process;
 };
