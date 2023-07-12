@@ -149,7 +149,7 @@ export const pollPerformanceMeasures = (
   process.stderr?.on("data", (data) => {
     const log = data.toString();
 
-    // Ignore errors, it might be that the thread is dead and we can read stats anymore
+    // Ignore errors, it might be that the thread is dead and we can't read stats anymore
     if (log.includes("CPP_ERROR_CANNOT_OPEN_FILE")) {
       Logger.debug(log);
     } else if (log.includes("CPP_ERROR_MAIN_PID_CLOSED")) {
