@@ -3,23 +3,23 @@
 Requirements:
 
 - `maestro` installed
+- `node` installed
 
 ## Steps
 
-- Run `yarn` and `yarn watch` at the root
+- Get a running simulator id with `xcrun simctl list devices`
 - Create template Flashlight in Xcode Instruments (with cpu-profile and memory usage)
-- Fill in `app_id` and `simulator_id` in `ios.sh`
-- Change the `app_id` in both `launch.yaml` and `test.yaml`
-- Start the device
-- Run
-
-```bash
-./ios.sh
-```
+- Add your own test in `test.yaml`
+- `flashlight-ios-poc ios-test --appId <YOUR_APP_ID> --simulatorId 9F852910-03AD-495A-8E16-7356B764284 --testCommand "maestro test test.yaml" --resultsFilePath "./result.json"`
 
 - Check the results in the web-reporter
-  `yarn workspace @perf-profiler/web-reporter start`
+  `yarn workspace @perf-profiler/web-reporter build`
+- `node packages/web-reporter/dist/openReport.js report result.json`
 
 ## Next steps
 
-- rewrite ios.sh in TS
+- submit PR and publish report command
+- auto creation template flashlight (in xcode instruments)
+- run several iterations
+- add more metrics (RAM, FPS, CPU per thread)
+- Unify API with flashlight test
