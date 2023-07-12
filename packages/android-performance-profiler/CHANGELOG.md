@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.10.1...@perf-profiler/profiler@0.10.2) (2023-07-12)
+
+### Bug Fixes
+
+- **profiler:** add sigint to authorized exit codes ([3447a38](https://github.com/bamlab/android-performance-profiler/commit/3447a38b944fd99b3e91328b9bc022c8b387fc21))
+
 ## [0.10.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.10.0...@perf-profiler/profiler@0.10.1) (2023-07-12)
 
 ### Bug Fixes
