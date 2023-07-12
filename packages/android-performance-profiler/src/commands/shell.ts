@@ -58,6 +58,7 @@ export const executeAsync = (
 
     const AUTHORIZED_CODES = [
       0, // Success
+      130, // SIGINT
       140, // SIGKILL
       143, // SIGTERM
     ];
