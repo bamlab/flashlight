@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.11.0...@perf-profiler/web-reporter-ui@0.12.0) (2023-07-12)
+
+### Features
+
+- make the video panel collapsible with animation ([#136](https://github.com/bamlab/android-performance-profiler/issues/136)) ([552b70d](https://github.com/bamlab/android-performance-profiler/commit/552b70d651b4e491801daebc5f6f6918478cd5d3))
+
 # [0.11.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.10.0...@perf-profiler/web-reporter-ui@0.11.0) (2023-06-28)
 
 ### Features

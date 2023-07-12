@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.10.0...@perf-profiler/e2e@0.10.1) (2023-07-12)
+
+### Bug Fixes
+
+- **profiler:** no such file /proc/{pid}/task ([#117](https://github.com/bamlab/android-performance-profiler/issues/117)) ([a3db43f](https://github.com/bamlab/android-performance-profiler/commit/a3db43f60beac4569dc7e96753497f26f7f8e605))
+
 # [0.10.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.9.4...@perf-profiler/e2e@0.10.0) (2023-06-28)
 
 ### Features
