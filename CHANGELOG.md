@@ -1,3 +1,24 @@
+# [0.10.0](https://github.com/bamlab/flashlight/compare/v0.8.0...v0.10.0) (2023-07-13)
+
+### Bug Fixes
+
+- **profiler:** fix no such file issue for apps with background processes ([#117](https://github.com/bamlab/flashlight/issues/117)) ([a3db43f](https://github.com/bamlab/flashlight/commit/a3db43f60beac4569dc7e96753497f26f7f8e605))
+
+### Features
+
+- **report:** make the video panel collapsible with animation ([#136](https://github.com/bamlab/flashlight/issues/136)) ([552b70d](https://github.com/bamlab/flashlight/commit/552b70d651b4e491801daebc5f6f6918478cd5d3))
+
+# [0.9.0](https://github.com/bamlab/flashlight/compare/v0.8.0...v0.9.0) (2023-07-13)
+
+### Bug Fixes
+
+- **profiler:** add sigint to authorized exit codes ([3447a38](https://github.com/bamlab/flashlight/commit/3447a38b944fd99b3e91328b9bc022c8b387fc21))
+- **profiler:** no such file /proc/{pid}/task ([#117](https://github.com/bamlab/flashlight/issues/117)) ([a3db43f](https://github.com/bamlab/flashlight/commit/a3db43f60beac4569dc7e96753497f26f7f8e605))
+
+### Features
+
+- make the video panel collapsible with animation ([#136](https://github.com/bamlab/flashlight/issues/136)) ([552b70d](https://github.com/bamlab/flashlight/commit/552b70d651b4e491801daebc5f6f6918478cd5d3))
+
 # [0.9.0](https://github.com/bamlab/flashlight/compare/v0.8.0...v0.9.0) (2023-07-04)
 
 # [0.8.0](https://github.com/bamlab/flashlight/compare/v0.7.3...v0.8.0) (2023-06-28)
