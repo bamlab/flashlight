@@ -5,3 +5,4 @@ coverage
 report.js
 report.html
 results*.json
+.docusaurus

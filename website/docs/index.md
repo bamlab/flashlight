@@ -31,7 +31,7 @@ import CodeBlock from '@theme/CodeBlock';
 
 Then the simplest way to get started is to run the `flashlight measure` command:
 
-<video controls style={{width: "100%"}}>
+<video autoplay="" muted controls style={{width: "100%"}}>
 
   <source src="https://github.com/bamlab/flashlight/assets/4534323/4038a342-f145-4c3b-8cde-17949bf52612"/>
 </video>
