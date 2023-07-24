@@ -7,9 +7,10 @@ setThemeAtRandom();
 const INTERVAL_MS = 1000;
 
 const getData = (res: IOSTestCaseResult) => {
-  const data: [number, number][] = res.measures.map(
-    ([x, y]: [number, number]) => [x / 1_000_000, y]
-  );
+  const data: [number, number][] = res.measures.map(([x, y]: [number, number]) => [
+    x / 1_000_000,
+    y,
+  ]);
 
   const maxTime = data[data.length - 1][0];
 

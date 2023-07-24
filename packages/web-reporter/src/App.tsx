@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  IOSTestCaseResult,
-  isIOSTestCaseResult,
-  TestCaseResult,
-} from "@perf-profiler/types";
+import { IOSTestCaseResult, isIOSTestCaseResult, TestCaseResult } from "@perf-profiler/types";
 import {
   IterationsReporterView,
   PageBackground,
@@ -63,8 +59,7 @@ export function App() {
   // testCaseResults = useTimeSimulationResults();
   if (!testCaseResults) return null;
 
-  if (isIOSTestCaseResult(testCaseResults))
-    return <IOSApp results={testCaseResults} />;
+  if (isIOSTestCaseResult(testCaseResults)) return <IOSApp results={testCaseResults} />;
 
   return (
     <>
