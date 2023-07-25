@@ -1,0 +1,24 @@
+{
+  "name": "flashlight-ios-poc",
+  "version": "0.1.1",
+  "description": "",
+  "bin": {
+    "flashlight-ios-poc": "./dist/launchIOS.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@perf-profiler/types": "^0.4.0",
+    "@perf-profiler/profiler": "^0.10.2",
+    "xml2js": "^0.6.0",
+    "commander": "^9.4.0"
+  },
+  "devDependencies": {
+    "@types/xml2js": "^0.4.11"
+  }
+}

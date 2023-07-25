@@ -1,15 +1,18 @@
 import React from "react";
-import { TestCaseResult } from "@perf-profiler/types";
+import { IOSTestCaseResult, isIOSTestCaseResult, TestCaseResult } from "@perf-profiler/types";
 import {
   IterationsReporterView,
   PageBackground,
   setThemeAtRandom,
 } from "@perf-profiler/web-reporter-ui";
+import { IOSApp } from "./IOSApp";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line prefer-const
-let testCaseResults: TestCaseResult[] = "INSERT_HERE";
+let testCaseResults: TestCaseResult[] | IOSTestCaseResult[] =
+  // Use very long string so that Parcel won't use it more than once, would be nice to find a better solution
+  "THIS_IS_A_VERY_LONG_STRING_THAT_IS_UNLIKELY_TO_BE_FOUND_IN_A_TEST_CASE_RESULT";
 
 // Uncomment with when locally testing
 // // Without videos
@@ -21,6 +24,11 @@ let testCaseResults: TestCaseResult[] = "INSERT_HERE";
 // testCaseResults = [
 //   require("./example-reports/video/results_417dd25e-d901-4b1e-9d43-3b78305a48e2.json"),
 //   require("./example-reports/video/results_c7d5d17d-42ed-4354-8b43-bb26e2d6feee.json"),
+// ];
+// IOS Experimental
+// testCaseResults = [
+//   require("./example-reports/ios/ios_1.json"),
+//   require("./example-reports/ios/ios_2.json"),
 // ];
 
 // Uncomment when testing with time simulation
@@ -49,11 +57,14 @@ setThemeAtRandom();
 
 export function App() {
   // testCaseResults = useTimeSimulationResults();
+  if (!testCaseResults) return null;
 
-  return testCaseResults ? (
+  if (isIOSTestCaseResult(testCaseResults)) return <IOSApp results={testCaseResults} />;
+
+  return (
     <>
       <PageBackground />
       <IterationsReporterView results={testCaseResults} />
     </>
-  ) : null;
+  );
 }

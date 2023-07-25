@@ -1,5 +1,10 @@
 import fs from "fs";
-import { POLLING_INTERVAL, TestCaseResult } from "@perf-profiler/types";
+import {
+  IOSTestCaseResult,
+  isIOSTestCaseResult,
+  POLLING_INTERVAL,
+  TestCaseResult,
+} from "@perf-profiler/types";
 import path from "path";
 
 const assertTimeIntervalMultiple = (n: number) => {
@@ -85,20 +90,24 @@ export const writeReport = ({
       .flat();
   };
 
-  const results: TestCaseResult[] = getJsonPaths().map((path) =>
+  const results: TestCaseResult[] | IOSTestCaseResult[] = getJsonPaths().map((path) =>
     JSON.parse(fs.readFileSync(path, "utf8"))
   );
 
-  const report = JSON.stringify(getMeasuresForTimeInterval({ results, skip, duration }));
+  const report = JSON.stringify(
+    isIOSTestCaseResult(results) ? results : getMeasuresForTimeInterval({ results, skip, duration })
+  );
 
-  const jsFileContent = fs
-    .readFileSync(`${__dirname}/${scriptName}`, "utf8")
-    .replace('"INSERT_HERE"', report);
+  const jsFileContent = fs.readFileSync(`${__dirname}/${scriptName}`, "utf8").replace(
+    // See App.tsx for the reason why we do this
+    '"THIS_IS_A_VERY_LONG_STRING_THAT_IS_UNLIKELY_TO_BE_FOUND_IN_A_TEST_CASE_RESULT"',
+    report
+  );
 
   fs.writeFileSync(`${outputDir}/report.js`, jsFileContent);
 
   const htmlFilePath = `${outputDir}/report.html`;
-  copyVideoFiles(results, outputDir);
+  if (!isIOSTestCaseResult(results)) copyVideoFiles(results, outputDir);
   fs.writeFileSync(htmlFilePath, newHtmlContent);
   return htmlFilePath;
 };
