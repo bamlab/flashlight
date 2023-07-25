@@ -4128,21 +4128,6 @@
     chrome-trace-event "^1.0.2"
     nullthrows "^1.1.1"
 
-"@perf-profiler/profiler@^0.9.2":
-  version "0.9.2"
-  resolved "https://registry.yarnpkg.com/@perf-profiler/profiler/-/profiler-0.9.2.tgz#f977119ea6fe09174a7fb42b106ec38589fd6c04"
-  integrity sha512-uizHbMQFnlenfkn4pTsf/F2lS6scUhWO0KfGpvl0uUEUbcTIsjwNuJaj6O2zaJOnpA+AEZ2H2fRmZRfQrGhWGA==
-  dependencies:
-    "@perf-profiler/logger" "^0.3.0"
-    "@perf-profiler/types" "^0.3.1"
-    commander "^9.4.0"
-    lodash "^4.17.21"
-
-"@perf-profiler/types@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@perf-profiler/types/-/types-0.3.1.tgz#b9cd21539066d84f4d86232e4b85ce5ddc991b08"
-  integrity sha512-rntMAu4kspJB7X/I8ucYMJsBFnQrh9zdMrt8+v+58vEGVTCMxAAySXclMSIdE2OARtEx6U73zmlQHEhZZkgfTw==
-
 "@popperjs/core@^2.11.4":
   version "2.11.5"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.5.tgz#db5a11bf66bdab39569719555b0f76e138d7bd64"
