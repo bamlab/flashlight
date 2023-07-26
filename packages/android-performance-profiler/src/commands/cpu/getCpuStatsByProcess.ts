@@ -9,7 +9,17 @@ export const processOutput = (output: string, pid: string): ProcessStat[] =>
   output
     .split(/\r\n|\n|\r/)
     .filter(Boolean)
-    .map((stats) => stats.split(" "))
+    .map((stats) => {
+      const match = stats.match(/^(\d+) \(([^)]+)\) (.*)/);
+      if (!match) {
+        throw new Error(`Invalid line: ${stats}`);
+      }
+
+      const [, processId, processName, remaining] = match;
+      const parts = remaining.split(" ");
+
+      return [processId, processName, ...parts];
+    })
     .filter(Boolean)
     .map((subProcessStats) => {
       const processId = subProcessStats[0];

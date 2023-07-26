@@ -8,7 +8,7 @@ Auto-Detect
 Stop Measuring
 Reset
 Results
-48
+47
 Average Test Runtime
 1000 ms
 Time taken to run the test.
@@ -22,7 +22,7 @@ this video
  
 for more details
 Average CPU usage
-80 %
+83 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
@@ -55,10 +55,13 @@ mqt_js
 com.example
 24
 0
+OkHttp Dispatch
+3
+0
 RenderThread
 3
 0
-OkHttp
+Jit thread pool
 1
 0
 mali-cmar-backe
@@ -67,16 +70,13 @@ mali-cmar-backe
 mqt_native_modu
 1
 0
-Signal
+Signal Catcher
 0
 0
 perfetto_hprof_
 0
 0
-ADB-JDWP
-0
-0
-Jit
+ADB-JDWP Connec
 0
 0
 HeapTaskDaemon
@@ -100,13 +100,13 @@ Binder #2
 Binder #3
 0
 0
-Profile
+Profile Saver
 0
 0
 queued-work-loo
 0
 0
-AsyncTask
+AsyncTask #1
 0
 0
 FlipperEventBas
@@ -115,7 +115,7 @@ FlipperEventBas
 FlipperConnecti
 0
 0
-HybridData
+HybridData Dest
 0
 0
 FutureTimekeepr
@@ -143,6 +143,9 @@ CookieMonsterBa
 0
 0
 alhost:8097/...
+0
+0
+OkHttp TaskRunn
 0
 0
 Binder #4
@@ -345,7 +348,7 @@ exports[`displays FPS data and scoring 2`] = `
                   />
                   <path
                     class="stroke-error"
-                    d="M 111.27999102078736 189.290323118303 A 90 90 0 0 0 100 10"
+                    d="M 116.8643183127152 188.405852565582 A 90 90 0 0 0 100 10"
                     stroke-width="20"
                   />
                   <text
@@ -356,7 +359,7 @@ exports[`displays FPS data and scoring 2`] = `
                     x="100"
                     y="100"
                   >
-                    48
+                    47
                   </text>
                 </svg>
                 <div
@@ -536,7 +539,7 @@ exports[`displays FPS data and scoring 2`] = `
                           <div
                             class="text-neutral-300 whitespace-pre"
                           >
-                            80 %
+                            83 %
                           </div>
                           <div
                             class="w-2"
@@ -1067,7 +1070,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-2"
                         scope="row"
                       >
-                        RenderThread
+                        OkHttp Dispatch
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1119,12 +1122,12 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-3"
                         scope="row"
                       >
-                        OkHttp
+                        RenderThread
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                       >
-                        1
+                        3
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1171,7 +1174,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-4"
                         scope="row"
                       >
-                        mali-cmar-backe
+                        Jit thread pool
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1223,7 +1226,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-5"
                         scope="row"
                       >
-                        mqt_native_modu
+                        mali-cmar-backe
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1275,12 +1278,12 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-6"
                         scope="row"
                       >
-                        Signal
+                        mqt_native_modu
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                       >
-                        0
+                        1
                       </td>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1327,7 +1330,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-7"
                         scope="row"
                       >
-                        perfetto_hprof_
+                        Signal Catcher
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1379,7 +1382,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-8"
                         scope="row"
                       >
-                        ADB-JDWP
+                        perfetto_hprof_
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1431,7 +1434,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-9"
                         scope="row"
                       >
-                        Jit
+                        ADB-JDWP Connec
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1847,7 +1850,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-17"
                         scope="row"
                       >
-                        Profile
+                        Profile Saver
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1951,7 +1954,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-19"
                         scope="row"
                       >
-                        AsyncTask
+                        AsyncTask #1
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2107,7 +2110,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-22"
                         scope="row"
                       >
-                        HybridData
+                        HybridData Dest
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2627,7 +2630,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-32"
                         scope="row"
                       >
-                        Binder #4
+                        OkHttp TaskRunn
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2679,7 +2682,7 @@ exports[`displays FPS data and scoring 2`] = `
                         id="enhanced-table-checkbox-33"
                         scope="row"
                       >
-                        Binder #5
+                        Binder #4
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2729,6 +2732,58 @@ exports[`displays FPS data and scoring 2`] = `
                       <th
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-13jtlv-MuiTableCell-root"
                         id="enhanced-table-checkbox-34"
+                        scope="row"
+                      >
+                        Binder #5
+                      </th>
+                      <td
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
+                      >
+                        0
+                      </td>
+                      <td
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
+                      >
+                        0
+                      </td>
+                    </tr>
+                    <tr
+                      aria-checked="false"
+                      class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                      role="checkbox"
+                      tabindex="-1"
+                    >
+                      <td
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
+                      >
+                        <span
+                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                        >
+                          <input
+                            aria-labelledby="enhanced-table-checkbox-35"
+                            class="PrivateSwitchBase-input css-1m9pwf3"
+                            data-indeterminate="false"
+                            type="checkbox"
+                          />
+                          <svg
+                            aria-hidden="true"
+                            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+                            data-testid="CheckBoxOutlineBlankIcon"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            />
+                          </svg>
+                          <span
+                            class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+                          />
+                        </span>
+                      </td>
+                      <th
+                        class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingNone MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-13jtlv-MuiTableCell-root"
+                        id="enhanced-table-checkbox-35"
                         scope="row"
                       >
                         JITWorker

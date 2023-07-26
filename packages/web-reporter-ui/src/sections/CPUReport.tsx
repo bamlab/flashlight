@@ -28,7 +28,7 @@ const perThreadCpuAnnotationInterval = [{ y: 90, y2: 100, color: "#E62E2E", labe
 export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
   const reactNativeDetected = results.every((result) => result.reactNativeDetected);
   const [selectedThreads, setSelectedThreads] = React.useState<string[]>(
-    reactNativeDetected ? ["(mqt_js)"] : ["UI Thread"]
+    reactNativeDetected ? ["mqt_js"] : ["UI Thread"]
   );
 
   const threads = selectedThreads

@@ -66,7 +66,7 @@ export const averageTestCaseResult = (result: TestCaseResult): AveragedTestCaseR
     average: averagedIterations,
     averageHighCpuUsage: averageHighCpuUsage(result.iterations),
     reactNativeDetected: averagedIterations.measures.some((measure) =>
-      Object.keys(measure.cpu.perName).some((key) => key === "(mqt_js)")
+      Object.keys(measure.cpu.perName).some((key) => key === "mqt_js")
     ),
   };
 };
