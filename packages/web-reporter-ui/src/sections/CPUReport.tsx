@@ -1,5 +1,10 @@
 import React from "react";
-import { AveragedTestCaseResult, Measure, POLLING_INTERVAL } from "@perf-profiler/types";
+import {
+  AveragedTestCaseResult,
+  Measure,
+  POLLING_INTERVAL,
+  ThreadNames,
+} from "@perf-profiler/types";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
 import { Chart } from "../components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
@@ -28,7 +33,7 @@ const perThreadCpuAnnotationInterval = [{ y: 90, y2: 100, color: "#E62E2E", labe
 export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
   const reactNativeDetected = results.every((result) => result.reactNativeDetected);
   const [selectedThreads, setSelectedThreads] = React.useState<string[]>(
-    reactNativeDetected ? ["mqt_js"] : ["UI Thread"]
+    reactNativeDetected ? [ThreadNames.JS_THREAD] : [ThreadNames.UI_THREAD]
   );
 
   const threads = selectedThreads

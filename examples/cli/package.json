@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "dependencies": {
     "@perf-profiler/reporter": "*",
-    "@perf-profiler/profiler": "*"
+    "@perf-profiler/profiler": "*",
+    "@perf-profiler/types": "*"
   }
 }

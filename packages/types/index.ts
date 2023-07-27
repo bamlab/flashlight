@@ -62,3 +62,8 @@ export const isIOSTestCaseResult = (
 ): result is IOSTestCaseResult[] => {
   return result[0].type === "IOS_EXPERIMENTAL";
 };
+
+export const ThreadNames = {
+  UI_THREAD: "UI Thread",
+  JS_THREAD: "mqt_js",
+};
