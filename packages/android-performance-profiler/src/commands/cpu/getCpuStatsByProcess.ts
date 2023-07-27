@@ -7,8 +7,21 @@ export interface ProcessStat {
   cpuNumber: string;
 }
 
-export const processOutput = (output: string, pid: string): ProcessStat[] =>
-  output
+export const processOutput = (output: string, pid: string): ProcessStat[] => {
+  /**
+   * We can have multiple processes with the same name but a different pid
+   *
+   * Say your app dispatches multiple "OkHttp Dispatch" processes to make several requests at the same time
+   *
+   * We'll display:
+   *  - OkHttp Dispatch: xx%
+   *  - OkHttp Dispatch (2): xx%
+   *  - OkHttp Dispatch (3): xx%
+   *  ...
+   */
+  const processNameCount: { [name: string]: number } = {};
+
+  return output
     .split(/\r\n|\n|\r/)
     .filter(Boolean)
     .map((stats) => {
@@ -31,6 +44,12 @@ export const processOutput = (output: string, pid: string): ProcessStat[] =>
         processName = processName.replace(`Binder:${pid}_`, "Binder #");
       }
 
+      processNameCount[processName] = (processNameCount[processName] || 0) + 1;
+
+      if (processNameCount[processName] > 1) {
+        processName = `${processName} (${processNameCount[processName]})`;
+      }
+
       const utime = parseInt(subProcessStats[13], 10);
       const stime = parseInt(subProcessStats[14], 10);
 
@@ -40,3 +59,4 @@ export const processOutput = (output: string, pid: string): ProcessStat[] =>
 
       return { processId, processName, totalCpuTime, cpuNumber };
     });
+};
