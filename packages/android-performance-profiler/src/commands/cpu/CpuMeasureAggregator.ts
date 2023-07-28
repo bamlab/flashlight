@@ -51,8 +51,6 @@ export class CpuMeasureAggregator {
       (stat: ProcessStat) => stat.cpuNumber,
       interval
     );
-    // Not exactly sure what cpu number-1 is, deleting for now
-    delete cpuUsagePerCore["-1"];
 
     const cpuUsagePerProcessName = this.groupCpuUsage(
       stats,

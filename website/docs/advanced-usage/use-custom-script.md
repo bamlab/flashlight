@@ -10,6 +10,7 @@ import {
   Measure,
   pollPerformanceMeasures,
 } from "@perf-profiler/profiler";
+import { ThreadNames } from "@perf-profiler/types";
 
 const { bundleId } = detectCurrentAppBundleId();
 const pid = getPidId(bundleId);
@@ -19,7 +20,7 @@ const measures: Measure[] = [];
 const polling = pollPerformanceMeasures(pid, {
   onMeasure: (measure) => {
     measures.push(measure);
-    console.log(`JS Thread CPU Usage: ${measure.cpu.perName["(mqt_js)"]}%`);
+    console.log(`JS Thread CPU Usage: ${measure.cpu.perName[ThreadNames.JS_THREAD]}%`);
   },
 });
 

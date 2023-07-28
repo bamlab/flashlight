@@ -1,4 +1,4 @@
-import { Measure } from "@perf-profiler/types";
+import { Measure, ThreadNames } from "@perf-profiler/types";
 import { CpuMeasureAggregator } from "./cpu/CpuMeasureAggregator";
 import { processOutput } from "./cpu/getCpuStatsByProcess";
 import { processOutput as processRamOutput } from "./ram/pollRamUsage";
@@ -55,7 +55,7 @@ export const pollPerformanceMeasures = (
           frameTimes,
           atraceInterval,
           Math.max(
-            cpuMeasures.perName["UI Thread"] || 0,
+            cpuMeasures.perName[ThreadNames.UI_THREAD] || 0,
             // Hack for Flutter apps - if this thread is heavy app will be laggy
             cpuMeasures.perName["(1.ui)"] || 0
           )

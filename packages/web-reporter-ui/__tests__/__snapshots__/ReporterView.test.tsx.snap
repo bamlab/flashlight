@@ -1713,8 +1713,8 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  aria-checked="true"
-                  class="MuiTableRow-root Mui-selected MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  aria-checked="false"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
                   role="checkbox"
                   tabindex="-1"
                 >
@@ -1722,11 +1722,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                   >
                     <span
-                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-labelledby="enhanced-table-checkbox-0"
-                        checked=""
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         type="checkbox"
@@ -1734,12 +1733,12 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <svg
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                        data-testid="CheckBoxIcon"
+                        data-testid="CheckBoxOutlineBlankIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                         />
                       </svg>
                       <span
@@ -12761,8 +12760,8 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                 class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
               >
                 <tr
-                  aria-checked="true"
-                  class="MuiTableRow-root Mui-selected MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                  aria-checked="false"
+                  class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
                   role="checkbox"
                   tabindex="-1"
                 >
@@ -12770,11 +12769,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                   >
                     <span
-                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                      class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                     >
                       <input
                         aria-labelledby="enhanced-table-checkbox-0"
-                        checked=""
                         class="PrivateSwitchBase-input css-1m9pwf3"
                         data-indeterminate="false"
                         type="checkbox"
@@ -12782,12 +12780,12 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       <svg
                         aria-hidden="true"
                         class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                        data-testid="CheckBoxIcon"
+                        data-testid="CheckBoxOutlineBlankIcon"
                         focusable="false"
                         viewBox="0 0 24 24"
                       >
                         <path
-                          d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                          d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
                         />
                       </svg>
                       <span

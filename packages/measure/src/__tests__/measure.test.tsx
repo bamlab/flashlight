@@ -78,7 +78,7 @@ describe("flashlight measure interactive", () => {
     act(() => emitMeasures());
 
     // Find the score!
-    await screen.findByText("48");
+    await screen.findByText("47");
 
     // expand threads
     await screen.findByText("Threads");

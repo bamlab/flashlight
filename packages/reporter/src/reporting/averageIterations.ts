@@ -4,6 +4,7 @@ import {
   POLLING_INTERVAL,
   TestCaseIterationResult,
   TestCaseResult,
+  ThreadNames,
 } from "@perf-profiler/types";
 import { mapValues } from "lodash";
 import { getHighCpuUsageStats } from "./reporting";
@@ -66,7 +67,7 @@ export const averageTestCaseResult = (result: TestCaseResult): AveragedTestCaseR
     average: averagedIterations,
     averageHighCpuUsage: averageHighCpuUsage(result.iterations),
     reactNativeDetected: averagedIterations.measures.some((measure) =>
-      Object.keys(measure.cpu.perName).some((key) => key === "(mqt_js)")
+      Object.keys(measure.cpu.perName).some((key) => key === ThreadNames.JS_THREAD)
     ),
   };
 };
