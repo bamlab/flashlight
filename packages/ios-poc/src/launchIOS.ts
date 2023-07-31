@@ -2,7 +2,7 @@
 
 import { executeCommand } from "@perf-profiler/profiler/dist/src/commands/shell";
 import fs from "fs";
-import { toXml } from "./xml";
+import { writeReport } from "./writeReport";
 import { program } from "commander";
 import { execSync, exec } from "child_process";
 import os from "os";
@@ -50,12 +50,11 @@ const startRecord = (simulatorId: string, traceFile: string) => {
 };
 
 const save = (traceFile: string, resultsFilePath: string) => {
-  executeCommand(`mkdir -p ./report`);
   const xmlOutputFile = getTmpFilePath("report.xml");
   executeCommand(
     `xctrace export --input ${traceFile} --xpath '/trace-toc/run[@number="1"]/data/table[@schema="cpu-profile"]' --output ${xmlOutputFile}`
   );
-  toXml(xmlOutputFile, resultsFilePath);
+  writeReport(xmlOutputFile, resultsFilePath);
 };
 
 const launchTest = ({

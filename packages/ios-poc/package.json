@@ -15,10 +15,8 @@
   "dependencies": {
     "@perf-profiler/types": "^0.5.2",
     "@perf-profiler/profiler": "^0.10.2",
-    "xml2js": "^0.6.0",
-    "commander": "^9.4.0"
+    "commander": "^9.4.0",
+    "fast-xml-parser": "^4.2.7"
   },
-  "devDependencies": {
-    "@types/xml2js": "^0.4.11"
-  }
+  "devDependencies": {}
 }
