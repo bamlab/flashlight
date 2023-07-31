@@ -1,16 +1,15 @@
 import React from "react";
-import { IOSTestCaseResult, isIOSTestCaseResult, TestCaseResult } from "@perf-profiler/types";
+import { TestCaseResult } from "@perf-profiler/types";
 import {
   IterationsReporterView,
   PageBackground,
   setThemeAtRandom,
 } from "@perf-profiler/web-reporter-ui";
-import { IOSApp } from "./IOSApp";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line prefer-const
-let testCaseResults: TestCaseResult[] | IOSTestCaseResult[] =
+let testCaseResults: TestCaseResult[] =
   // Use very long string so that Parcel won't use it more than once, would be nice to find a better solution
   "THIS_IS_A_VERY_LONG_STRING_THAT_IS_UNLIKELY_TO_BE_FOUND_IN_A_TEST_CASE_RESULT";
 
@@ -58,8 +57,6 @@ setThemeAtRandom();
 export function App() {
   // testCaseResults = useTimeSimulationResults();
   if (!testCaseResults) return null;
-
-  if (isIOSTestCaseResult(testCaseResults)) return <IOSApp results={testCaseResults} />;
 
   return (
     <>
