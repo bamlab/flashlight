@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.26](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/appium-test-cases@0.3.25...@perf-profiler/appium-test-cases@0.3.26) (2023-07-31)
+
+**Note:** Version bump only for package @perf-profiler/appium-test-cases
+
 ## [0.3.25](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/appium-test-cases@0.3.24...@perf-profiler/appium-test-cases@0.3.25) (2023-07-31)
 
 **Note:** Version bump only for package @perf-profiler/appium-test-cases

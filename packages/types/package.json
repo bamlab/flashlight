@@ -1,5 +1,5 @@
 {
   "name": "@perf-profiler/types",
   "main": "dist/index.js",
-  "version": "0.5.0"
+  "version": "0.5.1"
 }
