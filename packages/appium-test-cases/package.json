@@ -1,11 +1,11 @@
 {
   "name": "@perf-profiler/appium-test-cases",
-  "version": "0.3.26",
+  "version": "0.3.27",
   "main": "dist/index.js",
   "dependencies": {
     "@bam.tech/appium-helper": "^0.5.2",
-    "@perf-profiler/e2e": "^0.10.4",
-    "@perf-profiler/reporter": "^0.6.2",
-    "@perf-profiler/types": "^0.5.1"
+    "@perf-profiler/e2e": "^0.10.5",
+    "@perf-profiler/reporter": "^0.6.3",
+    "@perf-profiler/types": "^0.5.2"
   }
 }

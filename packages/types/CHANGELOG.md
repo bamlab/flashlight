@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/types@0.5.1...@perf-profiler/types@0.5.2) (2023-07-31)
+
+### Bug Fixes
+
+- **types:** remove comment to fix versioning ([94faa82](https://github.com/bamlab/android-performance-profiler/commit/94faa823f7f85e169439d6ed00c8d410aa6be503))
+
 ## [0.5.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/types@0.5.0...@perf-profiler/types@0.5.1) (2023-07-31)
 
 ### Bug Fixes

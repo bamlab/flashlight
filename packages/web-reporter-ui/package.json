@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/web-reporter-ui",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "main": "dist/index.js",
   "dependencies": {
     "@emotion/react": "^11.8.2",
@@ -8,8 +8,8 @@
     "@mui/icons-material": "^5.5.1",
     "@mui/material": "^5.5.2",
     "@mui/utils": "^5.4.4",
-    "@perf-profiler/reporter": "^0.6.2",
-    "@perf-profiler/types": "^0.5.1",
+    "@perf-profiler/reporter": "^0.6.3",
+    "@perf-profiler/types": "^0.5.2",
     "apexcharts": "3.33.0",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",

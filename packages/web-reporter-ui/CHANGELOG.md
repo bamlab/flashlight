@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.13.2](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.13.1...@perf-profiler/web-reporter-ui@0.13.2) (2023-07-31)
+
+**Note:** Version bump only for package @perf-profiler/web-reporter-ui
+
 ## [0.13.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.13.0...@perf-profiler/web-reporter-ui@0.13.1) (2023-07-31)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter-ui
