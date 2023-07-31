@@ -66,4 +66,5 @@ export const isIOSTestCaseResult = (
 export const ThreadNames = {
   UI_THREAD: "UI Thread",
   JS_THREAD: "mqt_js",
+  // add comment to fix versioning
 };
