@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.8.1...@perf-profiler/web-reporter@0.9.0) (2023-07-31)
+
+### Features
+
+- **ios:** add iOS POC ([#139](https://github.com/bamlab/android-performance-profiler/issues/139)) ([ccb4c92](https://github.com/bamlab/android-performance-profiler/commit/ccb4c9249e6a6fd559bd458baa3b6d62da2fb0d6))
+
 ## [0.8.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter@0.8.0...@perf-profiler/web-reporter@0.8.1) (2023-07-12)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter
