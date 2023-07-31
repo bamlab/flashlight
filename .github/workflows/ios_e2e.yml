@@ -1,0 +1,18 @@
+name: E2E test running in iOS simulator
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - "**/main"
+
+jobs:
+  e2e:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run test
+        run: ./.github/workflows/ios_e2e.sh
