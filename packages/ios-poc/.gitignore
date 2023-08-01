@@ -1,3 +1,6 @@
 report
 *.trace
 report.json
+.DS_Store
+*.xml
+*.json
