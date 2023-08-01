@@ -9,11 +9,12 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   const FAKE_RAM = 200;
   const FAKE_FPS = 60;
   const TIME_INTERVAL = 500;
+  const NANOSEC_TO_MILLISEC = 1_000_000;
 
   const getMeasures = (row: Row[]) => {
     const cycleRefs: { [id: number]: number } = {};
     return row.reduce((acc: Map<number, number[]>, row: Row) => {
-      const sampleTime = row.sampleTime.value / 1_000_000;
+      const sampleTime = row.sampleTime.value / NANOSEC_TO_MILLISEC;
       const correspondingTimeInterval = parseInt((sampleTime / TIME_INTERVAL).toFixed(0), 10);
 
       const cycleWeight = row.cycleWeight;
@@ -74,7 +75,8 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   const parser = new XMLParser(options);
   const jsonObject: Result = parser.parse(xml);
 
-  const fistSampleTime: number = jsonObject.result.node.row[0].sampleTime.value / 1_000_000;
+  const fistSampleTime: number =
+    jsonObject.result.node.row[0].sampleTime.value / NANOSEC_TO_MILLISEC;
   const firstTimeInterval: number = parseInt((fistSampleTime / TIME_INTERVAL).toFixed(0), 10);
 
   const measures: Map<number, number[]> = getMeasures(jsonObject.result.node.row);
