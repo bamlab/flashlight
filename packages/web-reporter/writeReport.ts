@@ -1,10 +1,5 @@
 import fs from "fs";
-import {
-  IOSTestCaseResult,
-  isIOSTestCaseResult,
-  POLLING_INTERVAL,
-  TestCaseResult,
-} from "@perf-profiler/types";
+import { POLLING_INTERVAL, TestCaseResult } from "@perf-profiler/types";
 import path from "path";
 
 const assertTimeIntervalMultiple = (n: number) => {
@@ -90,12 +85,14 @@ export const writeReport = ({
       .flat();
   };
 
-  const results: TestCaseResult[] | IOSTestCaseResult[] = getJsonPaths().map((path) =>
+  const results: TestCaseResult[] = getJsonPaths().map((path) =>
     JSON.parse(fs.readFileSync(path, "utf8"))
   );
 
+  const isIOSTestCaseResult = results.every((result) => result.type === "IOS_EXPERIMENTAL");
+
   const report = JSON.stringify(
-    isIOSTestCaseResult(results) ? results : getMeasuresForTimeInterval({ results, skip, duration })
+    isIOSTestCaseResult ? results : getMeasuresForTimeInterval({ results, skip, duration })
   );
 
   const jsFileContent = fs.readFileSync(`${__dirname}/${scriptName}`, "utf8").replace(
@@ -107,7 +104,7 @@ export const writeReport = ({
   fs.writeFileSync(`${outputDir}/report.js`, jsFileContent);
 
   const htmlFilePath = `${outputDir}/report.html`;
-  if (!isIOSTestCaseResult(results)) copyVideoFiles(results, outputDir);
+  if (!isIOSTestCaseResult) copyVideoFiles(results, outputDir);
   fs.writeFileSync(htmlFilePath, newHtmlContent);
   return htmlFilePath;
 };

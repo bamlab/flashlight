@@ -34,7 +34,7 @@ export interface TestCaseResult {
   score?: number;
   status: TestCaseResultStatus;
   iterations: TestCaseIterationResult[];
-  type?: undefined;
+  type?: undefined | "IOS_EXPERIMENTAL";
 }
 
 export interface AveragedTestCaseResult {
@@ -50,18 +50,6 @@ export interface AveragedTestCaseResult {
 // Shouldn't really be here but @perf-profiler/types is imported by everyone and doesn't contain any logic
 // so nice to have it here for now
 export const POLLING_INTERVAL = 500;
-
-export interface IOSTestCaseResult {
-  type: "IOS_EXPERIMENTAL";
-  measures: [number, number][];
-}
-
-// TODO: have better type refinement
-export const isIOSTestCaseResult = (
-  result: IOSTestCaseResult[] | TestCaseResult[]
-): result is IOSTestCaseResult[] => {
-  return result[0].type === "IOS_EXPERIMENTAL";
-};
 
 export const ThreadNames = {
   UI_THREAD: "UI Thread",

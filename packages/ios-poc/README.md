@@ -18,8 +18,6 @@ Requirements:
 
 ## Next steps
 
-- submit PR and publish report command
-- auto creation template flashlight (in xcode instruments)
 - run several iterations
 - add more metrics (RAM, FPS, CPU per thread)
 - Unify API with flashlight test
