@@ -31,6 +31,24 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
     }, new Map<number, number[]>());
   };
 
+  const fillWithZerosBefore = (firstTimeInterval: number, measures: Measure[]) => {
+    let i = 0;
+    while (i < firstTimeInterval) {
+      measures.unshift({
+        cpu: {
+          perName: {
+            total: 0,
+          },
+          perCore: {},
+        },
+        ram: FAKE_RAM,
+        fps: FAKE_FPS,
+        time: i * TIME_INTERVAL,
+      });
+      i++;
+    }
+  };
+
   const options = {
     attributeNamePrefix: "",
     ignoreAttributes: false,
@@ -45,6 +63,9 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   };
   const parser = new XMLParser(options);
   const jsonObject: Result = parser.parse(xml);
+
+  const fistSampleTime: number = jsonObject.result.node.row[0].sampleTime.value / 1_000_000;
+  const firstTimeInterval: number = parseInt((fistSampleTime / TIME_INTERVAL).toFixed(0), 10);
 
   const measures: Map<number, number[]> = getMeasures(jsonObject.result.node.row);
   const averagedMeasures: Measure[] = Array.from(measures.entries()).reduce(
@@ -67,6 +88,8 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
     },
     []
   );
+
+  fillWithZerosBefore(firstTimeInterval, averagedMeasures);
 
   iterations.push({
     time: averagedMeasures[averagedMeasures.length - 1].time,
