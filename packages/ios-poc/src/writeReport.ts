@@ -55,10 +55,20 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
     parseAttributeValue: true,
     textNodeName: "value",
     updateTag(tagName: string, jPath: string, attrs: { [x: string]: string | number }) {
-      if (tagName === "trace-query-result") return "result";
-      else if (tagName === "sample-time") return "sampleTime";
-      else if (tagName === "cycle-weight") return "cycleWeight";
-      else return tagName;
+      switch (tagName) {
+        case "trace-query-result": {
+          return "result";
+        }
+        case "sample-time": {
+          return "sampleTime";
+        }
+        case "cycle-weight": {
+          return "cycleWeight";
+        }
+        default: {
+          return tagName;
+        }
+      }
     },
   };
   const parser = new XMLParser(options);
