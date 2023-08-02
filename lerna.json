@@ -11,7 +11,8 @@
     "./packages/web-reporter",
     "./packages/appium-test-cases",
     "./packages/aws-device-farm",
-    "./packages/measure"
+    "./packages/measure",
+    "./packages/ios-poc"
   ],
   "useWorkspaces": false,
   "npmClient": "yarn",
