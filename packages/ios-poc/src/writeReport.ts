@@ -74,6 +74,9 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   };
   const parser = new XMLParser(options);
   const jsonObject: Result = parser.parse(xml);
+  if (!jsonObject.result.node.row) {
+    throw new Error("No rows in the xml file");
+  }
 
   const fistSampleTime: number =
     jsonObject.result.node.row[0].sampleTime.value / NANOSEC_TO_MILLISEC;
