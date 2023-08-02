@@ -26,8 +26,6 @@ jobs:
           NETLIFY_DEPLOY_TOKEN: ${{ secrets.NETLIFY_DEPLOY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
-          yarn tsc --build && yarn workspace @perf-profiler/web-reporter build
-          npx link-lerna-package-binaries
           ./.github/workflows/ios_e2e.sh
           npx @perf-profiler/web-reporter report report -o report
           ./.github/workflows/netlify-report.sh

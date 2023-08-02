@@ -1,5 +1,8 @@
 #!/bin/bash
 
+yarn tsc --build && yarn workspace @perf-profiler/web-reporter build
+npx link-lerna-package-binaries
+
 APPID="org.reactjs.native.example.fakeStore"
 
 # Get the UDID of an iPhone 11 simulator
