@@ -84,7 +84,9 @@ const launchTest = async ({
     stdio: "inherit",
   });
   const recordingPromise = startRecord(simulatorId, traceFile);
-
+  execSync(`sleep 2`, {
+    stdio: "inherit",
+  });
   execSync(`${testCommand} --no-ansi`, {
     stdio: "inherit",
   });
@@ -98,7 +100,11 @@ const launchTest = async ({
   execSync(`maestro test ${stopAppFile} --no-ansi`, {
     stdio: "inherit",
   });
-  await recordingPromise;
+  try {
+    await recordingPromise;
+  } catch (e) {
+    console.log("Error while recording: ", e);
+  }
   save(traceFile, resultsFilePath);
 
   removeTmpFiles();
