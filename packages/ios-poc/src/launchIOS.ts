@@ -80,14 +80,14 @@ const launchTest = async ({
 - launchApp
 `
   );
-  execSync(`maestro test ${lauchAppFile} --no-ansi`, {
+  execSync(`maestro test ${lauchAppFile} --no-ansi --skipDriverSetup`, {
     stdio: "inherit",
   });
   const recordingPromise = startRecord(simulatorId, traceFile);
   execSync(`sleep 2`, {
     stdio: "inherit",
   });
-  execSync(`${testCommand} --no-ansi`, {
+  execSync(`${testCommand} --no-ansi --skipDriverSetup`, {
     stdio: "inherit",
   });
   const stopAppFile = writeTmpFile(
@@ -97,7 +97,7 @@ const launchTest = async ({
 - stopApp
 `
   );
-  execSync(`maestro test ${stopAppFile} --no-ansi`, {
+  execSync(`maestro test ${stopAppFile} --no-ansi --skipDriverSetup`, {
     stdio: "inherit",
   });
   try {
