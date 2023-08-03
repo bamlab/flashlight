@@ -5,3 +5,4 @@ node_modules
 *.tsbuildinfo
 .cache
 .eslintcache
+.DS_Store
