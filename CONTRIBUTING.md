@@ -4,6 +4,21 @@
 
 We use [conventional changelogs](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#summary) for commits and PR names
 
+It should be like:
+
+```
+<type>[optional scope]: <description>
+
+[optional body]
+
+[optional footer]
+```
+
+- [ ] with type = feat/fix/refactor/chore/docs/test/…
+- [ ] description should be lowercase and start with a verb
+
+Here are some examples https://www.conventionalcommits.org/en/v1.0.0-beta.4/#examples
+
 ## Running `flashlight` commands locally
 
 Start by building the whole project:
