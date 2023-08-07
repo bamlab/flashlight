@@ -1,5 +1,11 @@
 # Contributing
 
+## Commit naming
+
+We use [conventional changelogs](https://www.conventionalcommits.org/en/v1.0.0-beta.4/#summary) for commits and PR names
+
+## Running `flashlight` commands locally
+
 Start by building the whole project:
 
 At the root of the repo:
