@@ -7,6 +7,7 @@ import {
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
 import { ScreenRecorder } from "@perf-profiler/profiler";
 import { basename, dirname } from "path";
+import { Logger } from "@perf-profiler/logger";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -65,6 +66,7 @@ export class SingleIterationTester {
 
       this.setCurrentTestCaseIterationResult(measures, "SUCCESS");
     } catch (error) {
+      console.log(error, "ERROR HAPPENED");
       const measures = await this.performanceMeasurer.stop();
       await this.maybeStopRecording();
       this.setCurrentTestCaseIterationResult(measures, "FAILURE");
