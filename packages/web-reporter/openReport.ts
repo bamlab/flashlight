@@ -22,7 +22,7 @@ flashlight report results1.json --skip 1500 --duration 10000
   .option("-o, --output-dir <outputDir>", "Output directory for the web report")
   .option(
     "-d, --duration <duration>",
-    'Duration in ms of measures to analyze in report. If measures are longer than that, they\'ll be "cut".'
+    `Duration in ms of measures to analyze in report. If measures are longer than that, they'll be "cut".`
   )
   .option("-s, --skip <skip>", "Skip first ms of measures in report")
   .action((args, options) => {
