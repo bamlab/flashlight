@@ -50,7 +50,7 @@ export class PerformanceMeasurer {
         () => this.measures.length * POLLING_INTERVAL > duration,
         {
           checkInterval: POLLING_INTERVAL,
-          timeout: duration * 1000,
+          timeout: duration,
         },
         "We don't have enough measures for the duration of the test specified, maybe the app has crashed?"
       );
