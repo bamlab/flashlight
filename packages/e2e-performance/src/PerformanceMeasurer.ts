@@ -1,7 +1,6 @@
 import { Logger } from "@perf-profiler/logger";
-import { Measure, pollPerformanceMeasures } from "@perf-profiler/profiler";
+import { Measure, pollPerformanceMeasures, waitFor } from "@perf-profiler/profiler";
 import { Trace } from "./Trace";
-import { waitFor } from "./utils/waitFor";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
 
 export class PerformanceMeasurer {

@@ -1,6 +1,7 @@
 import { Logger } from "@perf-profiler/logger";
 import { executeAsync, executeCommand } from "./shell";
 import { ChildProcess } from "child_process";
+import { waitFor } from "../utils/waitFor";
 
 const RECORDING_FOLDER = "/data/local/tmp/";
 
@@ -61,9 +62,10 @@ export class ScreenRecorder {
     this.process = undefined;
 
     // Wait for the process to stop running
-    while (pid && (await isProcessRunning(pid))) {
-      await new Promise((resolve) => setTimeout(resolve, 100)); // Check every 100ms
-    }
+    await waitFor(async () => pid && (await isProcessRunning(pid)), {
+      timeout: 10000,
+      checkInterval: 100,
+    });
 
     // Wait an arbitrary time to ensure we don't end up with a corrupted video
     await new Promise((resolve) => setTimeout(resolve, 500));
