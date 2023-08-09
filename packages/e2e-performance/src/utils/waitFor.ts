@@ -3,10 +3,11 @@ export const waitFor = async <T>(
   { timeout, checkInterval }: { timeout: number; checkInterval: number } = {
     timeout: 10000,
     checkInterval: 50,
-  }
+  },
+  errorMessage?: string
 ): Promise<T> => {
   if (timeout < 0) {
-    throw new Error("Waited for condition which never happened");
+    throw new Error(errorMessage ?? "Waited for condition which never happened");
   }
   const result = evaluateResult();
   if (result) return result;
