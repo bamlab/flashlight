@@ -47,7 +47,7 @@ const executeAsyncCommand = (command: string): Promise<void> => {
 };
 
 const startRecord = (simulatorId: string, traceFile: string): Promise<void> => {
-  const templateFilePath = `${__dirname}/../Flashlight.tracetemplate`;
+  const templateFilePath = `${__dirname}/../tp.tracetemplate`;
   return executeAsyncCommand(
     `xcrun xctrace record --device ${simulatorId} --template ${templateFilePath} --attach 'fakeStore' --output ${traceFile}`
   );
@@ -56,7 +56,7 @@ const startRecord = (simulatorId: string, traceFile: string): Promise<void> => {
 const save = (traceFile: string, resultsFilePath: string) => {
   const xmlOutputFile = getTmpFilePath("report.xml");
   executeCommand(
-    `xctrace export --input ${traceFile} --xpath '/trace-toc/run[@number="1"]/data/table[@schema="cpu-profile"]' --output ${xmlOutputFile}`
+    `xctrace export --input ${traceFile} --xpath '/trace-toc/run[@number="1"]/data/table[@schema="time-profile"]' --output ${xmlOutputFile}`
   );
   writeReport(xmlOutputFile, resultsFilePath);
 };
@@ -72,7 +72,7 @@ const launchTest = async ({
   simulatorId: string;
   resultsFilePath: string;
 }) => {
-  const traceFile = getTmpFilePath(`report_${new Date().getTime()}.trace`);
+  const traceFile = `report_${new Date().getTime()}.trace`;
   const lauchAppFile = writeTmpFile(
     "./launch.yaml",
     `appId: ${appId}
@@ -80,14 +80,14 @@ const launchTest = async ({
 - launchApp
 `
   );
-  execSync(`maestro test ${lauchAppFile} --no-ansi --skipDriverSetup`, {
+  execSync(`maestro test ${lauchAppFile} --no-ansi`, {
     stdio: "inherit",
   });
   const recordingPromise = startRecord(simulatorId, traceFile);
   execSync(`sleep 2`, {
     stdio: "inherit",
   });
-  execSync(`${testCommand} --no-ansi --skipDriverSetup`, {
+  execSync(`${testCommand} --no-ansi`, {
     stdio: "inherit",
   });
   const stopAppFile = writeTmpFile(
@@ -97,7 +97,7 @@ const launchTest = async ({
 - stopApp
 `
   );
-  execSync(`maestro test ${stopAppFile} --no-ansi --skipDriverSetup`, {
+  execSync(`maestro test ${stopAppFile} --no-ansi`, {
     stdio: "inherit",
   });
   try {
