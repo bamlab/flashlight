@@ -1,7 +1,6 @@
 import { Logger } from "@perf-profiler/logger";
-import { Measure, pollPerformanceMeasures } from "@perf-profiler/profiler";
+import { Measure, pollPerformanceMeasures, waitFor } from "@perf-profiler/profiler";
 import { Trace } from "./Trace";
-import { waitFor } from "./utils/waitFor";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
 
 export class PerformanceMeasurer {
@@ -48,7 +47,9 @@ export class PerformanceMeasurer {
       // Hack to wait for the duration to be reached in case test case has finished before
       await waitFor(() => this.measures.length * POLLING_INTERVAL > duration, {
         checkInterval: POLLING_INTERVAL,
-        timeout: duration * 1000,
+        timeout: duration * 2,
+        errorMessage:
+          "We don't have enough measures for the duration of the test specified, maybe the app has crashed?",
       });
       this.measures = this.measures.slice(0, duration / POLLING_INTERVAL + 1);
     } else {
