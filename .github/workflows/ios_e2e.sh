@@ -1,4 +1,12 @@
 #!/bin/bash
+export MAESTRO_VERSION={1.29.0}; curl -Ls "https://get.maestro.mobile.dev" | bash
+export PATH="$PATH":"$HOME/.maestro/bin"
+brew tap facebook/fb
+brew install facebook/fb/idb-companion
+
+
+yarn tsc --build && yarn workspace @perf-profiler/web-reporter build
+npx link-lerna-package-binaries
 
 APPID="org.reactjs.native.example.fakeStore"
 

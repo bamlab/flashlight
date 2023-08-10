@@ -47,7 +47,7 @@ const executeAsyncCommand = (command: string): Promise<void> => {
 };
 
 const startRecord = (simulatorId: string, traceFile: string): Promise<void> => {
-  const templateFilePath = `${__dirname}/../Flashlight.tracetemplate`;
+  const templateFilePath = `${__dirname}/../tp.tracetemplate`;
   return executeAsyncCommand(
     `xcrun xctrace record --device ${simulatorId} --template ${templateFilePath} --attach 'fakeStore' --output ${traceFile}`
   );
@@ -56,7 +56,7 @@ const startRecord = (simulatorId: string, traceFile: string): Promise<void> => {
 const save = (traceFile: string, resultsFilePath: string) => {
   const xmlOutputFile = getTmpFilePath("report.xml");
   executeCommand(
-    `xctrace export --input ${traceFile} --xpath '/trace-toc/run[@number="1"]/data/table[@schema="cpu-profile"]' --output ${xmlOutputFile}`
+    `xctrace export --input ${traceFile} --xpath '/trace-toc/run[@number="1"]/data/table[@schema="time-profile"]' --output ${xmlOutputFile}`
   );
   writeReport(xmlOutputFile, resultsFilePath);
 };
