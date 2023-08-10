@@ -45,14 +45,12 @@ export class PerformanceMeasurer {
 
     if (duration) {
       // Hack to wait for the duration to be reached in case test case has finished before
-      await waitFor(
-        () => this.measures.length * POLLING_INTERVAL > duration,
-        {
-          checkInterval: POLLING_INTERVAL,
-          timeout: duration * 2,
-        },
-        "We don't have enough measures for the duration of the test specified, maybe the app has crashed?"
-      );
+      await waitFor(() => this.measures.length * POLLING_INTERVAL > duration, {
+        checkInterval: POLLING_INTERVAL,
+        timeout: duration * 2,
+        errorMessage:
+          "We don't have enough measures for the duration of the test specified, maybe the app has crashed?",
+      });
       this.measures = this.measures.slice(0, duration / POLLING_INTERVAL + 1);
     } else {
       this.shouldStop = true;

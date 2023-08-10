@@ -65,6 +65,7 @@ export class ScreenRecorder {
     await waitFor(async () => pid && (await isProcessRunning(pid)), {
       timeout: 10000,
       checkInterval: 100,
+      errorMessage: "ERROR: PID still running after timeout, it should have been killed before",
     });
 
     // Wait an arbitrary time to ensure we don't end up with a corrupted video
