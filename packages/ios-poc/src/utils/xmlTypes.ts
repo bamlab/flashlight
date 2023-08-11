@@ -7,7 +7,7 @@ type Result = {
 };
 
 type Row = {
-  sampleTime: NumberField;
+  sampleTime: NumberField | refField;
   thread: Thread | refField;
   process: Process | refField;
   core: StringField | refField;
@@ -24,12 +24,6 @@ const isRefField = (
   field: Thread | Process | StringField | NumberField | Backtrace | refField
 ): field is refField => {
   return "ref" in field;
-};
-
-type SampleTime = {
-  id: number;
-  fmt: string;
-  value: number;
 };
 
 type Thread = {
@@ -75,7 +69,6 @@ export {
   Result,
   Row,
   refField,
-  SampleTime,
   Thread,
   Process,
   StringField,
