@@ -72,7 +72,7 @@ const launchTest = async ({
   simulatorId: string;
   resultsFilePath: string;
 }) => {
-  const traceFile = `report_${new Date().getTime()}.trace`;
+  const traceFile = getTmpFilePath(`report_${new Date().getTime()}.trace`);
   const lauchAppFile = writeTmpFile(
     "./launch.yaml",
     `appId: ${appId}
