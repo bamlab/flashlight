@@ -4,7 +4,7 @@ export const themeColors = [
   "bright-magenta",
   "bright-cyan",
 ] as const;
-type ThemeColor = (typeof themeColors)[number];
+type ThemeColor = typeof themeColors[number];
 
 let COLOR_PALETTE: string[] = [];
 
