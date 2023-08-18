@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.6](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/measure@0.2.5...@perf-profiler/measure@0.2.6) (2023-08-18)
+
+**Note:** Version bump only for package @perf-profiler/measure
+
 ## [0.2.5](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/measure@0.2.4...@perf-profiler/measure@0.2.5) (2023-07-31)
 
 **Note:** Version bump only for package @perf-profiler/measure

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.6](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.10.5...@perf-profiler/e2e@0.10.6) (2023-08-18)
+
+### Bug Fixes
+
+- fix tests that could timeout after an app crash ([#146](https://github.com/bamlab/android-performance-profiler/issues/146)) ([cbbe38e](https://github.com/bamlab/android-performance-profiler/commit/cbbe38e3517601d800f32767451dd5f9c97e5b3f))
+
 ## [0.10.5](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.10.4...@perf-profiler/e2e@0.10.5) (2023-07-31)
 
 **Note:** Version bump only for package @perf-profiler/e2e
