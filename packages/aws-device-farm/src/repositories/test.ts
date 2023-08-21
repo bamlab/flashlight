@@ -126,3 +126,5 @@ Follow along on ${consoleUrl}`
     return `https://${region}.console.aws.amazon.com/devicefarm/home?region=${region}#/mobile/projects/${projectId}/runs/${runId}/jobs/00000`;
   }
 }
+
+console.log("WOUHOUUUUU this worksssss!!!");
