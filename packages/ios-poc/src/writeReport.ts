@@ -28,7 +28,6 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
         correspondingTimeInterval > lastSampleTimeInterval
           ? correspondingTimeInterval
           : lastSampleTimeInterval;
-      console.log(sampleTime + " " + correspondingTimeInterval);
       const numberOfPointsIn = acc.get(correspondingTimeInterval) ?? 0;
       acc.set(correspondingTimeInterval, numberOfPointsIn + 1);
       return acc;
