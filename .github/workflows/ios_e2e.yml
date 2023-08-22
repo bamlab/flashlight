@@ -37,4 +37,3 @@ jobs:
             ## Flashlight iOS Report 🔦
 
             - [🚀 Report](${{ env.NETLIFY_PREVIEW_URL }})
-          append: true

@@ -84,7 +84,8 @@ const launchTest = async ({
     stdio: "inherit",
   });
   const recordingPromise = startRecord(simulatorId, traceFile);
-  execSync(`sleep 2`, {
+  // Ensure the recording is started before running the test
+  execSync(`sleep 10`, {
     stdio: "inherit",
   });
   execSync(`${testCommand} --no-ansi`, {
