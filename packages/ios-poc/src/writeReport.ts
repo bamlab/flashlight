@@ -41,7 +41,8 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   ): Map<number, number> => {
     const updatedMeasures = new Map<number, number>();
     let i = 0;
-    while (i < lastSampleTimeInterval) {
+    // lastSampleTimeInterval + 2 because we want to have 2 more points (1 sec) after the last one
+    while (i < lastSampleTimeInterval + 2) {
       const valueToSet = measures.get(i) ?? 0;
       updatedMeasures.set(i, valueToSet);
       i++;
