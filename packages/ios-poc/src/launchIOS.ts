@@ -47,7 +47,7 @@ const executeAsyncCommand = (command: string): Promise<void> => {
 };
 
 const startRecord = (simulatorId: string, traceFile: string): Promise<void> => {
-  const templateFilePath = `${__dirname}/../tp.tracetemplate`;
+  const templateFilePath = `${__dirname}/../Flashlight.tracetemplate`;
   return executeAsyncCommand(
     `xcrun xctrace record --device ${simulatorId} --template ${templateFilePath} --attach 'fakeStore' --output ${traceFile}`
   );
