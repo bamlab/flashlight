@@ -49,7 +49,7 @@ const executeAsyncCommand = (command: string): Promise<void> => {
 const startRecord = (simulatorId: string, traceFile: string): Promise<void> => {
   const templateFilePath = `${__dirname}/../Flashlight.tracetemplate`;
   return executeAsyncCommand(
-    `xcrun xctrace record --device ${simulatorId} --template ${templateFilePath} --attach 'fakeStore' --output ${traceFile}`
+    `xcrun xctrace record --device ${simulatorId} --template ${templateFilePath} --launch fakeStore --output ${traceFile}`
   );
 };
 
@@ -73,21 +73,7 @@ const launchTest = async ({
   resultsFilePath: string;
 }) => {
   const traceFile = getTmpFilePath(`report_${new Date().getTime()}.trace`);
-  const lauchAppFile = writeTmpFile(
-    "./launch.yaml",
-    `appId: ${appId}
----
-- launchApp
-`
-  );
-  execSync(`maestro test ${lauchAppFile} --no-ansi`, {
-    stdio: "inherit",
-  });
   const recordingPromise = startRecord(simulatorId, traceFile);
-  // Ensure the recording is started before running the test
-  execSync(`sleep 10`, {
-    stdio: "inherit",
-  });
   execSync(`${testCommand} --no-ansi`, {
     stdio: "inherit",
   });
