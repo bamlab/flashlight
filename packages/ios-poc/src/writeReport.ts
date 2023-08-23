@@ -10,44 +10,30 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   const FAKE_FPS = 60;
   const TIME_INTERVAL = 500;
   const NANOSEC_TO_MILLISEC = 1_000_000;
+  const CPU_TIME_INTERVAL = 10;
+  let lastSampleTimeInterval = 0;
 
   const getMeasures = (row: Row[]) => {
-    const cycleRefs: { [id: number]: number } = {};
-    return row.reduce((acc: Map<number, number[]>, row: Row) => {
-      const sampleTime = row.sampleTime.value / NANOSEC_TO_MILLISEC;
+    const sampleTimeRef: { [id: number]: number } = {};
+    const classifiedMeasures = row.reduce((acc: Map<number, number>, row: Row) => {
+      const sampleTime = isRefField(row.sampleTime)
+        ? sampleTimeRef[row.sampleTime.ref]
+        : row.sampleTime.value / NANOSEC_TO_MILLISEC;
+      if (!isRefField(row.sampleTime)) {
+        sampleTimeRef[row.sampleTime.id] = sampleTime;
+      }
+
       const correspondingTimeInterval = parseInt((sampleTime / TIME_INTERVAL).toFixed(0), 10);
-
-      const cycleWeight = row.cycleWeight;
-
-      const cpuMeasure = isRefField(cycleWeight) ? cycleRefs[cycleWeight.ref] : cycleWeight.value;
-
-      if (!isRefField(cycleWeight)) {
-        cycleRefs[cycleWeight.id] = cycleWeight.value;
-      }
-      if (!acc.has(correspondingTimeInterval)) {
-        acc.set(correspondingTimeInterval, []);
-      }
-      acc.get(correspondingTimeInterval)?.push(cpuMeasure);
+      lastSampleTimeInterval =
+        correspondingTimeInterval > lastSampleTimeInterval
+          ? correspondingTimeInterval
+          : lastSampleTimeInterval;
+      const numberOfPointsIn = acc.get(correspondingTimeInterval) ?? 0;
+      acc.set(correspondingTimeInterval, numberOfPointsIn + 1);
       return acc;
-    }, new Map<number, number[]>());
-  };
-
-  const fillWithZerosBefore = (firstTimeInterval: number, measures: Measure[]) => {
-    let i = 0;
-    while (i < firstTimeInterval) {
-      measures.unshift({
-        cpu: {
-          perName: {
-            total: 0,
-          },
-          perCore: {},
-        },
-        ram: FAKE_RAM,
-        fps: FAKE_FPS,
-        time: i * TIME_INTERVAL,
-      });
-      i++;
-    }
+    }, new Map<number, number>());
+    //return fillWithZeros(lastSampleTimeInterval, classifiedMeasures);
+    return classifiedMeasures;
   };
 
   const options = {
@@ -63,9 +49,6 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
         case "sample-time": {
           return "sampleTime";
         }
-        case "cycle-weight": {
-          return "cycleWeight";
-        }
         default: {
           return tagName;
         }
@@ -74,34 +57,28 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   };
   const parser = new XMLParser(options);
   const jsonObject: Result = parser.parse(xml);
+  if (!jsonObject.result.node.row) {
+    throw new Error("No rows in the xml file");
+  }
 
-  const fistSampleTime: number =
-    jsonObject.result.node.row[0].sampleTime.value / NANOSEC_TO_MILLISEC;
-  const firstTimeInterval: number = parseInt((fistSampleTime / TIME_INTERVAL).toFixed(0), 10);
-
-  const measures: Map<number, number[]> = getMeasures(jsonObject.result.node.row);
+  const measures: Map<number, number> = getMeasures(jsonObject.result.node.row);
   const averagedMeasures: Measure[] = Array.from(measures.entries()).reduce(
-    (acc: Measure[], classifiedMeasures: [number, number[]]) => {
+    (acc: Measure[], classifiedMeasures: [number, number]) => {
       acc.push({
         cpu: {
           perName: {
-            total:
-              classifiedMeasures[1].reduce((a, b) => a + b, 0) /
-              classifiedMeasures[1].length /
-              10000,
+            total: (classifiedMeasures[1] * 10) / (TIME_INTERVAL / CPU_TIME_INTERVAL),
           },
           perCore: {},
         },
         ram: FAKE_RAM,
         fps: FAKE_FPS,
-        time: classifiedMeasures[0] * TIME_INTERVAL,
+        time: classifiedMeasures[0],
       });
       return acc;
     },
     []
   );
-
-  fillWithZerosBefore(firstTimeInterval, averagedMeasures);
 
   iterations.push({
     time: averagedMeasures[averagedMeasures.length - 1].time,

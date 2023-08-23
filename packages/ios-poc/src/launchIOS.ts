@@ -1,13 +1,11 @@
 #!/usr/bin/env node
 
-import { executeCommand } from "@perf-profiler/profiler/dist/src/commands/shell";
+import { executeAsync, executeCommand } from "@perf-profiler/profiler/dist/src/commands/shell";
 import fs from "fs";
 import { writeReport } from "./writeReport";
 import { program } from "commander";
-import { execSync, exec } from "child_process";
+import { execSync, ChildProcess } from "child_process";
 import os from "os";
-
-const DURATION = 10;
 
 const tmpFiles: string[] = [];
 const removeTmpFiles = () => {
@@ -29,35 +27,22 @@ const writeTmpFile = (fileName: string, content: string): string => {
   return tmpPath;
 };
 
-const executeAsyncCommand = (command: string): void => {
-  exec(command, (error, stdout, stderr) => {
-    if (error) {
-      console.log(`Ah, quel dommage! An error occurred: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.log(`stderr: ${stderr}`);
-      return;
-    }
-    console.log(`stdout: ${stdout}`);
-  });
-};
-
-const startRecord = (simulatorId: string, traceFile: string) => {
-  executeAsyncCommand(
-    `xcrun xctrace record --device ${simulatorId} --template Flashlight --attach 'fakeStore' --output ${traceFile}`
+const startRecord = (simulatorId: string, traceFile: string): ChildProcess => {
+  const templateFilePath = `${__dirname}/../Flashlight.tracetemplate`;
+  return executeAsync(
+    `xcrun xctrace record --device ${simulatorId} --template ${templateFilePath} --attach fakeStore --output ${traceFile}`
   );
 };
 
 const save = (traceFile: string, resultsFilePath: string) => {
   const xmlOutputFile = getTmpFilePath("report.xml");
   executeCommand(
-    `xctrace export --input ${traceFile} --xpath '/trace-toc/run[@number="1"]/data/table[@schema="cpu-profile"]' --output ${xmlOutputFile}`
+    `xctrace export --input ${traceFile} --xpath '/trace-toc/run[@number="1"]/data/table[@schema="time-profile"]' --output ${xmlOutputFile}`
   );
   writeReport(xmlOutputFile, resultsFilePath);
 };
 
-const launchTest = ({
+const launchTest = async ({
   testCommand,
   appId,
   simulatorId,
@@ -68,7 +53,7 @@ const launchTest = ({
   simulatorId: string;
   resultsFilePath: string;
 }) => {
-  const traceFile = getTmpFilePath(`report_${new Date().getTime()}.trace`);
+  const traceFile = `report_${new Date().getTime()}.trace`;
   const lauchAppFile = writeTmpFile(
     "./launch.yaml",
     `appId: ${appId}
@@ -79,11 +64,17 @@ const launchTest = ({
   execSync(`maestro test ${lauchAppFile} --no-ansi`, {
     stdio: "inherit",
   });
-  startRecord(simulatorId, traceFile);
+  const recordingProcess = startRecord(simulatorId, traceFile);
+  await new Promise<void>((resolve) => {
+    recordingProcess.stdout?.on("data", (data) => {
+      if (data.toString().includes("Ctrl-C to stop")) {
+        resolve();
+      }
+    });
+  });
   execSync(`${testCommand} --no-ansi`, {
     stdio: "inherit",
   });
-  execSync(`sleep ${DURATION}`);
   const stopAppFile = writeTmpFile(
     "./stop.yaml",
     `appId: ${appId}
@@ -94,6 +85,18 @@ const launchTest = ({
   execSync(`maestro test ${stopAppFile} --no-ansi`, {
     stdio: "inherit",
   });
+  try {
+    await new Promise<void>((resolve) => {
+      recordingProcess.stdout?.on("data", (data) => {
+        console.log(data.toString());
+        if (data.toString().includes("Output file saved as")) {
+          resolve();
+        }
+      });
+    });
+  } catch (e) {
+    console.log("Error while recording: ", e);
+  }
   save(traceFile, resultsFilePath);
 
   removeTmpFiles();

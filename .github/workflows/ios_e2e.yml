@@ -1,0 +1,39 @@
+name: E2E test running in iOS simulator
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      - "**/main"
+
+jobs:
+  e2e:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+          cache: "yarn"
+      - name: Install dependencies
+        run: yarn
+      - name: Run tests
+        env:
+          NETLIFY_DEPLOY_TOKEN: ${{ secrets.NETLIFY_DEPLOY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          ./.github/workflows/build-and-link.sh
+          ./.github/workflows/ios_e2e.sh
+          npx @perf-profiler/web-reporter report report -o report
+          ./.github/workflows/netlify-report.sh
+      - name: Add PR Comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          message: |
+            ## Flashlight iOS Report 🔦
+
+            - [🚀 Report](${{ env.NETLIFY_PREVIEW_URL }})

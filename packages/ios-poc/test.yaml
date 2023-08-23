@@ -1,3 +1,4 @@
 appId: org.reactjs.native.example.fakeStore
 ---
 - tapOn: "VIENS ON PETE TOUT"
+- assertVisible: "ON A TOUT PETE"
