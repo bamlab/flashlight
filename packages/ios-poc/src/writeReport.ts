@@ -32,22 +32,8 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
       acc.set(correspondingTimeInterval, numberOfPointsIn + 1);
       return acc;
     }, new Map<number, number>());
-    return fillWithZeros(lastSampleTimeInterval, classifiedMeasures);
-  };
-
-  const fillWithZeros = (
-    lastSampleTimeInterval: number,
-    measures: Map<number, number>
-  ): Map<number, number> => {
-    const updatedMeasures = new Map<number, number>();
-    let i = 0;
-    // lastSampleTimeInterval + 2 because we want to have 2 more points (1 sec) after the last one
-    while (i < lastSampleTimeInterval + 2) {
-      const valueToSet = measures.get(i) ?? 0;
-      updatedMeasures.set(i, valueToSet);
-      i++;
-    }
-    return updatedMeasures;
+    //return fillWithZeros(lastSampleTimeInterval, classifiedMeasures);
+    return classifiedMeasures;
   };
 
   const options = {
