@@ -91,9 +91,7 @@ export const writeReport = ({
 
   const isIOSTestCaseResult = results.every((result) => result.type === "IOS_EXPERIMENTAL");
 
-  const report = JSON.stringify(
-    isIOSTestCaseResult ? results : getMeasuresForTimeInterval({ results, skip, duration })
-  );
+  const report = JSON.stringify(getMeasuresForTimeInterval({ results, skip, duration }));
 
   const jsFileContent = fs.readFileSync(`${__dirname}/${scriptName}`, "utf8").replace(
     // See App.tsx for the reason why we do this
