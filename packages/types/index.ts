@@ -29,12 +29,14 @@ export interface TestCaseIterationResult {
 }
 
 export type TestCaseResultStatus = "SUCCESS" | "FAILURE"; // Todo: add "SUCCESS_WITH_SOME_ITERATIONS_FAILED"
+
+type TestCaseResultType = "IOS_EXPERIMENTAL" | undefined;
 export interface TestCaseResult {
   name: string;
   score?: number;
   status: TestCaseResultStatus;
   iterations: TestCaseIterationResult[];
-  type?: undefined | "IOS_EXPERIMENTAL";
+  type?: TestCaseResultType;
 }
 
 export interface AveragedTestCaseResult {
@@ -45,6 +47,7 @@ export interface AveragedTestCaseResult {
   average: TestCaseIterationResult;
   averageHighCpuUsage: { [processName: string]: number };
   reactNativeDetected: boolean;
+  type?: TestCaseResultType;
 }
 
 // Shouldn't really be here but @perf-profiler/types is imported by everyone and doesn't contain any logic
@@ -54,4 +57,9 @@ export const POLLING_INTERVAL = 500;
 export const ThreadNames = {
   UI_THREAD: "UI Thread",
   JS_THREAD: "mqt_js",
+};
+
+export const ThreadNamesIOS = {
+  UI_THREAD: "Main Thread",
+  JS_THREAD: "com.facebook.react.JavaScript",
 };
