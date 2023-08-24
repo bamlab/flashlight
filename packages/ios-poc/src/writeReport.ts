@@ -1,7 +1,7 @@
 import { XMLParser } from "fast-xml-parser";
 import fs from "fs";
 import { CpuMeasure, Measure, TestCaseIterationResult, TestCaseResult } from "@perf-profiler/types";
-import { Result, Row, isRefField } from "./utils/xmlTypes";
+import { Result, Row, Thread, isRefField } from "./utils/xmlTypes";
 
 export const writeReport = (inputFileName: string, outputFileName: string) => {
   const xml = fs.readFileSync(inputFileName, "utf8");
@@ -12,9 +12,31 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   const NANOSEC_TO_MILLISEC = 1_000_000;
   const CPU_TIME_INTERVAL = 10;
 
+  const initThreadMap = (row: Row[]): { [id: number]: string } => {
+    const threadRef: { [id: number]: Thread } = {};
+    row.forEach((row: Row) => {
+      if (!isRefField(row.thread)) {
+        threadRef[row.thread.id] = row.thread;
+      }
+    });
+    return Object.values(threadRef).reduce((acc: { [id: number]: string }, thread) => {
+      const currentThreadName = thread.fmt
+        .split(" ")
+        .slice(0, thread.fmt.split(" ").indexOf(""))
+        .join(" ");
+      const currentTid = thread.tid.value;
+      const numberOfThread = Object.values(threadRef).filter((thread: Thread) => {
+        return thread.fmt.includes(currentThreadName) && thread.tid.value < currentTid;
+      }).length;
+      acc[thread.id] =
+        numberOfThread > 0 ? `${currentThreadName} (${numberOfThread})` : currentThreadName;
+      return acc;
+    }, {});
+  };
+
   const getMeasures = (row: Row[]): Map<number, Map<string, number>> => {
     const sampleTimeRef: { [id: number]: number } = {};
-    const threadRef: { [id: number]: string } = {};
+    const threadRef: { [id: number]: string } = initThreadMap(row);
     const classifiedMeasures = row.reduce((acc: Map<number, Map<string, number>>, row: Row) => {
       const sampleTime = isRefField(row.sampleTime)
         ? sampleTimeRef[row.sampleTime.ref]
@@ -23,18 +45,9 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
         sampleTimeRef[row.sampleTime.id] = sampleTime;
       }
 
-      let threadName = isRefField(row.thread)
+      const threadName = isRefField(row.thread)
         ? threadRef[row.thread.ref]
-        : row.thread.fmt.split(" ").slice(0, row.thread.fmt.split(" ").indexOf("")).join(" ");
-
-      if (!isRefField(row.thread)) {
-        const numberSimilarThreads = Object.values(threadRef).filter((value) =>
-          value.includes(threadName)
-        ).length;
-        threadName =
-          numberSimilarThreads > 0 ? `${threadName} (${numberSimilarThreads})` : threadName;
-        threadRef[row.thread.id] = threadName;
-      }
+        : threadRef[row.thread.id];
 
       const correspondingTimeInterval =
         parseInt((sampleTime / TIME_INTERVAL).toFixed(0), 10) * TIME_INTERVAL;
