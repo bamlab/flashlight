@@ -1,6 +1,6 @@
 import { XMLParser } from "fast-xml-parser";
 import fs from "fs";
-import { Measure, TestCaseIterationResult, TestCaseResult } from "@perf-profiler/types";
+import { CpuMeasure, Measure, TestCaseIterationResult, TestCaseResult } from "@perf-profiler/types";
 import { Result, Row, isRefField } from "./utils/xmlTypes";
 
 export const writeReport = (inputFileName: string, outputFileName: string) => {
@@ -11,11 +11,11 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   const TIME_INTERVAL = 500;
   const NANOSEC_TO_MILLISEC = 1_000_000;
   const CPU_TIME_INTERVAL = 10;
-  let lastSampleTimeInterval = 0;
 
-  const getMeasures = (row: Row[]) => {
+  const getMeasures = (row: Row[]): Map<number, Map<string, number>> => {
     const sampleTimeRef: { [id: number]: number } = {};
-    const classifiedMeasures = row.reduce((acc: Map<number, number>, row: Row) => {
+    const threadRef: { [id: number]: string } = {};
+    const classifiedMeasures = row.reduce((acc: Map<number, Map<string, number>>, row: Row) => {
       const sampleTime = isRefField(row.sampleTime)
         ? sampleTimeRef[row.sampleTime.ref]
         : row.sampleTime.value / NANOSEC_TO_MILLISEC;
@@ -23,16 +23,32 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
         sampleTimeRef[row.sampleTime.id] = sampleTime;
       }
 
-      const correspondingTimeInterval = parseInt((sampleTime / TIME_INTERVAL).toFixed(0), 10);
-      lastSampleTimeInterval =
-        correspondingTimeInterval > lastSampleTimeInterval
-          ? correspondingTimeInterval
-          : lastSampleTimeInterval;
-      const numberOfPointsIn = acc.get(correspondingTimeInterval) ?? 0;
-      acc.set(correspondingTimeInterval, numberOfPointsIn + 1);
+      let threadName = isRefField(row.thread)
+        ? threadRef[row.thread.ref]
+        : row.thread.fmt.split(" ").slice(0, row.thread.fmt.split(" ").indexOf("")).join(" ");
+
+      if (!isRefField(row.thread)) {
+        const numberSimilarThreads = Object.values(threadRef).filter((value) =>
+          value.includes(threadName)
+        ).length;
+        threadName =
+          numberSimilarThreads > 0 ? `${threadName} (${numberSimilarThreads})` : threadName;
+        threadRef[row.thread.id] = threadName;
+      }
+
+      const correspondingTimeInterval =
+        parseInt((sampleTime / TIME_INTERVAL).toFixed(0), 10) * TIME_INTERVAL;
+
+      const timeIntervalMap = acc.get(correspondingTimeInterval) ?? new Map<string, number>();
+
+      const numberOfPointsIn = timeIntervalMap.get(threadName) ?? 0;
+
+      timeIntervalMap.set(threadName, numberOfPointsIn + 1);
+
+      acc.set(correspondingTimeInterval, timeIntervalMap);
+
       return acc;
-    }, new Map<number, number>());
-    //return fillWithZeros(lastSampleTimeInterval, classifiedMeasures);
+    }, new Map<number, Map<string, number>>());
     return classifiedMeasures;
   };
 
@@ -61,28 +77,30 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
     throw new Error("No rows in the xml file");
   }
 
-  const measures: Map<number, number> = getMeasures(jsonObject.result.node.row);
-  const averagedMeasures: Measure[] = Array.from(measures.entries()).reduce(
-    (acc: Measure[], classifiedMeasures: [number, number]) => {
-      acc.push({
-        cpu: {
-          perName: {
-            total: (classifiedMeasures[1] * 10) / (TIME_INTERVAL / CPU_TIME_INTERVAL),
-          },
-          perCore: {},
-        },
+  const measures: Map<number, Map<string, number>> = getMeasures(jsonObject.result.node.row);
+  const formattedMeasures: Measure[] = Array.from(measures.entries()).map(
+    (classifiedMeasures: [number, Map<string, number>]) => {
+      const timeInterval = classifiedMeasures[0];
+      const timeIntervalMap = classifiedMeasures[1];
+      const cpuMeasure: CpuMeasure = {
+        perName: {},
+        perCore: {},
+      };
+      timeIntervalMap.forEach((value: number, key: string) => {
+        cpuMeasure.perName[key] = (value * 10) / (TIME_INTERVAL / CPU_TIME_INTERVAL);
+      });
+      return {
+        cpu: cpuMeasure,
         ram: FAKE_RAM,
         fps: FAKE_FPS,
-        time: classifiedMeasures[0],
-      });
-      return acc;
-    },
-    []
+        time: timeInterval,
+      };
+    }
   );
 
   iterations.push({
-    time: averagedMeasures[averagedMeasures.length - 1].time,
-    measures: averagedMeasures,
+    time: formattedMeasures[formattedMeasures.length - 1].time,
+    measures: formattedMeasures,
     status: "SUCCESS",
   });
 
