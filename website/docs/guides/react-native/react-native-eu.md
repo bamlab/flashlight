@@ -19,7 +19,7 @@ The video uses an old version of Flashlight which required you to write a TS fil
 
 ```bash
 flashlight test --bundleId com.reactnativefeed \
-  --testCommand "adb shell am start com.reactnativefeed.MainActivity" \
+  --testCommand "adb shell am start com.reactnativefeed/.MainActivity" \
   --duration 15000
 ```
 
