@@ -17,6 +17,18 @@ You can run locally or in the cloud with [flashlight.dev](https://flashlight.dev
 
 <img width="596" alt="image" src="https://github.com/bamlab/flashlight/assets/4534323/82e107f4-8682-4c77-ab18-985fa1b8c2d1" style="border-radius: 10px">
 
+## Installation
+
+**macOS/Linux**
+```bash
+curl https://get.flashlight.dev | bash
+```
+
+**Windows**
+```powershell
+iwr https://get.flashlight.dev/windows -useb | iex
+```
+
 ## Usage
 
 Head over to the docs at [docs.flashlight.dev](https://docs.flashlight.dev)
