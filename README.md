@@ -20,11 +20,13 @@ You can run locally or in the cloud with [flashlight.dev](https://flashlight.dev
 ## Installation
 
 **macOS/Linux**
+
 ```bash
 curl https://get.flashlight.dev | bash
 ```
 
 **Windows**
+
 ```powershell
 iwr https://get.flashlight.dev/windows -useb | iex
 ```
