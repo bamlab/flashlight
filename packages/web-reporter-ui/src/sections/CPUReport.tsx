@@ -4,6 +4,7 @@ import {
   Measure,
   POLLING_INTERVAL,
   ThreadNames,
+  ThreadNamesIOS,
 } from "@perf-profiler/types";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
 import { Chart } from "../components/Chart";
@@ -32,8 +33,13 @@ const perThreadCpuAnnotationInterval = [{ y: 90, y2: 100, color: "#E62E2E", labe
 
 export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
   const reactNativeDetected = results.every((result) => result.reactNativeDetected);
+
+  const platformThreadNames = results.every((result) => result.type === "IOS_EXPERIMENTAL")
+    ? ThreadNamesIOS
+    : ThreadNames;
+
   const [selectedThreads, setSelectedThreads] = React.useState<string[]>(
-    reactNativeDetected ? [ThreadNames.JS_THREAD] : [ThreadNames.UI_THREAD]
+    reactNativeDetected ? [platformThreadNames.JS_THREAD] : [platformThreadNames.UI_THREAD]
   );
 
   const threads = selectedThreads
