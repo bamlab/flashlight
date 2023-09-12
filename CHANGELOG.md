@@ -1,3 +1,10 @@
+## [0.10.1](https://github.com/bamlab/flashlight/compare/v0.10.0...v0.10.1) (2023-09-12)
+
+### Bug Fixes
+
+- fix tests that could timeout after an app crash ([#146](https://github.com/bamlab/flashlight/issues/146)) ([cbbe38e](https://github.com/bamlab/flashlight/commit/cbbe38e3517601d800f32767451dd5f9c97e5b3f))
+- **profiler:** improve accuracy of CPU measures ([#140](https://github.com/bamlab/flashlight/issues/140)) ([5038cb7](https://github.com/bamlab/flashlight/commit/5038cb7704a551ca70ab67e1726bb6321d7f63b1))
+
 # [0.10.0](https://github.com/bamlab/flashlight/compare/v0.8.0...v0.10.0) (2023-07-13)
 
 ### Bug Fixes
