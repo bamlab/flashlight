@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.13.3...@perf-profiler/web-reporter-ui@0.14.0) (2023-09-14)
+
+### Bug Fixes
+
+- **report:** fix iteration switching in failed report view ([#152](https://github.com/bamlab/android-performance-profiler/issues/152)) ([ff1a02c](https://github.com/bamlab/android-performance-profiler/commit/ff1a02cec3c63de7968a1f4c9597f7a9bcf59f68))
+
+### Features
+
+- **ios:** have cpu usage per thread ios ([#150](https://github.com/bamlab/android-performance-profiler/issues/150)) ([ef2636c](https://github.com/bamlab/android-performance-profiler/commit/ef2636c8962efa2c2def0f7a5bb6d48969684238))
+
 ## [0.13.3](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.13.2...@perf-profiler/web-reporter-ui@0.13.3) (2023-08-18)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter-ui

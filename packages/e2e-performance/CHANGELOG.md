@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.7](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.10.6...@perf-profiler/e2e@0.10.7) (2023-09-14)
+
+### Bug Fixes
+
+- **report:** fix iteration switching in failed report view ([#152](https://github.com/bamlab/android-performance-profiler/issues/152)) ([ff1a02c](https://github.com/bamlab/android-performance-profiler/commit/ff1a02cec3c63de7968a1f4c9597f7a9bcf59f68))
+
 ## [0.10.6](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.10.5...@perf-profiler/e2e@0.10.6) (2023-08-18)
 
 ### Bug Fixes

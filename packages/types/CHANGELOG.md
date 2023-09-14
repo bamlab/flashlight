@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/types@0.5.3...@perf-profiler/types@0.6.0) (2023-09-14)
+
+### Features
+
+- **ios:** have cpu usage per thread ios ([#150](https://github.com/bamlab/android-performance-profiler/issues/150)) ([ef2636c](https://github.com/bamlab/android-performance-profiler/commit/ef2636c8962efa2c2def0f7a5bb6d48969684238))
+
 ## [0.5.3](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/types@0.5.2...@perf-profiler/types@0.5.3) (2023-08-18)
 
 **Note:** Version bump only for package @perf-profiler/types

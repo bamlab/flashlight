@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/e2e",
-  "version": "0.10.6",
+  "version": "0.10.7",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -15,9 +15,9 @@
   },
   "dependencies": {
     "@perf-profiler/logger": "^0.3.1",
-    "@perf-profiler/profiler": "^0.10.6",
-    "@perf-profiler/reporter": "^0.6.4",
-    "@perf-profiler/types": "^0.5.3",
+    "@perf-profiler/profiler": "^0.10.7",
+    "@perf-profiler/reporter": "^0.7.0",
+    "@perf-profiler/types": "^0.6.0",
     "commander": "^9.4.0"
   }
 }
