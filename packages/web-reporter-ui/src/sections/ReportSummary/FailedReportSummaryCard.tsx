@@ -22,11 +22,6 @@ export const FailedReportSummaryCard: FunctionComponent<Props> = ({ averagedResu
       <div className="text-neutral-300 text-center">
         {"The maximum number of retries has been exceeded for this test."}
       </div>
-
-      <div className="h-8" />
-      <div className="text-neutral-300 text-center">
-        {"You are currently viewing the first failed iteration."}
-      </div>
     </div>
   );
 };

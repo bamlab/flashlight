@@ -39,11 +39,14 @@ const Report = ({
 }) => {
   const filteredIterationsResults = results.map((result) => ({
     ...result,
-    iterations: result.iterations.filter((iteration) => {
-      return iteration.isRetriedIteration === false || iteration.isRetriedIteration === undefined;
-    }),
+    iterations:
+      result.status === "SUCCESS"
+        ? result.iterations.filter((iteration) => iteration.status === "SUCCESS")
+        : result.iterations,
   }));
-  const minIterationCount = Math.min(...results.map((result) => result.iterations.length));
+  const minIterationCount = Math.min(
+    ...filteredIterationsResults.map((result) => result.iterations.length)
+  );
   const iterationSelector = useIterationSelector(minIterationCount);
 
   const iterationResults = filteredIterationsResults.map((result) => ({
@@ -56,7 +59,7 @@ const Report = ({
   const averagedResults: AveragedTestCaseResult[] = iterationResults.map(averageTestCaseResult);
 
   const saveResultsToZIP = () => {
-    exportRawDataToZIP(iterationResults);
+    exportRawDataToZIP(results);
   };
 
   const hasVideos = !!iterationResults.some((iteration) => iteration.iterations[0]?.videoInfos);
