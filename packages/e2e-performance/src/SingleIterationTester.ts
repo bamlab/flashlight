@@ -42,7 +42,7 @@ export class SingleIterationTester {
   private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(this.bundleId);
   private videoPath = `${this.options.resultsFileOptions.path.replace(".json", "")}_iteration_${
     this.iterationIndex
-  }.mp4`;
+  }_${new Date().getTime()}.mp4`;
   private recorder = new ScreenRecorder(basename(this.videoPath));
 
   public getCurrentTestCaseIterationResult() {
