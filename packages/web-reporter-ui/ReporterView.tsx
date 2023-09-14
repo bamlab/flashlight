@@ -59,7 +59,7 @@ const Report = ({
   const averagedResults: AveragedTestCaseResult[] = iterationResults.map(averageTestCaseResult);
 
   const saveResultsToZIP = () => {
-    exportRawDataToZIP(iterationResults);
+    exportRawDataToZIP(results);
   };
 
   const hasVideos = !!iterationResults.some((iteration) => iteration.iterations[0]?.videoInfos);
