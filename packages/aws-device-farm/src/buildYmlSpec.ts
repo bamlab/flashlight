@@ -1,6 +1,6 @@
 import yaml from "js-yaml";
 export const Commands = {
-  INSTALL_NVM: ["export NVM_DIR=$HOME/.nvm", ". $NVM_DIR/nvm.sh", "nvm install 16"],
+  INSTALL_NVM: ["export NVM_DIR=$HOME/.nvm", ". $NVM_DIR/nvm.sh", "nvm install 18"],
   UNPACKAGE_TEST_PACKAGE: [
     'echo "Navigate to test package directory"',
     "cd $DEVICEFARM_TEST_PACKAGE_PATH",
