@@ -1,0 +1,15 @@
+{
+  "name": "appiumTest",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "webdriverio": "^8.14.3"
+  },
+  "resolutions": {
+    "strip-ansi": "^6.0.0"
+  },
+  "bundledDependencies": [
+    "webdriverio"
+  ]
+}

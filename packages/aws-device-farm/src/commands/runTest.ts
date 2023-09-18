@@ -13,6 +13,7 @@ import {
   createDefaultNodeTestPackage,
   DEFAULT_TEST_PACKAGE_NAME,
 } from "./createDefaultNodeTestPackage";
+import { getUploadType } from "../utils/getUploadType";
 
 export const DEFAULT_RUN_TEST_OPTIONS = {
   projectName: "Flashlight",
@@ -77,6 +78,7 @@ export const runTest = async ({
       filePath: testFolderZipPath,
       type: UploadType.APPIUM_NODE_TEST_PACKAGE,
     });
+    fs.rmSync(testFolderZipPath);
   }
 
   let apkUploadArn;
@@ -84,10 +86,14 @@ export const runTest = async ({
   if (apkUploadArnGiven) {
     apkUploadArn = apkUploadArnGiven;
   } else if (apkPath) {
+    const uploadType = getUploadType(apkPath);
+    if (!uploadType) {
+      throw new Error(`Cannot find upload type for file: ${apkPath}`);
+    }
     apkUploadArn = await uploadRepository.upload({
       projectArn,
       filePath: apkPath,
-      type: UploadType.ANDROID_APP,
+      type: uploadType,
     });
   } else {
     throw new Error("Neither apkUploadArn nor apkPath was passed.");
@@ -105,7 +111,10 @@ export const runTest = async ({
     filePath: testSpecPath,
     type: UploadType.APPIUM_NODE_TEST_SPEC,
   });
-  fs.rmSync(testSpecPath);
+  // Clean up test spec file only if it was created on the fly
+  if (!testSpecsPathGiven) {
+    fs.rmSync(testSpecPath);
+  }
 
   Logger.info("Starting test run...");
   const testRunArn = await testRepository.scheduleRun({
