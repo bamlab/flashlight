@@ -43,7 +43,7 @@ yarn workspace @perf-profiler/measure start
 Then run the `measure` commmand with:
 
 ```bash
-DEVELOPMENT_MODE=true node packages/measure/dist/server/bin.js measure
+DEVELOPMENT_MODE=true node packages/commands/measure/dist/server/bin.js measure
 ```
 
 ### `test` command
@@ -52,7 +52,7 @@ To run the command locally:
 
 ```
 
-node packages/e2e-performance/dist/bin.js test
+node packages/commands/test/dist/bin.js test
 
 ```
 
@@ -74,7 +74,7 @@ yarn workspace @perf-profiler/web-reporter start
 
 ```
 
-Then in `packages/web-reporter/src/App.tsx`, uncomment the lines to add your own measures:
+Then in `packages/commands/report/src/App.tsx`, uncomment the lines to add your own measures:
 
 ```ts
 // Uncomment with when locally testing
