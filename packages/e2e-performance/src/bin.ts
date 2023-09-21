@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { Option, program } from "commander";
-import { execSync } from "child_process";
 import { TestCase } from ".";
 import { executeAsync } from "./executeAsync";
 import { applyLogLevelOption, logLevelOption } from "./commands/logLevelOption";
@@ -109,10 +108,10 @@ const runTest = async ({
 
   const testCase: TestCase = {
     beforeTest: async () => {
-      // This is needed in case the e2e test script actually restarts the app
-      // So far this method of measuring only works if e2e test actually starts the app
-      execSync(`adb shell am force-stop ${bundleId}`);
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      // // This is needed in case the e2e test script actually restarts the app
+      // // So far this method of measuring only works if e2e test actually starts the app
+      // execSync(`adb shell am force-stop ${bundleId}`);
+      // await new Promise((resolve) => setTimeout(resolve, 3000));
 
       if (beforeEachCommand) await executeAsync(beforeEachCommand);
     },
