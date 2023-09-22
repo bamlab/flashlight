@@ -14,9 +14,9 @@ module.exports = {
         devDependencies: [
           "**/__tests__/**",
           // web app will be built with parcel in the dist folder, so we only package the final html/js files, not the deps
-          "packages/measure/src/webapp/**",
-          "packages/web-reporter-ui/utils/testUtils.ts",
-          "packages/web-reporter/src/**",
+          "packages/commands/measure/src/webapp/**",
+          "packages/core/web-reporter-ui/utils/testUtils.ts",
+          "packages/commands/report/src/**",
           "**/*.config.js", // This is necessary for tailwind.config.js in both web-reporter and web-reporter-ui
         ],
       },

@@ -12,7 +12,7 @@
   },
   "license": "MIT",
   "workspaces": [
-    "packages/*",
+    "packages/*/*",
     "examples/*"
   ],
   "bugs": {

@@ -12,18 +12,18 @@ const commonOptions = {
   setupFiles: ["<rootDir>/jest-setup.ts"],
 };
 
-const WEB_PACKAGES = ["flipper-plugin-android-performance-profiler", "measure", "web-reporter-ui"];
+const WEB_PACKAGES = ["plugins/flipper", "commands/measure", "core/web-reporter-ui"];
 
 const NODE_PACKAGES = [
-  "android-performance-profiler",
-  "appium-helper",
-  "appium-test-cases",
-  "aws-device-farm",
-  "e2e-performance",
-  "eslint-plugin-flashlight-eslint-rules",
-  "reporter",
-  "shell",
-  "web-reporter",
+  "platforms/android",
+  "plugins/appium-helper",
+  "plugins/appium-test-cases",
+  "plugins/aws-device-farm",
+  "commands/test",
+  "plugins/eslint",
+  "core/reporter",
+  "core/shell",
+  "commands/report",
 ];
 
 module.exports = {
