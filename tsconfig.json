@@ -17,6 +17,7 @@
     { "path": "./packages/platforms/android" },
     { "path": "./packages/plugins/appium-helper" },
     { "path": "./packages/commands/test" },
+    { "path": "./packages/commands/tools" },
     { "path": "./packages/core/reporter" },
     { "path": "./packages/core/web-reporter-ui" },
     { "path": "./packages/commands/report" },

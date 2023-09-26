@@ -6,6 +6,7 @@
     "./packages/platforms/android",
     "./packages/plugins/appium-helper",
     "./packages/commands/test",
+    "./packages/commands/tools",
     "./packages/core/reporter",
     "./packages/core/web-reporter-ui",
     "./packages/commands/report",

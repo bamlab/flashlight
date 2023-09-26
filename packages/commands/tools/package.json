@@ -1,0 +1,19 @@
+{
+  "name": "@perf-profiler/tools",
+  "version": "0.1.0",
+  "author": {
+    "name": "Almouro",
+    "email": "alexandrem@bam.tech"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "bin": {
+    "perf-profiler-tools": "dist/bin.js"
+  },
+  "scripts": {
+    "test": "tsc"
+  },
+  "dependencies": {
+    "commander": "^9.4.0"
+  }
+}

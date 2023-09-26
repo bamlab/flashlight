@@ -68,6 +68,12 @@ flashlight test --bundleId com.example.app --testCommand "maestro test flow.yml"
     "--recordSize <recordSize>",
     'Set the video size, e.g. "1280x720".  Default is the device\'s main display resolution (if supported), 1280x720 if not.  For best results, use a size supported by the AVC encoder.'
   )
+  .addOption(
+    new Option(
+      "--skipRestart",
+      "By default, Flashlight closes the app before each iteration. This is useful if your e2e test starts the app, if it doesn't, add this flag"
+    ).default(false)
+  )
   .addOption(logLevelOption)
   .action(async (options) => {
     await runTest(options);
@@ -88,6 +94,7 @@ const runTest = async ({
   record,
   recordSize,
   recordBitRate,
+  skipRestart,
 }: {
   duration?: number;
   iterationCount?: number;
@@ -103,16 +110,19 @@ const runTest = async ({
   record?: boolean;
   recordSize?: string;
   recordBitRate?: number;
+  skipRestart?: boolean;
 }) => {
   applyLogLevelOption(logLevel);
   if (beforeAllCommand) await executeAsync(beforeAllCommand);
 
   const testCase: TestCase = {
     beforeTest: async () => {
-      // This is needed in case the e2e test script actually restarts the app
-      // So far this method of measuring only works if e2e test actually starts the app
-      execSync(`adb shell am force-stop ${bundleId}`);
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+      if (!skipRestart) {
+        // This is needed in case the e2e test script actually restarts the app
+        // So far this method of measuring only works if e2e test actually starts the app
+        execSync(`adb shell am force-stop ${bundleId}`);
+        await new Promise((resolve) => setTimeout(resolve, 3000));
+      }
 
       if (beforeEachCommand) await executeAsync(beforeEachCommand);
     },
