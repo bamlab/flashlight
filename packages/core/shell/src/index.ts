@@ -19,3 +19,5 @@ export const open = (path: string) => {
     Logger.warn(`Failed to run "open ${path}"`);
   }
 };
+
+export * from "./processVideoFile";

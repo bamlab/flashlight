@@ -51,27 +51,35 @@ DEVELOPMENT_MODE=true node packages/commands/measure/dist/server/bin.js measure
 To run the command locally:
 
 ```
-
 node packages/commands/test/dist/bin.js test
-
 ```
 
 This command is the equivalent of
 
 ```
-
 flashlight test
+```
 
+### `tools` command
+
+To run the command locally:
+
+```
+node packages/commands/tools/dist/bin.js tools
+```
+
+This command is the equivalent of
+
+```
+flashlight tools
 ```
 
 ### web-reporter
 
-and run in another terminal:
+Run in another terminal:
 
 ```
-
 yarn workspace @perf-profiler/web-reporter start
-
 ```
 
 Then in `packages/commands/report/src/App.tsx`, uncomment the lines to add your own measures:
