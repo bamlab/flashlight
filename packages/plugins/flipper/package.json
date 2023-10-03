@@ -29,11 +29,11 @@
     "test": "tsc --noEmit"
   },
   "dependencies": {
-    "@emotion/react": "^11.8.2",
-    "@emotion/styled": "^11.8.1",
-    "@mui/icons-material": "^5.5.1",
-    "@mui/material": "^5.5.2",
-    "@mui/utils": "^5.4.4",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.11",
+    "@mui/material": "^5.14.11",
+    "@mui/utils": "^5.14.11",
     "@types/lodash": "^4.14.180",
     "@perf-profiler/profiler": "*",
     "@perf-profiler/web-reporter-ui": "*",
@@ -42,7 +42,7 @@
     "yarn": "^1.22.18"
   },
   "peerDependencies": {
-    "antd": "latest",
+    "antd": "^5.8.2",
     "flipper-plugin": "^0.138.0"
   },
   "devDependencies": {
@@ -51,7 +51,7 @@
     "@testing-library/react": "^12.1.1",
     "@types/react": "^17.0.2",
     "@types/react-dom": "latest",
-    "antd": "latest",
+    "antd": "^5.8.2",
     "flipper-pkg": "0.140.0",
     "flipper-plugin": "0.140.0",
     "react-dom": "^17.0.2"

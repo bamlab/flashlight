@@ -190,10 +190,7 @@ OK"
 `;
 
 exports[`displays FPS data and scoring 2`] = `
-<body
-  class="ant-scrolling-effect"
-  style="overflow: hidden; overflow-x: hidden; overflow-y: hidden;"
->
+<body>
   <div>
     <div
       class="bg-light-charcoal h-full text-black"
@@ -957,7 +954,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-0"
@@ -1010,7 +1007,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-1"
@@ -1062,7 +1059,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-2"
@@ -1114,7 +1111,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-3"
@@ -1166,7 +1163,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-4"
@@ -1218,7 +1215,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-5"
@@ -1270,7 +1267,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-6"
@@ -1322,7 +1319,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-7"
@@ -1374,7 +1371,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-8"
@@ -1426,7 +1423,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-9"
@@ -1478,7 +1475,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-10"
@@ -1530,7 +1527,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-11"
@@ -1582,7 +1579,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-12"
@@ -1634,7 +1631,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-13"
@@ -1686,7 +1683,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-14"
@@ -1738,7 +1735,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-15"
@@ -1790,7 +1787,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-16"
@@ -1842,7 +1839,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-17"
@@ -1894,7 +1891,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-18"
@@ -1946,7 +1943,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-19"
@@ -1998,7 +1995,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-20"
@@ -2050,7 +2047,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-21"
@@ -2102,7 +2099,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-22"
@@ -2154,7 +2151,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-23"
@@ -2206,7 +2203,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-24"
@@ -2258,7 +2255,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-25"
@@ -2310,7 +2307,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-26"
@@ -2362,7 +2359,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-27"
@@ -2414,7 +2411,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-28"
@@ -2466,7 +2463,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-29"
@@ -2518,7 +2515,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-30"
@@ -2570,7 +2567,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-31"
@@ -2622,7 +2619,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-32"
@@ -2674,7 +2671,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-33"
@@ -2726,7 +2723,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-34"
@@ -2778,7 +2775,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-35"
@@ -2830,7 +2827,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-36"
@@ -2882,7 +2879,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-37"
@@ -2934,7 +2931,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-38"
@@ -2986,7 +2983,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-39"
@@ -3038,7 +3035,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-40"
@@ -3090,7 +3087,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-41"
@@ -3142,7 +3139,7 @@ exports[`displays FPS data and scoring 2`] = `
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-42"
@@ -3211,19 +3208,19 @@ exports[`displays FPS data and scoring 2`] = `
   </div>
   <div>
     <div
-      class="ant-modal-root"
+      class="ant-modal-root css-dev-only-do-not-override-pr0fja"
     >
       <div
         class="ant-modal-mask"
       />
       <div
         class="ant-modal-wrap"
-        role="dialog"
         tabindex="-1"
       >
         <div
-          class="ant-modal ant-modal-confirm ant-modal-confirm-warning"
-          role="document"
+          aria-modal="true"
+          class="ant-modal css-dev-only-do-not-override-pr0fja ant-modal-confirm ant-modal-confirm-warning"
+          role="dialog"
           style="width: 416px;"
         >
           <div
@@ -3241,7 +3238,7 @@ exports[`displays FPS data and scoring 2`] = `
                 class="ant-modal-confirm-body-wrapper"
               >
                 <div
-                  class="ant-modal-confirm-body"
+                  class="ant-modal-confirm-body ant-modal-confirm-body-has-title"
                 >
                   <span
                     aria-label="exclamation-circle"
@@ -3258,39 +3255,40 @@ exports[`displays FPS data and scoring 2`] = `
                       width="1em"
                     >
                       <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                      />
-                      <path
-                        d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
                       />
                     </svg>
                   </span>
-                  <span
-                    class="ant-modal-confirm-title"
-                  >
-                    Deprecated
-                  </span>
                   <div
-                    class="ant-modal-confirm-content"
+                    class="ant-modal-confirm-paragraph"
                   >
-                    <div>
-                      The Flashlight Flipper plugin is deprecated, please use the
-                       
-                      <code>
-                        flashlight measure
-                      </code>
-                       command instead.
-                      <br />
-                      <br />
-                       See how to get started at
-                       
-                      <a
-                        href="https://docs.flashlight.dev"
-                        rel="noreferrer"
-                        target="_blank"
-                      >
-                        https://docs.flashlight.dev
-                      </a>
+                    <span
+                      class="ant-modal-confirm-title"
+                    >
+                      Deprecated
+                    </span>
+                    <div
+                      class="ant-modal-confirm-content"
+                    >
+                      <div>
+                        The Flashlight Flipper plugin is deprecated, please use the
+                         
+                        <code>
+                          flashlight measure
+                        </code>
+                         command instead.
+                        <br />
+                        <br />
+                         See how to get started at
+                         
+                        <a
+                          href="https://docs.flashlight.dev"
+                          rel="noreferrer"
+                          target="_blank"
+                        >
+                          https://docs.flashlight.dev
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -3298,12 +3296,13 @@ exports[`displays FPS data and scoring 2`] = `
                   class="ant-modal-confirm-btns"
                 >
                   <button
-                    class="ant-btn ant-btn-primary"
+                    class="ant-btn css-dev-only-do-not-override-pr0fja ant-btn-primary"
                     type="button"
                   >
                     <span>
                       OK
                     </span>
+                    
                   </button>
                 </div>
               </div>
