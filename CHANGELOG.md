@@ -1,3 +1,21 @@
+## [0.11.1](https://github.com/bamlab/flashlight/compare/v0.10.1...v0.11.1) (2023-10-03)
+
+
+### Bug Fixes
+
+* **readme:** added install cmds ([#151](https://github.com/bamlab/flashlight/issues/151)) ([c48bc3b](https://github.com/bamlab/flashlight/commit/c48bc3b63a8e18aaa25698ed5f910f64b35ae1bf))
+* **report:** fix iteration switching in failed report view ([#152](https://github.com/bamlab/flashlight/issues/152)) ([ff1a02c](https://github.com/bamlab/flashlight/commit/ff1a02cec3c63de7968a1f4c9597f7a9bcf59f68))
+* **test:** fix Operation not supported on socket ([#157](https://github.com/bamlab/flashlight/issues/157)) ([9476fdd](https://github.com/bamlab/flashlight/commit/9476fdd3e89ad098e175a540abb9d2023277a57f))
+
+
+### Features
+
+* **ios:** have cpu usage per thread ios ([#150](https://github.com/bamlab/flashlight/issues/150)) ([ef2636c](https://github.com/bamlab/flashlight/commit/ef2636c8962efa2c2def0f7a5bb6d48969684238))
+* **test:** add skipRestart option for quick testing ([d9c2ca4](https://github.com/bamlab/flashlight/commit/d9c2ca4dca2574e4f6db722472915341d985c63b))
+* **tools:** add tools command ([#156](https://github.com/bamlab/flashlight/issues/156)) ([a981132](https://github.com/bamlab/flashlight/commit/a981132aaa13072fb48f7a1c7989e7d484f7ca6d))
+
+
+
 ## [0.10.1](https://github.com/bamlab/flashlight/compare/v0.10.0...v0.10.1) (2023-09-12)
 
 ### Bug Fixes
