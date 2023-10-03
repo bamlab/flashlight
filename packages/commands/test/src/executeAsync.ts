@@ -1,30 +1,7 @@
 import { spawn } from "child_process";
-import { Logger } from "@perf-profiler/logger";
-
-// Running with `script` ensures we display to the terminal exactly what the original script does
-// For instance, maestro clears the screen multiple times which wouldn't work without calling `script`
-/**
- * Running with `script` ensures we display to the terminal exactly what the original script does
- * For instance, maestro clears the screen multiple times which wouldn't work without calling `script`
- *
- * on macOS you would run `script -q /dev/null echo "Running command"`,
- * but on Linux, you would run `script -q /dev/null -c "echo \"Running command\""`
- */
-const spawnProcess = (command: string) => {
-  const parts = command.split(" ");
-
-  switch (process.platform) {
-    case "darwin":
-      return spawn("script", ["-q", "/dev/null", ...parts]);
-    case "win32":
-      return spawn(parts[0], parts.slice(1));
-    default:
-      return spawn("script", ["-q", "/dev/null", ...["-e", "-c", command]]);
-  }
-};
 
 export const executeAsync = (command: string) => {
-  const child = spawnProcess(command);
+  const child = spawn(command, { shell: true });
 
   return new Promise((resolve, reject) => {
     child.stdout.on("data", (data: ReadableStream<string>) => {
@@ -32,7 +9,9 @@ export const executeAsync = (command: string) => {
     });
 
     child.stderr.on("data", (data: ReadableStream<string>) => {
-      Logger.error(`Error when running "${command}": ${"\n"}${data.toString()}`);
+      // Commands can choose to log diagnostic data on stderr, not necessarily errors
+      // Let's just log them and not pollute with a noisy Logger.error
+      console.log(data.toString());
     });
 
     child.on("close", (code: number | null) => {
