@@ -21,11 +21,11 @@
   "scripts": {
     "clean-dist": "rm -rf packages/*/dist && rm -rf packages/*/tsconfig.tsbuildinfo",
     "watch": "tsc --build --watch",
-    "test": "prettier --check . && yarn build && eslint . --max-warnings 6 && yarn workspace flipper-plugin-android-performance-profiler test && jest",
+    "test": "prettier --check . && yarn build && eslint . --max-warnings 6 && jest",
     "test:coverage": "yarn clean-dist && jest --coverage",
     "test:lint": "eslint . --ext .js,.ts,.tsx --cache",
     "run-cli-example": "node packages/cli-example",
-    "build": "rm -rf .parcel-cache && yarn clean-dist && tsc --build && yarn workspace @perf-profiler/web-reporter build && yarn workspace @perf-profiler/measure build && yarn workspace flipper-plugin-android-performance-profiler build",
+    "build": "rm -rf .parcel-cache && yarn clean-dist && tsc --build && yarn workspace @perf-profiler/web-reporter build && yarn workspace @perf-profiler/measure build",
     "release": "yarn build && lerna publish",
     "test:e2e": "mkdir -p report && npx @perf-profiler/aws-device-farm runTest --apkPath .github/workflows/example.apk --projectName 'Flashlight-Serverless' --reportDestinationPath report --testCommand 'npx ts-node examples/e2e/appium-ci.test.ts' --testFolder .",
     "prepare": "husky install"
