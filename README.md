@@ -4,7 +4,7 @@
 
 # Measure the performance of any Android app 🔦
 
-Flashlight generates a performance score for your app, aggregating different metrics.
+Flashlight generates a performance score for your Android app, aggregating different metrics. _(📱 iOS support is also [in the works](https://github.com/bamlab/flashlight/issues))_
 
 You can run locally or in the cloud with [flashlight.dev](https://flashlight.dev/)
 
