@@ -7,7 +7,7 @@ phases:
     commands:
       - export NVM_DIR=$HOME/.nvm
       - . $NVM_DIR/nvm.sh
-      - nvm install 16
+      - nvm install 18.11
       - echo "Navigate to test package directory"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH
       - npm install *.tgz
@@ -68,7 +68,7 @@ phases:
     commands:
       - export NVM_DIR=$HOME/.nvm
       - . $NVM_DIR/nvm.sh
-      - nvm install 16
+      - nvm install 18.11
       - echo "Navigate to test package directory"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH
       - npm install *.tgz
