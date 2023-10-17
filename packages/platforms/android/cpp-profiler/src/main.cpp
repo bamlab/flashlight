@@ -13,7 +13,7 @@ using std::cout;
 using std::endl;
 using std::string;
 
-namespace fs = std::__fs::filesystem;
+namespace fs = std::filesystem;
 
 void readFile(string filePath)
 {
