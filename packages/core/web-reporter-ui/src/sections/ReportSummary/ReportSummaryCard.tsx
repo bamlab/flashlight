@@ -35,30 +35,34 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
         difference={<Difference value={metrics.runtime} baseline={baselineMetrics?.runtime} />}
         explanation={<Explanations.AverageTestRuntimeExplanation />}
       />
-      <div className="h-2" />
 
-      <ReportSummaryCardInfoRow
-        title="Average FPS"
-        value={displayPlaceholder ? "-" : `${metrics.fps} FPS`}
-        difference={
-          <Difference
-            value={metrics.fps}
-            baseline={baselineMetrics?.fps}
-            hasValueImproved={isDifferencePositive}
+      {metrics.fps !== undefined || displayPlaceholder ? (
+        <>
+          <div className="h-2" />
+          <ReportSummaryCardInfoRow
+            title="Average FPS"
+            value={displayPlaceholder ? "-" : `${metrics.fps} FPS`}
+            difference={
+              <Difference
+                value={metrics.fps}
+                baseline={baselineMetrics?.fps}
+                hasValueImproved={isDifferencePositive}
+              />
+            }
+            explanation={<Explanations.AverageFPSExplanation />}
           />
-        }
-        explanation={<Explanations.AverageFPSExplanation />}
-      />
-      <div className="h-2" />
+        </>
+      ) : null}
 
+      <div className="h-2" />
       <ReportSummaryCardInfoRow
         title="Average CPU usage"
         value={displayPlaceholder ? "-" : `${metrics.cpu} %`}
         difference={<Difference value={metrics.cpu} baseline={baselineMetrics?.cpu} />}
         explanation={<Explanations.AverageCPUUsageExplanation />}
       />
-      <div className="h-2" />
 
+      <div className="h-2" />
       <ReportSummaryCardInfoRow
         title="High CPU Usage"
         value={
@@ -78,14 +82,18 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
         }
         explanation={<Explanations.HighCPUUsageExplanation result={report.getAveragedResult()} />}
       />
-      <div className="h-2" />
 
-      <ReportSummaryCardInfoRow
-        title="Average RAM usage"
-        value={displayPlaceholder ? "-" : `${metrics.ram} MB`}
-        difference={<Difference value={metrics.ram} baseline={baselineMetrics?.ram} />}
-        explanation={<Explanations.AverageRAMUsageExplanation />}
-      />
+      {metrics.ram !== undefined || displayPlaceholder ? (
+        <>
+          <div className="h-2" />
+          <ReportSummaryCardInfoRow
+            title="Average RAM usage"
+            value={displayPlaceholder ? "-" : `${metrics.ram} MB`}
+            difference={<Difference value={metrics.ram} baseline={baselineMetrics?.ram} />}
+            explanation={<Explanations.AverageRAMUsageExplanation />}
+          />
+        </>
+      ) : null}
     </div>
   );
 };

@@ -12,10 +12,10 @@ import { getScore } from "./getScore";
 
 interface ReportMetrics {
   runtime: number;
-  fps: number;
+  fps?: number;
   cpu: number;
   totalHighCpuTime: number;
-  ram: number;
+  ram?: number;
   averageCpuUsagePerProcess: {
     cpuUsage: number;
     processName: string;
@@ -35,20 +35,20 @@ export class Report {
 
   private static getAverageMetrics(averagedResult: AveragedTestCaseResult): ReportMetrics {
     const averageTestRuntime = roundToDecimal(averagedResult.average.time, 0);
-    const averageFPS = roundToDecimal(getAverageFPSUsage(averagedResult.average.measures), 1);
+    const averageFPS = getAverageFPSUsage(averagedResult.average.measures);
     const averageCPU = roundToDecimal(getAverageCpuUsage(averagedResult.average.measures), 1);
     const averageTotalHighCPU = roundToDecimal(
       getAverageTotalHighCPUUsage(averagedResult.averageHighCpuUsage) / 1000,
       1
     );
-    const averageRAM = roundToDecimal(getAverageRAMUsage(averagedResult.average.measures), 1);
+    const averageRAM = getAverageRAMUsage(averagedResult.average.measures);
 
     return {
       runtime: averageTestRuntime,
-      fps: averageFPS,
+      fps: averageFPS ? roundToDecimal(averageFPS, 1) : undefined,
       cpu: averageCPU,
       totalHighCpuTime: averageTotalHighCPU,
-      ram: averageRAM,
+      ram: averageRAM ? roundToDecimal(averageRAM, 1) : undefined,
       averageCpuUsagePerProcess: getAverageCpuUsagePerProcess(averagedResult.average.measures),
     };
   }

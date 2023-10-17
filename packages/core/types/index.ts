@@ -5,8 +5,8 @@ export interface CpuMeasure {
 
 export interface Measure {
   cpu: CpuMeasure;
-  ram: number;
-  fps: number;
+  ram?: number;
+  fps?: number;
   time: number;
 }
 
