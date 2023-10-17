@@ -19,7 +19,7 @@
     "url": "https://github.com/bamlab/flashlight/issues"
   },
   "scripts": {
-    "clean-dist": "rm -rf packages/*/dist && rm -rf packages/*/tsconfig.tsbuildinfo",
+    "clean-dist": "rm -rf packages/*/*/dist && rm -rf packages/*/*/tsconfig.tsbuildinfo",
     "watch": "tsc --build --watch",
     "test": "prettier --check . && yarn build && eslint . --max-warnings 6 && jest",
     "test:coverage": "yarn clean-dist && jest --coverage",
