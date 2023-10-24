@@ -61,12 +61,23 @@ export const pollPerformanceMeasures = (
           )
         );
 
-        onMeasure({
-          cpu: cpuMeasures,
-          fps,
-          ram,
-          time: timestamp - initialTime,
-        });
+        // TODO: implement this better
+        const SUPPORT_FPS = true;
+
+        onMeasure(
+          SUPPORT_FPS
+            ? {
+                cpu: cpuMeasures,
+                fps,
+                ram,
+                time: timestamp - initialTime,
+              }
+            : {
+                cpu: cpuMeasures,
+                ram,
+                time: timestamp - initialTime,
+              }
+        );
       } else {
         onStartMeasuring();
         cpuMeasuresAggregator.initStats(subProcessesStats);

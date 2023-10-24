@@ -76,6 +76,7 @@ long long printPerformanceMeasure(string pid)
     printMemoryStats(pid);
     auto memoryEnd = std::chrono::system_clock::now();
     log(separator);
+    // TODO handle ATrace not available on OS
     printATraceLines();
     auto atraceEnd = std::chrono::system_clock::now();
     log(separator);
@@ -112,6 +113,7 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
     // We read atrace lines before the app is started
     // since it can take a bit of time to start and clear the traceOutputPath
     // but we'll clear them out periodically while the app isn't started
+    // TODO handle ATrace not available on OS
     std::thread aTraceReadThread(readATraceThread);
 
     cout << "Waiting for process to start..." << endl;
@@ -137,7 +139,7 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
         pollPerformanceMeasures(bundleId, interval);
         return;
     }
-
+    // TODO handle ATrace not available on OS
     aTraceReadThread.join();
 }
 

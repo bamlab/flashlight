@@ -1,4 +1,4 @@
-import { detectCurrentAppBundleId } from "@perf-profiler/profiler";
+import { profiler } from "@perf-profiler/profiler";
 import { useEffect } from "react";
 import { SocketType, SocketData } from "./socket/socketInterface";
 
@@ -18,7 +18,7 @@ export const useBundleIdControls = (
       stop();
 
       try {
-        const bundleId = detectCurrentAppBundleId().bundleId;
+        const bundleId = profiler.detectCurrentBundleId();
         setState({
           bundleId,
         });
