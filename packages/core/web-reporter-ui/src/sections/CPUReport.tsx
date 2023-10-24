@@ -30,15 +30,30 @@ const totalCpuAnnotationInterval = [{ y: 300, y2: 1000, color: "#E62E2E", label:
 
 const perThreadCpuAnnotationInterval = [{ y: 90, y2: 100, color: "#E62E2E", label: "Danger Zone" }];
 
+const autoSelectedThreads = [
+  ThreadNamesIOS.JS_THREAD,
+  ThreadNames.JS_THREAD,
+  ThreadNames.UI_THREAD,
+  ThreadNamesIOS.UI_THREAD,
+  // TODO: add more threads
+];
+
+const getAutoSelectedThreads = (results: AveragedTestCaseResult[]) => {
+  const autoSelectedThread = autoSelectedThreads.find((threadName) =>
+    results.every(
+      (result) =>
+        result.average.measures[0].cpu.perName[threadName] !== undefined ||
+        // Support legacy json files with thread names in parenthesis
+        result.average.measures[0].cpu.perName[`(${threadName})`] !== undefined
+    )
+  );
+
+  return autoSelectedThread ? [autoSelectedThread] : [];
+};
+
 export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
-  const reactNativeDetected = results.every((result) => result.reactNativeDetected);
-
-  const platformThreadNames = results.every((result) => result.type === "IOS_EXPERIMENTAL")
-    ? ThreadNamesIOS
-    : ThreadNames;
-
   const [selectedThreads, setSelectedThreads] = React.useState<string[]>(
-    reactNativeDetected ? [platformThreadNames.JS_THREAD] : [platformThreadNames.UI_THREAD]
+    getAutoSelectedThreads(results)
   );
 
   const threads = selectedThreads
