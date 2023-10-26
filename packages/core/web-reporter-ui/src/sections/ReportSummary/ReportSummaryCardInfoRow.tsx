@@ -4,12 +4,14 @@ import { Collapsible } from "../../components/Collapsible";
 type Props = {
   title: string;
   value: ReactNode;
+  difference?: ReactNode;
   explanation?: ReactNode;
 };
 
 export const ReportSummaryCardInfoRow: FunctionComponent<Props> = ({
   title,
   value,
+  difference,
   explanation,
 }) => {
   const collapsibleHeader = useMemo(
@@ -20,6 +22,7 @@ export const ReportSummaryCardInfoRow: FunctionComponent<Props> = ({
         <div className="grow" />
 
         <div className="text-neutral-300 whitespace-pre">{value}</div>
+        {difference}
 
         <div className="w-2" />
       </div>

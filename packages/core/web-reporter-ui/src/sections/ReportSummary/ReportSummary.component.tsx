@@ -10,6 +10,7 @@ export const ReportSummary = ({
   averagedResults: AveragedTestCaseResult[];
 }) => {
   const palette = getThemeColorPalette();
+  const baselineResult = averagedResults[0];
 
   return (
     <div className="flex flex-row overflow-x-scroll px-12 gap-12 w-full hide-scrollbar">
@@ -30,7 +31,10 @@ export const ReportSummary = ({
             {result.status === "FAILURE" ? (
               <FailedReportSummaryCard averagedResult={result} />
             ) : (
-              <ReportSummaryCard averagedResult={result} />
+              <ReportSummaryCard
+                averagedResult={result}
+                baselineResult={index !== 0 ? baselineResult : undefined}
+              />
             )}
           </div>
         );
