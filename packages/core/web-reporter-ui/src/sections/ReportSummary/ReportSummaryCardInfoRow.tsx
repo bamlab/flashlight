@@ -27,7 +27,7 @@ export const ReportSummaryCardInfoRow: FunctionComponent<Props> = ({
         <div className="w-2" />
       </div>
     ),
-    [title, value]
+    [title, value, difference]
   );
   return (
     <div className="w-full border rounded-lg border-gray-800">
