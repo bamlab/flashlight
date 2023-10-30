@@ -42,10 +42,12 @@ here for more details
 68
 Average Test Runtime
 5908 ms
+(-11%)
 Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
 59.8 FPS
+(+0%)
 Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
 See
  
@@ -54,12 +56,14 @@ this video
 for more details
 Average CPU usage
 30.8 %
+(-47%)
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 1 s
+(-68%)
 Impacted threads:
 - 
 mqt_js
@@ -70,6 +74,7 @@ s
 High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 413.3 MB
+(+1%)
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
 It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
  
@@ -676,7 +681,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           class="ml-auto "
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[500px] flex-shrink-0"
           >
             <div
               class="flex flex-row items-center gap-2"
@@ -1109,7 +1114,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
           data-theme="bright-yellow"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[500px] flex-shrink-0"
           >
             <div
               class="flex flex-row items-center gap-2"
@@ -1188,6 +1193,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                         5908 ms
                       </div>
                       <div
+                        class="whitespace-pre ml-2 text-green-500"
+                      >
+                        (-11%)
+                      </div>
+                      <div
                         class="w-2"
                       />
                     </div>
@@ -1255,6 +1265,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                         class="text-neutral-300 whitespace-pre"
                       >
                         59.8 FPS
+                      </div>
+                      <div
+                        class="whitespace-pre ml-2 text-green-500"
+                      >
+                        (+0%)
                       </div>
                       <div
                         class="w-2"
@@ -1334,6 +1349,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                         30.8 %
                       </div>
                       <div
+                        class="whitespace-pre ml-2 text-green-500"
+                      >
+                        (-47%)
+                      </div>
+                      <div
                         class="w-2"
                       />
                     </div>
@@ -1409,6 +1429,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                         >
                           1 s
                         </div>
+                      </div>
+                      <div
+                        class="whitespace-pre ml-2 text-green-500"
+                      >
+                        (-68%)
                       </div>
                       <div
                         class="w-2"
@@ -1488,6 +1513,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                         class="text-neutral-300 whitespace-pre"
                       >
                         413.3 MB
+                      </div>
+                      <div
+                        class="whitespace-pre ml-2 text-red-500"
+                      >
+                        (+1%)
                       </div>
                       <div
                         class="w-2"
@@ -11377,10 +11407,12 @@ here for more details
 68
 Average Test Runtime
 5818 ms
+(-15%)
 Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
 59.9 FPS
+(+1%)
 Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
 See
  
@@ -11389,12 +11421,14 @@ this video
 for more details
 Average CPU usage
 30.9 %
+(-53%)
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 1 s
+(-71%)
 Impacted threads:
 - 
 mqt_js
@@ -11405,6 +11439,7 @@ s
 High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 407.4 MB
+(+1%)
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
 It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
  
@@ -11723,7 +11758,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           class="ml-auto "
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[500px] flex-shrink-0"
           >
             <div
               class="flex flex-row items-center gap-2"
@@ -12156,7 +12191,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
           data-theme="bright-yellow"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[500px] flex-shrink-0"
           >
             <div
               class="flex flex-row items-center gap-2"
@@ -12235,6 +12270,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                         5818 ms
                       </div>
                       <div
+                        class="whitespace-pre ml-2 text-green-500"
+                      >
+                        (-15%)
+                      </div>
+                      <div
                         class="w-2"
                       />
                     </div>
@@ -12302,6 +12342,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                         class="text-neutral-300 whitespace-pre"
                       >
                         59.9 FPS
+                      </div>
+                      <div
+                        class="whitespace-pre ml-2 text-red-500"
+                      >
+                        (+1%)
                       </div>
                       <div
                         class="w-2"
@@ -12381,6 +12426,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                         30.9 %
                       </div>
                       <div
+                        class="whitespace-pre ml-2 text-green-500"
+                      >
+                        (-53%)
+                      </div>
+                      <div
                         class="w-2"
                       />
                     </div>
@@ -12456,6 +12506,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                         >
                           1 s
                         </div>
+                      </div>
+                      <div
+                        class="whitespace-pre ml-2 text-green-500"
+                      >
+                        (-71%)
                       </div>
                       <div
                         class="w-2"
@@ -12535,6 +12590,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                         class="text-neutral-300 whitespace-pre"
                       >
                         407.4 MB
+                      </div>
+                      <div
+                        class="whitespace-pre ml-2 text-red-500"
+                      >
+                        (+1%)
                       </div>
                       <div
                         class="w-2"
@@ -17431,10 +17491,12 @@ fabric-many-texts (com.fabricenabled)
 39
 Average Test Runtime
 135 ms
+(-66%)
 Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
 38.2 FPS
+(-16%)
 Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
 See
  
@@ -17443,12 +17505,14 @@ this video
 for more details
 Average CPU usage
 92.8 %
+(+16%)
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 5 s
+(+25%)
 Impacted threads:
 - 
 UI Thread
@@ -17471,6 +17535,7 @@ s
 High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 109.5 MB
+(+1%)
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
 It’s worth noting that results might be higher than expected since we measure RSS and not PSS (See
  
@@ -17525,7 +17590,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           class="ml-auto "
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[500px] flex-shrink-0"
           >
             <div
               class="flex flex-row items-center gap-2"
@@ -17963,7 +18028,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
           data-theme="bright-yellow"
         >
           <div
-            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[456px] flex-shrink-0"
+            class="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[500px] flex-shrink-0"
           >
             <div
               class="flex flex-row items-center gap-2"
@@ -18042,6 +18107,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                         135 ms
                       </div>
                       <div
+                        class="whitespace-pre ml-2 text-green-500"
+                      >
+                        (-66%)
+                      </div>
+                      <div
                         class="w-2"
                       />
                     </div>
@@ -18109,6 +18179,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                         class="text-neutral-300 whitespace-pre"
                       >
                         38.2 FPS
+                      </div>
+                      <div
+                        class="whitespace-pre ml-2 text-green-500"
+                      >
+                        (-16%)
                       </div>
                       <div
                         class="w-2"
@@ -18188,6 +18263,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                         92.8 %
                       </div>
                       <div
+                        class="whitespace-pre ml-2 text-red-500"
+                      >
+                        (+16%)
+                      </div>
+                      <div
                         class="w-2"
                       />
                     </div>
@@ -18263,6 +18343,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                         >
                           5 s
                         </div>
+                      </div>
+                      <div
+                        class="whitespace-pre ml-2 text-red-500"
+                      >
+                        (+25%)
                       </div>
                       <div
                         class="w-2"
@@ -18352,6 +18437,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                         class="text-neutral-300 whitespace-pre"
                       >
                         109.5 MB
+                      </div>
+                      <div
+                        class="whitespace-pre ml-2 text-red-500"
+                      >
+                        (+1%)
                       </div>
                       <div
                         class="w-2"
