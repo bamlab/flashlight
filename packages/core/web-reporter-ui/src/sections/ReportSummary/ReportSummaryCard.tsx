@@ -10,7 +10,7 @@ import { roundToDecimal } from "../../../utils/roundToDecimal";
 import { ReportSummaryCardInfoRow } from "./ReportSummaryCardInfoRow";
 import { Score } from "../../components/Score";
 import { Explanations } from "./Explanations";
-import { Difference } from "./Difference";
+import { Difference, isDifferencePositive } from "./Difference";
 
 type Props = {
   averagedResult: AveragedTestCaseResult;
@@ -58,6 +58,7 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ averagedResult, ba
           <Difference
             value={getAverageFPSUsage(averagedResult.average.measures)}
             baseline={baselineResult && getAverageFPSUsage(baselineResult.average.measures)}
+            hasValueImproved={isDifferencePositive}
           />
         }
         explanation={<Explanations.AverageFPSExplanation />}

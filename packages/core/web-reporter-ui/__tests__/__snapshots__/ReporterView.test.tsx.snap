@@ -12344,7 +12344,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                         59.9 FPS
                       </div>
                       <div
-                        class="whitespace-pre ml-2 text-red-500"
+                        class="whitespace-pre ml-2 text-green-500"
                       >
                         (+1%)
                       </div>
@@ -18181,7 +18181,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                         38.2 FPS
                       </div>
                       <div
-                        class="whitespace-pre ml-2 text-green-500"
+                        class="whitespace-pre ml-2 text-red-500"
                       >
                         (-16%)
                       </div>
