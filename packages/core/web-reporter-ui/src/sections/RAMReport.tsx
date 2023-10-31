@@ -1,7 +1,7 @@
 import React from "react";
 import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
 import { Chart } from "../components/Chart";
-import { roundToDecimal } from "../../utils/roundToDecimal";
+import { roundToDecimal } from "@perf-profiler/reporter";
 
 export const RAMReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
   const ram = results.map((result) => ({

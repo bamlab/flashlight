@@ -1,14 +1,9 @@
-import React from "react";
-import {
-  AveragedTestCaseResult,
-  Measure,
-  POLLING_INTERVAL,
-  TestCaseResult,
-} from "@perf-profiler/types";
+import React, { useMemo } from "react";
+import { Measure, POLLING_INTERVAL, TestCaseResult } from "@perf-profiler/types";
 import { CPUReport } from "./src/sections/CPUReport";
 import { ReportSummary } from "./src/sections/ReportSummary/ReportSummary.component";
 import { RAMReport } from "./src/sections/RAMReport";
-import { averageTestCaseResult } from "@perf-profiler/reporter";
+import { Report as ReportModel } from "@perf-profiler/reporter";
 import styled from "@emotion/styled";
 import { FPSReport } from "./src/sections/FPSReport";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
@@ -37,34 +32,18 @@ const Report = ({
   results: TestCaseResult[];
   additionalMenuOptions?: MenuOption[];
 }) => {
-  const filteredIterationsResults = results.map((result) => ({
-    ...result,
-    iterations:
-      result.status === "SUCCESS"
-        ? result.iterations.filter((iteration) => iteration.status === "SUCCESS")
-        : result.iterations,
-  }));
-  const minIterationCount = Math.min(
-    ...filteredIterationsResults.map((result) => result.iterations.length)
-  );
+  const reports = useMemo(() => results.map((result) => new ReportModel(result)), [results]);
+  const minIterationCount = Math.min(...reports.map((report) => report.getIterationCount()));
   const iterationSelector = useIterationSelector(minIterationCount);
 
-  const iterationResults = filteredIterationsResults.map((result) => ({
-    ...result,
-    iterations: iterationSelector.showAverage
-      ? result.iterations
-      : [result.iterations[iterationSelector.iterationIndex]],
-  }));
+  const selectedReports = iterationSelector.showAverage
+    ? reports
+    : reports.map((report) => report.selectIteration(iterationSelector.iterationIndex));
 
-  const averagedResults: AveragedTestCaseResult[] = iterationResults.map(averageTestCaseResult);
+  const averagedResults = selectedReports.map((report) => report.getAveragedResult());
 
-  const saveResultsToZIP = () => {
-    exportRawDataToZIP(results);
-  };
-
-  const hasVideos = !!iterationResults.some((iteration) => iteration.iterations[0]?.videoInfos);
-
-  const hasMeasures = averagedResults[0]?.iterations[0]?.measures.length > 0;
+  const hasVideos = !!selectedReports.some((report) => report.hasVideos());
+  const hasMeasures = selectedReports[0].hasMeasures();
 
   return (
     <>
@@ -76,13 +55,15 @@ const Report = ({
                 {
                   label: "Save all as ZIP",
                   icon: <FileDownloadIcon fontSize="small" />,
-                  onClick: saveResultsToZIP,
+                  onClick: () => {
+                    exportRawDataToZIP(results);
+                  },
                 },
                 ...(additionalMenuOptions ? additionalMenuOptions : []),
               ]}
             />
             <Padding />
-            <ReportSummary averagedResults={averagedResults} />
+            <ReportSummary reports={selectedReports} />
             <div className="h-16" />
 
             {hasMeasures ? (
@@ -105,7 +86,7 @@ const Report = ({
             ) : null}
           </div>
 
-          {hasVideos ? <VideoSection results={iterationResults} /> : null}
+          {hasVideos ? <VideoSection results={averagedResults} /> : null}
         </div>
       </VideoEnabledContext.Provider>
 

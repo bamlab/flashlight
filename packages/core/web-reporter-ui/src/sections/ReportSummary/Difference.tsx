@@ -1,5 +1,5 @@
 import React from "react";
-import { roundToDecimal } from "../../../utils/roundToDecimal";
+import { roundToDecimal } from "@perf-profiler/reporter";
 
 type Props = {
   value?: number;

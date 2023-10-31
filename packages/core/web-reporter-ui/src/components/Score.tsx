@@ -1,11 +1,9 @@
 import React, { FunctionComponent } from "react";
-import { getScore } from "@perf-profiler/reporter";
-import { AveragedTestCaseResult } from "@perf-profiler/types";
-import { roundToDecimal } from "../../utils/roundToDecimal";
+import { Report, roundToDecimal } from "@perf-profiler/reporter";
 
 type Props = {
   size?: number;
-  result: AveragedTestCaseResult;
+  report: Report;
 } & Omit<React.SVGProps<SVGSVGElement>, "result">;
 
 export const getScoreClassName = (score: number) => {
@@ -18,9 +16,9 @@ export const getScoreClassName = (score: number) => {
   }
 };
 
-export const Score: FunctionComponent<Props> = ({ size = 152, result }) => {
-  const displayPlaceholder = result.average.measures.length === 0;
-  const score = displayPlaceholder ? 100 : result.score ?? getScore(result);
+export const Score: FunctionComponent<Props> = ({ size = 152, report }) => {
+  const displayPlaceholder = !report.hasMeasures();
+  const score = displayPlaceholder ? 100 : report.score;
 
   // Makes sure the arc is displayed when the score is 100, otherwise gets treated like 0
   const epsilon = 0.000001;

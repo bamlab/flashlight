@@ -6,10 +6,9 @@ import {
   ThreadNames,
   ThreadNamesIOS,
 } from "@perf-profiler/types";
-import { getAverageCpuUsage } from "@perf-profiler/reporter";
+import { getAverageCpuUsage, roundToDecimal } from "@perf-profiler/reporter";
 import { Chart } from "../components/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
-import { roundToDecimal } from "../../utils/roundToDecimal";
 import { Collapsible } from "../components/Collapsible";
 import { getColorPalette } from "../theme/colors";
 
