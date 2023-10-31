@@ -63,7 +63,7 @@ An app might run at 60FPS but might be using too much processing power, so it's 
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
 High CPU Usage
 1 s
-(-68%)
+(-69%)
 Impacted threads:
 - 
 mqt_js
@@ -1433,7 +1433,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <div
                         class="whitespace-pre ml-2 text-green-500"
                       >
-                        (-68%)
+                        (-69%)
                       </div>
                       <div
                         class="w-2"

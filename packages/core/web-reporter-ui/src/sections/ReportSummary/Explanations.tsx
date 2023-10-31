@@ -1,7 +1,6 @@
 import orderBy from "lodash/orderBy";
 import React from "react";
-import { roundToDecimal } from "../../../utils/roundToDecimal";
-import { sanitizeProcessName } from "@perf-profiler/reporter";
+import { roundToDecimal, sanitizeProcessName } from "@perf-profiler/reporter";
 import { AveragedTestCaseResult } from "@perf-profiler/types";
 
 const AverageTestRuntimeExplanation = () => (

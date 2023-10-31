@@ -7,7 +7,7 @@ import React, {
   useState,
 } from "react";
 import { setVideoCurrentTime, useListenToVideoCurrentTime } from "../../videoCurrentTimeContext";
-import { TestCaseResult } from "@perf-profiler/types";
+import { AveragedTestCaseResult } from "@perf-profiler/types";
 import { Button } from "../components/Button";
 import { ArrowDownIcon } from "../components/icons/ArrowDownIcon";
 
@@ -78,7 +78,7 @@ const Video = forwardRef<
   );
 });
 
-export const VideoSection = ({ results }: { results: TestCaseResult[] }) => {
+export const VideoSection = ({ results }: { results: AveragedTestCaseResult[] }) => {
   const videoRefs = results.map(() => React.createRef<VideoHandle>());
   const [isPanelExpanded, setIsPanelExpanded] = useState(false);
   const togglePanel = () => setIsPanelExpanded((prevIsPanelExpanded) => !prevIsPanelExpanded);
