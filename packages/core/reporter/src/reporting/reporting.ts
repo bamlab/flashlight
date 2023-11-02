@@ -1,5 +1,6 @@
 import _ from "lodash";
 import { Measure, POLLING_INTERVAL } from "@perf-profiler/types";
+import { average } from "./averageIterations";
 
 const round = (n: number, decimals: number) =>
   Math.floor(n * Math.pow(10, decimals)) / Math.pow(10, decimals);
@@ -48,8 +49,6 @@ export const getHighCpuUsageStats = (
     .groupBy((measure) => measure.processName)
     .mapValues((measures) => measures.length * POLLING_INTERVAL)
     .value();
-
-const average = (measures: number[]) => _.sum(measures) / measures.length;
 
 export const getAverageFPSUsage = (measures: Measure[]) =>
   average(measures.map((measure) => measure.fps));

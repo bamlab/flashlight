@@ -68,7 +68,7 @@ program
     pollPerformanceMeasures(bundleId, {
       onMeasure: (measure: Measure) => {
         const headers: string[] = [];
-        const values: number[] = [];
+        const values: (number | undefined)[] = [];
 
         if (options.fps) {
           headers.push("FPS");

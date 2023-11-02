@@ -15,7 +15,20 @@ const range = (n: number) =>
     .fill(null)
     .map((_, i) => i);
 
-const average = (arr: number[]) => arr.reduce((p, c) => p + c, 0) / arr.length;
+export function average(arr: number[]): number;
+export function average(arr: (number | undefined)[]): number | undefined;
+export function average(arr: (number | undefined)[] | number[]): number | undefined {
+  if (arr.length === 0) return undefined;
+
+  let sum = 0;
+
+  for (const elt of arr) {
+    if (elt === undefined) return undefined;
+    sum += elt;
+  }
+
+  return sum / arr.length;
+}
 
 const averageMaps = (maps: { [key: string]: number }[]): { [key: string]: number } => {
   const totalByThread = maps.reduce((aggr, map) => {

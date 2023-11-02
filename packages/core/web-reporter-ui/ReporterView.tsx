@@ -13,6 +13,7 @@ import { exportRawDataToZIP } from "./utils/reportRawDataExport";
 import { IterationSelector, useIterationSelector } from "./src/components/IterationSelector";
 import { VideoSection } from "./src/sections/VideoSection";
 import { VideoEnabledContext } from "./videoCurrentTimeContext";
+import { HideSectionIfUndefinedValueFound } from "./src/sections/hideSectionForEmptyValue";
 
 const Padding = styled.div`
   height: 10px;
@@ -68,10 +69,12 @@ const Report = ({
 
             {hasMeasures ? (
               <>
-                <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
-                  <FPSReport results={averagedResults} />
-                </div>
-                <div className="h-10" />
+                <HideSectionIfUndefinedValueFound>
+                  <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
+                    <FPSReport results={averagedResults} />
+                  </div>
+                  <div className="h-10" />
+                </HideSectionIfUndefinedValueFound>
 
                 <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
                   <CPUReport results={averagedResults} />

@@ -4,6 +4,7 @@ import { pollPerformanceMeasures } from "./commands/pollPerformanceMeasures";
 import { parseGfxInfo } from "./commands/gfxInfo/parseGfxInfo";
 import { compareGfxMeasures } from "./commands/gfxInfo/compareGfxMeasures";
 import { ensureCppProfilerIsInstalled } from "./commands/cppProfiler";
+import { profiler } from "./commands/platforms/platformProfiler";
 import { cleanup } from "./commands/shell";
 import { ScreenRecorder } from "./commands/ScreenRecorder";
 
@@ -20,4 +21,5 @@ export {
   pollPerformanceMeasures,
   parseGfxInfo,
   ScreenRecorder,
+  profiler,
 };

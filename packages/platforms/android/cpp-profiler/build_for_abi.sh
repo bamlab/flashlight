@@ -8,5 +8,6 @@ cmake \
   -DCMAKE_TOOLCHAIN_FILE=$ANDROID_NDK/build/cmake/android.toolchain.cmake \
   -DANDROID_PLATFORM=android-23 \
   -DANDROID_ABI=$ABI \
-  -DCMAKE_ANDROID_ARCH_ABI=$ABI
+  -DCMAKE_ANDROID_ARCH_ABI=$ABI \
+  -S .
 cmake --build .

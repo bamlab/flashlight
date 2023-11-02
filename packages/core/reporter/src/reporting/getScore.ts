@@ -1,6 +1,7 @@
 import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
 import { round } from "lodash";
 import { getAverageCpuUsage, getAverageFPSUsage } from "./reporting";
+import { average } from "./averageIterations";
 
 /**
  * From https://www.mathcelebrity.com/3ptquad.php?p1=50%2C100&p2=200%2C50&p3=300%2C15&pl=Calculate+Equation
@@ -18,11 +19,17 @@ export const getScore = (result: AveragedTestCaseResult) => {
     0
   );
 
-  const fpsScore = (averageUIFPS * 100) / 60;
   const cpuScore = calculateCpuScore(averageCPUUsage);
+
+  const scores = [cpuScore];
+
+  if (averageUIFPS !== undefined) {
+    const fpsScore = (averageUIFPS * 100) / 60;
+    scores.push(fpsScore);
+  }
 
   const totalMeasureTime = result.average.measures.length * POLLING_INTERVAL;
   const timePercentageThreadlocked = totalTimeThreadlocked / totalMeasureTime;
 
-  return round(Math.max(0, ((fpsScore + cpuScore) / 2) * (1 - timePercentageThreadlocked)), 0);
+  return round(Math.max(0, average(scores) * (1 - timePercentageThreadlocked)), 0);
 };
