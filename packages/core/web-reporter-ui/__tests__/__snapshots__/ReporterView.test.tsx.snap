@@ -1635,10 +1635,10 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
             style="height: 0px;"
           >
             <div
-              class="MuiTableContainer-root css-rorn0c-MuiTableContainer-root"
+              class="MuiTableContainer-root css-ahxqwc-MuiTableContainer-root"
             >
               <table
-                class="MuiTable-root css-1anlgyr-MuiTable-root"
+                class="MuiTable-root MuiTable-stickyHeader css-1t06eog-MuiTable-root"
               >
                 <thead
                   class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
@@ -1647,11 +1647,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                   >
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 css-7p1q7j-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-4riktk-MuiTableCell-root"
                       scope="col"
                     />
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeSmall !text-neutral-300 css-1o0pxdz-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-129gvqq-MuiTableCell-root"
                       scope="col"
                     >
                       <span
@@ -1680,7 +1680,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     </th>
                     <th
                       aria-sort="descending"
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 css-1e0cqi7-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-1lyqn04-MuiTableCell-root"
                       scope="col"
                     >
                       <span
@@ -1713,7 +1713,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       </span>
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 css-1e0cqi7-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-1lyqn04-MuiTableCell-root"
                       scope="col"
                     >
                       <span
@@ -12716,10 +12716,10 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
             style="height: 0px;"
           >
             <div
-              class="MuiTableContainer-root css-rorn0c-MuiTableContainer-root"
+              class="MuiTableContainer-root css-ahxqwc-MuiTableContainer-root"
             >
               <table
-                class="MuiTable-root css-1anlgyr-MuiTable-root"
+                class="MuiTable-root MuiTable-stickyHeader css-1t06eog-MuiTable-root"
               >
                 <thead
                   class="MuiTableHead-root css-15wwp11-MuiTableHead-root"
@@ -12728,11 +12728,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                   >
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 css-7p1q7j-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-4riktk-MuiTableCell-root"
                       scope="col"
                     />
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeSmall !text-neutral-300 css-1o0pxdz-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-129gvqq-MuiTableCell-root"
                       scope="col"
                     >
                       <span
@@ -12761,7 +12761,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     </th>
                     <th
                       aria-sort="descending"
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 css-1e0cqi7-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-1lyqn04-MuiTableCell-root"
                       scope="col"
                     >
                       <span
@@ -12794,7 +12794,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       </span>
                     </th>
                     <th
-                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 css-1e0cqi7-MuiTableCell-root"
+                      class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-1lyqn04-MuiTableCell-root"
                       scope="col"
                     >
                       <span

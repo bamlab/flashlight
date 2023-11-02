@@ -79,14 +79,14 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox" className="!text-neutral-300" />
+        <TableCell padding="checkbox" className="!text-neutral-300 bg-dark-charcoal" />
         {props.headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? "right" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
-            className="!text-neutral-300"
+            className="!text-neutral-300 bg-dark-charcoal"
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -165,8 +165,8 @@ export default function EnhancedTable({
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   return (
-    <TableContainer>
-      <Table size={"small"}>
+    <TableContainer sx={{ maxHeight: 400 }}>
+      <Table stickyHeader size={"small"}>
         <EnhancedTableHead
           headCells={headCells}
           numSelected={selected.length}
