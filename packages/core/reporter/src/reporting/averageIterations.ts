@@ -4,8 +4,6 @@ import {
   POLLING_INTERVAL,
   TestCaseIterationResult,
   TestCaseResult,
-  ThreadNames,
-  ThreadNamesIOS,
 } from "@perf-profiler/types";
 import { mapValues } from "lodash";
 import { getHighCpuUsageStats } from "./reporting";
@@ -80,10 +78,5 @@ export const averageTestCaseResult = (result: TestCaseResult): AveragedTestCaseR
     ...result,
     average: averagedIterations,
     averageHighCpuUsage: averageHighCpuUsage(result.iterations),
-    reactNativeDetected: averagedIterations.measures.some((measure) =>
-      Object.keys(measure.cpu.perName).some(
-        (key) => key === ThreadNames.JS_THREAD || key === ThreadNamesIOS.JS_THREAD
-      )
-    ),
   };
 };

@@ -40,12 +40,14 @@ const autoSelectedThreads = [
 
 const getAutoSelectedThreads = (results: AveragedTestCaseResult[]) => {
   const autoSelectedThread = autoSelectedThreads.find((threadName) =>
-    results.every(
-      (result) =>
-        result.average.measures[0].cpu.perName[threadName] !== undefined ||
+    results.every((result) => {
+      const lastMeasure = result.average.measures[result.average.measures.length - 1];
+      return (
+        lastMeasure.cpu.perName[threadName] !== undefined ||
         // Support legacy json files with thread names in parenthesis
-        result.average.measures[0].cpu.perName[`(${threadName})`] !== undefined
-    )
+        lastMeasure.cpu.perName[`(${threadName})`] !== undefined
+      );
+    })
   );
 
   return autoSelectedThread ? [autoSelectedThread] : [];
