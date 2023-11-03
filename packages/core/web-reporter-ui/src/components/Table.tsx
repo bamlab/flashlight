@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
@@ -78,14 +79,14 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox" className="!text-neutral-300" />
+        <TableCell padding="checkbox" className="!text-neutral-300 bg-dark-charcoal" />
         {props.headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? "right" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
-            className="!text-neutral-300"
+            className="!text-neutral-300 bg-dark-charcoal"
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -164,63 +165,65 @@ export default function EnhancedTable({
   const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
   return (
-    <Table size={"small"}>
-      <EnhancedTableHead
-        headCells={headCells}
-        numSelected={selected.length}
-        order={order}
-        orderBy={orderBy}
-        onSelectAllClick={handleSelectAllClick}
-        onRequestSort={handleRequestSort}
-        rowCount={rows.length}
-      />
-      <TableBody>
-        {stableSort(rows, getComparator(order, orderBy)).map((row, index) => {
-          const isItemSelected = isSelected(row.name);
-          const labelId = `enhanced-table-checkbox-${index}`;
+    <TableContainer sx={{ maxHeight: 400 }}>
+      <Table stickyHeader size={"small"}>
+        <EnhancedTableHead
+          headCells={headCells}
+          numSelected={selected.length}
+          order={order}
+          orderBy={orderBy}
+          onSelectAllClick={handleSelectAllClick}
+          onRequestSort={handleRequestSort}
+          rowCount={rows.length}
+        />
+        <TableBody>
+          {stableSort(rows, getComparator(order, orderBy)).map((row, index) => {
+            const isItemSelected = isSelected(row.name);
+            const labelId = `enhanced-table-checkbox-${index}`;
 
-          return (
-            <TableRow
-              hover
-              onClick={(event) => handleClick(event, row.name)}
-              role="checkbox"
-              aria-checked={isItemSelected}
-              tabIndex={-1}
-              key={row.name}
-              selected={isItemSelected}
-            >
-              <TableCell padding="checkbox" className="!text-neutral-300 border-b-neutral-500">
-                <Checkbox
-                  color="primary"
-                  checked={isItemSelected}
-                  inputProps={{
-                    "aria-labelledby": labelId,
-                  }}
-                  className="!text-neutral-300"
-                />
-              </TableCell>
-              <TableCell
-                component="th"
-                id={labelId}
-                scope="row"
-                padding="none"
-                className="!text-neutral-300 border-b-neutral-500"
+            return (
+              <TableRow
+                hover
+                onClick={(event) => handleClick(event, row.name)}
+                role="checkbox"
+                aria-checked={isItemSelected}
+                tabIndex={-1}
+                key={row.name}
+                selected={isItemSelected}
               >
-                {sanitizeProcessName(row.name)}
-              </TableCell>
-              {headCells.slice(1).map((headCell) => (
+                <TableCell padding="checkbox" className="!text-neutral-300 border-b-neutral-500">
+                  <Checkbox
+                    color="primary"
+                    checked={isItemSelected}
+                    inputProps={{
+                      "aria-labelledby": labelId,
+                    }}
+                    className="!text-neutral-300"
+                  />
+                </TableCell>
                 <TableCell
-                  align="right"
-                  key={headCell.id}
+                  component="th"
+                  id={labelId}
+                  scope="row"
+                  padding="none"
                   className="!text-neutral-300 border-b-neutral-500"
                 >
-                  {row[headCell.id]}
+                  {sanitizeProcessName(row.name)}
                 </TableCell>
-              ))}
-            </TableRow>
-          );
-        })}
-      </TableBody>
-    </Table>
+                {headCells.slice(1).map((headCell) => (
+                  <TableCell
+                    align="right"
+                    key={headCell.id}
+                    className="!text-neutral-300 border-b-neutral-500"
+                  >
+                    {row[headCell.id]}
+                  </TableCell>
+                ))}
+              </TableRow>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 }
