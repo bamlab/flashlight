@@ -931,7 +931,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root Mui-checked !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-0"
@@ -984,7 +984,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-1"
@@ -1036,7 +1036,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-2"
@@ -1088,7 +1088,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-3"
@@ -1140,7 +1140,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-4"
@@ -1192,7 +1192,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-5"
@@ -1244,7 +1244,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-6"
@@ -1296,7 +1296,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-7"
@@ -1348,7 +1348,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-8"
@@ -1400,7 +1400,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-9"
@@ -1452,7 +1452,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-10"
@@ -1504,7 +1504,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-11"
@@ -1556,7 +1556,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-12"
@@ -1608,7 +1608,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-13"
@@ -1660,7 +1660,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-14"
@@ -1712,7 +1712,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-15"
@@ -1764,7 +1764,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-16"
@@ -1816,7 +1816,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-17"
@@ -1868,7 +1868,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-18"
@@ -1920,7 +1920,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-19"
@@ -1972,7 +1972,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-20"
@@ -2024,7 +2024,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-21"
@@ -2076,7 +2076,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-22"
@@ -2128,7 +2128,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-23"
@@ -2180,7 +2180,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-24"
@@ -2232,7 +2232,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-25"
@@ -2284,7 +2284,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-26"
@@ -2336,7 +2336,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-27"
@@ -2388,7 +2388,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-28"
@@ -2440,7 +2440,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-29"
@@ -2492,7 +2492,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-30"
@@ -2544,7 +2544,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-31"
@@ -2596,7 +2596,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-32"
@@ -2648,7 +2648,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-33"
@@ -2700,7 +2700,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-34"
@@ -2752,7 +2752,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-35"
@@ -2804,7 +2804,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-36"
@@ -2856,7 +2856,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-37"
@@ -2908,7 +2908,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-38"
@@ -2960,7 +2960,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-39"
@@ -3012,7 +3012,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-40"
@@ -3064,7 +3064,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-41"
@@ -3116,7 +3116,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                       >
                         <span
-                          class="MuiCheckbox-root MuiCheckbox-colorPrimary MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary PrivateSwitchBase-root !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                          class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                         >
                           <input
                             aria-labelledby="enhanced-table-checkbox-42"
