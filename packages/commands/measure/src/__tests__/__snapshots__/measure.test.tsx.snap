@@ -823,11 +823,11 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                       class="MuiTableRow-root MuiTableRow-head css-1q1u3t4-MuiTableRow-root"
                     >
                       <th
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-4riktk-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 !bg-dark-charcoal css-4riktk-MuiTableCell-root"
                         scope="col"
                       />
                       <th
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-129gvqq-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignLeft MuiTableCell-paddingNone MuiTableCell-sizeSmall !text-neutral-300 !bg-dark-charcoal css-129gvqq-MuiTableCell-root"
                         scope="col"
                       >
                         <span
@@ -856,7 +856,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                       </th>
                       <th
                         aria-sort="descending"
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-1lyqn04-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 !bg-dark-charcoal css-1lyqn04-MuiTableCell-root"
                         scope="col"
                       >
                         <span
@@ -889,7 +889,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         </span>
                       </th>
                       <th
-                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 bg-dark-charcoal css-1lyqn04-MuiTableCell-root"
+                        class="MuiTableCell-root MuiTableCell-head MuiTableCell-stickyHeader MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 !bg-dark-charcoal css-1lyqn04-MuiTableCell-root"
                         scope="col"
                       >
                         <span

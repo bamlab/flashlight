@@ -79,14 +79,14 @@ function EnhancedTableHead(props: EnhancedTableProps) {
   return (
     <TableHead>
       <TableRow>
-        <TableCell padding="checkbox" className="!text-neutral-300 bg-dark-charcoal" />
+        <TableCell padding="checkbox" className="!text-neutral-300 !bg-dark-charcoal" />
         {props.headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             align={headCell.numeric ? "right" : "left"}
             padding={headCell.disablePadding ? "none" : "normal"}
             sortDirection={orderBy === headCell.id ? order : false}
-            className="!text-neutral-300 bg-dark-charcoal"
+            className="!text-neutral-300 !bg-dark-charcoal"
           >
             <TableSortLabel
               active={orderBy === headCell.id}
