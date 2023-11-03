@@ -46,7 +46,6 @@ export interface AveragedTestCaseResult {
   iterations: TestCaseIterationResult[];
   average: TestCaseIterationResult;
   averageHighCpuUsage: { [processName: string]: number };
-  reactNativeDetected: boolean;
   type?: TestCaseResultType;
 }
 
