@@ -1,3 +1,15 @@
+# [0.12.0](https://github.com/bamlab/flashlight/compare/v0.11.2...v0.12.0) (2023-11-08)
+
+### Bug Fixes
+
+- **report:** allow horizontal scrolling in threads table ([#168](https://github.com/bamlab/flashlight/issues/168)) ([0136567](https://github.com/bamlab/flashlight/commit/0136567f5baa2d7fe0365e9d01d174753c121a81))
+- **report:** fix difference color for FPS ([#166](https://github.com/bamlab/flashlight/issues/166)) ([ae2dd98](https://github.com/bamlab/flashlight/commit/ae2dd98900dd36e756f3fc460d015e7d0be5e486))
+- **report:** fix thread autoselection ([#169](https://github.com/bamlab/flashlight/issues/169)) ([eb28d01](https://github.com/bamlab/flashlight/commit/eb28d01af2dbb71afc08e3e7963b744486a370a6))
+
+### Features
+
+- **report:** add difference in comparison view ([#163](https://github.com/bamlab/flashlight/issues/163)) ([#164](https://github.com/bamlab/flashlight/issues/164)) ([ac4c3bf](https://github.com/bamlab/flashlight/commit/ac4c3bfff5a28cf458fe128b67e007b53f0ae97b))
+
 ## [0.11.1](https://github.com/bamlab/flashlight/compare/v0.10.1...v0.11.1) (2023-10-03)
 
 ### Bug Fixes
