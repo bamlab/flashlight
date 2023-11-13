@@ -1,0 +1,21 @@
+{
+  "name": "@perf-profiler/ios-instruments",
+  "version": "0.2.0",
+  "description": "",
+  "bin": {
+    "flashlight-ios-poc": "./dist/launchIOS.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@perf-profiler/profiler": "^0.10.7",
+    "@perf-profiler/types": "^0.6.0",
+    "commander": "^9.4.0",
+    "fast-xml-parser": "^4.2.7"
+  }
+}

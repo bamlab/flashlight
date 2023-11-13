@@ -1,21 +1,19 @@
 {
-  "name": "flashlight-ios-poc",
+  "name": "@perf-profiler/ios",
   "version": "0.2.0",
   "description": "",
-  "bin": {
-    "flashlight-ios-poc": "./dist/launchIOS.js"
+  "main": "dist/src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bamlab/android-performance-profiler.git",
+    "directory": "very-secret-profiler"
   },
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "author": {
+    "name": "Almouro",
+    "email": "alexandrem@bam.tech"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "@perf-profiler/profiler": "^0.10.7",
-    "@perf-profiler/types": "^0.6.0",
-    "commander": "^9.4.0",
-    "fast-xml-parser": "^4.2.7"
+    "@perf-profiler/types": "^0.6.0"
   }
 }

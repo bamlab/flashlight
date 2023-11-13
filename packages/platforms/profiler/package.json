@@ -1,5 +1,5 @@
 {
-  "name": "@perf-profiler/android",
+  "name": "@perf-profiler/profiler",
   "version": "0.10.7",
   "description": "",
   "main": "dist/src/index.js",
@@ -8,22 +8,14 @@
     "url": "https://github.com/bamlab/android-performance-profiler.git",
     "directory": "very-secret-profiler"
   },
-  "bin": {
-    "perf-profiler-commands": "./dist/src/commands.js"
-  },
-  "scripts": {
-    "test": "tsc && jest"
-  },
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
   },
   "license": "MIT",
   "dependencies": {
-    "@perf-profiler/logger": "^0.3.1",
-    "@perf-profiler/profiler": "^0.10.7",
-    "@perf-profiler/types": "^0.6.0",
-    "commander": "^9.4.0",
-    "lodash": "^4.17.21"
+    "@perf-profiler/android": "^0.10.7",
+    "@perf-profiler/ios": "^0.2.0",
+    "@perf-profiler/types": "^0.6.0"
   }
 }

@@ -5,7 +5,7 @@ import {
   TestCaseIterationStatus,
 } from "@perf-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
-import { ScreenRecorder } from "@perf-profiler/profiler";
+import { profiler } from "@perf-profiler/profiler";
 import { basename, dirname } from "path";
 
 export interface TestCase {
@@ -43,7 +43,7 @@ export class SingleIterationTester {
   private videoPath = `${this.options.resultsFileOptions.path.replace(".json", "")}_iteration_${
     this.iterationIndex
   }_${new Date().getTime()}.mp4`;
-  private recorder = new ScreenRecorder(basename(this.videoPath));
+  private recorder = profiler.getScreenRecorder(basename(this.videoPath));
 
   public getCurrentTestCaseIterationResult() {
     return this.currentTestCaseIterationResult;

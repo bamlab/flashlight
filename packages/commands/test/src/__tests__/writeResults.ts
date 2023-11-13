@@ -6,7 +6,10 @@ import { Logger, LogLevel } from "@perf-profiler/logger";
 
 jest.mock("@perf-profiler/profiler", () => ({
   ...jest.requireActual("@perf-profiler/profiler"),
-  ensureCppProfilerIsInstalled: jest.fn(),
+  profiler: {
+    ...jest.requireActual("@perf-profiler/profiler").profiler,
+    installProfilerOnDevice: jest.fn(),
+  },
 }));
 
 Logger.setLogLevel(LogLevel.SILENT);

@@ -15,6 +15,9 @@
     { "path": "./packages/core/logger" },
     { "path": "./packages/core/types" },
     { "path": "./packages/platforms/android" },
+    { "path": "./packages/platforms/ios" },
+    { "path": "./packages/platforms/profiler" },
+    { "path": "./packages/platforms/ios-instruments" },
     { "path": "./packages/plugins/appium-helper" },
     { "path": "./packages/commands/test" },
     { "path": "./packages/commands/tools" },
@@ -23,7 +26,6 @@
     { "path": "./packages/commands/report" },
     { "path": "./packages/plugins/appium-test-cases" },
     { "path": "./packages/plugins/aws-device-farm" },
-    { "path": "./packages/platforms/ios" },
     { "path": "./packages/commands/measure" },
     { "path": "./examples/cli" },
     { "path": "./examples/e2e" }
