@@ -9,7 +9,7 @@ import { HostAndPortInfo } from "./components/HostAndPortInfo";
 import { WEBAPP_URL, PORT } from "./constants";
 import { ServerSocketConnectionApp } from "./ServerSocketConnectionApp";
 import { useInput } from "ink";
-import { cleanup } from "@perf-profiler/profiler";
+import { profiler } from "@perf-profiler/profiler";
 
 const createExpressApp = () => {
   const app = express();
@@ -34,7 +34,7 @@ const useCleanupOnManualExit = () => {
     switch (input) {
       case "q":
       case "c":
-        cleanup();
+        profiler.cleanup();
         process.exit();
     }
   });

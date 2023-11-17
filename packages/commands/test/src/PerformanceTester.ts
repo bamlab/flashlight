@@ -1,6 +1,6 @@
 import { Logger } from "@perf-profiler/logger";
 import { TestCaseIterationResult } from "@perf-profiler/types";
-import { ensureCppProfilerIsInstalled } from "@perf-profiler/profiler";
+import { profiler } from "@perf-profiler/profiler";
 import * as p from "path";
 import { Options, SingleIterationTester, TestCase } from "./SingleIterationTester";
 import { writeReport } from "./writeReport";
@@ -29,7 +29,7 @@ export class PerformanceTester {
     options: PerformanceTesterOptions = {}
   ) {
     // Important to ensure that the CPP profiler is initialized before we run the test!
-    ensureCppProfilerIsInstalled();
+    profiler.installProfilerOnDevice();
 
     const title = options.resultsFileOptions?.title || "Results";
 

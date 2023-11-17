@@ -1,18 +1,12 @@
-import {
-  detectCurrentAppBundleId,
-  getPidId,
-  Measure,
-  pollPerformanceMeasures,
-} from "@perf-profiler/profiler";
+import { profiler } from "@perf-profiler/profiler";
 import { getAverageCpuUsage } from "@perf-profiler/reporter";
-import { ThreadNames } from "@perf-profiler/types";
+import { Measure, ThreadNames } from "@perf-profiler/types";
 
-const bundleId = detectCurrentAppBundleId().bundleId || "";
-const pid = getPidId(bundleId) || "";
+const bundleId = profiler.detectCurrentBundleId() || "";
 
 const measures: Measure[] = [];
 
-const polling = pollPerformanceMeasures(pid, {
+const polling = profiler.pollPerformanceMeasures(bundleId, {
   onMeasure: (measure: Measure) => {
     measures.push(measure);
     console.log(`JS Thread CPU Usage: ${measure.cpu.perName[ThreadNames.JS_THREAD]}%`);

@@ -8,12 +8,15 @@ const mockPerformancePolling = new PerformancePollingMock();
 
 jest.mock("@perf-profiler/profiler", () => ({
   ...jest.requireActual("@perf-profiler/profiler"),
-  ensureCppProfilerIsInstalled: jest.fn(),
-  getPidId: jest.fn(() => 123),
-  pollPerformanceMeasures: jest.fn((pid, { onMeasure, onStartMeasuring }) => {
-    mockPerformancePolling.setCallback(onMeasure);
-    onStartMeasuring();
-  }),
+  profiler: {
+    ...jest.requireActual("@perf-profiler/profiler").profiler,
+    installProfilerOnDevice: jest.fn(),
+    getPidId: jest.fn(() => 123),
+    pollPerformanceMeasures: jest.fn((pid, { onMeasure, onStartMeasuring }) => {
+      mockPerformancePolling.setCallback(onMeasure);
+      onStartMeasuring();
+    }),
+  },
 }));
 
 Logger.setLogLevel(LogLevel.SILENT);

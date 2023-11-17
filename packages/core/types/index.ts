@@ -62,3 +62,26 @@ export const ThreadNamesIOS = {
   UI_THREAD: "Main Thread",
   JS_THREAD: "com.facebook.react.JavaScript",
 };
+
+export interface ScreenRecorder {
+  startRecording({ bitRate = 8000000, size }: { bitRate?: number; size?: string }): Promise<void>;
+  stopRecording(): Promise<void>;
+  pullRecording: (path: string) => Promise<void>;
+  getRecordingStartTime: () => number;
+}
+
+export interface ProfilerPollingOptions {
+  onMeasure: (measure: Measure) => void;
+  onStartMeasuring?: () => void;
+}
+
+export interface Profiler {
+  pollPerformanceMeasures: (
+    bundleId: string,
+    options: ProfilerPollingOptions
+  ) => { stop: () => void };
+  detectCurrentBundleId: () => string;
+  installProfilerOnDevice: () => void;
+  cleanup: () => void;
+  getScreenRecorder: (videoPath: string) => ScreenRecorder;
+}

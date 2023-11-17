@@ -13,7 +13,9 @@
     "./packages/plugins/appium-test-cases",
     "./packages/plugins/aws-device-farm",
     "./packages/commands/measure",
-    "./packages/platforms/ios"
+    "./packages/platforms/profiler",
+    "./packages/platforms/ios",
+    "./packages/platforms/ios-instruments"
   ],
   "useWorkspaces": false,
   "npmClient": "yarn",

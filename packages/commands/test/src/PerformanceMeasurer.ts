@@ -1,7 +1,7 @@
 import { Logger } from "@perf-profiler/logger";
-import { Measure, pollPerformanceMeasures, waitFor } from "@perf-profiler/profiler";
+import { profiler, waitFor } from "@perf-profiler/profiler";
 import { Trace } from "./Trace";
-import { POLLING_INTERVAL } from "@perf-profiler/types";
+import { Measure, POLLING_INTERVAL } from "@perf-profiler/types";
 
 export class PerformanceMeasurer {
   measures: Measure[] = [];
@@ -19,7 +19,7 @@ export class PerformanceMeasurer {
       // noop by default
     }
   ) {
-    this.polling = pollPerformanceMeasures(this.bundleId, {
+    this.polling = profiler.pollPerformanceMeasures(this.bundleId, {
       onMeasure: (measure) => {
         if (this.shouldStop) {
           this.polling?.stop();

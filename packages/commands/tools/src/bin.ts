@@ -2,7 +2,7 @@
 
 import { program } from "commander";
 import { processVideoFile } from "@perf-profiler/shell";
-import { detectCurrentAppBundleId } from "@perf-profiler/profiler";
+import { profiler } from "@perf-profiler/profiler";
 
 const toolsCommand = program.command("tools").description("Utility tools related to Flashlight");
 
@@ -10,7 +10,7 @@ toolsCommand
   .command("android_get_bundle_id")
   .description("Retrieves the focused app bundle id")
   .action(() => {
-    console.log(detectCurrentAppBundleId().bundleId);
+    console.log(profiler.detectCurrentBundleId());
   });
 
 toolsCommand
