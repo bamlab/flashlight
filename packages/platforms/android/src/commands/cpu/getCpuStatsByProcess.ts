@@ -25,7 +25,7 @@ export const processOutput = (output: string, pid: string): ProcessStat[] => {
     .split(/\r\n|\n|\r/)
     .filter(Boolean)
     .map((stats) => {
-      const match = stats.match(/^(\d+) \(([^)]+)\) (.*)/);
+      const match = stats.match(/^(\d+) \(([^)]*)\) (.*)/);
       if (!match) {
         throw new Error(`Invalid line: ${stats}`);
       }
@@ -42,6 +42,10 @@ export const processOutput = (output: string, pid: string): ProcessStat[] => {
 
       if (processName.includes(`Binder:${pid}_`)) {
         processName = processName.replace(`Binder:${pid}_`, "Binder #");
+      }
+
+      if (processName === "") {
+        processName = "Empty name";
       }
 
       processNameCount[processName] = (processNameCount[processName] || 0) + 1;

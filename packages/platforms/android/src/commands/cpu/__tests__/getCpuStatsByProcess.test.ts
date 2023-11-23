@@ -36,4 +36,22 @@ describe("getCpuStatsByProcess", () => {
       ]
     `);
   });
+
+  it("handles empty process name", () => {
+    expect(
+      processOutput(
+        `10180 () S 901 901 0 0 -1 1077936192 2 362 0 12 0 0 0 0 10 -10 130 0 43243569 18565066752 83083 18446744073709551615 1 1 0 0 0 0 4612 1 1073779960 0 0 0 -1 3 0 0 0 0 0 0 0 0 0 0 0 0 0`,
+        "1234"
+      )
+    ).toMatchInlineSnapshot(`
+      [
+        {
+          "cpuNumber": "3",
+          "processId": "10180",
+          "processName": "Empty name",
+          "totalCpuTime": 0,
+        },
+      ]
+    `);
+  });
 });
