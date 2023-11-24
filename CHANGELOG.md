@@ -1,3 +1,10 @@
+## [0.12.1](https://github.com/bamlab/flashlight/compare/v0.12.0...v0.12.1) (2023-11-24)
+
+### Bug Fixes
+
+- **measure:** fix taking multiple measures ([be80d07](https://github.com/bamlab/flashlight/commit/be80d079476b184f1412f79cf8450e8a395fac34))
+- **measure:** support empty thread name ([52dce42](https://github.com/bamlab/flashlight/commit/52dce426108b0f79996891024a2f302570624596))
+
 # [0.12.0](https://github.com/bamlab/flashlight/compare/v0.11.2...v0.12.0) (2023-11-08)
 
 ### Bug Fixes
