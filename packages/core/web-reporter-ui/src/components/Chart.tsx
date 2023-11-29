@@ -1,5 +1,5 @@
 import React, { useMemo, useContext, useRef } from "react";
-import ReactApexChart from "react-apexcharts";
+import ReactApexChart, { Props as ApexProps } from "react-apexcharts";
 import { VideoEnabledContext, setVideoCurrentTime } from "../../videoCurrentTimeContext";
 import { ApexOptions } from "apexcharts";
 import { getColorPalette } from "../theme/colors";
@@ -98,6 +98,7 @@ export const Chart = ({
   showLegendForSingleSeries,
   colors = getColorPalette(),
   annotationIntervalList = undefined,
+  type = "line",
 }: {
   title: string;
   series: { name: string; data: { x: number; y: number }[] }[];
@@ -108,6 +109,7 @@ export const Chart = ({
   showLegendForSingleSeries?: boolean;
   colors?: string[];
   annotationIntervalList?: AnnotationInterval[];
+  type?: ApexProps["type"];
 }) => {
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
     series,
@@ -119,7 +121,7 @@ export const Chart = ({
       chart: {
         id: title,
         height: 350,
-        type: "line",
+        type,
         animations: {
           enabled: true,
           easing: "linear",
@@ -151,7 +153,7 @@ export const Chart = ({
       },
       stroke: {
         curve: "smooth",
-        width: 2,
+        width: type === "rangeArea" ? [2, 0] : 2,
       },
       xaxis: {
         type: "numeric",
@@ -176,9 +178,20 @@ export const Chart = ({
         borderColor: "#FFFFFF33",
         strokeDashArray: 3,
       },
+      ...(type === "rangeArea"
+        ? {
+            fill: {
+              opacity: [1, 0.24],
+            },
+            forecastDataPoints: {
+              count: 2,
+            },
+          }
+        : {}),
     }),
     [
       title,
+      type,
       interval,
       videoEnabled,
       setVideoCurrentTimeOnMouseHover,
@@ -190,5 +203,5 @@ export const Chart = ({
     ]
   );
 
-  return <ReactApexChart options={options} series={series} type="line" height={height} />;
+  return <ReactApexChart options={options} series={series} type={type} height={height} />;
 };
