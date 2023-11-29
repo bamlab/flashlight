@@ -49,6 +49,7 @@ export const runTest = async ({
   apkUploadArn: apkUploadArnGiven,
   testFile,
   postTestCommand,
+  testPackageArn: testPackageArnGiven,
 }: {
   projectName?: string;
   apkPath?: string;
@@ -60,6 +61,7 @@ export const runTest = async ({
   apkUploadArn?: string;
   testFile?: string;
   postTestCommand?: string;
+  testPackageArn?: string;
 }): Promise<string> => {
   const projectArn = await projectRepository.getOrCreate({ name: projectName });
   const devicePoolArn = await devicePoolRepository.getOrCreate({
@@ -67,16 +69,21 @@ export const runTest = async ({
     deviceName,
   });
 
-  let testPackageArn = null;
-  if (!testFolder) {
-    testPackageArn = await getSingleFileTestFolderArn({ projectArn });
+  let testPackageArn: string;
+
+  if (testPackageArnGiven) {
+    testPackageArn = testPackageArnGiven;
   } else {
-    const testFolderZipPath = zipTestFolder(testFolder);
-    testPackageArn = await uploadRepository.upload({
-      projectArn,
-      filePath: testFolderZipPath,
-      type: UploadType.APPIUM_NODE_TEST_PACKAGE,
-    });
+    if (!testFolder) {
+      testPackageArn = await getSingleFileTestFolderArn({ projectArn });
+    } else {
+      const testFolderZipPath = zipTestFolder(testFolder);
+      testPackageArn = await uploadRepository.upload({
+        projectArn,
+        filePath: testFolderZipPath,
+        type: UploadType.APPIUM_NODE_TEST_PACKAGE,
+      });
+    }
   }
 
   let apkUploadArn;
