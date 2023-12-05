@@ -7,6 +7,28 @@ Average Test Runtime
 6647 ms
 Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
+Min Max Range:
+ 
+5620
+ 
+ms
+ to 
+6846.7
+ 
+ms
+Standard deviation range :
+ 
+6302
+ 
+ms
+ to 
+6992.2
+ 
+ms
+Coefficient of variation :
+ 
+5.2
+ %
 Average FPS
 59.7 FPS
 Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
@@ -15,12 +37,56 @@ See
 this video
  
 for more details
+Min Max Range:
+ 
+60
+ 
+FPS
+ to 
+59.9
+ 
+FPS
+Standard deviation range :
+ 
+60
+ 
+FPS
+ to 
+59.8
+ 
+FPS
+Coefficient of variation :
+ 
+0.2
+ %
 Average CPU usage
 58.6 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+Min Max Range:
+ 
+41
+ 
+%
+ to 
+66.1
+ 
+%
+Standard deviation range :
+ 
+50
+ 
+%
+ to 
+67.5
+ 
+%
+Coefficient of variation :
+ 
+15.1
+ %
 High CPU Usage
 3.2 s
 Impacted threads:
@@ -31,6 +97,28 @@ mqt_js
 3.2
 s
 High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Min Max Range:
+ 
+1500
+ 
+ms
+ to 
+3500
+ 
+ms
+Standard deviation range :
+ 
+2441
+ 
+ms
+ to 
+3858.9
+ 
+ms
+Coefficient of variation :
+ 
+22.5
+ %
 Average RAM usage
 408.6 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -38,6 +126,28 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
+Min Max Range:
+ 
+400
+ 
+MB
+ to 
+430.6
+ 
+MB
+Standard deviation range :
+ 
+400
+ 
+MB
+ to 
+416.8
+ 
+MB
+Coefficient of variation :
+ 
+2
+ %
 2-after-memo.apk
 68
 Average Test Runtime
@@ -45,6 +155,28 @@ Average Test Runtime
 (-11%)
 Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
+Min Max Range:
+ 
+4826
+ 
+ms
+ to 
+7085.3
+ 
+ms
+Standard deviation range :
+ 
+5086
+ 
+ms
+ to 
+6729.7
+ 
+ms
+Coefficient of variation :
+ 
+13.9
+ %
 Average FPS
 59.8 FPS
 (+0%)
@@ -54,6 +186,28 @@ See
 this video
  
 for more details
+Min Max Range:
+ 
+60
+ 
+FPS
+ to 
+59.9
+ 
+FPS
+Standard deviation range :
+ 
+60
+ 
+FPS
+ to 
+59.9
+ 
+FPS
+Coefficient of variation :
+ 
+0.2
+ %
 Average CPU usage
 30.8 %
 (-47%)
@@ -61,6 +215,28 @@ An app might run at 60FPS but might be using too much processing power, so it's 
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+Min Max Range:
+ 
+21
+ 
+%
+ to 
+39.3
+ 
+%
+Standard deviation range :
+ 
+26
+ 
+%
+ to 
+35.7
+ 
+%
+Coefficient of variation :
+ 
+15.8
+ %
 High CPU Usage
 1 s
 (-69%)
@@ -72,6 +248,28 @@ mqt_js
 1
 s
 High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Min Max Range:
+ 
+500
+ 
+ms
+ to 
+1500
+ 
+ms
+Standard deviation range :
+ 
+684
+ 
+ms
+ to 
+1316.2
+ 
+ms
+Coefficient of variation :
+ 
+31.6
+ %
 Average RAM usage
 413.3 MB
 (+1%)
@@ -80,67 +278,89 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
+Min Max Range:
+ 
+397
+ 
+MB
+ to 
+444.4
+ 
+MB
+Standard deviation range :
+ 
+402
+ 
+MB
+ to 
+424.6
+ 
+MB
+Coefficient of variation :
+ 
+2.7
+ %
 Threads
 Thread
 1-before-memo.apk
 sorted descending
 2-after-memo.apk
 mqt_js
-32.1
+32.2
 12.3
 culture.staging
 10
-8.6
+8.7
 mqt_native_modu
 7.2
 4.2
 RenderThread
-3.7
+3.8
 1.7
 hades
-0.9
-0.2
+1
+0.3
 glide-disk-cach
-0.7
+0.8
 0.7
 mali-cmar-backe
-0.6
-0.2
+0.7
+0.3
 HeapTaskDaemon
-0.6
+0.7
 0.5
 Measurement
 0.5
 0.5
 f.c0
 0.2
-0.1
+0.2
 Jit
-0.1
+0.2
 0.2
 HybridData
-0.1
+0.2
 0.1
 pool-15-thread-
+0.2
 0.1
-0
 mali-mem-purge
 0.1
-0
+0.1
 ReferenceQueueD
 0.1
-0
+0.1
 AsyncTask
 0.1
 0.1
 m.batch.android
-0
+0.1
 0.1
 pool-5-thread-1
-0
-0
+0.1
+0.1
 firebase-instal
-0
+0.1
 0
 FrameMetricsAgg
 0
@@ -156,7 +376,7 @@ Binder:29476_3
 0
 Profile
 0
-0
+0.1
 Binder:809_4
 0
 0
@@ -785,14 +1005,51 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Time taken to run the test.
                     <br />
                     Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        5620 ms to 6846.7 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        6302 ms to 6992.2 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        5.2 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -854,9 +1111,6 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
@@ -870,6 +1124,46 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       this video
                     </a>
                      for more details
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        60 FPS to 59.9 FPS
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        60 FPS to 59.8 FPS
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        0.2 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -931,9 +1225,6 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
@@ -943,6 +1234,46 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       100% x number of cores
                     </code>
                     . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        41 % to 66.1 %
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        50 % to 67.5 %
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        15.1 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -1008,9 +1339,6 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     <div
@@ -1026,6 +1354,46 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        1500 ms to 3500 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        2441 ms to 3858.9 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        22.5 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -1087,9 +1455,6 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -1103,6 +1468,46 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       here for more details
                     </a>
                     )
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        400 MB to 430.6 MB
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        400 MB to 416.8 MB
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        2 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -1223,14 +1628,51 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Time taken to run the test.
                     <br />
                     Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        4826 ms to 7085.3 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        5086 ms to 6729.7 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        13.9 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -1297,9 +1739,6 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
@@ -1313,6 +1752,46 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       this video
                     </a>
                      for more details
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        60 FPS to 59.9 FPS
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        60 FPS to 59.9 FPS
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        0.2 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -1379,9 +1858,6 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
@@ -1391,6 +1867,46 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       100% x number of cores
                     </code>
                     . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        21 % to 39.3 %
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        26 % to 35.7 %
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        15.8 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -1461,9 +1977,6 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     <div
@@ -1479,6 +1992,46 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        500 ms to 1500 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        684 ms to 1316.2 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        31.6 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -1545,9 +2098,6 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -1561,6 +2111,46 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       here for more details
                     </a>
                     )
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        397 MB to 444.4 MB
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        402 MB to 424.6 MB
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        2.7 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -1789,7 +2379,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      32.1
+                      32.2
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1846,7 +2436,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      8.6
+                      8.7
                     </td>
                   </tr>
                   <tr
@@ -1945,7 +2535,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      3.7
+                      3.8
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1997,12 +2587,12 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.9
+                      1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.2
+                      0.3
                     </td>
                   </tr>
                   <tr
@@ -2049,7 +2639,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.7
+                      0.8
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2101,12 +2691,12 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.6
+                      0.7
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.2
+                      0.3
                     </td>
                   </tr>
                   <tr
@@ -2153,7 +2743,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.6
+                      0.7
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2262,7 +2852,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                   </tr>
                   <tr
@@ -2309,7 +2899,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2361,7 +2951,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2413,12 +3003,12 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                   </tr>
                   <tr
@@ -2470,7 +3060,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                   </tr>
                   <tr
@@ -2522,7 +3112,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                   </tr>
                   <tr
@@ -2621,7 +3211,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2673,12 +3263,12 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                   </tr>
                   <tr
@@ -2725,7 +3315,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2990,7 +3580,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                   </tr>
                   <tr
@@ -11456,49 +12046,49 @@ sorted descending
 2-after-memo.apk
 mqt_js
 36.5
-12.6
+12.7
 culture.staging
-10.8
+10.9
 8.2
 mqt_native_modu
-8.6
+8.7
 4.3
 RenderThread
 3.7
-1.8
+1.9
 hades
 1.3
 0.1
 HeapTaskDaemon
-0.8
+0.9
 0.5
 glide-disk-cach
-0.7
+0.8
 0.7
 mali-cmar-backe
 0.7
-0.2
+0.3
 Measurement
 0.6
 0.5
 Jit
 0.2
-0.1
+0.2
 HybridData
 0.2
 0.1
 Binder:1619_1
-0.1
+0.2
 0
 mali-mem-purge
-0.1
+0.2
 0
 pool-15-thread-
-0.1
+0.2
 0.1
 f.c0
-0.1
-0.1
+0.2
+0.2
 AsyncTask
 0.1
 0.1
@@ -11507,15 +12097,15 @@ m.batch.android
 0.1
 ReferenceQueueD
 0.1
-0.1
+0.2
 Binder:1619_3
-0
+0.1
 0
 pool-5-thread-1
-0
-0
+0.1
+0.1
 Binder:1619_5
-0
+0.1
 0
 FrameMetricsAgg
 0
@@ -11696,7 +12286,7 @@ Binder:9067_2
 0.1
 Binder:9067_3
 0
-0
+0.1
 ulture.team/...
 0
 0
@@ -11866,9 +12456,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Time taken to run the test.
@@ -11934,9 +12521,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
-                  <div
-                    class="h-2"
-                  />
                   <div
                     class="text-neutral-400 text-sm"
                   >
@@ -12012,9 +12596,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
@@ -12088,9 +12669,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
-                  <div
-                    class="h-2"
-                  />
                   <div
                     class="text-neutral-400 text-sm"
                   >
@@ -12167,9 +12745,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
-                  <div
-                    class="h-2"
-                  />
                   <div
                     class="text-neutral-400 text-sm"
                   >
@@ -12304,9 +12879,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Time taken to run the test.
@@ -12377,9 +12949,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
-                  <div
-                    class="h-2"
-                  />
                   <div
                     class="text-neutral-400 text-sm"
                   >
@@ -12460,9 +13029,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
@@ -12541,9 +13107,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
-                  <div
-                    class="h-2"
-                  />
                   <div
                     class="text-neutral-400 text-sm"
                   >
@@ -12625,9 +13188,6 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   class="cursor-default overflow-hidden transition-[height] duration-300"
                   style="height: 0px;"
                 >
-                  <div
-                    class="h-2"
-                  />
                   <div
                     class="text-neutral-400 text-sm"
                   >
@@ -12875,7 +13435,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      12.6
+                      12.7
                     </td>
                   </tr>
                   <tr
@@ -12922,7 +13482,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      10.8
+                      10.9
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -12974,7 +13534,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      8.6
+                      8.7
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13031,7 +13591,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      1.8
+                      1.9
                     </td>
                   </tr>
                   <tr
@@ -13130,7 +13690,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.8
+                      0.9
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13182,7 +13742,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.7
+                      0.8
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13239,7 +13799,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.2
+                      0.3
                     </td>
                   </tr>
                   <tr
@@ -13343,7 +13903,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                   </tr>
                   <tr
@@ -13442,7 +14002,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13494,7 +14054,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13546,7 +14106,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13598,12 +14158,12 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                   </tr>
                   <tr
@@ -13759,7 +14319,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0.1
+                      0.2
                     </td>
                   </tr>
                   <tr
@@ -13806,7 +14366,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13858,12 +14418,12 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                   </tr>
                   <tr
@@ -13910,7 +14470,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -17035,7 +17595,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
                     >
-                      0
+                      0.1
                     </td>
                   </tr>
                   <tr
@@ -17458,6 +18018,28 @@ Average Test Runtime
 401 ms
 Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
+Min Max Range:
+ 
+275
+ 
+ms
+ to 
+526
+ 
+ms
+Standard deviation range :
+ 
+276
+ 
+ms
+ to 
+526.4
+ 
+ms
+Coefficient of variation :
+ 
+31.3
+ %
 Average FPS
 45.3 FPS
 Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
@@ -17466,12 +18048,56 @@ See
 this video
  
 for more details
+Min Max Range:
+ 
+43
+ 
+FPS
+ to 
+47.4
+ 
+FPS
+Standard deviation range :
+ 
+43
+ 
+FPS
+ to 
+47.4
+ 
+FPS
+Coefficient of variation :
+ 
+4.7
+ %
 Average CPU usage
 79.9 %
 An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+Min Max Range:
+ 
+70
+ 
+%
+ to 
+90.2
+ 
+%
+Standard deviation range :
+ 
+70
+ 
+%
+ to 
+90.2
+ 
+%
+Coefficient of variation :
+ 
+12.9
+ %
 High CPU Usage
 4 s
 Impacted threads:
@@ -17488,6 +18114,28 @@ UI Thread
 1.8
 s
 High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Min Max Range:
+ 
+3500
+ 
+ms
+ to 
+4500
+ 
+ms
+Standard deviation range :
+ 
+3500
+ 
+ms
+ to 
+4500
+ 
+ms
+Coefficient of variation :
+ 
+12.5
+ %
 Average RAM usage
 108.7 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -17495,6 +18143,28 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
+Min Max Range:
+ 
+107
+ 
+MB
+ to 
+110.2
+ 
+MB
+Standard deviation range :
+ 
+107
+ 
+MB
+ to 
+110.2
+ 
+MB
+Coefficient of variation :
+ 
+1.4
+ %
 fabric-many-texts (com.fabricenabled)
 39
 Average Test Runtime
@@ -17502,6 +18172,28 @@ Average Test Runtime
 (-66%)
 Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
+Min Max Range:
+ 
+72
+ 
+ms
+ to 
+198.6
+ 
+ms
+Standard deviation range :
+ 
+72
+ 
+ms
+ to 
+198.1
+ 
+ms
+Coefficient of variation :
+ 
+46.7
+ %
 Average FPS
 38.2 FPS
 (-16%)
@@ -17511,6 +18203,28 @@ See
 this video
  
 for more details
+Min Max Range:
+ 
+34
+ 
+FPS
+ to 
+42.2
+ 
+FPS
+Standard deviation range :
+ 
+34
+ 
+FPS
+ to 
+42.1
+ 
+FPS
+Coefficient of variation :
+ 
+10.3
+ %
 Average CPU usage
 92.8 %
 (+16%)
@@ -17518,6 +18232,28 @@ An app might run at 60FPS but might be using too much processing power, so it's 
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+Min Max Range:
+ 
+82
+ 
+%
+ to 
+103.5
+ 
+%
+Standard deviation range :
+ 
+82
+ 
+%
+ to 
+103.4
+ 
+%
+Coefficient of variation :
+ 
+11.5
+ %
 High CPU Usage
 5 s
 (+25%)
@@ -17541,6 +18277,28 @@ fabric_bg
 0.3
 s
 High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Min Max Range:
+ 
+4500
+ 
+ms
+ to 
+5500
+ 
+ms
+Standard deviation range :
+ 
+4500
+ 
+ms
+ to 
+5500
+ 
+ms
+Coefficient of variation :
+ 
+10
+ %
 Average RAM usage
 109.5 MB
 (+1%)
@@ -17549,6 +18307,28 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
+Min Max Range:
+ 
+109
+ 
+MB
+ to 
+110.4
+ 
+MB
+Standard deviation range :
+ 
+109
+ 
+MB
+ to 
+110.3
+ 
+MB
+Coefficient of variation :
+ 
+0.8
+ %
 Threads
 Reset
 Play all
@@ -17702,14 +18482,51 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Time taken to run the test.
                     <br />
                     Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        275 ms to 526 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        276 ms to 526.4 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        31.3 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -17771,9 +18588,6 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
@@ -17787,6 +18601,46 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       this video
                     </a>
                      for more details
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        43 FPS to 47.4 FPS
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        43 FPS to 47.4 FPS
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        4.7 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -17848,9 +18702,6 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
@@ -17860,6 +18711,46 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       100% x number of cores
                     </code>
                     . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        70 % to 90.2 %
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        70 % to 90.2 %
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        12.9 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -17925,9 +18816,6 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     <div
@@ -17948,6 +18836,46 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        3500 ms to 4500 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        3500 ms to 4500 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        12.5 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -18009,9 +18937,6 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -18025,6 +18950,46 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       here for more details
                     </a>
                     )
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        107 MB to 110.2 MB
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        107 MB to 110.2 MB
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        1.4 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -18145,14 +19110,51 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Time taken to run the test.
                     <br />
                     Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        72 ms to 198.6 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        72 ms to 198.1 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        46.7 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -18219,9 +19221,6 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
@@ -18235,6 +19234,46 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       this video
                     </a>
                      for more details
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        34 FPS to 42.2 FPS
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        34 FPS to 42.1 FPS
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        10.3 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -18301,9 +19340,6 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
@@ -18313,6 +19349,46 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       100% x number of cores
                     </code>
                     . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        82 % to 103.5 %
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        82 % to 103.4 %
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        11.5 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -18383,9 +19459,6 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     <div
@@ -18411,6 +19484,46 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        4500 ms to 5500 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        4500 ms to 5500 ms
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        10 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
@@ -18477,9 +19590,6 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   style="height: 0px;"
                 >
                   <div
-                    class="h-2"
-                  />
-                  <div
                     class="text-neutral-400 text-sm"
                   >
                     If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -18493,6 +19603,46 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       here for more details
                     </a>
                     )
+                  </div>
+                  <div
+                    class="h-2"
+                  />
+                  <div
+                    class="text-neutral-400 text-sm"
+                  >
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Min Max Range: 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        109 MB to 110.4 MB
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Standard deviation range : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        109 MB to 110.3 MB
+                      </span>
+                    </div>
+                    <div
+                      class="text-neutral-300 text-sm"
+                    >
+                      Coefficient of variation : 
+                      <span
+                        class="text-neutral-400 text-sm"
+                      >
+                        0.8 %
+                      </span>
+                    </div>
+                    <div
+                      class="h-2"
+                    />
                   </div>
                 </div>
               </div>
