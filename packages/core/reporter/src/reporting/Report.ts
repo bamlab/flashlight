@@ -1,13 +1,6 @@
 import { TestCaseResult, AveragedTestCaseResult } from "@perf-profiler/types";
-import { roundToDecimal } from "../utils/roundToDecimal";
+import { roundToDecimal } from "../utils/round";
 import { averageTestCaseResult } from "./averageIterations";
-import {
-  getAverageCpuUsage,
-  getAverageCpuUsagePerProcess,
-  getAverageFPSUsage,
-  getAverageRAMUsage,
-  getAverageTotalHighCPUUsage,
-} from "./reporting";
 import { getScore } from "./getScore";
 
 interface ReportMetrics {

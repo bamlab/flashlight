@@ -1,7 +1,8 @@
 import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
 import { round } from "lodash";
-import { getAverageCpuUsage, getAverageFPSUsage } from "./reporting";
 import { average } from "./averageIterations";
+import { getAverageCpuUsage } from "./cpu";
+import { getAverageFPSUsage } from "./fps";
 
 /**
  * From https://www.mathcelebrity.com/3ptquad.php?p1=50%2C100&p2=200%2C50&p3=300%2C15&pl=Calculate+Equation
