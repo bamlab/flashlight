@@ -27,36 +27,23 @@ export const getHighCpuUsage = (measures: Measure[], cpuUsageThreshold: number |
 export const getAverageTotalHighCPUUsage = (highCpuProcesses: { [processName: string]: number }) =>
   Object.keys(highCpuProcesses).reduce((sum, name) => sum + highCpuProcesses[name], 0);
 
-export const getStandardDeviationHighCpu = (
-  iterations: TestCaseIterationResult[],
-  averageHighCpu: number
-) => {
-  const averageHighCpuUsages = iterations
-    .map((iteration) => Object.values(getHighCpuUsage(iteration.measures)))
-    .flat();
-  return getStandardDeviation({
-    values: averageHighCpuUsages,
-    average: averageHighCpu,
-  });
-};
-
-export const getMinMaxHighCpu = (iterations: TestCaseIterationResult[]): [number, number] => {
-  const values = iterations
-    .map((iteration) => Object.values(getHighCpuUsage(iteration.measures))[0])
-    .flat();
-
-  return getMinMax(values);
-};
-
 export const getHighCpuStats = (
   iterations: TestCaseIterationResult[],
   averageResultHighCpuUsage: AveragedTestCaseResult["averageHighCpuUsage"]
 ) => {
   const averageTotalHighCpu = getAverageTotalHighCPUUsage(averageResultHighCpuUsage);
-  const standardDeviation = getStandardDeviationHighCpu(iterations, averageTotalHighCpu);
-  console.log("iterations", iterations);
+
+  const averageTotalHighCPuUsage = iterations.map((iteration) =>
+    getAverageTotalHighCPUUsage(getHighCpuUsage(iteration.measures))
+  );
+
+  const standardDeviation = getStandardDeviation({
+    values: averageTotalHighCPuUsage,
+    average: averageTotalHighCpu,
+  });
+
   return {
-    minMaxRange: getMinMaxHighCpu(iterations),
+    minMaxRange: getMinMax(averageTotalHighCPuUsage),
     deviationRange: standardDeviation.deviationRange,
     variationCoefficient: roundToDecimal((standardDeviation.deviation / averageTotalHighCpu) * 100),
   };
