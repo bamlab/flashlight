@@ -4,6 +4,8 @@ import { ReportSummaryCardInfoRow } from "./ReportSummaryCardInfoRow";
 import { Score } from "../../components/Score";
 import { Explanations } from "./Explanations";
 import { Difference, isDifferencePositive } from "./Difference";
+import { SummaryStats } from "./SummaryStats";
+import { ThreadStats } from "./ThreadStats";
 
 type Props = {
   report: Report;
@@ -14,6 +16,9 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
   const displayPlaceholder = !report.hasMeasures();
   const metrics = report.getAverageMetrics();
   const baselineMetrics = baselineReport?.getAverageMetrics();
+
+  const shouldDisplayStats = report.getIterationCount() > 1;
+  const reportStats = shouldDisplayStats ? report.getStats() : undefined;
 
   return (
     <div className="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[500px] flex-shrink-0">
@@ -34,6 +39,9 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
         value={displayPlaceholder ? "-" : `${metrics.runtime} ms`}
         difference={<Difference value={metrics.runtime} baseline={baselineMetrics?.runtime} />}
         explanation={<Explanations.AverageTestRuntimeExplanation />}
+        statistics={
+          reportStats ? <SummaryStats stats={reportStats.runtime} unit="ms" /> : undefined
+        }
       />
 
       {metrics.fps !== undefined || displayPlaceholder ? (
@@ -50,6 +58,9 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
               />
             }
             explanation={<Explanations.AverageFPSExplanation />}
+            statistics={
+              reportStats?.fps ? <SummaryStats stats={reportStats.fps} unit="FPS" /> : undefined
+            }
           />
         </>
       ) : null}
@@ -59,6 +70,7 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
         title="Average CPU usage"
         value={displayPlaceholder ? "-" : `${metrics.cpu} %`}
         difference={<Difference value={metrics.cpu} baseline={baselineMetrics?.cpu} />}
+        statistics={reportStats ? <SummaryStats stats={reportStats.cpu} unit="%" /> : undefined}
         explanation={<Explanations.AverageCPUUsageExplanation />}
       />
 
@@ -81,6 +93,14 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
           />
         }
         explanation={<Explanations.HighCPUUsageExplanation result={report.getAveragedResult()} />}
+        statistics={
+          reportStats ? (
+            <>
+              <SummaryStats stats={reportStats.highCpu} unit="ms" />{" "}
+              <ThreadStats stats={reportStats.highCpu.threads} />
+            </>
+          ) : undefined
+        }
       />
 
       {metrics.ram !== undefined || displayPlaceholder ? (
@@ -91,6 +111,9 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
             value={displayPlaceholder ? "-" : `${metrics.ram} MB`}
             difference={<Difference value={metrics.ram} baseline={baselineMetrics?.ram} />}
             explanation={<Explanations.AverageRAMUsageExplanation />}
+            statistics={
+              reportStats?.ram ? <SummaryStats stats={reportStats.ram} unit="MB" /> : undefined
+            }
           />
         </>
       ) : null}

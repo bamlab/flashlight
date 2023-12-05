@@ -419,9 +419,6 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                     style="height: 0px;"
                   >
                     <div
-                      class="h-2"
-                    />
-                    <div
                       class="text-neutral-400 text-sm"
                     >
                       Time taken to run the test.
@@ -487,9 +484,6 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                     class="cursor-default overflow-hidden transition-[height] duration-300"
                     style="height: 0px;"
                   >
-                    <div
-                      class="h-2"
-                    />
                     <div
                       class="text-neutral-400 text-sm"
                     >
@@ -565,9 +559,6 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                     style="height: 0px;"
                   >
                     <div
-                      class="h-2"
-                    />
-                    <div
                       class="text-neutral-400 text-sm"
                     >
                       An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
@@ -641,9 +632,6 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                     class="cursor-default overflow-hidden transition-[height] duration-300"
                     style="height: 0px;"
                   >
-                    <div
-                      class="h-2"
-                    />
                     <div
                       class="text-neutral-400 text-sm"
                     >
@@ -720,9 +708,6 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                     class="cursor-default overflow-hidden transition-[height] duration-300"
                     style="height: 0px;"
                   >
-                    <div
-                      class="h-2"
-                    />
                     <div
                       class="text-neutral-400 text-sm"
                     >
@@ -3461,9 +3446,6 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
                     style="height: 0px;"
                   >
                     <div
-                      class="h-2"
-                    />
-                    <div
                       class="text-neutral-400 text-sm"
                     >
                       Time taken to run the test.
@@ -3529,9 +3511,6 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
                     class="cursor-default overflow-hidden transition-[height] duration-300"
                     style="height: 0px;"
                   >
-                    <div
-                      class="h-2"
-                    />
                     <div
                       class="text-neutral-400 text-sm"
                     >
@@ -3607,9 +3586,6 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
                     style="height: 0px;"
                   >
                     <div
-                      class="h-2"
-                    />
-                    <div
                       class="text-neutral-400 text-sm"
                     >
                       An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
@@ -3679,9 +3655,6 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
                     class="cursor-default overflow-hidden transition-[height] duration-300"
                     style="height: 0px;"
                   >
-                    <div
-                      class="h-2"
-                    />
                     <div
                       class="text-neutral-400 text-sm"
                     >
@@ -3753,9 +3726,6 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
                     class="cursor-default overflow-hidden transition-[height] duration-300"
                     style="height: 0px;"
                   >
-                    <div
-                      class="h-2"
-                    />
                     <div
                       class="text-neutral-400 text-sm"
                     >

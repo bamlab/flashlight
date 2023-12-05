@@ -6,7 +6,7 @@ import {
   TestCaseResult,
 } from "@perf-profiler/types";
 import { mapValues } from "lodash";
-import { getHighCpuUsageStats } from "./reporting";
+import { getHighCpuUsage } from "./highCpu";
 
 const range = (n: number) =>
   Array(n)
@@ -66,9 +66,7 @@ export const averageIterations = (results: TestCaseIterationResult[]): TestCaseI
 };
 
 export const averageHighCpuUsage = (results: TestCaseIterationResult[], cpuUsageThreshold = 90) => {
-  return averageMaps(
-    results.map((result) => getHighCpuUsageStats(result.measures, cpuUsageThreshold))
-  );
+  return averageMaps(results.map((result) => getHighCpuUsage(result.measures, cpuUsageThreshold)));
 };
 
 export const averageTestCaseResult = (result: TestCaseResult): AveragedTestCaseResult => {
