@@ -6,6 +6,7 @@ type Props = {
   value: ReactNode;
   difference?: ReactNode;
   explanation?: ReactNode;
+  statistics?: ReactNode;
 };
 
 export const ReportSummaryCardInfoRow: FunctionComponent<Props> = ({
@@ -13,6 +14,7 @@ export const ReportSummaryCardInfoRow: FunctionComponent<Props> = ({
   value,
   difference,
   explanation,
+  statistics,
 }) => {
   const collapsibleHeader = useMemo(
     () => (
@@ -32,8 +34,13 @@ export const ReportSummaryCardInfoRow: FunctionComponent<Props> = ({
   return (
     <div className="w-full border rounded-lg border-gray-800">
       <Collapsible header={collapsibleHeader} className="px-6 py-4 ">
-        <div className="h-2" />
         <div className="text-neutral-400 text-sm">{explanation}</div>
+        {!!statistics && (
+          <>
+            <div className="h-2" />
+            <div className="text-neutral-400 text-sm">{statistics}</div>
+          </>
+        )}
       </Collapsible>
     </div>
   );
