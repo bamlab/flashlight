@@ -27,6 +27,44 @@ export const getHighCpuUsage = (measures: Measure[], cpuUsageThreshold: number |
 export const getAverageTotalHighCPUUsage = (highCpuProcesses: { [processName: string]: number }) =>
   Object.keys(highCpuProcesses).reduce((sum, name) => sum + highCpuProcesses[name], 0);
 
+const getStatsByThread = (iterations: TestCaseIterationResult[]) => {
+  const threads: { [threadName: string]: number[] } = {};
+  iterations.forEach((iteration) => {
+    const measure = getHighCpuUsage(iteration.measures);
+    Object.keys(measure).forEach((threadName) => {
+      if (!threads[threadName]) {
+        threads[threadName] = [];
+      }
+      threads[threadName].push(measure[threadName]);
+    });
+  });
+
+  const statsByThread: {
+    [threadName: string]: {
+      minMaxRange: [number, number];
+      deviationRange: [number, number];
+      variationCoefficient: number;
+    };
+  } = {};
+
+  Object.keys(threads).forEach((threadName) => {
+    const threadValues = threads[threadName];
+    const threadAverage = threadValues.reduce((sum, value) => sum + value, 0) / threadValues.length;
+    const threadStandardDeviation = getStandardDeviation({
+      values: threadValues,
+      average: threadAverage,
+    });
+    statsByThread[threadName] = {
+      minMaxRange: getMinMax(threadValues),
+      deviationRange: threadStandardDeviation.deviationRange,
+      variationCoefficient: roundToDecimal(
+        (threadStandardDeviation.deviation / threadAverage) * 100
+      ),
+    };
+  });
+  return statsByThread;
+};
+
 export const getHighCpuStats = (
   iterations: TestCaseIterationResult[],
   averageResultHighCpuUsage: AveragedTestCaseResult["averageHighCpuUsage"]
@@ -43,6 +81,7 @@ export const getHighCpuStats = (
   });
 
   return {
+    threads: getStatsByThread(iterations),
     minMaxRange: getMinMax(averageTotalHighCPuUsage),
     deviationRange: standardDeviation.deviationRange,
     variationCoefficient: roundToDecimal((standardDeviation.deviation / averageTotalHighCpu) * 100),
