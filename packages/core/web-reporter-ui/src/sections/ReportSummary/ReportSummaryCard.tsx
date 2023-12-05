@@ -5,6 +5,7 @@ import { Score } from "../../components/Score";
 import { Explanations } from "./Explanations";
 import { Difference, isDifferencePositive } from "./Difference";
 import { SummaryStats } from "./SummaryStats";
+import { ThreadStats } from "./ThreadStats";
 
 type Props = {
   report: Report;
@@ -93,7 +94,12 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
         }
         explanation={<Explanations.HighCPUUsageExplanation result={report.getAveragedResult()} />}
         statistics={
-          reportStats ? <SummaryStats stats={reportStats.highCpu} unit="ms" /> : undefined
+          reportStats ? (
+            <>
+              <SummaryStats stats={reportStats.highCpu} unit="ms" />{" "}
+              <ThreadStats stats={reportStats.highCpu.threads} />
+            </>
+          ) : undefined
         }
       />
 

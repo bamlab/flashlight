@@ -119,6 +119,32 @@ Coefficient of variation :
  
 22.5
  %
+ 
+- 
+(mqt_js)
+ -
+Min Max Range:
+ 
+1500
+ 
+ms
+ to 
+3500
+ 
+ms
+Standard deviation range :
+ 
+2441
+ 
+ms
+ to 
+3858.9
+ 
+ms
+Coefficient of variation :
+ 
+22.5
+ %
 Average RAM usage
 408.6 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -248,6 +274,32 @@ mqt_js
 1
 s
 High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+Min Max Range:
+ 
+500
+ 
+ms
+ to 
+1500
+ 
+ms
+Standard deviation range :
+ 
+684
+ 
+ms
+ to 
+1316.2
+ 
+ms
+Coefficient of variation :
+ 
+31.6
+ %
+ 
+- 
+(mqt_js)
+ -
 Min Max Range:
  
 500
@@ -1394,6 +1446,49 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <div
                       class="h-2"
                     />
+                     
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="text-neutral-300 text-sm"
+                      >
+                        - (mqt_js) -
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Min Max Range: 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            1500 ms to 3500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Standard deviation range : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            2441 ms to 3858.9 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Coefficient of variation : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            22.5 %
+                          </span>
+                        </div>
+                        <div
+                          class="h-2"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -2032,6 +2127,49 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <div
                       class="h-2"
                     />
+                     
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="text-neutral-300 text-sm"
+                      >
+                        - (mqt_js) -
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Min Max Range: 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            500 ms to 1500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Standard deviation range : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            684 ms to 1316.2 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Coefficient of variation : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            31.6 %
+                          </span>
+                        </div>
+                        <div
+                          class="h-2"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -18136,6 +18274,57 @@ Coefficient of variation :
  
 12.5
  %
+ 
+- 
+(mqt_js)
+ -
+Min Max Range:
+ 
+2000
+ 
+ms
+ to 
+2500
+ 
+ms
+Standard deviation range :
+ 
+2000
+ 
+ms
+ to 
+2500
+ 
+ms
+Coefficient of variation :
+ 
+11.1
+ %
+- 
+UI Thread
+ -
+Min Max Range:
+ 
+1500
+ 
+ms
+ to 
+2000
+ 
+ms
+Standard deviation range :
+ 
+1500
+ 
+ms
+ to 
+2000
+ 
+ms
+Coefficient of variation :
+ 
+14.3
+ %
 Average RAM usage
 108.7 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -18298,6 +18487,82 @@ ms
 Coefficient of variation :
  
 10
+ %
+ 
+- 
+(mqt_js)
+ -
+Min Max Range:
+ 
+1500
+ 
+ms
+ to 
+1500
+ 
+ms
+Standard deviation range :
+ 
+1500
+ 
+ms
+ to 
+1500
+ 
+ms
+Coefficient of variation :
+ 
+0
+ %
+- 
+(fabric_bg)
+ -
+Min Max Range:
+ 
+500
+ 
+ms
+ to 
+500
+ 
+ms
+Standard deviation range :
+ 
+500
+ 
+ms
+ to 
+500
+ 
+ms
+Coefficient of variation :
+ 
+0
+ %
+- 
+UI Thread
+ -
+Min Max Range:
+ 
+3000
+ 
+ms
+ to 
+3500
+ 
+ms
+Standard deviation range :
+ 
+3000
+ 
+ms
+ to 
+3500
+ 
+ms
+Coefficient of variation :
+ 
+7.7
  %
 Average RAM usage
 109.5 MB
@@ -18876,6 +19141,87 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                     <div
                       class="h-2"
                     />
+                     
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="text-neutral-300 text-sm"
+                      >
+                        - (mqt_js) -
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Min Max Range: 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            2000 ms to 2500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Standard deviation range : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            2000 ms to 2500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Coefficient of variation : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            11.1 %
+                          </span>
+                        </div>
+                        <div
+                          class="h-2"
+                        />
+                      </div>
+                      <div
+                        class="text-neutral-300 text-sm"
+                      >
+                        - UI Thread -
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Min Max Range: 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            1500 ms to 2000 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Standard deviation range : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            1500 ms to 2000 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Coefficient of variation : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            14.3 %
+                          </span>
+                        </div>
+                        <div
+                          class="h-2"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -19524,6 +19870,125 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                     <div
                       class="h-2"
                     />
+                     
+                    <div
+                      class="flex flex-col"
+                    >
+                      <div
+                        class="text-neutral-300 text-sm"
+                      >
+                        - (mqt_js) -
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Min Max Range: 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            1500 ms to 1500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Standard deviation range : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            1500 ms to 1500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Coefficient of variation : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            0 %
+                          </span>
+                        </div>
+                        <div
+                          class="h-2"
+                        />
+                      </div>
+                      <div
+                        class="text-neutral-300 text-sm"
+                      >
+                        - (fabric_bg) -
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Min Max Range: 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            500 ms to 500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Standard deviation range : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            500 ms to 500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Coefficient of variation : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            0 %
+                          </span>
+                        </div>
+                        <div
+                          class="h-2"
+                        />
+                      </div>
+                      <div
+                        class="text-neutral-300 text-sm"
+                      >
+                        - UI Thread -
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Min Max Range: 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            3000 ms to 3500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Standard deviation range : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            3000 ms to 3500 ms
+                          </span>
+                        </div>
+                        <div
+                          class="text-neutral-300 text-sm"
+                        >
+                          Coefficient of variation : 
+                          <span
+                            class="text-neutral-400 text-sm"
+                          >
+                            7.7 %
+                          </span>
+                        </div>
+                        <div
+                          class="h-2"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
