@@ -1,3 +1,9 @@
+# [0.14.0](https://github.com/bamlab/flashlight/compare/v0.13.0...v0.14.0) (2023-12-08)
+
+### Features
+
+- **report:** add statistics in averaged summary ([#178](https://github.com/bamlab/flashlight/issues/178)) ([d718057](https://github.com/bamlab/flashlight/commit/d718057a5de4075ee060cf009addd191872ae2ff))
+
 # [0.13.0](https://github.com/bamlab/flashlight/compare/v0.12.1...v0.13.0) (2023-11-29)
 
 ## [0.12.1](https://github.com/bamlab/flashlight/compare/v0.12.0...v0.12.1) (2023-11-24)
