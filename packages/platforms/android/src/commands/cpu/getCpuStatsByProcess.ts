@@ -25,7 +25,7 @@ export const processOutput = (output: string, pid: string): ProcessStat[] => {
     .split(/\r\n|\n|\r/)
     .filter(Boolean)
     .map((stats) => {
-      const match = stats.match(/^(\d+) \(([^)]*)\) (.*)/);
+      const match = stats.match(/^(\d+) \((.*)\) (.*)/);
       if (!match) {
         throw new Error(`Invalid line: ${stats}`);
       }
