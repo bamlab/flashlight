@@ -52,27 +52,26 @@ const getVideoCurrentTimeAnnotation = () => {
 };
 
 const useSetVideoTimeOnMouseHover = ({
-  series,
+  lastX,
 }: {
-  series: { name: string; data: { x: number; y: number }[] }[];
+  lastX: number | undefined;
 }): ApexChart["events"] => {
-  const seriesRef = useRef(series);
+  const lastXRef = useRef(lastX);
+
   // Just making sure the useMemo doesn't depend on series since it doesn't need to
-  seriesRef.current = series;
+  lastXRef.current = lastX;
 
   return useMemo(
     () => ({
       mouseMove: (event, chart) => {
-        if (seriesRef.current.length === 0) return;
-
-        const lastX = seriesRef.current[0].data[seriesRef.current[0].data.length - 1].x;
+        if (lastXRef.current === undefined) return;
 
         const totalWidth = chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
 
         const mouseX =
           event.clientX - chart.el.getBoundingClientRect().left - chart.w.globals.translateX;
 
-        const maxX = lastX;
+        const maxX = lastXRef.current;
 
         setVideoCurrentTime((mouseX / totalWidth) * maxX);
 
@@ -111,9 +110,12 @@ export const Chart = ({
   annotationIntervalList?: AnnotationInterval[];
   type?: ApexProps["type"];
 }) => {
+  const lastX = series[0]?.data.at(-1)?.x;
+
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
-    series,
+    lastX,
   });
+
   const videoEnabled = useContext(VideoEnabledContext);
 
   const options = useMemo<ApexOptions>(
