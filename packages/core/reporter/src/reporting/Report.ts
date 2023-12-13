@@ -2,7 +2,12 @@ import { TestCaseResult, AveragedTestCaseResult } from "@perf-profiler/types";
 import { roundToDecimal } from "../utils/round";
 import { averageTestCaseResult } from "./averageIterations";
 import { getScore } from "./getScore";
-import { getAverageCpuUsage, getAverageCpuUsagePerProcess, getCpuStats } from "./cpu";
+import {
+  getAverageCpuUsage,
+  getAverageCpuUsagePerProcess,
+  getCpuStats,
+  getThreadsStats,
+} from "./cpu";
 import { getAverageFPSUsage, getFpsStats } from "./fps";
 import { getAverageTotalHighCPUUsage, getHighCpuStats } from "./highCpu";
 import { getAverageRAMUsage, getRamStats } from "./ram";
@@ -109,6 +114,7 @@ export class Report {
       highCpu: getHighCpuStats(iterations, this.averagedResult.averageHighCpuUsage),
       ram: getRamStats(iterations, this.averageMetrics.ram),
       runtime: getRuntimeStats(iterations, this.averageMetrics.runtime),
+      threads: getThreadsStats(iterations),
     };
   }
 }

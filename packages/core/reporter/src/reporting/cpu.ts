@@ -58,3 +58,47 @@ export const getCpuStats = (iterations: TestCaseIterationResult[], averageCpu: n
     variationCoefficient: roundToDecimal((standardDeviation.deviation / averageCpu) * 100),
   };
 };
+
+export const getThreadsStats = (iterations: TestCaseIterationResult[]) => {
+  const threads: { [threadName: string]: number[] } = {};
+
+  iterations.forEach((iteration) => {
+    const measure = _getAverageCpuUsagePerProcess(iteration.measures);
+    measure.forEach((threadMeasure) => {
+      if (!threads[threadMeasure.processName]) {
+        threads[threadMeasure.processName] = [];
+      }
+      threads[threadMeasure.processName].push(threadMeasure.cpuUsage);
+    });
+  });
+
+  const statsByThread: {
+    [threadName: string]: {
+      minMaxRange: [number, number];
+      deviationRange: [number, number];
+      variationCoefficient?: number;
+    };
+  } = {};
+
+  Object.keys(threads).forEach((threadName) => {
+    const threadValues = threads[threadName];
+    const threadAverage = threadValues.reduce((sum, value) => sum + value, 0) / threadValues.length;
+    const threadStandardDeviation = getStandardDeviation({
+      values: threadValues,
+      average: threadAverage,
+    });
+    statsByThread[threadName] = {
+      minMaxRange: getMinMax(threadValues),
+      deviationRange: threadStandardDeviation.deviationRange,
+      ...(threadAverage !== 0
+        ? {
+            variationCoefficient: roundToDecimal(
+              (threadStandardDeviation.deviation / threadAverage) * 100
+            ),
+          }
+        : {}),
+    };
+  });
+
+  return statsByThread;
+};
