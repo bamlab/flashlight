@@ -14,7 +14,7 @@ describe("<ReporterView />", () => {
     const { asFragment, baseElement } = render(
       <IterationsReporterView results={testCaseResults} />
     );
-    expect(screen.getAllByLabelText("Score")[0].textContent).toEqual("69");
+    expect(screen.getAllByLabelText("Score")[0]?.textContent).toEqual("69");
 
     fireEvent.click(screen.getByText("Threads"));
 
@@ -33,7 +33,7 @@ describe("<ReporterView />", () => {
     // back to iteration 10
     fireEvent.click(screen.getByLabelText("See next iteration"));
 
-    expect(screen.getAllByLabelText("Score")[0].textContent).toEqual("65");
+    expect(screen.getAllByLabelText("Score")[0]?.textContent).toEqual("65");
 
     expect(getText(baseElement)).toMatchSnapshot();
     expect(asFragment()).toMatchSnapshot();
@@ -51,7 +51,7 @@ describe("<ReporterView />", () => {
     const { asFragment, baseElement } = render(
       <IterationsReporterView results={testCaseResults} />
     );
-    expect(screen.getAllByLabelText("Score")[0].textContent).toEqual("51");
+    expect(screen.getAllByLabelText("Score")[0]?.textContent).toEqual("51");
 
     expect(getText(baseElement)).toMatchSnapshot();
     expect(asFragment()).toMatchSnapshot();

@@ -44,7 +44,7 @@ const Report = ({
   const averagedResults = selectedReports.map((report) => report.getAveragedResult());
 
   const hasVideos = !!selectedReports.some((report) => report.hasVideos());
-  const hasMeasures = selectedReports[0].hasMeasures();
+  const hasMeasures = selectedReports[0]?.hasMeasures();
 
   return (
     <>

@@ -13,8 +13,8 @@ export const SimpleTable = ({ rows }: { rows: (string | React.ReactNode)[][] }) 
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>{rows[0][0]}</TableCell>
-            {rows[0].slice(1).map((cell, i) => (
+            <TableCell>{rows[0]?.at(0)}</TableCell>
+            {rows[0]?.slice(1).map((cell, i) => (
               <TableCell align="right" key={i} sx={{ fontWeight: "bold", fontFamily: "open-sans" }}>
                 {cell}
               </TableCell>

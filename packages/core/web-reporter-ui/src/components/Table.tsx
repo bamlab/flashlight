@@ -125,6 +125,8 @@ export default function EnhancedTable({
   headCells: HeadCell[];
 }) {
   const [order, setOrder] = React.useState<Order>("desc");
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   const [orderBy, setOrderBy] = React.useState<keyof Data>(headCells[1].id);
 
   const handleRequestSort = (event: React.MouseEvent<unknown>, property: keyof Data) => {

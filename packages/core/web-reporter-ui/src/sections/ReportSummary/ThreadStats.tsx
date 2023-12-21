@@ -16,7 +16,8 @@ export const ThreadStats = ({
     <div className="flex flex-col">
       {Object.keys(stats).map((threadName) => (
         <div className="text-neutral-300 text-sm" key={threadName}>
-          - {threadName} -
+          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment  */}- {threadName} -
+          {/* @ts-ignore */}
           <SummaryStats stats={stats[threadName]} unit="ms" />
         </div>
       ))}

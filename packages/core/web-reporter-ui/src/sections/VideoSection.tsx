@@ -11,7 +11,7 @@ import { AveragedTestCaseResult } from "@perf-profiler/types";
 import { Button } from "../components/Button";
 import { ArrowDownIcon } from "../components/icons/ArrowDownIcon";
 
-const getFileName = (path: string | undefined = ""): string => {
+const getFileName = (path: string | undefined = ""): string | undefined => {
   if (path.startsWith("http")) {
     return path;
   }
@@ -140,7 +140,7 @@ export const VideoSection = ({ results }: { results: AveragedTestCaseResult[] })
         </div>
         <div className="flex flex-1 flex-row max-h-[600px] gap-4 overflow-scroll pr-6">
           {results.map(({ name, iterations: [iteration] }, index) => {
-            const video = iteration.videoInfos;
+            const video = iteration?.videoInfos;
 
             return (
               <div key={index} style={{ width: VIDEO_SIZE.width }} className="flex flex-col">
@@ -158,6 +158,8 @@ export const VideoSection = ({ results }: { results: AveragedTestCaseResult[] })
                          * we divide by 2 at the moment to center the measure in the video but we should
                          * rethink how we display the graph
                          */
+                        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                        // @ts-ignore
                         video.startOffset + iteration.measures[0].time / 2,
                     }}
                     key={video.path}

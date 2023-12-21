@@ -61,7 +61,8 @@ const HighCPUUsageExplanation = ({ result }: { result: AveragedTestCaseResult })
         "desc"
       ).map((processName) => (
         <p key={processName} className="whitespace-pre">
-          - {sanitizeProcessName(processName)} for{" "}
+          {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment  */}-{" "}
+          {sanitizeProcessName(processName)} for {/* @ts-ignore */}
           {roundToDecimal(result.averageHighCpuUsage[processName] / 1000, 1)}s
         </p>
       ))}

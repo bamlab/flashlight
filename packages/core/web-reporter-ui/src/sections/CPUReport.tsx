@@ -24,6 +24,8 @@ const buildAverageCpuSeriesData = (measures: Measure[]) =>
   buildSeriesData(measures, (measure) => getAverageCpuUsage([measure]));
 
 const buildCpuPerThreadSeriesData = (measures: Measure[], threadName: string) =>
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   buildSeriesData(measures, (measure) => measure.cpu.perName[threadName]);
 
 const totalCpuAnnotationInterval = [{ y: 300, y2: 1000, color: "#E62E2E", label: "Danger Zone" }];
@@ -45,9 +47,9 @@ const getAutoSelectedThreads = (results: AveragedTestCaseResult[]) => {
       .every((result) => {
         const lastMeasure = result.average.measures[result.average.measures.length - 1];
         return (
-          lastMeasure.cpu.perName[threadName] !== undefined ||
+          lastMeasure?.cpu.perName[threadName] !== undefined ||
           // Support legacy json files with thread names in parenthesis
-          lastMeasure.cpu.perName[`(${threadName})`] !== undefined
+          lastMeasure?.cpu.perName[`(${threadName})`] !== undefined
         );
       })
   );
@@ -87,6 +89,8 @@ export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
         title="CPU Usage per thread (%)"
         height={500}
         interval={POLLING_INTERVAL}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
         series={threads}
         colors={results.length > 1 ? getColorPalette().slice(0, results.length) : undefined}
         maxValue={100}
@@ -106,7 +110,9 @@ export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
           />
         ) : (
           <ThreadTable
-            measures={results[0].average.measures}
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            //@ts-ignore
+            measures={results[0]?.average.measures}
             selectedThreads={selectedThreads}
             setSelectedThreads={setSelectedThreads}
           />

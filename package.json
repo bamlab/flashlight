@@ -49,7 +49,7 @@
     "typescript": "^4.7.4"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --cache --fix",
+    "*.{ts,tsx}": "eslint --cache --fix --max-warnings 6",
     "*.{ts,tsx,md,json}": "prettier --write"
   },
   "dependencies": {}
