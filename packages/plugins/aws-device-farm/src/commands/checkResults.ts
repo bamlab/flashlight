@@ -3,11 +3,9 @@ import path from "path";
 import { ArtifactType } from "@aws-sdk/client-device-farm";
 import { Logger } from "@perf-profiler/logger";
 import { TestCaseResult } from "@perf-profiler/types";
-import { processVideoFile } from "@perf-profiler/shell";
+import { processVideoFile, downloadFile, unzip } from "@perf-profiler/shell";
 import { testRepository } from "../repositories";
 import { TMP_FOLDER } from "../TMP_FOLDER";
-import { downloadFile } from "../utils/downloadFile";
-import { unzip } from "../utils/unzip";
 
 const changeVideoPathsOnResult = (
   report: TestCaseResult,
