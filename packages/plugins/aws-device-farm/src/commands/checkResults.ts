@@ -67,8 +67,24 @@ export const checkResults = async ({
     Logger.info(`Video ${fileName} processed ✅`);
   };
 
+  const allFiles = fs.readdirSync(tmpFolder);
+
+  // Since the package used to process the video, ffmpeg, could be unavailable, we could have to
+  // download the binary. If so, we don't want to have all promises running at the same time and
+  // proceeding to the download.
+  // We therefore process only one video first, which will install the binary if needed, and then
+  // we process the rest of the files.
+  for (let i = 0; i < allFiles.length; i++) {
+    const file = allFiles[i];
+    if (file.endsWith(".mp4")) {
+      await processVideo(file);
+      allFiles.splice(i, 1);
+      break;
+    }
+  }
+
   await Promise.all(
-    fs.readdirSync(tmpFolder).map((file) => {
+    allFiles.map((file) => {
       if (file.endsWith(".json")) {
         return processReportFile(file);
       }
