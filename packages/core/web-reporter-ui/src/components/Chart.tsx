@@ -54,7 +54,7 @@ const getVideoCurrentTimeAnnotation = () => {
 const useSetVideoTimeOnMouseHover = ({
   lastX,
 }: {
-  lastX: number | undefined;
+  lastX: number | string | undefined;
 }): ApexChart["events"] => {
   const lastXRef = useRef(lastX);
 
@@ -72,6 +72,8 @@ const useSetVideoTimeOnMouseHover = ({
           event.clientX - chart.el.getBoundingClientRect().left - chart.w.globals.translateX;
 
         const maxX = lastXRef.current;
+
+        if (typeof maxX === "string") return;
 
         setVideoCurrentTime((mouseX / totalWidth) * maxX);
 
@@ -100,7 +102,7 @@ export const Chart = ({
   type = "line",
 }: {
   title: string;
-  series: { name: string; data: { x: number; y: number }[] }[];
+  series: { name: string; data: { x: number | string; y: number }[] }[];
   height: number;
   interval?: number;
   timeLimit?: number | null;
@@ -155,7 +157,10 @@ export const Chart = ({
       },
       stroke: {
         curve: "smooth",
-        width: type === "rangeArea" ? [2, 0] : 2,
+        width:
+          type === "rangeArea"
+            ? [...Array(series.length / 2).fill(0), ...Array(series.length / 2).fill(2)]
+            : 2,
       },
       xaxis: {
         type: "numeric",
@@ -180,16 +185,6 @@ export const Chart = ({
         borderColor: "#FFFFFF33",
         strokeDashArray: 3,
       },
-      ...(type === "rangeArea"
-        ? {
-            fill: {
-              opacity: [1, 0.24],
-            },
-            forecastDataPoints: {
-              count: 2,
-            },
-          }
-        : {}),
     }),
     [
       title,

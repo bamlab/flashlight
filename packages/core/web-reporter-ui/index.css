@@ -8,6 +8,11 @@
     --bright-green: #00ff75;
     --bright-magenta: #ff36af;
     --bright-cyan: #00ffff;
+
+    --bright-yellow-rgb: 255, 245, 0;
+    --bright-green-rgb: 0, 255, 117;
+    --bright-magenta-rgb: 255, 54, 175;
+    --bright-cyan-rgb: 0, 255, 255;
   }
 
   [data-theme="bright-yellow"] {
