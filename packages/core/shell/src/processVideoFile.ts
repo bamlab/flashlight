@@ -21,15 +21,28 @@ const execAsync = (command: string) =>
     proc.on("error", reject);
   });
 
+const getFFMpegBinaryPath = () => {
+  switch (process.platform) {
+    case "darwin":
+      switch (process.arch) {
+        case "arm64":
+          return `https://github.com/ffbinaries/ffbinaries-prebuilt/releases/download/v4.4.1/ffmpeg-4.4.1-osx-64.zip`;
+      }
+    case "linux":
+      switch (process.arch) {
+        case "x64":
+          return `https://github.com/ffbinaries/ffbinaries-prebuilt/releases/download/v4.4.1/ffmpeg-4.4.1-linux-64.zip`;
+      }
+  }
+
+  throw new Error(`Unsupported os ${process.platform}-${process.arch} to install FFMpeg`);
+};
+
 export const installFFMpeg = async () => {
   await execAsync(`mkdir -p ${FFMPEG_BINARY_FOLDER_PATH}`);
 
   // Download ffmpeg binary
-  await downloadFile(
-    // "https://github.com/ffbinaries/ffbinaries-prebuilt/releases/download/v4.4.1/ffmpeg-4.4.1-linux-32.zip",
-    "https://github.com/ffbinaries/ffbinaries-prebuilt/releases/download/v4.4.1/ffmpeg-4.4.1-osx-64.zip",
-    FFMPEG_BINARY_FOLDER_PATH + "/ffmpeg.zip"
-  );
+  await downloadFile(getFFMpegBinaryPath(), `${FFMPEG_BINARY_FOLDER_PATH}/ffmpeg.zip`);
 
   unzip(FFMPEG_BINARY_FOLDER_PATH + "/ffmpeg.zip", FFMPEG_BINARY_FOLDER_PATH);
 
