@@ -21,3 +21,5 @@ export const open = (path: string) => {
 };
 
 export * from "./processVideoFile";
+export * from "./downloadFile";
+export * from "./unzip";
