@@ -197,6 +197,7 @@ export const Chart = ({
       maxValue,
       colors,
       showLegendForSingleSeries,
+      series.length,
     ]
   );
 
