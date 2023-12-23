@@ -54,4 +54,22 @@ describe("getCpuStatsByProcess", () => {
       ]
     `);
   });
+
+  it("handles AWCN Worker(M)1 process name", () => {
+    expect(
+      processOutput(
+        `16360 (AWCN Worker(M)1) S 372 372 0 0 -1 1077936192 70 0 3 0 0 0 0 0 20 0 35 0 58748 16236625920 43973 18446744073709551615 1 1 0 0 0 0 4608 1 1073775868 0 0 0 -1 2 0 0 0 0 0 0 0 0 0 0 0 0 0`,
+        "1234"
+      )
+    ).toMatchInlineSnapshot(`
+      [
+        {
+          "cpuNumber": "2",
+          "processId": "16360",
+          "processName": "AWCN Worker(M)1",
+          "totalCpuTime": 0,
+        },
+      ]
+    `);
+  });
 });
