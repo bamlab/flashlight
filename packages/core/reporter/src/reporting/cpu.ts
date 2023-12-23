@@ -2,7 +2,7 @@ import { Measure, TestCaseIterationResult } from "@perf-profiler/types";
 import _, { round } from "lodash";
 import { getMinMax } from "../utils/getMinMax";
 import { getStandardDeviation } from "../utils/getStandardDeviation";
-import { roundToDecimal } from "../utils/round";
+import { variationCoefficient } from "../utils/variationCoefficient";
 
 const _getAverageCpuUsagePerProcess = (measures: Measure[]) =>
   _(measures)
@@ -52,10 +52,11 @@ export const getMinMaxCPU = (iterations: TestCaseIterationResult[]): [number, nu
 
 export const getCpuStats = (iterations: TestCaseIterationResult[], averageCpu: number) => {
   const standardDeviation = getStandardDeviationCPU(iterations, averageCpu);
+
   return {
     minMaxRange: getMinMaxCPU(iterations),
     deviationRange: standardDeviation.deviationRange,
-    variationCoefficient: roundToDecimal((standardDeviation.deviation / averageCpu) * 100),
+    variationCoefficient: variationCoefficient(averageCpu, standardDeviation.deviation),
   };
 };
 
@@ -76,7 +77,7 @@ export const getThreadsStats = (iterations: TestCaseIterationResult[]) => {
     [threadName: string]: {
       minMaxRange: [number, number];
       deviationRange: [number, number];
-      variationCoefficient?: number;
+      variationCoefficient: number;
     };
   } = {};
 
@@ -90,13 +91,7 @@ export const getThreadsStats = (iterations: TestCaseIterationResult[]) => {
     statsByThread[threadName] = {
       minMaxRange: getMinMax(threadValues),
       deviationRange: threadStandardDeviation.deviationRange,
-      ...(threadAverage !== 0
-        ? {
-            variationCoefficient: roundToDecimal(
-              (threadStandardDeviation.deviation / threadAverage) * 100
-            ),
-          }
-        : {}),
+      variationCoefficient: variationCoefficient(threadAverage, threadStandardDeviation.deviation),
     };
   });
 

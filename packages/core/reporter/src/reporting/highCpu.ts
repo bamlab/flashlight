@@ -7,7 +7,7 @@ import {
 import _ from "lodash";
 import { getMinMax } from "../utils/getMinMax";
 import { getStandardDeviation } from "../utils/getStandardDeviation";
-import { roundToDecimal } from "../utils/round";
+import { variationCoefficient } from "../utils/variationCoefficient";
 
 export const getHighCpuUsage = (measures: Measure[], cpuUsageThreshold: number | undefined = 90) =>
   _(measures)
@@ -57,9 +57,7 @@ const getStatsByThread = (iterations: TestCaseIterationResult[]) => {
     statsByThread[threadName] = {
       minMaxRange: getMinMax(threadValues),
       deviationRange: threadStandardDeviation.deviationRange,
-      variationCoefficient: roundToDecimal(
-        (threadStandardDeviation.deviation / threadAverage) * 100
-      ),
+      variationCoefficient: variationCoefficient(threadAverage, threadStandardDeviation.deviation),
     };
   });
   return statsByThread;
@@ -84,6 +82,6 @@ export const getHighCpuStats = (
     threads: getStatsByThread(iterations),
     minMaxRange: getMinMax(averageTotalHighCPuUsage),
     deviationRange: standardDeviation.deviationRange,
-    variationCoefficient: roundToDecimal((standardDeviation.deviation / averageTotalHighCpu) * 100),
+    variationCoefficient: variationCoefficient(averageTotalHighCpu, standardDeviation.deviation),
   };
 };

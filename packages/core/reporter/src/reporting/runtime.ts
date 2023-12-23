@@ -1,7 +1,7 @@
 import { TestCaseIterationResult } from "@perf-profiler/types";
 import { getMinMax } from "../utils/getMinMax";
 import { getStandardDeviation } from "../utils/getStandardDeviation";
-import { roundToDecimal } from "../utils/round";
+import { variationCoefficient } from "../utils/variationCoefficient";
 
 export const getRuntimeStats = (iterations: TestCaseIterationResult[], averageRuntime: number) => {
   const values = iterations.map((iteration) => iteration.time);
@@ -13,6 +13,6 @@ export const getRuntimeStats = (iterations: TestCaseIterationResult[], averageRu
   return {
     minMaxRange: getMinMax(values),
     deviationRange: standardDeviation.deviationRange,
-    variationCoefficient: roundToDecimal((standardDeviation.deviation / averageRuntime) * 100),
+    variationCoefficient: variationCoefficient(averageRuntime, standardDeviation.deviation),
   };
 };
