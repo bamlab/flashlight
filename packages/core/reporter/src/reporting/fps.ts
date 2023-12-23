@@ -1,8 +1,8 @@
 import { Measure, TestCaseIterationResult } from "@perf-profiler/types";
 import { getMinMax } from "../utils/getMinMax";
 import { getStandardDeviation } from "../utils/getStandardDeviation";
-import { roundToDecimal } from "../utils/round";
 import { average } from "./averageIterations";
+import { variationCoefficient } from "../utils/variationCoefficient";
 
 export const getAverageFPSUsage = (measures: Measure[]) =>
   average(measures.map((measure) => measure.fps));
@@ -35,6 +35,6 @@ export const getFpsStats = (iterations: TestCaseIterationResult[], averageFps?: 
   return {
     minMaxRange: getMinMaxFPS(iterations),
     deviationRange: standardDeviation.deviationRange,
-    variationCoefficient: roundToDecimal((standardDeviation.deviation / averageFps) * 100),
+    variationCoefficient: variationCoefficient(averageFps, standardDeviation.deviation),
   };
 };
