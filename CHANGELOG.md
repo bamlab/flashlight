@@ -1,3 +1,5 @@
+## [0.15.1](https://github.com/bamlab/flashlight/compare/v0.15.0...v0.15.1) (2023-12-23)
+
 # 0.15.0 (2023-12-23)
 
 # [0.14.0](https://github.com/bamlab/flashlight/compare/v0.13.0...v0.14.0) (2023-12-08)
