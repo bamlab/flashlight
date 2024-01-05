@@ -18,3 +18,10 @@ export type RangeAreaSeriesType = (
       }[];
     }
 )[];
+
+export type AnnotationInterval = {
+  y: number;
+  y2: number;
+  label: string;
+  color: string;
+};
