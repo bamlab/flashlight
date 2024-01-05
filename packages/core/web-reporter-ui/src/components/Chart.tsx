@@ -12,7 +12,7 @@ type AnnotationInterval = {
   color: string;
 };
 
-const getAnnotationInterval = (annotationIntervalList: AnnotationInterval[] | undefined) => {
+const getAnnotationInterval = (annotationIntervalList: AnnotationInterval[]) => {
   const layout = annotationIntervalList?.map(({ y, y2, label, color }) => ({
     y,
     y2,
@@ -35,20 +35,32 @@ const getVideoCurrentTimeAnnotation = () => {
   const palette = getColorPalette();
   const lastColor = palette[palette.length - 1];
 
-  return {
-    x: 0,
-    strokeDashArray: 0,
-    borderColor: lastColor,
-    label: {
+  return [
+    {
+      x: 0,
+      strokeDashArray: 0,
       borderColor: lastColor,
-      style: {
-        color: "#fff",
-        background: lastColor,
+      label: {
+        borderColor: lastColor,
+        style: {
+          color: "#fff",
+          background: lastColor,
+        },
+        text: "Video",
+        position: "right",
       },
-      text: "Video",
-      position: "right",
     },
-  };
+  ];
+};
+
+const getAnnotations = (annotationIntervalList: AnnotationInterval[] | undefined) => {
+  if (!annotationIntervalList) return;
+
+  const xaxis = getVideoCurrentTimeAnnotation();
+  const yaxis = getAnnotationInterval(annotationIntervalList);
+  if (!xaxis.length || !yaxis.length) return undefined;
+
+  return { xaxis, yaxis };
 };
 
 const useSetVideoTimeOnMouseHover = ({
@@ -120,86 +132,64 @@ export const Chart = ({
 
   const videoEnabled = useContext(VideoEnabledContext);
 
-  const options = useMemo<ApexOptions>(
-    () => ({
-      chart: {
-        id: title,
-        height: 350,
-        type,
-        animations: {
-          enabled: true,
-          easing: "linear",
-          dynamicAnimation: {
-            speed: interval,
-          },
-        },
-        events: videoEnabled ? setVideoCurrentTimeOnMouseHover : {},
-        zoom: {
-          enabled: false,
+  const options: ApexOptions = {
+    chart: {
+      id: title,
+      height: 350,
+      type,
+      animations: {
+        enabled: true,
+        easing: "linear",
+        dynamicAnimation: {
+          speed: interval,
         },
       },
-      annotations: {
-        xaxis: videoEnabled ? [getVideoCurrentTimeAnnotation()] : [],
-        yaxis: getAnnotationInterval(annotationIntervalList),
-      },
-      title: {
-        text: title,
-        align: "left",
-        style: {
-          color: "#FFFFFF",
-          fontSize: "24px",
-          fontFamily: "Inter, sans-serif",
-          fontWeight: 500,
-        },
-      },
-      dataLabels: {
+      events: videoEnabled ? setVideoCurrentTimeOnMouseHover : {},
+      zoom: {
         enabled: false,
       },
-      stroke: {
-        curve: "smooth",
-        width:
-          type === "rangeArea"
-            ? [...Array(series.length / 2).fill(0), ...Array(series.length / 2).fill(2)]
-            : 2,
+    },
+    annotations: getAnnotations(annotationIntervalList) || {},
+    title: {
+      text: title,
+      align: "left",
+      style: {
+        color: "#FFFFFF",
+        fontSize: "24px",
+        fontFamily: "Inter, sans-serif",
+        fontWeight: 500,
       },
-      xaxis: {
-        type: "numeric",
-        min: 0,
-        max: timeLimit || undefined,
-        labels: { style: { colors: "#FFFFFF99" } },
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      curve: "smooth",
+      width: 2,
+    },
+    xaxis: {
+      type: "numeric",
+      min: 0,
+      max: timeLimit || undefined,
+      labels: { style: { colors: "#FFFFFF99" } },
+    },
+    yaxis: {
+      min: 0,
+      max: maxValue,
+      labels: { style: { colors: "#FFFFFF99" } },
+    },
+    colors,
+    legend: {
+      showForSingleSeries: showLegendForSingleSeries,
+      labels: {
+        colors: "#FFFFFF99",
       },
-      yaxis: {
-        min: 0,
-        max: maxValue,
-        labels: { style: { colors: "#FFFFFF99" } },
-      },
-      colors,
-      legend: {
-        showForSingleSeries: showLegendForSingleSeries,
-        labels: {
-          colors: "#FFFFFF99",
-        },
-      },
-
-      grid: {
-        borderColor: "#FFFFFF33",
-        strokeDashArray: 3,
-      },
-    }),
-    [
-      title,
-      type,
-      interval,
-      videoEnabled,
-      setVideoCurrentTimeOnMouseHover,
-      annotationIntervalList,
-      timeLimit,
-      maxValue,
-      colors,
-      showLegendForSingleSeries,
-      series.length,
-    ]
-  );
+    },
+    grid: {
+      borderColor: "#FFFFFF33",
+      strokeDashArray: 3,
+    },
+  };
 
   return <ReactApexChart options={options} series={series} type={type} height={height} />;
 };
