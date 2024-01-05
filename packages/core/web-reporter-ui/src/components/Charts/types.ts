@@ -6,7 +6,7 @@ export type RangeAreaSeriesType = (
       name: string;
       data: {
         x: string;
-        y: [number, number] | undefined;
+        y: [number, number];
       }[];
     }
   | {
