@@ -101,6 +101,8 @@ const useSetVideoTimeOnMouseHover = ({
   );
 };
 
+type LineSeriesType = { name: string; data: { x: number | string; y: number }[] }[];
+
 export const Chart = ({
   title,
   series,
@@ -111,10 +113,9 @@ export const Chart = ({
   showLegendForSingleSeries,
   colors = getColorPalette(),
   annotationIntervalList = undefined,
-  type = "line",
 }: {
   title: string;
-  series: { name: string; data: { x: number | string; y: number }[] }[];
+  series: LineSeriesType;
   height: number;
   interval?: number;
   timeLimit?: number | null;
@@ -122,10 +123,8 @@ export const Chart = ({
   showLegendForSingleSeries?: boolean;
   colors?: string[];
   annotationIntervalList?: AnnotationInterval[];
-  type?: ApexProps["type"];
 }) => {
   const lastX = series[0]?.data.at(-1)?.x;
-
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
     lastX,
   });
@@ -136,7 +135,7 @@ export const Chart = ({
     chart: {
       id: title,
       height: 350,
-      type,
+      type: "line",
       animations: {
         enabled: true,
         easing: "linear",
@@ -191,5 +190,5 @@ export const Chart = ({
     },
   };
 
-  return <ReactApexChart options={options} series={series} type={type} height={height} />;
+  return <ReactApexChart options={options} series={series} type={"line"} height={height} />;
 };
