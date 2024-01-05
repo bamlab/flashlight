@@ -4,6 +4,8 @@ import { VideoEnabledContext, setVideoCurrentTime } from "../../videoCurrentTime
 import { ApexOptions } from "apexcharts";
 import { getColorPalette } from "../theme/colors";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
+import { getLastX, useSetVideoTimeOnMouseHover } from "./Charts/useSetVideoTimeOnMouseHover";
+import { LineSeriesType } from "./Charts/types";
 
 type AnnotationInterval = {
   y: number;
@@ -63,46 +65,6 @@ const getAnnotations = (annotationIntervalList: AnnotationInterval[] | undefined
   return { xaxis, yaxis };
 };
 
-const useSetVideoTimeOnMouseHover = ({
-  lastX,
-}: {
-  lastX: number | string | undefined;
-}): ApexChart["events"] => {
-  const lastXRef = useRef(lastX);
-
-  // Just making sure the useMemo doesn't depend on series since it doesn't need to
-  lastXRef.current = lastX;
-
-  return useMemo(
-    () => ({
-      mouseMove: (event, chart) => {
-        if (lastXRef.current === undefined) return;
-
-        const totalWidth = chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
-
-        const mouseX =
-          event.clientX - chart.el.getBoundingClientRect().left - chart.w.globals.translateX;
-
-        const maxX = lastXRef.current;
-
-        if (typeof maxX === "string") return;
-
-        setVideoCurrentTime((mouseX / totalWidth) * maxX);
-
-        // Manually translate via DOM to avoid re-rendering the chart
-        const annotations = document.getElementsByClassName("apexcharts-xaxis-annotations");
-
-        for (const annotation of annotations) {
-          annotation.setAttribute("style", `transform: translateX(${mouseX}px);`);
-        }
-      },
-    }),
-    []
-  );
-};
-
-type LineSeriesType = { name: string; data: { x: number | string; y: number }[] }[];
-
 export const Chart = ({
   title,
   series,
@@ -126,7 +88,7 @@ export const Chart = ({
 }) => {
   const lastX = series[0]?.data.at(-1)?.x;
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
-    lastX,
+    lastX: getLastX(series),
   });
 
   const videoEnabled = useContext(VideoEnabledContext);
