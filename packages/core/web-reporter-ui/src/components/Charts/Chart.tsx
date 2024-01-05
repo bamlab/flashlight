@@ -1,12 +1,12 @@
 import React, { useMemo, useContext, useRef } from "react";
 import ReactApexChart, { Props as ApexProps } from "react-apexcharts";
-import { VideoEnabledContext, setVideoCurrentTime } from "../../videoCurrentTimeContext";
+import { VideoEnabledContext, setVideoCurrentTime } from "../../../videoCurrentTimeContext";
 import { ApexOptions } from "apexcharts";
-import { getColorPalette } from "../theme/colors";
+import { getColorPalette } from "../../theme/colors";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
-import { getLastX, useSetVideoTimeOnMouseHover } from "./Charts/useSetVideoTimeOnMouseHover";
-import { AnnotationInterval, LineSeriesType } from "./Charts/types";
-import { getAnnotations } from "./Charts/getAnnotations";
+import { getLastX, useSetVideoTimeOnMouseHover } from "./useSetVideoTimeOnMouseHover";
+import { AnnotationInterval, LineSeriesType } from "./types";
+import { getAnnotations } from "./getAnnotations";
 
 export const Chart = ({
   title,

@@ -6,7 +6,7 @@ import {
   ThreadNames,
   ThreadNamesIOS,
 } from "@perf-profiler/types";
-import { Chart } from "../components/Chart";
+import { Chart } from "../components/Charts/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
 import { Collapsible } from "../components/Collapsible";
 import { getColorPalette } from "../theme/colors";
