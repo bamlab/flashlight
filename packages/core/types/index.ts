@@ -64,7 +64,7 @@ export const ThreadNamesIOS = {
 };
 
 export interface ScreenRecorder {
-  startRecording({ bitRate = 8000000, size }: { bitRate?: number; size?: string }): Promise<void>;
+  startRecording({ bitRate, size }: { bitRate?: number; size?: string }): Promise<void>;
   stopRecording(): Promise<void>;
   pullRecording: (path: string) => Promise<void>;
   getRecordingStartTime: () => number;
