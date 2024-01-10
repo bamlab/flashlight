@@ -52,7 +52,7 @@ export const ChartRangeArea = ({
       },
       stroke: {
         curve: "smooth",
-        width: [2, 0],
+        width: [...Array(series.length / 2).fill(2), ...Array(series.length / 2).fill(0)],
       },
       xaxis: {
         type: "numeric",
