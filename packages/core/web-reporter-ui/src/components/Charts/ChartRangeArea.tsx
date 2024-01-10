@@ -5,6 +5,11 @@ import { VideoEnabledContext } from "../../../videoCurrentTimeContext";
 import { getLastX, useSetVideoTimeOnMouseHover } from "./useSetVideoTimeOnMouseHover";
 import { RangeAreaSeriesType } from "./types";
 
+/**
+ * @description
+ * ChartRangeArea is a chart used to display the deviation range of a metric.
+ * @param series is an array of objects where type 'line' comes first and type 'rangeArea' comes second.
+ */
 export const ChartRangeArea = ({
   title,
   series,
