@@ -2,7 +2,6 @@ import { ApexOptions } from "apexcharts";
 import React, { useContext, useMemo } from "react";
 import ReactApexChart from "react-apexcharts";
 import { VideoEnabledContext } from "../../../videoCurrentTimeContext";
-import { getColorPalette } from "../../theme/colors";
 import { getLastX, useSetVideoTimeOnMouseHover } from "./useSetVideoTimeOnMouseHover";
 import { RangeAreaSeriesType } from "./types";
 
@@ -10,11 +9,13 @@ export const ChartRangeArea = ({
   title,
   series,
   height,
+  colors,
 }: {
   title: string;
   series: RangeAreaSeriesType;
   height: number;
   showLegendForSingleSeries?: boolean;
+  colors: string[];
 }) => {
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
     lastX: getLastX(series),
@@ -22,7 +23,6 @@ export const ChartRangeArea = ({
   const videoEnabled = useContext(VideoEnabledContext);
 
   const labels = { style: { colors: "#FFFFFF99" } };
-  const deviationColor = "#000000";
 
   const options: ApexOptions = useMemo(
     () => ({
@@ -60,10 +60,7 @@ export const ChartRangeArea = ({
         labels,
       },
       yaxis: { min: 0, labels },
-      colors: [getColorPalette().at(0), deviationColor],
-      fill: {
-        colors: [deviationColor],
-      },
+      colors,
       legend: {
         labels: labels.style,
       },
@@ -72,7 +69,7 @@ export const ChartRangeArea = ({
         strokeDashArray: 3,
       },
     }),
-    [title, videoEnabled, setVideoCurrentTimeOnMouseHover]
+    [title, series.length, labels, colors, videoEnabled, setVideoCurrentTimeOnMouseHover]
   );
 
   return <ReactApexChart options={options} series={series} type={"rangeArea"} height={height} />;
