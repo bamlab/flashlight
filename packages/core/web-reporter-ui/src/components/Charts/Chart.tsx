@@ -29,7 +29,6 @@ export const Chart = ({
   colors?: string[];
   annotationIntervalList?: AnnotationInterval[];
 }) => {
-  const lastX = series[0]?.data.at(-1)?.x;
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
     lastX: getLastX(series),
   });
