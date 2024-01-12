@@ -1,6 +1,6 @@
-import React, { useMemo, useContext, useRef } from "react";
-import ReactApexChart, { Props as ApexProps } from "react-apexcharts";
-import { VideoEnabledContext, setVideoCurrentTime } from "../../../videoCurrentTimeContext";
+import React, { useMemo, useContext } from "react";
+import ReactApexChart from "react-apexcharts";
+import { VideoEnabledContext } from "../../../videoCurrentTimeContext";
 import { ApexOptions } from "apexcharts";
 import { getColorPalette } from "../../theme/colors";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
@@ -102,6 +102,8 @@ export const Chart = ({
       showLegendForSingleSeries,
       colors,
       annotationIntervalList,
+      setVideoCurrentTimeOnMouseHover,
+      videoEnabled,
     ]
   );
 

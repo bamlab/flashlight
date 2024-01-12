@@ -5,6 +5,8 @@ import { VideoEnabledContext } from "../../../videoCurrentTimeContext";
 import { getLastX, useSetVideoTimeOnMouseHover } from "./useSetVideoTimeOnMouseHover";
 import { RangeAreaSeriesType } from "./types";
 
+const labels = { style: { colors: "#FFFFFF99" } };
+
 /**
  * @description
  * ChartRangeArea is a chart used to display the deviation range of a metric.
@@ -26,8 +28,6 @@ export const ChartRangeArea = ({
     lastX: getLastX(series),
   });
   const videoEnabled = useContext(VideoEnabledContext);
-
-  const labels = { style: { colors: "#FFFFFF99" } };
 
   const options: ApexOptions = useMemo(
     () => ({
@@ -74,7 +74,7 @@ export const ChartRangeArea = ({
         strokeDashArray: 3,
       },
     }),
-    [title, series.length, labels, colors, videoEnabled, setVideoCurrentTimeOnMouseHover]
+    [title, series.length, colors, videoEnabled, setVideoCurrentTimeOnMouseHover]
   );
 
   return <ReactApexChart options={options} series={series} type={"rangeArea"} height={height} />;

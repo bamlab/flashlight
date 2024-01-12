@@ -14,8 +14,6 @@ export const useSetVideoTimeOnMouseHover = ({
 }: {
   lastX: number | string | undefined;
 }): ApexChart["events"] => {
-  if (typeof lastX === "string") return {};
-
   const lastXRef = useRef(lastX);
 
   // Just making sure the useMemo doesn't depend on series since it doesn't need to
@@ -32,6 +30,8 @@ export const useSetVideoTimeOnMouseHover = ({
           event.clientX - chart.el.getBoundingClientRect().left - chart.w.globals.translateX;
 
         const maxX = lastXRef.current;
+
+        if (typeof maxX === "string") return;
 
         setVideoCurrentTime((mouseX / totalWidth) * maxX);
 
