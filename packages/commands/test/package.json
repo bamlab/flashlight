@@ -18,6 +18,7 @@
     "@perf-profiler/profiler": "^0.10.7",
     "@perf-profiler/reporter": "^0.7.0",
     "@perf-profiler/types": "^0.6.0",
+    "@perf-profiler/ios-instruments": "^0.2.0",
     "commander": "^9.4.0"
   }
 }
