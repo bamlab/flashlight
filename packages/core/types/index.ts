@@ -83,5 +83,5 @@ export interface Profiler {
   detectCurrentBundleId: () => string;
   installProfilerOnDevice: () => void;
   cleanup: () => void;
-  getScreenRecorder: (videoPath: string) => ScreenRecorder;
+  getScreenRecorder: (videoPath: string) => ScreenRecorder | undefined;
 }
