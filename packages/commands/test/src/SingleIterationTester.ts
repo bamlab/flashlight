@@ -74,7 +74,7 @@ export class SingleIterationTester {
   }
 
   private async maybeStartRecording() {
-    if (this.options.recordOptions.record) {
+    if (this.options.recordOptions.record && this.recorder) {
       const { bitRate, size } = this.options.recordOptions;
       await this.recorder.startRecording({ bitRate, size });
     }
@@ -87,7 +87,7 @@ export class SingleIterationTester {
   }
 
   private async maybeStopRecording() {
-    if (this.options.recordOptions.record) {
+    if (this.options.recordOptions.record && this.recorder) {
       await this.recorder.stopRecording();
       await this.recorder.pullRecording(dirname(this.options.resultsFileOptions.path));
     }
@@ -104,12 +104,13 @@ export class SingleIterationTester {
     this.currentTestCaseIterationResult = {
       ...measures,
       status,
-      videoInfos: this.options.recordOptions.record
-        ? {
-            path: this.videoPath,
-            startOffset: Math.floor(measures.startTime - this.recorder.getRecordingStartTime()),
-          }
-        : undefined,
+      videoInfos:
+        this.options.recordOptions.record && this.recorder
+          ? {
+              path: this.videoPath,
+              startOffset: Math.floor(measures.startTime - this.recorder.getRecordingStartTime()),
+            }
+          : undefined,
     };
   }
 }
