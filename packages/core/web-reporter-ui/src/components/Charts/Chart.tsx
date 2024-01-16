@@ -81,8 +81,7 @@ export const Chart = ({
         width: 2,
       },
       xaxis: {
-        type: "numeric",
-        min: 0,
+        type: "category",
         max: timeLimit || undefined,
         labels: {
           style: { colors: "#FFFFFF99" },
