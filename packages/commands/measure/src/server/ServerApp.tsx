@@ -6,7 +6,7 @@ import { open } from "@perf-profiler/shell";
 import React, { useEffect, useState } from "react";
 import { SocketType, SocketServer } from "./socket/socketInterface";
 import { HostAndPortInfo } from "./components/HostAndPortInfo";
-import { WEBAPP_URL, PORT } from "./constants";
+import { getWebAppUrl } from "./constants";
 import { ServerSocketConnectionApp } from "./ServerSocketConnectionApp";
 import { useInput } from "ink";
 import { profiler } from "@perf-profiler/profiler";
@@ -40,23 +40,28 @@ const useCleanupOnManualExit = () => {
   });
 };
 
-export const ServerApp = () => {
+interface ServerAppProps {
+  port: number;
+}
+
+export const ServerApp = ({ port }: ServerAppProps) => {
   const [socket, setSocket] = useState<SocketType | null>(null);
+  const webAppUrl = getWebAppUrl(port);
   useEffect(() => {
     const app = createExpressApp();
 
     const server = http.createServer(app);
     const io: SocketServer = new Server(server, {
       cors: {
-        origin: [WEBAPP_URL],
+        origin: [webAppUrl],
         methods: ["GET", "POST"],
       },
     });
 
     allowOnlyOneSocketClient(io, setSocket);
 
-    server.listen(PORT, () => {
-      open(WEBAPP_URL);
+    server.listen(port, () => {
+      open(webAppUrl);
     });
 
     return () => {
@@ -66,5 +71,9 @@ export const ServerApp = () => {
   }, []);
   useCleanupOnManualExit();
 
-  return socket ? <ServerSocketConnectionApp socket={socket} /> : <HostAndPortInfo />;
+  return socket ? (
+    <ServerSocketConnectionApp socket={socket} url={webAppUrl} />
+  ) : (
+    <HostAndPortInfo url={webAppUrl} />
+  );
 };
