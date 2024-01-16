@@ -62,7 +62,7 @@ export const ChartRangeArea = ({
         width: [...Array(series.length / 2).fill(2), ...Array(series.length / 2).fill(0)],
       },
       xaxis: {
-        type: "numeric",
+        type: "category",
         min: 0,
         labels: {
           ...labels,
