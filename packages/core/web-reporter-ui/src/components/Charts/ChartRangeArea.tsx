@@ -17,12 +17,14 @@ export const ChartRangeArea = ({
   series,
   height,
   colors,
+  formatter,
 }: {
   title: string;
   series: RangeAreaSeriesType;
   height: number;
   showLegendForSingleSeries?: boolean;
   colors: string[];
+  formatter?: (label: string) => string;
 }) => {
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
     lastX: getLastX(series),
@@ -62,7 +64,10 @@ export const ChartRangeArea = ({
       xaxis: {
         type: "numeric",
         min: 0,
-        labels,
+        labels: {
+          ...labels,
+          formatter: (label) => formatter?.(label ?? "") ?? label,
+        },
       },
       yaxis: { min: 0, labels },
       colors,
@@ -74,7 +79,7 @@ export const ChartRangeArea = ({
         strokeDashArray: 3,
       },
     }),
-    [title, series.length, colors, videoEnabled, setVideoCurrentTimeOnMouseHover]
+    [title, series.length, colors, videoEnabled, setVideoCurrentTimeOnMouseHover, formatter]
   );
 
   return <ReactApexChart options={options} series={series} type={"rangeArea"} height={height} />;
