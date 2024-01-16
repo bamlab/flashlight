@@ -18,6 +18,7 @@ export const Chart = ({
   showLegendForSingleSeries,
   colors = getColorPalette(),
   annotationIntervalList = undefined,
+  formatter,
 }: {
   title: string;
   series: LineSeriesType;
@@ -28,6 +29,7 @@ export const Chart = ({
   showLegendForSingleSeries?: boolean;
   colors?: string[];
   annotationIntervalList?: AnnotationInterval[];
+  formatter?: (label: string) => string;
 }) => {
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
     lastX: getLastX(series),
@@ -75,7 +77,10 @@ export const Chart = ({
         type: "numeric",
         min: 0,
         max: timeLimit || undefined,
-        labels: { style: { colors: "#FFFFFF99" } },
+        labels: {
+          style: { colors: "#FFFFFF99" },
+          formatter: (label) => formatter?.(label ?? "") ?? label,
+        },
       },
       yaxis: {
         min: 0,
@@ -104,6 +109,7 @@ export const Chart = ({
       annotationIntervalList,
       setVideoCurrentTimeOnMouseHover,
       videoEnabled,
+      formatter,
     ]
   );
 
