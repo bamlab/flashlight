@@ -1,4 +1,8 @@
-export type LineSeriesType = { name: string; data: { x: number | string; y: number }[] }[];
+export type LineDataPointType = { x: number | string; y: number };
+
+export type LinePlotType = { name: string; data: LineDataPointType[] };
+
+export type LineSeriesType = LinePlotType[];
 
 export type RangeAreaSeriesType = (
   | {
