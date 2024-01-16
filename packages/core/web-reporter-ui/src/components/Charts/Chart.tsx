@@ -19,6 +19,7 @@ export const Chart = ({
   colors = getColorPalette(),
   annotationIntervalList = undefined,
   formatter,
+  onPointClick,
 }: {
   title: string;
   series: LineSeriesType;
@@ -30,6 +31,7 @@ export const Chart = ({
   colors?: string[];
   annotationIntervalList?: AnnotationInterval[];
   formatter?: (label: string) => string;
+  onPointClick?: (seriesIndex: number, dataPointIndex: number) => void;
 }) => {
   const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
     lastX: getLastX(series),
@@ -50,7 +52,12 @@ export const Chart = ({
             speed: interval,
           },
         },
-        events: videoEnabled ? setVideoCurrentTimeOnMouseHover : {},
+        events: {
+          markerClick: (event, chart, { seriesIndex, dataPointIndex }) => {
+            onPointClick?.(seriesIndex, dataPointIndex);
+          },
+          ...(videoEnabled ? setVideoCurrentTimeOnMouseHover : {}),
+        },
         zoom: {
           enabled: false,
         },
@@ -110,6 +117,7 @@ export const Chart = ({
       setVideoCurrentTimeOnMouseHover,
       videoEnabled,
       formatter,
+      onPointClick,
     ]
   );
 
