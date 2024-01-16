@@ -8,7 +8,7 @@ import { useSocketState, updateMeasuresReducer, addNewResultReducer } from "./so
 import { useBundleIdControls } from "./useBundleIdControls";
 import { useLogSocketEvents } from "../common/useLogSocketEvents";
 
-export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType; url: string }) => {
+export const ServerSocketConnectionApp = ({ socket }: { socket: SocketType }) => {
   useLogSocketEvents(socket);
   const [state, setState] = useSocketState(socket);
   const performanceMeasureRef = React.useRef<PerformanceMeasurer | null>(null);
@@ -64,7 +64,7 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
 
   return (
     <>
-      <HostAndPortInfo url={url} />
+      <HostAndPortInfo />
     </>
   );
 };

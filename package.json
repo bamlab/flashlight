@@ -21,7 +21,7 @@
   "scripts": {
     "clean-dist": "rm -rf packages/*/*/dist && rm -rf packages/*/*/tsconfig.tsbuildinfo",
     "watch": "tsc --build --watch",
-    "test": "prettier --check . && yarn build && eslint . --max-warnings 8 && jest",
+    "test": "prettier --check . && yarn build && eslint . --max-warnings 7 && jest",
     "test:coverage": "yarn clean-dist && jest --coverage",
     "test:lint": "eslint . --ext .js,.ts,.tsx --cache",
     "run-cli-example": "node packages/cli-example",

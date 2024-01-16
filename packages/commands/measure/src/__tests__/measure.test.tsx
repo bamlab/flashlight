@@ -13,7 +13,6 @@ import { open } from "@perf-profiler/shell";
 import { matchSnapshot } from "@perf-profiler/web-reporter-ui/utils/testUtils";
 import { removeCLIColors } from "./utils/removeCLIColors";
 import { LogLevel, Logger } from "@perf-profiler/logger";
-import { DEFAULT_PORT } from "../server/constants";
 
 jest.mock("@perf-profiler/shell", () => ({
   open: jest.fn(),
@@ -26,10 +25,10 @@ Logger.setLogLevel(LogLevel.SILENT);
 
 describe("flashlight measure interactive", () => {
   const expectWebAppToBeOpened = () =>
-    waitFor(() => expect(open).toHaveBeenCalledWith(`http://localhost:${DEFAULT_PORT}`));
+    waitFor(() => expect(open).toHaveBeenCalledWith("http://localhost:3000"));
 
-  const setupCli = (customPort = DEFAULT_PORT) => {
-    const { lastFrame, unmount } = cliRender(<ServerApp port={customPort} />);
+  const setupCli = () => {
+    const { lastFrame, unmount } = cliRender(<ServerApp />);
     const closeCli = async () => {
       unmount();
       // Seems like we need to wait for the useEffect cleanup to happen
@@ -59,7 +58,7 @@ describe("flashlight measure interactive", () => {
 
     expectCliOutput().toMatchInlineSnapshot(`
       "
-       Flashlight web app running on: http://localhost:${DEFAULT_PORT}
+       Flashlight web app running on: http://localhost:3000
       "
     `);
 
@@ -94,28 +93,6 @@ describe("flashlight measure interactive", () => {
 
     // Close apps
 
-    await closeCli();
-    closeWebApp();
-  });
-
-  test("it handles the --port flag correctly", async () => {
-    const customPort = 1001;
-
-    const { closeCli, expectCliOutput } = setupCli(customPort);
-
-    const { closeWebApp } = setupWebApp();
-
-    const expectWebAppToBeOpenedOnCustomPort = () =>
-      waitFor(() => expect(open).toHaveBeenCalledWith(`http://localhost:${customPort}`));
-    await expectWebAppToBeOpenedOnCustomPort();
-
-    expectCliOutput().toMatchInlineSnapshot(`
-    "
-     Flashlight web app running on: http://localhost:${customPort}
-    "
-  `);
-
-    // Close apps
     await closeCli();
     closeWebApp();
   });
