@@ -12,7 +12,6 @@ export const Chart = ({
   title,
   series,
   height,
-  interval = POLLING_INTERVAL,
   timeLimit,
   maxValue,
   showLegendForSingleSeries,
@@ -24,7 +23,6 @@ export const Chart = ({
   title: string;
   series: LineSeriesType;
   height: number;
-  interval?: number;
   timeLimit?: number | null;
   maxValue?: number;
   showLegendForSingleSeries?: boolean;
@@ -49,7 +47,7 @@ export const Chart = ({
           enabled: true,
           easing: "linear",
           dynamicAnimation: {
-            speed: interval,
+            speed: POLLING_INTERVAL,
           },
         },
         events: {
@@ -107,7 +105,6 @@ export const Chart = ({
     }),
     [
       title,
-      interval,
       timeLimit,
       maxValue,
       showLegendForSingleSeries,

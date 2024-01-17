@@ -79,14 +79,12 @@ export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
       <Chart
         title="Total CPU Usage (%)"
         height={500}
-        interval={POLLING_INTERVAL}
         series={totalCPUUsage}
         annotationIntervalList={totalCpuAnnotationInterval}
       />
       <Chart
         title="CPU Usage per thread (%)"
         height={500}
-        interval={POLLING_INTERVAL}
         series={threads}
         colors={results.length > 1 ? getColorPalette().slice(0, results.length) : undefined}
         maxValue={100}
