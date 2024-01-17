@@ -18,7 +18,6 @@ export const ChartRangeArea = ({
   title: string;
   series: RangeAreaSeriesType;
   height: number;
-  showLegendForSingleSeries?: boolean;
   colors: string[];
   formatter?: (label: string) => string;
 }) => {
