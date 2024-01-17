@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 
 import { Option, program } from "commander";
-import { execSync } from "child_process";
 import { TestCase } from ".";
 import { executeAsync } from "./executeAsync";
 import { applyLogLevelOption, logLevelOption } from "./commands/logLevelOption";
 import { PerformanceTester } from "./PerformanceTester";
 import { Logger } from "@perf-profiler/logger";
-import { killApp } from "@perf-profiler/ios-instruments/dist/utils/DeviceManager";
+import { profiler } from "@perf-profiler/profiler";
 
 program
   .command("test")
@@ -119,14 +118,7 @@ const runTest = async ({
   const testCase: TestCase = {
     beforeTest: async () => {
       if (!skipRestart) {
-        if (process.env.PLATFORM === "ios" || process.env.PLATFORM === "ios-instruments") {
-          killApp(bundleId);
-        } else {
-          // This is needed in case the e2e test script actually restarts the app
-          // So far this method of measuring only works if e2e test actually starts the app
-          execSync(`adb shell am force-stop ${bundleId}`);
-          await new Promise((resolve) => setTimeout(resolve, 3000));
-        }
+        await profiler.stopApp(bundleId);
       }
 
       if (beforeEachCommand) await executeAsync(beforeEachCommand);

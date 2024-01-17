@@ -1,5 +1,6 @@
 import { Measure, Profiler, ProfilerPollingOptions, ScreenRecorder } from "@perf-profiler/types";
 import { ChildProcess, exec } from "child_process";
+import { killApp } from "@perf-profiler/ios-instruments";
 
 interface AppMonitorData {
   Pid: number;
@@ -98,4 +99,9 @@ export class IOSProfiler implements Profiler {
   cleanup: () => void = () => {
     // Do we need anything here?
   };
+
+  async stopApp(bundleId: string): Promise<void> {
+    killApp(bundleId);
+    return new Promise<void>((resolve) => resolve());
+  }
 }

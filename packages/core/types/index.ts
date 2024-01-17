@@ -84,4 +84,5 @@ export interface Profiler {
   installProfilerOnDevice: () => void;
   cleanup: () => void;
   getScreenRecorder: (videoPath: string) => ScreenRecorder | undefined;
+  stopApp: (bundleId: string) => Promise<void>;
 }

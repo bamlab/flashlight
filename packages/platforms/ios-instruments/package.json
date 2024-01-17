@@ -5,7 +5,7 @@
   "bin": {
     "flashlight-ios-poc": "./dist/launchIOS.js"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
