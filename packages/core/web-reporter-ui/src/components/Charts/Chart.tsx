@@ -95,7 +95,6 @@ export const Chart = ({
     () =>
       merge(commonOptions, {
         chart: {
-          type: "line",
           events: {
             markerClick: (
               _event: unknown,
