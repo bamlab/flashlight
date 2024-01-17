@@ -1,7 +1,7 @@
 import React from "react";
 import { AveragedTestCaseResult } from "@perf-profiler/types";
-import { ReportChart } from "../components/Charts/Chart";
 import { buildValueGraph } from "./hideSectionForEmptyValue";
+import { ReportChart } from "../components/Charts/ReportChart";
 
 const fpsAnnotationInterval = [{ y: 57, y2: 60, color: "#158000", label: "Safe Zone" }];
 

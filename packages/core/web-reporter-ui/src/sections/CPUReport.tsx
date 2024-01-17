@@ -6,11 +6,11 @@ import {
   ThreadNames,
   ThreadNamesIOS,
 } from "@perf-profiler/types";
-import { ReportChart } from "../components/Charts/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
 import { Collapsible } from "../components/Collapsible";
 import { getColorPalette } from "../theme/colors";
 import { getAverageCpuUsage, roundToDecimal } from "@perf-profiler/reporter";
+import { ReportChart } from "../components/Charts/ReportChart";
 
 const buildSeriesData = (measures: Measure[], calculate: (measure: Measure) => number) =>
   measures
