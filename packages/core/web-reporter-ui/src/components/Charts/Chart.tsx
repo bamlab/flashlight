@@ -9,7 +9,7 @@ import { AnnotationInterval, LineSeriesType } from "./types";
 import { getAnnotations } from "./getAnnotations";
 import { merge } from "lodash";
 
-const BaseChart = ({
+export const BaseChart = ({
   type,
   title,
   series,
@@ -19,7 +19,7 @@ const BaseChart = ({
 }: {
   type: Exclude<ApexChartProps["type"], undefined>;
   title: string;
-  series: LineSeriesType;
+  series: ApexAxisChartSeries;
   options?: ApexOptions;
   height: number;
   colors?: string[];
