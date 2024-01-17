@@ -2,36 +2,27 @@ import { Measure, Profiler, ProfilerPollingOptions, ScreenRecorder } from "@perf
 import { ChildProcess, exec } from "child_process";
 
 interface AppMonitorData {
-  Pid: number | null;
-  Name: string | null;
-  CPU: string | null;
-  Memory: string | null;
-  DiskReads: string | null;
-  DiskWrites: string | null;
-  Threads: number | null;
-  Time: string | null;
+  Pid: number;
+  Name: string;
+  CPU: string;
+  Memory: string;
+  DiskReads: string;
+  DiskWrites: string;
+  Threads: number;
+  Time: string;
 }
 
 interface FPSData {
-  currentTime: string | null;
-  fps: number | null;
+  currentTime: string;
+  fps: number;
 }
 
 type DataTypes = "cpu" | "fps";
 
 export class IOSProfiler implements Profiler {
   private measures: Record<string, Measure> = {};
-  private lastFPS: FPSData = { currentTime: null, fps: null };
-  private lastCpu: AppMonitorData = {
-    Pid: null,
-    Name: null,
-    CPU: null,
-    Memory: null,
-    DiskReads: null,
-    DiskWrites: null,
-    Threads: null,
-    Time: null,
-  };
+  private lastFPS: FPSData | null = null;
+  private lastCpu: AppMonitorData | null = null;
   private onMeasure: ((measure: Measure) => void) | undefined;
 
   parseData = async (childProcess: ChildProcess, type: DataTypes) => {
@@ -48,16 +39,16 @@ export class IOSProfiler implements Profiler {
     });
   };
 
-  createMeasure = (cpu: string, fps: number, time: string, ram: string) => {
+  createMeasure = (lastCpu: AppMonitorData, lastFps: FPSData) => {
     const cpuMeasure = {
-      perName: { Total: parseFloat(cpu.replace(" %", "")) },
+      perName: { Total: parseFloat(lastCpu.CPU.replace(" %", "")) },
       perCore: {},
     };
     const measure: Measure = {
       cpu: cpuMeasure,
-      ram: parseFloat(ram.replace(" MiB", "")),
-      fps: fps,
-      time: new Date(time).getTime(),
+      ram: parseFloat(lastCpu.Memory.replace(" MiB", "")),
+      fps: lastFps.fps,
+      time: new Date(lastCpu.Time).getTime(),
     };
     this.measures[measure.time] = measure;
     if (this.onMeasure) {
@@ -66,12 +57,10 @@ export class IOSProfiler implements Profiler {
   };
 
   synchronizeData = () => {
-    const lastCPUData = this.lastCpu.CPU;
-    const lastFPSData = this.lastFPS.fps;
-    const lastTimeData = this.lastCpu.Time;
-    const lastRamData = this.lastCpu.Memory;
-    if (lastCPUData && lastFPSData && lastTimeData && lastRamData) {
-      this.createMeasure(lastCPUData, lastFPSData, lastTimeData, lastRamData);
+    const lastCpu = this.lastCpu;
+    const lastFps = this.lastFPS;
+    if (lastCpu && lastFps) {
+      this.createMeasure(lastCpu, lastFps);
     }
   };
 
