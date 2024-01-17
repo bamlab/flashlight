@@ -1,7 +1,5 @@
 import { ApexOptions } from "apexcharts";
-import React, { useContext, useMemo } from "react";
-import { VideoEnabledContext } from "../../../videoCurrentTimeContext";
-import { getLastX, useSetVideoTimeOnMouseHover } from "./useSetVideoTimeOnMouseHover";
+import React, { useMemo } from "react";
 import { RangeAreaSeriesType } from "./types";
 import { BaseChart } from "./Chart";
 
@@ -24,11 +22,6 @@ export const ChartRangeArea = ({
   colors: string[];
   formatter?: (label: string) => string;
 }) => {
-  const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
-    lastX: getLastX(series),
-  });
-  const videoEnabled = useContext(VideoEnabledContext);
-
   const options: ApexOptions = useMemo(
     () => ({
       chart: {
@@ -38,7 +31,6 @@ export const ChartRangeArea = ({
           easing: undefined,
           dynamicAnimation: undefined,
         },
-        events: videoEnabled ? setVideoCurrentTimeOnMouseHover : {},
       },
       stroke: {
         width: [...Array(series.length / 2).fill(2), ...Array(series.length / 2).fill(0)],
@@ -52,7 +44,7 @@ export const ChartRangeArea = ({
       },
       yaxis: { min: 0 },
     }),
-    [series.length, videoEnabled, setVideoCurrentTimeOnMouseHover, formatter]
+    [series.length, formatter]
   );
 
   return (
