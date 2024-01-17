@@ -9,7 +9,7 @@ import { AnnotationInterval, LineSeriesType } from "./types";
 import { getAnnotations } from "./getAnnotations";
 import { merge } from "lodash";
 
-export const BaseChart = ({
+export const Chart = ({
   type,
   title,
   series,
@@ -82,7 +82,7 @@ export const BaseChart = ({
   return <ReactApexChart options={chartOptions} series={series} type={type} height={height} />;
 };
 
-export const Chart = ({
+export const DeprecatedChart = ({
   title,
   series,
   height,
@@ -160,7 +160,7 @@ export const Chart = ({
   );
 
   return (
-    <BaseChart
+    <Chart
       type="line"
       title={title}
       series={series}

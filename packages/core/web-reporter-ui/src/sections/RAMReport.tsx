@@ -1,6 +1,6 @@
 import React from "react";
 import { AveragedTestCaseResult } from "@perf-profiler/types";
-import { Chart } from "../components/Charts/Chart";
+import { DeprecatedChart } from "../components/Charts/Chart";
 import { buildValueGraph } from "./hideSectionForEmptyValue";
 
 export const RAMReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
@@ -11,7 +11,7 @@ export const RAMReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
 
   return (
     <>
-      <Chart title="RAM Usage (MB)" height={500} series={ram} />
+      <DeprecatedChart title="RAM Usage (MB)" height={500} series={ram} />
     </>
   );
 };

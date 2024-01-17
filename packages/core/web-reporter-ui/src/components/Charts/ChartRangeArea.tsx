@@ -1,7 +1,7 @@
 import { ApexOptions } from "apexcharts";
 import React, { useMemo } from "react";
 import { RangeAreaSeriesType } from "./types";
-import { BaseChart } from "./Chart";
+import { Chart } from "./Chart";
 
 /**
  * @description
@@ -24,7 +24,6 @@ export const ChartRangeArea = ({
   const options: ApexOptions = useMemo(
     () => ({
       chart: {
-        type: "rangeArea",
         animations: {
           enabled: false,
           easing: undefined,
@@ -47,7 +46,7 @@ export const ChartRangeArea = ({
   );
 
   return (
-    <BaseChart
+    <Chart
       type="rangeArea"
       title={title}
       series={series}
