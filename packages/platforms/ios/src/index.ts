@@ -2,35 +2,35 @@ import { Measure, Profiler, ProfilerPollingOptions, ScreenRecorder } from "@perf
 import { ChildProcess, exec } from "child_process";
 
 interface AppMonitorData {
-  Pid: number;
-  Name: string;
-  CPU: string;
-  Memory: string;
-  DiskReads: string;
-  DiskWrites: string;
-  Threads: number;
-  Time: string;
+  Pid: number | null;
+  Name: string | null;
+  CPU: string | null;
+  Memory: string | null;
+  DiskReads: string | null;
+  DiskWrites: string | null;
+  Threads: number | null;
+  Time: string | null;
 }
 
 interface FPSData {
-  currentTime: string;
-  fps: number;
+  currentTime: string | null;
+  fps: number | null;
 }
 
 type DataTypes = "cpu" | "fps";
 
 export class IOSProfiler implements Profiler {
   private measures: Record<string, Measure> = {};
-  private lastFPS: FPSData = { currentTime: "", fps: 0 };
+  private lastFPS: FPSData = { currentTime: null, fps: null };
   private lastCpu: AppMonitorData = {
-    Pid: 0,
-    Name: "",
-    CPU: "",
-    Memory: "",
-    DiskReads: "",
-    DiskWrites: "",
-    Threads: 0,
-    Time: "",
+    Pid: null,
+    Name: null,
+    CPU: null,
+    Memory: null,
+    DiskReads: null,
+    DiskWrites: null,
+    Threads: null,
+    Time: null,
   };
   private onMeasure: ((measure: Measure) => void) | undefined;
 
@@ -48,20 +48,30 @@ export class IOSProfiler implements Profiler {
     });
   };
 
-  synchronizeData = () => {
+  createMeasure = (cpu: string, fps: number, time: string, ram: string) => {
     const cpuMeasure = {
-      perName: { total: parseFloat(this.lastCpu.CPU.replace(" %", "")) },
+      perName: { Total: parseFloat(cpu.replace(" %", "")) },
       perCore: {},
     };
     const measure: Measure = {
       cpu: cpuMeasure,
-      ram: parseFloat(this.lastCpu.Memory.replace(" MiB", "")),
-      fps: this.lastFPS.fps,
-      time: new Date(this.lastCpu.Time).getTime(),
+      ram: parseFloat(ram.replace(" MiB", "")),
+      fps: fps,
+      time: new Date(time).getTime(),
     };
     this.measures[measure.time] = measure;
     if (this.onMeasure) {
       this.onMeasure(measure);
+    }
+  };
+
+  synchronizeData = () => {
+    const lastCPUData = this.lastCpu.CPU;
+    const lastFPSData = this.lastFPS.fps;
+    const lastTimeData = this.lastCpu.Time;
+    const lastRamData = this.lastCpu.Memory;
+    if (lastCPUData && lastFPSData && lastTimeData && lastRamData) {
+      this.createMeasure(lastCPUData, lastFPSData, lastTimeData, lastRamData);
     }
   };
 
