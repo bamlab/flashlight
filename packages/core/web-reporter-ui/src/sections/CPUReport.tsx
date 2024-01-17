@@ -55,6 +55,11 @@ const getAutoSelectedThreads = (results: AveragedTestCaseResult[]) => {
   return autoSelectedThread ? [autoSelectedThread] : [];
 };
 
+const getNumberOfThreads = (results: AveragedTestCaseResult[]) => {
+  const lastMeasure = results[0].average.measures[results[0].average.measures.length - 1];
+  return Object.keys(lastMeasure.cpu.perName).length;
+};
+
 export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
   const [selectedThreads, setSelectedThreads] = React.useState<string[]>(
     getAutoSelectedThreads(results)
@@ -82,34 +87,38 @@ export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
         series={totalCPUUsage}
         annotationIntervalList={totalCpuAnnotationInterval}
       />
-      <ReportChart
-        title="CPU Usage per thread (%)"
-        height={500}
-        series={threads}
-        colors={results.length > 1 ? getColorPalette().slice(0, results.length) : undefined}
-        maxValue={100}
-        showLegendForSingleSeries
-        annotationIntervalList={perThreadCpuAnnotationInterval}
-      />
-      <Collapsible
-        unmountOnExit
-        header={<div className="text-neutral-200 text-xl">{"Threads"}</div>}
-        className="border rounded-lg border-gray-800 py-4 px-4"
-      >
-        {results.length > 1 ? (
-          <ComparativeThreadTable
-            results={results}
-            selectedThreads={selectedThreads}
-            setSelectedThreads={setSelectedThreads}
+      {getNumberOfThreads(results) > 1 && (
+        <>
+          <ReportChart
+            title="CPU Usage per thread (%)"
+            height={500}
+            series={threads}
+            colors={results.length > 1 ? getColorPalette().slice(0, results.length) : undefined}
+            maxValue={100}
+            showLegendForSingleSeries
+            annotationIntervalList={perThreadCpuAnnotationInterval}
           />
-        ) : (
-          <ThreadTable
-            measures={results[0].average.measures}
-            selectedThreads={selectedThreads}
-            setSelectedThreads={setSelectedThreads}
-          />
-        )}
-      </Collapsible>
+          <Collapsible
+            unmountOnExit
+            header={<div className="text-neutral-200 text-xl">{"Threads"}</div>}
+            className="border rounded-lg border-gray-800 py-4 px-4"
+          >
+            {results.length > 1 ? (
+              <ComparativeThreadTable
+                results={results}
+                selectedThreads={selectedThreads}
+                setSelectedThreads={setSelectedThreads}
+              />
+            ) : (
+              <ThreadTable
+                measures={results[0].average.measures}
+                selectedThreads={selectedThreads}
+                setSelectedThreads={setSelectedThreads}
+              />
+            )}
+          </Collapsible>
+        </>
+      )}
     </>
   );
 };
