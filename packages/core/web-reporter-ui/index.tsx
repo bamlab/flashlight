@@ -5,3 +5,4 @@ export { Button } from "./src/components/Button";
 export { getThemeColorPalette, setThemeAtRandom } from "./src/theme/colors";
 export { Chart } from "./src/components/Charts/Chart";
 export { ChartRangeArea } from "./src/components/Charts/ChartRangeArea";
+export { ApexOptions } from "apexcharts";
