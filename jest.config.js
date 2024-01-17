@@ -49,6 +49,6 @@ module.exports = {
     ...commonOptions,
     displayName: name,
     testEnvironment,
-    testMatch: [`<rootDir>/packages/${name}/**/__tests__/*.{ts,tsx}`],
+    testMatch: [`<rootDir>/packages/${name}/**/__tests__/**/*.{ts,tsx}`],
   })),
 };

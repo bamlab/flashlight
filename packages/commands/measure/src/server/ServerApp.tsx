@@ -16,7 +16,7 @@ import type { FlashlightData } from "../common/types";
 
 const pathToDist = path.join(__dirname, "../../dist");
 
-const createExpressApp = (injected: FlashlightData) => {
+export const createExpressApp = (injected: FlashlightData) => {
   const app = express();
   app.use(cors({ origin: true }));
 
