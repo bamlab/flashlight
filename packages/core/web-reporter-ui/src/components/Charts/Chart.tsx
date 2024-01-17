@@ -9,35 +9,19 @@ import { AnnotationInterval, LineSeriesType } from "./types";
 import { getAnnotations } from "./getAnnotations";
 import { merge } from "lodash";
 
-export const Chart = ({
+const BaseChart = ({
   title,
   series,
+  options = {},
   height,
-  timeLimit,
-  maxValue,
-  showLegendForSingleSeries,
-  colors = getColorPalette(),
-  annotationIntervalList = undefined,
-  formatter,
-  onPointClick,
+  colors,
 }: {
   title: string;
   series: LineSeriesType;
+  options?: ApexOptions;
   height: number;
-  timeLimit?: number | null;
-  maxValue?: number;
-  showLegendForSingleSeries?: boolean;
   colors?: string[];
-  annotationIntervalList?: AnnotationInterval[];
-  formatter?: (label: string) => string;
-  onPointClick?: (seriesIndex: number, dataPointIndex: number) => void;
 }) => {
-  const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
-    lastX: getLastX(series),
-  });
-
-  const videoEnabled = useContext(VideoEnabledContext);
-
   const commonOptions: ApexOptions = useMemo(
     () => ({
       chart: {
@@ -91,45 +75,77 @@ export const Chart = ({
     [colors, title]
   );
 
+  const chartOptions = useMemo(() => merge(commonOptions, options), [commonOptions, options]);
+
+  return <ReactApexChart options={chartOptions} series={series} type={"line"} height={height} />;
+};
+
+export const Chart = ({
+  title,
+  series,
+  height,
+  timeLimit,
+  maxValue,
+  showLegendForSingleSeries,
+  colors = getColorPalette(),
+  annotationIntervalList = undefined,
+  formatter,
+  onPointClick,
+}: {
+  title: string;
+  series: LineSeriesType;
+  height: number;
+  timeLimit?: number | null;
+  maxValue?: number;
+  showLegendForSingleSeries?: boolean;
+  colors?: string[];
+  annotationIntervalList?: AnnotationInterval[];
+  formatter?: (label: string) => string;
+  onPointClick?: (seriesIndex: number, dataPointIndex: number) => void;
+}) => {
+  const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
+    lastX: getLastX(series),
+  });
+
+  const videoEnabled = useContext(VideoEnabledContext);
+
   const options: ApexOptions = useMemo(
-    () =>
-      merge(commonOptions, {
-        chart: {
-          events: {
-            markerClick: (
-              _event: unknown,
-              _chart: unknown,
-              { seriesIndex, dataPointIndex }: { seriesIndex: number; dataPointIndex: number }
-            ) => {
-              onPointClick?.(seriesIndex, dataPointIndex);
-            },
-            ...(videoEnabled ? setVideoCurrentTimeOnMouseHover : {}),
+    () => ({
+      chart: {
+        events: {
+          markerClick: (
+            _event: unknown,
+            _chart: unknown,
+            { seriesIndex, dataPointIndex }: { seriesIndex: number; dataPointIndex: number }
+          ) => {
+            onPointClick?.(seriesIndex, dataPointIndex);
           },
-          zoom: {
-            enabled: false,
-          },
+          ...(videoEnabled ? setVideoCurrentTimeOnMouseHover : {}),
         },
-        annotations: getAnnotations(annotationIntervalList) || {},
-        stroke: {
-          width: 2,
+        zoom: {
+          enabled: false,
         },
-        xaxis: {
-          type: "category",
-          max: timeLimit || undefined,
-          labels: {
-            formatter: (label: string | undefined) => formatter?.(label ?? "") ?? label,
-          },
+      },
+      annotations: getAnnotations(annotationIntervalList) || {},
+      stroke: {
+        width: 2,
+      },
+      xaxis: {
+        type: "category",
+        max: timeLimit || undefined,
+        labels: {
+          formatter: (label: string | undefined) => formatter?.(label ?? "") ?? label,
         },
-        yaxis: {
-          min: 0,
-          max: maxValue,
-        },
-        legend: {
-          showForSingleSeries: showLegendForSingleSeries,
-        },
-      }),
+      },
+      yaxis: {
+        min: 0,
+        max: maxValue,
+      },
+      legend: {
+        showForSingleSeries: showLegendForSingleSeries,
+      },
+    }),
     [
-      commonOptions,
       videoEnabled,
       setVideoCurrentTimeOnMouseHover,
       annotationIntervalList,
@@ -141,5 +157,7 @@ export const Chart = ({
     ]
   );
 
-  return <ReactApexChart options={options} series={series} type={"line"} height={height} />;
+  return (
+    <BaseChart title={title} series={series} colors={colors} height={height} options={options} />
+  );
 };
