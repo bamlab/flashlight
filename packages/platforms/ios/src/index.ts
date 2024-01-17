@@ -78,10 +78,10 @@ export class IOSProfiler implements Profiler {
   pollPerformanceMeasures(bundleId: string, options: ProfilerPollingOptions): { stop: () => void } {
     this.onMeasure = options.onMeasure;
     const cpuAndMemoryPolling = exec(
-      `pyidevice instruments appmonitor --format=flush -b ${bundleId}`
+      `pyidevice instruments appmonitor --format=flush -b ${bundleId} --time 10`
     );
 
-    const fpsPolling = exec(`pyidevice instruments fps --format=flush`);
+    const fpsPolling = exec(`pyidevice instruments fps --format=flush --time 100`);
 
     this.parseData(cpuAndMemoryPolling, "cpu");
     this.parseData(fpsPolling, "fps");
