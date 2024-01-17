@@ -134,7 +134,7 @@ export const Chart = ({
         type: "category",
         max: timeLimit || undefined,
         labels: {
-          formatter: (label: string | undefined) => formatter?.(label ?? "") ?? label,
+          formatter: (label = "") => formatter?.(label) ?? label,
         },
       },
       yaxis: {
