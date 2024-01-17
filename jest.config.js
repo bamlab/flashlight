@@ -1,6 +1,12 @@
 const commonOptions = {
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        // we already get TS errors with tsc, so no need to have them here
+        diagnostics: false,
+      },
+    ],
   },
   testPathIgnorePatterns: [
     "\\.snap$",
@@ -49,6 +55,6 @@ module.exports = {
     ...commonOptions,
     displayName: name,
     testEnvironment,
-    testMatch: [`<rootDir>/packages/${name}/**/__tests__/*.{ts,tsx}`],
+    testMatch: [`<rootDir>/packages/${name}/**/__tests__/**/*.{ts,tsx}`],
   })),
 };

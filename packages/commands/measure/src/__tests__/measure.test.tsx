@@ -6,7 +6,6 @@ import {
 } from "@perf-profiler/e2e/src/utils/test/mockEmitMeasures";
 import { fireEvent, render as webRender, screen, waitFor, act } from "@testing-library/react";
 import { render as cliRender } from "ink-testing-library";
-import { MeasureWebApp } from "../webapp/MeasureWebApp";
 import React from "react";
 import { ServerApp } from "../server/ServerApp";
 import { open } from "@perf-profiler/shell";
@@ -24,7 +23,26 @@ Math.random = () => 0.5;
 // Set me to LogLevel.DEBUG to see the debug logs
 Logger.setLogLevel(LogLevel.SILENT);
 
+let originalWindow: Window & typeof globalThis;
+let MeasureWebApp: React.FC;
+
 describe("flashlight measure interactive", () => {
+  beforeAll(async () => {
+    originalWindow = global.window;
+
+    global.window = Object.create(window);
+    Object.defineProperty(window, "__FLASHLIGHT_DATA__", {
+      value: { socketServerUrl: `http://localhost:${DEFAULT_PORT}` },
+      writable: true,
+    });
+
+    MeasureWebApp = (await import("../webapp/MeasureWebApp")).MeasureWebApp;
+  });
+
+  afterAll(() => {
+    global.window = originalWindow;
+  });
+
   const expectWebAppToBeOpened = () =>
     waitFor(() => expect(open).toHaveBeenCalledWith(`http://localhost:${DEFAULT_PORT}`));
 
