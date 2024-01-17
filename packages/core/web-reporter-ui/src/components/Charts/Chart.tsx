@@ -7,6 +7,7 @@ import { POLLING_INTERVAL } from "@perf-profiler/types";
 import { getLastX, useSetVideoTimeOnMouseHover } from "./useSetVideoTimeOnMouseHover";
 import { AnnotationInterval, LineSeriesType } from "./types";
 import { getAnnotations } from "./getAnnotations";
+import { merge } from "lodash";
 
 export const Chart = ({
   title,
@@ -37,12 +38,10 @@ export const Chart = ({
 
   const videoEnabled = useContext(VideoEnabledContext);
 
-  const options: ApexOptions = useMemo(
+  const commonOptions: ApexOptions = useMemo(
     () => ({
       chart: {
         id: title,
-        height: 350,
-        type: "line",
         animations: {
           enabled: true,
           easing: "linear",
@@ -50,17 +49,10 @@ export const Chart = ({
             speed: POLLING_INTERVAL,
           },
         },
-        events: {
-          markerClick: (event, chart, { seriesIndex, dataPointIndex }) => {
-            onPointClick?.(seriesIndex, dataPointIndex);
-          },
-          ...(videoEnabled ? setVideoCurrentTimeOnMouseHover : {}),
-        },
         zoom: {
           enabled: false,
         },
       },
-      annotations: getAnnotations(annotationIntervalList) || {},
       title: {
         text: title,
         align: "left",
@@ -76,24 +68,17 @@ export const Chart = ({
       },
       stroke: {
         curve: "smooth",
-        width: 2,
       },
       xaxis: {
-        type: "category",
-        max: timeLimit || undefined,
         labels: {
           style: { colors: "#FFFFFF99" },
-          formatter: (label) => formatter?.(label ?? "") ?? label,
         },
       },
       yaxis: {
-        min: 0,
-        max: maxValue,
         labels: { style: { colors: "#FFFFFF99" } },
       },
       colors,
       legend: {
-        showForSingleSeries: showLegendForSingleSeries,
         labels: {
           colors: "#FFFFFF99",
         },
@@ -103,17 +88,57 @@ export const Chart = ({
         strokeDashArray: 3,
       },
     }),
+    [colors, title]
+  );
+
+  const options: ApexOptions = useMemo(
+    () =>
+      merge(commonOptions, {
+        chart: {
+          type: "line",
+          events: {
+            markerClick: (
+              _event: unknown,
+              _chart: unknown,
+              { seriesIndex, dataPointIndex }: { seriesIndex: number; dataPointIndex: number }
+            ) => {
+              onPointClick?.(seriesIndex, dataPointIndex);
+            },
+            ...(videoEnabled ? setVideoCurrentTimeOnMouseHover : {}),
+          },
+          zoom: {
+            enabled: false,
+          },
+        },
+        annotations: getAnnotations(annotationIntervalList) || {},
+        stroke: {
+          width: 2,
+        },
+        xaxis: {
+          type: "category",
+          max: timeLimit || undefined,
+          labels: {
+            formatter: (label: string | undefined) => formatter?.(label ?? "") ?? label,
+          },
+        },
+        yaxis: {
+          min: 0,
+          max: maxValue,
+        },
+        legend: {
+          showForSingleSeries: showLegendForSingleSeries,
+        },
+      }),
     [
-      title,
+      commonOptions,
+      videoEnabled,
+      setVideoCurrentTimeOnMouseHover,
+      annotationIntervalList,
       timeLimit,
       maxValue,
       showLegendForSingleSeries,
-      colors,
-      annotationIntervalList,
-      setVideoCurrentTimeOnMouseHover,
-      videoEnabled,
-      formatter,
       onPointClick,
+      formatter,
     ]
   );
 
