@@ -1,5 +1,5 @@
 import React, { useMemo, useContext } from "react";
-import ReactApexChart from "react-apexcharts";
+import ReactApexChart, { Props as ApexChartProps } from "react-apexcharts";
 import { VideoEnabledContext } from "../../../videoCurrentTimeContext";
 import { ApexOptions } from "apexcharts";
 import { getColorPalette } from "../../theme/colors";
@@ -10,12 +10,14 @@ import { getAnnotations } from "./getAnnotations";
 import { merge } from "lodash";
 
 const BaseChart = ({
+  type,
   title,
   series,
   options = {},
   height,
   colors,
 }: {
+  type: Exclude<ApexChartProps["type"], undefined>;
   title: string;
   series: LineSeriesType;
   options?: ApexOptions;
@@ -77,7 +79,7 @@ const BaseChart = ({
 
   const chartOptions = useMemo(() => merge(commonOptions, options), [commonOptions, options]);
 
-  return <ReactApexChart options={chartOptions} series={series} type={"line"} height={height} />;
+  return <ReactApexChart options={chartOptions} series={series} type={type} height={height} />;
 };
 
 export const Chart = ({
@@ -158,6 +160,13 @@ export const Chart = ({
   );
 
   return (
-    <BaseChart title={title} series={series} colors={colors} height={height} options={options} />
+    <BaseChart
+      type="line"
+      title={title}
+      series={series}
+      colors={colors}
+      height={height}
+      options={options}
+    />
   );
 };
