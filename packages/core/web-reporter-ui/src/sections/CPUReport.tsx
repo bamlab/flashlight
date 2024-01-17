@@ -6,7 +6,7 @@ import {
   ThreadNames,
   ThreadNamesIOS,
 } from "@perf-profiler/types";
-import { DeprecatedChart } from "../components/Charts/Chart";
+import { ReportChart } from "../components/Charts/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
 import { Collapsible } from "../components/Collapsible";
 import { getColorPalette } from "../theme/colors";
@@ -76,13 +76,13 @@ export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
 
   return (
     <>
-      <DeprecatedChart
+      <ReportChart
         title="Total CPU Usage (%)"
         height={500}
         series={totalCPUUsage}
         annotationIntervalList={totalCpuAnnotationInterval}
       />
-      <DeprecatedChart
+      <ReportChart
         title="CPU Usage per thread (%)"
         height={500}
         series={threads}

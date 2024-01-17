@@ -1,6 +1,6 @@
 import React from "react";
 import { AveragedTestCaseResult } from "@perf-profiler/types";
-import { DeprecatedChart } from "../components/Charts/Chart";
+import { ReportChart } from "../components/Charts/Chart";
 import { buildValueGraph } from "./hideSectionForEmptyValue";
 
 const fpsAnnotationInterval = [{ y: 57, y2: 60, color: "#158000", label: "Safe Zone" }];
@@ -12,7 +12,7 @@ export const FPSReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
   });
 
   return (
-    <DeprecatedChart
+    <ReportChart
       title="Frame rate (FPS)"
       height={500}
       series={fps}

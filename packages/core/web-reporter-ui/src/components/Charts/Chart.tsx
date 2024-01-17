@@ -82,7 +82,7 @@ export const Chart = ({
   return <ReactApexChart options={chartOptions} series={series} type={type} height={height} />;
 };
 
-export const DeprecatedChart = ({
+export const ReportChart = ({
   title,
   series,
   height,
