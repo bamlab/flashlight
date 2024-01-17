@@ -3,6 +3,7 @@ import { setVideoCurrentTime } from "../../../videoCurrentTimeContext";
 import { RangeAreaSeriesType, LineSeriesType } from "./types";
 
 export const getLastX = (series: RangeAreaSeriesType | LineSeriesType) => {
+  if (series.length === 0) return undefined;
   const lastDataPoint = series[0].data.at(-1);
   return typeof lastDataPoint === "object" && lastDataPoint !== null && "x" in lastDataPoint
     ? lastDataPoint.x
