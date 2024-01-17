@@ -1,3 +1,9 @@
+# 0.16.0 (2024-01-17)
+
+### Bug Fixes
+
+- **measure:** UI buttons unresponsive/streamline socket URL handling ([#191](https://github.com/bamlab/flashlight/issues/191)) ([66b0899](https://github.com/bamlab/flashlight/commit/66b0899080ac3f7c4165db5925fb395396d0af7d))
+
 ## [0.15.1](https://github.com/bamlab/flashlight/compare/v0.15.0...v0.15.1) (2023-12-23)
 
 # 0.15.0 (2023-12-23)
