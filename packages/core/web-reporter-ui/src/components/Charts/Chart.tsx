@@ -114,30 +114,15 @@ export const DeprecatedChart = ({
   const options: ApexOptions = useMemo(
     () => ({
       chart: {
-        events: {
-          markerClick: (
-            _event: unknown,
-            _chart: unknown,
-            { seriesIndex, dataPointIndex }: { seriesIndex: number; dataPointIndex: number }
-          ) => {
-            onPointClick?.(seriesIndex, dataPointIndex);
-          },
-          ...(videoEnabled ? setVideoCurrentTimeOnMouseHover : {}),
-        },
-        zoom: {
-          enabled: false,
-        },
+        events: videoEnabled ? setVideoCurrentTimeOnMouseHover : {},
       },
       annotations: getAnnotations(annotationIntervalList) || {},
       stroke: {
         width: 2,
       },
       xaxis: {
-        type: "category",
+        type: "numeric",
         max: timeLimit || undefined,
-        labels: {
-          formatter: (label = "") => formatter?.(label) ?? label,
-        },
       },
       yaxis: {
         min: 0,
@@ -154,8 +139,6 @@ export const DeprecatedChart = ({
       timeLimit,
       maxValue,
       showLegendForSingleSeries,
-      onPointClick,
-      formatter,
     ]
   );
 
