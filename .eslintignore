@@ -1,6 +1,0 @@
-dist
-node_modules
-docs
-cpp-profiler
-.docusaurus
-report.js
