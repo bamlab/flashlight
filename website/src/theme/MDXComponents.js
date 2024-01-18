@@ -1,5 +1,4 @@
 /* eslint-disable import/no-unresolved */
-import React from "react";
 // Import the original mapper
 import MDXComponents from "@theme-original/MDXComponents";
 import Contact from "@site/src/components/Contact.mdx";
