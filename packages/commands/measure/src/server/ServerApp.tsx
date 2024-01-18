@@ -25,7 +25,7 @@ export const createExpressApp = (injected: FlashlightData) => {
       const indexHtml = path.join(pathToDist, "index.html");
       let data = await fs.readFile(indexHtml, "utf8");
       data = data.replace(
-        "/* %FLASHLIGHT_DATA% */",
+        "__FLASHLIGHT_DATA__;",
         `window.__FLASHLIGHT_DATA__ = ${JSON.stringify(injected)};`
       );
       res.send(data);

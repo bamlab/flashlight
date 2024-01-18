@@ -20,7 +20,9 @@ describe("ServerApp", () => {
   });
 
   beforeEach(() => {
-    (fs.promises.readFile as jest.Mock).mockResolvedValue("<html>/* %FLASHLIGHT_DATA% */</html>");
+    (fs.promises.readFile as jest.Mock).mockResolvedValue(
+      "<html><script>__FLASHLIGHT_DATA__;</script></html>"
+    );
 
     app = createExpressApp(injected);
   });
@@ -37,6 +39,6 @@ describe("ServerApp", () => {
   test("index.html contains the FlashlightData placeholder", async () => {
     const fsPromises = jest.requireActual("fs").promises;
     const fileContent = await fsPromises.readFile(`${__dirname}/../../webapp/index.html`, "utf8");
-    expect(fileContent).toContain("/* %FLASHLIGHT_DATA% */");
+    expect(fileContent).toContain("__FLASHLIGHT_DATA__;");
   });
 });
