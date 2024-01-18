@@ -1,59 +1,39 @@
-import React, { useMemo, useContext } from "react";
-import ReactApexChart from "react-apexcharts";
-import { VideoEnabledContext } from "../../../videoCurrentTimeContext";
+import React, { useMemo } from "react";
+import ReactApexChart, { Props as ApexChartProps } from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
-import { getColorPalette } from "../../theme/colors";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
-import { getLastX, useSetVideoTimeOnMouseHover } from "./useSetVideoTimeOnMouseHover";
-import { AnnotationInterval, LineSeriesType } from "./types";
-import { getAnnotations } from "./getAnnotations";
+import { merge } from "lodash";
 
 export const Chart = ({
+  type,
   title,
   series,
+  options = {},
   height,
-  interval = POLLING_INTERVAL,
-  timeLimit,
-  maxValue,
-  showLegendForSingleSeries,
-  colors = getColorPalette(),
-  annotationIntervalList = undefined,
+  colors,
 }: {
+  type: Exclude<ApexChartProps["type"], undefined>;
   title: string;
-  series: LineSeriesType;
+  series: ApexAxisChartSeries;
+  options?: ApexOptions;
   height: number;
-  interval?: number;
-  timeLimit?: number | null;
-  maxValue?: number;
-  showLegendForSingleSeries?: boolean;
   colors?: string[];
-  annotationIntervalList?: AnnotationInterval[];
 }) => {
-  const setVideoCurrentTimeOnMouseHover = useSetVideoTimeOnMouseHover({
-    lastX: getLastX(series),
-  });
-
-  const videoEnabled = useContext(VideoEnabledContext);
-
-  const options: ApexOptions = useMemo(
+  const commonOptions: ApexOptions = useMemo(
     () => ({
       chart: {
         id: title,
-        height: 350,
-        type: "line",
         animations: {
           enabled: true,
           easing: "linear",
           dynamicAnimation: {
-            speed: interval,
+            speed: POLLING_INTERVAL,
           },
         },
-        events: videoEnabled ? setVideoCurrentTimeOnMouseHover : {},
         zoom: {
           enabled: false,
         },
       },
-      annotations: getAnnotations(annotationIntervalList) || {},
       title: {
         text: title,
         align: "left",
@@ -69,22 +49,17 @@ export const Chart = ({
       },
       stroke: {
         curve: "smooth",
-        width: 2,
       },
       xaxis: {
-        type: "numeric",
-        min: 0,
-        max: timeLimit || undefined,
-        labels: { style: { colors: "#FFFFFF99" } },
+        labels: {
+          style: { colors: "#FFFFFF99" },
+        },
       },
       yaxis: {
-        min: 0,
-        max: maxValue,
         labels: { style: { colors: "#FFFFFF99" } },
       },
       colors,
       legend: {
-        showForSingleSeries: showLegendForSingleSeries,
         labels: {
           colors: "#FFFFFF99",
         },
@@ -94,18 +69,10 @@ export const Chart = ({
         strokeDashArray: 3,
       },
     }),
-    [
-      title,
-      interval,
-      timeLimit,
-      maxValue,
-      showLegendForSingleSeries,
-      colors,
-      annotationIntervalList,
-      setVideoCurrentTimeOnMouseHover,
-      videoEnabled,
-    ]
+    [colors, title]
   );
 
-  return <ReactApexChart options={options} series={series} type={"line"} height={height} />;
+  const chartOptions = useMemo(() => merge(commonOptions, options), [commonOptions, options]);
+
+  return <ReactApexChart options={chartOptions} series={series} type={type} height={height} />;
 };

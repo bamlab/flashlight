@@ -1,7 +1,7 @@
 import React from "react";
-import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
-import { Chart } from "../components/Charts/Chart";
+import { AveragedTestCaseResult } from "@perf-profiler/types";
 import { buildValueGraph } from "./hideSectionForEmptyValue";
+import { ReportChart } from "../components/Charts/ReportChart";
 
 export const RAMReport = ({ results }: { results: AveragedTestCaseResult[] }) => {
   const ram = buildValueGraph({
@@ -9,9 +9,5 @@ export const RAMReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
     stat: "ram",
   });
 
-  return (
-    <>
-      <Chart title="RAM Usage (MB)" height={500} interval={POLLING_INTERVAL} series={ram} />
-    </>
-  );
+  return <ReportChart title="RAM Usage (MB)" height={500} series={ram} />;
 };

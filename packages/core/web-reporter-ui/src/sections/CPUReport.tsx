@@ -6,11 +6,11 @@ import {
   ThreadNames,
   ThreadNamesIOS,
 } from "@perf-profiler/types";
-import { Chart } from "../components/Charts/Chart";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
 import { Collapsible } from "../components/Collapsible";
 import { getColorPalette } from "../theme/colors";
 import { getAverageCpuUsage, roundToDecimal } from "@perf-profiler/reporter";
+import { ReportChart } from "../components/Charts/ReportChart";
 
 const buildSeriesData = (measures: Measure[], calculate: (measure: Measure) => number) =>
   measures
@@ -76,17 +76,15 @@ export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
 
   return (
     <>
-      <Chart
+      <ReportChart
         title="Total CPU Usage (%)"
         height={500}
-        interval={POLLING_INTERVAL}
         series={totalCPUUsage}
         annotationIntervalList={totalCpuAnnotationInterval}
       />
-      <Chart
+      <ReportChart
         title="CPU Usage per thread (%)"
         height={500}
-        interval={POLLING_INTERVAL}
         series={threads}
         colors={results.length > 1 ? getColorPalette().slice(0, results.length) : undefined}
         maxValue={100}
