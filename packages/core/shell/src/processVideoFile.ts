@@ -21,19 +21,18 @@ const execAsync = (command: string) =>
     proc.on("error", reject);
   });
 
+const FFMPEG_VERSION = "4.4.1";
+const archToExec: Partial<Record<`${NodeJS.Platform}-${NodeJS.Architecture}`, string>> = {
+  "darwin-arm64": "osx-64",
+  "darwin-x64": "linux-64",
+  "linux-x64": "linux-64",
+};
+
 const getFFMpegBinaryPath = () => {
-  switch (process.platform) {
-    case "darwin":
-      switch (process.arch) {
-        case "arm64":
-          return `https://github.com/ffbinaries/ffbinaries-prebuilt/releases/download/v4.4.1/ffmpeg-4.4.1-osx-64.zip`;
-      }
-    case "linux":
-      switch (process.arch) {
-        case "x64":
-          return `https://github.com/ffbinaries/ffbinaries-prebuilt/releases/download/v4.4.1/ffmpeg-4.4.1-linux-64.zip`;
-      }
-  }
+  const archKey = `${process.platform}-${process.arch}` as const;
+
+  if (archKey in archToExec)
+    return `https://github.com/ffbinaries/ffbinaries-prebuilt/releases/download/v${FFMPEG_VERSION}/ffmpeg-${FFMPEG_VERSION}-${archToExec[archKey]}.zip`;
 
   throw new Error(`Unsupported os ${process.platform}-${process.arch} to install FFMpeg`);
 };
