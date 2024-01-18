@@ -1,7 +1,7 @@
 import * as webdriver from "webdriverio";
 import { Logger } from "@perf-profiler/logger";
 import { GestureHandler } from "./GestureHandler";
-import { execSync } from "child_process";
+import { execSync, SpawnSyncReturns } from "child_process";
 
 export interface RemoteServerOptions {
   hostName?: string;
@@ -10,8 +10,14 @@ export interface RemoteServerOptions {
 const executeCommand = (command: string): string => {
   try {
     return execSync(command, { stdio: "pipe" }).toString();
-  } catch (error: any) {
-    Logger.debug(`Error while executing command "${command}": ${error.stderr.toString()}`);
+  } catch (error: unknown) {
+    // The Error object will contain the entire result from child_process.spawnSync()
+    // (source: https://nodejs.org/api/child_process.html#child_processexecsynccommand-options)
+    Logger.debug(
+      `Error while executing command "${command}": ${(
+        error as SpawnSyncReturns<{ toString(): string }>
+      ).stderr.toString()}`
+    );
     throw error;
   }
 };
