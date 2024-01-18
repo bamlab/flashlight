@@ -29,6 +29,7 @@ module.exports = {
       },
     ],
   },
+  ignorePatterns: ["dist", "node_modules", "docs", "cpp-profiler", ".docusaurus", "report.js"],
   overrides: [
     {
       files: ["**/__tests__/**", "**/*test.ts"],
