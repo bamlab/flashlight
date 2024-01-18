@@ -104,4 +104,12 @@ export class IOSProfiler implements Profiler {
     killApp(bundleId);
     return new Promise<void>((resolve) => resolve());
   }
+
+  async waitUntilReady(bundleId: string): Promise<void> {
+    return new Promise<void>((resolve) => resolve());
+  }
+
+  async getMeasures(): Promise<void> {
+    return new Promise<void>((resolve) => resolve());
+  }
 }
