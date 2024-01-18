@@ -1,3 +1,9 @@
+## 0.16.1 (2024-01-18)
+
+### Bug Fixes
+
+- **measure:** fix port option ([#192](https://github.com/bamlab/flashlight/issues/192)) ([1d8585f](https://github.com/bamlab/flashlight/commit/1d8585f099b91c944c6ea2741e7ca8ad9598c3b1))
+
 # 0.16.0 (2024-01-17)
 
 ### Bug Fixes
