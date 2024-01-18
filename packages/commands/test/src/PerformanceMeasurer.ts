@@ -35,9 +35,12 @@ export class PerformanceMeasurer {
   ) {
     await this.maybeStartRecording();
 
+    // Hack to make sure the profiler is ready to receive measures
+    await profiler.waitUntilReady(this.bundleId);
     this.polling = profiler.pollPerformanceMeasures(this.bundleId, {
       onMeasure: (measure) => {
-        if (this.shouldStop) {
+        // The ios-instruments profiler yields measures at the end of the test when the polling is already stopped
+        if (this.shouldStop && process.env.PLATFORM !== "ios-instruments") {
           this.polling?.stop();
         }
 
@@ -76,6 +79,8 @@ export class PerformanceMeasurer {
 
     // Ensure polling has stopped
     this.polling?.stop();
+    // Hack for ios-instruments to get the measures at the end of the test
+    await profiler.getMeasures();
 
     await this.maybeStopRecording();
 
