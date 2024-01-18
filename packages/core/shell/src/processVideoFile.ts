@@ -24,7 +24,7 @@ const execAsync = (command: string) =>
 const FFMPEG_VERSION = "4.4.1";
 const archToExec: Partial<Record<`${NodeJS.Platform}-${NodeJS.Architecture}`, string>> = {
   "darwin-arm64": "osx-64",
-  "darwin-x64": "linux-64",
+  "darwin-x64": "osx-64",
   "linux-x64": "linux-64",
 };
 
