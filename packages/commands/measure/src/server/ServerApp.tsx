@@ -87,7 +87,7 @@ export const ServerApp = ({ port }: ServerAppProps) => {
       server.close();
       io.close();
     };
-  }, []);
+  }, [port, webAppUrl]);
   useCleanupOnManualExit();
 
   return socket ? (
