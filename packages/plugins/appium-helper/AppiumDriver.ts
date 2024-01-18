@@ -115,7 +115,7 @@ export class AppiumDriver {
       "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout"
     );
     const id = screen.elementId;
-    const base64Image = await this.client.takeElementScreenshot(id);
+    await this.client.takeElementScreenshot(id);
     // expect(base64Image).toMatchImageSnapshot({
     //   customSnapshotIdentifier: screenName,
     // });
