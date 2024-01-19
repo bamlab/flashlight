@@ -3,6 +3,7 @@ import { round } from "lodash";
 import { average } from "./averageIterations";
 import { getAverageCpuUsage } from "./cpu";
 import { getAverageFPSUsage } from "./fps";
+import { canComputeHighCpuUsage } from "./highCpu";
 
 /**
  * From https://www.mathcelebrity.com/3ptquad.php?p1=50%2C100&p2=200%2C50&p3=300%2C15&pl=Calculate+Equation
@@ -30,7 +31,9 @@ export const getScore = (result: AveragedTestCaseResult) => {
   }
 
   const totalMeasureTime = result.average.measures.length * POLLING_INTERVAL;
-  const timePercentageThreadlocked = totalTimeThreadlocked / totalMeasureTime;
+  const timePercentageThreadlocked = canComputeHighCpuUsage(result)
+    ? totalTimeThreadlocked / totalMeasureTime
+    : 0;
 
   return round(Math.max(0, average(scores) * (1 - timePercentageThreadlocked)), 0);
 };

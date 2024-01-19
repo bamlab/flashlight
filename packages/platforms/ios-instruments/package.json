@@ -5,7 +5,7 @@
   "bin": {
     "flashlight-ios-poc": "./dist/launchIOS.js"
   },
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,6 +15,7 @@
   "dependencies": {
     "@perf-profiler/profiler": "^0.10.7",
     "@perf-profiler/types": "^0.6.0",
+    "@perf-profiler/logger": "0.3.1",
     "commander": "^9.4.0",
     "fast-xml-parser": "^4.2.7"
   }

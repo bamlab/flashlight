@@ -85,3 +85,14 @@ export const getHighCpuStats = (
     variationCoefficient: variationCoefficient(averageTotalHighCpu, standardDeviation.deviation),
   };
 };
+
+// We compute every time unless there is only one thread and it's called "Total"
+export const canComputeHighCpuUsage = (testCaseResult: AveragedTestCaseResult) => {
+  if (testCaseResult.average.measures.length === 0) {
+    return true;
+  }
+  const lastMeasure = testCaseResult.average.measures[testCaseResult.average.measures.length - 1];
+  const threads = Object.keys(lastMeasure.cpu.perName);
+  if (threads.length === 1 && threads[0] === "Total") return false;
+  return true;
+};

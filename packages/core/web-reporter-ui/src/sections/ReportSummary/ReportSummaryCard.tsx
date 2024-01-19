@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import { Report } from "@perf-profiler/reporter";
+import { Report, canComputeHighCpuUsage } from "@perf-profiler/reporter";
 import { ReportSummaryCardInfoRow } from "./ReportSummaryCardInfoRow";
 import { Score } from "../../components/Score";
 import { Explanations } from "./Explanations";
@@ -19,6 +19,8 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
 
   const shouldDisplayStats = report.getIterationCount() > 1;
   const reportStats = shouldDisplayStats ? report.getStats() : undefined;
+
+  const averagedTestCaseResult = report.getAveragedResult();
 
   return (
     <div className="flex flex-col items-center py-6 px-10 bg-dark-charcoal border border-gray-800 rounded-lg w-[500px] flex-shrink-0">
@@ -75,33 +77,35 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
       />
 
       <div className="h-2" />
-      <ReportSummaryCardInfoRow
-        title="High CPU Usage"
-        value={
-          displayPlaceholder ? (
-            "-"
-          ) : (
-            <div style={metrics.totalHighCpuTime > 0 ? { color: "red" } : {}}>
-              {metrics.totalHighCpuTime > 0 ? `${metrics.totalHighCpuTime} s` : "None ✅"}
-            </div>
-          )
-        }
-        difference={
-          <Difference
-            value={metrics.totalHighCpuTime}
-            baseline={baselineMetrics?.totalHighCpuTime}
-          />
-        }
-        explanation={<Explanations.HighCPUUsageExplanation result={report.getAveragedResult()} />}
-        statistics={
-          reportStats ? (
-            <>
-              <SummaryStats stats={reportStats.highCpu} unit="ms" />{" "}
-              <ThreadStats stats={reportStats.highCpu.threads} />
-            </>
-          ) : undefined
-        }
-      />
+      {canComputeHighCpuUsage(averagedTestCaseResult) && (
+        <ReportSummaryCardInfoRow
+          title="High CPU Usage"
+          value={
+            displayPlaceholder ? (
+              "-"
+            ) : (
+              <div style={metrics.totalHighCpuTime > 0 ? { color: "red" } : {}}>
+                {metrics.totalHighCpuTime > 0 ? `${metrics.totalHighCpuTime} s` : "None ✅"}
+              </div>
+            )
+          }
+          difference={
+            <Difference
+              value={metrics.totalHighCpuTime}
+              baseline={baselineMetrics?.totalHighCpuTime}
+            />
+          }
+          explanation={<Explanations.HighCPUUsageExplanation result={averagedTestCaseResult} />}
+          statistics={
+            reportStats ? (
+              <>
+                <SummaryStats stats={reportStats.highCpu} unit="ms" />{" "}
+                <ThreadStats stats={reportStats.highCpu.threads} />
+              </>
+            ) : undefined
+          }
+        />
+      )}
 
       {metrics.ram !== undefined || displayPlaceholder ? (
         <>
