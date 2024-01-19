@@ -3,7 +3,7 @@
 This is the implementation of the Profiler for iOS app.
 It uses [py-ios-device](https://github.com/YueChen-C/py-ios-device) to poll CPU, RAM and FPS data in real time.
 
-This Profiler can only be used on real iOS devices.
+This Profiler can only be used on real iOS devices with a version of iOS < 17
 
 In order to use it, you need to set an environment variable `PLATFORM=ios`
 You must also install `py-ios-device` with `pip install py-ios-device`
