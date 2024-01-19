@@ -1,12 +1,11 @@
 import React, { FunctionComponent } from "react";
-import { Report } from "@perf-profiler/reporter";
+import { Report, canComputeHighCpuUsage } from "@perf-profiler/reporter";
 import { ReportSummaryCardInfoRow } from "./ReportSummaryCardInfoRow";
 import { Score } from "../../components/Score";
 import { Explanations } from "./Explanations";
 import { Difference, isDifferencePositive } from "./Difference";
 import { SummaryStats } from "./SummaryStats";
 import { ThreadStats } from "./ThreadStats";
-import { getNumberOfThreads } from "../CPUReport";
 
 type Props = {
   report: Report;
@@ -78,7 +77,7 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
       />
 
       <div className="h-2" />
-      {getNumberOfThreads([averagedTestCaseResult]) > 1 && (
+      {canComputeHighCpuUsage(averagedTestCaseResult) && (
         <ReportSummaryCardInfoRow
           title="High CPU Usage"
           value={

@@ -3194,6 +3194,10 @@ An app might run at 60FPS but might be using too much processing power, so it's 
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+High CPU Usage
+-
+Impacted threads:
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
 Average RAM usage
 -
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -3598,6 +3602,74 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
               <div
                 class="h-2"
               />
+              <div
+                class="w-full border rounded-lg border-gray-800"
+              >
+                <div
+                  class="px-6 py-4  cursor-pointer"
+                >
+                  <div
+                    class="flex flex-row w-full items-center"
+                  >
+                    <div
+                      class="flex-1"
+                    >
+                      <div
+                        class="flex flex-row"
+                      >
+                        <div
+                          class="text-neutral-300"
+                        >
+                          High CPU Usage
+                        </div>
+                        <div
+                          class="grow"
+                        />
+                        <div
+                          class="text-neutral-300 whitespace-pre"
+                        >
+                          -
+                        </div>
+                        <div
+                          class="w-2"
+                        />
+                      </div>
+                    </div>
+                    <svg
+                      class="rotate-0 transition-transform ease-linear"
+                      fill="none"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      width="24"
+                    >
+                      <path
+                        class="stroke-white"
+                        d="m8.5 10 4 4 4-4"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    class="cursor-default overflow-hidden transition-[height] duration-300"
+                    style="height: 0px;"
+                  >
+                    <div
+                      class="text-neutral-400 text-sm"
+                    >
+                      <div
+                        class="mb-2"
+                      >
+                        <p>
+                          Impacted threads:
+                        </p>
+                      </div>
+                      High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div
                 class="h-2"
               />
