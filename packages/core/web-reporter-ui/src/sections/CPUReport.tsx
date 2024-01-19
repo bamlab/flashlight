@@ -55,7 +55,10 @@ const getAutoSelectedThreads = (results: AveragedTestCaseResult[]) => {
   return autoSelectedThread ? [autoSelectedThread] : [];
 };
 
-const getNumberOfThreads = (results: AveragedTestCaseResult[]) => {
+export const getNumberOfThreads = (results: AveragedTestCaseResult[]) => {
+  if (results.length === 0 || results[0].average.measures.length === 0) {
+    return 0;
+  }
   const lastMeasure = results[0].average.measures[results[0].average.measures.length - 1];
   return Object.keys(lastMeasure.cpu.perName).length;
 };
