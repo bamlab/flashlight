@@ -22,4 +22,4 @@ xcrun simctl install $UDID ./.github/workflows/fakeStore.app
 xcrun simctl launch $UDID $APPID
 
 mkdir -p report
-npx flashlight-ios-poc ios-test --appId $APPID --simulatorId $UDID --testCommand 'maestro test ./packages/platforms/ios-instruments/test.yaml' --resultsFilePath './report/result.json'
+PLATFORM=ios-instruments node packages/commands/test/dist/bin.js test --bundleId $APPID --testCommand 'maestro test ./packages/platforms/ios-instruments/test.yaml' --resultsFilePath './report/result.json' --iterationCount 2
