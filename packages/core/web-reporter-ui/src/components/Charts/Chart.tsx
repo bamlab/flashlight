@@ -1,8 +1,34 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import ReactApexChart, { Props as ApexChartProps } from "react-apexcharts";
-import { ApexOptions } from "apexcharts";
+import ApexCharts, { ApexOptions } from "apexcharts";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
-import { merge } from "lodash";
+import { merge, partition } from "lodash";
+
+function toggleSeriesVisibility(
+  chart: ApexCharts,
+  seriesNames: string[],
+  visibleSeriesNames?: string[]
+) {
+  const [seriesToShow, seriesToHide] = partition(seriesNames, (name) => {
+    if (!visibleSeriesNames) return true;
+    return visibleSeriesNames.includes(name);
+  });
+
+  seriesToHide.forEach((name) => {
+    try {
+      chart.hideSeries(name);
+    } catch (e) {
+      // don't do anything
+    }
+  });
+  seriesToShow.forEach((name) => {
+    try {
+      chart.showSeries(name);
+    } catch (e) {
+      // don't do anything
+    }
+  });
+}
 
 export const Chart = ({
   type,
@@ -11,6 +37,7 @@ export const Chart = ({
   options = {},
   height,
   colors,
+  visibleSeriesNames,
 }: {
   type: Exclude<ApexChartProps["type"], undefined>;
   title: string;
@@ -18,6 +45,7 @@ export const Chart = ({
   options?: ApexOptions;
   height: number;
   colors?: string[];
+  visibleSeriesNames?: string[];
 }) => {
   const commonOptions: ApexOptions = useMemo(
     () => ({
@@ -74,5 +102,21 @@ export const Chart = ({
 
   const chartOptions = useMemo(() => merge(commonOptions, options), [commonOptions, options]);
 
-  return <ReactApexChart options={chartOptions} series={series} type={type} height={height} />;
+  const ref = useRef<ReactApexChart>(null);
+
+  useEffect(() => {
+    //@ts-expect-error chart is not defined in the typings, but it exists!
+    const chart: ApexCharts | undefined = ref.current?.chart;
+    if (!chart) return;
+
+    toggleSeriesVisibility(
+      chart,
+      series.map((serie) => serie.name).filter((name): name is string => !!name),
+      visibleSeriesNames
+    );
+  }, [series, visibleSeriesNames]);
+
+  return (
+    <ReactApexChart ref={ref} options={chartOptions} series={series} type={type} height={height} />
+  );
 };
