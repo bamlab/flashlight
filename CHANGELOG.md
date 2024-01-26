@@ -1,3 +1,9 @@
+## 0.16.2 (2024-01-26)
+
+### Features
+
+- **Chart:** include series visibility ([#196](https://github.com/bamlab/flashlight/issues/196)) ([d435a31](https://github.com/bamlab/flashlight/commit/d435a316913edd71589bdcef308f5c4aee4951b9))
+
 ## 0.16.1 (2024-01-18)
 
 ### Bug Fixes
