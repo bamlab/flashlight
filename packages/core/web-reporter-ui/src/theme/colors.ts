@@ -27,3 +27,8 @@ export const getThemeColorPalette = () => {
 };
 
 export const getColorPalette = () => COLOR_PALETTE;
+
+export const getColorFromIndex = (i: number): string => {
+  const colorPalette = getColorPalette();
+  return colorPalette[i % colorPalette.length];
+};
