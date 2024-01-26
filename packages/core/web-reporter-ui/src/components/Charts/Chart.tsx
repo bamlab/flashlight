@@ -103,6 +103,8 @@ export const Chart = ({
   const chartOptions = useMemo(() => merge(commonOptions, options), [commonOptions, options]);
 
   const ref = useRef<ReactApexChart>(null);
+  const seriesRef = useRef(series);
+  seriesRef.current = series;
 
   useEffect(() => {
     //@ts-expect-error chart is not defined in the typings, but it exists!
@@ -111,10 +113,10 @@ export const Chart = ({
 
     toggleSeriesVisibility(
       chart,
-      series.map((serie) => serie.name).filter((name): name is string => !!name),
+      seriesRef.current.map((serie) => serie.name).filter((name): name is string => !!name),
       visibleSeriesNames
     );
-  }, [series, visibleSeriesNames]);
+  }, [visibleSeriesNames]);
 
   return (
     <ReactApexChart ref={ref} options={chartOptions} series={series} type={type} height={height} />
