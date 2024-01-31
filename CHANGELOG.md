@@ -1,18 +1,18 @@
 ## [0.16.3](https://github.com/bamlab/flashlight/compare/v0.16.2...v0.16.3) (2024-01-30)
 
-## 0.16.2 (2024-01-26)
+## [0.16.2](https://github.com/bamlab/flashlight/compare/v0.16.1...v0.16.2) (2024-01-26)
 
 ### Features
 
 - **Chart:** include series visibility ([#196](https://github.com/bamlab/flashlight/issues/196)) ([d435a31](https://github.com/bamlab/flashlight/commit/d435a316913edd71589bdcef308f5c4aee4951b9))
 
-## 0.16.1 (2024-01-18)
+## [0.16.1](https://github.com/bamlab/flashlight/compare/v0.16.0...v0.16.1) (2024-01-18)
 
 ### Bug Fixes
 
 - **measure:** fix port option ([#192](https://github.com/bamlab/flashlight/issues/192)) ([1d8585f](https://github.com/bamlab/flashlight/commit/1d8585f099b91c944c6ea2741e7ca8ad9598c3b1))
 
-# 0.16.0 (2024-01-17)
+## [0.16.0](https://github.com/bamlab/flashlight/compare/v0.15.1...v0.16.0) (2024-01-17)
 
 ### Bug Fixes
 
@@ -20,15 +20,15 @@
 
 ## [0.15.1](https://github.com/bamlab/flashlight/compare/v0.15.0...v0.15.1) (2023-12-23)
 
-# 0.15.0 (2023-12-23)
+## [0.15.0](https://github.com/bamlab/flashlight/compare/v0.14.0...v0.15.0) (2023-12-23)
 
-# [0.14.0](https://github.com/bamlab/flashlight/compare/v0.13.0...v0.14.0) (2023-12-08)
+## [0.14.0](https://github.com/bamlab/flashlight/compare/v0.13.0...v0.14.0) (2023-12-08)
 
 ### Features
 
 - **report:** add statistics in averaged summary ([#178](https://github.com/bamlab/flashlight/issues/178)) ([d718057](https://github.com/bamlab/flashlight/commit/d718057a5de4075ee060cf009addd191872ae2ff))
 
-# [0.13.0](https://github.com/bamlab/flashlight/compare/v0.12.1...v0.13.0) (2023-11-29)
+## [0.13.0](https://github.com/bamlab/flashlight/compare/v0.12.1...v0.13.0) (2023-11-29)
 
 ## [0.12.1](https://github.com/bamlab/flashlight/compare/v0.12.0...v0.12.1) (2023-11-24)
 
@@ -37,7 +37,7 @@
 - **measure:** fix taking multiple measures ([be80d07](https://github.com/bamlab/flashlight/commit/be80d079476b184f1412f79cf8450e8a395fac34))
 - **measure:** support empty thread name ([52dce42](https://github.com/bamlab/flashlight/commit/52dce426108b0f79996891024a2f302570624596))
 
-# [0.12.0](https://github.com/bamlab/flashlight/compare/v0.11.2...v0.12.0) (2023-11-08)
+## [0.12.0](https://github.com/bamlab/flashlight/compare/v0.11.2...v0.12.0) (2023-11-08)
 
 ### Bug Fixes
 
@@ -70,7 +70,7 @@
 - fix tests that could timeout after an app crash ([#146](https://github.com/bamlab/flashlight/issues/146)) ([cbbe38e](https://github.com/bamlab/flashlight/commit/cbbe38e3517601d800f32767451dd5f9c97e5b3f))
 - **profiler:** improve accuracy of CPU measures ([#140](https://github.com/bamlab/flashlight/issues/140)) ([5038cb7](https://github.com/bamlab/flashlight/commit/5038cb7704a551ca70ab67e1726bb6321d7f63b1))
 
-# [0.10.0](https://github.com/bamlab/flashlight/compare/v0.8.0...v0.10.0) (2023-07-13)
+## [0.10.0](https://github.com/bamlab/flashlight/compare/v0.8.0...v0.10.0) (2023-07-13)
 
 ### Bug Fixes
 
@@ -80,7 +80,7 @@
 
 - **report:** make the video panel collapsible with animation ([#136](https://github.com/bamlab/flashlight/issues/136)) ([552b70d](https://github.com/bamlab/flashlight/commit/552b70d651b4e491801daebc5f6f6918478cd5d3))
 
-# [0.9.0](https://github.com/bamlab/flashlight/compare/v0.8.0...v0.9.0) (2023-07-13)
+## [0.9.0](https://github.com/bamlab/flashlight/compare/v0.8.0...v0.9.0) (2023-07-13)
 
 ### Bug Fixes
 
@@ -91,9 +91,7 @@
 
 - make the video panel collapsible with animation ([#136](https://github.com/bamlab/flashlight/issues/136)) ([552b70d](https://github.com/bamlab/flashlight/commit/552b70d651b4e491801daebc5f6f6918478cd5d3))
 
-# [0.9.0](https://github.com/bamlab/flashlight/compare/v0.8.0...v0.9.0) (2023-07-04)
-
-# [0.8.0](https://github.com/bamlab/flashlight/compare/v0.7.3...v0.8.0) (2023-06-28)
+## [0.8.0](https://github.com/bamlab/flashlight/compare/v0.7.3...v0.8.0) (2023-06-28)
 
 ### Features
 
@@ -127,7 +125,7 @@
 
 - **test:** stop polling measures on failure ([e5500bf](https://github.com/bamlab/flashlight/commit/e5500bf9d251e12503fb8331df2eee1fbfa4f47d))
 
-# [0.7.0](https://github.com/bamlab/flashlight/compare/v0.5.0...v0.7.0) (2023-05-08)
+## [0.7.0](https://github.com/bamlab/flashlight/compare/v0.6.0...v0.7.0) (2023-05-08)
 
 ### Bug Fixes
 
@@ -138,15 +136,15 @@
 - **flipper:** integrate new design ([#104](https://github.com/bamlab/flashlight/issues/104)) ([b3410b5](https://github.com/bamlab/flashlight/commit/b3410b5848f715d2475bc12d6d13e28bc78b79ad))
 - **report:** design adjustments ([#102](https://github.com/bamlab/flashlight/issues/102)) ([5a55689](https://github.com/bamlab/flashlight/commit/5a5568922c5768fb3d01fa9027d23bb71c89c3f3))
 
-# [0.6.0](https://github.com/bamlab/flashlight/compare/v0.5.0...v0.6.0) (2023-05-03)
+## [0.6.0](https://github.com/bamlab/flashlight/compare/v0.5.0...v0.6.0) (2023-05-03)
 
-# [0.5.0](https://github.com/bamlab/flashlight/compare/v0.4.0...v0.5.0) (2023-04-28)
+## [0.5.0](https://github.com/bamlab/flashlight/compare/v0.4.0...v0.5.0) (2023-04-28)
 
 ### Features
 
 - **report:** massive redesign ✨
 
-# [0.4.0](https://github.com/bamlab/flashlight/compare/v0.3.0...v0.4.0) (2023-04-26)
+## [0.4.0](https://github.com/bamlab/flashlight/compare/v0.3.0...v0.4.0) (2023-04-26)
 
 ### Bug Fixes
 
@@ -180,7 +178,7 @@
 - **web:** redesign reports/handle multiple reports ([#92](https://github.com/bamlab/flashlight/issues/92)) ([23e77a1](https://github.com/bamlab/flashlight/commit/23e77a1667757d11b17973be945a0f7bbdac358d))
 - **web:** redesign reports/single card summary design ([#88](https://github.com/bamlab/flashlight/issues/88)) ([337c585](https://github.com/bamlab/flashlight/commit/337c585d1e72b55fd13e5acd0010f79fba43ffc2))
 
-# [0.3.0](https://github.com/bamlab/flashlight/compare/v0.2.0...v0.3.0) (2023-04-19)
+## [0.3.0](https://github.com/bamlab/flashlight/compare/v0.2.0...v0.3.0) (2023-04-19)
 
 ### Bug Fixes
 
@@ -197,13 +195,13 @@
 
 - **profiler:** if using a custom script, pollPerformanceMeasures will now take `{ onMeasure: (Measure) => void }` as second parameter
 
-# [0.2.0](https://github.com/bamlab/flashlight/compare/v0.1.0...v0.2.0) (2023-04-04)
+## [0.2.0](https://github.com/bamlab/flashlight/compare/v0.1.0...v0.2.0) (2023-04-04)
 
 ### BREAKING CHANGES
 
 - `cloud`: `--apkPath` replaced by `--app`, adapt to new backend architecture
 
-# [0.1.0](https://github.com/bamlab/flashlight/compare/v0.1.0...%40perf-profiler%2Fe2e%400.6.0) (2023-02-06)
+## [0.1.0](https://github.com/bamlab/flashlight/compare/v0.1.0...%40perf-profiler%2Fe2e%400.6.0) (2023-02-06)
 
 `android-performance-profiler` becomes Flashlight 🔦
 
