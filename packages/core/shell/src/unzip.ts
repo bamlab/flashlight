@@ -7,6 +7,8 @@ export const unzip = (path: string, destinationFolder: string) => {
   const zipEntries = zip.getEntries();
 
   for (const zipEntry of zipEntries) {
+    if (zipEntry.isDirectory) continue;
+
     const parts = zipEntry.entryName.split("/");
 
     fs.writeFileSync(`${destinationFolder}/${parts[parts.length - 1]}`, zipEntry.getData());

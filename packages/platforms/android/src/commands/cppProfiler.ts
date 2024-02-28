@@ -1,5 +1,5 @@
 import { Logger } from "@perf-profiler/logger";
-import { executeLongRunningProcess } from "./shell";
+import { canIgnoreAwsTerminationError, executeLongRunningProcess } from "./shell";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
 import { profiler } from "./platforms/platformProfiler";
 
@@ -81,7 +81,7 @@ export const pollPerformanceMeasures = (
     } else if (log.includes("CPP_ERROR_MAIN_PID_CLOSED")) {
       onPidChanged?.(pid);
     } else {
-      Logger.error(log);
+      if (!canIgnoreAwsTerminationError(log)) Logger.error(log);
     }
   });
 
