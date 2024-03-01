@@ -2,12 +2,12 @@
 
 exports[`createTestSpecFile creates a test spec for a given test command 1`] = `
 "version: 0.1
+android_test_host: amazon_linux_2
 phases:
   install:
     commands:
-      - export NVM_DIR=$HOME/.nvm
-      - . $NVM_DIR/nvm.sh
-      - nvm install 16
+      - devicefarm-cli use node 18
+      - node -v
       - echo "Navigate to test package directory"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH
       - npm install *.tgz
@@ -63,12 +63,12 @@ artifacts:
 
 exports[`createTestSpecFile creates a test spec for a single TS file 1`] = `
 "version: 0.1
+android_test_host: amazon_linux_2
 phases:
   install:
     commands:
-      - export NVM_DIR=$HOME/.nvm
-      - . $NVM_DIR/nvm.sh
-      - nvm install 16
+      - devicefarm-cli use node 18
+      - node -v
       - echo "Navigate to test package directory"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH
       - npm install *.tgz

@@ -5011,10 +5011,10 @@ anymatch@^3.0.3, anymatch@~3.1.2:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
 
-apexcharts@^3.44.0:
-  version "3.44.0"
-  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.44.0.tgz#b52f95b0d0c2a5357b4614fa42faac956b69a4a9"
-  integrity sha512-u7Xzrbcxc2yWznN78Jh5NMCYVAsWDfBjRl5ea++rVzFAqjU2hLz4RgKIFwYOBDRQtW1e/Qz8azJTqIJ1+Vu9Qg==
+apexcharts@^3.46.0:
+  version "3.46.0"
+  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-3.46.0.tgz#ee0afd44a7df94e038c4cc0160ece21a0da387f5"
+  integrity sha512-ELAY6vj8JQD7QLktKasTzwm9Wt0qxqfQSo+3QWS7G7I774iK8HCkG1toGsqJH0mkK6PtYBtnSIe66uUcwoCw1w==
   dependencies:
     "@yr/monotone-cubic-spline" "^1.0.3"
     svg.draggable.js "^2.2.2"

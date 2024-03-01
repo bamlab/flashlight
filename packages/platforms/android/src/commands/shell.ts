@@ -41,6 +41,12 @@ if (!global.Flipper) {
 
 class AsyncExecutionError extends Error {}
 
+/**
+ * In AWS when we properly kill the process termination gets logged in stderr with a weird log
+ */
+export const canIgnoreAwsTerminationError = (log: string) =>
+  log.includes("Terminated              LD_LIBRARY_PATH");
+
 export const executeAsync = (
   command: string,
   { logStderr } = {
@@ -56,7 +62,8 @@ export const executeAsync = (
   });
 
   childProcess.stderr?.on("data", (data) => {
-    if (logStderr) Logger.error(`Process for ${command} errored with ${data.toString()}`);
+    if (logStderr && !canIgnoreAwsTerminationError(data.toString()))
+      Logger.error(`Process for ${command} errored with ${data.toString()}`);
   });
 
   childProcess.on("close", (code) => {

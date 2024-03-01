@@ -1,6 +1,6 @@
 import yaml from "js-yaml";
 export const Commands = {
-  INSTALL_NVM: ["export NVM_DIR=$HOME/.nvm", ". $NVM_DIR/nvm.sh", "nvm install 16"],
+  INSTALL_NODE: ["devicefarm-cli use node 18", "node -v"],
   UNPACKAGE_TEST_PACKAGE: [
     'echo "Navigate to test package directory"',
     "cd $DEVICEFARM_TEST_PACKAGE_PATH",
@@ -56,10 +56,11 @@ export const buildYmlSpec = ({
 }) => {
   const testJsonSpec = {
     version: 0.1,
+    android_test_host: "amazon_linux_2",
     phases: {
       install: {
         commands: [
-          ...Commands.INSTALL_NVM,
+          ...Commands.INSTALL_NODE,
           ...Commands.UNPACKAGE_TEST_PACKAGE,
           ...(installCommands || []),
         ],
