@@ -26,7 +26,12 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
     const updateMeasures = (measures: Measure[]) =>
       setState((state) => updateMeasuresReducer(state, measures));
     const addNewResult = (bundleId: string) =>
-      setState((state) => addNewResultReducer(state, bundleId));
+      setState((state) =>
+        addNewResultReducer(
+          state,
+          `${bundleId}${state.results.length > 0 ? ` (${state.results.length + 1})` : ""}`
+        )
+      );
 
     socket.on("start", async () => {
       setState({
