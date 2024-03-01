@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/e2e@0.10.7...@perf-profiler/e2e@0.11.0) (2024-03-01)
+
+### Bug Fixes
+
+- **test:** fix Operation not supported on socket ([#157](https://github.com/bamlab/flashlight/issues/157)) ([9476fdd](https://github.com/bamlab/flashlight/commit/9476fdd3e89ad098e175a540abb9d2023277a57f))
+
+### Features
+
+- **ios:** add time Profiler ([#188](https://github.com/bamlab/flashlight/issues/188)) ([b04984d](https://github.com/bamlab/flashlight/commit/b04984d23fa789288e05c979e980518931414d4c))
+- **test:** add skipRestart option for quick testing ([d9c2ca4](https://github.com/bamlab/flashlight/commit/d9c2ca4dca2574e4f6db722472915341d985c63b))
+
 ## [0.10.7](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/e2e@0.10.6...@perf-profiler/e2e@0.10.7) (2023-09-14)
 
 ### Bug Fixes

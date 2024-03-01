@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.11.0 (2024-03-01)
+
+### Bug Fixes
+
+- fix graph curviness bugs by upgrading apex ([#204](https://github.com/bamlab/android-performance-profiler/issues/204)) ([0223202](https://github.com/bamlab/android-performance-profiler/commit/0223202301f58fc656e5c6e826bb61d80d899568))
+- **getCpuStatsByProcess:** fix regex for CPU stats ([#181](https://github.com/bamlab/android-performance-profiler/issues/181)) ([b4d5de6](https://github.com/bamlab/android-performance-profiler/commit/b4d5de6370392ab721d69269d1cb6d1a1d0b99c7))
+- **measure:** support empty thread name ([52dce42](https://github.com/bamlab/android-performance-profiler/commit/52dce426108b0f79996891024a2f302570624596))
+
+### Features
+
+- **ios:** add time Profiler ([#188](https://github.com/bamlab/android-performance-profiler/issues/188)) ([b04984d](https://github.com/bamlab/android-performance-profiler/commit/b04984d23fa789288e05c979e980518931414d4c))
+
 ## [0.10.7](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/profiler@0.10.6...@perf-profiler/profiler@0.10.7) (2023-09-14)
 
 **Note:** Version bump only for package @perf-profiler/profiler

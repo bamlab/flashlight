@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/aws-device-farm@0.9.5...@perf-profiler/aws-device-farm@0.10.0) (2024-03-01)
+
+### Bug Fixes
+
+- **aws:** add a testPackageArn option for prepublished package ([#176](https://github.com/bamlab/flashlight/issues/176)) ([e4c9f40](https://github.com/bamlab/flashlight/commit/e4c9f40cfe113f8fbde48b7903d4ca70de77f042))
+- fix graph curviness bugs by upgrading apex ([#204](https://github.com/bamlab/flashlight/issues/204)) ([0223202](https://github.com/bamlab/flashlight/commit/0223202301f58fc656e5c6e826bb61d80d899568))
+
+### Features
+
+- **tools:** add tools command ([#156](https://github.com/bamlab/flashlight/issues/156)) ([a981132](https://github.com/bamlab/flashlight/commit/a981132aaa13072fb48f7a1c7989e7d484f7ca6d))
+
 ## [0.9.5](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/aws-device-farm@0.9.4...@perf-profiler/aws-device-farm@0.9.5) (2023-09-14)
 
 **Note:** Version bump only for package @perf-profiler/aws-device-farm

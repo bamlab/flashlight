@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/measure@0.2.7...@perf-profiler/measure@0.3.0) (2024-03-01)
+
+### Bug Fixes
+
+- **measure:** fix port option ([#192](https://github.com/bamlab/flashlight/issues/192)) ([1d8585f](https://github.com/bamlab/flashlight/commit/1d8585f099b91c944c6ea2741e7ca8ad9598c3b1))
+- **measure:** UI buttons unresponsive/streamline socket URL handling ([#191](https://github.com/bamlab/flashlight/issues/191)) ([66b0899](https://github.com/bamlab/flashlight/commit/66b0899080ac3f7c4165db5925fb395396d0af7d))
+- **report:** allow horizontal scrolling in threads table ([#168](https://github.com/bamlab/flashlight/issues/168)) ([0136567](https://github.com/bamlab/flashlight/commit/0136567f5baa2d7fe0365e9d01d174753c121a81))
+- **report:** fix thread autoselection ([#169](https://github.com/bamlab/flashlight/issues/169)) ([eb28d01](https://github.com/bamlab/flashlight/commit/eb28d01af2dbb71afc08e3e7963b744486a370a6))
+
+### Features
+
+- **measure:** add optional --port flag to specify server port ([#186](https://github.com/bamlab/flashlight/issues/186)) ([1a44141](https://github.com/bamlab/flashlight/commit/1a441419a77d4157db6ebc793a45d2bb653d14fd))
+- **report:** add difference in comparison view ([#163](https://github.com/bamlab/flashlight/issues/163)) ([#164](https://github.com/bamlab/flashlight/issues/164)) ([ac4c3bf](https://github.com/bamlab/flashlight/commit/ac4c3bfff5a28cf458fe128b67e007b53f0ae97b))
+
 ## [0.2.7](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/measure@0.2.6...@perf-profiler/measure@0.2.7) (2023-09-14)
 
 **Note:** Version bump only for package @perf-profiler/measure

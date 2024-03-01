@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter-ui@0.14.0...@perf-profiler/web-reporter-ui@0.15.0) (2024-03-01)
+
+### Bug Fixes
+
+- **cloud:** improve range area chart ([#184](https://github.com/bamlab/flashlight/issues/184)) ([7bfd6f7](https://github.com/bamlab/flashlight/commit/7bfd6f7cbfe4c0119b7cf4ca1f521061084b90fb))
+- fix graph curviness bugs by upgrading apex ([#204](https://github.com/bamlab/flashlight/issues/204)) ([0223202](https://github.com/bamlab/flashlight/commit/0223202301f58fc656e5c6e826bb61d80d899568))
+- **measure:** fix taking multiple measures ([be80d07](https://github.com/bamlab/flashlight/commit/be80d079476b184f1412f79cf8450e8a395fac34))
+- **report:** allow horizontal scrolling in threads table ([#168](https://github.com/bamlab/flashlight/issues/168)) ([0136567](https://github.com/bamlab/flashlight/commit/0136567f5baa2d7fe0365e9d01d174753c121a81))
+- **report:** fix difference color for FPS ([#166](https://github.com/bamlab/flashlight/issues/166)) ([ae2dd98](https://github.com/bamlab/flashlight/commit/ae2dd98900dd36e756f3fc460d015e7d0be5e486))
+- **report:** fix thread autoselection ([#169](https://github.com/bamlab/flashlight/issues/169)) ([eb28d01](https://github.com/bamlab/flashlight/commit/eb28d01af2dbb71afc08e3e7963b744486a370a6))
+
+### Features
+
+- **Chart:** include series visibility ([#196](https://github.com/bamlab/flashlight/issues/196)) ([d435a31](https://github.com/bamlab/flashlight/commit/d435a316913edd71589bdcef308f5c4aee4951b9))
+- **Chart:** separate chart components for report and evolution ([#190](https://github.com/bamlab/flashlight/issues/190)) ([bd1f486](https://github.com/bamlab/flashlight/commit/bd1f486aa7973fb881459ea316a76d09c48777f0))
+- **evolution:** allow to display area graphs ([#182](https://github.com/bamlab/flashlight/issues/182)) ([9382ca5](https://github.com/bamlab/flashlight/commit/9382ca58273af636cfdf78824a7a1b8260b57a29))
+- **ios:** add time Profiler ([#188](https://github.com/bamlab/flashlight/issues/188)) ([b04984d](https://github.com/bamlab/flashlight/commit/b04984d23fa789288e05c979e980518931414d4c))
+- **report:** add difference in comparison view ([#163](https://github.com/bamlab/flashlight/issues/163)) ([#164](https://github.com/bamlab/flashlight/issues/164)) ([ac4c3bf](https://github.com/bamlab/flashlight/commit/ac4c3bfff5a28cf458fe128b67e007b53f0ae97b))
+
 # [0.14.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/web-reporter-ui@0.13.3...@perf-profiler/web-reporter-ui@0.14.0) (2023-09-14)
 
 ### Bug Fixes

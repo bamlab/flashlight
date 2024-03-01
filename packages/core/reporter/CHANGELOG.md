@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/reporter@0.7.0...@perf-profiler/reporter@0.8.0) (2024-03-01)
+
+### Bug Fixes
+
+- **cloud:** improve range area chart ([#184](https://github.com/bamlab/android-performance-profiler/issues/184)) ([7bfd6f7](https://github.com/bamlab/android-performance-profiler/commit/7bfd6f7cbfe4c0119b7cf4ca1f521061084b90fb))
+- **report:** fix thread autoselection ([#169](https://github.com/bamlab/android-performance-profiler/issues/169)) ([eb28d01](https://github.com/bamlab/android-performance-profiler/commit/eb28d01af2dbb71afc08e3e7963b744486a370a6))
+
+### Features
+
+- **evolution:** allow to display area graphs ([#182](https://github.com/bamlab/android-performance-profiler/issues/182)) ([9382ca5](https://github.com/bamlab/android-performance-profiler/commit/9382ca58273af636cfdf78824a7a1b8260b57a29))
+- **ios:** add time Profiler ([#188](https://github.com/bamlab/android-performance-profiler/issues/188)) ([b04984d](https://github.com/bamlab/android-performance-profiler/commit/b04984d23fa789288e05c979e980518931414d4c))
+
 # [0.7.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/reporter@0.6.4...@perf-profiler/reporter@0.7.0) (2023-09-14)
 
 ### Features

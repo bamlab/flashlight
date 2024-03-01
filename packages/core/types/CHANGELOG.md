@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/types@0.6.0...@perf-profiler/types@0.7.0) (2024-03-01)
+
+### Bug Fixes
+
+- **report:** fix thread autoselection ([#169](https://github.com/bamlab/flashlight/issues/169)) ([eb28d01](https://github.com/bamlab/flashlight/commit/eb28d01af2dbb71afc08e3e7963b744486a370a6))
+
+### Features
+
+- **ios:** add time Profiler ([#188](https://github.com/bamlab/flashlight/issues/188)) ([b04984d](https://github.com/bamlab/flashlight/commit/b04984d23fa789288e05c979e980518931414d4c))
+
 # [0.6.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/types@0.5.3...@perf-profiler/types@0.6.0) (2023-09-14)
 
 ### Features
