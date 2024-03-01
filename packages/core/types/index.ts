@@ -56,6 +56,11 @@ export const POLLING_INTERVAL = 500;
 export const ThreadNames = {
   UI_THREAD: "UI Thread",
   JS_THREAD: "mqt_js",
+  FLUTTER: {
+    UI: "1.ui",
+    RASTER: "1.raster",
+    IO: "1.io",
+  },
 };
 
 export const ThreadNamesIOS = {
