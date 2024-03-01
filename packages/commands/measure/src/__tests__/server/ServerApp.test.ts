@@ -3,7 +3,6 @@ import express from "express";
 import fs from "fs";
 
 import { createExpressApp } from "../../server/ServerApp";
-import type { FlashlightData } from "../../common/types";
 
 jest.mock("fs", () => ({
   promises: {
@@ -13,18 +12,22 @@ jest.mock("fs", () => ({
 
 describe("ServerApp", () => {
   let app: express.Express;
-  const injected: FlashlightData = { socketServerUrl: "http://localhost:9999" };
 
   beforeAll(() => {
     jest.spyOn(express, "static").mockImplementation(() => (req, res, next) => next());
   });
 
+  const FLASHLIGHT_DATA_PLACEHOLDER =
+    'window.__FLASHLIGHT_DATA__ = { socketServerUrl: "http://localhost:3000" };';
+
   beforeEach(() => {
     (fs.promises.readFile as jest.Mock).mockResolvedValue(
-      "<html><script>__FLASHLIGHT_DATA__;</script></html>"
+      `<html><script>${FLASHLIGHT_DATA_PLACEHOLDER}</script></html>`
     );
 
-    app = createExpressApp(injected);
+    app = createExpressApp({
+      port: 9999,
+    });
   });
 
   describe("GET /", () => {
@@ -32,13 +35,15 @@ describe("ServerApp", () => {
       const response = await supertest(app).get("/");
 
       expect(response.statusCode).toBe(200);
-      expect(response.text).toContain(`window.__FLASHLIGHT_DATA__ = ${JSON.stringify(injected)};`);
+      expect(response.text).toContain(
+        `window.__FLASHLIGHT_DATA__ = { socketServerUrl: "http://localhost:9999" };`
+      );
     });
   });
 
   test("index.html contains the FlashlightData placeholder", async () => {
     const fsPromises = jest.requireActual("fs").promises;
     const fileContent = await fsPromises.readFile(`${__dirname}/../../webapp/index.html`, "utf8");
-    expect(fileContent).toContain("__FLASHLIGHT_DATA__;");
+    expect(fileContent).toContain(FLASHLIGHT_DATA_PLACEHOLDER);
   });
 });

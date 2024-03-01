@@ -12,11 +12,10 @@ import { getWebAppUrl } from "./constants";
 import { ServerSocketConnectionApp } from "./ServerSocketConnectionApp";
 import { useInput } from "ink";
 import { profiler } from "@perf-profiler/profiler";
-import type { FlashlightData } from "../common/types";
 
 const pathToDist = path.join(__dirname, "../../dist");
 
-export const createExpressApp = (injected: FlashlightData) => {
+export const createExpressApp = ({ port }: { port: number }) => {
   const app = express();
   app.use(cors({ origin: true }));
 
@@ -24,10 +23,8 @@ export const createExpressApp = (injected: FlashlightData) => {
     try {
       const indexHtml = path.join(pathToDist, "index.html");
       let data = await fs.readFile(indexHtml, "utf8");
-      data = data.replace(
-        "__FLASHLIGHT_DATA__;",
-        `window.__FLASHLIGHT_DATA__ = ${JSON.stringify(injected)};`
-      );
+      data = data.replace("localhost:3000", `localhost:${port}`);
+
       res.send(data);
     } catch (err) {
       res.status(500).send("Error loading the page");
@@ -67,7 +64,7 @@ export const ServerApp = ({ port }: ServerAppProps) => {
   const [socket, setSocket] = useState<SocketType | null>(null);
   const webAppUrl = getWebAppUrl(port);
   useEffect(() => {
-    const app = createExpressApp({ socketServerUrl: webAppUrl });
+    const app = createExpressApp({ port });
 
     const server = http.createServer(app);
     const io: SocketServer = new Server(server, {
