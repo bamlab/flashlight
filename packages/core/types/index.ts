@@ -68,7 +68,7 @@ export const ThreadNames = {
   RN: {
     JS_ANDROID: "mqt_js",
     JS_BRIDGELESS_ANDROID: "mqt_v_js",
-    OLD_BRIDGE: "mqt_native_modules",
+    OLD_BRIDGE: "mqt_native_modu",
     JS_IOS: "com.facebook.react.JavaScript",
   },
 };

@@ -32,9 +32,10 @@ const perThreadCpuAnnotationInterval = [{ y: 90, y2: 100, color: "#E62E2E", labe
 const autoSelectedThreads = [
   ThreadNames.RN.JS_IOS,
   ThreadNames.RN.JS_ANDROID,
+  ThreadNames.RN.JS_BRIDGELESS_ANDROID,
+  ThreadNames.FLUTTER.UI,
   ThreadNames.ANDROID.UI,
   ThreadNames.IOS.UI,
-  // TODO: add more threads
 ];
 
 const getAutoSelectedThreads = (results: AveragedTestCaseResult[]) => {
