@@ -4,7 +4,6 @@ import {
   Measure,
   POLLING_INTERVAL,
   ThreadNames,
-  ThreadNamesIOS,
 } from "@perf-profiler/types";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
 import { Collapsible } from "../components/Collapsible";
@@ -31,10 +30,10 @@ const totalCpuAnnotationInterval = [{ y: 300, y2: 1000, color: "#E62E2E", label:
 const perThreadCpuAnnotationInterval = [{ y: 90, y2: 100, color: "#E62E2E", label: "Danger Zone" }];
 
 const autoSelectedThreads = [
-  ThreadNamesIOS.JS_THREAD,
-  ThreadNames.JS_THREAD,
-  ThreadNames.UI_THREAD,
-  ThreadNamesIOS.UI_THREAD,
+  ThreadNames.RN.JS_IOS,
+  ThreadNames.RN.JS_ANDROID,
+  ThreadNames.ANDROID.UI,
+  ThreadNames.IOS.UI,
   // TODO: add more threads
 ];
 
