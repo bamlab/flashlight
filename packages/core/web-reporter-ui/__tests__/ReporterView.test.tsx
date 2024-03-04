@@ -16,7 +16,7 @@ describe("<ReporterView />", () => {
     );
     expect(screen.getAllByLabelText("Score")[0].textContent).toEqual("69");
 
-    fireEvent.click(screen.getByText("Threads"));
+    fireEvent.click(screen.getByText("Other threads"));
 
     expect(getText(baseElement)).toMatchSnapshot();
     expect(asFragment()).toMatchSnapshot();

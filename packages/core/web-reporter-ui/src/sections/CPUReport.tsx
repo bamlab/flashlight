@@ -1,15 +1,11 @@
 import React from "react";
-import {
-  AveragedTestCaseResult,
-  Measure,
-  POLLING_INTERVAL,
-  ThreadNames,
-} from "@perf-profiler/types";
+import { AveragedTestCaseResult, Measure, POLLING_INTERVAL } from "@perf-profiler/types";
 import { ComparativeThreadTable, ThreadTable } from "../components/ThreadTable";
 import { Collapsible } from "../components/Collapsible";
 import { getColorPalette } from "../theme/colors";
 import { getAverageCpuUsage, roundToDecimal } from "@perf-profiler/reporter";
 import { ReportChart } from "../components/Charts/ReportChart";
+import { THREAD_ICON_MAPPING, getAutoSelectedThreads } from "./threads";
 
 const buildSeriesData = (measures: Measure[], calculate: (measure: Measure) => number) =>
   measures
@@ -28,32 +24,6 @@ const buildCpuPerThreadSeriesData = (measures: Measure[], threadName: string) =>
 const totalCpuAnnotationInterval = [{ y: 300, y2: 1000, color: "#E62E2E", label: "Danger Zone" }];
 
 const perThreadCpuAnnotationInterval = [{ y: 90, y2: 100, color: "#E62E2E", label: "Danger Zone" }];
-
-const autoSelectedThreads = [
-  ThreadNames.RN.JS_IOS,
-  ThreadNames.RN.JS_ANDROID,
-  ThreadNames.RN.JS_BRIDGELESS_ANDROID,
-  ThreadNames.FLUTTER.UI,
-  ThreadNames.ANDROID.UI,
-  ThreadNames.IOS.UI,
-];
-
-const getAutoSelectedThreads = (results: AveragedTestCaseResult[]) => {
-  const autoSelectedThread = autoSelectedThreads.find((threadName) =>
-    results
-      .filter((result) => result.average.measures.length > 0)
-      .every((result) => {
-        const lastMeasure = result.average.measures[result.average.measures.length - 1];
-        return (
-          lastMeasure.cpu.perName[threadName] !== undefined ||
-          // Support legacy json files with thread names in parenthesis
-          lastMeasure.cpu.perName[`(${threadName})`] !== undefined
-        );
-      })
-  );
-
-  return autoSelectedThread ? [autoSelectedThread] : [];
-};
 
 export const getNumberOfThreads = (results: AveragedTestCaseResult[]) => {
   if (results.length === 0 || results[0].average.measures.length === 0) {
@@ -82,6 +52,22 @@ export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
     data: buildAverageCpuSeriesData(result.average.measures),
   }));
 
+  const TitleIcon = THREAD_ICON_MAPPING[selectedThreads[0]];
+
+  const chartTitle =
+    selectedThreads.length === 1 ? (
+      <div className="flex flex-row align-center">
+        {TitleIcon ? (
+          <div className="mr-3 flex items-center">
+            <TitleIcon size={30} />
+          </div>
+        ) : null}
+        {`${selectedThreads[0]} CPU Usage (%)`}
+      </div>
+    ) : (
+      "CPU Usage per thread (%)"
+    );
+
   return (
     <>
       <ReportChart
@@ -93,7 +79,7 @@ export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
       {getNumberOfThreads(results) > 1 && (
         <>
           <ReportChart
-            title="CPU Usage per thread (%)"
+            title={chartTitle}
             height={500}
             series={threads}
             colors={results.length > 1 ? getColorPalette().slice(0, results.length) : undefined}
@@ -103,7 +89,7 @@ export const CPUReport = ({ results }: { results: AveragedTestCaseResult[] }) =>
           />
           <Collapsible
             unmountOnExit
-            header={<div className="text-neutral-200 text-xl">{"Threads"}</div>}
+            header={<div className="text-neutral-200 text-xl">{"Other threads"}</div>}
             className="border rounded-lg border-gray-800 py-4 px-4"
           >
             {results.length > 1 ? (

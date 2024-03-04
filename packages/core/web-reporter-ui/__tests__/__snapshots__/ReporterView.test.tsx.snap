@@ -91,7 +91,7 @@ High CPU Usage
 3.2 s
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 3.2
@@ -121,7 +121,7 @@ Coefficient of variation :
  %
  
 - 
-mqt_js
+RN JS Thread
  -
 Min Max Range:
  
@@ -268,7 +268,7 @@ High CPU Usage
 (-69%)
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 1
@@ -298,7 +298,7 @@ Coefficient of variation :
  %
  
 - 
-mqt_js
+RN JS Thread
  -
 Min Max Range:
  
@@ -354,19 +354,19 @@ Coefficient of variation :
  %
 Frame rate (FPS)
 Total CPU Usage (%)
-CPU Usage per thread (%)
-Threads
+RN JS Thread CPU Usage (%)
+Other threads
 Thread
 1-before-memo.apk
 sorted descending
 2-after-memo.apk
-mqt_js
+RN JS Thread
 32.2
 12.3
 culture.staging
 10
 8.7
-mqt_native_modu
+RN Bridge Thread
 7.2
 4.2
 RenderThread
@@ -1406,7 +1406,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 3.2s
+                        - RN JS Thread for 3.2s
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
@@ -1457,7 +1457,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <div
                         class="text-neutral-300 text-sm"
                       >
-                        - mqt_js -
+                        - RN JS Thread -
                         <div
                           class="text-neutral-300 text-sm"
                         >
@@ -2087,7 +2087,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 1s
+                        - RN JS Thread for 1s
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
@@ -2138,7 +2138,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <div
                         class="text-neutral-300 text-sm"
                       >
-                        - mqt_js -
+                        - RN JS Thread -
                         <div
                           class="text-neutral-300 text-sm"
                         >
@@ -2338,7 +2338,45 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
         <div
           class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
         >
-          CPU Usage per thread (%)
+          <div
+            class="flex flex-row align-center"
+          >
+            <div
+              class="mr-3 flex items-center"
+            >
+              <svg
+                height="30"
+                viewBox="-11.5 -10.23174 23 20.46348"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  fill="#61dafb"
+                  r="2.05"
+                />
+                <g
+                  fill="none"
+                  stroke="#61dafb"
+                >
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(.5 .8660254 -.8660254 .5 0 0)"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(-.5 .8660254 -.8660254 -.5 0 0)"
+                  />
+                </g>
+              </svg>
+            </div>
+            RN JS Thread CPU Usage (%)
+          </div>
         </div>
         <apex-charts
           height="500"
@@ -2358,7 +2396,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               <div
                 class="text-neutral-200 text-xl"
               >
-                Threads
+                Other threads
               </div>
             </div>
             <svg
@@ -2532,7 +2570,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       id="enhanced-table-checkbox-0"
                       scope="row"
                     >
-                      mqt_js
+                      RN JS Thread
                     </th>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2636,7 +2674,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       id="enhanced-table-checkbox-2"
                       scope="row"
                     >
-                      mqt_native_modu
+                      RN Bridge Thread
                     </th>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -12147,7 +12185,7 @@ High CPU Usage
 3.5 s
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 3.5
@@ -12188,7 +12226,7 @@ High CPU Usage
 (-71%)
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 1
@@ -12204,19 +12242,19 @@ here for more details
 )
 Frame rate (FPS)
 Total CPU Usage (%)
-CPU Usage per thread (%)
-Threads
+RN JS Thread CPU Usage (%)
+Other threads
 Thread
 1-before-memo.apk
 sorted descending
 2-after-memo.apk
-mqt_js
+RN JS Thread
 36.5
 12.7
 culture.staging
 10.9
 8.2
-mqt_native_modu
+RN Bridge Thread
 8.7
 4.3
 RenderThread
@@ -12848,7 +12886,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 3.5s
+                        - RN JS Thread for 3.5s
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
@@ -13286,7 +13324,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 1s
+                        - RN JS Thread for 1s
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
@@ -13414,7 +13452,45 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
         <div
           class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
         >
-          CPU Usage per thread (%)
+          <div
+            class="flex flex-row align-center"
+          >
+            <div
+              class="mr-3 flex items-center"
+            >
+              <svg
+                height="30"
+                viewBox="-11.5 -10.23174 23 20.46348"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  fill="#61dafb"
+                  r="2.05"
+                />
+                <g
+                  fill="none"
+                  stroke="#61dafb"
+                >
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(.5 .8660254 -.8660254 .5 0 0)"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(-.5 .8660254 -.8660254 -.5 0 0)"
+                  />
+                </g>
+              </svg>
+            </div>
+            RN JS Thread CPU Usage (%)
+          </div>
         </div>
         <apex-charts
           height="500"
@@ -13434,7 +13510,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               <div
                 class="text-neutral-200 text-xl"
               >
-                Threads
+                Other threads
               </div>
             </div>
             <svg
@@ -13608,7 +13684,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       id="enhanced-table-checkbox-0"
                       scope="row"
                     >
-                      mqt_js
+                      RN JS Thread
                     </th>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13712,7 +13788,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       id="enhanced-table-checkbox-2"
                       scope="row"
                     >
-                      mqt_native_modu
+                      RN Bridge Thread
                     </th>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -18290,7 +18366,7 @@ High CPU Usage
 4 s
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 2.3
@@ -18326,7 +18402,7 @@ Coefficient of variation :
  %
  
 - 
-mqt_js
+RN JS Thread
  -
 Min Max Range:
  
@@ -18504,7 +18580,7 @@ UI Thread
 3.3
 s
 - 
-mqt_js
+RN JS Thread
  for
  
 1.5
@@ -18540,7 +18616,7 @@ Coefficient of variation :
  %
  
 - 
-mqt_js
+RN JS Thread
  -
 Min Max Range:
  
@@ -18646,8 +18722,8 @@ Coefficient of variation :
  %
 Frame rate (FPS)
 Total CPU Usage (%)
-CPU Usage per thread (%)
-Threads
+RN JS Thread CPU Usage (%)
+Other threads
 RAM Usage (MB)
 Reset
 Play all
@@ -19146,7 +19222,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 2.3s
+                        - RN JS Thread for 2.3s
                       </p>
                       <p
                         class="whitespace-pre"
@@ -19202,7 +19278,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <div
                         class="text-neutral-300 text-sm"
                       >
-                        - mqt_js -
+                        - RN JS Thread -
                         <div
                           class="text-neutral-300 text-sm"
                         >
@@ -19875,7 +19951,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 1.5s
+                        - RN JS Thread for 1.5s
                       </p>
                       <p
                         class="whitespace-pre"
@@ -19931,7 +20007,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <div
                         class="text-neutral-300 text-sm"
                       >
-                        - mqt_js -
+                        - RN JS Thread -
                         <div
                           class="text-neutral-300 text-sm"
                         >
@@ -20207,7 +20283,45 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         <div
           class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
         >
-          CPU Usage per thread (%)
+          <div
+            class="flex flex-row align-center"
+          >
+            <div
+              class="mr-3 flex items-center"
+            >
+              <svg
+                height="30"
+                viewBox="-11.5 -10.23174 23 20.46348"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  fill="#61dafb"
+                  r="2.05"
+                />
+                <g
+                  fill="none"
+                  stroke="#61dafb"
+                >
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(.5 .8660254 -.8660254 .5 0 0)"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(-.5 .8660254 -.8660254 -.5 0 0)"
+                  />
+                </g>
+              </svg>
+            </div>
+            RN JS Thread CPU Usage (%)
+          </div>
         </div>
         <apex-charts
           height="500"
@@ -20227,7 +20341,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               <div
                 class="text-neutral-200 text-xl"
               >
-                Threads
+                Other threads
               </div>
             </div>
             <svg
