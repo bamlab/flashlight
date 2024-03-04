@@ -41,6 +41,9 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
+Frame rate (FPS)
+Total CPU Usage (%)
+CPU Usage per thread (%)
 Threads
 Thread
 Average CPU Usage (%)
@@ -174,7 +177,8 @@ Binder #5
 0
 JITWorker
 0
-0"
+0
+RAM Usage (MB)"
 `;
 
 exports[`flashlight measure interactive it displays measures: Web app with measures and threads opened - 2. FULL 1`] = `
@@ -735,6 +739,11 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
         <div
           class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
         >
+          <div
+            class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+          >
+            Frame rate (FPS)
+          </div>
           <apex-charts
             height="500"
             options="[object Object]"
@@ -748,12 +757,22 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
         <div
           class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
         >
+          <div
+            class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+          >
+            Total CPU Usage (%)
+          </div>
           <apex-charts
             height="500"
             options="[object Object]"
             series="[object Object]"
             type="line"
           />
+          <div
+            class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+          >
+            CPU Usage per thread (%)
+          </div>
           <apex-charts
             height="500"
             options="[object Object]"
@@ -3155,6 +3174,11 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
         <div
           class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
         >
+          <div
+            class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+          >
+            RAM Usage (MB)
+          </div>
           <apex-charts
             height="500"
             options="[object Object]"

@@ -352,6 +352,9 @@ Coefficient of variation :
  
 2.7
  %
+Frame rate (FPS)
+Total CPU Usage (%)
+CPU Usage per thread (%)
 Threads
 Thread
 1-before-memo.apk
@@ -909,6 +912,7 @@ Binder:4646_5
 Binder:3978_4
 0
 0
+RAM Usage (MB)
 Showing average of 10 test iterations"
 `;
 
@@ -2302,6 +2306,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Frame rate (FPS)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -2315,12 +2324,22 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Total CPU Usage (%)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
           series="[object Object],[object Object]"
           type="line"
         />
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          CPU Usage per thread (%)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -12054,6 +12073,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          RAM Usage (MB)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -12178,6 +12202,9 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
+Frame rate (FPS)
+Total CPU Usage (%)
+CPU Usage per thread (%)
 Threads
 Thread
 1-before-memo.apk
@@ -12444,6 +12471,7 @@ Binder:9067_4
 pool-47-thread-
 0
 0
+RAM Usage (MB)
 Iteration 
 10
 /
@@ -13354,6 +13382,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Frame rate (FPS)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -13367,12 +13400,22 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Total CPU Usage (%)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
           series="[object Object],[object Object]"
           type="line"
         />
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          CPU Usage per thread (%)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -18062,6 +18105,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          RAM Usage (MB)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -18596,7 +18644,11 @@ Coefficient of variation :
  
 0.8
  %
+Frame rate (FPS)
+Total CPU Usage (%)
+CPU Usage per thread (%)
 Threads
+RAM Usage (MB)
 Reset
 Play all
 RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
@@ -20123,6 +20175,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Frame rate (FPS)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -20136,12 +20193,22 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Total CPU Usage (%)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
           series="[object Object],[object Object]"
           type="line"
         />
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          CPU Usage per thread (%)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -20191,6 +20258,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          RAM Usage (MB)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"

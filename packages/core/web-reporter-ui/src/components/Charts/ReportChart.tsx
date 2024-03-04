@@ -19,7 +19,7 @@ export const ReportChart = ({
   formatter,
   onPointClick,
 }: {
-  title: string;
+  title: string | React.ReactNode;
   series: LineSeriesType;
   height: number;
   timeLimit?: number | null;
