@@ -46,12 +46,12 @@ export const updateMeasuresReducer = (state: SocketData, measures: Measure[]): S
   ],
 });
 
-export const addNewResultReducer = (state: SocketData, bundleId: string): SocketData => ({
+export const addNewResultReducer = (state: SocketData, name: string): SocketData => ({
   ...state,
   results: [
     ...state.results,
     {
-      name: bundleId,
+      name,
       iterations: [],
       status: "SUCCESS",
     },

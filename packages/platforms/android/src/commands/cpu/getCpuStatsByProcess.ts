@@ -38,7 +38,7 @@ export const processOutput = (output: string, pid: string): ProcessStat[] => {
     .filter(Boolean)
     .map((subProcessStats) => {
       const processId = subProcessStats[0];
-      let processName = processId === pid ? ThreadNames.UI_THREAD : subProcessStats[1];
+      let processName = processId === pid ? ThreadNames.ANDROID.UI : subProcessStats[1];
 
       if (processName.includes(`Binder:${pid}_`)) {
         processName = processName.replace(`Binder:${pid}_`, "Binder #");

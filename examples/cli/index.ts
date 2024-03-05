@@ -9,7 +9,7 @@ const measures: Measure[] = [];
 const polling = profiler.pollPerformanceMeasures(bundleId, {
   onMeasure: (measure: Measure) => {
     measures.push(measure);
-    console.log(`JS Thread CPU Usage: ${measure.cpu.perName[ThreadNames.JS_THREAD]}%`);
+    console.log(`JS Thread CPU Usage: ${measure.cpu.perName[ThreadNames.RN.JS_ANDROID]}%`);
     console.log(`RAM Usage: ${measure.ram}MB`);
   },
 });

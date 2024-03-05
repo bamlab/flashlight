@@ -14,6 +14,7 @@ import { IterationSelector, useIterationSelector } from "./src/components/Iterat
 import { VideoSection } from "./src/sections/VideoSection";
 import { VideoEnabledContext } from "./videoCurrentTimeContext";
 import { HideSectionIfUndefinedValueFound } from "./src/sections/hideSectionForEmptyValue";
+import { mapThreadNames } from "./src/sections/threads";
 
 const Padding = styled.div`
   height: 10px;
@@ -27,12 +28,13 @@ const theme = createTheme({
 });
 
 const Report = ({
-  results,
+  results: rawResults,
   additionalMenuOptions,
 }: {
   results: TestCaseResult[];
   additionalMenuOptions?: MenuOption[];
 }) => {
+  const results = mapThreadNames(rawResults);
   const reports = useMemo(() => results.map((result) => new ReportModel(result)), [results]);
   const minIterationCount = Math.min(...reports.map((report) => report.getIterationCount()));
   const iterationSelector = useIterationSelector(minIterationCount);

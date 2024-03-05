@@ -54,13 +54,23 @@ export interface AveragedTestCaseResult {
 export const POLLING_INTERVAL = 500;
 
 export const ThreadNames = {
-  UI_THREAD: "UI Thread",
-  JS_THREAD: "mqt_js",
-};
-
-export const ThreadNamesIOS = {
-  UI_THREAD: "Main Thread",
-  JS_THREAD: "com.facebook.react.JavaScript",
+  ANDROID: {
+    UI: "UI Thread",
+  },
+  IOS: {
+    UI: "Main Thread",
+  },
+  FLUTTER: {
+    UI: "1.ui",
+    RASTER: "1.raster",
+    IO: "1.io",
+  },
+  RN: {
+    JS_ANDROID: "mqt_js",
+    JS_BRIDGELESS_ANDROID: "mqt_v_js",
+    OLD_BRIDGE: "mqt_native_modu",
+    JS_IOS: "com.facebook.react.JavaScript",
+  },
 };
 
 export interface ScreenRecorder {

@@ -55,9 +55,9 @@ export const pollPerformanceMeasures = (
           frameTimes,
           atraceInterval,
           Math.max(
-            cpuMeasures.perName[ThreadNames.UI_THREAD] || 0,
+            cpuMeasures.perName[ThreadNames.ANDROID.UI] || 0,
             // Hack for Flutter apps - if this thread is heavy app will be laggy
-            cpuMeasures.perName["(1.ui)"] || 0
+            cpuMeasures.perName[ThreadNames.FLUTTER.UI] || 0
           )
         );
 

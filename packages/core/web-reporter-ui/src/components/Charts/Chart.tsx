@@ -40,7 +40,7 @@ export const Chart = ({
   visibleSeriesNames,
 }: {
   type: Exclude<ApexChartProps["type"], undefined>;
-  title: string;
+  title: string | React.ReactNode;
   series: ApexAxisChartSeries;
   options?: ApexOptions;
   height: number;
@@ -50,7 +50,6 @@ export const Chart = ({
   const commonOptions: ApexOptions = useMemo(
     () => ({
       chart: {
-        id: title,
         animations: {
           enabled: true,
           easing: "linear",
@@ -61,15 +60,8 @@ export const Chart = ({
         zoom: {
           enabled: false,
         },
-      },
-      title: {
-        text: title,
-        align: "left",
-        style: {
-          color: "#FFFFFF",
-          fontSize: "24px",
-          fontFamily: "Inter, sans-serif",
-          fontWeight: 500,
+        toolbar: {
+          show: false,
         },
       },
       dataLabels: {
@@ -97,7 +89,7 @@ export const Chart = ({
         strokeDashArray: 3,
       },
     }),
-    [colors, title]
+    [colors]
   );
 
   const chartOptions = useMemo(() => merge(commonOptions, options), [commonOptions, options]);
@@ -119,6 +111,17 @@ export const Chart = ({
   }, [visibleSeriesNames]);
 
   return (
-    <ReactApexChart ref={ref} options={chartOptions} series={series} type={type} height={height} />
+    <>
+      <div className="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium">
+        {title}
+      </div>
+      <ReactApexChart
+        ref={ref}
+        options={chartOptions}
+        series={series}
+        type={type}
+        height={height}
+      />
+    </>
   );
 };

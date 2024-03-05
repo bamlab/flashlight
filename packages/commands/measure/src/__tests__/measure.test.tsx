@@ -100,8 +100,8 @@ describe("flashlight measure interactive", () => {
     await screen.findByText("47");
 
     // expand threads
-    await screen.findByText("Threads");
-    fireEvent.click(screen.getByText("Threads"));
+    await screen.findByText("Other threads");
+    fireEvent.click(screen.getByText("Other threads"));
 
     expectWebAppToMatchSnapshot("Web app with measures and threads opened");
 

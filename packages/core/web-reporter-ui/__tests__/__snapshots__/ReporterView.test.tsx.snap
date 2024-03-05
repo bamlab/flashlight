@@ -91,7 +91,7 @@ High CPU Usage
 3.2 s
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 3.2
@@ -121,7 +121,7 @@ Coefficient of variation :
  %
  
 - 
-(mqt_js)
+RN JS Thread
  -
 Min Max Range:
  
@@ -268,7 +268,7 @@ High CPU Usage
 (-69%)
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 1
@@ -298,7 +298,7 @@ Coefficient of variation :
  %
  
 - 
-(mqt_js)
+RN JS Thread
  -
 Min Max Range:
  
@@ -352,18 +352,21 @@ Coefficient of variation :
  
 2.7
  %
-Threads
+Frame rate (FPS)
+Total CPU Usage (%)
+RN JS Thread CPU Usage (%)
+Other threads
 Thread
 1-before-memo.apk
 sorted descending
 2-after-memo.apk
-mqt_js
+RN JS Thread
 32.2
 12.3
 culture.staging
 10
 8.7
-mqt_native_modu
+RN Bridge Thread
 7.2
 4.2
 RenderThread
@@ -909,6 +912,7 @@ Binder:4646_5
 Binder:3978_4
 0
 0
+RAM Usage (MB)
 Showing average of 10 test iterations"
 `;
 
@@ -1402,7 +1406,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 3.2s
+                        - RN JS Thread for 3.2s
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
@@ -1453,7 +1457,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <div
                         class="text-neutral-300 text-sm"
                       >
-                        - (mqt_js) -
+                        - RN JS Thread -
                         <div
                           class="text-neutral-300 text-sm"
                         >
@@ -2083,7 +2087,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 1s
+                        - RN JS Thread for 1s
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
@@ -2134,7 +2138,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       <div
                         class="text-neutral-300 text-sm"
                       >
-                        - (mqt_js) -
+                        - RN JS Thread -
                         <div
                           class="text-neutral-300 text-sm"
                         >
@@ -2302,6 +2306,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Frame rate (FPS)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -2315,12 +2324,60 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Total CPU Usage (%)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
           series="[object Object],[object Object]"
           type="line"
         />
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          <div
+            class="flex flex-row align-center"
+          >
+            <div
+              class="mr-3 flex items-center"
+            >
+              <svg
+                height="30"
+                viewBox="-11.5 -10.23174 23 20.46348"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  fill="#61dafb"
+                  r="2.05"
+                />
+                <g
+                  fill="none"
+                  stroke="#61dafb"
+                >
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(.5 .8660254 -.8660254 .5 0 0)"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(-.5 .8660254 -.8660254 -.5 0 0)"
+                  />
+                </g>
+              </svg>
+            </div>
+            RN JS Thread CPU Usage (%)
+          </div>
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -2339,7 +2396,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
               <div
                 class="text-neutral-200 text-xl"
               >
-                Threads
+                Other threads
               </div>
             </div>
             <svg
@@ -2474,8 +2531,8 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                 >
                   <tr
-                    aria-checked="false"
-                    class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                    aria-checked="true"
+                    class="MuiTableRow-root Mui-selected MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
                     role="checkbox"
                     tabindex="-1"
                   >
@@ -2483,10 +2540,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                     >
                       <span
-                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                       >
                         <input
                           aria-labelledby="enhanced-table-checkbox-0"
+                          checked=""
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
                           type="checkbox"
@@ -2494,12 +2552,12 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                         <svg
                           aria-hidden="true"
                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                          data-testid="CheckBoxOutlineBlankIcon"
+                          data-testid="CheckBoxIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
                           />
                         </svg>
                         <span
@@ -2512,7 +2570,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       id="enhanced-table-checkbox-0"
                       scope="row"
                     >
-                      mqt_js
+                      RN JS Thread
                     </th>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -2616,7 +2674,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       id="enhanced-table-checkbox-2"
                       scope="row"
                     >
-                      mqt_native_modu
+                      RN Bridge Thread
                     </th>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -12053,6 +12111,11 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          RAM Usage (MB)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -12122,7 +12185,7 @@ High CPU Usage
 3.5 s
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 3.5
@@ -12163,7 +12226,7 @@ High CPU Usage
 (-71%)
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 1
@@ -12177,18 +12240,21 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
-Threads
+Frame rate (FPS)
+Total CPU Usage (%)
+RN JS Thread CPU Usage (%)
+Other threads
 Thread
 1-before-memo.apk
 sorted descending
 2-after-memo.apk
-mqt_js
+RN JS Thread
 36.5
 12.7
 culture.staging
 10.9
 8.2
-mqt_native_modu
+RN Bridge Thread
 8.7
 4.3
 RenderThread
@@ -12443,6 +12509,7 @@ Binder:9067_4
 pool-47-thread-
 0
 0
+RAM Usage (MB)
 Iteration 
 10
 /
@@ -12819,7 +12886,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 3.5s
+                        - RN JS Thread for 3.5s
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
@@ -13257,7 +13324,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 1s
+                        - RN JS Thread for 1s
                       </p>
                     </div>
                     High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
@@ -13353,6 +13420,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Frame rate (FPS)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -13366,12 +13438,60 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Total CPU Usage (%)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
           series="[object Object],[object Object]"
           type="line"
         />
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          <div
+            class="flex flex-row align-center"
+          >
+            <div
+              class="mr-3 flex items-center"
+            >
+              <svg
+                height="30"
+                viewBox="-11.5 -10.23174 23 20.46348"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  fill="#61dafb"
+                  r="2.05"
+                />
+                <g
+                  fill="none"
+                  stroke="#61dafb"
+                >
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(.5 .8660254 -.8660254 .5 0 0)"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(-.5 .8660254 -.8660254 -.5 0 0)"
+                  />
+                </g>
+              </svg>
+            </div>
+            RN JS Thread CPU Usage (%)
+          </div>
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -13390,7 +13510,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
               <div
                 class="text-neutral-200 text-xl"
               >
-                Threads
+                Other threads
               </div>
             </div>
             <svg
@@ -13525,8 +13645,8 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   class="MuiTableBody-root css-apqrd9-MuiTableBody-root"
                 >
                   <tr
-                    aria-checked="false"
-                    class="MuiTableRow-root MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
+                    aria-checked="true"
+                    class="MuiTableRow-root Mui-selected MuiTableRow-hover css-1q1u3t4-MuiTableRow-root"
                     role="checkbox"
                     tabindex="-1"
                   >
@@ -13534,10 +13654,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-paddingCheckbox MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-1fx9ves-MuiTableCell-root"
                     >
                       <span
-                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
+                        class="MuiButtonBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium PrivateSwitchBase-root MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium Mui-checked MuiCheckbox-root MuiCheckbox-colorPrimary MuiCheckbox-sizeMedium !text-neutral-300 css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root"
                       >
                         <input
                           aria-labelledby="enhanced-table-checkbox-0"
+                          checked=""
                           class="PrivateSwitchBase-input css-1m9pwf3"
                           data-indeterminate="false"
                           type="checkbox"
@@ -13545,12 +13666,12 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                         <svg
                           aria-hidden="true"
                           class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
-                          data-testid="CheckBoxOutlineBlankIcon"
+                          data-testid="CheckBoxIcon"
                           focusable="false"
                           viewBox="0 0 24 24"
                         >
                           <path
-                            d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+                            d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
                           />
                         </svg>
                         <span
@@ -13563,7 +13684,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       id="enhanced-table-checkbox-0"
                       scope="row"
                     >
-                      mqt_js
+                      RN JS Thread
                     </th>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -13667,7 +13788,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       id="enhanced-table-checkbox-2"
                       scope="row"
                     >
-                      mqt_native_modu
+                      RN Bridge Thread
                     </th>
                     <td
                       class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -18060,6 +18181,11 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          RAM Usage (MB)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -18240,7 +18366,7 @@ High CPU Usage
 4 s
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 2.3
@@ -18276,7 +18402,7 @@ Coefficient of variation :
  %
  
 - 
-(mqt_js)
+RN JS Thread
  -
 Min Max Range:
  
@@ -18454,7 +18580,7 @@ UI Thread
 3.3
 s
 - 
-mqt_js
+RN JS Thread
  for
  
 1.5
@@ -18490,7 +18616,7 @@ Coefficient of variation :
  %
  
 - 
-(mqt_js)
+RN JS Thread
  -
 Min Max Range:
  
@@ -18515,7 +18641,7 @@ Coefficient of variation :
 0
  %
 - 
-(fabric_bg)
+fabric_bg
  -
 Min Max Range:
  
@@ -18594,7 +18720,11 @@ Coefficient of variation :
  
 0.8
  %
-Threads
+Frame rate (FPS)
+Total CPU Usage (%)
+RN JS Thread CPU Usage (%)
+Other threads
+RAM Usage (MB)
 Reset
 Play all
 RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
@@ -19092,7 +19222,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 2.3s
+                        - RN JS Thread for 2.3s
                       </p>
                       <p
                         class="whitespace-pre"
@@ -19148,7 +19278,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <div
                         class="text-neutral-300 text-sm"
                       >
-                        - (mqt_js) -
+                        - RN JS Thread -
                         <div
                           class="text-neutral-300 text-sm"
                         >
@@ -19821,7 +19951,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <p
                         class="whitespace-pre"
                       >
-                        - mqt_js for 1.5s
+                        - RN JS Thread for 1.5s
                       </p>
                       <p
                         class="whitespace-pre"
@@ -19877,7 +20007,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <div
                         class="text-neutral-300 text-sm"
                       >
-                        - (mqt_js) -
+                        - RN JS Thread -
                         <div
                           class="text-neutral-300 text-sm"
                         >
@@ -19915,7 +20045,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                       <div
                         class="text-neutral-300 text-sm"
                       >
-                        - (fabric_bg) -
+                        - fabric_bg -
                         <div
                           class="text-neutral-300 text-sm"
                         >
@@ -20121,6 +20251,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Frame rate (FPS)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -20134,12 +20269,60 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          Total CPU Usage (%)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
           series="[object Object],[object Object]"
           type="line"
         />
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          <div
+            class="flex flex-row align-center"
+          >
+            <div
+              class="mr-3 flex items-center"
+            >
+              <svg
+                height="30"
+                viewBox="-11.5 -10.23174 23 20.46348"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle
+                  fill="#61dafb"
+                  r="2.05"
+                />
+                <g
+                  fill="none"
+                  stroke="#61dafb"
+                >
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(.5 .8660254 -.8660254 .5 0 0)"
+                  />
+                  <ellipse
+                    rx="11"
+                    ry="4.2"
+                    transform="matrix(-.5 .8660254 -.8660254 -.5 0 0)"
+                  />
+                </g>
+              </svg>
+            </div>
+            RN JS Thread CPU Usage (%)
+          </div>
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"
@@ -20158,7 +20341,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
               <div
                 class="text-neutral-200 text-xl"
               >
-                Threads
+                Other threads
               </div>
             </div>
             <svg
@@ -20189,6 +20372,11 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
       <div
         class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
       >
+        <div
+          class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+        >
+          RAM Usage (MB)
+        </div>
         <apex-charts
           height="500"
           options="[object Object]"

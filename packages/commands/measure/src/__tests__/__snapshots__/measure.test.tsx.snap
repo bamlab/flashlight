@@ -28,7 +28,7 @@ High CPU Usage
 0.5 s
 Impacted threads:
 - 
-mqt_js
+RN JS Thread
  for
  
 0.5
@@ -41,12 +41,15 @@ It’s worth noting that results might be higher than expected since we measure 
  
 here for more details
 )
-Threads
+Frame rate (FPS)
+Total CPU Usage (%)
+RN JS Thread CPU Usage (%)
+Other threads
 Thread
 Average CPU Usage (%)
 sorted descending
 Current CPU Usage (%)
-mqt_js
+RN JS Thread
 50
 0
 com.example
@@ -67,7 +70,7 @@ OkHttp Dispatch
 mali-cmar-backe
 1
 0
-mqt_native_modu
+RN Bridge Thread
 1
 0
 Signal Catcher
@@ -174,7 +177,8 @@ Binder #5
 0
 JITWorker
 0
-0"
+0
+RAM Usage (MB)"
 `;
 
 exports[`flashlight measure interactive it displays measures: Web app with measures and threads opened - 2. FULL 1`] = `
@@ -644,7 +648,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         <p
                           class="whitespace-pre"
                         >
-                          - mqt_js for 0.5s
+                          - RN JS Thread for 0.5s
                         </p>
                       </div>
                       High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
@@ -735,6 +739,11 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
         <div
           class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
         >
+          <div
+            class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+          >
+            Frame rate (FPS)
+          </div>
           <apex-charts
             height="500"
             options="[object Object]"
@@ -748,12 +757,60 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
         <div
           class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
         >
+          <div
+            class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+          >
+            Total CPU Usage (%)
+          </div>
           <apex-charts
             height="500"
             options="[object Object]"
             series="[object Object]"
             type="line"
           />
+          <div
+            class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+          >
+            <div
+              class="flex flex-row align-center"
+            >
+              <div
+                class="mr-3 flex items-center"
+              >
+                <svg
+                  height="30"
+                  viewBox="-11.5 -10.23174 23 20.46348"
+                  width="30"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    fill="#61dafb"
+                    r="2.05"
+                  />
+                  <g
+                    fill="none"
+                    stroke="#61dafb"
+                  >
+                    <ellipse
+                      rx="11"
+                      ry="4.2"
+                    />
+                    <ellipse
+                      rx="11"
+                      ry="4.2"
+                      transform="matrix(.5 .8660254 -.8660254 .5 0 0)"
+                    />
+                    <ellipse
+                      rx="11"
+                      ry="4.2"
+                      transform="matrix(-.5 .8660254 -.8660254 -.5 0 0)"
+                    />
+                  </g>
+                </svg>
+              </div>
+              RN JS Thread CPU Usage (%)
+            </div>
+          </div>
           <apex-charts
             height="500"
             options="[object Object]"
@@ -772,7 +829,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                 <div
                   class="text-neutral-200 text-xl"
                 >
-                  Threads
+                  Other threads
                 </div>
               </div>
               <svg
@@ -946,7 +1003,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         id="enhanced-table-checkbox-0"
                         scope="row"
                       >
-                        mqt_js
+                        RN JS Thread
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -1310,7 +1367,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         id="enhanced-table-checkbox-7"
                         scope="row"
                       >
-                        mqt_native_modu
+                        RN Bridge Thread
                       </th>
                       <td
                         class="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight MuiTableCell-sizeSmall !text-neutral-300 border-b-neutral-500 css-tqm498-MuiTableCell-root"
@@ -3155,6 +3212,11 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
         <div
           class="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg"
         >
+          <div
+            class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
+          >
+            RAM Usage (MB)
+          </div>
           <apex-charts
             height="500"
             options="[object Object]"
