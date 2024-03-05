@@ -2,6 +2,28 @@ import fs from "fs";
 import { buildYmlSpec, Commands } from "./buildYmlSpec";
 import { TMP_FOLDER } from "./TMP_FOLDER";
 
+const buildAppiumYmlSpec = (commands: {
+  testCommands: string[];
+  postTestCommands?: string[];
+  installCommands?: string[];
+  preTestCommands?: string[];
+}) =>
+  buildYmlSpec({
+    ...commands,
+    installCommands: [
+      ...Commands.INSTALL_NODE,
+      ...Commands.UNPACKAGE_TEST_PACKAGE,
+      ...Commands.INSTALL_APPIUM,
+      ...(commands.installCommands || []),
+    ],
+    preTestCommands: [...Commands.START_APPIUM, ...(commands.preTestCommands || [])],
+    testCommands: [
+      ...Commands.NAVIGATE_TO_TEST_SOURCE_CODE,
+      ...commands.testCommands,
+      ...Commands.MOVE_RESULTS_TO_ARTIFACTS,
+    ],
+  });
+
 export const getSingleTestFileYml = ({
   testFile,
   postTestCommand = "echo 'Tests are done!",
@@ -11,18 +33,15 @@ export const getSingleTestFileYml = ({
 }) => {
   const testCode = fs.readFileSync(testFile).toString();
 
-  return buildYmlSpec({
-    installCommands: [...Commands.INSTALL_APPIUM],
-    preTestCommands: [...Commands.START_APPIUM],
+  return buildAppiumYmlSpec({
     testCommands: [...Commands.createFile(testCode, "runTest.ts"), "npx ts-node runTest.ts"],
     postTestCommands: [postTestCommand].filter(Boolean),
   });
 };
 
 export const getTestCommandYml = ({ testCommand }: { testCommand: string }) => {
-  return buildYmlSpec({
-    preTestCommands: [...Commands.START_APPIUM],
-    installCommands: [...Commands.INSTALL_APPIUM, "npm install --global yarn"],
+  return buildAppiumYmlSpec({
+    installCommands: ["npm install --global yarn"],
     testCommands: ["yarn", testCommand],
   });
 };

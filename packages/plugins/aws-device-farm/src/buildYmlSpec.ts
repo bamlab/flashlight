@@ -41,6 +41,10 @@ done;`,
   createFile: (code: string, filePath: string) => [
     `echo ${Buffer.from(code).toString("base64")} | base64 -d  > ${filePath}`,
   ],
+  MOVE_RESULTS_TO_ARTIFACTS: [
+    "mv result*.json $DEVICEFARM_LOG_DIR",
+    "mv *.mp4 $DEVICEFARM_LOG_DIR || true",
+  ],
 };
 
 export const buildYmlSpec = ({
@@ -59,22 +63,13 @@ export const buildYmlSpec = ({
     android_test_host: "amazon_linux_2",
     phases: {
       install: {
-        commands: [
-          ...Commands.INSTALL_NODE,
-          ...Commands.UNPACKAGE_TEST_PACKAGE,
-          ...(installCommands || []),
-        ],
+        commands: [...(installCommands || [])],
       },
       pre_test: {
         commands: [...(preTestCommands || [])],
       },
       test: {
-        commands: [
-          ...Commands.NAVIGATE_TO_TEST_SOURCE_CODE,
-          ...testCommands,
-          "mv result*.json $DEVICEFARM_LOG_DIR",
-          "mv *.mp4 $DEVICEFARM_LOG_DIR || true",
-        ],
+        commands: [...testCommands],
       },
       post_test: {
         commands: postTestCommands,
