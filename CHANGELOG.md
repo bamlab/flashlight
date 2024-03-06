@@ -1,4 +1,12 @@
-## 0.17.0 (2024-03-06)
+## [0.17.0](https://github.com/bamlab/flashlight/compare/v0.16.3...v0.17.0) (2024-03-06)
+
+### Bug Fixes
+
+- **report:** fix graph curviness bugs by upgrading apex ([#204](https://github.com/bamlab/flashlight/issues/204)) ([0223202](https://github.com/bamlab/flashlight/commit/0223202301f58fc656e5c6e826bb61d80d899568))
+
+### Features
+
+- **report:** make RN and Flutter threads stand out nicely ([#205](https://github.com/bamlab/flashlight/issues/205)) ([0e99a27](https://github.com/bamlab/flashlight/commit/0e99a2780c00fad342b2a13189a2adee51e5dd9c))
 
 ## [0.16.3](https://github.com/bamlab/flashlight/compare/v0.16.2...v0.16.3) (2024-01-30)
 
