@@ -21,16 +21,16 @@ In fact, it's only when **KILL JS** has finished calculating, that we finally se
 
 ## Measuring JS performance with Flashlight
 
-With Flashlight, we can track the JS thread (it's called `mqt_js`) CPU usage which is directly correlated:
+With Flashlight, we can track the JS thread CPU usage which is directly correlated:
 
 - 0% JS thread CPU Usage = Max JS FPS
 - 100% JS thread CPU Usage = 0 JS FPS
-
-Using the Flipper plugin or the web reporter, you can select `mqt_js` in the thread list. You can see in this example report below that there's a big issue on JS side:
-
-![massive JS thread issue](./assets/js-thread-flashlight.png)
 
 :::tip Your goal
 Your goal should be to ensure that the JS thread doesn't appear in the **Processes with high CPU usage** section.  
 In fact, your goal should be that nothing appears there, in addition to having your average FPS close to 60.
 :::
+
+Using `flashlight measure` or `flashlight report`, the JS thread should be preselected on the 3rd graph. You can see in this example report below that there's a big issue on JS side:
+
+![massive JS thread issue](./assets/js-thread-flashlight.png)
