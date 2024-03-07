@@ -1,4 +1,8 @@
-## 0.17.1 (2024-03-07)
+## [0.17.1](https://github.com/bamlab/flashlight/compare/v0.16.3...v0.17.0) (2024-03-06)
+
+### Bug Fixes
+
+- **cloud:** fix: removing generated APKs when running cloud cli to avoid fails ([#207](https://github.com/bamlab/flashlight/issues/207)) by @mojavad
 
 ## [0.17.0](https://github.com/bamlab/flashlight/compare/v0.16.3...v0.17.0) (2024-03-06)
 
