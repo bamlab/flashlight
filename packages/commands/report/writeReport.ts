@@ -47,6 +47,27 @@ const copyVideoFiles = (results: TestCaseResult[], outputDir: string) => {
   });
 };
 
+export const getResultsFromPaths = (jsonPaths: string[]): TestCaseResult[] => {
+  const getJsonPaths = () => {
+    return jsonPaths
+      .map((path) => {
+        const isDirectory = fs.lstatSync(path).isDirectory();
+
+        if (isDirectory) {
+          return fs
+            .readdirSync(path)
+            .filter((file) => file.endsWith(".json"))
+            .map((file) => `${path}/${file}`);
+        } else {
+          return path;
+        }
+      })
+      .flat();
+  };
+
+  return getJsonPaths().map((path) => JSON.parse(fs.readFileSync(path, "utf8")));
+};
+
 export const writeReport = ({
   jsonPaths,
   outputDir,
@@ -68,27 +89,7 @@ export const writeReport = ({
     .replace(`src="${scriptName}"`, `src="${newJsFile}"`)
     .replace('type="module"', "");
 
-  const getJsonPaths = () => {
-    return jsonPaths
-      .map((path) => {
-        const isDirectory = fs.lstatSync(path).isDirectory();
-
-        if (isDirectory) {
-          return fs
-            .readdirSync(path)
-            .filter((file) => file.endsWith(".json"))
-            .map((file) => `${path}/${file}`);
-        } else {
-          return path;
-        }
-      })
-      .flat();
-  };
-
-  const results: TestCaseResult[] = getJsonPaths().map((path) =>
-    JSON.parse(fs.readFileSync(path, "utf8"))
-  );
-
+  const results = getResultsFromPaths(jsonPaths);
   const isIOSTestCaseResult = results.every((result) => result.type === "IOS_EXPERIMENTAL");
 
   const report = JSON.stringify(getMeasuresForTimeInterval({ results, skip, duration }));
