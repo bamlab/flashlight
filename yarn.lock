@@ -4258,9 +4258,9 @@
   integrity sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==
 
 "@types/adm-zip@^0.5.0":
-  version "0.5.3"
-  resolved "https://registry.yarnpkg.com/@types/adm-zip/-/adm-zip-0.5.3.tgz#6f8a06ffad5fdafad0318fd0837fca763a04c682"
-  integrity sha512-LfeDIiFdvphelYY2aMWTyQBr5cTb1EL9Qcu19jFizdt2sL/jL+fy1fE8IgAKBFI5XfbGukaRDDM5PiJTrovAhA==
+  version "0.5.5"
+  resolved "https://registry.yarnpkg.com/@types/adm-zip/-/adm-zip-0.5.5.tgz#4588042726aa5f351d7ea88232e4a952f60e7c1a"
+  integrity sha512-YCGstVMjc4LTY5uK9/obvxBya93axZOVOyf2GSUulADzmLhYE45u2nAssCs/fWBs1Ifq5Vat75JTPwd5XZoPJw==
   dependencies:
     "@types/node" "*"
 
@@ -7031,7 +7031,6 @@ eslint-module-utils@^2.8.0:
 
 "eslint-plugin-custom-rules@link:./packages/eslint-plugin-flashlight-eslint-rules/dist":
   version "0.0.0"
-  uid ""
 
 eslint-plugin-flowtype@^8.0.3:
   version "8.0.3"
