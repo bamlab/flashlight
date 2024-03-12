@@ -16,8 +16,8 @@ flashlight test --bundleId <your app bundle id> \
 ```
 
 - This will run your e2e test 10 times (by default), measure performance during 10s for each iteration and write measures to `results.json`
-- Use `npx @perf-profiler/profiler getCurrentApp` to display the bundle id of the app opened on your phone
-- _⚠️ Your e2e test command should start the app_
+- Use `flashlight tools android_get_bundle_id` to display the bundle id of the app opened on your phone
+- _⚠️ If your e2e test doesn't start the app, add `--skipRestart` to the `flashlight test` command_
 
 ### Example: quickly measure startup performance
 
@@ -39,6 +39,8 @@ To go further, use a proper e2e testing framework (Appium, Detox, Maestro...).
 
 If you're not using one yet, we recommend to use [Maestro](https://github.com/mobile-dev-inc/maestro)!
 Check out our [Maestro guide](./maestro) to get started quickly with Flashlight and Maestro.
+
+You can also check the full command options [here](./api)
 
 ## 2. Open the web report
 
