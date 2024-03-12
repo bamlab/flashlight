@@ -94,15 +94,6 @@ You should now be able to open [the local server](http://localhost:1234/)
 
 Run `yarn jest Plugin -u` after modifications.
 
-### Flipper plugin
+### Running the docs website locally
 
-- Add the path to the `packages` folder in `~/.flipper/config.json`.
-
-For instance, my `config.json` is currently
-`{"pluginPaths":["/Users/almouro/dev/projects/android-performance-profiler/packages"],"disabledPlugins":[],"darkMode":"system","updaterEnabled":true,"launcherEnabled":true,"lastWindowPosition":{"x":-195,"y":-1415,"width":1280,"height":1415}}`
-
-- in the `packages/flipper-plugin-android-performance-profiler`, run `yarn watch`.
-
-You should now see your local plugin in Flipper (ensure you have uninstalled the one from the marketplace), in the disabled plugin section if you're installing for the first time.
-
-⚠️ _when modifying files outside of the `packages/flipper-plugin-android-performance-profiler`, live reload sometimes doesn't work and you need to re-run `yarn watch` for changes to take effect_ 😕
+[See details here](./website/README.md)

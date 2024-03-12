@@ -4,26 +4,7 @@ sidebar_position: 1
 
 # Getting started
 
-## Installation
-
-Install the CLI with:
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
-
-<Tabs>
-  <TabItem value="unix" label="macOS/Linux" default>
-    <CodeBlock language="bash">
-      curl https://get.flashlight.dev | bash
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="windows" label="Windows">
-    <CodeBlock language="bash">
-      iwr https://get.flashlight.dev/windows -useb | iex
-    </CodeBlock>
-  </TabItem>
-</Tabs>
+<Install />
 
 ## Simple usage
 

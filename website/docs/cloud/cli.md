@@ -6,6 +6,8 @@ sidebar_position: 2
 
 [flashlight.dev](https://flashlight.dev) is now in open beta! 🥳
 
+<Install />
+
 ## Usage
 
 Create your API key [here](https://app.flashlight.dev/api-key) and set it as an environment variable:

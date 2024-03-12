@@ -1,4 +1,3 @@
-import React from "react";
 import { AveragedTestCaseResult, TestCaseResult, ThreadNames } from "@perf-profiler/types";
 import { RNLogo } from "../components/icons/ReactNativeLogo";
 import { FlutterLogo } from "../components/icons/FlutterLogo";

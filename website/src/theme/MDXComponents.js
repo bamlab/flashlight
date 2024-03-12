@@ -1,14 +1,12 @@
 /* eslint-disable import/no-unresolved */
-// Import the original mapper
 import MDXComponents from "@theme-original/MDXComponents";
 import Contact from "@site/src/components/Contact.mdx";
+import Install from "@site/src/components/Install.mdx";
 
 const _module = {
-  // Re-use the default mapping
   ...MDXComponents,
-  // Map the "<Highlight>" tag to our Highlight component
-  // `Highlight` will receive all props that were passed to `<Highlight>` in MDX
   Contact,
+  Install,
 };
 
 export default _module;
