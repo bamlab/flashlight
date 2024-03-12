@@ -1,6 +1,9 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+/* eslint-disable import/no-unresolved */
+import { themes } from "prism-react-renderer";
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Flashlight",
@@ -93,7 +96,7 @@ const config = {
       },
 
       prism: {
-        darkTheme: require("prism-react-renderer/themes/vsDark"),
+        darkTheme: themes.vsDark,
       },
 
       // forceDarkMode: true,
