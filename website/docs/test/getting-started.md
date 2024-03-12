@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Getting started
 
+<Install />
+
 ## 1. Run the test command
 
 If you have an e2e test script, you can run:
