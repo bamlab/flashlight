@@ -4365,14 +4365,14 @@
     "@types/serve-static" "*"
 
 "@types/file-saver@^2.0.5":
-  version "2.0.6"
-  resolved "https://registry.yarnpkg.com/@types/file-saver/-/file-saver-2.0.6.tgz#914688eec1ccce7dd1bf655c0b0a178e89303589"
-  integrity sha512-Mw671DVqoMHbjw0w4v2iiOro01dlT/WhWp5uwecBa0Wg8c+bcZOjgF1ndBnlaxhtvFCgTRBtsGivSVhrK/vnag==
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/@types/file-saver/-/file-saver-2.0.7.tgz#8dbb2f24bdc7486c54aa854eb414940bbd056f7d"
+  integrity sha512-dNKVfHd/jk0SkR/exKGj2ggkB45MAkzvWCaqLUUgkyjITkGNzH8H+yUwr+BLJUBjZOe9w8X3wgmXhZDRg1ED6A==
 
 "@types/graceful-fs@^4.1.3":
-  version "4.1.8"
-  resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.8.tgz#417e461e4dc79d957dc3107f45fe4973b09c2915"
-  integrity sha512-NhRH7YzWq8WiNKVavKPBmtLYZHxNY19Hh+az28O/phfp68CF45pMFud+ZzJ8ewnxnC5smIdF3dqFeiSUQ5I+pw==
+  version "4.1.9"
+  resolved "https://registry.yarnpkg.com/@types/graceful-fs/-/graceful-fs-4.1.9.tgz#2a06bc0f68a20ab37b3e36aa238be6abdf49e8b4"
+  integrity sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==
   dependencies:
     "@types/node" "*"
 
@@ -7031,7 +7031,6 @@ eslint-module-utils@^2.8.0:
 
 "eslint-plugin-custom-rules@link:./packages/eslint-plugin-flashlight-eslint-rules/dist":
   version "0.0.0"
-  uid ""
 
 eslint-plugin-flowtype@^8.0.3:
   version "8.0.3"
