@@ -41,7 +41,7 @@ export const ReportChart = ({
       chart: {
         events: videoEnabled ? setVideoCurrentTimeOnMouseHover : {},
       },
-      annotations: getAnnotations(annotationIntervalList) || {},
+      annotations: getAnnotations(videoEnabled, annotationIntervalList) || {},
       stroke: {
         width: 2,
       },

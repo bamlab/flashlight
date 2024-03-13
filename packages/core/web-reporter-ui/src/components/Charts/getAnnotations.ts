@@ -42,10 +42,13 @@ const getVideoCurrentTimeAnnotation = () => {
   ];
 };
 
-export const getAnnotations = (annotationIntervalList: AnnotationInterval[] | undefined) => {
+export const getAnnotations = (
+  videoEnabled: boolean,
+  annotationIntervalList: AnnotationInterval[] | undefined
+) => {
   if (!annotationIntervalList) return;
 
-  const xaxis = getVideoCurrentTimeAnnotation();
+  const xaxis = videoEnabled ? getVideoCurrentTimeAnnotation() : [];
   const yaxis = getAnnotationInterval(annotationIntervalList);
   if (!xaxis.length || !yaxis.length) return undefined;
 

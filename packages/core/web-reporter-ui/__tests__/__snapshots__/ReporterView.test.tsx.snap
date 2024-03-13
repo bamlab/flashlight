@@ -403,38 +403,7 @@ Frame rate (FPS)
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 57,
-        "y2": 60,
-        "borderColor": "#158000",
-        "fillColor": "#158000",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#158000",
-          "style": {
-            "color": "#fff",
-            "background": "#158000"
-          },
-          "text": "Safe Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }
 [
   {
@@ -667,38 +636,7 @@ Total CPU Usage (%)
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 300,
-        "y2": 1000,
-        "borderColor": "#E62E2E",
-        "fillColor": "#E62E2E",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#E62E2E",
-          "style": {
-            "color": "#fff",
-            "background": "#E62E2E"
-          },
-          "text": "Danger Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }
 [
   {
@@ -933,38 +871,7 @@ RN JS Thread CPU Usage (%)
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 90,
-        "y2": 100,
-        "borderColor": "#E62E2E",
-        "fillColor": "#E62E2E",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#E62E2E",
-          "style": {
-            "color": "#fff",
-            "background": "#E62E2E"
-          },
-          "text": "Danger Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }
 [
   {
@@ -3387,38 +3294,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 57,
-        "y2": 60,
-        "borderColor": "#158000",
-        "fillColor": "#158000",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#158000",
-          "style": {
-            "color": "#fff",
-            "background": "#158000"
-          },
-          "text": "Safe Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }[
   {
     "name": "1-before-memo.apk",
@@ -3665,38 +3541,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 300,
-        "y2": 1000,
-        "borderColor": "#E62E2E",
-        "fillColor": "#E62E2E",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#E62E2E",
-          "style": {
-            "color": "#fff",
-            "background": "#E62E2E"
-          },
-          "text": "Danger Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }[
   {
     "name": "1-before-memo.apk",
@@ -3976,38 +3821,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 90,
-        "y2": 100,
-        "borderColor": "#E62E2E",
-        "fillColor": "#E62E2E",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#E62E2E",
-          "style": {
-            "color": "#fff",
-            "background": "#E62E2E"
-          },
-          "text": "Danger Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }[
   {
     "name": "RN JS Thread (1-before-memo.apk)",
@@ -14325,38 +14139,7 @@ Frame rate (FPS)
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 57,
-        "y2": 60,
-        "borderColor": "#158000",
-        "fillColor": "#158000",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#158000",
-          "style": {
-            "color": "#fff",
-            "background": "#158000"
-          },
-          "text": "Safe Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }
 [
   {
@@ -14589,38 +14372,7 @@ Total CPU Usage (%)
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 300,
-        "y2": 1000,
-        "borderColor": "#E62E2E",
-        "fillColor": "#E62E2E",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#E62E2E",
-          "style": {
-            "color": "#fff",
-            "background": "#E62E2E"
-          },
-          "text": "Danger Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }
 [
   {
@@ -14855,38 +14607,7 @@ RN JS Thread CPU Usage (%)
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 90,
-        "y2": 100,
-        "borderColor": "#E62E2E",
-        "fillColor": "#E62E2E",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#E62E2E",
-          "style": {
-            "color": "#fff",
-            "background": "#E62E2E"
-          },
-          "text": "Danger Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }
 [
   {
@@ -16535,38 +16256,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 57,
-        "y2": 60,
-        "borderColor": "#158000",
-        "fillColor": "#158000",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#158000",
-          "style": {
-            "color": "#fff",
-            "background": "#158000"
-          },
-          "text": "Safe Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }[
   {
     "name": "1-before-memo.apk",
@@ -16813,38 +16503,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 300,
-        "y2": 1000,
-        "borderColor": "#E62E2E",
-        "fillColor": "#E62E2E",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#E62E2E",
-          "style": {
-            "color": "#fff",
-            "background": "#E62E2E"
-          },
-          "text": "Danger Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }[
   {
     "name": "1-before-memo.apk",
@@ -17124,38 +16783,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
     "borderColor": "#FFFFFF33",
     "strokeDashArray": 3
   },
-  "annotations": {
-    "xaxis": [
-      {
-        "x": 0,
-        "strokeDashArray": 0,
-        "label": {
-          "style": {
-            "color": "#fff"
-          },
-          "text": "Video",
-          "position": "right"
-        }
-      }
-    ],
-    "yaxis": [
-      {
-        "y": 90,
-        "y2": 100,
-        "borderColor": "#E62E2E",
-        "fillColor": "#E62E2E",
-        "opacity": 0.2,
-        "label": {
-          "borderColor": "#E62E2E",
-          "style": {
-            "color": "#fff",
-            "background": "#E62E2E"
-          },
-          "text": "Danger Zone"
-        }
-      }
-    ]
-  }
+  "annotations": {}
 }[
   {
     "name": "RN JS Thread (1-before-memo.apk)",
