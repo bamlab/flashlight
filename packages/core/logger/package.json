@@ -4,12 +4,12 @@
   "main": "dist/index.js",
   "dependencies": {
     "kleur": "^4.1.5",
-    "luxon": "^3.0.2"
+    "luxon": "^3.4.4"
   },
   "bin": {
     "perf-profiler-logger": "dist/bin.js"
   },
   "devDependencies": {
-    "@types/luxon": "^3.0.0"
+    "@types/luxon": "^3.4.2"
   }
 }
