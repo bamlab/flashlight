@@ -14,7 +14,7 @@ const Search = styled("div")(({ theme }) => ({
   width: 300,
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
+const SearchIconWrapper = styled("div")(() => ({
   paddingLeft: 10,
   paddingRight: 10,
   height: "100%",
@@ -36,7 +36,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export const TextField = ({ onChange, value }: React.ComponentProps<typeof StyledInputBase>) => {
+export const TextField = ({
+  onChange,
+  value,
+}: {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+}) => {
   return (
     <Search>
       <SearchIconWrapper>

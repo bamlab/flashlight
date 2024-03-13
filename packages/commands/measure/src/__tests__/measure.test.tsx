@@ -61,7 +61,6 @@ describe("flashlight measure interactive", () => {
   };
 
   const setupWebApp = () => {
-    // eslint-disable-next-line testing-library/render-result-naming-convention
     const renderer = webRender(<MeasureWebApp />);
 
     return {

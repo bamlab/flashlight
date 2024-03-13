@@ -28,7 +28,7 @@ const TEN_MINUTES = 600000;
 const A_LOT_OF_TIME = 10 * TEN_MINUTES;
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+// @ts-expect-error
 if (global.test) {
   jest.setTimeout(A_LOT_OF_TIME);
 }
@@ -112,7 +112,7 @@ export class AppiumDriver {
     await new Promise((resolve) => setTimeout(resolve, delay));
   }
 
-  async takeScreenShot(screenName: string) {
+  async takeScreenShot() {
     // Make sure screen is fully render by waiting an arbitrary amount of time
     const TEN_SECONDS = 10000;
     await this.wait(TEN_SECONDS);
@@ -135,6 +135,7 @@ export class AppiumDriver {
     await element.waitForExist({ timeout: this.timeout, interval: 100 });
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async takeScreenshotOnFailure(command: () => Promise<void>, errorScreenshotName: string) {
     // eslint-disable-next-line no-useless-catch
     try {

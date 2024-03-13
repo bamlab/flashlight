@@ -26,8 +26,8 @@ const AverageFPSExplanation = () => (
 
 const AverageCPUUsageExplanation = () => (
   <>
-    An app might run at 60FPS but might be using too much processing power, so it's important to
-    check CPU usage.
+    An app might run at 60FPS but might be using too much processing power, so it&apos;s important
+    to check CPU usage.
     <br /> Depending on the device, this value can go up to <code>100% x number of cores</code>. For
     instance, a Samsung A10s has 4 cores, so the max value would be 400%.
   </>

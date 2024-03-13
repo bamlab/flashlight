@@ -5,19 +5,19 @@ import fs from "fs";
 const mockSpawn = (): ChildProcess => {
   const mockProcess = new EventEmitter();
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  // @ts-expect-error
   mockProcess.stdout = new EventEmitter();
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  // @ts-expect-error
   mockProcess.stderr = new EventEmitter();
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  // @ts-expect-error
   mockProcess.kill = jest.fn();
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  // @ts-expect-error
   return mockProcess;
 };
 
