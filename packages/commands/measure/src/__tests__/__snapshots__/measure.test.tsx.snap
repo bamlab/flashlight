@@ -42,8 +42,226 @@ It’s worth noting that results might be higher than expected since we measure 
 here for more details
 )
 Frame rate (FPS)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [
+    "var(--bright-magenta)",
+    "var(--bright-cyan)",
+    "var(--bright-yellow)",
+    "var(--bright-green)"
+  ],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}
+[
+  {
+    "name": "com.example",
+    "data": [
+      {
+        "x": 0,
+        "y": 60
+      },
+      {
+        "x": 500,
+        "y": 60
+      }
+    ]
+  }
+]
 Total CPU Usage (%)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [
+    "var(--bright-magenta)",
+    "var(--bright-cyan)",
+    "var(--bright-yellow)",
+    "var(--bright-green)"
+  ],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}
+[
+  {
+    "name": "com.example",
+    "data": [
+      {
+        "x": 0,
+        "y": 166
+      },
+      {
+        "x": 500,
+        "y": 0
+      }
+    ]
+  }
+]
 RN JS Thread CPU Usage (%)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0,
+    "max": 100
+  },
+  "colors": [
+    "var(--bright-magenta)",
+    "var(--bright-cyan)",
+    "var(--bright-yellow)",
+    "var(--bright-green)"
+  ],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    },
+    "showForSingleSeries": true
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}
+[
+  {
+    "name": "RN JS Thread",
+    "data": [
+      {
+        "x": 0,
+        "y": 100
+      },
+      {
+        "x": 500,
+        "y": 0
+      }
+    ]
+  }
+]
 Other threads
 Thread
 Average CPU Usage (%)
@@ -178,7 +396,79 @@ Binder #5
 JITWorker
 0
 0
-RAM Usage (MB)"
+RAM Usage (MB)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [
+    "var(--bright-magenta)",
+    "var(--bright-cyan)",
+    "var(--bright-yellow)",
+    "var(--bright-green)"
+  ],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}
+[
+  {
+    "name": "com.example",
+    "data": [
+      {
+        "x": 0,
+        "y": 376
+      },
+      {
+        "x": 500,
+        "y": 376
+      }
+    ]
+  }
+]"
 `;
 
 exports[`flashlight measure interactive it displays measures: Web app with measures and threads opened - 2. FULL 1`] = `
@@ -744,12 +1034,81 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
           >
             Frame rate (FPS)
           </div>
-          <apex-charts
-            height="500"
-            options="[object Object]"
-            series="[object Object]"
-            type="line"
-          />
+          <div
+            class="ApexChartsMock"
+          >
+            {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [
+    "var(--bright-magenta)",
+    "var(--bright-cyan)",
+    "var(--bright-yellow)",
+    "var(--bright-green)"
+  ],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}[
+  {
+    "name": "com.example",
+    "data": [
+      {
+        "x": 0,
+        "y": 60
+      },
+      {
+        "x": 500,
+        "y": 60
+      }
+    ]
+  }
+]
+          </div>
         </div>
         <div
           class="h-10"
@@ -762,12 +1121,81 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
           >
             Total CPU Usage (%)
           </div>
-          <apex-charts
-            height="500"
-            options="[object Object]"
-            series="[object Object]"
-            type="line"
-          />
+          <div
+            class="ApexChartsMock"
+          >
+            {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [
+    "var(--bright-magenta)",
+    "var(--bright-cyan)",
+    "var(--bright-yellow)",
+    "var(--bright-green)"
+  ],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}[
+  {
+    "name": "com.example",
+    "data": [
+      {
+        "x": 0,
+        "y": 166
+      },
+      {
+        "x": 500,
+        "y": 0
+      }
+    ]
+  }
+]
+          </div>
           <div
             class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
           >
@@ -811,12 +1239,83 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
               RN JS Thread CPU Usage (%)
             </div>
           </div>
-          <apex-charts
-            height="500"
-            options="[object Object]"
-            series="[object Object]"
-            type="line"
-          />
+          <div
+            class="ApexChartsMock"
+          >
+            {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0,
+    "max": 100
+  },
+  "colors": [
+    "var(--bright-magenta)",
+    "var(--bright-cyan)",
+    "var(--bright-yellow)",
+    "var(--bright-green)"
+  ],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    },
+    "showForSingleSeries": true
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}[
+  {
+    "name": "RN JS Thread",
+    "data": [
+      {
+        "x": 0,
+        "y": 100
+      },
+      {
+        "x": 500,
+        "y": 0
+      }
+    ]
+  }
+]
+          </div>
           <div
             class="border rounded-lg border-gray-800 py-4 px-4 cursor-pointer"
           >
@@ -3217,12 +3716,81 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
           >
             RAM Usage (MB)
           </div>
-          <apex-charts
-            height="500"
-            options="[object Object]"
-            series="[object Object]"
-            type="line"
-          />
+          <div
+            class="ApexChartsMock"
+          >
+            {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [
+    "var(--bright-magenta)",
+    "var(--bright-cyan)",
+    "var(--bright-yellow)",
+    "var(--bright-green)"
+  ],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}[
+  {
+    "name": "com.example",
+    "data": [
+      {
+        "x": 0,
+        "y": 376
+      },
+      {
+        "x": 500,
+        "y": 376
+      }
+    ]
+  }
+]
+          </div>
         </div>
         <div
           class="h-10"

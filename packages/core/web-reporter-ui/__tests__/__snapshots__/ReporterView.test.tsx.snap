@@ -353,8 +353,799 @@ Coefficient of variation :
 2.7
  %
 Frame rate (FPS)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 57,
+        "y2": 60,
+        "borderColor": "#158000",
+        "fillColor": "#158000",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#158000",
+          "style": {
+            "color": "#fff",
+            "background": "#158000"
+          },
+          "text": "Safe Zone"
+        }
+      }
+    ]
+  }
+}
+[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 59
+      },
+      {
+        "x": 500,
+        "y": 60
+      },
+      {
+        "x": 1000,
+        "y": 60
+      },
+      {
+        "x": 1500,
+        "y": 59
+      },
+      {
+        "x": 2000,
+        "y": 59
+      },
+      {
+        "x": 2500,
+        "y": 59
+      },
+      {
+        "x": 3000,
+        "y": 58
+      },
+      {
+        "x": 3500,
+        "y": 60
+      },
+      {
+        "x": 4000,
+        "y": 60
+      },
+      {
+        "x": 4500,
+        "y": 60
+      },
+      {
+        "x": 5000,
+        "y": 60
+      },
+      {
+        "x": 5500,
+        "y": 60
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 59
+      },
+      {
+        "x": 500,
+        "y": 58
+      },
+      {
+        "x": 1000,
+        "y": 58
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 60
+      },
+      {
+        "x": 2500,
+        "y": 60
+      },
+      {
+        "x": 3000,
+        "y": 60
+      },
+      {
+        "x": 3500,
+        "y": 60
+      },
+      {
+        "x": 4000,
+        "y": 60
+      },
+      {
+        "x": 4500,
+        "y": 60
+      },
+      {
+        "x": 5000,
+        "y": 60
+      },
+      {
+        "x": 5500,
+        "y": 60
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  }
+]
 Total CPU Usage (%)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 300,
+        "y2": 1000,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}
+[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 163.1
+      },
+      {
+        "x": 500,
+        "y": 182.7
+      },
+      {
+        "x": 1000,
+        "y": 170.5
+      },
+      {
+        "x": 1500,
+        "y": 144.8
+      },
+      {
+        "x": 2000,
+        "y": 156
+      },
+      {
+        "x": 2500,
+        "y": 124.2
+      },
+      {
+        "x": 3000,
+        "y": 137.8
+      },
+      {
+        "x": 3500,
+        "y": 45.7
+      },
+      {
+        "x": 4000,
+        "y": 8.3
+      },
+      {
+        "x": 4500,
+        "y": 7.6
+      },
+      {
+        "x": 5000,
+        "y": 7.4
+      },
+      {
+        "x": 5500,
+        "y": 8.1
+      },
+      {
+        "x": 6000,
+        "y": 8.4
+      },
+      {
+        "x": 6500,
+        "y": 8
+      },
+      {
+        "x": 7000,
+        "y": 9.5
+      },
+      {
+        "x": 7500,
+        "y": 7.9
+      },
+      {
+        "x": 8000,
+        "y": 8.3
+      },
+      {
+        "x": 8500,
+        "y": 7.8
+      },
+      {
+        "x": 9000,
+        "y": 7.8
+      },
+      {
+        "x": 9500,
+        "y": 8
+      },
+      {
+        "x": 10000,
+        "y": 8.5
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 196.7
+      },
+      {
+        "x": 500,
+        "y": 180.6
+      },
+      {
+        "x": 1000,
+        "y": 110
+      },
+      {
+        "x": 1500,
+        "y": 26
+      },
+      {
+        "x": 2000,
+        "y": 10.5
+      },
+      {
+        "x": 2500,
+        "y": 7.8
+      },
+      {
+        "x": 3000,
+        "y": 7.7
+      },
+      {
+        "x": 3500,
+        "y": 7.6
+      },
+      {
+        "x": 4000,
+        "y": 7.4
+      },
+      {
+        "x": 4500,
+        "y": 7.4
+      },
+      {
+        "x": 5000,
+        "y": 7.9
+      },
+      {
+        "x": 5500,
+        "y": 7.8
+      },
+      {
+        "x": 6000,
+        "y": 7.8
+      },
+      {
+        "x": 6500,
+        "y": 7.6
+      },
+      {
+        "x": 7000,
+        "y": 7.7
+      },
+      {
+        "x": 7500,
+        "y": 7.2
+      },
+      {
+        "x": 8000,
+        "y": 7.8
+      },
+      {
+        "x": 8500,
+        "y": 7.9
+      },
+      {
+        "x": 9000,
+        "y": 7.6
+      },
+      {
+        "x": 9500,
+        "y": 8
+      },
+      {
+        "x": 10000,
+        "y": 7.7
+      }
+    ]
+  }
+]
 RN JS Thread CPU Usage (%)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0,
+    "max": 100
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    },
+    "showForSingleSeries": true
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 90,
+        "y2": 100,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}
+[
+  {
+    "name": "RN JS Thread (1-before-memo.apk)",
+    "data": [
+      {
+        "x": 0,
+        "y": 93.3
+      },
+      {
+        "x": 500,
+        "y": 98.9
+      },
+      {
+        "x": 1000,
+        "y": 99.3
+      },
+      {
+        "x": 1500,
+        "y": 98.7
+      },
+      {
+        "x": 2000,
+        "y": 82.2
+      },
+      {
+        "x": 2500,
+        "y": 79.7
+      },
+      {
+        "x": 3000,
+        "y": 79.9
+      },
+      {
+        "x": 3500,
+        "y": 24.1
+      },
+      {
+        "x": 4000,
+        "y": 1.5
+      },
+      {
+        "x": 4500,
+        "y": 1.7
+      },
+      {
+        "x": 5000,
+        "y": 1.3
+      },
+      {
+        "x": 5500,
+        "y": 1.5
+      },
+      {
+        "x": 6000,
+        "y": 1.6
+      },
+      {
+        "x": 6500,
+        "y": 1.4
+      },
+      {
+        "x": 7000,
+        "y": 1.6
+      },
+      {
+        "x": 7500,
+        "y": 1.7
+      },
+      {
+        "x": 8000,
+        "y": 1.5
+      },
+      {
+        "x": 8500,
+        "y": 1.3
+      },
+      {
+        "x": 9000,
+        "y": 1.2
+      },
+      {
+        "x": 9500,
+        "y": 1.8
+      },
+      {
+        "x": 10000,
+        "y": 1.7
+      }
+    ]
+  },
+  {
+    "name": "RN JS Thread (2-after-memo.apk)",
+    "data": [
+      {
+        "x": 0,
+        "y": 95.3
+      },
+      {
+        "x": 500,
+        "y": 91.3
+      },
+      {
+        "x": 1000,
+        "y": 40.7
+      },
+      {
+        "x": 1500,
+        "y": 6.4
+      },
+      {
+        "x": 2000,
+        "y": 1.3
+      },
+      {
+        "x": 2500,
+        "y": 1.6
+      },
+      {
+        "x": 3000,
+        "y": 1.4
+      },
+      {
+        "x": 3500,
+        "y": 1.6
+      },
+      {
+        "x": 4000,
+        "y": 1.2
+      },
+      {
+        "x": 4500,
+        "y": 1.5
+      },
+      {
+        "x": 5000,
+        "y": 1.6
+      },
+      {
+        "x": 5500,
+        "y": 1.6
+      },
+      {
+        "x": 6000,
+        "y": 1.5
+      },
+      {
+        "x": 6500,
+        "y": 1.5
+      },
+      {
+        "x": 7000,
+        "y": 1.7
+      },
+      {
+        "x": 7500,
+        "y": 1.3
+      },
+      {
+        "x": 8000,
+        "y": 1.5
+      },
+      {
+        "x": 8500,
+        "y": 1.5
+      },
+      {
+        "x": 9000,
+        "y": 1.6
+      },
+      {
+        "x": 9500,
+        "y": 1.5
+      },
+      {
+        "x": 10000,
+        "y": 1.5
+      }
+    ]
+  }
+]
 Other threads
 Thread
 1-before-memo.apk
@@ -913,6 +1704,238 @@ Binder:3978_4
 0
 0
 RAM Usage (MB)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}
+[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 427
+      },
+      {
+        "x": 500,
+        "y": 450
+      },
+      {
+        "x": 1000,
+        "y": 444
+      },
+      {
+        "x": 1500,
+        "y": 445
+      },
+      {
+        "x": 2000,
+        "y": 396
+      },
+      {
+        "x": 2500,
+        "y": 388
+      },
+      {
+        "x": 3000,
+        "y": 405
+      },
+      {
+        "x": 3500,
+        "y": 406
+      },
+      {
+        "x": 4000,
+        "y": 406
+      },
+      {
+        "x": 4500,
+        "y": 406
+      },
+      {
+        "x": 5000,
+        "y": 406
+      },
+      {
+        "x": 5500,
+        "y": 406
+      },
+      {
+        "x": 6000,
+        "y": 405
+      },
+      {
+        "x": 6500,
+        "y": 405
+      },
+      {
+        "x": 7000,
+        "y": 399
+      },
+      {
+        "x": 7500,
+        "y": 399
+      },
+      {
+        "x": 8000,
+        "y": 398
+      },
+      {
+        "x": 8500,
+        "y": 398
+      },
+      {
+        "x": 9000,
+        "y": 397
+      },
+      {
+        "x": 9500,
+        "y": 397
+      },
+      {
+        "x": 10000,
+        "y": 397
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 452
+      },
+      {
+        "x": 500,
+        "y": 460
+      },
+      {
+        "x": 1000,
+        "y": 407
+      },
+      {
+        "x": 1500,
+        "y": 409
+      },
+      {
+        "x": 2000,
+        "y": 408
+      },
+      {
+        "x": 2500,
+        "y": 408
+      },
+      {
+        "x": 3000,
+        "y": 409
+      },
+      {
+        "x": 3500,
+        "y": 409
+      },
+      {
+        "x": 4000,
+        "y": 409
+      },
+      {
+        "x": 4500,
+        "y": 409
+      },
+      {
+        "x": 5000,
+        "y": 409
+      },
+      {
+        "x": 5500,
+        "y": 409
+      },
+      {
+        "x": 6000,
+        "y": 409
+      },
+      {
+        "x": 6500,
+        "y": 409
+      },
+      {
+        "x": 7000,
+        "y": 409
+      },
+      {
+        "x": 7500,
+        "y": 409
+      },
+      {
+        "x": 8000,
+        "y": 409
+      },
+      {
+        "x": 8500,
+        "y": 409
+      },
+      {
+        "x": 9000,
+        "y": 409
+      },
+      {
+        "x": 9500,
+        "y": 409
+      },
+      {
+        "x": 10000,
+        "y": 409
+      }
+    ]
+  }
+]
 Showing average of 10 test iterations"
 `;
 
@@ -2311,12 +3334,272 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
         >
           Frame rate (FPS)
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 57,
+        "y2": 60,
+        "borderColor": "#158000",
+        "fillColor": "#158000",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#158000",
+          "style": {
+            "color": "#fff",
+            "background": "#158000"
+          },
+          "text": "Safe Zone"
+        }
+      }
+    ]
+  }
+}[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 59
+      },
+      {
+        "x": 500,
+        "y": 60
+      },
+      {
+        "x": 1000,
+        "y": 60
+      },
+      {
+        "x": 1500,
+        "y": 59
+      },
+      {
+        "x": 2000,
+        "y": 59
+      },
+      {
+        "x": 2500,
+        "y": 59
+      },
+      {
+        "x": 3000,
+        "y": 58
+      },
+      {
+        "x": 3500,
+        "y": 60
+      },
+      {
+        "x": 4000,
+        "y": 60
+      },
+      {
+        "x": 4500,
+        "y": 60
+      },
+      {
+        "x": 5000,
+        "y": 60
+      },
+      {
+        "x": 5500,
+        "y": 60
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 59
+      },
+      {
+        "x": 500,
+        "y": 58
+      },
+      {
+        "x": 1000,
+        "y": 58
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 60
+      },
+      {
+        "x": 2500,
+        "y": 60
+      },
+      {
+        "x": 3000,
+        "y": 60
+      },
+      {
+        "x": 3500,
+        "y": 60
+      },
+      {
+        "x": 4000,
+        "y": 60
+      },
+      {
+        "x": 4500,
+        "y": 60
+      },
+      {
+        "x": 5000,
+        "y": 60
+      },
+      {
+        "x": 5500,
+        "y": 60
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  }
+]
+        </div>
       </div>
       <div
         class="h-10"
@@ -2329,12 +3612,272 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
         >
           Total CPU Usage (%)
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 300,
+        "y2": 1000,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 163.1
+      },
+      {
+        "x": 500,
+        "y": 182.7
+      },
+      {
+        "x": 1000,
+        "y": 170.5
+      },
+      {
+        "x": 1500,
+        "y": 144.8
+      },
+      {
+        "x": 2000,
+        "y": 156
+      },
+      {
+        "x": 2500,
+        "y": 124.2
+      },
+      {
+        "x": 3000,
+        "y": 137.8
+      },
+      {
+        "x": 3500,
+        "y": 45.7
+      },
+      {
+        "x": 4000,
+        "y": 8.3
+      },
+      {
+        "x": 4500,
+        "y": 7.6
+      },
+      {
+        "x": 5000,
+        "y": 7.4
+      },
+      {
+        "x": 5500,
+        "y": 8.1
+      },
+      {
+        "x": 6000,
+        "y": 8.4
+      },
+      {
+        "x": 6500,
+        "y": 8
+      },
+      {
+        "x": 7000,
+        "y": 9.5
+      },
+      {
+        "x": 7500,
+        "y": 7.9
+      },
+      {
+        "x": 8000,
+        "y": 8.3
+      },
+      {
+        "x": 8500,
+        "y": 7.8
+      },
+      {
+        "x": 9000,
+        "y": 7.8
+      },
+      {
+        "x": 9500,
+        "y": 8
+      },
+      {
+        "x": 10000,
+        "y": 8.5
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 196.7
+      },
+      {
+        "x": 500,
+        "y": 180.6
+      },
+      {
+        "x": 1000,
+        "y": 110
+      },
+      {
+        "x": 1500,
+        "y": 26
+      },
+      {
+        "x": 2000,
+        "y": 10.5
+      },
+      {
+        "x": 2500,
+        "y": 7.8
+      },
+      {
+        "x": 3000,
+        "y": 7.7
+      },
+      {
+        "x": 3500,
+        "y": 7.6
+      },
+      {
+        "x": 4000,
+        "y": 7.4
+      },
+      {
+        "x": 4500,
+        "y": 7.4
+      },
+      {
+        "x": 5000,
+        "y": 7.9
+      },
+      {
+        "x": 5500,
+        "y": 7.8
+      },
+      {
+        "x": 6000,
+        "y": 7.8
+      },
+      {
+        "x": 6500,
+        "y": 7.6
+      },
+      {
+        "x": 7000,
+        "y": 7.7
+      },
+      {
+        "x": 7500,
+        "y": 7.2
+      },
+      {
+        "x": 8000,
+        "y": 7.8
+      },
+      {
+        "x": 8500,
+        "y": 7.9
+      },
+      {
+        "x": 9000,
+        "y": 7.6
+      },
+      {
+        "x": 9500,
+        "y": 8
+      },
+      {
+        "x": 10000,
+        "y": 7.7
+      }
+    ]
+  }
+]
+        </div>
         <div
           class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
         >
@@ -2378,12 +3921,274 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
             RN JS Thread CPU Usage (%)
           </div>
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0,
+    "max": 100
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    },
+    "showForSingleSeries": true
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 90,
+        "y2": 100,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}[
+  {
+    "name": "RN JS Thread (1-before-memo.apk)",
+    "data": [
+      {
+        "x": 0,
+        "y": 93.3
+      },
+      {
+        "x": 500,
+        "y": 98.9
+      },
+      {
+        "x": 1000,
+        "y": 99.3
+      },
+      {
+        "x": 1500,
+        "y": 98.7
+      },
+      {
+        "x": 2000,
+        "y": 82.2
+      },
+      {
+        "x": 2500,
+        "y": 79.7
+      },
+      {
+        "x": 3000,
+        "y": 79.9
+      },
+      {
+        "x": 3500,
+        "y": 24.1
+      },
+      {
+        "x": 4000,
+        "y": 1.5
+      },
+      {
+        "x": 4500,
+        "y": 1.7
+      },
+      {
+        "x": 5000,
+        "y": 1.3
+      },
+      {
+        "x": 5500,
+        "y": 1.5
+      },
+      {
+        "x": 6000,
+        "y": 1.6
+      },
+      {
+        "x": 6500,
+        "y": 1.4
+      },
+      {
+        "x": 7000,
+        "y": 1.6
+      },
+      {
+        "x": 7500,
+        "y": 1.7
+      },
+      {
+        "x": 8000,
+        "y": 1.5
+      },
+      {
+        "x": 8500,
+        "y": 1.3
+      },
+      {
+        "x": 9000,
+        "y": 1.2
+      },
+      {
+        "x": 9500,
+        "y": 1.8
+      },
+      {
+        "x": 10000,
+        "y": 1.7
+      }
+    ]
+  },
+  {
+    "name": "RN JS Thread (2-after-memo.apk)",
+    "data": [
+      {
+        "x": 0,
+        "y": 95.3
+      },
+      {
+        "x": 500,
+        "y": 91.3
+      },
+      {
+        "x": 1000,
+        "y": 40.7
+      },
+      {
+        "x": 1500,
+        "y": 6.4
+      },
+      {
+        "x": 2000,
+        "y": 1.3
+      },
+      {
+        "x": 2500,
+        "y": 1.6
+      },
+      {
+        "x": 3000,
+        "y": 1.4
+      },
+      {
+        "x": 3500,
+        "y": 1.6
+      },
+      {
+        "x": 4000,
+        "y": 1.2
+      },
+      {
+        "x": 4500,
+        "y": 1.5
+      },
+      {
+        "x": 5000,
+        "y": 1.6
+      },
+      {
+        "x": 5500,
+        "y": 1.6
+      },
+      {
+        "x": 6000,
+        "y": 1.5
+      },
+      {
+        "x": 6500,
+        "y": 1.5
+      },
+      {
+        "x": 7000,
+        "y": 1.7
+      },
+      {
+        "x": 7500,
+        "y": 1.3
+      },
+      {
+        "x": 8000,
+        "y": 1.5
+      },
+      {
+        "x": 8500,
+        "y": 1.5
+      },
+      {
+        "x": 9000,
+        "y": 1.6
+      },
+      {
+        "x": 9500,
+        "y": 1.5
+      },
+      {
+        "x": 10000,
+        "y": 1.5
+      }
+    ]
+  }
+]
+        </div>
         <div
           class="border rounded-lg border-gray-800 py-4 px-4 cursor-pointer"
         >
@@ -12116,12 +13921,241 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
         >
           RAM Usage (MB)
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 427
+      },
+      {
+        "x": 500,
+        "y": 450
+      },
+      {
+        "x": 1000,
+        "y": 444
+      },
+      {
+        "x": 1500,
+        "y": 445
+      },
+      {
+        "x": 2000,
+        "y": 396
+      },
+      {
+        "x": 2500,
+        "y": 388
+      },
+      {
+        "x": 3000,
+        "y": 405
+      },
+      {
+        "x": 3500,
+        "y": 406
+      },
+      {
+        "x": 4000,
+        "y": 406
+      },
+      {
+        "x": 4500,
+        "y": 406
+      },
+      {
+        "x": 5000,
+        "y": 406
+      },
+      {
+        "x": 5500,
+        "y": 406
+      },
+      {
+        "x": 6000,
+        "y": 405
+      },
+      {
+        "x": 6500,
+        "y": 405
+      },
+      {
+        "x": 7000,
+        "y": 399
+      },
+      {
+        "x": 7500,
+        "y": 399
+      },
+      {
+        "x": 8000,
+        "y": 398
+      },
+      {
+        "x": 8500,
+        "y": 398
+      },
+      {
+        "x": 9000,
+        "y": 397
+      },
+      {
+        "x": 9500,
+        "y": 397
+      },
+      {
+        "x": 10000,
+        "y": 397
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 452
+      },
+      {
+        "x": 500,
+        "y": 460
+      },
+      {
+        "x": 1000,
+        "y": 407
+      },
+      {
+        "x": 1500,
+        "y": 409
+      },
+      {
+        "x": 2000,
+        "y": 408
+      },
+      {
+        "x": 2500,
+        "y": 408
+      },
+      {
+        "x": 3000,
+        "y": 409
+      },
+      {
+        "x": 3500,
+        "y": 409
+      },
+      {
+        "x": 4000,
+        "y": 409
+      },
+      {
+        "x": 4500,
+        "y": 409
+      },
+      {
+        "x": 5000,
+        "y": 409
+      },
+      {
+        "x": 5500,
+        "y": 409
+      },
+      {
+        "x": 6000,
+        "y": 409
+      },
+      {
+        "x": 6500,
+        "y": 409
+      },
+      {
+        "x": 7000,
+        "y": 409
+      },
+      {
+        "x": 7500,
+        "y": 409
+      },
+      {
+        "x": 8000,
+        "y": 409
+      },
+      {
+        "x": 8500,
+        "y": 409
+      },
+      {
+        "x": 9000,
+        "y": 409
+      },
+      {
+        "x": 9500,
+        "y": 409
+      },
+      {
+        "x": 10000,
+        "y": 409
+      }
+    ]
+  }
+]
+        </div>
       </div>
       <div
         class="h-10"
@@ -12241,8 +14275,799 @@ It’s worth noting that results might be higher than expected since we measure 
 here for more details
 )
 Frame rate (FPS)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 57,
+        "y2": 60,
+        "borderColor": "#158000",
+        "fillColor": "#158000",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#158000",
+          "style": {
+            "color": "#fff",
+            "background": "#158000"
+          },
+          "text": "Safe Zone"
+        }
+      }
+    ]
+  }
+}
+[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 60
+      },
+      {
+        "x": 500,
+        "y": 59
+      },
+      {
+        "x": 1000,
+        "y": 60
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 56
+      },
+      {
+        "x": 2500,
+        "y": 59
+      },
+      {
+        "x": 3000,
+        "y": 57
+      },
+      {
+        "x": 3500,
+        "y": 60
+      },
+      {
+        "x": 4000,
+        "y": 60
+      },
+      {
+        "x": 4500,
+        "y": 60
+      },
+      {
+        "x": 5000,
+        "y": 60
+      },
+      {
+        "x": 5500,
+        "y": 60
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 60
+      },
+      {
+        "x": 500,
+        "y": 58
+      },
+      {
+        "x": 1000,
+        "y": 60
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 60
+      },
+      {
+        "x": 2500,
+        "y": 60
+      },
+      {
+        "x": 3000,
+        "y": 60
+      },
+      {
+        "x": 3500,
+        "y": 60
+      },
+      {
+        "x": 4000,
+        "y": 60
+      },
+      {
+        "x": 4500,
+        "y": 60
+      },
+      {
+        "x": 5000,
+        "y": 60
+      },
+      {
+        "x": 5500,
+        "y": 60
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  }
+]
 Total CPU Usage (%)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 300,
+        "y2": 1000,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}
+[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 176.3
+      },
+      {
+        "x": 500,
+        "y": 179
+      },
+      {
+        "x": 1000,
+        "y": 165
+      },
+      {
+        "x": 1500,
+        "y": 134
+      },
+      {
+        "x": 2000,
+        "y": 194.5
+      },
+      {
+        "x": 2500,
+        "y": 147.2
+      },
+      {
+        "x": 3000,
+        "y": 179.6
+      },
+      {
+        "x": 3500,
+        "y": 101.6
+      },
+      {
+        "x": 4000,
+        "y": 7.5
+      },
+      {
+        "x": 4500,
+        "y": 7.5
+      },
+      {
+        "x": 5000,
+        "y": 6.6
+      },
+      {
+        "x": 5500,
+        "y": 10.7
+      },
+      {
+        "x": 6000,
+        "y": 16
+      },
+      {
+        "x": 6500,
+        "y": 6.9
+      },
+      {
+        "x": 7000,
+        "y": 6.8
+      },
+      {
+        "x": 7500,
+        "y": 8.5
+      },
+      {
+        "x": 8000,
+        "y": 7.6
+      },
+      {
+        "x": 8500,
+        "y": 7.6
+      },
+      {
+        "x": 9000,
+        "y": 8.8
+      },
+      {
+        "x": 9500,
+        "y": 6.7
+      },
+      {
+        "x": 10000,
+        "y": 9.7
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 182.3
+      },
+      {
+        "x": 500,
+        "y": 191.4
+      },
+      {
+        "x": 1000,
+        "y": 120.2
+      },
+      {
+        "x": 1500,
+        "y": 22.7
+      },
+      {
+        "x": 2000,
+        "y": 8.3
+      },
+      {
+        "x": 2500,
+        "y": 8.3
+      },
+      {
+        "x": 3000,
+        "y": 7.5
+      },
+      {
+        "x": 3500,
+        "y": 7.3
+      },
+      {
+        "x": 4000,
+        "y": 6.5
+      },
+      {
+        "x": 4500,
+        "y": 6.4
+      },
+      {
+        "x": 5000,
+        "y": 8.1
+      },
+      {
+        "x": 5500,
+        "y": 8.3
+      },
+      {
+        "x": 6000,
+        "y": 8.3
+      },
+      {
+        "x": 6500,
+        "y": 6.4
+      },
+      {
+        "x": 7000,
+        "y": 8.4
+      },
+      {
+        "x": 7500,
+        "y": 6.4
+      },
+      {
+        "x": 8000,
+        "y": 7.3
+      },
+      {
+        "x": 8500,
+        "y": 10.2
+      },
+      {
+        "x": 9000,
+        "y": 8.2
+      },
+      {
+        "x": 9500,
+        "y": 8.9
+      },
+      {
+        "x": 10000,
+        "y": 7.4
+      }
+    ]
+  }
+]
 RN JS Thread CPU Usage (%)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0,
+    "max": 100
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    },
+    "showForSingleSeries": true
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 90,
+        "y2": 100,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}
+[
+  {
+    "name": "RN JS Thread (1-before-memo.apk)",
+    "data": [
+      {
+        "x": 0,
+        "y": 92.5
+      },
+      {
+        "x": 500,
+        "y": 98.9
+      },
+      {
+        "x": 1000,
+        "y": 100
+      },
+      {
+        "x": 1500,
+        "y": 99
+      },
+      {
+        "x": 2000,
+        "y": 99.6
+      },
+      {
+        "x": 2500,
+        "y": 97.8
+      },
+      {
+        "x": 3000,
+        "y": 100
+      },
+      {
+        "x": 3500,
+        "y": 59.1
+      },
+      {
+        "x": 4000,
+        "y": 0.9
+      },
+      {
+        "x": 4500,
+        "y": 1.9
+      },
+      {
+        "x": 5000,
+        "y": 0.9
+      },
+      {
+        "x": 5500,
+        "y": 1.9
+      },
+      {
+        "x": 6000,
+        "y": 1.9
+      },
+      {
+        "x": 6500,
+        "y": 1
+      },
+      {
+        "x": 7000,
+        "y": 1
+      },
+      {
+        "x": 7500,
+        "y": 2.8
+      },
+      {
+        "x": 8000,
+        "y": 0.9
+      },
+      {
+        "x": 8500,
+        "y": 1
+      },
+      {
+        "x": 9000,
+        "y": 2
+      },
+      {
+        "x": 9500,
+        "y": 1
+      },
+      {
+        "x": 10000,
+        "y": 2.9
+      }
+    ]
+  },
+  {
+    "name": "RN JS Thread (2-after-memo.apk)",
+    "data": [
+      {
+        "x": 0,
+        "y": 94.9
+      },
+      {
+        "x": 500,
+        "y": 96.7
+      },
+      {
+        "x": 1000,
+        "y": 45.9
+      },
+      {
+        "x": 1500,
+        "y": 0.9
+      },
+      {
+        "x": 2000,
+        "y": 1.9
+      },
+      {
+        "x": 2500,
+        "y": 1.8
+      },
+      {
+        "x": 3000,
+        "y": 1.9
+      },
+      {
+        "x": 3500,
+        "y": 1.8
+      },
+      {
+        "x": 4000,
+        "y": 0.9
+      },
+      {
+        "x": 4500,
+        "y": 0.9
+      },
+      {
+        "x": 5000,
+        "y": 1.8
+      },
+      {
+        "x": 5500,
+        "y": 1.9
+      },
+      {
+        "x": 6000,
+        "y": 1.8
+      },
+      {
+        "x": 6500,
+        "y": 0.9
+      },
+      {
+        "x": 7000,
+        "y": 1.9
+      },
+      {
+        "x": 7500,
+        "y": 0.9
+      },
+      {
+        "x": 8000,
+        "y": 1.8
+      },
+      {
+        "x": 8500,
+        "y": 1.9
+      },
+      {
+        "x": 9000,
+        "y": 1.8
+      },
+      {
+        "x": 9500,
+        "y": 1.8
+      },
+      {
+        "x": 10000,
+        "y": 1.8
+      }
+    ]
+  }
+]
 Other threads
 Thread
 1-before-memo.apk
@@ -12510,6 +15335,238 @@ pool-47-thread-
 0
 0
 RAM Usage (MB)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}
+[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 442
+      },
+      {
+        "x": 500,
+        "y": 456
+      },
+      {
+        "x": 1000,
+        "y": 439
+      },
+      {
+        "x": 1500,
+        "y": 434
+      },
+      {
+        "x": 2000,
+        "y": 394
+      },
+      {
+        "x": 2500,
+        "y": 372
+      },
+      {
+        "x": 3000,
+        "y": 392
+      },
+      {
+        "x": 3500,
+        "y": 405
+      },
+      {
+        "x": 4000,
+        "y": 405
+      },
+      {
+        "x": 4500,
+        "y": 405
+      },
+      {
+        "x": 5000,
+        "y": 405
+      },
+      {
+        "x": 5500,
+        "y": 405
+      },
+      {
+        "x": 6000,
+        "y": 393
+      },
+      {
+        "x": 6500,
+        "y": 393
+      },
+      {
+        "x": 7000,
+        "y": 394
+      },
+      {
+        "x": 7500,
+        "y": 394
+      },
+      {
+        "x": 8000,
+        "y": 394
+      },
+      {
+        "x": 8500,
+        "y": 394
+      },
+      {
+        "x": 9000,
+        "y": 394
+      },
+      {
+        "x": 9500,
+        "y": 394
+      },
+      {
+        "x": 10000,
+        "y": 394
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 447
+      },
+      {
+        "x": 500,
+        "y": 456
+      },
+      {
+        "x": 1000,
+        "y": 402
+      },
+      {
+        "x": 1500,
+        "y": 403
+      },
+      {
+        "x": 2000,
+        "y": 403
+      },
+      {
+        "x": 2500,
+        "y": 403
+      },
+      {
+        "x": 3000,
+        "y": 403
+      },
+      {
+        "x": 3500,
+        "y": 403
+      },
+      {
+        "x": 4000,
+        "y": 403
+      },
+      {
+        "x": 4500,
+        "y": 403
+      },
+      {
+        "x": 5000,
+        "y": 403
+      },
+      {
+        "x": 5500,
+        "y": 403
+      },
+      {
+        "x": 6000,
+        "y": 403
+      },
+      {
+        "x": 6500,
+        "y": 403
+      },
+      {
+        "x": 7000,
+        "y": 403
+      },
+      {
+        "x": 7500,
+        "y": 403
+      },
+      {
+        "x": 8000,
+        "y": 403
+      },
+      {
+        "x": 8500,
+        "y": 403
+      },
+      {
+        "x": 9000,
+        "y": 403
+      },
+      {
+        "x": 9500,
+        "y": 403
+      },
+      {
+        "x": 10000,
+        "y": 403
+      }
+    ]
+  }
+]
 Iteration 
 10
 /
@@ -13425,12 +16482,272 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
         >
           Frame rate (FPS)
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 57,
+        "y2": 60,
+        "borderColor": "#158000",
+        "fillColor": "#158000",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#158000",
+          "style": {
+            "color": "#fff",
+            "background": "#158000"
+          },
+          "text": "Safe Zone"
+        }
+      }
+    ]
+  }
+}[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 60
+      },
+      {
+        "x": 500,
+        "y": 59
+      },
+      {
+        "x": 1000,
+        "y": 60
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 56
+      },
+      {
+        "x": 2500,
+        "y": 59
+      },
+      {
+        "x": 3000,
+        "y": 57
+      },
+      {
+        "x": 3500,
+        "y": 60
+      },
+      {
+        "x": 4000,
+        "y": 60
+      },
+      {
+        "x": 4500,
+        "y": 60
+      },
+      {
+        "x": 5000,
+        "y": 60
+      },
+      {
+        "x": 5500,
+        "y": 60
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 60
+      },
+      {
+        "x": 500,
+        "y": 58
+      },
+      {
+        "x": 1000,
+        "y": 60
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 60
+      },
+      {
+        "x": 2500,
+        "y": 60
+      },
+      {
+        "x": 3000,
+        "y": 60
+      },
+      {
+        "x": 3500,
+        "y": 60
+      },
+      {
+        "x": 4000,
+        "y": 60
+      },
+      {
+        "x": 4500,
+        "y": 60
+      },
+      {
+        "x": 5000,
+        "y": 60
+      },
+      {
+        "x": 5500,
+        "y": 60
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  }
+]
+        </div>
       </div>
       <div
         class="h-10"
@@ -13443,12 +16760,272 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
         >
           Total CPU Usage (%)
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 300,
+        "y2": 1000,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 176.3
+      },
+      {
+        "x": 500,
+        "y": 179
+      },
+      {
+        "x": 1000,
+        "y": 165
+      },
+      {
+        "x": 1500,
+        "y": 134
+      },
+      {
+        "x": 2000,
+        "y": 194.5
+      },
+      {
+        "x": 2500,
+        "y": 147.2
+      },
+      {
+        "x": 3000,
+        "y": 179.6
+      },
+      {
+        "x": 3500,
+        "y": 101.6
+      },
+      {
+        "x": 4000,
+        "y": 7.5
+      },
+      {
+        "x": 4500,
+        "y": 7.5
+      },
+      {
+        "x": 5000,
+        "y": 6.6
+      },
+      {
+        "x": 5500,
+        "y": 10.7
+      },
+      {
+        "x": 6000,
+        "y": 16
+      },
+      {
+        "x": 6500,
+        "y": 6.9
+      },
+      {
+        "x": 7000,
+        "y": 6.8
+      },
+      {
+        "x": 7500,
+        "y": 8.5
+      },
+      {
+        "x": 8000,
+        "y": 7.6
+      },
+      {
+        "x": 8500,
+        "y": 7.6
+      },
+      {
+        "x": 9000,
+        "y": 8.8
+      },
+      {
+        "x": 9500,
+        "y": 6.7
+      },
+      {
+        "x": 10000,
+        "y": 9.7
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 182.3
+      },
+      {
+        "x": 500,
+        "y": 191.4
+      },
+      {
+        "x": 1000,
+        "y": 120.2
+      },
+      {
+        "x": 1500,
+        "y": 22.7
+      },
+      {
+        "x": 2000,
+        "y": 8.3
+      },
+      {
+        "x": 2500,
+        "y": 8.3
+      },
+      {
+        "x": 3000,
+        "y": 7.5
+      },
+      {
+        "x": 3500,
+        "y": 7.3
+      },
+      {
+        "x": 4000,
+        "y": 6.5
+      },
+      {
+        "x": 4500,
+        "y": 6.4
+      },
+      {
+        "x": 5000,
+        "y": 8.1
+      },
+      {
+        "x": 5500,
+        "y": 8.3
+      },
+      {
+        "x": 6000,
+        "y": 8.3
+      },
+      {
+        "x": 6500,
+        "y": 6.4
+      },
+      {
+        "x": 7000,
+        "y": 8.4
+      },
+      {
+        "x": 7500,
+        "y": 6.4
+      },
+      {
+        "x": 8000,
+        "y": 7.3
+      },
+      {
+        "x": 8500,
+        "y": 10.2
+      },
+      {
+        "x": 9000,
+        "y": 8.2
+      },
+      {
+        "x": 9500,
+        "y": 8.9
+      },
+      {
+        "x": 10000,
+        "y": 7.4
+      }
+    ]
+  }
+]
+        </div>
         <div
           class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
         >
@@ -13492,12 +17069,274 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
             RN JS Thread CPU Usage (%)
           </div>
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0,
+    "max": 100
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    },
+    "showForSingleSeries": true
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 90,
+        "y2": 100,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}[
+  {
+    "name": "RN JS Thread (1-before-memo.apk)",
+    "data": [
+      {
+        "x": 0,
+        "y": 92.5
+      },
+      {
+        "x": 500,
+        "y": 98.9
+      },
+      {
+        "x": 1000,
+        "y": 100
+      },
+      {
+        "x": 1500,
+        "y": 99
+      },
+      {
+        "x": 2000,
+        "y": 99.6
+      },
+      {
+        "x": 2500,
+        "y": 97.8
+      },
+      {
+        "x": 3000,
+        "y": 100
+      },
+      {
+        "x": 3500,
+        "y": 59.1
+      },
+      {
+        "x": 4000,
+        "y": 0.9
+      },
+      {
+        "x": 4500,
+        "y": 1.9
+      },
+      {
+        "x": 5000,
+        "y": 0.9
+      },
+      {
+        "x": 5500,
+        "y": 1.9
+      },
+      {
+        "x": 6000,
+        "y": 1.9
+      },
+      {
+        "x": 6500,
+        "y": 1
+      },
+      {
+        "x": 7000,
+        "y": 1
+      },
+      {
+        "x": 7500,
+        "y": 2.8
+      },
+      {
+        "x": 8000,
+        "y": 0.9
+      },
+      {
+        "x": 8500,
+        "y": 1
+      },
+      {
+        "x": 9000,
+        "y": 2
+      },
+      {
+        "x": 9500,
+        "y": 1
+      },
+      {
+        "x": 10000,
+        "y": 2.9
+      }
+    ]
+  },
+  {
+    "name": "RN JS Thread (2-after-memo.apk)",
+    "data": [
+      {
+        "x": 0,
+        "y": 94.9
+      },
+      {
+        "x": 500,
+        "y": 96.7
+      },
+      {
+        "x": 1000,
+        "y": 45.9
+      },
+      {
+        "x": 1500,
+        "y": 0.9
+      },
+      {
+        "x": 2000,
+        "y": 1.9
+      },
+      {
+        "x": 2500,
+        "y": 1.8
+      },
+      {
+        "x": 3000,
+        "y": 1.9
+      },
+      {
+        "x": 3500,
+        "y": 1.8
+      },
+      {
+        "x": 4000,
+        "y": 0.9
+      },
+      {
+        "x": 4500,
+        "y": 0.9
+      },
+      {
+        "x": 5000,
+        "y": 1.8
+      },
+      {
+        "x": 5500,
+        "y": 1.9
+      },
+      {
+        "x": 6000,
+        "y": 1.8
+      },
+      {
+        "x": 6500,
+        "y": 0.9
+      },
+      {
+        "x": 7000,
+        "y": 1.9
+      },
+      {
+        "x": 7500,
+        "y": 0.9
+      },
+      {
+        "x": 8000,
+        "y": 1.8
+      },
+      {
+        "x": 8500,
+        "y": 1.9
+      },
+      {
+        "x": 9000,
+        "y": 1.8
+      },
+      {
+        "x": 9500,
+        "y": 1.8
+      },
+      {
+        "x": 10000,
+        "y": 1.8
+      }
+    ]
+  }
+]
+        </div>
         <div
           class="border rounded-lg border-gray-800 py-4 px-4 cursor-pointer"
         >
@@ -18186,12 +22025,241 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
         >
           RAM Usage (MB)
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}[
+  {
+    "name": "1-before-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 442
+      },
+      {
+        "x": 500,
+        "y": 456
+      },
+      {
+        "x": 1000,
+        "y": 439
+      },
+      {
+        "x": 1500,
+        "y": 434
+      },
+      {
+        "x": 2000,
+        "y": 394
+      },
+      {
+        "x": 2500,
+        "y": 372
+      },
+      {
+        "x": 3000,
+        "y": 392
+      },
+      {
+        "x": 3500,
+        "y": 405
+      },
+      {
+        "x": 4000,
+        "y": 405
+      },
+      {
+        "x": 4500,
+        "y": 405
+      },
+      {
+        "x": 5000,
+        "y": 405
+      },
+      {
+        "x": 5500,
+        "y": 405
+      },
+      {
+        "x": 6000,
+        "y": 393
+      },
+      {
+        "x": 6500,
+        "y": 393
+      },
+      {
+        "x": 7000,
+        "y": 394
+      },
+      {
+        "x": 7500,
+        "y": 394
+      },
+      {
+        "x": 8000,
+        "y": 394
+      },
+      {
+        "x": 8500,
+        "y": 394
+      },
+      {
+        "x": 9000,
+        "y": 394
+      },
+      {
+        "x": 9500,
+        "y": 394
+      },
+      {
+        "x": 10000,
+        "y": 394
+      }
+    ]
+  },
+  {
+    "name": "2-after-memo.apk",
+    "data": [
+      {
+        "x": 0,
+        "y": 447
+      },
+      {
+        "x": 500,
+        "y": 456
+      },
+      {
+        "x": 1000,
+        "y": 402
+      },
+      {
+        "x": 1500,
+        "y": 403
+      },
+      {
+        "x": 2000,
+        "y": 403
+      },
+      {
+        "x": 2500,
+        "y": 403
+      },
+      {
+        "x": 3000,
+        "y": 403
+      },
+      {
+        "x": 3500,
+        "y": 403
+      },
+      {
+        "x": 4000,
+        "y": 403
+      },
+      {
+        "x": 4500,
+        "y": 403
+      },
+      {
+        "x": 5000,
+        "y": 403
+      },
+      {
+        "x": 5500,
+        "y": 403
+      },
+      {
+        "x": 6000,
+        "y": 403
+      },
+      {
+        "x": 6500,
+        "y": 403
+      },
+      {
+        "x": 7000,
+        "y": 403
+      },
+      {
+        "x": 7500,
+        "y": 403
+      },
+      {
+        "x": 8000,
+        "y": 403
+      },
+      {
+        "x": 8500,
+        "y": 403
+      },
+      {
+        "x": 9000,
+        "y": 403
+      },
+      {
+        "x": 9500,
+        "y": 403
+      },
+      {
+        "x": 10000,
+        "y": 403
+      }
+    ]
+  }
+]
+        </div>
       </div>
       <div
         class="h-10"
@@ -18721,10 +22789,1033 @@ Coefficient of variation :
 0.8
  %
 Frame rate (FPS)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 57,
+        "y2": 60,
+        "borderColor": "#158000",
+        "fillColor": "#158000",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#158000",
+          "style": {
+            "color": "#fff",
+            "background": "#158000"
+          },
+          "text": "Safe Zone"
+        }
+      }
+    ]
+  }
+}
+[
+  {
+    "name": "RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)",
+    "data": [
+      {
+        "x": 0,
+        "y": 25
+      },
+      {
+        "x": 500,
+        "y": 50
+      },
+      {
+        "x": 1000,
+        "y": 60
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 60
+      },
+      {
+        "x": 2500,
+        "y": 60
+      },
+      {
+        "x": 3000,
+        "y": 30
+      },
+      {
+        "x": 3500,
+        "y": 5
+      },
+      {
+        "x": 4000,
+        "y": 1
+      },
+      {
+        "x": 4500,
+        "y": 2
+      },
+      {
+        "x": 5000,
+        "y": 30
+      },
+      {
+        "x": 5500,
+        "y": 30
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  },
+  {
+    "name": "fabric-many-texts (com.fabricenabled)",
+    "data": [
+      {
+        "x": 0,
+        "y": 33
+      },
+      {
+        "x": 500,
+        "y": 47
+      },
+      {
+        "x": 1000,
+        "y": 59
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 60
+      },
+      {
+        "x": 2500,
+        "y": 60
+      },
+      {
+        "x": 3000,
+        "y": 31
+      },
+      {
+        "x": 3500,
+        "y": 2
+      },
+      {
+        "x": 4000,
+        "y": 1
+      },
+      {
+        "x": 4500,
+        "y": 0
+      },
+      {
+        "x": 5000,
+        "y": 1
+      },
+      {
+        "x": 5500,
+        "y": 0
+      },
+      {
+        "x": 6000,
+        "y": 30
+      },
+      {
+        "x": 6500,
+        "y": 30
+      },
+      {
+        "x": 7000,
+        "y": 30
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  }
+]
 Total CPU Usage (%)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 300,
+        "y2": 1000,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}
+[
+  {
+    "name": "RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)",
+    "data": [
+      {
+        "x": 0,
+        "y": 82
+      },
+      {
+        "x": 500,
+        "y": 134
+      },
+      {
+        "x": 1000,
+        "y": 198.9
+      },
+      {
+        "x": 1500,
+        "y": 188.5
+      },
+      {
+        "x": 2000,
+        "y": 165.7
+      },
+      {
+        "x": 2500,
+        "y": 157.5
+      },
+      {
+        "x": 3000,
+        "y": 148
+      },
+      {
+        "x": 3500,
+        "y": 125.4
+      },
+      {
+        "x": 4000,
+        "y": 127.8
+      },
+      {
+        "x": 4500,
+        "y": 123.4
+      },
+      {
+        "x": 5000,
+        "y": 83.8
+      },
+      {
+        "x": 5500,
+        "y": 56.8
+      },
+      {
+        "x": 6000,
+        "y": 8.2
+      },
+      {
+        "x": 6500,
+        "y": 12.9
+      },
+      {
+        "x": 7000,
+        "y": 9
+      },
+      {
+        "x": 7500,
+        "y": 8
+      },
+      {
+        "x": 8000,
+        "y": 10
+      },
+      {
+        "x": 8500,
+        "y": 9
+      },
+      {
+        "x": 9000,
+        "y": 8
+      },
+      {
+        "x": 9500,
+        "y": 9
+      },
+      {
+        "x": 10000,
+        "y": 11.1
+      }
+    ]
+  },
+  {
+    "name": "fabric-many-texts (com.fabricenabled)",
+    "data": [
+      {
+        "x": 0,
+        "y": 85
+      },
+      {
+        "x": 500,
+        "y": 125.1
+      },
+      {
+        "x": 1000,
+        "y": 184.3
+      },
+      {
+        "x": 1500,
+        "y": 191.3
+      },
+      {
+        "x": 2000,
+        "y": 170.8
+      },
+      {
+        "x": 2500,
+        "y": 153.1
+      },
+      {
+        "x": 3000,
+        "y": 149.8
+      },
+      {
+        "x": 3500,
+        "y": 122.9
+      },
+      {
+        "x": 4000,
+        "y": 108.2
+      },
+      {
+        "x": 4500,
+        "y": 141.1
+      },
+      {
+        "x": 5000,
+        "y": 108.1
+      },
+      {
+        "x": 5500,
+        "y": 167.1
+      },
+      {
+        "x": 6000,
+        "y": 53.4
+      },
+      {
+        "x": 6500,
+        "y": 87.7
+      },
+      {
+        "x": 7000,
+        "y": 48.6
+      },
+      {
+        "x": 7500,
+        "y": 9.1
+      },
+      {
+        "x": 8000,
+        "y": 8
+      },
+      {
+        "x": 8500,
+        "y": 8
+      },
+      {
+        "x": 9000,
+        "y": 9
+      },
+      {
+        "x": 9500,
+        "y": 8
+      },
+      {
+        "x": 10000,
+        "y": 10.9
+      }
+    ]
+  }
+]
 RN JS Thread CPU Usage (%)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0,
+    "max": 100
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    },
+    "showForSingleSeries": true
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 90,
+        "y2": 100,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}
+[
+  {
+    "name": "RN JS Thread (RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts))",
+    "data": [
+      {
+        "x": 0,
+        "y": 13.2
+      },
+      {
+        "x": 500,
+        "y": 86.1
+      },
+      {
+        "x": 1000,
+        "y": 100
+      },
+      {
+        "x": 1500,
+        "y": 99.6
+      },
+      {
+        "x": 2000,
+        "y": 100
+      },
+      {
+        "x": 2500,
+        "y": 72.5
+      },
+      {
+        "x": 3000,
+        "y": 47.5
+      },
+      {
+        "x": 3500,
+        "y": 1
+      },
+      {
+        "x": 4000,
+        "y": 0
+      },
+      {
+        "x": 4500,
+        "y": 0
+      },
+      {
+        "x": 5000,
+        "y": 2
+      },
+      {
+        "x": 5500,
+        "y": 2
+      },
+      {
+        "x": 6000,
+        "y": 1
+      },
+      {
+        "x": 6500,
+        "y": 2
+      },
+      {
+        "x": 7000,
+        "y": 3
+      },
+      {
+        "x": 7500,
+        "y": 0
+      },
+      {
+        "x": 8000,
+        "y": 3
+      },
+      {
+        "x": 8500,
+        "y": 2
+      },
+      {
+        "x": 9000,
+        "y": 1
+      },
+      {
+        "x": 9500,
+        "y": 1
+      },
+      {
+        "x": 10000,
+        "y": 2
+      }
+    ]
+  },
+  {
+    "name": "RN JS Thread (fabric-many-texts (com.fabricenabled))",
+    "data": [
+      {
+        "x": 0,
+        "y": 22.7
+      },
+      {
+        "x": 500,
+        "y": 67.8
+      },
+      {
+        "x": 1000,
+        "y": 100
+      },
+      {
+        "x": 1500,
+        "y": 98.7
+      },
+      {
+        "x": 2000,
+        "y": 61.1
+      },
+      {
+        "x": 2500,
+        "y": 29.9
+      },
+      {
+        "x": 3000,
+        "y": 0
+      },
+      {
+        "x": 3500,
+        "y": 0
+      },
+      {
+        "x": 4000,
+        "y": 0
+      },
+      {
+        "x": 4500,
+        "y": 0
+      },
+      {
+        "x": 5000,
+        "y": 1
+      },
+      {
+        "x": 5500,
+        "y": 0
+      },
+      {
+        "x": 6000,
+        "y": 1
+      },
+      {
+        "x": 6500,
+        "y": 1
+      },
+      {
+        "x": 7000,
+        "y": 3
+      },
+      {
+        "x": 7500,
+        "y": 1
+      },
+      {
+        "x": 8000,
+        "y": 1
+      },
+      {
+        "x": 8500,
+        "y": 2
+      },
+      {
+        "x": 9000,
+        "y": 2
+      },
+      {
+        "x": 9500,
+        "y": 1
+      },
+      {
+        "x": 10000,
+        "y": 1
+      }
+    ]
+  }
+]
 Other threads
 RAM Usage (MB)
+{
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}
+[
+  {
+    "name": "RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)",
+    "data": [
+      {
+        "x": 0,
+        "y": 60
+      },
+      {
+        "x": 500,
+        "y": 75
+      },
+      {
+        "x": 1000,
+        "y": 82
+      },
+      {
+        "x": 1500,
+        "y": 86
+      },
+      {
+        "x": 2000,
+        "y": 91
+      },
+      {
+        "x": 2500,
+        "y": 96
+      },
+      {
+        "x": 3000,
+        "y": 103
+      },
+      {
+        "x": 3500,
+        "y": 102
+      },
+      {
+        "x": 4000,
+        "y": 108
+      },
+      {
+        "x": 4500,
+        "y": 115
+      },
+      {
+        "x": 5000,
+        "y": 120
+      },
+      {
+        "x": 5500,
+        "y": 124
+      },
+      {
+        "x": 6000,
+        "y": 124
+      },
+      {
+        "x": 6500,
+        "y": 124
+      },
+      {
+        "x": 7000,
+        "y": 124
+      },
+      {
+        "x": 7500,
+        "y": 124
+      },
+      {
+        "x": 8000,
+        "y": 124
+      },
+      {
+        "x": 8500,
+        "y": 125
+      },
+      {
+        "x": 9000,
+        "y": 125
+      },
+      {
+        "x": 9500,
+        "y": 125
+      },
+      {
+        "x": 10000,
+        "y": 125
+      }
+    ]
+  },
+  {
+    "name": "fabric-many-texts (com.fabricenabled)",
+    "data": [
+      {
+        "x": 0,
+        "y": 58
+      },
+      {
+        "x": 500,
+        "y": 74
+      },
+      {
+        "x": 1000,
+        "y": 83
+      },
+      {
+        "x": 1500,
+        "y": 87
+      },
+      {
+        "x": 2000,
+        "y": 95
+      },
+      {
+        "x": 2500,
+        "y": 98
+      },
+      {
+        "x": 3000,
+        "y": 104
+      },
+      {
+        "x": 3500,
+        "y": 104
+      },
+      {
+        "x": 4000,
+        "y": 109
+      },
+      {
+        "x": 4500,
+        "y": 110
+      },
+      {
+        "x": 5000,
+        "y": 115
+      },
+      {
+        "x": 5500,
+        "y": 121
+      },
+      {
+        "x": 6000,
+        "y": 124
+      },
+      {
+        "x": 6500,
+        "y": 126
+      },
+      {
+        "x": 7000,
+        "y": 127
+      },
+      {
+        "x": 7500,
+        "y": 127
+      },
+      {
+        "x": 8000,
+        "y": 127
+      },
+      {
+        "x": 8500,
+        "y": 127
+      },
+      {
+        "x": 9000,
+        "y": 128
+      },
+      {
+        "x": 9500,
+        "y": 128
+      },
+      {
+        "x": 10000,
+        "y": 128
+      }
+    ]
+  }
+]
 Reset
 Play all
 RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)
@@ -20256,12 +25347,272 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         >
           Frame rate (FPS)
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 57,
+        "y2": 60,
+        "borderColor": "#158000",
+        "fillColor": "#158000",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#158000",
+          "style": {
+            "color": "#fff",
+            "background": "#158000"
+          },
+          "text": "Safe Zone"
+        }
+      }
+    ]
+  }
+}[
+  {
+    "name": "RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)",
+    "data": [
+      {
+        "x": 0,
+        "y": 25
+      },
+      {
+        "x": 500,
+        "y": 50
+      },
+      {
+        "x": 1000,
+        "y": 60
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 60
+      },
+      {
+        "x": 2500,
+        "y": 60
+      },
+      {
+        "x": 3000,
+        "y": 30
+      },
+      {
+        "x": 3500,
+        "y": 5
+      },
+      {
+        "x": 4000,
+        "y": 1
+      },
+      {
+        "x": 4500,
+        "y": 2
+      },
+      {
+        "x": 5000,
+        "y": 30
+      },
+      {
+        "x": 5500,
+        "y": 30
+      },
+      {
+        "x": 6000,
+        "y": 60
+      },
+      {
+        "x": 6500,
+        "y": 60
+      },
+      {
+        "x": 7000,
+        "y": 60
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  },
+  {
+    "name": "fabric-many-texts (com.fabricenabled)",
+    "data": [
+      {
+        "x": 0,
+        "y": 33
+      },
+      {
+        "x": 500,
+        "y": 47
+      },
+      {
+        "x": 1000,
+        "y": 59
+      },
+      {
+        "x": 1500,
+        "y": 60
+      },
+      {
+        "x": 2000,
+        "y": 60
+      },
+      {
+        "x": 2500,
+        "y": 60
+      },
+      {
+        "x": 3000,
+        "y": 31
+      },
+      {
+        "x": 3500,
+        "y": 2
+      },
+      {
+        "x": 4000,
+        "y": 1
+      },
+      {
+        "x": 4500,
+        "y": 0
+      },
+      {
+        "x": 5000,
+        "y": 1
+      },
+      {
+        "x": 5500,
+        "y": 0
+      },
+      {
+        "x": 6000,
+        "y": 30
+      },
+      {
+        "x": 6500,
+        "y": 30
+      },
+      {
+        "x": 7000,
+        "y": 30
+      },
+      {
+        "x": 7500,
+        "y": 60
+      },
+      {
+        "x": 8000,
+        "y": 60
+      },
+      {
+        "x": 8500,
+        "y": 60
+      },
+      {
+        "x": 9000,
+        "y": 60
+      },
+      {
+        "x": 9500,
+        "y": 60
+      },
+      {
+        "x": 10000,
+        "y": 60
+      }
+    ]
+  }
+]
+        </div>
       </div>
       <div
         class="h-10"
@@ -20274,12 +25625,272 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         >
           Total CPU Usage (%)
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 300,
+        "y2": 1000,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}[
+  {
+    "name": "RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)",
+    "data": [
+      {
+        "x": 0,
+        "y": 82
+      },
+      {
+        "x": 500,
+        "y": 134
+      },
+      {
+        "x": 1000,
+        "y": 198.9
+      },
+      {
+        "x": 1500,
+        "y": 188.5
+      },
+      {
+        "x": 2000,
+        "y": 165.7
+      },
+      {
+        "x": 2500,
+        "y": 157.5
+      },
+      {
+        "x": 3000,
+        "y": 148
+      },
+      {
+        "x": 3500,
+        "y": 125.4
+      },
+      {
+        "x": 4000,
+        "y": 127.8
+      },
+      {
+        "x": 4500,
+        "y": 123.4
+      },
+      {
+        "x": 5000,
+        "y": 83.8
+      },
+      {
+        "x": 5500,
+        "y": 56.8
+      },
+      {
+        "x": 6000,
+        "y": 8.2
+      },
+      {
+        "x": 6500,
+        "y": 12.9
+      },
+      {
+        "x": 7000,
+        "y": 9
+      },
+      {
+        "x": 7500,
+        "y": 8
+      },
+      {
+        "x": 8000,
+        "y": 10
+      },
+      {
+        "x": 8500,
+        "y": 9
+      },
+      {
+        "x": 9000,
+        "y": 8
+      },
+      {
+        "x": 9500,
+        "y": 9
+      },
+      {
+        "x": 10000,
+        "y": 11.1
+      }
+    ]
+  },
+  {
+    "name": "fabric-many-texts (com.fabricenabled)",
+    "data": [
+      {
+        "x": 0,
+        "y": 85
+      },
+      {
+        "x": 500,
+        "y": 125.1
+      },
+      {
+        "x": 1000,
+        "y": 184.3
+      },
+      {
+        "x": 1500,
+        "y": 191.3
+      },
+      {
+        "x": 2000,
+        "y": 170.8
+      },
+      {
+        "x": 2500,
+        "y": 153.1
+      },
+      {
+        "x": 3000,
+        "y": 149.8
+      },
+      {
+        "x": 3500,
+        "y": 122.9
+      },
+      {
+        "x": 4000,
+        "y": 108.2
+      },
+      {
+        "x": 4500,
+        "y": 141.1
+      },
+      {
+        "x": 5000,
+        "y": 108.1
+      },
+      {
+        "x": 5500,
+        "y": 167.1
+      },
+      {
+        "x": 6000,
+        "y": 53.4
+      },
+      {
+        "x": 6500,
+        "y": 87.7
+      },
+      {
+        "x": 7000,
+        "y": 48.6
+      },
+      {
+        "x": 7500,
+        "y": 9.1
+      },
+      {
+        "x": 8000,
+        "y": 8
+      },
+      {
+        "x": 8500,
+        "y": 8
+      },
+      {
+        "x": 9000,
+        "y": 9
+      },
+      {
+        "x": 9500,
+        "y": 8
+      },
+      {
+        "x": 10000,
+        "y": 10.9
+      }
+    ]
+  }
+]
+        </div>
         <div
           class="mb-[5px] ml-[10px] text-2xl text-white flex flex-row font-medium"
         >
@@ -20323,12 +25934,274 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
             RN JS Thread CPU Usage (%)
           </div>
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0,
+    "max": 100
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    },
+    "showForSingleSeries": true
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {
+    "xaxis": [
+      {
+        "x": 0,
+        "strokeDashArray": 0,
+        "label": {
+          "style": {
+            "color": "#fff"
+          },
+          "text": "Video",
+          "position": "right"
+        }
+      }
+    ],
+    "yaxis": [
+      {
+        "y": 90,
+        "y2": 100,
+        "borderColor": "#E62E2E",
+        "fillColor": "#E62E2E",
+        "opacity": 0.2,
+        "label": {
+          "borderColor": "#E62E2E",
+          "style": {
+            "color": "#fff",
+            "background": "#E62E2E"
+          },
+          "text": "Danger Zone"
+        }
+      }
+    ]
+  }
+}[
+  {
+    "name": "RN JS Thread (RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts))",
+    "data": [
+      {
+        "x": 0,
+        "y": 13.2
+      },
+      {
+        "x": 500,
+        "y": 86.1
+      },
+      {
+        "x": 1000,
+        "y": 100
+      },
+      {
+        "x": 1500,
+        "y": 99.6
+      },
+      {
+        "x": 2000,
+        "y": 100
+      },
+      {
+        "x": 2500,
+        "y": 72.5
+      },
+      {
+        "x": 3000,
+        "y": 47.5
+      },
+      {
+        "x": 3500,
+        "y": 1
+      },
+      {
+        "x": 4000,
+        "y": 0
+      },
+      {
+        "x": 4500,
+        "y": 0
+      },
+      {
+        "x": 5000,
+        "y": 2
+      },
+      {
+        "x": 5500,
+        "y": 2
+      },
+      {
+        "x": 6000,
+        "y": 1
+      },
+      {
+        "x": 6500,
+        "y": 2
+      },
+      {
+        "x": 7000,
+        "y": 3
+      },
+      {
+        "x": 7500,
+        "y": 0
+      },
+      {
+        "x": 8000,
+        "y": 3
+      },
+      {
+        "x": 8500,
+        "y": 2
+      },
+      {
+        "x": 9000,
+        "y": 1
+      },
+      {
+        "x": 9500,
+        "y": 1
+      },
+      {
+        "x": 10000,
+        "y": 2
+      }
+    ]
+  },
+  {
+    "name": "RN JS Thread (fabric-many-texts (com.fabricenabled))",
+    "data": [
+      {
+        "x": 0,
+        "y": 22.7
+      },
+      {
+        "x": 500,
+        "y": 67.8
+      },
+      {
+        "x": 1000,
+        "y": 100
+      },
+      {
+        "x": 1500,
+        "y": 98.7
+      },
+      {
+        "x": 2000,
+        "y": 61.1
+      },
+      {
+        "x": 2500,
+        "y": 29.9
+      },
+      {
+        "x": 3000,
+        "y": 0
+      },
+      {
+        "x": 3500,
+        "y": 0
+      },
+      {
+        "x": 4000,
+        "y": 0
+      },
+      {
+        "x": 4500,
+        "y": 0
+      },
+      {
+        "x": 5000,
+        "y": 1
+      },
+      {
+        "x": 5500,
+        "y": 0
+      },
+      {
+        "x": 6000,
+        "y": 1
+      },
+      {
+        "x": 6500,
+        "y": 1
+      },
+      {
+        "x": 7000,
+        "y": 3
+      },
+      {
+        "x": 7500,
+        "y": 1
+      },
+      {
+        "x": 8000,
+        "y": 1
+      },
+      {
+        "x": 8500,
+        "y": 2
+      },
+      {
+        "x": 9000,
+        "y": 2
+      },
+      {
+        "x": 9500,
+        "y": 1
+      },
+      {
+        "x": 10000,
+        "y": 1
+      }
+    ]
+  }
+]
+        </div>
         <div
           class="border rounded-lg border-gray-800 py-4 px-4 cursor-pointer"
         >
@@ -20377,12 +26250,241 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
         >
           RAM Usage (MB)
         </div>
-        <apex-charts
-          height="500"
-          options="[object Object]"
-          series="[object Object],[object Object]"
-          type="line"
-        />
+        <div
+          class="ApexChartsMock"
+        >
+          {
+  "chart": {
+    "animations": {
+      "enabled": true,
+      "easing": "linear",
+      "dynamicAnimation": {
+        "speed": 500
+      }
+    },
+    "zoom": {
+      "enabled": false
+    },
+    "toolbar": {
+      "show": false
+    },
+    "events": {}
+  },
+  "dataLabels": {
+    "enabled": false
+  },
+  "stroke": {
+    "curve": "smooth",
+    "width": 2
+  },
+  "xaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "type": "numeric"
+  },
+  "yaxis": {
+    "labels": {
+      "style": {
+        "colors": "#FFFFFF99"
+      }
+    },
+    "min": 0
+  },
+  "colors": [],
+  "legend": {
+    "labels": {
+      "colors": "#FFFFFF99"
+    }
+  },
+  "grid": {
+    "borderColor": "#FFFFFF33",
+    "strokeDashArray": 3
+  },
+  "annotations": {}
+}[
+  {
+    "name": "RN0720RC1_true_thousandtexts (com.rn0720rc1_true_thousandtexts)",
+    "data": [
+      {
+        "x": 0,
+        "y": 60
+      },
+      {
+        "x": 500,
+        "y": 75
+      },
+      {
+        "x": 1000,
+        "y": 82
+      },
+      {
+        "x": 1500,
+        "y": 86
+      },
+      {
+        "x": 2000,
+        "y": 91
+      },
+      {
+        "x": 2500,
+        "y": 96
+      },
+      {
+        "x": 3000,
+        "y": 103
+      },
+      {
+        "x": 3500,
+        "y": 102
+      },
+      {
+        "x": 4000,
+        "y": 108
+      },
+      {
+        "x": 4500,
+        "y": 115
+      },
+      {
+        "x": 5000,
+        "y": 120
+      },
+      {
+        "x": 5500,
+        "y": 124
+      },
+      {
+        "x": 6000,
+        "y": 124
+      },
+      {
+        "x": 6500,
+        "y": 124
+      },
+      {
+        "x": 7000,
+        "y": 124
+      },
+      {
+        "x": 7500,
+        "y": 124
+      },
+      {
+        "x": 8000,
+        "y": 124
+      },
+      {
+        "x": 8500,
+        "y": 125
+      },
+      {
+        "x": 9000,
+        "y": 125
+      },
+      {
+        "x": 9500,
+        "y": 125
+      },
+      {
+        "x": 10000,
+        "y": 125
+      }
+    ]
+  },
+  {
+    "name": "fabric-many-texts (com.fabricenabled)",
+    "data": [
+      {
+        "x": 0,
+        "y": 58
+      },
+      {
+        "x": 500,
+        "y": 74
+      },
+      {
+        "x": 1000,
+        "y": 83
+      },
+      {
+        "x": 1500,
+        "y": 87
+      },
+      {
+        "x": 2000,
+        "y": 95
+      },
+      {
+        "x": 2500,
+        "y": 98
+      },
+      {
+        "x": 3000,
+        "y": 104
+      },
+      {
+        "x": 3500,
+        "y": 104
+      },
+      {
+        "x": 4000,
+        "y": 109
+      },
+      {
+        "x": 4500,
+        "y": 110
+      },
+      {
+        "x": 5000,
+        "y": 115
+      },
+      {
+        "x": 5500,
+        "y": 121
+      },
+      {
+        "x": 6000,
+        "y": 124
+      },
+      {
+        "x": 6500,
+        "y": 126
+      },
+      {
+        "x": 7000,
+        "y": 127
+      },
+      {
+        "x": 7500,
+        "y": 127
+      },
+      {
+        "x": 8000,
+        "y": 127
+      },
+      {
+        "x": 8500,
+        "y": 127
+      },
+      {
+        "x": 9000,
+        "y": 128
+      },
+      {
+        "x": 9500,
+        "y": 128
+      },
+      {
+        "x": 10000,
+        "y": 128
+      }
+    ]
+  }
+]
+        </div>
       </div>
       <div
         class="h-10"
