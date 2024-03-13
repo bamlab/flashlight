@@ -13,7 +13,7 @@ jobs:
   tests:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # This actually doesn't work from a forked repo so ignoring for now
       # with:
       #   ref: ${{ github.event.pull_request.head.ref }}
