@@ -1,7 +1,8 @@
-import { ESLintUtils } from "@typescript-eslint/utils";
+// eslint-disable-next-line import/no-unresolved
+import { RuleTester } from "@typescript-eslint/rule-tester";
 import { rule } from "../rules/no-flatlist-import";
 
-const ruleTester = new ESLintUtils.RuleTester({
+const ruleTester = new RuleTester({
   parser: "@typescript-eslint/parser",
 });
 

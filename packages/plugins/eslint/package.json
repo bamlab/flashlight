@@ -7,9 +7,10 @@
   "author": "Thomas Niebojewski",
   "license": "MIT",
   "dependencies": {
-    "@typescript-eslint/parser": "^5.15.0",
-    "@typescript-eslint/utils": "^5.15.0",
-    "eslint": "^8.11.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@typescript-eslint/rule-tester": "^7.2.0",
+    "@typescript-eslint/utils": "^7.2.0",
+    "eslint": "^8.57.0",
     "requireindex": "^1.2.0"
   },
   "scripts": {
