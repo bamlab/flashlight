@@ -4095,7 +4095,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                       >
                         1-before-memo.apk
                         <span
-                          class="MuiBox-root css-trfuzi"
+                          class="MuiBox-root css-ty8jgw"
                         >
                           sorted descending
                         </span>
@@ -17057,7 +17057,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                       >
                         1-before-memo.apk
                         <span
-                          class="MuiBox-root css-trfuzi"
+                          class="MuiBox-root css-ty8jgw"
                         >
                           sorted descending
                         </span>
