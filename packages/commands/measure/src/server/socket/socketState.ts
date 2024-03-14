@@ -37,7 +37,7 @@ export const updateMeasuresReducer = (state: SocketData, measures: Measure[]): S
       ...state.results[state.results.length - 1],
       iterations: [
         {
-          measures: measures,
+          measures,
           time: (measures.length || 0) * POLLING_INTERVAL,
           status: "SUCCESS",
         },

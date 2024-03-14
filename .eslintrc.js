@@ -2,11 +2,14 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "react-app",
-    "react-app/jest",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
   ],
+  env: {
+    node: true,
+  },
   rules: {
     "import/no-extraneous-dependencies": [
       "error",

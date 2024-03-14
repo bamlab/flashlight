@@ -16,12 +16,7 @@ Logger.setLogLevel(LogLevel.SILENT);
 
 const mockDate = () => {
   const MOCK_DATE = new Date(1686650793058);
-  jest
-    .spyOn(global, "Date")
-    // Mocking date
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    .mockImplementation(() => MOCK_DATE);
+  jest.spyOn(global, "Date").mockImplementation(() => MOCK_DATE);
 };
 
 const mockPerformanceTester = () => {

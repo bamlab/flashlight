@@ -26,8 +26,8 @@ export const FlutterLogo = ({ size }: { size: number }) => (
         gradientTransform="translate(-1404 -1054.53) scale(0.25)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#1a237e" stop-opacity="0.4" />
-        <stop offset="1" stop-color="#1a237e" stop-opacity="0" />
+        <stop offset="0" stopColor="#1a237e" stopOpacity="0.4" />
+        <stop offset="1" stopColor="#1a237e" stopOpacity="0" />
       </linearGradient>
       <radialGradient
         id="radial-gradient"
@@ -37,8 +37,8 @@ export const FlutterLogo = ({ size }: { size: number }) => (
         gradientTransform="translate(-1404 -1054.53) scale(0.25)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#fff" stop-opacity="0.1" />
-        <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        <stop offset="0" stopColor="#fff" stopOpacity="0.1" />
+        <stop offset="1" stopColor="#fff" stopOpacity="0" />
       </radialGradient>
     </defs>
     <g className="cls-2">

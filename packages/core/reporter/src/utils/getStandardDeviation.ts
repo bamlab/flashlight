@@ -21,7 +21,7 @@ export const getStandardDeviation = ({
 
   const roundedDeviation = range.map(roundToDecimal);
   return {
-    deviation: deviation,
+    deviation,
     deviationRange: [roundedDeviation[0], roundedDeviation[1]],
   };
 };

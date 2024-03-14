@@ -7,7 +7,7 @@ import {
 } from "@perf-profiler/web-reporter-ui";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+// @ts-expect-error
 // eslint-disable-next-line prefer-const
 let testCaseResults: TestCaseResult[] =
   // Use very long string so that Parcel won't use it more than once, would be nice to find a better solution

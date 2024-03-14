@@ -70,7 +70,7 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
     ignoreAttributes: false,
     parseAttributeValue: true,
     textNodeName: "value",
-    updateTag(tagName: string, jPath: string, attrs: { [x: string]: string | number }) {
+    updateTag(tagName: string) {
       switch (tagName) {
         case "trace-query-result": {
           return "result";
@@ -120,7 +120,7 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
   const results: TestCaseResult = {
     name: "iOS Measures",
     status: "SUCCESS",
-    iterations: iterations,
+    iterations,
     type: "IOS_EXPERIMENTAL",
   };
 

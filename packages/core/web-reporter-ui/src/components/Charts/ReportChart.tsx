@@ -16,8 +16,6 @@ export const ReportChart = ({
   showLegendForSingleSeries,
   colors = getColorPalette(),
   annotationIntervalList = undefined,
-  formatter,
-  onPointClick,
 }: {
   title: string | React.ReactNode;
   series: LineSeriesType;

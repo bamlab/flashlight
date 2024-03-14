@@ -4,7 +4,7 @@ import { executeLongRunningProcess } from "../shell";
 const mockSpawn = (): { stdout: EventEmitter } => {
   const mockProcess = new EventEmitter();
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  // @ts-expect-error
   mockProcess.stdout = new EventEmitter();
 
   jest.spyOn(require("child_process"), "spawn").mockImplementationOnce((...args) => {
@@ -16,7 +16,7 @@ const mockSpawn = (): { stdout: EventEmitter } => {
   });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  // @ts-expect-error
   return mockProcess;
 };
 

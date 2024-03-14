@@ -66,7 +66,7 @@ export const ComparativeThreadTable = ({
       label: "Thread",
     },
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+    // @ts-expect-error
     ...results.map((result, i) => ({
       id: `${result.name}-${i}`,
       label: result.name,
@@ -79,7 +79,7 @@ export const ComparativeThreadTable = ({
     <Table
       headCells={headCells}
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
+      // @ts-expect-error
       rows={rows}
       selected={selectedThreads}
       setSelected={setSelectedThreads}

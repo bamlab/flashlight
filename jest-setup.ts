@@ -11,5 +11,5 @@ Math.random = jest.fn(() => 0.5);
 // We use jsdom since we snapshot the webapp in the measure command while running the socket
 global.TextEncoder = TextEncoder;
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
+// @ts-expect-error
 global.TextDecoder = TextDecoder;
