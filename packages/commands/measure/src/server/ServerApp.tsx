@@ -15,7 +15,7 @@ import { profiler } from "@perf-profiler/profiler";
 
 const pathToDist = path.join(__dirname, "../../dist");
 
-export const createExpressApp = ({ port }: { port: number }) => {
+export const createExpressApp = ({ port }: { port: number }): express.Application => {
   const app = express();
   app.use(cors({ origin: true }));
 

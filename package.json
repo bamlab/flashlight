@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/jest": "^29.2.3",
     "@types/lodash": "^4.17.0",
+    "@types/node": "^20.11.28",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/utils": "^7.2.0",
     "eslint": "^8.57.0",
