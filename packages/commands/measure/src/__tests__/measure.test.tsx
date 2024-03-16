@@ -61,11 +61,11 @@ describe("flashlight measure interactive", () => {
   };
 
   const setupWebApp = () => {
-    const renderer = webRender(<MeasureWebApp />);
+    const view = webRender(<MeasureWebApp />);
 
     return {
-      closeWebApp: renderer.unmount,
-      expectWebAppToMatchSnapshot: (snapshotName: string) => matchSnapshot(renderer, snapshotName),
+      closeWebApp: view.unmount,
+      expectWebAppToMatchSnapshot: (snapshotName: string) => matchSnapshot(view, snapshotName),
     };
   };
 
