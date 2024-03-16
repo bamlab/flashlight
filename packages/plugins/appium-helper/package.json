@@ -12,6 +12,6 @@
   },
   "dependencies": {
     "@perf-profiler/logger": "^0.3.2",
-    "webdriverio": "^6.1.22"
+    "webdriverio": "^8.0.0"
   }
 }
