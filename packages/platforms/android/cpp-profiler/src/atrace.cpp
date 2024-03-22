@@ -76,7 +76,11 @@ void readATrace()
   {
     std::string line;
     std::getline(traceFile, line);
-    addToATraceLines(line);
+
+    if (line.find("doFrame") != std::string::npos || line.find("eglSwapBuffers") != std::string::npos) // npos means no position, or not found
+    {
+      addToATraceLines(line); // Add line to ATrace lines if "doFrame" is found
+    }
   }
   traceFile.close();
 }

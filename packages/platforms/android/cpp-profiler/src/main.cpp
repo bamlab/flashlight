@@ -7,6 +7,14 @@
 #include <thread>
 #include <unistd.h>
 #include "utils.h"
+#include <dirent.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <iostream>
+#include <vector>
+#include <sys/inotify.h>
 
 using std::cerr;
 using std::cout;
@@ -15,17 +23,66 @@ using std::string;
 
 namespace fs = std::filesystem;
 
+void extractPidAndName(const std::string &line, std::string &pid, std::string &processName)
+{
+    size_t startPos = 0;
+    size_t endPos = line.find(' ');
+    if (endPos == std::string::npos)
+    {
+        throw std::runtime_error("Invalid line format: no space found.");
+    }
+    pid = line.substr(startPos, endPos - startPos);
+
+    startPos = line.find('(', endPos);
+    endPos = line.find(')', startPos);
+    // if (startPos == std::string::npos || endPos == std::string::npos)
+    // {
+    //     throw std::runtime_error("Invalid line format: parentheses not found.");
+    // }
+    // +1 and -1 to exclude the parentheses themselves
+    processName = line.substr(startPos + 1, endPos - startPos - 1);
+}
+
+class Timer
+{
+private:
+    std::chrono::time_point<std::chrono::system_clock> start;
+
+public:
+    Timer()
+    {
+        start = std::chrono::system_clock::now();
+    }
+
+    long long elapsed()
+    {
+        auto end = std::chrono::system_clock::now();
+        return std::chrono::duration_cast<std::chrono::microseconds>(end - start).count();
+    }
+};
+
+std::ifstream file("/proc/8408/task/8408/stat");
+
 void readFile(string filePath)
 {
-    std::ifstream file(filePath);
+
     if (file.is_open())
     {
+        file.seekg(0, std::ios::beg);
         string line;
-        while (std::getline(file, line))
-        {
-            log(line.c_str());
-        }
-        file.close();
+        std::getline(file, line);
+        // log(line.c_str());
+
+        auto timing = std::chrono::system_clock::now();
+
+        std::string pid, processName;
+        extractPidAndName(line, pid, processName);
+
+        auto end = std::chrono::system_clock::now();
+
+        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - timing);
+        // cout << pid << " " << processName << endl;
+        // file.close();
     }
     else
     {
@@ -40,20 +97,43 @@ public:
         : std::runtime_error(message) {}
 };
 
+void readFilesInDir(const std::string &path)
+{
+    DIR *dirp = opendir(path.c_str());
+    struct dirent *dp;
+    while ((dp = readdir(dirp)) != nullptr)
+    {
+        if (dp->d_type == DT_REG)
+        { // Check if it's a regular file
+            std::string filePath = path + "/" + dp->d_name;
+            int fd = open(filePath.c_str(), O_RDONLY);
+            if (fd != -1)
+            {
+                // Read file content using read() into a buffer
+                // Process the content
+                close(fd);
+            }
+        }
+    }
+    closedir(dirp);
+}
+
 void printCpuStats(string pid)
 {
     string path = "/proc/" + pid + "/task";
 
-    if (!fs::exists(path))
-    {
-        throw PidClosedError("Directory does not exist: " + path);
-    }
+    // if (!fs::exists(path))
+    // {
+    //     throw PidClosedError("Directory does not exist: " + path);
+    // }
 
-    for (const auto &entry : fs::directory_iterator(path))
-    {
-        string subProcessPath = entry.path().string() + "/stat";
-        readFile(subProcessPath);
-    }
+    // for (const auto &entry : fs::directory_iterator(path))
+    // {
+    //     // string subProcessPath = entry.path().string() + "/stat";
+    //     // readFile(subProcessPath);
+    // }
+
+    readFilesInDir(path);
 }
 
 void printMemoryStats(string pid)
@@ -66,36 +146,38 @@ long long printPerformanceMeasure(string pid)
 {
     auto start = std::chrono::system_clock::now();
 
-    string separator = "=SEPARATOR=";
-    log("=START MEASURE=");
-    log(pid);
-    log(separator);
-    printCpuStats(pid);
-    auto cpuEnd = std::chrono::system_clock::now();
-    log(separator);
-    printMemoryStats(pid);
-    auto memoryEnd = std::chrono::system_clock::now();
-    log(separator);
-    // TODO handle ATrace not available on OS
-    printATraceLines();
-    auto atraceEnd = std::chrono::system_clock::now();
-    log(separator);
+    readFile("/proc/8408/task/8408/stat");
 
-    logTimestamp();
+    // string separator = "=SEPARATOR=";
+    // log("=START MEASURE=");
+    // log(pid);
+    // log(separator);
+    // printCpuStats(pid);
+    // auto cpuEnd = std::chrono::system_clock::now();
+    // log(separator);
+    // printMemoryStats(pid);
+    // auto memoryEnd = std::chrono::system_clock::now();
+    // log(separator);
+    // // TODO handle ATrace not available on OS
+    // printATraceLines();
+    // auto atraceEnd = std::chrono::system_clock::now();
+    // log(separator);
+
+    // logTimestamp();
 
     auto end = std::chrono::system_clock::now();
 
-    auto cpuDuration = std::chrono::duration_cast<std::chrono::milliseconds>(cpuEnd - start);
-    auto memoryDuration = std::chrono::duration_cast<std::chrono::milliseconds>(memoryEnd - cpuEnd);
-    auto atraceDuration = std::chrono::duration_cast<std::chrono::milliseconds>(atraceEnd - memoryEnd);
-    auto totalDuration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    // auto cpuDuration = std::chrono::duration_cast<std::chrono::microseconds>(cpuEnd - start);
+    // auto memoryDuration = std::chrono::duration_cast<std::chrono::milliseconds>(memoryEnd - cpuEnd);
+    // auto atraceDuration = std::chrono::duration_cast<std::chrono::milliseconds>(atraceEnd - memoryEnd);
+    auto totalDuration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
-    cout << "TOTAL EXEC TIME: " << totalDuration.count() << "|";
-    cout << "CPU TIME: " << cpuDuration.count() << "|";
-    cout << "MEMORY TIME: " << memoryDuration.count() << "|";
-    cout << "ATRACE TIME: " << atraceDuration.count() << endl;
+    cout << "TOTAL EXEC TIME: " << totalDuration.count() << "|" << endl;
+    // cout << "CPU TIME: " << cpuDuration.count() << "|";
+    // cout << "MEMORY TIME: " << memoryDuration.count() << "|";
+    // cout << "ATRACE TIME: " << atraceDuration.count() << endl;
 
-    log("=STOP MEASURE=");
+    // log("=STOP MEASURE=");
 
     return totalDuration.count();
 }
@@ -124,6 +206,8 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
         pid = pidOf(bundleId);
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
+
+    cout << "Process started: " << pid << endl;
 
     try
     {
