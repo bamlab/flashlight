@@ -3,28 +3,45 @@
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme="dark"] {
-  --ifm-color-primary: #fff500cc;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #fff500;
+  --ifm-color-primary-dark: #e6dc00;
+  --ifm-color-primary-darker: #d9d000;
+  --ifm-color-primary-darkest: #b3ab00;
+  --ifm-color-primary-light: #fff61a;
+  --ifm-color-primary-lighter: #fff626;
+  --ifm-color-primary-lightest: #fff84d;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-font-family-base: "Open Sans", sans-serif;
+  --ifm-font-family-monospace: "Fira Code", monospace;
+  --ifm-font-color-base: rgba(250, 250, 250);
+  --ifm-heading-color: rgba(255, 255, 255);
+  --ifm-heading-font-family: "Merriweather", serif;
+  --ifm-menu-color: rgba(200, 200, 200);
+}
+
+.menu__link {
+  color: rgba(255, 255, 255);
+}
+
+.menu__list .menu__list .menu__link {
+  color: var(--ifm-menu-color);
+  font-size: 0.85em;
+  line-height: 1em;
+}
+
+.menu__link.menu__link--active,
+.menu__list .menu__list .menu__link.menu__link--active {
+  color: var(--ifm-color-primary);
+}
+
+body {
+  font-family: var(--ifm-font-family-sans-serif);
 }
