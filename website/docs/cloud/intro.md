@@ -1,11 +1,14 @@
 ---
 sidebar_position: 1
+slug: /cloud
 ---
 
 # Getting started
 
-[flashlight.dev](https://flashlight.dev) is now in open beta! 🥳  
-With just a few clicks, you can get an app start performance score:
+[flashlight.dev](https://flashlight.dev) is now in open beta and is [completely free](./pricing.md)! 🥳  
+With just a few clicks, you can get an app start performance score, as explained below.
+
+Alternatively you can use the [`flashlight cloud`](./cli.md) command to run your own custom tests via CLI.
 
 ## Get your app start performance score
 

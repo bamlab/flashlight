@@ -4,6 +4,31 @@
 /* eslint-disable import/no-unresolved */
 import { themes } from "prism-react-renderer";
 
+const googleFonts = [
+  {
+    tagName: "link",
+    attributes: {
+      rel: "preconnect",
+      href: "https://fonts.googleapis.com",
+    },
+  },
+  {
+    tagName: "link",
+    attributes: {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossorigin: "anonymous",
+    },
+  },
+  {
+    tagName: "link",
+    attributes: {
+      rel: "stylesheet",
+      href: "https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap",
+    },
+  },
+];
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Flashlight",
@@ -19,7 +44,6 @@ const config = {
     defaultLocale: "en",
     locales: ["en"],
   },
-
   presets: [
     [
       "classic",
@@ -41,6 +65,7 @@ const config = {
     ],
   ],
 
+  headTags: [...googleFonts],
   scripts: [
     {
       src: "https://plausible.io/js/script.js",
@@ -52,8 +77,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // TODO: Replace with your project's social card
-      image: "img/docusaurus-social-card.jpg",
+      image: "img/social.png",
       navbar: {
         title: "",
         logo: {

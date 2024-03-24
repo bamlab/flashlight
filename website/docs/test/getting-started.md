@@ -1,5 +1,6 @@
 ---
 sidebar_position: 1
+slug: /test
 ---
 
 # Getting started
@@ -40,9 +41,9 @@ You'll notice in the previous example that the "Average Test runtime" metric wil
 To go further, use a proper e2e testing framework (Appium, Detox, Maestro...).
 
 If you're not using one yet, we recommend to use [Maestro](https://github.com/mobile-dev-inc/maestro)!
-Check out our [Maestro guide](./maestro) to get started quickly with Flashlight and Maestro.
+Check out our [Maestro guide](./test/maestro) to get started quickly with Flashlight and Maestro.
 
-You can also check the full command options [here](./api)
+You can also check the full command options [here](./test/api)
 
 ## 2. Open the web report
 
