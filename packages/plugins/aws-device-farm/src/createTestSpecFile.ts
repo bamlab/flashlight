@@ -42,7 +42,7 @@ export const getSingleTestFileYml = ({
 export const getTestCommandYml = ({ testCommand }: { testCommand: string }) => {
   return buildAppiumYmlSpec({
     installCommands: ["npm install --global yarn"],
-    testCommands: ["yarn", testCommand],
+    testCommands: ["yarn install --production --ignore-engines", testCommand],
   });
 };
 

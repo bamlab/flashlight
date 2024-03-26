@@ -6,7 +6,7 @@
   "keywords": [],
   "author": "Thomas Niebojewski",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "@typescript-eslint/parser": "^7.2.0",
     "@typescript-eslint/rule-tester": "^7.2.0",
     "@typescript-eslint/utils": "^7.2.0",

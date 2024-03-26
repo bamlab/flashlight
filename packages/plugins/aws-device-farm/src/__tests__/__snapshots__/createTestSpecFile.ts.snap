@@ -51,7 +51,7 @@ phases:
     commands:
       - echo "Navigate to test source code"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH/node_modules/*
-      - yarn
+      - yarn install --production --ignore-engines
       - echo 'this is the test command'
       - mv result*.json $DEVICEFARM_LOG_DIR
       - mv *.mp4 $DEVICEFARM_LOG_DIR || true
