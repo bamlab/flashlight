@@ -8051,7 +8051,7 @@ jest@^29.3.1:
     import-local "^3.0.2"
     jest-cli "^29.7.0"
 
-jiti@^1.19.1:
+jiti@^1.21.0:
   version "1.21.0"
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-1.21.0.tgz#7c97f8fe045724e136a397f7340475244156105d"
   integrity sha512-gFqAIbuKyyso/3G2qhiO2OM6shY6EPP/R0+mkDbyspxKazh8BXDC5FiFsUjlczgdNz/vfra0da2y+aHrusLG/Q==
@@ -11421,9 +11421,9 @@ synckit@^0.8.6:
     tslib "^2.6.2"
 
 tailwindcss@^3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.1.tgz#f512ca5d1dd4c9503c7d3d28a968f1ad8f5c839d"
-  integrity sha512-qAYmXRfk3ENzuPBakNK0SRrUDipP8NQnEY6772uDhflcQz5EhRdD7JNZxyrFHVQNCwULPBn6FNPp9brpO7ctcA==
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-3.4.2.tgz#c983ea21ec1e561ede9a2fe98aadb840bee89fda"
+  integrity sha512-1kIzVecynNKMhhX8mPTOwTkkVHupUTMbEvk4n1ByxdM8sQTJ8fE41Y4TdORG6GmiVXHhfZ/++0hiIFJFwfadsA==
   dependencies:
     "@alloc/quick-lru" "^5.2.0"
     arg "^5.0.2"
@@ -11433,7 +11433,7 @@ tailwindcss@^3.4.1:
     fast-glob "^3.3.0"
     glob-parent "^6.0.2"
     is-glob "^4.0.3"
-    jiti "^1.19.1"
+    jiti "^1.21.0"
     lilconfig "^2.1.0"
     micromatch "^4.0.5"
     normalize-path "^3.0.0"
