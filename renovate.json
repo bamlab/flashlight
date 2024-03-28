@@ -8,5 +8,7 @@
       "groupName": "devDependencies (non-major)",
       "automerge": true
     }
-  ]
+  ],
+  "schedule": ["after 9pm on sunday"],
+  "timezone": "Europe/Paris"
 }
