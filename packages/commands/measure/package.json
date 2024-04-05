@@ -18,10 +18,10 @@
     "@perf-profiler/types": "^0.7.0",
     "commander": "^12.0.0",
     "cors": "^2.8.5",
-    "express": "^4.18.3",
+    "express": "^4.19.2",
     "ink": "^3.2.0",
     "react": "^18.0.0",
-    "socket.io": "^4.7.4"
+    "socket.io": "^4.7.5"
   },
   "devDependencies": {
     "@mui/icons-material": "^5.15.12",
