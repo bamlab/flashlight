@@ -1,3 +1,9 @@
+## 0.17.2 (2024-04-05)
+
+### Bug Fixes
+
+- **cli:** improve cli performance a little bit ([#269](https://github.com/bamlab/flashlight/issues/269)) ([f646064](https://github.com/bamlab/flashlight/commit/f646064f58fbde5cb028628dab8ac1d4e96bc2e2))
+
 ## [0.17.1](https://github.com/bamlab/flashlight/compare/v0.16.3...v0.17.0) (2024-03-06)
 
 ### Bug Fixes
