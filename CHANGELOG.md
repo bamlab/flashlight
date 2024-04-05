@@ -2,7 +2,11 @@
 
 ### Bug Fixes
 
+- **report** remove video annotation if no videos ([#235](https://github.com/bamlab/flashlight/issues/235)) ([93c3b99](https://github.com/bamlab/flashlight/commit/93c3b99c3d671e99d1f24c8fcfe75514fb3dbace))
+- **cli** ensure CLI doesn't fail if we can't check latest CLI version
 - **cli:** improve cli performance a little bit ([#269](https://github.com/bamlab/flashlight/issues/269)) ([f646064](https://github.com/bamlab/flashlight/commit/f646064f58fbde5cb028628dab8ac1d4e96bc2e2))
+
+For the `cloud` command, this release also switches to `api.flashlight.dev` as server base url. This will fix future `reason: getaddrinfo ENOTFOUND` issues when we decommission the previous endpoint url.
 
 ## [0.17.1](https://github.com/bamlab/flashlight/compare/v0.16.3...v0.17.0) (2024-03-06)
 
