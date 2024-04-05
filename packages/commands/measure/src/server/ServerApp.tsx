@@ -10,7 +10,7 @@ import { SocketType, SocketServer } from "./socket/socketInterface";
 import { HostAndPortInfo } from "./components/HostAndPortInfo";
 import { getWebAppUrl } from "./constants";
 import { ServerSocketConnectionApp } from "./ServerSocketConnectionApp";
-import { useInput } from "ink";
+import { render, useInput } from "ink";
 import { profiler } from "@perf-profiler/profiler";
 
 const pathToDist = path.join(__dirname, "../../dist");
@@ -91,5 +91,13 @@ export const ServerApp = ({ port }: ServerAppProps) => {
     <ServerSocketConnectionApp socket={socket} url={webAppUrl} />
   ) : (
     <HostAndPortInfo url={webAppUrl} />
+  );
+};
+
+export const runServerApp = (port: number) => {
+  render(
+    <ServerApp port={port} />,
+    // handle it ourselves in the profiler to kill child processes thanks to useCleanupOnManualExit
+    { exitOnCtrlC: false }
   );
 };
