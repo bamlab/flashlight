@@ -100,15 +100,35 @@ long long printPerformanceMeasure(string pid)
     return totalDuration.count();
 }
 
-std::string pidOf(string bundleId)
+std::vector<string> split(const string &str, char delimiter)
+{
+    std::vector<string> result;
+    string currentResult = "";
+    for (char c : str)
+    {
+        if (c == delimiter || c == '\n')
+        {
+            result.push_back(currentResult);
+            currentResult = "";
+        }
+        else
+        {
+            currentResult += c;
+        }
+    }
+
+    return result;
+}
+
+std::vector<string> pidOf(string bundleId)
 {
     auto result = executeCommand("pidof " + bundleId);
-    return result.substr(0, result.find_first_of("\n"));
+    return split(result, ' ');
 }
 
 void pollPerformanceMeasures(std::string bundleId, int interval)
 {
-    string pid = "";
+    std::vector<string> pids;
 
     // We read atrace lines before the app is started
     // since it can take a bit of time to start and clear the traceOutputPath
@@ -118,10 +138,10 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
 
     cout << "Waiting for process to start..." << endl;
 
-    while (pid == "")
+    while (pids.empty())
     {
         clearATraceLines();
-        pid = pidOf(bundleId);
+        pids = pidOf(bundleId);
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 
@@ -129,13 +149,13 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
     {
         while (true)
         {
-            auto duration = printPerformanceMeasure(pid);
+            auto duration = printPerformanceMeasure(pids[0]);
             std::this_thread::sleep_for(std::chrono::milliseconds(interval - duration));
         }
     }
     catch (const PidClosedError &e)
     {
-        cerr << "CPP_ERROR_MAIN_PID_CLOSED " + pid << endl;
+        cerr << "CPP_ERROR_MAIN_PID_CLOSED " << e.what() << endl;
         pollPerformanceMeasures(bundleId, interval);
         return;
     }
