@@ -59,10 +59,13 @@ void printCpuStats(std::vector<string> pids)
     }
 }
 
-void printMemoryStats(string pid)
+void printMemoryStats(std::vector<string> pids)
 {
-    string memoryFilePath = "/proc/" + pid + "/statm";
-    readFile(memoryFilePath);
+    for (string pid : pids)
+    {
+        string memoryFilePath = "/proc/" + pid + "/statm";
+        readFile(memoryFilePath);
+    }
 }
 
 long long printPerformanceMeasure(std::vector<string> pids)
@@ -77,8 +80,7 @@ long long printPerformanceMeasure(std::vector<string> pids)
     printCpuStats(pids);
     auto cpuEnd = std::chrono::system_clock::now();
     log(separator);
-    // TODO memory should take into account multiple pids
-    printMemoryStats(pids[0]);
+    printMemoryStats(pids);
     auto memoryEnd = std::chrono::system_clock::now();
     log(separator);
     // TODO handle ATrace not available on OS
