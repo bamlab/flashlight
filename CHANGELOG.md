@@ -1,3 +1,9 @@
+## 0.17.4 (2024-04-18)
+
+### Bug Fixes
+
+- **profiler:** support rare apps with multiple pids ([#274](https://github.com/bamlab/flashlight/issues/274)) ([60ea349](https://github.com/bamlab/flashlight/commit/60ea3492d869ab4cea23a0d3eadb4e2f759661d3))
+
 ## 0.17.3 (2024-04-12)
 
 ## 0.17.2 (2024-04-05)
