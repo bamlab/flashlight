@@ -37,3 +37,23 @@ std::string executeCommand(std::string command)
   }
   return result;
 }
+
+std::vector<std::string> split(const std::string &str, char delimiter)
+{
+  std::vector<std::string> result;
+  std::string currentResult = "";
+  for (char c : str)
+  {
+    if (c == delimiter || c == '\n')
+    {
+      result.push_back(currentResult);
+      currentResult = "";
+    }
+    else
+    {
+      currentResult += c;
+    }
+  }
+
+  return result;
+}

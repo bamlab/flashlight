@@ -107,26 +107,6 @@ long long printPerformanceMeasure(std::vector<string> pids)
     return totalDuration.count();
 }
 
-std::vector<string> split(const string &str, char delimiter)
-{
-    std::vector<string> result;
-    string currentResult = "";
-    for (char c : str)
-    {
-        if (c == delimiter || c == '\n')
-        {
-            result.push_back(currentResult);
-            currentResult = "";
-        }
-        else
-        {
-            currentResult += c;
-        }
-    }
-
-    return result;
-}
-
 std::vector<string> pidOf(string bundleId)
 {
     auto result = executeCommand("pidof " + bundleId);
