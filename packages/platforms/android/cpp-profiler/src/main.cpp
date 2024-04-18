@@ -40,40 +40,47 @@ public:
         : std::runtime_error(message) {}
 };
 
-void printCpuStats(string pid)
+void printCpuStats(std::vector<string> pids)
 {
-    string path = "/proc/" + pid + "/task";
-
-    if (!fs::exists(path))
+    for (string pid : pids)
     {
-        throw PidClosedError("Directory does not exist: " + path);
-    }
+        string path = "/proc/" + pid + "/task";
 
-    for (const auto &entry : fs::directory_iterator(path))
-    {
-        string subProcessPath = entry.path().string() + "/stat";
-        readFile(subProcessPath);
+        if (!fs::exists(path))
+        {
+            throw PidClosedError("Directory does not exist: " + path);
+        }
+
+        for (const auto &entry : fs::directory_iterator(path))
+        {
+            string subProcessPath = entry.path().string() + "/stat";
+            readFile(subProcessPath);
+        }
     }
 }
 
-void printMemoryStats(string pid)
+void printMemoryStats(std::vector<string> pids)
 {
-    string memoryFilePath = "/proc/" + pid + "/statm";
-    readFile(memoryFilePath);
+    for (string pid : pids)
+    {
+        string memoryFilePath = "/proc/" + pid + "/statm";
+        readFile(memoryFilePath);
+    }
 }
 
-long long printPerformanceMeasure(string pid)
+long long printPerformanceMeasure(std::vector<string> pids)
 {
     auto start = std::chrono::system_clock::now();
 
     string separator = "=SEPARATOR=";
     log("=START MEASURE=");
-    log(pid);
+    // Log the first pid as the main pid
+    log(pids[0]);
     log(separator);
-    printCpuStats(pid);
+    printCpuStats(pids);
     auto cpuEnd = std::chrono::system_clock::now();
     log(separator);
-    printMemoryStats(pid);
+    printMemoryStats(pids);
     auto memoryEnd = std::chrono::system_clock::now();
     log(separator);
     // TODO handle ATrace not available on OS
@@ -100,15 +107,15 @@ long long printPerformanceMeasure(string pid)
     return totalDuration.count();
 }
 
-std::string pidOf(string bundleId)
+std::vector<string> pidOf(string bundleId)
 {
     auto result = executeCommand("pidof " + bundleId);
-    return result.substr(0, result.find_first_of("\n"));
+    return split(result, ' ');
 }
 
 void pollPerformanceMeasures(std::string bundleId, int interval)
 {
-    string pid = "";
+    std::vector<string> pids;
 
     // We read atrace lines before the app is started
     // since it can take a bit of time to start and clear the traceOutputPath
@@ -118,10 +125,10 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
 
     cout << "Waiting for process to start..." << endl;
 
-    while (pid == "")
+    while (pids.empty())
     {
         clearATraceLines();
-        pid = pidOf(bundleId);
+        pids = pidOf(bundleId);
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
     }
 
@@ -129,13 +136,13 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
     {
         while (true)
         {
-            auto duration = printPerformanceMeasure(pid);
+            auto duration = printPerformanceMeasure(pids);
             std::this_thread::sleep_for(std::chrono::milliseconds(interval - duration));
         }
     }
     catch (const PidClosedError &e)
     {
-        cerr << "CPP_ERROR_MAIN_PID_CLOSED " + pid << endl;
+        cerr << "CPP_ERROR_MAIN_PID_CLOSED " << e.what() << endl;
         pollPerformanceMeasures(bundleId, interval);
         return;
     }
@@ -166,7 +173,9 @@ int main(int argc, char **argv)
     }
     else if (methodName == "printPerformanceMeasure")
     {
-        printPerformanceMeasure(argv[2]);
+        std::vector<string> pids;
+        pids.push_back(argv[2]);
+        printPerformanceMeasure(pids);
     }
     else if (methodName == "printCpuClockTick")
     {
