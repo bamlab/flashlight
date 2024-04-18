@@ -40,19 +40,22 @@ public:
         : std::runtime_error(message) {}
 };
 
-void printCpuStats(string pid)
+void printCpuStats(std::vector<string> pids)
 {
-    string path = "/proc/" + pid + "/task";
-
-    if (!fs::exists(path))
+    for (string pid : pids)
     {
-        throw PidClosedError("Directory does not exist: " + path);
-    }
+        string path = "/proc/" + pid + "/task";
 
-    for (const auto &entry : fs::directory_iterator(path))
-    {
-        string subProcessPath = entry.path().string() + "/stat";
-        readFile(subProcessPath);
+        if (!fs::exists(path))
+        {
+            throw PidClosedError("Directory does not exist: " + path);
+        }
+
+        for (const auto &entry : fs::directory_iterator(path))
+        {
+            string subProcessPath = entry.path().string() + "/stat";
+            readFile(subProcessPath);
+        }
     }
 }
 
@@ -62,18 +65,20 @@ void printMemoryStats(string pid)
     readFile(memoryFilePath);
 }
 
-long long printPerformanceMeasure(string pid)
+long long printPerformanceMeasure(std::vector<string> pids)
 {
     auto start = std::chrono::system_clock::now();
 
     string separator = "=SEPARATOR=";
     log("=START MEASURE=");
-    log(pid);
+    // Log the first pid as the main pid
+    log(pids[0]);
     log(separator);
-    printCpuStats(pid);
+    printCpuStats(pids);
     auto cpuEnd = std::chrono::system_clock::now();
     log(separator);
-    printMemoryStats(pid);
+    // TODO memory should take into account multiple pids
+    printMemoryStats(pids[0]);
     auto memoryEnd = std::chrono::system_clock::now();
     log(separator);
     // TODO handle ATrace not available on OS
@@ -149,7 +154,7 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
     {
         while (true)
         {
-            auto duration = printPerformanceMeasure(pids[0]);
+            auto duration = printPerformanceMeasure(pids);
             std::this_thread::sleep_for(std::chrono::milliseconds(interval - duration));
         }
     }
@@ -186,7 +191,9 @@ int main(int argc, char **argv)
     }
     else if (methodName == "printPerformanceMeasure")
     {
-        printPerformanceMeasure(argv[2]);
+        std::vector<string> pids;
+        pids.push_back(argv[2]);
+        printPerformanceMeasure(pids);
     }
     else if (methodName == "printCpuClockTick")
     {
