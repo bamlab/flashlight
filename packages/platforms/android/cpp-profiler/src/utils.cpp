@@ -5,11 +5,10 @@
 #include <chrono>
 
 using std::cout;
-using std::endl;
 
 void log(const std::string &msg)
 {
-  cout << msg << endl;
+  cout << msg << "\n";
 }
 
 void logTimestamp()
@@ -19,7 +18,7 @@ void logTimestamp()
                              now.time_since_epoch())
                              .count();
 
-  cout << "Timestamp: " << timestamp << endl;
+  cout << "Timestamp: " << timestamp << "\n";
 }
 
 std::string executeCommand(std::string command)

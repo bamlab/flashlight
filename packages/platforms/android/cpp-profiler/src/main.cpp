@@ -10,7 +10,6 @@
 
 using std::cerr;
 using std::cout;
-using std::endl;
 using std::string;
 
 namespace fs = std::filesystem;
@@ -29,7 +28,7 @@ void readFile(string filePath)
     }
     else
     {
-        cerr << "CPP_ERROR_CANNOT_OPEN_FILE " + filePath << endl;
+        cerr << "CPP_ERROR_CANNOT_OPEN_FILE " + filePath << "\n";
     }
 }
 
@@ -105,7 +104,7 @@ long long printPerformanceMeasure(std::vector<string> pids)
     cout << "TOTAL EXEC TIME: " << totalDuration.count() << "|";
     cout << "CPU TIME: " << cpuDuration.count() << "|";
     cout << "MEMORY TIME: " << memoryDuration.count() << "|";
-    cout << "ATRACE TIME: " << atraceDuration.count() << endl;
+    cout << "ATRACE TIME: " << atraceDuration.count() << "\n";
 
     measureCount++;
     totalDurationSum += totalDurationMs;
@@ -114,6 +113,8 @@ long long printPerformanceMeasure(std::vector<string> pids)
     cout << "AVERAGE TOTAL EXEC TIME: " << totalDurationSum / measureCount << "\n";
 
     log("=STOP MEASURE=");
+
+    cout << std::flush;
 
     return totalDuration.count();
 }
@@ -134,7 +135,8 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
     // TODO handle ATrace not available on OS
     std::thread aTraceReadThread(readATraceThread);
 
-    cout << "Waiting for process to start..." << endl;
+    cout << "Waiting for process to start..."
+         << "\n";
 
     while (pids.empty())
     {
@@ -153,7 +155,7 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
     }
     catch (const PidClosedError &e)
     {
-        cerr << "CPP_ERROR_MAIN_PID_CLOSED " << e.what() << endl;
+        cerr << "CPP_ERROR_MAIN_PID_CLOSED " << e.what() << "\n";
         pollPerformanceMeasures(bundleId, interval);
         return;
     }
@@ -163,12 +165,12 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
 
 void printCpuClockTick()
 {
-    cout << sysconf(_SC_CLK_TCK) << endl;
+    cout << sysconf(_SC_CLK_TCK) << "\n";
 }
 
 void printRAMPageSize()
 {
-    cout << sysconf(_SC_PAGESIZE) << endl;
+    cout << sysconf(_SC_PAGESIZE) << "\n";
 }
 
 int main(int argc, char **argv)
@@ -198,7 +200,7 @@ int main(int argc, char **argv)
     }
     else
     {
-        cout << "Unknown method name: " << methodName << endl;
+        cout << "Unknown method name: " << methodName << "\n";
         return 1;
     }
 
