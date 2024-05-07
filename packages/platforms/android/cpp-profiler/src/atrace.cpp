@@ -26,7 +26,7 @@ void printATraceLines()
   std::lock_guard<std::mutex> guard(aTraceLinesMutex);
   for (auto itr = aTraceLines.begin(), end_itr = aTraceLines.end(); itr != end_itr; ++itr)
   {
-    std::cout << *itr << std::endl;
+    std::cout << *itr << "\n";
   }
   aTraceLines.clear();
 }
