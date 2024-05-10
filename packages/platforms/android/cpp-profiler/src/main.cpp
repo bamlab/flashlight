@@ -14,22 +14,29 @@ using std::string;
 
 namespace fs = std::filesystem;
 
-void readFile(string filePath)
+#define BUFFER_SIZE 2048
+
+auto readFile(std::string_view path)
 {
-    std::ifstream file(filePath);
-    if (file.is_open())
+    constexpr auto read_size = std::size_t(BUFFER_SIZE);
+    auto stream = std::ifstream(path.data());
+    stream.exceptions(std::ios_base::badbit);
+
+    if (not stream)
     {
-        string line;
-        while (std::getline(file, line))
-        {
-            log(line.c_str());
-        }
-        file.close();
+        cerr << "CPP_ERROR_CANNOT_OPEN_FILE " << path << "\n";
+        return;
     }
-    else
+
+    auto out = std::string();
+    auto buf = std::string(read_size, '\0');
+    while (stream.read(&buf[0], read_size))
     {
-        cerr << "CPP_ERROR_CANNOT_OPEN_FILE " + filePath << "\n";
+        out.append(buf, 0, stream.gcount());
     }
+    out.append(buf, 0, stream.gcount());
+
+    log(out);
 }
 
 class PidClosedError : public std::runtime_error
