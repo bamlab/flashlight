@@ -3,6 +3,7 @@ export MAESTRO_VERSION={1.29.0}; curl -Ls "https://get.maestro.mobile.dev" | bas
 export PATH="$PATH":"$HOME/.maestro/bin"
 brew tap facebook/fb
 brew install facebook/fb/idb-companion
+pip install fb-idb
 
 APPID="org.reactjs.native.example.fakeStore"
 
