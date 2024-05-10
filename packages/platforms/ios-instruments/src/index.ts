@@ -84,7 +84,7 @@ export class IOSInstrumentsProfiler implements Profiler {
     // Do we need anything here?
   }
 
-  getScreenRecorder(videoPath: string): ScreenRecorder | undefined {
+  getScreenRecorder(): ScreenRecorder | undefined {
     return undefined;
   }
 

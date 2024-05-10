@@ -12,7 +12,7 @@ export { waitFor } from "./utils/waitFor";
 export { executeAsync, executeCommand } from "./commands/shell";
 
 export class AndroidProfiler implements Profiler {
-  waitUntilReady = (bundleId: string) => {
+  waitUntilReady = () => {
     return new Promise<void>((resolve) => resolve());
   };
   getMeasures = () => {
