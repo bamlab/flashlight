@@ -105,7 +105,7 @@ export class IOSProfiler implements Profiler {
     return new Promise<void>((resolve) => resolve());
   }
 
-  async waitUntilReady(bundleId: string): Promise<void> {
+  async waitUntilReady(): Promise<void> {
     return new Promise<void>((resolve) => resolve());
   }
 

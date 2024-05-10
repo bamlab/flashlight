@@ -69,6 +69,7 @@ export const computeMeasures = (inputFileName: string) => {
     ignoreAttributes: false,
     parseAttributeValue: true,
     textNodeName: "value",
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     updateTag(tagName: string, jPath: string, attrs: { [x: string]: string | number }) {
       switch (tagName) {
         case "trace-query-result": {
