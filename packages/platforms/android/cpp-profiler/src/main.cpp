@@ -68,6 +68,9 @@ void printMemoryStats(std::vector<string> pids)
     }
 }
 
+long long totalDurationSum = 0;
+long long measureCount = 0;
+
 long long printPerformanceMeasure(std::vector<string> pids)
 {
     auto start = std::chrono::system_clock::now();
@@ -97,10 +100,18 @@ long long printPerformanceMeasure(std::vector<string> pids)
     auto atraceDuration = std::chrono::duration_cast<std::chrono::milliseconds>(atraceEnd - memoryEnd);
     auto totalDuration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
+    long long totalDurationMs = totalDuration.count();
+
     cout << "TOTAL EXEC TIME: " << totalDuration.count() << "|";
     cout << "CPU TIME: " << cpuDuration.count() << "|";
     cout << "MEMORY TIME: " << memoryDuration.count() << "|";
     cout << "ATRACE TIME: " << atraceDuration.count() << endl;
+
+    measureCount++;
+    totalDurationSum += totalDurationMs;
+
+    log(separator);
+    cout << "AVERAGE TOTAL EXEC TIME: " << totalDurationSum / measureCount << "\n";
 
     log("=STOP MEASURE=");
 
