@@ -56,7 +56,7 @@ export class SingleIterationTester {
       if (beforeTest) await beforeTest();
 
       await this.maybeStartRecording();
-      this.performanceMeasurer.start();
+      await this.performanceMeasurer.start();
       await run();
       const measures = await this.performanceMeasurer.stop(duration);
       await this.maybeStopRecording();
