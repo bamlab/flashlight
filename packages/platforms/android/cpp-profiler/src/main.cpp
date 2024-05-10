@@ -134,6 +134,8 @@ std::vector<string> pidOf(string bundleId)
 
 void pollPerformanceMeasures(std::string bundleId, int interval)
 {
+    pthread_setname_np(pthread_self(), "FL-Main");
+
     std::vector<string> pids;
 
     // We read atrace lines before the app is started
@@ -141,6 +143,7 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
     // but we'll clear them out periodically while the app isn't started
     // TODO handle ATrace not available on OS
     std::thread aTraceReadThread(readATraceThread);
+    pthread_setname_np(aTraceReadThread.native_handle(), "FL-Atrace");
 
     cout << "Waiting for process to start..."
          << "\n";
