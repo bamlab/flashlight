@@ -3,11 +3,6 @@ import os from "os";
 import { Logger } from "@perf-profiler/logger";
 import { executeCommand } from "../shell";
 
-interface Profiler {
-  ensureCppProfilerIsInstalled(): void;
-  stop(): void;
-}
-
 export const CppProfilerName = `BAMPerfProfiler`;
 
 // Since Flipper uses esbuild, we copy the bin folder directly
@@ -18,7 +13,7 @@ const binaryFolder = global.Flipper
   ? `${__dirname}/bin`
   : `${__dirname}/../../..${__dirname.includes("dist") ? "/.." : ""}/cpp-profiler/bin`;
 
-export abstract class UnixProfiler implements Profiler {
+export abstract class UnixProfiler {
   stop(): void {
     throw new Error("Method not implemented.");
   }
