@@ -2,11 +2,7 @@
 
 import { Logger } from "@perf-profiler/logger";
 import { Measure } from "@perf-profiler/types";
-import {
-  getCpuClockTick,
-  getRAMPageSize,
-  ensureCppProfilerIsInstalled,
-} from "./commands/cppProfiler";
+import { getCpuClockTick, getRAMPageSize } from "./commands/cppProfiler";
 import { program } from "commander";
 import { detectCurrentAppBundleId } from "./commands/detectCurrentAppBundleId";
 import { getPidId } from "./commands/getPidId";
@@ -14,7 +10,7 @@ import { getAbi } from "./commands/getAbi";
 import { profiler } from "./commands/platforms/platformProfiler";
 
 const debugCppConfig = () => {
-  ensureCppProfilerIsInstalled();
+  profiler.ensureCppProfilerIsInstalled();
   Logger.success(`CPU Clock tick: ${getCpuClockTick()}`);
   Logger.success(`RAM Page size: ${getRAMPageSize()}`);
 };

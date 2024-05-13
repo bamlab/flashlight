@@ -27,6 +27,16 @@ export abstract class UnixProfiler {
   private cpuClockTick: number | undefined;
   private RAMPageSize: number | undefined;
 
+  /**
+   * Main setup function for the cpp profiler
+   *
+   * It will:
+   * - install the C++ profiler for the correct architecture on the device
+   * - Starts the atrace process (the c++ profiler will then starts another thread to read from it)
+   * - Populate needed values like CPU clock tick and RAM page size
+   *
+   * This needs to be done before measures and can take a few seconds
+   */
   ensureCppProfilerIsInstalled(): void {
     if (!this.hasInstalledProfiler) {
       this.assertSupported();

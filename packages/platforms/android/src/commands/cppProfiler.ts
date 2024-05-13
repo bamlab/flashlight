@@ -3,20 +3,6 @@ import { canIgnoreAwsTerminationError, executeLongRunningProcess } from "./shell
 import { POLLING_INTERVAL } from "@perf-profiler/types";
 import { profiler } from "./platforms/platformProfiler";
 
-/**
- * Main setup function for the cpp profiler
- *
- * It will:
- * - install the C++ profiler for the correct architecture on the device
- * - Starts the atrace process (the c++ profiler will then starts another thread to read from it)
- * - Populate needed values like CPU clock tick and RAM page size
- *
- * This needs to be done before measures and can take a few seconds
- */
-export const ensureCppProfilerIsInstalled = () => {
-  profiler.ensureCppProfilerIsInstalled();
-};
-
 export const getCpuClockTick = () => {
   return profiler.getCpuClockTick();
 };
@@ -53,12 +39,13 @@ export const parseCppMeasure = (measure: string): CppPerformanceMeasure => {
   return { pid, cpu, ram, atrace, timestamp };
 };
 
+// this method should really be part of the UnixProfiler class
 export const pollPerformanceMeasures = (
   pid: string,
   onData: (measure: CppPerformanceMeasure) => void,
   onPidChanged?: (pid: string) => void
 ) => {
-  ensureCppProfilerIsInstalled();
+  profiler.ensureCppProfilerIsInstalled();
 
   const DELIMITER = "=STOP MEASURE=";
 

@@ -1,4 +1,3 @@
-import { ensureCppProfilerIsInstalled } from "./commands/cppProfiler";
 import { cleanup } from "./commands/shell";
 import { ScreenRecorder } from "./commands/ScreenRecorder";
 import { profiler } from "./commands/platforms/platformProfiler";
@@ -13,7 +12,7 @@ export { executeAsync, executeCommand } from "./commands/shell";
 export class AndroidProfiler implements Profiler {
   pollPerformanceMeasures = profiler.pollPerformanceMeasures;
   detectCurrentBundleId = profiler.detectCurrentBundleId;
-  installProfilerOnDevice = ensureCppProfilerIsInstalled;
+  installProfilerOnDevice = profiler.ensureCppProfilerIsInstalled;
   getScreenRecorder = (videoPath: string) => new ScreenRecorder(videoPath);
   cleanup = cleanup;
   async stopApp(bundleId: string) {
