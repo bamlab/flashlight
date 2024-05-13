@@ -15,7 +15,7 @@ const startRecord = async (
 ): Promise<ChildProcess> => {
   const templateFilePath = `${__dirname}/../Flashlight.tracetemplate`;
   const recordingProcess = executeAsync(
-    `xcrun xctrace record --device ${deviceUdid} --template ${templateFilePath} --attach ${appPid} --output ${traceFile}`
+    `arch -arm64 xcrun xctrace record --device ${deviceUdid} --template ${templateFilePath} --attach ${appPid} --output ${traceFile}`
   );
   await new Promise<void>((resolve) => {
     recordingProcess.stdout?.on("data", (data) => {
@@ -30,7 +30,7 @@ const startRecord = async (
 const saveTraceFile = (traceFile: string): string => {
   const xmlOutputFile = getTmpFilePath("report.xml");
   executeCommand(
-    `xctrace export --input ${traceFile} --xpath '/trace-toc/run[@number="1"]/data/table[@schema="time-profile"]' --output ${xmlOutputFile}`
+    `arch -arm64 xctrace export --input ${traceFile} --xpath '/trace-toc/run[@number="1"]/data/table[@schema="time-profile"]' --output ${xmlOutputFile}`
   );
   return xmlOutputFile;
 };
