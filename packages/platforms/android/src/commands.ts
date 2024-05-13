@@ -11,7 +11,7 @@ import { program } from "commander";
 import { detectCurrentAppBundleId } from "./commands/detectCurrentAppBundleId";
 import { getPidId } from "./commands/getPidId";
 import { getAbi } from "./commands/getAbi";
-import { pollPerformanceMeasures } from "./commands/pollPerformanceMeasures";
+import { profiler } from "./commands/platforms/platformProfiler";
 
 const debugCppConfig = () => {
   ensureCppProfilerIsInstalled();
@@ -65,7 +65,7 @@ program
   .action((options) => {
     const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
 
-    pollPerformanceMeasures(bundleId, {
+    profiler.pollPerformanceMeasures(bundleId, {
       onMeasure: (measure: Measure) => {
         const headers: string[] = [];
         const values: (number | undefined)[] = [];

@@ -2,6 +2,12 @@ import fs from "fs";
 import os from "os";
 import { Logger } from "@perf-profiler/logger";
 import { executeCommand } from "../shell";
+import { Measure, ThreadNames } from "@perf-profiler/types";
+import { CpuMeasureAggregator } from "../cpu/CpuMeasureAggregator";
+import { FrameTimeParser } from "../atrace/pollFpsUsage";
+import { pollPerformanceMeasures } from "../cppProfiler";
+import { processOutput } from "../cpu/getCpuStatsByProcess";
+import { processOutput as processRamOutput } from "../ram/pollRamUsage";
 
 export const CppProfilerName = `BAMPerfProfiler`;
 
@@ -73,6 +79,88 @@ export abstract class UnixProfiler {
 
     this.pushExecutable(binaryTmpPath);
     Logger.success(`C++ Profiler installed in ${this.getDeviceProfilerPath()}`);
+  }
+
+  pollPerformanceMeasures(
+    bundleId: string,
+    {
+      onMeasure,
+      onStartMeasuring = () => {
+        // noop by default
+      },
+    }: {
+      onMeasure: (measure: Measure) => void;
+      onStartMeasuring?: () => void;
+    }
+  ) {
+    let initialTime: number | null = null;
+    let previousTime: number | null = null;
+
+    let cpuMeasuresAggregator = new CpuMeasureAggregator();
+    let frameTimeParser = new FrameTimeParser();
+
+    const reset = () => {
+      initialTime = null;
+      previousTime = null;
+      cpuMeasuresAggregator = new CpuMeasureAggregator();
+      frameTimeParser = new FrameTimeParser();
+    };
+
+    return pollPerformanceMeasures(
+      bundleId,
+      ({ pid, cpu, ram: ramStr, atrace, timestamp }) => {
+        if (!atrace) {
+          Logger.debug("NO ATRACE OUTPUT, if the app is idle, that is normal");
+        }
+        const subProcessesStats = processOutput(cpu, pid);
+
+        const ram = processRamOutput(ramStr);
+        const { frameTimes, interval: atraceInterval } = frameTimeParser.getFrameTimes(atrace, pid);
+
+        if (!initialTime) {
+          initialTime = timestamp;
+        }
+
+        if (previousTime) {
+          const interval = timestamp - previousTime;
+
+          const cpuMeasures = cpuMeasuresAggregator.process(subProcessesStats, interval);
+
+          const fps = FrameTimeParser.getFps(
+            frameTimes,
+            atraceInterval,
+            Math.max(
+              cpuMeasures.perName[ThreadNames.ANDROID.UI] || 0,
+              // Hack for Flutter apps - if this thread is heavy app will be laggy
+              cpuMeasures.perName[ThreadNames.FLUTTER.UI] || 0
+            )
+          );
+
+          onMeasure(
+            this.supportFPS()
+              ? {
+                  cpu: cpuMeasures,
+                  fps,
+                  ram,
+                  time: timestamp - initialTime,
+                }
+              : {
+                  cpu: cpuMeasures,
+                  ram,
+                  time: timestamp - initialTime,
+                }
+          );
+        } else {
+          onStartMeasuring();
+          cpuMeasuresAggregator.initStats(subProcessesStats);
+        }
+        previousTime = timestamp;
+      },
+      () => {
+        Logger.warn("Process id has changed, ignoring measures until now");
+        reset();
+      }
+    );
   }
 
   public abstract getDeviceCommand(command: string): string;
