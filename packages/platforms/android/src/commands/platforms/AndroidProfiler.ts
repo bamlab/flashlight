@@ -77,4 +77,9 @@ export class AndroidProfiler extends UnixProfiler {
   public getScreenRecorder(videoPath: string) {
     return new ScreenRecorder(videoPath);
   }
+
+  async stopApp(bundleId: string) {
+    execSync(`adb shell am force-stop ${bundleId}`);
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+  }
 }

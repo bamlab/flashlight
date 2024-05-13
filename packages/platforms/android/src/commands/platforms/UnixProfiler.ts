@@ -178,6 +178,11 @@ export abstract class UnixProfiler {
     return undefined;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async stopApp(bundleId: string) {
+    throw new Error("Method not implemented.");
+  }
+
   public abstract getDeviceCommand(command: string): string;
   protected abstract getAbi(): string;
   protected abstract pushExecutable(binaryTmpPath: string): void;

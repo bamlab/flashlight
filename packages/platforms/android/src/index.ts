@@ -1,7 +1,6 @@
 import { cleanup } from "./commands/shell";
 import { profiler } from "./commands/platforms/platformProfiler";
 import { Profiler } from "@perf-profiler/types";
-import { execSync } from "child_process";
 
 export { Measure } from "@perf-profiler/types";
 export { Measure as GfxInfoMeasure } from "./commands/gfxInfo/parseGfxInfo";
@@ -14,8 +13,5 @@ export class AndroidProfiler implements Profiler {
   installProfilerOnDevice = profiler.installProfilerOnDevice;
   getScreenRecorder = profiler.getScreenRecorder;
   cleanup = cleanup;
-  async stopApp(bundleId: string) {
-    execSync(`adb shell am force-stop ${bundleId}`);
-    await new Promise((resolve) => setTimeout(resolve, 3000));
-  }
+  stopApp = profiler.stopApp;
 }
