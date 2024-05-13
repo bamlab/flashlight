@@ -1,4 +1,3 @@
-import { cleanup } from "./commands/shell";
 import { profiler } from "./commands/platforms/platformProfiler";
 import { Profiler } from "@perf-profiler/types";
 
@@ -12,6 +11,6 @@ export class AndroidProfiler implements Profiler {
   detectCurrentBundleId = profiler.detectCurrentBundleId;
   installProfilerOnDevice = profiler.installProfilerOnDevice;
   getScreenRecorder = profiler.getScreenRecorder;
-  cleanup = cleanup;
+  cleanup = profiler.cleanup;
   stopApp = profiler.stopApp;
 }

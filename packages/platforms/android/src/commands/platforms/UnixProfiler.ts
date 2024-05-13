@@ -1,7 +1,7 @@
 import fs from "fs";
 import os from "os";
 import { Logger } from "@perf-profiler/logger";
-import { executeCommand } from "../shell";
+import { cleanup, executeCommand } from "../shell";
 import { Measure, ScreenRecorder, ThreadNames } from "@perf-profiler/types";
 import { CpuMeasureAggregator } from "../cpu/CpuMeasureAggregator";
 import { FrameTimeParser } from "../atrace/pollFpsUsage";
@@ -179,8 +179,12 @@ export abstract class UnixProfiler {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async stopApp(bundleId: string) {
+  public async stopApp(bundleId: string) {
     throw new Error("Method not implemented.");
+  }
+
+  public cleanup() {
+    cleanup();
   }
 
   public abstract getDeviceCommand(command: string): string;
