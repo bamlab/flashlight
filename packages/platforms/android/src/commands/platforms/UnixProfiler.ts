@@ -1,11 +1,22 @@
 import fs from "fs";
 import os from "os";
 import { Logger } from "@perf-profiler/logger";
-import { cleanup, executeCommand } from "../shell";
-import { Measure, ScreenRecorder, ThreadNames } from "@perf-profiler/types";
+import {
+  canIgnoreAwsTerminationError,
+  cleanup,
+  executeCommand,
+  executeLongRunningProcess,
+} from "../shell";
+import {
+  Measure,
+  POLLING_INTERVAL,
+  Profiler,
+  ScreenRecorder,
+  ThreadNames,
+} from "@perf-profiler/types";
 import { CpuMeasureAggregator } from "../cpu/CpuMeasureAggregator";
 import { FrameTimeParser } from "../atrace/pollFpsUsage";
-import { pollPerformanceMeasures } from "../cppProfiler";
+import { CppPerformanceMeasure, parseCppMeasure } from "../cppProfiler";
 import { processOutput } from "../cpu/getCpuStatsByProcess";
 import { processOutput as processRamOutput } from "../ram/pollRamUsage";
 
@@ -19,7 +30,7 @@ const binaryFolder = global.Flipper
   ? `${__dirname}/bin`
   : `${__dirname}/../../..${__dirname.includes("dist") ? "/.." : ""}/cpp-profiler/bin`;
 
-export abstract class UnixProfiler {
+export abstract class UnixProfiler implements Profiler {
   stop(): void {
     throw new Error("Method not implemented.");
   }
@@ -106,17 +117,17 @@ export abstract class UnixProfiler {
     let initialTime: number | null = null;
     let previousTime: number | null = null;
 
-    let cpuMeasuresAggregator = new CpuMeasureAggregator();
+    let cpuMeasuresAggregator = new CpuMeasureAggregator(this.getCpuClockTick());
     let frameTimeParser = new FrameTimeParser();
 
     const reset = () => {
       initialTime = null;
       previousTime = null;
-      cpuMeasuresAggregator = new CpuMeasureAggregator();
+      cpuMeasuresAggregator = new CpuMeasureAggregator(this.getCpuClockTick());
       frameTimeParser = new FrameTimeParser();
     };
 
-    return pollPerformanceMeasures(
+    return this.pollPerformanceMeasuresWeirdSubfunction(
       bundleId,
       ({ pid, cpu, ram: ramStr, atrace, timestamp }) => {
         if (!atrace) {
@@ -124,7 +135,7 @@ export abstract class UnixProfiler {
         }
         const subProcessesStats = processOutput(cpu, pid);
 
-        const ram = processRamOutput(ramStr);
+        const ram = processRamOutput(ramStr, this.getRAMPageSize());
         const { frameTimes, interval: atraceInterval } = frameTimeParser.getFrameTimes(atrace, pid);
 
         if (!initialTime) {
@@ -173,11 +184,53 @@ export abstract class UnixProfiler {
     );
   }
 
+  pollPerformanceMeasuresWeirdSubfunction = (
+    pid: string,
+    onData: (measure: CppPerformanceMeasure) => void,
+    onPidChanged?: (pid: string) => void
+  ) => {
+    this.installProfilerOnDevice();
+
+    const DELIMITER = "=STOP MEASURE=";
+
+    const process = executeLongRunningProcess(
+      this.getDeviceCommand(
+        `${this.getDeviceProfilerPath()} pollPerformanceMeasures ${pid} ${POLLING_INTERVAL}`
+      ),
+      DELIMITER,
+      (data: string) => {
+        onData(parseCppMeasure(data));
+      }
+    );
+
+    process.stderr?.on("data", (data) => {
+      const log = data.toString();
+
+      // Ignore errors, it might be that the thread is dead and we can't read stats anymore
+      if (log.includes("CPP_ERROR_CANNOT_OPEN_FILE")) {
+        Logger.debug(log);
+      } else if (log.includes("CPP_ERROR_MAIN_PID_CLOSED")) {
+        onPidChanged?.(pid);
+      } else {
+        if (!canIgnoreAwsTerminationError(log)) Logger.error(log);
+      }
+    });
+
+    return {
+      stop: () => {
+        process.kill("SIGINT");
+        this.stop();
+      },
+    };
+  };
+
+  // Disabling the warning because the method isn't implemented
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public getScreenRecorder(videoPath: string): ScreenRecorder | undefined {
     return undefined;
   }
 
+  // Disabling the warning because the method isn't implemented
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public async stopApp(bundleId: string) {
     throw new Error("Method not implemented.");

@@ -2,17 +2,18 @@
 
 import { Logger } from "@perf-profiler/logger";
 import { Measure } from "@perf-profiler/types";
-import { getCpuClockTick, getRAMPageSize } from "./commands/cppProfiler";
 import { program } from "commander";
 import { detectCurrentAppBundleId } from "./commands/detectCurrentAppBundleId";
 import { getPidId } from "./commands/getPidId";
 import { getAbi } from "./commands/getAbi";
-import { profiler } from "./commands/platforms/platformProfiler";
+import { AndroidProfiler } from "./commands/platforms/AndroidProfiler";
+
+const profiler = new AndroidProfiler();
 
 const debugCppConfig = () => {
   profiler.installProfilerOnDevice();
-  Logger.success(`CPU Clock tick: ${getCpuClockTick()}`);
-  Logger.success(`RAM Page size: ${getRAMPageSize()}`);
+  Logger.success(`CPU Clock tick: ${profiler.getCpuClockTick()}`);
+  Logger.success(`RAM Page size: ${profiler.getRAMPageSize()}`);
 };
 
 program.command("debugCppConfig").description("Debug CPP Config").action(debugCppConfig);
