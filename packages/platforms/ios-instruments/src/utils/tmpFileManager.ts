@@ -11,7 +11,9 @@ export const writeTmpFile = (fileName: string, content: string): string => {
 
 export const getTmpFilePath = (fileName: string) => {
   const filePath = `${os.tmpdir()}/${fileName}`;
-  tmpFiles.push(filePath);
+  if (!tmpFiles.includes(filePath)) {
+    tmpFiles.push(filePath);
+  }
 
   return filePath;
 };

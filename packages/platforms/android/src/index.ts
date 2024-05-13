@@ -12,6 +12,12 @@ export { waitFor } from "./utils/waitFor";
 export { executeAsync, executeCommand } from "./commands/shell";
 
 export class AndroidProfiler implements Profiler {
+  waitUntilReady = () => {
+    return new Promise<void>((resolve) => resolve());
+  };
+  getMeasures = () => {
+    return new Promise<void>((resolve) => resolve());
+  };
   pollPerformanceMeasures = pollPerformanceMeasures;
   detectCurrentBundleId = profiler.detectCurrentBundleId;
   installProfilerOnDevice = ensureCppProfilerIsInstalled;

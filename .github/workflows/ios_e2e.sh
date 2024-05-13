@@ -3,6 +3,7 @@ export MAESTRO_VERSION={1.29.0}; curl -Ls "https://get.maestro.mobile.dev" | bas
 export PATH="$PATH":"$HOME/.maestro/bin"
 brew tap facebook/fb
 brew install facebook/fb/idb-companion
+pip install fb-idb
 
 APPID="org.reactjs.native.example.fakeStore"
 
@@ -22,4 +23,4 @@ xcrun simctl install $UDID ./.github/workflows/fakeStore.app
 xcrun simctl launch $UDID $APPID
 
 mkdir -p report
-npx flashlight-ios-poc ios-test --appId $APPID --simulatorId $UDID --testCommand 'maestro test ./packages/platforms/ios-instruments/test.yaml' --resultsFilePath './report/result.json'
+PLATFORM=ios-instruments node packages/commands/test/dist/bin.js test --bundleId $APPID --testCommand 'maestro test ./packages/platforms/ios-instruments/test.yaml' --resultsFilePath './report/result.json' --iterationCount 2
