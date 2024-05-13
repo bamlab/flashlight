@@ -3,3 +3,4 @@ export { Measure as GfxInfoMeasure } from "./commands/gfxInfo/parseGfxInfo";
 export { waitFor } from "./utils/waitFor";
 export { executeAsync, executeCommand } from "./commands/shell";
 export { AndroidProfiler } from "./commands/platforms/AndroidProfiler";
+export { FlashlightSelfProfiler } from "./commands/platforms/FlashlightSelfProfiler";
