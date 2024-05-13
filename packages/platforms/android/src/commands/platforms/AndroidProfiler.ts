@@ -68,4 +68,8 @@ export class AndroidProfiler extends UnixProfiler {
   public detectCurrentBundleId(): string {
     return detectCurrentAppBundleId().bundleId;
   }
+
+  public supportFPS(): boolean {
+    return true;
+  }
 }

@@ -81,4 +81,5 @@ export abstract class UnixProfiler {
   protected abstract assertSupported(): void;
   public abstract getDeviceProfilerPath(): string;
   public abstract detectCurrentBundleId(): string;
+  public abstract supportFPS(): boolean;
 }

@@ -5,6 +5,7 @@ import { processOutput as processRamOutput } from "./ram/pollRamUsage";
 import { FrameTimeParser } from "./atrace/pollFpsUsage";
 import { pollPerformanceMeasures as cppPollPerformanceMeasures } from "./cppProfiler";
 import { Logger } from "@perf-profiler/logger";
+import { profiler } from "./platforms/platformProfiler";
 
 export const pollPerformanceMeasures = (
   bundleId: string,
@@ -61,11 +62,8 @@ export const pollPerformanceMeasures = (
           )
         );
 
-        // TODO: implement this better
-        const SUPPORT_FPS = true;
-
         onMeasure(
-          SUPPORT_FPS
+          profiler.supportFPS()
             ? {
                 cpu: cpuMeasures,
                 fps,
