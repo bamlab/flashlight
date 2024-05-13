@@ -14,10 +14,7 @@ export class AndroidProfiler extends UnixProfiler {
   }
 
   stop(): void {
-    // We need to close this process, otherwise tests will hang
-    Logger.debug("Stopping atrace process...");
-    this.aTraceProcess?.kill();
-    this.aTraceProcess = null;
+    this.stopATrace();
   }
 
   assertSupported(): void {
@@ -39,7 +36,14 @@ export class AndroidProfiler extends UnixProfiler {
     return `/data/local/tmp/${CppProfilerName}`;
   }
 
-  private startATrace() {
+  protected stopATrace() {
+    // We need to close this process, otherwise tests will hang
+    Logger.debug("Stopping atrace process...");
+    this.aTraceProcess?.kill();
+    this.aTraceProcess = null;
+  }
+
+  protected startATrace() {
     Logger.debug("Stopping atrace and flushing output...");
     /**
      * Since output from the atrace --async_stop
