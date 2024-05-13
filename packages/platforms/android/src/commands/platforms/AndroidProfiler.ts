@@ -4,6 +4,7 @@ import { executeAsync, executeCommand } from "../shell";
 import { getAbi } from "../getAbi";
 import { detectCurrentAppBundleId } from "../detectCurrentAppBundleId";
 import { CppProfilerName, UnixProfiler } from "./UnixProfiler";
+import { ScreenRecorder } from "../ScreenRecorder";
 
 export class AndroidProfiler extends UnixProfiler {
   private aTraceProcess: ChildProcess | null = null;
@@ -71,5 +72,9 @@ export class AndroidProfiler extends UnixProfiler {
 
   public supportFPS(): boolean {
     return true;
+  }
+
+  public getScreenRecorder(videoPath: string) {
+    return new ScreenRecorder(videoPath);
   }
 }

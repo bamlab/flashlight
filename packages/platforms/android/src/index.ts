@@ -1,5 +1,4 @@
 import { cleanup } from "./commands/shell";
-import { ScreenRecorder } from "./commands/ScreenRecorder";
 import { profiler } from "./commands/platforms/platformProfiler";
 import { Profiler } from "@perf-profiler/types";
 import { execSync } from "child_process";
@@ -12,8 +11,8 @@ export { executeAsync, executeCommand } from "./commands/shell";
 export class AndroidProfiler implements Profiler {
   pollPerformanceMeasures = profiler.pollPerformanceMeasures;
   detectCurrentBundleId = profiler.detectCurrentBundleId;
-  installProfilerOnDevice = profiler.ensureCppProfilerIsInstalled;
-  getScreenRecorder = (videoPath: string) => new ScreenRecorder(videoPath);
+  installProfilerOnDevice = profiler.installProfilerOnDevice;
+  getScreenRecorder = profiler.getScreenRecorder;
   cleanup = cleanup;
   async stopApp(bundleId: string) {
     execSync(`adb shell am force-stop ${bundleId}`);

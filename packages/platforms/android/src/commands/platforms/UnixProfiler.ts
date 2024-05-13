@@ -2,7 +2,7 @@ import fs from "fs";
 import os from "os";
 import { Logger } from "@perf-profiler/logger";
 import { executeCommand } from "../shell";
-import { Measure, ThreadNames } from "@perf-profiler/types";
+import { Measure, ScreenRecorder, ThreadNames } from "@perf-profiler/types";
 import { CpuMeasureAggregator } from "../cpu/CpuMeasureAggregator";
 import { FrameTimeParser } from "../atrace/pollFpsUsage";
 import { pollPerformanceMeasures } from "../cppProfiler";
@@ -171,6 +171,11 @@ export abstract class UnixProfiler {
         reset();
       }
     );
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  public getScreenRecorder(videoPath: string): ScreenRecorder | undefined {
+    return undefined;
   }
 
   public abstract getDeviceCommand(command: string): string;
