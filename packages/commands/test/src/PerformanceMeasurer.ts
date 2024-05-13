@@ -55,8 +55,11 @@ export class PerformanceMeasurer {
     });
   }
 
-  forceStop() {
+  async forceStop() {
+    // Ensure polling has stopped
     this.polling?.stop();
+    // Hack for ios-instruments to get the measures at the end of the test
+    await profiler.getMeasures();
   }
 
   async stop(duration?: number): Promise<TestCaseIterationResult> {
@@ -77,10 +80,7 @@ export class PerformanceMeasurer {
       await new Promise((resolve) => setTimeout(resolve, POLLING_INTERVAL * 2));
     }
 
-    // Ensure polling has stopped
-    this.polling?.stop();
-    // Hack for ios-instruments to get the measures at the end of the test
-    await profiler.getMeasures();
+    await this.forceStop();
 
     await this.maybeStopRecording();
 
