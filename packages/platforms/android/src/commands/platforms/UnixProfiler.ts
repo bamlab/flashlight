@@ -37,7 +37,7 @@ export abstract class UnixProfiler {
    *
    * This needs to be done before measures and can take a few seconds
    */
-  ensureCppProfilerIsInstalled(): void {
+  public installProfilerOnDevice(): void {
     if (!this.hasInstalledProfiler) {
       this.assertSupported();
       this.installCppProfilerOnDevice();
@@ -47,14 +47,14 @@ export abstract class UnixProfiler {
     this.hasInstalledProfiler = true;
   }
 
-  retrieveCpuClockTick() {
+  private retrieveCpuClockTick() {
     this.cpuClockTick = parseInt(
       executeCommand(this.getDeviceCommand(`${this.getDeviceProfilerPath()} printCpuClockTick`)),
       10
     );
   }
 
-  retrieveRAMPageSize() {
+  private retrieveRAMPageSize() {
     this.RAMPageSize = parseInt(
       executeCommand(this.getDeviceCommand(`${this.getDeviceProfilerPath()} printRAMPageSize`)),
       10
@@ -62,7 +62,7 @@ export abstract class UnixProfiler {
   }
 
   getCpuClockTick(): number {
-    this.ensureCppProfilerIsInstalled();
+    this.installProfilerOnDevice();
     if (!this.cpuClockTick) {
       throw new Error("CPU clock tick not initialized");
     }
@@ -70,7 +70,7 @@ export abstract class UnixProfiler {
   }
 
   getRAMPageSize(): number {
-    this.ensureCppProfilerIsInstalled();
+    this.installProfilerOnDevice();
     if (!this.RAMPageSize) {
       throw new Error("RAM Page size not initialized");
     }

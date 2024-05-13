@@ -10,7 +10,7 @@ import { getAbi } from "./commands/getAbi";
 import { profiler } from "./commands/platforms/platformProfiler";
 
 const debugCppConfig = () => {
-  profiler.ensureCppProfilerIsInstalled();
+  profiler.installProfilerOnDevice();
   Logger.success(`CPU Clock tick: ${getCpuClockTick()}`);
   Logger.success(`RAM Page size: ${getRAMPageSize()}`);
 };

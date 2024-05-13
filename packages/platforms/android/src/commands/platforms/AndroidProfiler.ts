@@ -8,8 +8,8 @@ import { CppProfilerName, UnixProfiler } from "./UnixProfiler";
 export class AndroidProfiler extends UnixProfiler {
   private aTraceProcess: ChildProcess | null = null;
 
-  ensureCppProfilerIsInstalled(): void {
-    super.ensureCppProfilerIsInstalled();
+  installProfilerOnDevice(): void {
+    super.installProfilerOnDevice();
     if (!this.aTraceProcess) this.startATrace();
   }
 

@@ -45,7 +45,7 @@ export const pollPerformanceMeasures = (
   onData: (measure: CppPerformanceMeasure) => void,
   onPidChanged?: (pid: string) => void
 ) => {
-  profiler.ensureCppProfilerIsInstalled();
+  profiler.installProfilerOnDevice();
 
   const DELIMITER = "=STOP MEASURE=";
 
