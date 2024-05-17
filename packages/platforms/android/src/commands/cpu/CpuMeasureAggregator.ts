@@ -1,10 +1,11 @@
 import { mapValues } from "lodash";
 import { CpuMeasure as Measure } from "@perf-profiler/types";
-import { getCpuClockTick } from "../cppProfiler";
 import { ProcessStat } from "./getCpuStatsByProcess";
 
 export class CpuMeasureAggregator {
   private previousTotalCpuTimePerProcessId: { [processId: string]: number } = {};
+
+  constructor(private cpuClockTick: number) {}
 
   private groupCpuUsage(
     stats: ProcessStat[],
@@ -13,7 +14,7 @@ export class CpuMeasureAggregator {
   ): {
     [by: string]: number;
   } {
-    const TICKS_FOR_TIME_INTERVAL = (getCpuClockTick() * timeInterval) / 1000;
+    const TICKS_FOR_TIME_INTERVAL = (this.cpuClockTick * timeInterval) / 1000;
 
     const toPercentage = (value: number) => Math.min((value * 100) / TICKS_FOR_TIME_INTERVAL, 100);
 

@@ -6,18 +6,21 @@ import { Logger, LogLevel } from "@perf-profiler/logger";
 
 const mockPerformancePolling = new PerformancePollingMock();
 
-jest.mock("@perf-profiler/profiler", () => ({
-  ...jest.requireActual("@perf-profiler/profiler"),
-  profiler: {
-    ...jest.requireActual("@perf-profiler/profiler").profiler,
-    installProfilerOnDevice: jest.fn(),
-    getPidId: jest.fn(() => 123),
-    pollPerformanceMeasures: jest.fn((pid, { onMeasure, onStartMeasuring }) => {
-      mockPerformancePolling.setCallback(onMeasure);
-      onStartMeasuring();
-    }),
-  },
-}));
+jest.mock("@perf-profiler/profiler", () => {
+  const mockedProfiler = jest.requireActual("@perf-profiler/profiler").profiler;
+
+  mockedProfiler.installProfilerOnDevice = jest.fn();
+  mockedProfiler.getPidId = jest.fn(() => 123);
+  mockedProfiler.pollPerformanceMeasures = jest.fn((pid, { onMeasure, onStartMeasuring }) => {
+    mockPerformancePolling.setCallback(onMeasure);
+    onStartMeasuring();
+  });
+
+  return {
+    ...jest.requireActual("@perf-profiler/profiler"),
+    profiler: mockedProfiler,
+  };
+});
 
 Logger.setLogLevel(LogLevel.SILENT);
 

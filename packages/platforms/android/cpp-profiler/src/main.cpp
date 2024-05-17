@@ -3,35 +3,15 @@
 #include <iostream>
 #include <filesystem>
 #include "atrace.h"
-#include <fstream>
 #include <thread>
 #include <unistd.h>
 #include "utils.h"
 
 using std::cerr;
 using std::cout;
-using std::endl;
 using std::string;
 
 namespace fs = std::filesystem;
-
-void readFile(string filePath)
-{
-    std::ifstream file(filePath);
-    if (file.is_open())
-    {
-        string line;
-        while (std::getline(file, line))
-        {
-            log(line.c_str());
-        }
-        file.close();
-    }
-    else
-    {
-        cerr << "CPP_ERROR_CANNOT_OPEN_FILE " + filePath << endl;
-    }
-}
 
 class PidClosedError : public std::runtime_error
 {
@@ -68,6 +48,9 @@ void printMemoryStats(std::vector<string> pids)
     }
 }
 
+long long totalDurationSum = 0;
+long long measureCount = 0;
+
 long long printPerformanceMeasure(std::vector<string> pids)
 {
     auto start = std::chrono::system_clock::now();
@@ -97,12 +80,22 @@ long long printPerformanceMeasure(std::vector<string> pids)
     auto atraceDuration = std::chrono::duration_cast<std::chrono::milliseconds>(atraceEnd - memoryEnd);
     auto totalDuration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
 
+    long long totalDurationMs = totalDuration.count();
+
     cout << "TOTAL EXEC TIME: " << totalDuration.count() << "|";
     cout << "CPU TIME: " << cpuDuration.count() << "|";
     cout << "MEMORY TIME: " << memoryDuration.count() << "|";
-    cout << "ATRACE TIME: " << atraceDuration.count() << endl;
+    cout << "ATRACE TIME: " << atraceDuration.count() << "\n";
+
+    measureCount++;
+    totalDurationSum += totalDurationMs;
+
+    log(separator);
+    cout << "AVERAGE TOTAL EXEC TIME: " << totalDurationSum / measureCount << "\n";
 
     log("=STOP MEASURE=");
+
+    cout << std::flush;
 
     return totalDuration.count();
 }
@@ -115,6 +108,8 @@ std::vector<string> pidOf(string bundleId)
 
 void pollPerformanceMeasures(std::string bundleId, int interval)
 {
+    pthread_setname_np(pthread_self(), "FL-Main");
+
     std::vector<string> pids;
 
     // We read atrace lines before the app is started
@@ -122,8 +117,10 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
     // but we'll clear them out periodically while the app isn't started
     // TODO handle ATrace not available on OS
     std::thread aTraceReadThread(readATraceThread);
+    pthread_setname_np(aTraceReadThread.native_handle(), "FL-Atrace");
 
-    cout << "Waiting for process to start..." << endl;
+    cout << "Waiting for process to start..."
+         << "\n";
 
     while (pids.empty())
     {
@@ -142,7 +139,7 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
     }
     catch (const PidClosedError &e)
     {
-        cerr << "CPP_ERROR_MAIN_PID_CLOSED " << e.what() << endl;
+        cerr << "CPP_ERROR_MAIN_PID_CLOSED " << e.what() << "\n";
         pollPerformanceMeasures(bundleId, interval);
         return;
     }
@@ -152,12 +149,12 @@ void pollPerformanceMeasures(std::string bundleId, int interval)
 
 void printCpuClockTick()
 {
-    cout << sysconf(_SC_CLK_TCK) << endl;
+    cout << sysconf(_SC_CLK_TCK) << "\n";
 }
 
 void printRAMPageSize()
 {
-    cout << sysconf(_SC_PAGESIZE) << endl;
+    cout << sysconf(_SC_PAGESIZE) << "\n";
 }
 
 int main(int argc, char **argv)
@@ -187,7 +184,7 @@ int main(int argc, char **argv)
     }
     else
     {
-        cout << "Unknown method name: " << methodName << endl;
+        cout << "Unknown method name: " << methodName << "\n";
         return 1;
     }
 

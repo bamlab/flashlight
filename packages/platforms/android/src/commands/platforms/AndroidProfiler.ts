@@ -4,20 +4,18 @@ import { executeAsync, executeCommand } from "../shell";
 import { getAbi } from "../getAbi";
 import { detectCurrentAppBundleId } from "../detectCurrentAppBundleId";
 import { CppProfilerName, UnixProfiler } from "./UnixProfiler";
+import { ScreenRecorder } from "../ScreenRecorder";
 
 export class AndroidProfiler extends UnixProfiler {
   private aTraceProcess: ChildProcess | null = null;
 
-  ensureCppProfilerIsInstalled(): void {
-    super.ensureCppProfilerIsInstalled();
+  installProfilerOnDevice(): void {
+    super.installProfilerOnDevice();
     if (!this.aTraceProcess) this.startATrace();
   }
 
   stop(): void {
-    // We need to close this process, otherwise tests will hang
-    Logger.debug("Stopping atrace process...");
-    this.aTraceProcess?.kill();
-    this.aTraceProcess = null;
+    this.stopATrace();
   }
 
   assertSupported(): void {
@@ -39,7 +37,14 @@ export class AndroidProfiler extends UnixProfiler {
     return `/data/local/tmp/${CppProfilerName}`;
   }
 
-  private startATrace() {
+  protected stopATrace() {
+    // We need to close this process, otherwise tests will hang
+    Logger.debug("Stopping atrace process...");
+    this.aTraceProcess?.kill();
+    this.aTraceProcess = null;
+  }
+
+  protected startATrace() {
     Logger.debug("Stopping atrace and flushing output...");
     /**
      * Since output from the atrace --async_stop
@@ -63,5 +68,18 @@ export class AndroidProfiler extends UnixProfiler {
 
   public detectCurrentBundleId(): string {
     return detectCurrentAppBundleId().bundleId;
+  }
+
+  public supportFPS(): boolean {
+    return true;
+  }
+
+  public getScreenRecorder(videoPath: string) {
+    return new ScreenRecorder(videoPath);
+  }
+
+  async stopApp(bundleId: string) {
+    execSync(`adb shell am force-stop ${bundleId}`);
+    await new Promise((resolve) => setTimeout(resolve, 3000));
   }
 }

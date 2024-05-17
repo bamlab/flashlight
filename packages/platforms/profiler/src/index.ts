@@ -1,9 +1,19 @@
-import { AndroidProfiler } from "@perf-profiler/android";
+import { AndroidProfiler, FlashlightSelfProfiler } from "@perf-profiler/android";
 import { IOSProfiler } from "@perf-profiler/ios";
 import { Profiler } from "@perf-profiler/types";
 
-export const profiler: Profiler =
-  process.env.PLATFORM === "ios" ? new IOSProfiler() : new AndroidProfiler();
+const getProfiler = (): Profiler => {
+  switch (process.env.PLATFORM) {
+    case "ios":
+      return new IOSProfiler();
+    case "flashlight":
+      return new FlashlightSelfProfiler();
+    default:
+      return new AndroidProfiler();
+  }
+};
+
+export const profiler: Profiler = getProfiler();
 
 // TODO move this to a separate package
 export { waitFor } from "@perf-profiler/android";

@@ -2,21 +2,18 @@
 
 import { Logger } from "@perf-profiler/logger";
 import { Measure } from "@perf-profiler/types";
-import {
-  getCpuClockTick,
-  getRAMPageSize,
-  ensureCppProfilerIsInstalled,
-} from "./commands/cppProfiler";
 import { program } from "commander";
 import { detectCurrentAppBundleId } from "./commands/detectCurrentAppBundleId";
 import { getPidId } from "./commands/getPidId";
 import { getAbi } from "./commands/getAbi";
-import { pollPerformanceMeasures } from "./commands/pollPerformanceMeasures";
+import { AndroidProfiler } from "./commands/platforms/AndroidProfiler";
+
+const profiler = new AndroidProfiler();
 
 const debugCppConfig = () => {
-  ensureCppProfilerIsInstalled();
-  Logger.success(`CPU Clock tick: ${getCpuClockTick()}`);
-  Logger.success(`RAM Page size: ${getRAMPageSize()}`);
+  profiler.installProfilerOnDevice();
+  Logger.success(`CPU Clock tick: ${profiler.getCpuClockTick()}`);
+  Logger.success(`RAM Page size: ${profiler.getRAMPageSize()}`);
 };
 
 program.command("debugCppConfig").description("Debug CPP Config").action(debugCppConfig);
@@ -65,7 +62,7 @@ program
   .action((options) => {
     const bundleId = options.bundleId || detectCurrentAppBundleId().bundleId;
 
-    pollPerformanceMeasures(bundleId, {
+    profiler.pollPerformanceMeasures(bundleId, {
       onMeasure: (measure: Measure) => {
         const headers: string[] = [];
         const values: (number | undefined)[] = [];
