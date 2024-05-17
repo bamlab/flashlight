@@ -1,6 +1,6 @@
 import { Logger } from "@perf-profiler/logger";
 import { profiler, waitFor } from "@perf-profiler/profiler";
-import { basename } from "path";
+import { basename, dirname } from "path";
 import { Trace } from "./Trace";
 import { Measure, POLLING_INTERVAL } from "@perf-profiler/types";
 
@@ -33,6 +33,8 @@ export class PerformanceMeasurer {
       // noop by default
     }
   ) {
+    await this.maybeStartRecording();
+
     this.polling = profiler.pollPerformanceMeasures(this.bundleId, {
       onMeasure: (measure) => {
         if (this.shouldStop) {
@@ -75,10 +77,26 @@ export class PerformanceMeasurer {
     // Ensure polling has stopped
     this.polling?.stop();
 
+    await this.maybeStopRecording();
+
     return {
       time: time ?? 0,
       startTime: this.timingTrace?.startTime ?? 0,
       measures: this.measures,
     };
+  }
+
+  private async maybeStartRecording() {
+    if (this.options.recordOptions.record && this.recorder) {
+      const { bitRate, size } = this.options.recordOptions;
+      await this.recorder.startRecording({ bitRate, size });
+    }
+  }
+
+  private async maybeStopRecording() {
+    if (this.options.recordOptions.record && this.recorder) {
+      await this.recorder.stopRecording();
+      await this.recorder.pullRecording(dirname(this.options.recordOptions.videoPath));
+    }
   }
 }

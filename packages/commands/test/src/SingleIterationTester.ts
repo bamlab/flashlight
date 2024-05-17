@@ -5,7 +5,6 @@ import {
   TestCaseIterationStatus,
 } from "@perf-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
-import { dirname } from "path";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -58,43 +57,24 @@ export class SingleIterationTester {
     try {
       if (beforeTest) await beforeTest();
 
-      await this.maybeStartRecording();
-      this.performanceMeasurer.start();
+      await this.performanceMeasurer.start();
       await run();
       const measures = await this.performanceMeasurer.stop(duration);
-      await this.maybeStopRecording();
 
       if (afterTest) await afterTest();
 
       this.setCurrentTestCaseIterationResult(measures, "SUCCESS");
     } catch (error) {
       const measures = await this.performanceMeasurer.stop();
-      await this.maybeStopRecording();
       this.setCurrentTestCaseIterationResult(measures, "FAILURE");
       this.performanceMeasurer.forceStop();
       throw error;
     }
   }
 
-  private async maybeStartRecording() {
-    if (this.options.recordOptions.record && this.performanceMeasurer.recorder) {
-      const { bitRate, size } = this.options.recordOptions;
-      await this.performanceMeasurer.recorder.startRecording({ bitRate, size });
-    }
-  }
-
   public setIsRetry(isRetry: boolean) {
     if (this.currentTestCaseIterationResult) {
       this.currentTestCaseIterationResult.isRetriedIteration = isRetry;
-    }
-  }
-
-  private async maybeStopRecording() {
-    if (this.options.recordOptions.record && this.performanceMeasurer.recorder) {
-      await this.performanceMeasurer.recorder.stopRecording();
-      await this.performanceMeasurer.recorder.pullRecording(
-        dirname(this.options.resultsFileOptions.path)
-      );
     }
   }
 
