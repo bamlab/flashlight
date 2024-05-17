@@ -1,6 +1,5 @@
 import {
   AveragedTestCaseResult,
-  Measure,
   TestCaseIterationResult,
   TestCaseIterationStatus,
 } from "@perf-profiler/types";
@@ -79,25 +78,12 @@ export class SingleIterationTester {
   }
 
   private setCurrentTestCaseIterationResult(
-    measures: {
-      time: number;
-      startTime: number;
-      measures: Measure[];
-    },
+    measures: TestCaseIterationResult,
     status: TestCaseIterationStatus
   ) {
     this.currentTestCaseIterationResult = {
       ...measures,
       status,
-      videoInfos:
-        this.options.recordOptions.record && this.performanceMeasurer.recorder
-          ? {
-              path: this.videoPath,
-              startOffset: Math.floor(
-                measures.startTime - this.performanceMeasurer.recorder.getRecordingStartTime()
-              ),
-            }
-          : undefined,
     };
   }
 }

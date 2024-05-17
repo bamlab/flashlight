@@ -24,7 +24,7 @@ export class PerformanceMeasurer {
     }
   ) {}
 
-  public recorder = this.options.recordOptions.record
+  private recorder = this.options.recordOptions.record
     ? profiler.getScreenRecorder(basename(this.options.recordOptions.videoPath))
     : null;
 
@@ -79,11 +79,20 @@ export class PerformanceMeasurer {
 
     await this.maybeStopRecording();
 
+    const startTime = this.timingTrace?.startTime ?? 0;
+
     return {
       time: time ?? 0,
-      startTime: this.timingTrace?.startTime ?? 0,
+      startTime,
       measures: this.measures,
       status: "SUCCESS",
+      videoInfos:
+        this.options.recordOptions.record && this.recorder
+          ? {
+              path: this.options.recordOptions.videoPath,
+              startOffset: Math.floor(startTime - this.recorder.getRecordingStartTime()),
+            }
+          : undefined,
     };
   }
 
