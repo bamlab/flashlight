@@ -2,7 +2,7 @@ import { Logger } from "@perf-profiler/logger";
 import { profiler, waitFor } from "@perf-profiler/profiler";
 import { basename, dirname } from "path";
 import { Trace } from "./Trace";
-import { Measure, POLLING_INTERVAL } from "@perf-profiler/types";
+import { Measure, POLLING_INTERVAL, TestCaseIterationResult } from "@perf-profiler/types";
 
 export class PerformanceMeasurer {
   measures: Measure[] = [];
@@ -56,7 +56,7 @@ export class PerformanceMeasurer {
     this.polling?.stop();
   }
 
-  async stop(duration?: number) {
+  async stop(duration?: number): Promise<TestCaseIterationResult> {
     const time = this.timingTrace?.stop();
 
     if (duration) {
@@ -83,6 +83,7 @@ export class PerformanceMeasurer {
       time: time ?? 0,
       startTime: this.timingTrace?.startTime ?? 0,
       measures: this.measures,
+      status: "SUCCESS",
     };
   }
 

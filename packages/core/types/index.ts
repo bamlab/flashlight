@@ -19,6 +19,8 @@ export type TestCaseIterationStatus = "SUCCESS" | "FAILURE";
 
 export interface TestCaseIterationResult {
   time: number;
+  // we probably don't need this but this is added by the PerformanceMeasurer
+  startTime?: number;
   measures: Measure[];
   status: TestCaseIterationStatus;
   videoInfos?: {
