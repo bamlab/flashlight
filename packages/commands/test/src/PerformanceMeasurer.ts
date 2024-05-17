@@ -1,18 +1,32 @@
 import { Logger } from "@perf-profiler/logger";
 import { profiler, waitFor } from "@perf-profiler/profiler";
+import { basename } from "path";
 import { Trace } from "./Trace";
 import { Measure, POLLING_INTERVAL } from "@perf-profiler/types";
 
 export class PerformanceMeasurer {
   measures: Measure[] = [];
   polling?: { stop: () => void };
-  bundleId: string;
   shouldStop = false;
   timingTrace?: Trace;
 
-  constructor(bundleId: string) {
-    this.bundleId = bundleId;
-  }
+  constructor(
+    private bundleId: string,
+    private options: {
+      recordOptions:
+        | { record: false }
+        | {
+            record: true;
+            size?: string;
+            bitRate?: number;
+            videoPath: string;
+          };
+    }
+  ) {}
+
+  public recorder = this.options.recordOptions.record
+    ? profiler.getScreenRecorder(basename(this.options.recordOptions.videoPath))
+    : null;
 
   async start(
     onMeasure: (measure: Measure) => void = () => {

@@ -10,7 +10,11 @@ const loggerError = jest.spyOn(Logger, "error");
 
 describe("PerformanceMeasurer", () => {
   it("handles c++ errors correctly", () => {
-    const measurer = new PerformanceMeasurer("com.example");
+    const measurer = new PerformanceMeasurer("com.example", {
+      recordOptions: {
+        record: false,
+      },
+    });
     measurer.start();
     emitMeasure(0);
     emitMeasure(1);

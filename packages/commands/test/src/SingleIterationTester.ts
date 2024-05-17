@@ -5,8 +5,7 @@ import {
   TestCaseIterationStatus,
 } from "@perf-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
-import { profiler } from "@perf-profiler/profiler";
-import { basename, dirname } from "path";
+import { dirname } from "path";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -39,11 +38,15 @@ export class SingleIterationTester {
   ) {}
 
   private currentTestCaseIterationResult: TestCaseIterationResult | undefined = undefined;
-  private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(this.bundleId);
   private videoPath = `${this.options.resultsFileOptions.path.replace(".json", "")}_iteration_${
     this.iterationIndex
   }_${new Date().getTime()}.mp4`;
-  private recorder = profiler.getScreenRecorder(basename(this.videoPath));
+  private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(this.bundleId, {
+    recordOptions: {
+      ...this.options.recordOptions,
+      videoPath: this.videoPath,
+    },
+  });
 
   public getCurrentTestCaseIterationResult() {
     return this.currentTestCaseIterationResult;
@@ -74,9 +77,9 @@ export class SingleIterationTester {
   }
 
   private async maybeStartRecording() {
-    if (this.options.recordOptions.record && this.recorder) {
+    if (this.options.recordOptions.record && this.performanceMeasurer.recorder) {
       const { bitRate, size } = this.options.recordOptions;
-      await this.recorder.startRecording({ bitRate, size });
+      await this.performanceMeasurer.recorder.startRecording({ bitRate, size });
     }
   }
 
@@ -87,9 +90,11 @@ export class SingleIterationTester {
   }
 
   private async maybeStopRecording() {
-    if (this.options.recordOptions.record && this.recorder) {
-      await this.recorder.stopRecording();
-      await this.recorder.pullRecording(dirname(this.options.resultsFileOptions.path));
+    if (this.options.recordOptions.record && this.performanceMeasurer.recorder) {
+      await this.performanceMeasurer.recorder.stopRecording();
+      await this.performanceMeasurer.recorder.pullRecording(
+        dirname(this.options.resultsFileOptions.path)
+      );
     }
   }
 
@@ -105,10 +110,12 @@ export class SingleIterationTester {
       ...measures,
       status,
       videoInfos:
-        this.options.recordOptions.record && this.recorder
+        this.options.recordOptions.record && this.performanceMeasurer.recorder
           ? {
               path: this.videoPath,
-              startOffset: Math.floor(measures.startTime - this.recorder.getRecordingStartTime()),
+              startOffset: Math.floor(
+                measures.startTime - this.performanceMeasurer.recorder.getRecordingStartTime()
+              ),
             }
           : undefined,
     };
