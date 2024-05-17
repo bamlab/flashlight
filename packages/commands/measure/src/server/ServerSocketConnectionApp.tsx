@@ -8,7 +8,19 @@ import { useSocketState, updateMeasuresReducer, addNewResultReducer } from "./so
 import { useBundleIdControls } from "./useBundleIdControls";
 import { useLogSocketEvents } from "../common/useLogSocketEvents";
 
-export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType; url: string }) => {
+export const ServerSocketConnectionApp = ({
+  socket,
+  url,
+  recordOptions,
+}: {
+  socket: SocketType;
+  url: string;
+  recordOptions: {
+    record: boolean;
+    size?: string;
+    bitRate?: number;
+  };
+}) => {
   useLogSocketEvents(socket);
   const [state, setState] = useSocketState(socket);
   const performanceMeasureRef = React.useRef<PerformanceMeasurer | null>(null);
@@ -23,15 +35,13 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
   useBundleIdControls(socket, setState, stop);
 
   useEffect(() => {
+    const getCurrentTestName = (bundleId: string) =>
+      `${bundleId}${state.results.length > 0 ? ` (${state.results.length + 1})` : ""}`;
+
     const updateMeasures = (measures: Measure[]) =>
       setState((state) => updateMeasuresReducer(state, measures));
     const addNewResult = (bundleId: string) =>
-      setState((state) =>
-        addNewResultReducer(
-          state,
-          `${bundleId}${state.results.length > 0 ? ` (${state.results.length + 1})` : ""}`
-        )
-      );
+      setState((state) => addNewResultReducer(state, getCurrentTestName(bundleId)));
 
     socket.on("start", async () => {
       setState({
@@ -45,7 +55,8 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
 
       performanceMeasureRef.current = new PerformanceMeasurer(state.bundleId, {
         recordOptions: {
-          record: false,
+          ...recordOptions,
+          videoPath: `${process.cwd()}/${getCurrentTestName(state.bundleId)}.mp4`,
         },
       });
 

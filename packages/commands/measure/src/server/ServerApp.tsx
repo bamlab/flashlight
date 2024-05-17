@@ -56,11 +56,16 @@ const useCleanupOnManualExit = () => {
   });
 };
 
-interface ServerAppProps {
+export interface ServerAppProps {
   port: number;
+  recordOptions: {
+    record: boolean;
+    size?: string;
+    bitRate?: number;
+  };
 }
 
-export const ServerApp = ({ port }: ServerAppProps) => {
+export const ServerApp = ({ port, recordOptions }: ServerAppProps) => {
   const [socket, setSocket] = useState<SocketType | null>(null);
   const webAppUrl = getWebAppUrl(port);
   useEffect(() => {
@@ -88,15 +93,15 @@ export const ServerApp = ({ port }: ServerAppProps) => {
   useCleanupOnManualExit();
 
   return socket ? (
-    <ServerSocketConnectionApp socket={socket} url={webAppUrl} />
+    <ServerSocketConnectionApp socket={socket} url={webAppUrl} recordOptions={recordOptions} />
   ) : (
     <HostAndPortInfo url={webAppUrl} />
   );
 };
 
-export const runServerApp = (port: number) => {
+export const runServerApp = (props: ServerAppProps) => {
   render(
-    <ServerApp port={port} />,
+    <ServerApp {...props} />,
     // handle it ourselves in the profiler to kill child processes thanks to useCleanupOnManualExit
     { exitOnCtrlC: false }
   );

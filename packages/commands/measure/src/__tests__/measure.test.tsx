@@ -47,7 +47,14 @@ describe("flashlight measure interactive", () => {
     waitFor(() => expect(open).toHaveBeenCalledWith(`http://localhost:${DEFAULT_PORT}`));
 
   const setupCli = (customPort = DEFAULT_PORT) => {
-    const { lastFrame, unmount } = cliRender(<ServerApp port={customPort} />);
+    const { lastFrame, unmount } = cliRender(
+      <ServerApp
+        port={customPort}
+        recordOptions={{
+          record: false,
+        }}
+      />
+    );
     const closeCli = async () => {
       unmount();
       // Seems like we need to wait for the useEffect cleanup to happen

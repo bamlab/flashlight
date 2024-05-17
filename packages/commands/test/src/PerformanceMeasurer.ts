@@ -4,6 +4,17 @@ import { basename, dirname } from "path";
 import { Trace } from "./Trace";
 import { Measure, POLLING_INTERVAL, TestCaseIterationResult } from "@perf-profiler/types";
 
+export type RecordOptions =
+  | {
+      record: false;
+    }
+  | {
+      record: true;
+      size?: string;
+      bitRate?: number;
+      videoPath: string;
+    };
+
 export class PerformanceMeasurer {
   measures: Measure[] = [];
   polling?: { stop: () => void };
@@ -13,14 +24,7 @@ export class PerformanceMeasurer {
   constructor(
     private bundleId: string,
     private options: {
-      recordOptions:
-        | { record: false }
-        | {
-            record: true;
-            size?: string;
-            bitRate?: number;
-            videoPath: string;
-          };
+      recordOptions: RecordOptions;
     }
   ) {}
 
