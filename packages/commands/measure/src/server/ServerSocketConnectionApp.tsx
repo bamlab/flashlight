@@ -43,7 +43,11 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
         return;
       }
 
-      performanceMeasureRef.current = new PerformanceMeasurer(state.bundleId);
+      performanceMeasureRef.current = new PerformanceMeasurer(state.bundleId, {
+        recordOptions: {
+          record: false,
+        },
+      });
 
       addNewResult(state.bundleId);
       performanceMeasureRef.current?.start(() =>

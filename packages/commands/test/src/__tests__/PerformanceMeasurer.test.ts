@@ -9,9 +9,13 @@ const loggerDebug = jest.spyOn(Logger, "debug");
 const loggerError = jest.spyOn(Logger, "error");
 
 describe("PerformanceMeasurer", () => {
-  it("handles c++ errors correctly", () => {
-    const measurer = new PerformanceMeasurer("com.example");
-    measurer.start();
+  it("handles c++ errors correctly", async () => {
+    const measurer = new PerformanceMeasurer("com.example", {
+      recordOptions: {
+        record: false,
+      },
+    });
+    await measurer.start();
     emitMeasure(0);
     emitMeasure(1);
     perfProfilerMock.stderr?.emit("data", "CPP_ERROR_CANNOT_OPEN_FILE /proc/1234/tasks/578/stat");

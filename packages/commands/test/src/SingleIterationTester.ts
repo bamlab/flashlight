@@ -1,12 +1,9 @@
 import {
   AveragedTestCaseResult,
-  Measure,
   TestCaseIterationResult,
   TestCaseIterationStatus,
 } from "@perf-profiler/types";
 import { PerformanceMeasurer } from "./PerformanceMeasurer";
-import { profiler } from "@perf-profiler/profiler";
-import { basename, dirname } from "path";
 
 export interface TestCase {
   beforeTest?: () => Promise<void> | void;
@@ -39,11 +36,15 @@ export class SingleIterationTester {
   ) {}
 
   private currentTestCaseIterationResult: TestCaseIterationResult | undefined = undefined;
-  private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(this.bundleId);
   private videoPath = `${this.options.resultsFileOptions.path.replace(".json", "")}_iteration_${
     this.iterationIndex
   }_${new Date().getTime()}.mp4`;
-  private recorder = profiler.getScreenRecorder(basename(this.videoPath));
+  private performanceMeasurer: PerformanceMeasurer = new PerformanceMeasurer(this.bundleId, {
+    recordOptions: {
+      ...this.options.recordOptions,
+      videoPath: this.videoPath,
+    },
+  });
 
   public getCurrentTestCaseIterationResult() {
     return this.currentTestCaseIterationResult;
@@ -55,28 +56,18 @@ export class SingleIterationTester {
     try {
       if (beforeTest) await beforeTest();
 
-      await this.maybeStartRecording();
-      this.performanceMeasurer.start();
+      await this.performanceMeasurer.start();
       await run();
       const measures = await this.performanceMeasurer.stop(duration);
-      await this.maybeStopRecording();
 
       if (afterTest) await afterTest();
 
       this.setCurrentTestCaseIterationResult(measures, "SUCCESS");
     } catch (error) {
       const measures = await this.performanceMeasurer.stop();
-      await this.maybeStopRecording();
       this.setCurrentTestCaseIterationResult(measures, "FAILURE");
       this.performanceMeasurer.forceStop();
       throw error;
-    }
-  }
-
-  private async maybeStartRecording() {
-    if (this.options.recordOptions.record && this.recorder) {
-      const { bitRate, size } = this.options.recordOptions;
-      await this.recorder.startRecording({ bitRate, size });
     }
   }
 
@@ -86,31 +77,13 @@ export class SingleIterationTester {
     }
   }
 
-  private async maybeStopRecording() {
-    if (this.options.recordOptions.record && this.recorder) {
-      await this.recorder.stopRecording();
-      await this.recorder.pullRecording(dirname(this.options.resultsFileOptions.path));
-    }
-  }
-
   private setCurrentTestCaseIterationResult(
-    measures: {
-      time: number;
-      startTime: number;
-      measures: Measure[];
-    },
+    measures: TestCaseIterationResult,
     status: TestCaseIterationStatus
   ) {
     this.currentTestCaseIterationResult = {
       ...measures,
       status,
-      videoInfos:
-        this.options.recordOptions.record && this.recorder
-          ? {
-              path: this.videoPath,
-              startOffset: Math.floor(measures.startTime - this.recorder.getRecordingStartTime()),
-            }
-          : undefined,
     };
   }
 }
