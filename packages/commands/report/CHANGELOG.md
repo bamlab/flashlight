@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter@0.10.1...@perf-profiler/web-reporter@0.11.0) (2024-06-04)
+
+### Bug Fixes
+
+- **deps:** update react monorepo to v18 ([#215](https://github.com/bamlab/flashlight/issues/215)) ([d84fe11](https://github.com/bamlab/flashlight/commit/d84fe11944c58aac1ab69d55519f1b3b69c65ad0))
+
+### Features
+
+- **report:** make RN and Flutter threads stand out nicely ([#205](https://github.com/bamlab/flashlight/issues/205)) ([0e99a27](https://github.com/bamlab/flashlight/commit/0e99a2780c00fad342b2a13189a2adee51e5dd9c))
+
 ## [0.10.1](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter@0.10.0...@perf-profiler/web-reporter@0.10.1) (2024-03-01)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter

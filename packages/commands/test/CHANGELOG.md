@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/bamlab/flashlight/compare/@perf-profiler/e2e@0.11.0...@perf-profiler/e2e@0.11.1) (2024-06-04)
+
+### Bug Fixes
+
+- **profiler:** improve performance ([#280](https://github.com/bamlab/flashlight/issues/280)) ([512a994](https://github.com/bamlab/flashlight/commit/512a994dab8d6a5a0695670569c0d775eae85388))
+
 # [0.11.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/e2e@0.10.7...@perf-profiler/e2e@0.11.0) (2024-03-01)
 
 ### Bug Fixes

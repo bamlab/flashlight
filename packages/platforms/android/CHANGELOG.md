@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/android@0.11.0...@perf-profiler/android@0.12.0) (2024-06-04)
+
+### Bug Fixes
+
+- **profiler:** improve performance ([#280](https://github.com/bamlab/android-performance-profiler/issues/280)) ([512a994](https://github.com/bamlab/android-performance-profiler/commit/512a994dab8d6a5a0695670569c0d775eae85388))
+- **profiler:** support rare apps with multiple pids ([#274](https://github.com/bamlab/android-performance-profiler/issues/274)) ([60ea349](https://github.com/bamlab/android-performance-profiler/commit/60ea3492d869ab4cea23a0d3eadb4e2f759661d3))
+
+### Features
+
+- **report:** make RN and Flutter threads stand out nicely ([#205](https://github.com/bamlab/android-performance-profiler/issues/205)) ([0e99a27](https://github.com/bamlab/android-performance-profiler/commit/0e99a2780c00fad342b2a13189a2adee51e5dd9c))
+
 # 0.11.0 (2024-03-01)
 
 ### Bug Fixes

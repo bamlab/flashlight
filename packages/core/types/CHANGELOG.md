@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/types@0.7.0...@perf-profiler/types@0.8.0) (2024-06-04)
+
+### Features
+
+- **report:** make RN and Flutter threads stand out nicely ([#205](https://github.com/bamlab/flashlight/issues/205)) ([0e99a27](https://github.com/bamlab/flashlight/commit/0e99a2780c00fad342b2a13189a2adee51e5dd9c))
+
 # [0.7.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/types@0.6.0...@perf-profiler/types@0.7.0) (2024-03-01)
 
 ### Bug Fixes

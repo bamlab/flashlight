@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/profiler",
-  "version": "0.10.8",
+  "version": "0.10.9",
   "description": "",
   "main": "dist/src/index.js",
   "repository": {
@@ -14,8 +14,8 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@perf-profiler/android": "^0.11.0",
-    "@perf-profiler/ios": "^0.3.0",
-    "@perf-profiler/types": "^0.7.0"
+    "@perf-profiler/android": "^0.12.0",
+    "@perf-profiler/ios": "^0.3.1",
+    "@perf-profiler/types": "^0.8.0"
   }
 }
