@@ -1,23 +1,4 @@
 {
-  "packages": [
-    "./packages/core/logger",
-    "./packages/core/shell",
-    "./packages/core/types",
-    "./packages/platforms/android",
-    "./packages/plugins/appium-helper",
-    "./packages/commands/test",
-    "./packages/commands/tools",
-    "./packages/core/reporter",
-    "./packages/core/web-reporter-ui",
-    "./packages/commands/report",
-    "./packages/plugins/appium-test-cases",
-    "./packages/plugins/aws-device-farm",
-    "./packages/commands/measure",
-    "./packages/platforms/profiler",
-    "./packages/platforms/ios",
-    "./packages/platforms/ios-instruments"
-  ],
-  "useWorkspaces": false,
   "npmClient": "yarn",
   "version": "independent",
   "command": {

@@ -1,5 +1,6 @@
 {
   "name": "@flashlight/custom-eslint-rules",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
