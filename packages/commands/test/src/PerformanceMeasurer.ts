@@ -60,7 +60,7 @@ export class PerformanceMeasurer {
     this.polling?.stop();
   }
 
-  async stop(duration?: number): Promise<TestCaseIterationResult> {
+  async stop(duration?: number, waitForLastMeasures = true): Promise<TestCaseIterationResult> {
     const time = this.timingTrace?.stop();
 
     if (duration) {
@@ -74,8 +74,10 @@ export class PerformanceMeasurer {
       this.measures = this.measures.slice(0, duration / POLLING_INTERVAL + 1);
     } else {
       this.shouldStop = true;
-      // Hack to wait for the last measures to be received
-      await new Promise((resolve) => setTimeout(resolve, POLLING_INTERVAL * 2));
+      if (waitForLastMeasures) {
+        // Hack to wait for the last measures to be received
+        await new Promise((resolve) => setTimeout(resolve, POLLING_INTERVAL * 2));
+      }
     }
 
     // Ensure polling has stopped
@@ -107,7 +109,7 @@ export class PerformanceMeasurer {
     }
   }
 
-  private async maybeStopRecording() {
+  public async maybeStopRecording() {
     if (this.options.recordOptions.record && this.recorder) {
       await this.recorder.stopRecording();
       await this.recorder.pullRecording(dirname(this.options.recordOptions.videoPath));

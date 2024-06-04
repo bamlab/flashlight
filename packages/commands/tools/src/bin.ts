@@ -24,3 +24,5 @@ toolsCommand
     fs.cpSync(videoFilePath, backupFilePath);
     processVideoFile(backupFilePath, videoFilePath);
   });
+
+program.parse(process.argv);

@@ -1,4 +1,4 @@
-import { Measure, POLLING_INTERVAL } from "@perf-profiler/types";
+import { Measure, POLLING_INTERVAL, TestCaseIterationResult } from "@perf-profiler/types";
 import { useState, useEffect } from "react";
 import { SocketType, SocketData } from "./socketInterface";
 
@@ -29,7 +29,10 @@ export const useSocketState = (socket: SocketType) => {
   return [state, setState] as const;
 };
 
-export const updateMeasuresReducer = (state: SocketData, measures: Measure[]): SocketData => ({
+export const updateLastIterationReducer = (
+  state: SocketData,
+  iterationResult: TestCaseIterationResult
+): SocketData => ({
   ...state,
   results: [
     ...state.results.slice(0, state.results.length - 1),
@@ -37,14 +40,20 @@ export const updateMeasuresReducer = (state: SocketData, measures: Measure[]): S
       ...state.results[state.results.length - 1],
       iterations: [
         {
-          measures,
-          time: (measures.length || 0) * POLLING_INTERVAL,
-          status: "SUCCESS",
+          ...iterationResult,
+          time: (iterationResult.measures.length || 0) * POLLING_INTERVAL,
         },
       ],
     },
   ],
 });
+
+export const updateMeasuresReducer = (state: SocketData, measures: Measure[]): SocketData =>
+  updateLastIterationReducer(state, {
+    measures,
+    time: (measures.length || 0) * POLLING_INTERVAL,
+    status: "SUCCESS",
+  });
 
 export const addNewResultReducer = (state: SocketData, name: string): SocketData => ({
   ...state,

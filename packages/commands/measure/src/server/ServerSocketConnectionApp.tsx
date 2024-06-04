@@ -4,7 +4,12 @@ import { Measure } from "@perf-profiler/types";
 import React, { useCallback, useEffect } from "react";
 import { HostAndPortInfo } from "./components/HostAndPortInfo";
 import { SocketType } from "./socket/socketInterface";
-import { useSocketState, updateMeasuresReducer, addNewResultReducer } from "./socket/socketState";
+import {
+  useSocketState,
+  updateMeasuresReducer,
+  addNewResultReducer,
+  updateLastIterationReducer,
+} from "./socket/socketState";
 import { useBundleIdControls } from "./useBundleIdControls";
 import { useLogSocketEvents } from "../common/useLogSocketEvents";
 
@@ -26,10 +31,14 @@ export const ServerSocketConnectionApp = ({
   const performanceMeasureRef = React.useRef<PerformanceMeasurer | null>(null);
 
   const stop = useCallback(async () => {
-    performanceMeasureRef.current?.forceStop();
     setState({
       isMeasuring: false,
     });
+    const iterationResult = await performanceMeasureRef.current?.stop();
+
+    if (iterationResult) {
+      setState((state) => updateLastIterationReducer(state, iterationResult));
+    }
   }, [setState]);
 
   useBundleIdControls(socket, setState, stop);
