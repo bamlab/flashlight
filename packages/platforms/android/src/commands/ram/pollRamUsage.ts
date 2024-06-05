@@ -1,7 +1,7 @@
 const BYTES_PER_MB = 1024 * 1024;
 
 export const processOutput = (result: string, ramPageSize: number) => {
-  const lines = result.split("\n");
+  const lines = result.split("\n").filter(Boolean);
   let total = 0;
 
   for (const line of lines) {
