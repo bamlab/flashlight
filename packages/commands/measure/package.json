@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/measure",
-  "version": "0.4.0",
+  "version": "0.5.0-rc.0",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -9,6 +9,7 @@
   "bin": {
     "perf-profiler-measure": "dist/bin.js"
   },
+  "main": "dist/index.js",
   "dependencies": {
     "@perf-profiler/e2e": "^0.11.1",
     "@perf-profiler/logger": "^0.3.3",
