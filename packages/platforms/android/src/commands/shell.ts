@@ -74,6 +74,7 @@ export const executeAsync = (
       130, // SIGINT
       140, // SIGKILL
       143, // SIGTERM
+      255, // SSH EXECUTION STOPPED
     ];
 
     // SIGKILL or SIGTERM are likely to be normal, since we request termination from JS side
