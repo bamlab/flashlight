@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/web-reporter",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "",
   "author": {
     "name": "Almouro",
@@ -17,7 +17,7 @@
     "commander": "^12.0.0"
   },
   "devDependencies": {
-    "@perf-profiler/web-reporter-ui": "^0.16.0",
+    "@perf-profiler/web-reporter-ui": "^0.16.1",
     "parcel": "^2.12.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"

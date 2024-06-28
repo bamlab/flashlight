@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.7](https://github.com/bamlab/flashlight/compare/e2e-example@0.1.0-alpha.6...e2e-example@0.1.0-alpha.7) (2024-06-28)
+
+**Note:** Version bump only for package e2e-example
+
 # 0.1.0-alpha.6 (2024-06-04)
 
 ### Features

@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/e2e",
-  "version": "0.11.1",
+  "version": "0.11.2",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -14,10 +14,10 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@perf-profiler/ios-instruments": "^0.3.1",
+    "@perf-profiler/ios-instruments": "^0.3.2",
     "@perf-profiler/logger": "^0.3.3",
-    "@perf-profiler/profiler": "^0.10.9",
-    "@perf-profiler/reporter": "^0.8.1",
+    "@perf-profiler/profiler": "^0.10.10",
+    "@perf-profiler/reporter": "^0.9.0",
     "@perf-profiler/types": "^0.8.0",
     "commander": "^12.0.0"
   }

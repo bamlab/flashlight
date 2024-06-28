@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/android@0.12.0...@perf-profiler/android@0.12.1) (2024-06-28)
+
+### Bug Fixes
+
+- don't crash profiler if we can not parse `FrameTime` ([#295](https://github.com/bamlab/android-performance-profiler/issues/295)) ([8aee5ec](https://github.com/bamlab/android-performance-profiler/commit/8aee5ec25e13511bb9c20f1d43cd3ff94b02e407))
+- **profiler:** fix ram usage when multiple pids ([#290](https://github.com/bamlab/android-performance-profiler/issues/290)) ([85656a7](https://github.com/bamlab/android-performance-profiler/commit/85656a766c40bb9fa94afe651e4e0ac1f89ce4f4))
+
 # [0.12.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/android@0.11.0...@perf-profiler/android@0.12.0) (2024-06-04)
 
 ### Bug Fixes

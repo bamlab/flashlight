@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.1](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter-ui@0.16.0...@perf-profiler/web-reporter-ui@0.16.1) (2024-06-28)
+
+**Note:** Version bump only for package @perf-profiler/web-reporter-ui
+
 # [0.16.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter-ui@0.15.0...@perf-profiler/web-reporter-ui@0.16.0) (2024-06-04)
 
 ### Bug Fixes

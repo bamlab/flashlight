@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/reporter@0.8.1...@perf-profiler/reporter@0.9.0) (2024-06-28)
+
+### Features
+
+- export FPS and RAM reporting ([#294](https://github.com/bamlab/android-performance-profiler/issues/294)) ([5b00d7d](https://github.com/bamlab/android-performance-profiler/commit/5b00d7dcb841e8e3c7eed4073e98b4a9a6e517f9))
+
 ## [0.8.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/reporter@0.8.0...@perf-profiler/reporter@0.8.1) (2024-06-04)
 
 **Note:** Version bump only for package @perf-profiler/reporter

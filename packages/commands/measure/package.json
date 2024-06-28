@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/measure",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -10,10 +10,10 @@
     "perf-profiler-measure": "dist/bin.js"
   },
   "dependencies": {
-    "@perf-profiler/e2e": "^0.11.1",
+    "@perf-profiler/e2e": "^0.11.2",
     "@perf-profiler/logger": "^0.3.3",
-    "@perf-profiler/profiler": "^0.10.9",
-    "@perf-profiler/reporter": "^0.8.1",
+    "@perf-profiler/profiler": "^0.10.10",
+    "@perf-profiler/reporter": "^0.9.0",
     "@perf-profiler/shell": "^0.2.1",
     "@perf-profiler/types": "^0.8.0",
     "commander": "^12.0.0",
@@ -26,7 +26,7 @@
   "devDependencies": {
     "@mui/icons-material": "^5.15.12",
     "@mui/material": "^5.15.12",
-    "@perf-profiler/web-reporter-ui": "^0.16.0",
+    "@perf-profiler/web-reporter-ui": "^0.16.1",
     "@testing-library/react": "^14.2.1",
     "@types/express": "^4.17.21",
     "@types/supertest": "^6.0.2",
