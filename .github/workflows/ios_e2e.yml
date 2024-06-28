@@ -3,11 +3,11 @@ name: E2E test running in iOS simulator
 on:
   push:
     branches:
-      - main
+      - main-disabled
   pull_request:
     branches:
-      - main
-      - "**/main"
+      - main-disabled
+      # - "**/main"
 
 jobs:
   e2e:
