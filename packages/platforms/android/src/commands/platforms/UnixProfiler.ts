@@ -136,7 +136,19 @@ export abstract class UnixProfiler implements Profiler {
         const subProcessesStats = processOutput(cpu, pid);
 
         const ram = processRamOutput(ramStr, this.getRAMPageSize());
-        const { frameTimes, interval: atraceInterval } = frameTimeParser.getFrameTimes(atrace, pid);
+
+        let output;
+        try {
+          output = frameTimeParser.getFrameTimes(atrace, pid);
+        } catch (e) {
+          console.error(e);
+        }
+
+        if (!output) {
+          return;
+        }
+
+        const { frameTimes, interval: atraceInterval } = output;
 
         if (!initialTime) {
           initialTime = timestamp;
