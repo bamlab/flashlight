@@ -1,4 +1,14 @@
-## 0.18.0 (2024-07-04)
+## [0.18.0](https://github.com/bamlab/flashlight/compare/v0.17.4...v0.18.0) (2024-07-04)
+
+### Bug Fixes
+
+- **profiler** don't crash profiler if we can not parse `FrameTime` ([#295](https://github.com/bamlab/flashlight/issues/295)) ([8aee5ec](https://github.com/bamlab/flashlight/commit/8aee5ec25e13511bb9c20f1d43cd3ff94b02e407)) by @kirillzyusko
+- **profiler:** fix ram usage when multiple pids ([#290](https://github.com/bamlab/flashlight/issues/290)) ([85656a7](https://github.com/bamlab/flashlight/commit/85656a766c40bb9fa94afe651e4e0ac1f89ce4f4))
+- **profiler:** improve performance ([#280](https://github.com/bamlab/flashlight/issues/280)) ([512a994](https://github.com/bamlab/flashlight/commit/512a994dab8d6a5a0695670569c0d775eae85388))
+
+### Features
+
+- export FPS and RAM reporting ([#294](https://github.com/bamlab/flashlight/issues/294)) ([5b00d7d](https://github.com/bamlab/flashlight/commit/5b00d7dcb841e8e3c7eed4073e98b4a9a6e517f9)) by @kirillzyusko
 
 ## 0.17.4 (2024-04-18)
 
