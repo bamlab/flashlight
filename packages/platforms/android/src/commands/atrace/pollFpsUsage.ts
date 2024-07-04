@@ -54,9 +54,14 @@ export class FrameTimeParser {
 
     lines.forEach((line) => {
       try {
-        if (!line.includes("-" + pid + " ")) return;
+        if (!line.includes("-" + pid + " ") && !line.includes(`|${pid}|`)) return;
 
         const { timestamp, ending, methodName } = parseLine(line);
+
+        if (methodName && methodName.includes("eglSwapBuffers")) {
+          frameTimes.push(0);
+          return;
+        }
 
         if (ending) {
           this.methodStartedCount--;
@@ -115,6 +120,8 @@ ${error instanceof Error ? error.message : error}`);
 
     const fps = ((frameCount + idleTimeFrameCount) / timeInterval) * 1000;
 
-    return Math.max(0, Math.min(TARGET_FRAME_RATE, fps));
+    const result = Math.max(0, Math.min(TARGET_FRAME_RATE, fps));
+
+    return result;
   }
 }

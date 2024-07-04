@@ -1,0 +1,12 @@
+{
+  "name": "cpp-profiler",
+  "kepler": {
+    "projectType": "native",
+    "targets": [
+      "tv"
+    ],
+    "sysroot": "kepler_sysroot/1.0.1@amzn",
+    "toolchain": "clang",
+    "api": 0.1
+  }
+}

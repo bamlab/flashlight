@@ -40,6 +40,7 @@ export class AndroidProfiler extends UnixProfiler {
   protected stopATrace() {
     // We need to close this process, otherwise tests will hang
     Logger.debug("Stopping atrace process...");
+    execSync("adb shell atrace --async_stop", { stdio: "ignore" });
     this.aTraceProcess?.kill();
     this.aTraceProcess = null;
   }
@@ -55,7 +56,10 @@ export class AndroidProfiler extends UnixProfiler {
      */
     execSync("adb shell atrace --async_stop", { stdio: "ignore" });
     Logger.debug("Starting atrace...");
-    this.aTraceProcess = executeAsync("adb shell atrace -c view -t 999");
+    this.aTraceProcess = executeAsync("adb shell atrace -c view gfx -t 999");
+
+    // TODO: fix
+    execSync("sleep 1");
   }
 
   public getDeviceCommand(command: string): string {

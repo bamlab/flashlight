@@ -1,4 +1,4 @@
-import { AveragedTestCaseResult, POLLING_INTERVAL } from "@perf-profiler/types";
+import { AveragedTestCaseResult, POLLING_INTERVAL, ThreadNames } from "@perf-profiler/types";
 import { round } from "lodash";
 import { average } from "./averageIterations";
 import { getAverageCpuUsage } from "./cpu";
@@ -12,6 +12,18 @@ import { canComputeHighCpuUsage } from "./highCpu";
  * 300 -> 15
  */
 const calculateCpuScore = (x: number) => Math.min(Math.max(0, -0.31666666666667 * x + 116), 100);
+
+const HIGH_IMPORTANCE_THREADS = [
+  ThreadNames.ANDROID.UI,
+  // ThreadNames.ANDROID.RENDER,
+  ThreadNames.FLUTTER.UI,
+  ThreadNames.IOS.UI,
+  ThreadNames.FLUTTER.RASTER,
+  ThreadNames.RN.JS_ANDROID,
+  ThreadNames.RN.JS_BRIDGELESS_ANDROID,
+  ThreadNames.RN.JS_IOS,
+  ThreadNames.RN.OLD_BRIDGE,
+];
 
 export const getScore = (result: AveragedTestCaseResult) => {
   const averageUIFPS = getAverageFPSUsage(result.average.measures);

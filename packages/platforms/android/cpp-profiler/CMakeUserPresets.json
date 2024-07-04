@@ -1,0 +1,11 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "/Users/almouro/dev/projects/flashlight-cloud/flashlight-open-source/packages/platforms/android/cpp-profiler/build/private/vega-tv2023-x86_64-release/install/CMakePresets.json",
+        "/Users/almouro/dev/projects/flashlight-cloud/flashlight-open-source/packages/platforms/android/cpp-profiler/build/private/vega-tv2023-armv7-release/install/CMakePresets.json",
+        "/Users/almouro/dev/projects/flashlight-cloud/flashlight-open-source/packages/platforms/android/cpp-profiler/build/private/vega-tv2023-aarch64-release/install/CMakePresets.json"
+    ]
+}

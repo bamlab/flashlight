@@ -37,7 +37,7 @@ export const writeReport = (
     testCase.score = Math.max(0, Math.min(overrideScore(averagedResult), 100));
   }
 
-  fs.writeFileSync(filePath, JSON.stringify(testCase));
+  // fs.writeFileSync(filePath, JSON.stringify(testCase));
 
   Logger.success(
     `Results written to ${filePath}.
