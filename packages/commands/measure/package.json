@@ -27,7 +27,7 @@
     "@mui/icons-material": "^5.15.12",
     "@mui/material": "^5.15.12",
     "@perf-profiler/web-reporter-ui": "^0.16.1",
-    "@testing-library/react": "^14.2.1",
+    "@testing-library/react": "^16.0.0",
     "@types/express": "^4.17.21",
     "@types/supertest": "^6.0.2",
     "ink-testing-library": "^2.1.0",
