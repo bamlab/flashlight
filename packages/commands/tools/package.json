@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/tools",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -13,7 +13,7 @@
     "test": "tsc"
   },
   "dependencies": {
-    "@perf-profiler/profiler": "^0.10.10",
+    "@perf-profiler/profiler": "^0.10.11",
     "@perf-profiler/shell": "^0.2.1",
     "commander": "^12.0.0"
   }

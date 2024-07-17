@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/android@0.12.1...@perf-profiler/android@0.13.0) (2024-07-17)
+
+### Features
+
+- customize binary path ([#300](https://github.com/bamlab/android-performance-profiler/issues/300)) ([ee9e168](https://github.com/bamlab/android-performance-profiler/commit/ee9e168b81a96ec60be6ced43633b4b59ab55afe))
+
 ## [0.12.1](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/android@0.12.0...@perf-profiler/android@0.12.1) (2024-06-28)
 
 ### Bug Fixes

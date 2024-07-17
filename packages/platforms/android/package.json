@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/android",
-  "version": "0.12.1",
+  "version": "0.13.0",
   "description": "",
   "main": "dist/src/index.js",
   "repository": {
@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "@perf-profiler/logger": "^0.3.3",
-    "@perf-profiler/profiler": "^0.10.10",
+    "@perf-profiler/profiler": "^0.10.11",
     "@perf-profiler/types": "^0.8.0",
     "commander": "^12.0.0",
     "lodash": "^4.17.21"
