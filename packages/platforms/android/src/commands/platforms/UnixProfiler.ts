@@ -22,13 +22,9 @@ import { processOutput as processRamOutput } from "../ram/pollRamUsage";
 
 export const CppProfilerName = `BAMPerfProfiler`;
 
-// Since Flipper uses esbuild, we copy the bin folder directly
-// into the Flipper plugin directory
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-const binaryFolder = global.Flipper
-  ? `${__dirname}/bin`
-  : `${__dirname}/../../..${__dirname.includes("dist") ? "/.." : ""}/cpp-profiler/bin`;
+const defaultBinaryFolder = `${__dirname}/../../..${__dirname.includes("dist") ? "/.." : ""}/cpp-profiler/bin`;
+// Allow overriding the binary folder with an environment variable
+const binaryFolder = process.env.FLASHLIGHT_BINARY_PATH || defaultBinaryFolder;
 
 export abstract class UnixProfiler implements Profiler {
   stop(): void {
