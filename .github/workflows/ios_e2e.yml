@@ -3,10 +3,10 @@ name: E2E test running in iOS simulator
 on:
   push:
     branches:
-      - main-disabled
+      - main
   pull_request:
     branches:
-      - main-disabled
+      - main
       # - "**/main"
 
 jobs:
@@ -25,14 +25,13 @@ jobs:
           NETLIFY_DEPLOY_TOKEN: ${{ secrets.NETLIFY_DEPLOY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         run: |
-          ./.github/workflows/build-and-link.sh
           ./.github/workflows/ios_e2e.sh
-          npx @perf-profiler/web-reporter report report -o report
-          ./.github/workflows/netlify-report.sh
-      - name: Add PR Comment
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: |
-            ## Flashlight iOS Report 🔦
+      #     npx @perf-profiler/web-reporter report report -o report
+      #     ./.github/workflows/netlify-report.sh
+      # - name: Add PR Comment
+      #   uses: marocchino/sticky-pull-request-comment@v2
+      #   with:
+      #     message: |
+      #       ## Flashlight iOS Report 🔦
 
-            - [🚀 Report](${{ env.NETLIFY_PREVIEW_URL }})
+      #       - [🚀 Report](${{ env.NETLIFY_PREVIEW_URL }})
