@@ -1,5 +1,6 @@
 import { Logger } from "@perf-profiler/logger";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
+import { detectCurrentDeviceRefreshRate } from "../detectCurrentDeviceRefreshRate";
 
 export const parseLine = (
   line: string
@@ -28,8 +29,15 @@ export const parseLine = (
 };
 
 // At some point we might want to change this to adapt to 90fps or 120fps devices
-const TARGET_FRAME_RATE = 60;
-const TARGET_FRAME_TIME = 1000 / TARGET_FRAME_RATE;
+let TARGET_FRAME_RATE = 60;
+let TARGET_FRAME_TIME = 1000 / TARGET_FRAME_RATE;
+
+try {
+  TARGET_FRAME_RATE = detectCurrentDeviceRefreshRate();
+  TARGET_FRAME_TIME = 1000 / TARGET_FRAME_RATE;
+} catch (e) {
+  Logger.error(`Failed to detect device refresh rate. Using default value of 60fps.`);
+}
 
 export class FrameTimeParser {
   private methodStartedCount = 0;
