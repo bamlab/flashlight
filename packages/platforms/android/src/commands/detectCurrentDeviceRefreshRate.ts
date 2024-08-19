@@ -1,31 +1,30 @@
 import { executeCommand } from "./shell";
+import { Logger } from "@perf-profiler/logger";
+
+function deviceRefreshRateManager() {
+  let refreshRate = 60; // Default to 60 fps
+
+  return {
+    getRefreshRate: () => refreshRate,
+    setRefreshRate: () => {
+      try {
+        refreshRate = detectCurrentDeviceRefreshRate();
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  };
+}
 
 export const detectCurrentDeviceRefreshRate = () => {
   const command = 'adb shell dumpsys display | grep -E "mRefreshRate|DisplayDeviceInfo"';
   const commandOutput = executeCommand(command);
 
-  //const refreshRate = commandOutput.match(/mRefreshRate=([\d.]+)/);
+  const matches = commandOutput.matchAll(/fps=(\d+\.?\d*)/g);
+  const refreshRates = Array.from(matches, (match) => parseFloat(match[1]));
+  refreshRates.sort((a, b) => b - a);
 
-  // Regular expression to find the renderFrameRate
-  const refreshRateMatch = commandOutput.match(/renderFrameRate\s*=\s*(\d+\.?\d*)/);
-  let currentRefreshRate = 0;
-  if (refreshRateMatch) {
-    currentRefreshRate = parseFloat(refreshRateMatch[1]);
-    console.log(`Current Refresh Rate: ${currentRefreshRate} Hz`);
-  } else {
-    console.log("Could not find the current refresh rate.");
-  }
-
-  // Regular expression to find all supported modes
-  const modeRegex = /\{id=\d+, width=\d+, height=\d+, fps=(\d+\.?\d*), vsync=(\d+\.?\d*)/g;
-  let modeMatch;
-  while ((modeMatch = modeRegex.exec(commandOutput)) !== null) {
-    const fps = parseFloat(modeMatch[1]);
-    const vsync = parseFloat(modeMatch[2]);
-    currentRefreshRate = currentRefreshRate > fps ? currentRefreshRate : fps;
-    console.log(`Supported Mode: FPS = ${fps} Hz, VSync = ${vsync} Hz`);
-  }
-  if (!refreshRateMatch && currentRefreshRate === 0) {
+  if (refreshRates.length === 0) {
     throw new Error(
       `Could not detect device refresh rate, ${
         commandOutput
@@ -35,5 +34,12 @@ export const detectCurrentDeviceRefreshRate = () => {
     );
   }
 
-  return currentRefreshRate;
+  Logger.debug(`Detected device refresh rate: ${refreshRates[0]} Hz`);
+
+  return Math.floor(refreshRates[0]);
 };
+
+const refreshRateManager = deviceRefreshRateManager();
+refreshRateManager.setRefreshRate();
+
+export { refreshRateManager };

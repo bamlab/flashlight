@@ -97,4 +97,5 @@ export interface Profiler {
   cleanup: () => void;
   getScreenRecorder: (videoPath: string) => ScreenRecorder | undefined;
   stopApp: (bundleId: string) => Promise<void>;
+  detectDeviceRefreshRate: () => number;
 }

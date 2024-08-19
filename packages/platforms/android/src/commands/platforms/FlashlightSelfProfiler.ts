@@ -14,6 +14,10 @@ export class FlashlightSelfProfiler extends AndroidProfiler {
     return CppProfilerName;
   }
 
+  public detectDeviceRefreshRate(): number {
+    return 60;
+  }
+
   /**
    * If we don't override this we end up in a situation where we have:
    *

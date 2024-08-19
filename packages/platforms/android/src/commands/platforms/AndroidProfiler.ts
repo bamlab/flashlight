@@ -5,6 +5,7 @@ import { getAbi } from "../getAbi";
 import { detectCurrentAppBundleId } from "../detectCurrentAppBundleId";
 import { CppProfilerName, UnixProfiler } from "./UnixProfiler";
 import { ScreenRecorder } from "../ScreenRecorder";
+import { refreshRateManager } from "../detectCurrentDeviceRefreshRate";
 
 export class AndroidProfiler extends UnixProfiler {
   private aTraceProcess: ChildProcess | null = null;
@@ -81,5 +82,9 @@ export class AndroidProfiler extends UnixProfiler {
   async stopApp(bundleId: string) {
     execSync(`adb shell am force-stop ${bundleId}`);
     await new Promise((resolve) => setTimeout(resolve, 3000));
+  }
+
+  public detectDeviceRefreshRate(): number {
+    return refreshRateManager.getRefreshRate();
   }
 }

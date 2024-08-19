@@ -255,4 +255,5 @@ export abstract class UnixProfiler implements Profiler {
   public abstract getDeviceProfilerPath(): string;
   public abstract detectCurrentBundleId(): string;
   public abstract supportFPS(): boolean;
+  public abstract detectDeviceRefreshRate(): number;
 }

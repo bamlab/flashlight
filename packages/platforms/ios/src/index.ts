@@ -104,4 +104,9 @@ export class IOSProfiler implements Profiler {
     killApp(bundleId);
     return new Promise<void>((resolve) => resolve());
   }
+
+  // This is a placeholder for the method that will be implemented in the future
+  detectDeviceRefreshRate() {
+    return 60;
+  }
 }
