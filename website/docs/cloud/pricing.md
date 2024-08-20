@@ -1,3 +1,7 @@
+---
+sidebar_position: 15
+---
+
 # Pricing
 
 `flashlight cloud` and [flashlight.dev](https://app.flashlight.dev) are running with BAM's servers and AWS Device Farm account.
