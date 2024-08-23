@@ -27,9 +27,23 @@ export const useBundleIdControls = (
       }
     });
 
+    socket.on("autodetectRefreshRate", () => {
+      stop();
+
+      try {
+        const refreshRate = profiler.detectDeviceRefreshRate();
+        setState({
+          refreshRate,
+        });
+      } catch (error) {
+        socket.emit("sendError", error instanceof Error ? error.message : "unknown error");
+      }
+    });
+
     return () => {
       socket.removeAllListeners("setBundleId");
       socket.removeAllListeners("autodetectBundleId");
+      socket.removeAllListeners("autodetectRefreshRate");
     };
   }, [setState, socket, stop]);
 };

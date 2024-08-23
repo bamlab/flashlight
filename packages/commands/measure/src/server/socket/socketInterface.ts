@@ -5,6 +5,7 @@ export interface SocketData {
   isMeasuring: boolean;
   bundleId: string | null;
   results: TestCaseResult[];
+  refreshRate: number;
 }
 
 export interface ServerToClientEvents {
@@ -18,6 +19,7 @@ export interface ClientToServerEvents {
   reset: () => void;
   autodetectBundleId: () => void;
   setBundleId: (bundleId: string) => void;
+  autodetectRefreshRate: () => void;
 }
 
 interface InterServerEvents {

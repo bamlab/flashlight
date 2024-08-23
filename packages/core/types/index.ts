@@ -99,3 +99,7 @@ export interface Profiler {
   stopApp: (bundleId: string) => Promise<void>;
   detectDeviceRefreshRate: () => number;
 }
+
+export interface DeviceSpecs {
+  refreshRate: number;
+}

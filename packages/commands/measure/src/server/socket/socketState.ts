@@ -7,6 +7,7 @@ export const useSocketState = (socket: SocketType) => {
     isMeasuring: false,
     bundleId: null,
     results: [],
+    refreshRate: 60,
   });
 
   const setState = (

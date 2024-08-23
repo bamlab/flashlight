@@ -15,11 +15,14 @@ export const useMeasures = () => {
 
   return {
     bundleId: state?.bundleId ?? null,
+    refreshRate: state?.refreshRate ?? 60,
     autodetect: () => {
       socket.emit("autodetectBundleId");
+      socket.emit("autodetectRefreshRate");
     },
     setBundleId: (bundleId: string) => {
       socket.emit("setBundleId", bundleId);
+      socket.emit("autodetectRefreshRate");
     },
     results: state?.results ?? [],
     isMeasuring: state?.isMeasuring ?? false,

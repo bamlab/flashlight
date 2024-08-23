@@ -16,8 +16,17 @@ import { SocketState } from "./components/SocketState";
 setThemeAtRandom();
 
 export const MeasureWebApp = () => {
-  const { autodetect, bundleId, start, stop, results, isMeasuring, reset, setBundleId } =
-    useMeasures();
+  const {
+    autodetect,
+    bundleId,
+    start,
+    stop,
+    results,
+    isMeasuring,
+    reset,
+    setBundleId,
+    refreshRate,
+  } = useMeasures();
 
   return (
     <div className="bg-light-charcoal h-full text-black">
@@ -37,7 +46,7 @@ export const MeasureWebApp = () => {
           </div>
         ) : null}
       </AppBar>
-      <IterationsReporterView results={results} />
+      <IterationsReporterView deviceSpecs={{ refreshRate }} results={results} />
     </div>
   );
 };
