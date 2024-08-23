@@ -1,6 +1,6 @@
 import { Measure, POLLING_INTERVAL } from "@perf-profiler/types";
 import { useState, useEffect } from "react";
-import { SocketType, SocketData } from "./socketInterface";
+import { SocketType, SocketData, SocketEvents } from "./socketInterface";
 
 export const useSocketState = (socket: SocketType) => {
   const [state, _setState] = useState<SocketData>({
@@ -24,7 +24,7 @@ export const useSocketState = (socket: SocketType) => {
   };
 
   useEffect(() => {
-    socket.emit("updateState", state);
+    socket.emit(SocketEvents.UPDATE_STATE, state);
   }, [state, socket]);
 
   return [state, setState] as const;

@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import { Logger } from "@perf-profiler/logger";
 import { socket } from "../socket";
 import { useLogSocketEvents } from "../../common/useLogSocketEvents";
+import { SocketEvents } from "../../server/socket/socketInterface";
 
 const useSocketState = (onError: (error: string) => void) => {
   useLogSocketEvents(socket);
@@ -28,14 +29,14 @@ const useSocketState = (onError: (error: string) => void) => {
       }
     }
 
-    socket.on("connect", onConnect);
-    socket.on("disconnect", onDisconnect);
-    socket.on("sendError", onError);
+    socket.on(SocketEvents.CONNECT, onConnect);
+    socket.on(SocketEvents.DISCONNECT, onDisconnect);
+    socket.on(SocketEvents.SEND_ERROR, onError);
 
     return () => {
-      socket.off("connect", onConnect);
-      socket.off("disconnect", onDisconnect);
-      socket.off("sendError", onError);
+      socket.off(SocketEvents.CONNECT, onConnect);
+      socket.off(SocketEvents.DISCONNECT, onDisconnect);
+      socket.off(SocketEvents.SEND_ERROR, onError);
     };
   }, [onError]);
 

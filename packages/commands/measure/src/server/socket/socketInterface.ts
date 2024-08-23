@@ -39,3 +39,17 @@ export type SocketType = Socket<
   InterServerEvents,
   SocketData
 >;
+
+export enum SocketEvents {
+  START = "start",
+  STOP = "stop",
+  RESET = "reset",
+  AUTODETECT_BUNDLE_ID = "autodetectBundleId",
+  SET_BUNDLE_ID = "setBundleId",
+  AUTODETECT_REFRESH_RATE = "autodetectRefreshRate",
+  UPDATE_STATE = "updateState",
+  SEND_ERROR = "sendError",
+  PING = "ping",
+  CONNECT = "connect",
+  DISCONNECT = "disconnect",
+}

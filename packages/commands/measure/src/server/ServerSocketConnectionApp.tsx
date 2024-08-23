@@ -3,7 +3,7 @@ import { Logger } from "@perf-profiler/logger";
 import { Measure } from "@perf-profiler/types";
 import React, { useCallback, useEffect } from "react";
 import { HostAndPortInfo } from "./components/HostAndPortInfo";
-import { SocketType } from "./socket/socketInterface";
+import { SocketType, SocketEvents } from "./socket/socketInterface";
 import { useSocketState, updateMeasuresReducer, addNewResultReducer } from "./socket/socketState";
 import { useBundleIdControls } from "./useBundleIdControls";
 import { useLogSocketEvents } from "../common/useLogSocketEvents";
@@ -33,7 +33,7 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
         )
       );
 
-    socket.on("start", async () => {
+    socket.on(SocketEvents.START, async () => {
       setState({
         isMeasuring: true,
       });
@@ -55,9 +55,9 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
       );
     });
 
-    socket.on("stop", stop);
+    socket.on(SocketEvents.STOP, stop);
 
-    socket.on("reset", () => {
+    socket.on(SocketEvents.RESET, () => {
       stop();
       setState({
         results: [],
@@ -65,9 +65,9 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
     });
 
     return () => {
-      socket.removeAllListeners("start");
-      socket.removeAllListeners("stop");
-      socket.removeAllListeners("reset");
+      socket.removeAllListeners(SocketEvents.START);
+      socket.removeAllListeners(SocketEvents.STOP);
+      socket.removeAllListeners(SocketEvents.RESET);
     };
   }, [setState, socket, state.bundleId, stop]);
 
