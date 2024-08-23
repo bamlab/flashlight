@@ -10,9 +10,12 @@ describe("<ReporterView />", () => {
       require("../../../commands/report/src/example-reports/results1.json"),
       require("../../../commands/report/src/example-reports/results2.json"),
     ];
+    const deviceSpecs = {
+      refreshRate: 60,
+    };
 
     const { asFragment, baseElement } = render(
-      <IterationsReporterView results={testCaseResults} />
+      <IterationsReporterView deviceSpecs={deviceSpecs} results={testCaseResults} />
     );
     expect(screen.getAllByLabelText("Score")[0].textContent).toEqual("69");
 
@@ -47,9 +50,12 @@ describe("<ReporterView />", () => {
       require("../../../commands/report/src/example-reports/video/results_417dd25e-d901-4b1e-9d43-3b78305a48e2.json"),
       require("../../../commands/report/src/example-reports/video/results_c7d5d17d-42ed-4354-8b43-bb26e2d6feee.json"),
     ];
+    const deviceSpecs = {
+      refreshRate: 60,
+    };
 
     const { asFragment, baseElement } = render(
-      <IterationsReporterView results={testCaseResults} />
+      <IterationsReporterView deviceSpecs={deviceSpecs} results={testCaseResults} />
     );
     expect(screen.getAllByLabelText("Score")[0].textContent).toEqual("51");
 

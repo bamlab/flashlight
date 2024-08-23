@@ -20,13 +20,13 @@ export const createStartAppTestCase = ({
     driver.startApp();
     await waitForAppStart();
   },
-  getScore: (result: AveragedTestCaseResult) => {
+  getScore: (result: AveragedTestCaseResult, refreshRate: number) => {
     /**
      * Startup time factor
      *
      * Cold start should be <= 5s
      */
     const factor = (x: number) => (1 - (Math.atan((x - 1) / 5) / Math.PI) * 2) * 1.5;
-    return getScore(result) * factor(result.average.time / 1000);
+    return getScore(result, refreshRate) * factor(result.average.time / 1000);
   },
 });

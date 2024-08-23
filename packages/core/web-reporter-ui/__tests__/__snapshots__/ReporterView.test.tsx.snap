@@ -31,7 +31,11 @@ Coefficient of variation :
  %
 Average FPS
 59.7 FPS
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 
+60
+ Frames Per Second to give an impression of fluidity. This number should be close to 
+60
+, otherwise it will seem laggy. 
 See
  
 this video
@@ -206,7 +210,11 @@ Coefficient of variation :
 Average FPS
 59.8 FPS
 (+0%)
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 
+60
+ Frames Per Second to give an impression of fluidity. This number should be close to 
+60
+, otherwise it will seem laggy. 
 See
  
 this video
@@ -14017,7 +14025,11 @@ Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
 59.6 FPS
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 
+60
+ Frames Per Second to give an impression of fluidity. This number should be close to 
+60
+, otherwise it will seem laggy. 
 See
  
 this video
@@ -14056,7 +14068,11 @@ Can be helpful to measure Time To Interactive of your app, if the test is checki
 Average FPS
 59.9 FPS
 (+1%)
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 
+60
+ Frames Per Second to give an impression of fluidity. This number should be close to 
+60
+, otherwise it will seem laggy. 
 See
  
 this video
@@ -22002,7 +22018,11 @@ Coefficient of variation :
  %
 Average FPS
 45.3 FPS
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 
+60
+ Frames Per Second to give an impression of fluidity. This number should be close to 
+60
+, otherwise it will seem laggy. 
 See
  
 this video
@@ -22208,7 +22228,11 @@ Coefficient of variation :
 Average FPS
 38.2 FPS
 (-16%)
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 
+60
+ Frames Per Second to give an impression of fluidity. This number should be close to 
+60
+, otherwise it will seem laggy. 
 See
  
 this video

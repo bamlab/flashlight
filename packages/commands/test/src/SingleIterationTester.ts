@@ -10,7 +10,7 @@ export interface TestCase {
   run: () => Promise<void> | void;
   afterTest?: () => Promise<void> | void;
   duration?: number;
-  getScore?: (result: AveragedTestCaseResult) => number;
+  getScore?: (result: AveragedTestCaseResult, refreshRate: number) => number;
 }
 
 export interface Options {

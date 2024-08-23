@@ -1,5 +1,5 @@
 import React from "react";
-import { TestCaseResult } from "@perf-profiler/types";
+import { DeviceSpecs, TestCaseResult } from "@perf-profiler/types";
 import {
   IterationsReporterView,
   PageBackground,
@@ -12,6 +12,10 @@ import {
 let testCaseResults: TestCaseResult[] =
   // Use very long string so that Parcel won't use it more than once, would be nice to find a better solution
   "THIS_IS_A_VERY_LONG_STRING_THAT_IS_UNLIKELY_TO_BE_FOUND_IN_A_TEST_CASE_RESULT";
+
+const deviceSpecs: DeviceSpecs = {
+  refreshRate: 60,
+};
 
 // Uncomment with when locally testing
 // // Without videos
@@ -61,7 +65,7 @@ export function App() {
   return (
     <>
       <PageBackground />
-      <IterationsReporterView results={testCaseResults} />
+      <IterationsReporterView results={testCaseResults} deviceSpecs={deviceSpecs} />
     </>
   );
 }

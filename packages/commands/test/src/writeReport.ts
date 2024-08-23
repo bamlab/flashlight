@@ -16,7 +16,7 @@ export const writeReport = (
   }: {
     filePath: string;
     title: string;
-    overrideScore?: (result: AveragedTestCaseResult) => number;
+    overrideScore?: (result: AveragedTestCaseResult, refreshRate: number) => number;
   }
 ) => {
   const testCase: TestCaseResult = {
@@ -34,7 +34,7 @@ export const writeReport = (
    */
   if (overrideScore) {
     const averagedResult: AveragedTestCaseResult = averageTestCaseResult(testCase);
-    testCase.score = Math.max(0, Math.min(overrideScore(averagedResult), 100));
+    testCase.score = Math.max(0, Math.min(overrideScore(averagedResult, 60), 100));
   }
 
   fs.writeFileSync(filePath, JSON.stringify(testCase));

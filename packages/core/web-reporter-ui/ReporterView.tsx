@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Measure, POLLING_INTERVAL, TestCaseResult } from "@perf-profiler/types";
+import { Measure, POLLING_INTERVAL, TestCaseResult, DeviceSpecs } from "@perf-profiler/types";
 import { CPUReport } from "./src/sections/CPUReport";
 import { ReportSummary } from "./src/sections/ReportSummary/ReportSummary.component";
 import { RAMReport } from "./src/sections/RAMReport";
@@ -30,12 +30,17 @@ const theme = createTheme({
 const Report = ({
   results: rawResults,
   additionalMenuOptions,
+  deviceSpecs,
 }: {
   results: TestCaseResult[];
   additionalMenuOptions?: MenuOption[];
+  deviceSpecs: DeviceSpecs;
 }) => {
   const results = mapThreadNames(rawResults);
-  const reports = useMemo(() => results.map((result) => new ReportModel(result)), [results]);
+  const reports = useMemo(
+    () => results.map((result) => new ReportModel(result, deviceSpecs)),
+    [results, deviceSpecs]
+  );
   const minIterationCount = Math.min(...reports.map((report) => report.getIterationCount()));
   const iterationSelector = useIterationSelector(minIterationCount);
 
@@ -66,7 +71,7 @@ const Report = ({
               ]}
             />
             <Padding />
-            <ReportSummary reports={selectedReports} />
+            <ReportSummary reports={selectedReports} deviceSpecs={deviceSpecs} />
             <div className="h-16" />
 
             {hasMeasures ? (
@@ -103,21 +108,34 @@ const Report = ({
 export const IterationsReporterView = ({
   results,
   additionalMenuOptions,
+  deviceSpecs,
 }: {
   results: TestCaseResult[];
   additionalMenuOptions?: MenuOption[];
+  deviceSpecs: DeviceSpecs;
 }) => {
   return results.length > 0 ? (
     <ThemeProvider theme={theme}>
-      <Report results={results} additionalMenuOptions={additionalMenuOptions} />
+      <Report
+        deviceSpecs={deviceSpecs}
+        results={results}
+        additionalMenuOptions={additionalMenuOptions}
+      />
     </ThemeProvider>
   ) : null;
 };
 
-export const ReporterView = ({ measures }: { measures: Measure[] }) => (
+export const ReporterView = ({
+  measures,
+  deviceSpecs,
+}: {
+  measures: Measure[];
+  deviceSpecs: DeviceSpecs;
+}) => (
   <>
     {measures.length > 1 ? (
       <IterationsReporterView
+        deviceSpecs={deviceSpecs}
         results={[
           {
             name: "Results",
