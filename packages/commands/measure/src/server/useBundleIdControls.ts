@@ -9,8 +9,10 @@ export const useBundleIdControls = (
 ) => {
   useEffect(() => {
     socket.on(SocketEvents.SET_BUNDLE_ID, (bundleId) => {
+      const refreshRate = profiler.detectDeviceRefreshRate();
       setState({
         bundleId,
+        refreshRate,
       });
     });
 
@@ -33,17 +35,10 @@ export const useBundleIdControls = (
     socket.on(SocketEvents.AUTODETECT_REFRESH_RATE, () => {
       stop();
 
-      try {
-        const refreshRate = profiler.detectDeviceRefreshRate();
-        setState({
-          refreshRate,
-        });
-      } catch (error) {
-        socket.emit(
-          SocketEvents.SEND_ERROR,
-          error instanceof Error ? error.message : "unknown error"
-        );
-      }
+      const refreshRate = profiler.detectDeviceRefreshRate();
+      setState({
+        refreshRate,
+      });
     });
 
     return () => {
