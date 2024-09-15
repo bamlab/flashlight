@@ -14,8 +14,8 @@ const AverageTestRuntimeExplanation = () => (
 
 const AverageFPSExplanation = ({ refreshRate }: { refreshRate: number }) => (
   <>
-    Frame Per Second. Your app should display {refreshRate} Frames Per Second to give an impression
-    of fluidity. This number should be close to {refreshRate}, otherwise it will seem laggy. <br />
+    {`Frame Per Second. Your app should display ${refreshRate} Frames Per Second to give an impression of fluidity. This number should be close to ${refreshRate}, otherwise it will seem laggy.`}{" "}
+    <br />
     See{" "}
     <a href="https://www.youtube.com/watch?v=CaMTIgxCSqU" target="_blank" rel="noreferrer">
       this video
@@ -26,8 +26,8 @@ const AverageFPSExplanation = ({ refreshRate }: { refreshRate: number }) => (
 
 const AverageCPUUsageExplanation = () => (
   <>
-    An app might run at 60FPS but might be using too much processing power, so it&apos;s important
-    to check CPU usage.
+    An app might run at high frame rates, such as 60 FPS or higher, but might be using too much
+    processing power, so it&apos;s important to check CPU usage.
     <br /> Depending on the device, this value can go up to <code>100% x number of cores</code>. For
     instance, a Samsung A10s has 4 cores, so the max value would be 400%.
   </>
@@ -51,7 +51,13 @@ const AverageRAMUsageExplanation = () => (
   </>
 );
 
-const HighCPUUsageExplanation = ({ result }: { result: AveragedTestCaseResult }) => (
+const HighCPUUsageExplanation = ({
+  result,
+  refreshRate,
+}: {
+  result: AveragedTestCaseResult;
+  refreshRate: number;
+}) => (
   <>
     <div className="mb-2">
       <p>Impacted threads:</p>
@@ -66,9 +72,7 @@ const HighCPUUsageExplanation = ({ result }: { result: AveragedTestCaseResult })
         </p>
       ))}
     </div>
-    High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU
-    usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness
-    despite maintaining 60 FPS.
+    {`High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining ${refreshRate} FPS.`}
   </>
 );
 

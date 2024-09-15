@@ -55,6 +55,9 @@ export const addNewResultReducer = (state: SocketData, name: string): SocketData
       name,
       iterations: [],
       status: "SUCCESS",
+      specs: {
+        refreshRate: state.refreshRate,
+      },
     },
   ],
 });

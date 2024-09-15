@@ -1,4 +1,4 @@
-import { TestCaseResult, AveragedTestCaseResult, DeviceSpecs } from "@perf-profiler/types";
+import { TestCaseResult, AveragedTestCaseResult } from "@perf-profiler/types";
 import { roundToDecimal } from "../utils/round";
 import { averageTestCaseResult } from "./averageIterations";
 import { getScore } from "./getScore";
@@ -29,13 +29,11 @@ export class Report {
   private result: TestCaseResult;
   private averagedResult: AveragedTestCaseResult;
   private averageMetrics: ReportMetrics;
-  private deviceSpecs: DeviceSpecs;
 
-  constructor(result: TestCaseResult, deviceSpecs: DeviceSpecs) {
+  constructor(result: TestCaseResult) {
     this.result = Report.filterSuccessfulIterations(result);
     this.averagedResult = averageTestCaseResult(this.result);
     this.averageMetrics = Report.getAverageMetrics(this.averagedResult);
-    this.deviceSpecs = deviceSpecs;
   }
 
   private static getAverageMetrics(averagedResult: AveragedTestCaseResult): ReportMetrics {
@@ -77,7 +75,7 @@ export class Report {
   }
 
   public get score() {
-    return this.averagedResult.score ?? getScore(this.averagedResult, this.deviceSpecs.refreshRate);
+    return this.averagedResult.score ?? getScore(this.averagedResult);
   }
 
   public getIterationCount() {
@@ -93,13 +91,10 @@ export class Report {
   }
 
   public selectIteration(iterationIndex: number): Report {
-    return new Report(
-      {
-        ...this.result,
-        iterations: [this.result.iterations[iterationIndex]],
-      },
-      this.deviceSpecs
-    );
+    return new Report({
+      ...this.result,
+      iterations: [this.result.iterations[iterationIndex]],
+    });
   }
 
   public getAveragedResult() {
@@ -121,5 +116,9 @@ export class Report {
       runtime: getRuntimeStats(iterations, this.averageMetrics.runtime),
       threads: getThreadsStats(iterations),
     };
+  }
+
+  public getRefreshRate() {
+    return this.result.specs?.refreshRate ?? 60;
   }
 }

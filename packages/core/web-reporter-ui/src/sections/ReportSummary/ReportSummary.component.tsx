@@ -3,15 +3,8 @@ import { ReportSummaryCard } from "./ReportSummaryCard";
 import { getThemeColorPalette } from "../../theme/colors";
 import { FailedReportSummaryCard } from "./FailedReportSummaryCard";
 import { Report } from "@perf-profiler/reporter";
-import { DeviceSpecs } from "@perf-profiler/types";
 
-export const ReportSummary = ({
-  reports,
-  deviceSpecs,
-}: {
-  reports: Report[];
-  deviceSpecs: DeviceSpecs;
-}) => {
+export const ReportSummary = ({ reports }: { reports: Report[] }) => {
   const palette = getThemeColorPalette();
   const baselineReport = reports[0];
 
@@ -34,7 +27,6 @@ export const ReportSummary = ({
             ) : (
               <ReportSummaryCard
                 report={report}
-                deviceSpecs={deviceSpecs}
                 baselineReport={index !== 0 ? baselineReport : undefined}
               />
             )}

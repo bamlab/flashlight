@@ -12,11 +12,8 @@ Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
 60 FPS
-Frame Per Second. Your app should display 
-60
- Frames Per Second to give an impression of fluidity. This number should be close to 
-60
-, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+ 
 See
  
 this video
@@ -24,7 +21,7 @@ this video
 for more details
 Average CPU usage
 83 %
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
@@ -859,7 +856,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                     <div
                       class="text-neutral-400 text-sm"
                     >
-                      An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+                      An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
                       <br />
                        Depending on the device, this value can go up to 
                       <code>
@@ -3816,11 +3813,8 @@ Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
 -
-Frame Per Second. Your app should display 
-60
- Frames Per Second to give an impression of fluidity. This number should be close to 
-60
-, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+ 
 See
  
 this video
@@ -3828,7 +3822,7 @@ this video
 for more details
 Average CPU usage
 -
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
@@ -4226,7 +4220,7 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
                     <div
                       class="text-neutral-400 text-sm"
                     >
-                      An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+                      An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
                       <br />
                        Depending on the device, this value can go up to 
                       <code>

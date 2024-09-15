@@ -10,7 +10,7 @@ function deviceRefreshRateManager() {
       try {
         refreshRate = detectCurrentDeviceRefreshRate();
       } catch (e) {
-        console.error(e);
+        Logger.error(`Could not detect device refresh rate: ${e}`);
       }
     },
   };

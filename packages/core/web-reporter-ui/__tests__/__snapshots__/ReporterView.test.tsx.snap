@@ -31,11 +31,8 @@ Coefficient of variation :
  %
 Average FPS
 59.7 FPS
-Frame Per Second. Your app should display 
-60
- Frames Per Second to give an impression of fluidity. This number should be close to 
-60
-, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+ 
 See
  
 this video
@@ -65,7 +62,7 @@ Coefficient of variation :
  %
 Average CPU usage
 58.6 %
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
@@ -210,11 +207,8 @@ Coefficient of variation :
 Average FPS
 59.8 FPS
 (+0%)
-Frame Per Second. Your app should display 
-60
- Frames Per Second to give an impression of fluidity. This number should be close to 
-60
-, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+ 
 See
  
 this video
@@ -245,7 +239,7 @@ Coefficient of variation :
 Average CPU usage
 30.8 %
 (-47%)
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
@@ -2221,7 +2215,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <div
                     class="text-neutral-400 text-sm"
                   >
-                    An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+                    An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
                     <br />
                      Depending on the device, this value can go up to 
                     <code>
@@ -2897,7 +2891,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                   <div
                     class="text-neutral-400 text-sm"
                   >
-                    An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+                    An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
                     <br />
                      Depending on the device, this value can go up to 
                     <code>
@@ -14025,11 +14019,8 @@ Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
 59.6 FPS
-Frame Per Second. Your app should display 
-60
- Frames Per Second to give an impression of fluidity. This number should be close to 
-60
-, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+ 
 See
  
 this video
@@ -14037,7 +14028,7 @@ this video
 for more details
 Average CPU usage
 66.1 %
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
@@ -14068,11 +14059,8 @@ Can be helpful to measure Time To Interactive of your app, if the test is checki
 Average FPS
 59.9 FPS
 (+1%)
-Frame Per Second. Your app should display 
-60
- Frames Per Second to give an impression of fluidity. This number should be close to 
-60
-, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+ 
 See
  
 this video
@@ -14081,7 +14069,7 @@ for more details
 Average CPU usage
 30.9 %
 (-53%)
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
@@ -15597,7 +15585,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   <div
                     class="text-neutral-400 text-sm"
                   >
-                    An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+                    An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
                     <br />
                      Depending on the device, this value can go up to 
                     <code>
@@ -16030,7 +16018,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                   <div
                     class="text-neutral-400 text-sm"
                   >
-                    An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+                    An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
                     <br />
                      Depending on the device, this value can go up to 
                     <code>
@@ -22018,11 +22006,8 @@ Coefficient of variation :
  %
 Average FPS
 45.3 FPS
-Frame Per Second. Your app should display 
-60
- Frames Per Second to give an impression of fluidity. This number should be close to 
-60
-, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+ 
 See
  
 this video
@@ -22052,7 +22037,7 @@ Coefficient of variation :
  %
 Average CPU usage
 79.9 %
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
@@ -22228,11 +22213,8 @@ Coefficient of variation :
 Average FPS
 38.2 FPS
 (-16%)
-Frame Per Second. Your app should display 
-60
- Frames Per Second to give an impression of fluidity. This number should be close to 
-60
-, otherwise it will seem laggy. 
+Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+ 
 See
  
 this video
@@ -22263,7 +22245,7 @@ Coefficient of variation :
 Average CPU usage
 92.8 %
 (+16%)
-An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
 . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
@@ -23842,7 +23824,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   <div
                     class="text-neutral-400 text-sm"
                   >
-                    An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+                    An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
                     <br />
                      Depending on the device, this value can go up to 
                     <code>
@@ -24561,7 +24543,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                   <div
                     class="text-neutral-400 text-sm"
                   >
-                    An app might run at 60FPS but might be using too much processing power, so it's important to check CPU usage.
+                    An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
                     <br />
                      Depending on the device, this value can go up to 
                     <code>

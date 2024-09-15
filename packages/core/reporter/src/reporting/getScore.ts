@@ -13,7 +13,7 @@ import { canComputeHighCpuUsage } from "./highCpu";
  */
 const calculateCpuScore = (x: number) => Math.min(Math.max(0, -0.31666666666667 * x + 116), 100);
 
-export const getScore = (result: AveragedTestCaseResult, refreshRate: number) => {
+export const getScore = (result: AveragedTestCaseResult) => {
   const averageUIFPS = getAverageFPSUsage(result.average.measures);
   const averageCPUUsage = getAverageCpuUsage(result.average.measures);
   const totalTimeThreadlocked = Object.keys(result.averageHighCpuUsage).reduce(
@@ -26,7 +26,7 @@ export const getScore = (result: AveragedTestCaseResult, refreshRate: number) =>
   const scores = [cpuScore];
 
   if (averageUIFPS !== undefined) {
-    const fpsScore = (averageUIFPS * 100) / refreshRate;
+    const fpsScore = (averageUIFPS * 100) / (result?.specs?.refreshRate ?? 60);
     scores.push(fpsScore);
   }
 

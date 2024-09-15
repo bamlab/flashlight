@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from "react";
 import { Report, canComputeHighCpuUsage } from "@perf-profiler/reporter";
-import { DeviceSpecs } from "@perf-profiler/types";
 import { ReportSummaryCardInfoRow } from "./ReportSummaryCardInfoRow";
 import { Score } from "../../components/Score";
 import { Explanations } from "./Explanations";
@@ -11,14 +10,9 @@ import { ThreadStats } from "./ThreadStats";
 type Props = {
   report: Report;
   baselineReport?: Report;
-  deviceSpecs: DeviceSpecs;
 };
 
-export const ReportSummaryCard: FunctionComponent<Props> = ({
-  report,
-  baselineReport,
-  deviceSpecs,
-}) => {
+export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineReport }) => {
   const displayPlaceholder = !report.hasMeasures();
   const metrics = report.getAverageMetrics();
   const baselineMetrics = baselineReport?.getAverageMetrics();
@@ -66,7 +60,7 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
               />
             }
             explanation={
-              <Explanations.AverageFPSExplanation refreshRate={deviceSpecs.refreshRate} />
+              <Explanations.AverageFPSExplanation refreshRate={report.getRefreshRate()} />
             }
             statistics={
               reportStats?.fps ? <SummaryStats stats={reportStats.fps} unit="FPS" /> : undefined
@@ -103,7 +97,12 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({
               baseline={baselineMetrics?.totalHighCpuTime}
             />
           }
-          explanation={<Explanations.HighCPUUsageExplanation result={averagedTestCaseResult} />}
+          explanation={
+            <Explanations.HighCPUUsageExplanation
+              refreshRate={report.getRefreshRate()}
+              result={averagedTestCaseResult}
+            />
+          }
           statistics={
             reportStats ? (
               <>
