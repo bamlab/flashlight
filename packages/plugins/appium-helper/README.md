@@ -35,8 +35,8 @@ import { AppiumDriver } from "@bam.tech/appium-helper";
 test("e2e", async () => {
   const driver = await AppiumDriver.create({
     // `npx @perf-profiler/profiler getCurrentApp` will display info for the current app
-    appPackage: com.example,
-    appActivity: com.example.MainActivity,
+    appPackage: "com.example",
+    appActivity: "com.example.MainActivity",
   });
 
   driver.startApp();
@@ -44,7 +44,7 @@ test("e2e", async () => {
 });
 ```
 
-3. Run the appium server `npx appium` in a terminal
+3. Run the appium server `npx appium` in a terminal. If you just installed Appium, you may need to install a driver, e.g., by running `npx appium driver install uiautomator2`.
 4. Run your test file in a separate terminal `yarn jest appium.test.ts`
 
 ### API
