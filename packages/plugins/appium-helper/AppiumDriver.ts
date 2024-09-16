@@ -79,7 +79,7 @@ export class AppiumDriver {
     };
 
     const client = await webdriver.remote({
-      path: "/wd/hub",
+      path: "/",
       port: 4723,
       logLevel: "warn",
       capabilities,
