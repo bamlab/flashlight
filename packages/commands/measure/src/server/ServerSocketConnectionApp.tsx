@@ -1,5 +1,6 @@
 import { PerformanceMeasurer } from "@perf-profiler/e2e";
 import { Logger } from "@perf-profiler/logger";
+import { profiler } from "@perf-profiler/profiler";
 import { Measure } from "@perf-profiler/types";
 import React, { useCallback, useEffect } from "react";
 import { HostAndPortInfo } from "./components/HostAndPortInfo";
@@ -34,8 +35,10 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
       );
 
     socket.on(SocketEvents.START, async () => {
+      const refreshRate = profiler.detectDeviceRefreshRate();
       setState({
         isMeasuring: true,
+        refreshRate,
       });
 
       if (!state.bundleId) {

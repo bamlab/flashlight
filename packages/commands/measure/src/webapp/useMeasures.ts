@@ -22,7 +22,6 @@ export const useMeasures = () => {
     },
     setBundleId: (bundleId: string) => {
       socket.emit(SocketEvents.SET_BUNDLE_ID, bundleId);
-      socket.emit(SocketEvents.AUTODETECT_REFRESH_RATE);
     },
     results: state?.results ?? [],
     isMeasuring: state?.isMeasuring ?? false,

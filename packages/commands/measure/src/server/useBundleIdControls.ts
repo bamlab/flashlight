@@ -9,10 +9,8 @@ export const useBundleIdControls = (
 ) => {
   useEffect(() => {
     socket.on(SocketEvents.SET_BUNDLE_ID, (bundleId) => {
-      const refreshRate = profiler.detectDeviceRefreshRate();
       setState({
         bundleId,
-        refreshRate,
       });
     });
 
