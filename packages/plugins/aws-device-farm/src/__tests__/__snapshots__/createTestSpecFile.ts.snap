@@ -11,21 +11,17 @@ phases:
       - echo "Navigate to test package directory"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH
       - npm install *.tgz
-      - export APPIUM_VERSION=1.22.2
-      - avm $APPIUM_VERSION
-      - >-
-        ln -s /usr/local/avm/versions/$APPIUM_VERSION/node_modules/.bin/appium
-        /usr/local/avm/versions/$APPIUM_VERSION/node_modules/appium/bin/appium.js
       - npm install --global yarn
   pre_test:
     commands:
       - echo "Start appium server"
+      - npx appium@2.11.4 driver install uiautomator2
       - >-
-        appium --log-timestamp --default-capabilities "{\\"deviceName\\":
-        \\"$DEVICEFARM_DEVICE_NAME\\",
-        \\"platformName\\":\\"$DEVICEFARM_DEVICE_PLATFORM_NAME\\",\\"app\\":\\"$DEVICEFARM_APP_PATH\\",
-        \\"udid\\":\\"$DEVICEFARM_DEVICE_UDID\\",
-        \\"platformVersion\\":\\"$DEVICEFARM_DEVICE_OS_VERSION\\",\\"chromedriverExecutable\\":\\"$DEVICEFARM_CHROMEDRIVER_EXECUTABLE\\"}"
+        npx appium@2.11.4 --log-timestamp --default-capabilities
+        "{\\"appium:deviceName\\": \\"$DEVICEFARM_DEVICE_NAME\\",
+        \\"appium:platformName\\":\\"$DEVICEFARM_DEVICE_PLATFORM_NAME\\",\\"appium:app\\":\\"$DEVICEFARM_APP_PATH\\",
+        \\"appium:udid\\":\\"$DEVICEFARM_DEVICE_UDID\\",
+        \\"appium:platformVersion\\":\\"$DEVICEFARM_DEVICE_OS_VERSION\\",\\"appium:chromedriverExecutable\\":\\"$DEVICEFARM_CHROMEDRIVER_EXECUTABLE\\"}"
         >> $DEVICEFARM_LOG_DIR/appiumlog.txt 2>&1 &
       - |-
         start_appium_timeout=0;
@@ -36,10 +32,10 @@ phases:
                 echo "appium server never started in 60 seconds. Exiting";
                 exit 1;
             fi;
-            grep -i "Appium REST http interface listener started on 0.0.0.0:4723" $DEVICEFARM_LOG_DIR/appiumlog.txt >> /dev/null 2>&1;
+            grep -i "Appium REST http interface listener started on http://0.0.0.0:4723" $DEVICEFARM_LOG_DIR/appiumlog.txt >> /dev/null 2>&1;
             if [ $? -eq 0 ];
             then
-                echo "Appium REST http interface listener started on 0.0.0.0:4723";
+                echo "Appium REST http interface listener started on http://0.0.0.0:4723";
                 break;
             else
                 echo "Waiting for appium server to start. Sleeping for 1 second";
@@ -72,20 +68,16 @@ phases:
       - echo "Navigate to test package directory"
       - cd $DEVICEFARM_TEST_PACKAGE_PATH
       - npm install *.tgz
-      - export APPIUM_VERSION=1.22.2
-      - avm $APPIUM_VERSION
-      - >-
-        ln -s /usr/local/avm/versions/$APPIUM_VERSION/node_modules/.bin/appium
-        /usr/local/avm/versions/$APPIUM_VERSION/node_modules/appium/bin/appium.js
   pre_test:
     commands:
       - echo "Start appium server"
+      - npx appium@2.11.4 driver install uiautomator2
       - >-
-        appium --log-timestamp --default-capabilities "{\\"deviceName\\":
-        \\"$DEVICEFARM_DEVICE_NAME\\",
-        \\"platformName\\":\\"$DEVICEFARM_DEVICE_PLATFORM_NAME\\",\\"app\\":\\"$DEVICEFARM_APP_PATH\\",
-        \\"udid\\":\\"$DEVICEFARM_DEVICE_UDID\\",
-        \\"platformVersion\\":\\"$DEVICEFARM_DEVICE_OS_VERSION\\",\\"chromedriverExecutable\\":\\"$DEVICEFARM_CHROMEDRIVER_EXECUTABLE\\"}"
+        npx appium@2.11.4 --log-timestamp --default-capabilities
+        "{\\"appium:deviceName\\": \\"$DEVICEFARM_DEVICE_NAME\\",
+        \\"appium:platformName\\":\\"$DEVICEFARM_DEVICE_PLATFORM_NAME\\",\\"appium:app\\":\\"$DEVICEFARM_APP_PATH\\",
+        \\"appium:udid\\":\\"$DEVICEFARM_DEVICE_UDID\\",
+        \\"appium:platformVersion\\":\\"$DEVICEFARM_DEVICE_OS_VERSION\\",\\"appium:chromedriverExecutable\\":\\"$DEVICEFARM_CHROMEDRIVER_EXECUTABLE\\"}"
         >> $DEVICEFARM_LOG_DIR/appiumlog.txt 2>&1 &
       - |-
         start_appium_timeout=0;
@@ -96,10 +88,10 @@ phases:
                 echo "appium server never started in 60 seconds. Exiting";
                 exit 1;
             fi;
-            grep -i "Appium REST http interface listener started on 0.0.0.0:4723" $DEVICEFARM_LOG_DIR/appiumlog.txt >> /dev/null 2>&1;
+            grep -i "Appium REST http interface listener started on http://0.0.0.0:4723" $DEVICEFARM_LOG_DIR/appiumlog.txt >> /dev/null 2>&1;
             if [ $? -eq 0 ];
             then
-                echo "Appium REST http interface listener started on 0.0.0.0:4723";
+                echo "Appium REST http interface listener started on http://0.0.0.0:4723";
                 break;
             else
                 echo "Waiting for appium server to start. Sleeping for 1 second";

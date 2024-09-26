@@ -1,4 +1,7 @@
 import yaml from "js-yaml";
+
+const APPIUM_VERSION = "2.11.4";
+
 export const Commands = {
   INSTALL_NODE: ["devicefarm-cli use node 18", "node -v"],
   UNPACKAGE_TEST_PACKAGE: [
@@ -6,14 +9,10 @@ export const Commands = {
     "cd $DEVICEFARM_TEST_PACKAGE_PATH",
     "npm install *.tgz",
   ],
-  INSTALL_APPIUM: [
-    "export APPIUM_VERSION=1.22.2",
-    "avm $APPIUM_VERSION",
-    "ln -s /usr/local/avm/versions/$APPIUM_VERSION/node_modules/.bin/appium /usr/local/avm/versions/$APPIUM_VERSION/node_modules/appium/bin/appium.js",
-  ],
   START_APPIUM: [
     'echo "Start appium server"',
-    `appium --log-timestamp --default-capabilities "{\\"deviceName\\": \\"$DEVICEFARM_DEVICE_NAME\\", \\"platformName\\":\\"$DEVICEFARM_DEVICE_PLATFORM_NAME\\",\\"app\\":\\"$DEVICEFARM_APP_PATH\\", \\"udid\\":\\"$DEVICEFARM_DEVICE_UDID\\", \\"platformVersion\\":\\"$DEVICEFARM_DEVICE_OS_VERSION\\",\\"chromedriverExecutable\\":\\"$DEVICEFARM_CHROMEDRIVER_EXECUTABLE\\"}" >> $DEVICEFARM_LOG_DIR/appiumlog.txt 2>&1 &`,
+    `npx appium@${APPIUM_VERSION} driver install uiautomator2`,
+    `npx appium@${APPIUM_VERSION} --log-timestamp --default-capabilities "{\\"appium:deviceName\\": \\"$DEVICEFARM_DEVICE_NAME\\", \\"appium:platformName\\":\\"$DEVICEFARM_DEVICE_PLATFORM_NAME\\",\\"appium:app\\":\\"$DEVICEFARM_APP_PATH\\", \\"appium:udid\\":\\"$DEVICEFARM_DEVICE_UDID\\", \\"appium:platformVersion\\":\\"$DEVICEFARM_DEVICE_OS_VERSION\\",\\"appium:chromedriverExecutable\\":\\"$DEVICEFARM_CHROMEDRIVER_EXECUTABLE\\"}" >> $DEVICEFARM_LOG_DIR/appiumlog.txt 2>&1 &`,
     `start_appium_timeout=0;
 while [ true ];
 do
@@ -22,10 +21,10 @@ do
         echo "appium server never started in 60 seconds. Exiting";
         exit 1;
     fi;
-    grep -i "Appium REST http interface listener started on 0.0.0.0:4723" $DEVICEFARM_LOG_DIR/appiumlog.txt >> /dev/null 2>&1;
+    grep -i "Appium REST http interface listener started on http://0.0.0.0:4723" $DEVICEFARM_LOG_DIR/appiumlog.txt >> /dev/null 2>&1;
     if [ $? -eq 0 ];
     then
-        echo "Appium REST http interface listener started on 0.0.0.0:4723";
+        echo "Appium REST http interface listener started on http://0.0.0.0:4723";
         break;
     else
         echo "Waiting for appium server to start. Sleeping for 1 second";
