@@ -27,6 +27,14 @@ const defaultBinaryFolder = `${__dirname}/../../..${__dirname.includes("dist") ?
 const binaryFolder = process.env.FLASHLIGHT_BINARY_PATH || defaultBinaryFolder;
 
 export abstract class UnixProfiler implements Profiler {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  waitUntilReady = (bundleId: string) => {
+    return new Promise<void>((resolve) => resolve());
+  };
+  getMeasures = () => {
+    return new Promise<void>((resolve) => resolve());
+  };
+
   stop(): void {
     throw new Error("Method not implemented.");
   }

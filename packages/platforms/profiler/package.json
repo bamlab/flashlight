@@ -16,6 +16,7 @@
   "dependencies": {
     "@perf-profiler/android": "^0.13.0",
     "@perf-profiler/ios": "^0.3.3",
+    "@perf-profiler/ios-instruments": "^0.3.3",
     "@perf-profiler/types": "^0.8.0"
   }
 }

@@ -4,13 +4,11 @@ Requirements:
 
 - `maestro` installed
 - `node` installed
+- `idb` installed
 
 ## Steps
 
-- Get a running simulator id with `xcrun simctl list devices`
-- Create template Flashlight in Xcode Instruments (with cpu-profile and memory usage)
-- Add your own test in `test.yaml`
-- `flashlight-ios-poc ios-test --appId <YOUR_APP_ID> --simulatorId 9F852910-03AD-495A-8E16-7356B764284 --testCommand "maestro test test.yaml" --resultsFilePath "./result.json"`
+PLATFORM=ios-instruments node packages/commands/test/dist/bin.js test --bundleId <YOUR_APP_ID> --testCommand "maestro test test.yaml" --resultsFilePath "./result.json"`
 
 - Check the results in the web-reporter
   `yarn workspace @perf-profiler/web-reporter build`
@@ -19,5 +17,5 @@ Requirements:
 ## Next steps
 
 - run several iterations
-- add more metrics (RAM, FPS, CPU per thread)
+- add more metrics (RAM, FPS)
 - Unify API with flashlight test
