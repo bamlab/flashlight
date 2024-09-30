@@ -11,7 +11,7 @@
     "test": "tsc && yarn test:e2e"
   },
   "dependencies": {
-    "@bam.tech/appium-helper": "^0.5.4",
-    "@perf-profiler/e2e": "^0.11.3"
+    "@bam.tech/appium-helper": "*",
+    "@perf-profiler/e2e": "*"
   }
 }

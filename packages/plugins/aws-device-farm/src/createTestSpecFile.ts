@@ -13,7 +13,6 @@ const buildAppiumYmlSpec = (commands: {
     installCommands: [
       ...Commands.INSTALL_NODE,
       ...Commands.UNPACKAGE_TEST_PACKAGE,
-      ...Commands.INSTALL_APPIUM,
       ...(commands.installCommands || []),
     ],
     preTestCommands: [...Commands.START_APPIUM, ...(commands.preTestCommands || [])],
