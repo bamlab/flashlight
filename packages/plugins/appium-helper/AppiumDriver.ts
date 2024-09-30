@@ -69,17 +69,17 @@ export class AppiumDriver {
     const capabilities = {
       platformName: "Android",
       "appium:automationName": "UiAutomator2",
-      appPackage,
+      "appium:appPackage": appPackage,
       // See https://github.com/appium/appium/blob/1e30207ec4e413c64396420fbb0388392e88cc54/docs/en/writing-running-appium/other/reset-strategies.md
       "appium:noReset": true,
-      autoLaunch: false,
-      appActivity,
-      newCommandTimeout: TEN_MINUTES,
+      "appium:autoLaunch": false,
+      "appium:appActivity": appActivity,
+      "appium:newCommandTimeout": TEN_MINUTES,
       ...clientCapabilities,
     };
 
     const client = await webdriver.remote({
-      path: "/wd/hub",
+      path: "/",
       port: 4723,
       logLevel: "warn",
       capabilities,
