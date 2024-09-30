@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.9](https://github.com/bamlab/flashlight/compare/e2e-example@0.1.0-alpha.8...e2e-example@0.1.0-alpha.9) (2024-09-30)
+
+### Bug Fixes
+
+- **appium:** update client and CI to appium v2 ([#318](https://github.com/bamlab/flashlight/issues/318)) ([bba3ca2](https://github.com/bamlab/flashlight/commit/bba3ca297d2fc85c916a2036d4cbc70d7a02af4e))
+
 # [0.1.0-alpha.8](https://github.com/bamlab/flashlight/compare/e2e-example@0.1.0-alpha.7...e2e-example@0.1.0-alpha.8) (2024-07-17)
 
 **Note:** Version bump only for package e2e-example

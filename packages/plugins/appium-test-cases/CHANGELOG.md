@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.34](https://github.com/bamlab/flashlight/compare/@perf-profiler/appium-test-cases@0.3.33...@perf-profiler/appium-test-cases@0.3.34) (2024-09-30)
+
+**Note:** Version bump only for package @perf-profiler/appium-test-cases
+
 ## [0.3.33](https://github.com/bamlab/flashlight/compare/@perf-profiler/appium-test-cases@0.3.32...@perf-profiler/appium-test-cases@0.3.33) (2024-07-17)
 
 **Note:** Version bump only for package @perf-profiler/appium-test-cases

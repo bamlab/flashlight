@@ -1,7 +1,7 @@
 {
   "name": "e2e-example",
   "private": true,
-  "version": "0.1.0-alpha.8",
+  "version": "0.1.0-alpha.9",
   "author": {
     "name": "Almouro",
     "email": "alexandrem@bam.tech"
@@ -11,7 +11,7 @@
     "test": "tsc && yarn test:e2e"
   },
   "dependencies": {
-    "@bam.tech/appium-helper": "*",
+    "@bam.tech/appium-helper": "^0.5.5",
     "@perf-profiler/e2e": "*"
   }
 }

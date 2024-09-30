@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.2](https://github.com/bamlab/flashlight/compare/@perf-profiler/aws-device-farm@0.10.1...@perf-profiler/aws-device-farm@0.10.2) (2024-09-30)
+
+### Bug Fixes
+
+- **appium:** update client and CI to appium v2 ([#318](https://github.com/bamlab/flashlight/issues/318)) ([bba3ca2](https://github.com/bamlab/flashlight/commit/bba3ca297d2fc85c916a2036d4cbc70d7a02af4e))
+
 ## [0.10.1](https://github.com/bamlab/flashlight/compare/@perf-profiler/aws-device-farm@0.10.0...@perf-profiler/aws-device-farm@0.10.1) (2024-06-04)
 
 **Note:** Version bump only for package @perf-profiler/aws-device-farm
