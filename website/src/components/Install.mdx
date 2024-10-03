@@ -14,3 +14,11 @@ import CodeBlock from "@theme/CodeBlock";
     <CodeBlock language="bash">iwr https://get.flashlight.dev/windows -useb | iex</CodeBlock>
   </TabItem>
 </Tabs>
+
+:::note macOS arm64 support
+On a macOS with arm64 architecture (Silicon), you'll need to install Rosetta if you don't have it:
+
+`softwareupdate --install-rosetta --agree-to-license`
+
+More details [here](https://github.com/bamlab/flashlight/issues/199#issuecomment-2351870408)
+:::
