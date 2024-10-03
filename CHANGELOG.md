@@ -1,7 +1,3 @@
-## 0.20.0 (2024-10-03)
-
-## 0.19.0 (2024-09-30)
-
 ## [0.18.0](https://github.com/bamlab/flashlight/compare/v0.17.4...v0.18.0) (2024-07-04)
 
 ### Bug Fixes
