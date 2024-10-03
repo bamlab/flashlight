@@ -15,7 +15,6 @@ export const useMeasures = () => {
 
   return {
     bundleId: state?.bundleId ?? null,
-    refreshRate: state?.refreshRate ?? 60,
     autodetect: () => {
       socket.emit(SocketEvents.AUTODETECT_BUNDLE_ID);
       socket.emit(SocketEvents.AUTODETECT_REFRESH_RATE);
