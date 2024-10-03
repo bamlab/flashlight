@@ -11,7 +11,7 @@
     "@typescript-eslint/parser": "^7.2.0",
     "@typescript-eslint/rule-tester": "^7.2.0",
     "@typescript-eslint/utils": "^7.2.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.0.0",
     "requireindex": "^1.2.0"
   },
   "scripts": {
