@@ -117,4 +117,8 @@ export class Report {
       threads: getThreadsStats(iterations),
     };
   }
+
+  public getRefreshRate() {
+    return this.result.specs?.refreshRate ?? 60;
+  }
 }

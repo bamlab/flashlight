@@ -59,7 +59,9 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
                 hasValueImproved={isDifferencePositive}
               />
             }
-            explanation={<Explanations.AverageFPSExplanation />}
+            explanation={
+              <Explanations.AverageFPSExplanation refreshRate={report.getRefreshRate()} />
+            }
             statistics={
               reportStats?.fps ? <SummaryStats stats={reportStats.fps} unit="FPS" /> : undefined
             }
@@ -95,7 +97,12 @@ export const ReportSummaryCard: FunctionComponent<Props> = ({ report, baselineRe
               baseline={baselineMetrics?.totalHighCpuTime}
             />
           }
-          explanation={<Explanations.HighCPUUsageExplanation result={averagedTestCaseResult} />}
+          explanation={
+            <Explanations.HighCPUUsageExplanation
+              refreshRate={report.getRefreshRate()}
+              result={averagedTestCaseResult}
+            />
+          }
           statistics={
             reportStats ? (
               <>

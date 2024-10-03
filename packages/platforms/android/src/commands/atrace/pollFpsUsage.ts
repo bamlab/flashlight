@@ -1,5 +1,6 @@
 import { Logger } from "@perf-profiler/logger";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
+import { refreshRateManager } from "../detectCurrentDeviceRefreshRate";
 
 export const parseLine = (
   line: string
@@ -27,9 +28,9 @@ export const parseLine = (
   };
 };
 
-// At some point we might want to change this to adapt to 90fps or 120fps devices
-const TARGET_FRAME_RATE = 60;
+const TARGET_FRAME_RATE = refreshRateManager.getRefreshRate();
 const TARGET_FRAME_TIME = 1000 / TARGET_FRAME_RATE;
+Logger.info(`Target frame rate: ${TARGET_FRAME_RATE} Hz`);
 
 export class FrameTimeParser {
   private methodStartedCount = 0;

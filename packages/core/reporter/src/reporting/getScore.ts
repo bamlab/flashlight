@@ -26,7 +26,7 @@ export const getScore = (result: AveragedTestCaseResult) => {
   const scores = [cpuScore];
 
   if (averageUIFPS !== undefined) {
-    const fpsScore = (averageUIFPS * 100) / 60;
+    const fpsScore = (averageUIFPS * 100) / (result?.specs?.refreshRate ?? 60);
     scores.push(fpsScore);
   }
 

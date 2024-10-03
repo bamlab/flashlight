@@ -5,6 +5,7 @@ export interface SocketData {
   isMeasuring: boolean;
   bundleId: string | null;
   results: TestCaseResult[];
+  refreshRate: number;
 }
 
 export interface ServerToClientEvents {
@@ -18,6 +19,7 @@ export interface ClientToServerEvents {
   reset: () => void;
   autodetectBundleId: () => void;
   setBundleId: (bundleId: string) => void;
+  autodetectRefreshRate: () => void;
 }
 
 interface InterServerEvents {
@@ -37,3 +39,17 @@ export type SocketType = Socket<
   InterServerEvents,
   SocketData
 >;
+
+export enum SocketEvents {
+  START = "start",
+  STOP = "stop",
+  RESET = "reset",
+  AUTODETECT_BUNDLE_ID = "autodetectBundleId",
+  SET_BUNDLE_ID = "setBundleId",
+  AUTODETECT_REFRESH_RATE = "autodetectRefreshRate",
+  UPDATE_STATE = "updateState",
+  SEND_ERROR = "sendError",
+  PING = "ping",
+  CONNECT = "connect",
+  DISCONNECT = "disconnect",
+}
