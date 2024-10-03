@@ -1,16 +1,26 @@
 import { executeCommand } from "./shell";
 import { Logger } from "@perf-profiler/logger";
 
+const DEFAULT_FRAME_RATE = 60;
+
 function deviceRefreshRateManager() {
-  let refreshRate = 60; // Default to 60 fps
+  let refreshRate: number | null = null;
 
   return {
-    getRefreshRate: () => refreshRate,
+    isInitialized: () => refreshRate !== null,
+    getRefreshRate: () => {
+      if (refreshRate === null) {
+        throw new Error("Refresh rate not initialized");
+      }
+      return refreshRate;
+    },
     setRefreshRate: () => {
       try {
         refreshRate = detectCurrentDeviceRefreshRate();
+        Logger.info(`Target frame rate: ${refreshRate} Hz`);
       } catch (e) {
         Logger.error(`Could not detect device refresh rate: ${e}`);
+        refreshRate = DEFAULT_FRAME_RATE;
       }
     },
   };
@@ -47,6 +57,5 @@ export const detectCurrentDeviceRefreshRate = () => {
 };
 
 const refreshRateManager = deviceRefreshRateManager();
-refreshRateManager.setRefreshRate();
 
 export { refreshRateManager };

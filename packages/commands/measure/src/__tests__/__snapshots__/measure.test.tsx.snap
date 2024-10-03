@@ -11,8 +11,8 @@ Average Test Runtime
 Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
-60 FPS
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+120 FPS
+Frame Per Second. Your app should display 120 Frames Per Second to give an impression of fluidity. This number should be close to 120, otherwise it will seem laggy.
  
 See
  
@@ -34,7 +34,7 @@ RN JS Thread
  
 0.5
 s
-High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 120 FPS.
 Average RAM usage
 375.8 MB
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -106,11 +106,11 @@ Frame rate (FPS)
     "data": [
       {
         "x": 0,
-        "y": 60
+        "y": 120
       },
       {
         "x": 500,
-        "y": 60
+        "y": 120
       }
     ]
   }
@@ -752,7 +752,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                         <div
                           class="text-neutral-300 whitespace-pre"
                         >
-                          60 FPS
+                          120 FPS
                         </div>
                         <div
                           class="w-2"
@@ -782,7 +782,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                     <div
                       class="text-neutral-400 text-sm"
                     >
-                      Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+                      Frame Per Second. Your app should display 120 Frames Per Second to give an impression of fluidity. This number should be close to 120, otherwise it will seem laggy. 
                       <br />
                       See 
                       <a
@@ -942,7 +942,7 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
                           - RN JS Thread for 0.5s
                         </p>
                       </div>
-                      High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+                      High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 120 FPS.
                     </div>
                   </div>
                 </div>
@@ -1100,11 +1100,11 @@ exports[`flashlight measure interactive it displays measures: Web app with measu
     "data": [
       {
         "x": 0,
-        "y": 60
+        "y": 120
       },
       {
         "x": 500,
-        "y": 60
+        "y": 120
       }
     ]
   }
@@ -3813,7 +3813,7 @@ Time taken to run the test.
 Can be helpful to measure Time To Interactive of your app, if the test is checking app start for instance.
 Average FPS
 -
-Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy.
+Frame Per Second. Your app should display 120 Frames Per Second to give an impression of fluidity. This number should be close to 120, otherwise it will seem laggy.
  
 See
  
@@ -3829,7 +3829,7 @@ An app might run at high frame rates, such as 60 FPS or higher, but might be usi
 High CPU Usage
 -
 Impacted threads:
-High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 120 FPS.
 Average RAM usage
 -
 If an app consumes a large amount of RAM (random-access memory), it can impact the overall performance of the device and drain the battery more quickly.
@@ -4146,7 +4146,7 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
                     <div
                       class="text-neutral-400 text-sm"
                     >
-                      Frame Per Second. Your app should display 60 Frames Per Second to give an impression of fluidity. This number should be close to 60, otherwise it will seem laggy. 
+                      Frame Per Second. Your app should display 120 Frames Per Second to give an impression of fluidity. This number should be close to 120, otherwise it will seem laggy. 
                       <br />
                       See 
                       <a
@@ -4297,7 +4297,7 @@ exports[`flashlight measure interactive it displays measures: Web app with no me
                           Impacted threads:
                         </p>
                       </div>
-                      High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 60 FPS.
+                      High CPU usage by a single process can cause app unresponsiveness, even with low overall CPU usage. For instance, an overworked JS thread in a React Native app may lead to unresponsiveness despite maintaining 120 FPS.
                     </div>
                   </div>
                 </div>
