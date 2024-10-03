@@ -28,10 +28,6 @@ export const parseLine = (
   };
 };
 
-const TARGET_FRAME_RATE = refreshRateManager.getRefreshRate();
-const TARGET_FRAME_TIME = 1000 / TARGET_FRAME_RATE;
-Logger.info(`Target frame rate: ${TARGET_FRAME_RATE} Hz`);
-
 export class FrameTimeParser {
   private methodStartedCount = 0;
   private doFrameStartedTimeStamp: number | null = null;
@@ -96,6 +92,9 @@ ${error instanceof Error ? error.message : error}`);
 
   static getFps(frameTimes: number[], timeInterval: number, uiCpuUsage: number) {
     const frameCount = frameTimes.length;
+
+    const TARGET_FRAME_RATE = refreshRateManager.getRefreshRate();
+    const TARGET_FRAME_TIME = 1000 / TARGET_FRAME_RATE;
 
     const totalFrameTime = frameTimes.reduce(
       (sum, time) => sum + Math.max(TARGET_FRAME_TIME, time),

@@ -21,6 +21,8 @@ jest.mock("child_process", () => {
             return "arm64-v8a";
           case "adb shell getprop ro.build.version.sdk":
             return "30";
+          case 'adb shell dumpsys display | grep -E "mRefreshRate|DisplayDeviceInfo"':
+            return "fps=60";
           case "adb shell setprop debug.hwui.profile true":
           case "adb shell atrace --async_stop 1>/dev/null":
           case "adb shell chmod 755 /data/local/tmp/BAMPerfProfiler":
