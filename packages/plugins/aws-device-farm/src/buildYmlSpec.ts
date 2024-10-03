@@ -1,4 +1,4 @@
-import yaml from "js-yaml";
+import { dump } from "js-yaml";
 
 const APPIUM_VERSION = "2.11.4";
 
@@ -77,5 +77,5 @@ export const buildYmlSpec = ({
     artifacts: ["$DEVICEFARM_LOG_DIR"],
   };
 
-  return yaml.dump(testJsonSpec);
+  return dump(testJsonSpec);
 };
