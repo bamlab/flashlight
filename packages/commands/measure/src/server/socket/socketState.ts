@@ -7,7 +7,6 @@ export const useSocketState = (socket: SocketType) => {
     isMeasuring: false,
     bundleId: null,
     results: [],
-    refreshRate: 60,
   });
 
   const setState = (
@@ -47,7 +46,11 @@ export const updateMeasuresReducer = (state: SocketData, measures: Measure[]): S
   ],
 });
 
-export const addNewResultReducer = (state: SocketData, name: string): SocketData => ({
+export const addNewResultReducer = (
+  state: SocketData,
+  name: string,
+  refreshRate: number
+): SocketData => ({
   ...state,
   results: [
     ...state.results,
@@ -56,7 +59,7 @@ export const addNewResultReducer = (state: SocketData, name: string): SocketData
       iterations: [],
       status: "SUCCESS",
       specs: {
-        refreshRate: state.refreshRate,
+        refreshRate,
       },
     },
   ],

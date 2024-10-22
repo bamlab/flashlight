@@ -30,15 +30,14 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
       setState((state) =>
         addNewResultReducer(
           state,
-          `${bundleId}${state.results.length > 0 ? ` (${state.results.length + 1})` : ""}`
+          `${bundleId}${state.results.length > 0 ? ` (${state.results.length + 1})` : ""}`,
+          profiler.detectDeviceRefreshRate()
         )
       );
 
     socket.on(SocketEvents.START, async () => {
-      const refreshRate = profiler.detectDeviceRefreshRate();
       setState({
         isMeasuring: true,
-        refreshRate,
       });
 
       if (!state.bundleId) {
@@ -46,6 +45,7 @@ export const ServerSocketConnectionApp = ({ socket, url }: { socket: SocketType;
         return;
       }
 
+      profiler.installProfilerOnDevice();
       performanceMeasureRef.current = new PerformanceMeasurer(state.bundleId, {
         recordOptions: {
           record: false,
