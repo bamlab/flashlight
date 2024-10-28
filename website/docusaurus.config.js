@@ -83,7 +83,8 @@ const config = {
         logo: {
           href: "https://flashlight.dev",
           alt: "Flashlight",
-          src: "img/logo.svg",
+          src: "img/logo-black.svg",
+          srcDark: "img/logo.svg",
         },
         items: [
           {
@@ -124,15 +125,8 @@ const config = {
         additionalLanguages: ["bash", "powershell"],
       },
 
-      // forceDarkMode: true,
-      // darkMode: true,
       colorMode: {
-        // "light" | "dark"
         defaultMode: "dark",
-
-        // Hides the switch in the navbar
-        // Useful if you want to support a single color mode
-        disableSwitch: true,
       },
     }),
 };
