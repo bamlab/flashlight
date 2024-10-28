@@ -14,10 +14,7 @@ sidebar_position: 1
 flashlight measure
 ```
 
-<video autoPlay muted controls style={{width: "100%"}}>
-
-  <source src="https://github.com/bamlab/flashlight/assets/4534323/4038a342-f145-4c3b-8cde-17949bf52612"/>
-</video>
+<Video url="https://github.com/bamlab/flashlight/assets/4534323/4038a342-f145-4c3b-8cde-17949bf52612"/>
 
 ## Going further
 
