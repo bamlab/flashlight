@@ -12,6 +12,7 @@ export class AndroidProfiler extends UnixProfiler {
 
   installProfilerOnDevice(): void {
     super.installProfilerOnDevice();
+    if (!refreshRateManager.isInitialized()) refreshRateManager.setRefreshRate();
     if (!this.aTraceProcess) this.startATrace();
   }
 

@@ -30,19 +30,9 @@ export const useBundleIdControls = (
       }
     });
 
-    socket.on(SocketEvents.AUTODETECT_REFRESH_RATE, () => {
-      stop();
-
-      const refreshRate = profiler.detectDeviceRefreshRate();
-      setState({
-        refreshRate,
-      });
-    });
-
     return () => {
       socket.removeAllListeners(SocketEvents.SET_BUNDLE_ID);
       socket.removeAllListeners(SocketEvents.AUTODETECT_BUNDLE_ID);
-      socket.removeAllListeners(SocketEvents.AUTODETECT_REFRESH_RATE);
     };
   }, [setState, socket, stop]);
 };
