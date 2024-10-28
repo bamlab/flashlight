@@ -95,8 +95,10 @@ describe("flashlight measure interactive", () => {
     // Simulate measures being emitted on the device
     act(() => emitMeasures());
 
+    // We should now see 1000ms of measures: 3 measures at 0/500/1000ms
+    await screen.findByText("1000 ms");
     // Find the score!
-    await screen.findByText("47");
+    screen.getByText("47");
 
     // expand threads
     await screen.findByText("Other threads");
@@ -106,8 +108,8 @@ describe("flashlight measure interactive", () => {
 
     // Stop measuring
     fireEvent.click(screen.getByText("Stop Measuring"));
-    await waitFor(() => expect(aTraceMock.kill).toBeCalled());
-    await waitFor(() => expect(perfProfilerMock.kill).toBeCalled());
+    await waitFor(() => expect(aTraceMock.kill).toHaveBeenCalled());
+    await waitFor(() => expect(perfProfilerMock.kill).toHaveBeenCalled());
 
     // Close apps
 

@@ -83,7 +83,8 @@ const config = {
         logo: {
           href: "https://flashlight.dev",
           alt: "Flashlight",
-          src: "img/logo.svg",
+          src: "img/logo-black.svg",
+          srcDark: "img/logo.svg",
         },
         items: [
           {
@@ -116,22 +117,16 @@ const config = {
             href: "https://github.com/bamlab/flashlight",
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} BAM. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Theodo Apps. Built with Docusaurus.`,
       },
 
       prism: {
         darkTheme: themes.vsDark,
+        additionalLanguages: ["bash", "powershell"],
       },
 
-      // forceDarkMode: true,
-      // darkMode: true,
       colorMode: {
-        // "light" | "dark"
         defaultMode: "dark",
-
-        // Hides the switch in the navbar
-        // Useful if you want to support a single color mode
-        disableSwitch: true,
       },
     }),
 };
