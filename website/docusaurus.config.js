@@ -116,7 +116,7 @@ const config = {
             href: "https://github.com/bamlab/flashlight",
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} BAM. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Theodo Apps. Built with Docusaurus.`,
       },
 
       prism: {
