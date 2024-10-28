@@ -8,9 +8,11 @@ sidebar_position: 1
 
 ## Simple usage
 
-🔌 Plug-in an Android device to your computer. Open any app.
+🔌 Plug-in an Android device to your computer. Open any app. Then the simplest way to get started is to run the `flashlight measure` command:
 
-Then the simplest way to get started is to run the `flashlight measure` command:
+```bash
+flashlight measure
+```
 
 <video autoPlay muted controls style={{width: "100%"}}>
 

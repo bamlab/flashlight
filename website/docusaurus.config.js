@@ -121,6 +121,7 @@ const config = {
 
       prism: {
         darkTheme: themes.vsDark,
+        additionalLanguages: ["bash", "powershell"],
       },
 
       // forceDarkMode: true,
