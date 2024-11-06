@@ -6,3 +6,4 @@ report.js
 report.html
 results*.json
 .docusaurus
+website/build
