@@ -10,7 +10,7 @@
     "@mui/utils": "^5.15.12",
     "@perf-profiler/reporter": "^0.9.0",
     "@perf-profiler/types": "^0.8.0",
-    "apexcharts": "3.48.0",
+    "apexcharts": "3.54.1",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "lodash": "^4.17.21",
