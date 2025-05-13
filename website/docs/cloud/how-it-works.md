@@ -10,4 +10,4 @@ sidebar_position: 10
 
 ## Device used
 
-By default, Flashlight runs on a Samsung A10s. See [our research](https://blog.bam.tech/developer-news/what-is-the-performance-of-your-users-devices) on why we selected that device.
+By default, Flashlight runs on a Samsung A15. See [our research](https://apps.theodo.com/article/what-is-the-performance-of-your-users-devices) on why we selected that device.
