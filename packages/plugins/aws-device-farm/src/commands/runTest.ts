@@ -18,7 +18,7 @@ export const DEFAULT_RUN_TEST_OPTIONS = {
   projectName: "Flashlight",
   testName: "Flashlight",
   reportDestinationPath: ".",
-  deviceName: "A10s",
+  deviceName: "A15",
 };
 
 const getSingleFileTestFolderArn = async ({ projectArn }: { projectArn: string }) => {
