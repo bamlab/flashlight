@@ -3,7 +3,7 @@ import path from "path";
 import { ArtifactType } from "@aws-sdk/client-device-farm";
 import { Logger } from "@perf-profiler/logger";
 import { TestCaseResult } from "@perf-profiler/types";
-import { installFFMpeg, processVideoFile, downloadFile, unzip } from "@perf-profiler/shell";
+import { installFFMpeg, downloadFile, unzip } from "@perf-profiler/shell";
 import { testRepository } from "../repositories";
 import { TMP_FOLDER } from "../TMP_FOLDER";
 
@@ -60,11 +60,9 @@ export const checkResults = async ({
   };
 
   const processVideo = async (fileName: string) => {
-    // When coming from AWS Device Farm, it seems the video is not encoded properly
-    Logger.info(`Fixing video metadata on ${fileName}...`);
-    // VSync 0 is important since we have variable frame rate from adb shell screenrecord
-    await processVideoFile(`${tmpFolder}/${fileName}`, `${reportDestinationPath}/${fileName}`);
-    Logger.info(`Video ${fileName} processed ✅`);
+    // We needed to run FFMpeg to fix the video file on older devices like the A10s
+    // However, using newer devices like the A15 by default, video is already good so we just need to copy
+    fs.copyFileSync(`${tmpFolder}/${fileName}`, `${reportDestinationPath}/${fileName}`);
   };
 
   await installFFMpeg();
