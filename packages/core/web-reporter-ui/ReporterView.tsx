@@ -129,6 +129,8 @@ export const ReporterView = ({ measures }: { measures: Measure[] }) => (
                 status: "SUCCESS",
               },
             ],
+            // TODO: set specs properly here
+            specs: undefined,
           },
         ]}
       />
