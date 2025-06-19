@@ -65,7 +65,7 @@ Average CPU usage
 An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
-. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+. For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
 Min Max Range:
  
 41
@@ -242,7 +242,7 @@ Average CPU usage
 An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
-. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+. For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
 Min Max Range:
  
 21
@@ -2221,7 +2221,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <code>
                       100% x number of cores
                     </code>
-                    . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                    . For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
                   </div>
                   <div
                     class="h-2"
@@ -2897,7 +2897,7 @@ exports[`<ReporterView /> renders the comparison view 2`] = `
                     <code>
                       100% x number of cores
                     </code>
-                    . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                    . For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
                   </div>
                   <div
                     class="h-2"
@@ -14031,7 +14031,7 @@ Average CPU usage
 An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
-. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+. For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
 High CPU Usage
 3.5 s
 Impacted threads:
@@ -14072,7 +14072,7 @@ Average CPU usage
 An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
-. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+. For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
 High CPU Usage
 1 s
 (-71%)
@@ -15591,7 +15591,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <code>
                       100% x number of cores
                     </code>
-                    . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                    . For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
                   </div>
                 </div>
               </div>
@@ -16024,7 +16024,7 @@ exports[`<ReporterView /> renders the comparison view 4`] = `
                     <code>
                       100% x number of cores
                     </code>
-                    . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                    . For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
                   </div>
                 </div>
               </div>
@@ -22040,7 +22040,7 @@ Average CPU usage
 An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
-. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+. For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
 Min Max Range:
  
 70
@@ -22248,7 +22248,7 @@ Average CPU usage
 An app might run at high frame rates, such as 60 FPS or higher, but might be using too much processing power, so it's important to check CPU usage.
  Depending on the device, this value can go up to 
 100% x number of cores
-. For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+. For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
 Min Max Range:
  
 82
@@ -23830,7 +23830,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                     <code>
                       100% x number of cores
                     </code>
-                    . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                    . For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
                   </div>
                   <div
                     class="h-2"
@@ -24549,7 +24549,7 @@ exports[`<ReporterView /> renders the comparison view with videos 2`] = `
                     <code>
                       100% x number of cores
                     </code>
-                    . For instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+                    . For instance, a Samsung A10s has 8 cores, so the max value would be 800%.
                   </div>
                   <div
                     class="h-2"
