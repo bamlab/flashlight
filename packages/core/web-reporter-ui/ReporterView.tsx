@@ -73,7 +73,7 @@ const Report = ({
               <>
                 <HideSectionIfUndefinedValueFound>
                   <div className="mx-8 p-6 bg-dark-charcoal border border-gray-800 rounded-lg">
-                    <FPSReport results={averagedResults} />
+                    <FPSReport reports={selectedReports} />
                   </div>
                   <div className="h-10" />
                 </HideSectionIfUndefinedValueFound>
