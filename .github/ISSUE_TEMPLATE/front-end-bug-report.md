@@ -1,8 +1,8 @@
 ---
-name: CLI Bug Report
-about: Report a bug encountered while using the CLI (eg. `flashlight measure`)
+name: Front-End Bug Report
+about: Report a bug encountered while using the front-end app (local or cloud)
 title: ''
-labels: Package:CLI, Status:Unconfirmed
+labels: Package:Front-End, Status:Unconfirmed
 assignees: ''
 
 ---
@@ -11,10 +11,6 @@ assignees: ''
 A clear and concise description of what the bug is.
 
 **To Reproduce**
-
-Share the command you're trying to run 
-Share the test files (.yaml files) that appear in the command
-
 Steps to reproduce the behavior:
 1. Go to '...'
 2. Click on '....'
@@ -28,11 +24,10 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Environment (please complete the following information):**
- - OS: [e.g. macOS, windows, ...]
- - Flashlight Version [e.g. 0.18.0] (use `flashlight -v` in your terminal)
- - Android SDK platform tools version (`adb version` or other)
- - Test Framework (appium, maestro, ...) and their version
- - Share the bundle identifier of your app
+ - OS: [e.g. iOS]
+ - Browser [e.g. chrome, safari]
+ - Version [e.g. 22]
+ - Active browser extensions ?
 
 **Additional context**
 Add any other context about the problem here.
