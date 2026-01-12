@@ -122,6 +122,9 @@ export const writeReport = (inputFileName: string, outputFileName: string) => {
     status: "SUCCESS",
     iterations,
     type: "IOS_EXPERIMENTAL",
+    specs: {
+      refreshRate: FAKE_FPS,
+    },
   };
 
   fs.writeFileSync(outputFileName, JSON.stringify(results, null, 2));

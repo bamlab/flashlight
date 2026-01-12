@@ -1,4 +1,5 @@
 import { Logger } from "@perf-profiler/logger";
+import { profiler } from "@perf-profiler/profiler";
 import { averageTestCaseResult } from "@perf-profiler/reporter";
 import {
   AveragedTestCaseResult,
@@ -26,6 +27,9 @@ export const writeReport = (
       measures.length === 0 || measures[measures.length - 1].status === "FAILURE"
         ? "FAILURE"
         : "SUCCESS",
+    specs: {
+      refreshRate: profiler.detectDeviceRefreshRate(),
+    },
   };
 
   /**
