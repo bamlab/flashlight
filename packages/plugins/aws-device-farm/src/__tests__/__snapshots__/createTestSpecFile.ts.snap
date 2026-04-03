@@ -15,9 +15,9 @@ phases:
   pre_test:
     commands:
       - echo "Start appium server"
-      - npx appium@2.11.4 driver install uiautomator2
+      - npx appium@3.2.2 driver install uiautomator2
       - >-
-        npx appium@2.11.4 --log-timestamp --default-capabilities
+        npx appium@3.2.2 --log-timestamp --default-capabilities
         "{\\"appium:deviceName\\": \\"$DEVICEFARM_DEVICE_NAME\\",
         \\"appium:platformName\\":\\"$DEVICEFARM_DEVICE_PLATFORM_NAME\\",\\"appium:app\\":\\"$DEVICEFARM_APP_PATH\\",
         \\"appium:udid\\":\\"$DEVICEFARM_DEVICE_UDID\\",
@@ -71,9 +71,9 @@ phases:
   pre_test:
     commands:
       - echo "Start appium server"
-      - npx appium@2.11.4 driver install uiautomator2
+      - npx appium@3.2.2 driver install uiautomator2
       - >-
-        npx appium@2.11.4 --log-timestamp --default-capabilities
+        npx appium@3.2.2 --log-timestamp --default-capabilities
         "{\\"appium:deviceName\\": \\"$DEVICEFARM_DEVICE_NAME\\",
         \\"appium:platformName\\":\\"$DEVICEFARM_DEVICE_PLATFORM_NAME\\",\\"appium:app\\":\\"$DEVICEFARM_APP_PATH\\",
         \\"appium:udid\\":\\"$DEVICEFARM_DEVICE_UDID\\",
