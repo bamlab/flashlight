@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter-ui@0.16.1...@perf-profiler/web-reporter-ui@0.17.0) (2026-04-03)
+
+### Bug Fixes
+
+- **deps:** update dependency apexcharts to v3.54.1 ([#282](https://github.com/bamlab/flashlight/issues/282)) ([1896031](https://github.com/bamlab/flashlight/commit/18960319b2f1610e5850d805d1519a35cf774107))
+
+### Features
+
+- add Support for High-FPS Readings in Flashlight for Devices Over 60 FPS ([#316](https://github.com/bamlab/flashlight/issues/316)) ([ae0bff0](https://github.com/bamlab/flashlight/commit/ae0bff0d929c3134b7c6a432c857254b6b710d2e))
+
 ## [0.16.1](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter-ui@0.16.0...@perf-profiler/web-reporter-ui@0.16.1) (2024-06-28)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter-ui

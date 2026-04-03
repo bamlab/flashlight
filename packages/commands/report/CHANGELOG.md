@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.3](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter@0.11.2...@perf-profiler/web-reporter@0.11.3) (2026-04-03)
+
+**Note:** Version bump only for package @perf-profiler/web-reporter
+
 ## [0.11.2](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter@0.11.1...@perf-profiler/web-reporter@0.11.2) (2024-07-17)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter

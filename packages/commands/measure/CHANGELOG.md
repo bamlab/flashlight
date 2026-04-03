@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/measure@0.4.2...@perf-profiler/measure@0.5.0) (2026-04-03)
+
+### Bug Fixes
+
+- stop running Android FPS detection on flashlight start ([#321](https://github.com/bamlab/flashlight/issues/321)) ([4643b9a](https://github.com/bamlab/flashlight/commit/4643b9a004872b4eb6bbca863004a921703c3182))
+
+### Features
+
+- add Support for High-FPS Readings in Flashlight for Devices Over 60 FPS ([#316](https://github.com/bamlab/flashlight/issues/316)) ([ae0bff0](https://github.com/bamlab/flashlight/commit/ae0bff0d929c3134b7c6a432c857254b6b710d2e))
+
 ## [0.4.2](https://github.com/bamlab/flashlight/compare/@perf-profiler/measure@0.4.1...@perf-profiler/measure@0.4.2) (2024-07-17)
 
 **Note:** Version bump only for package @perf-profiler/measure

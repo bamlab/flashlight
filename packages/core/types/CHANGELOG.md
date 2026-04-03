@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.9.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/types@0.8.0...@perf-profiler/types@0.9.0) (2026-04-03)
+
+### Features
+
+- add Support for High-FPS Readings in Flashlight for Devices Over 60 FPS ([#316](https://github.com/bamlab/flashlight/issues/316)) ([ae0bff0](https://github.com/bamlab/flashlight/commit/ae0bff0d929c3134b7c6a432c857254b6b710d2e))
+
 # [0.8.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/types@0.7.0...@perf-profiler/types@0.8.0) (2024-06-04)
 
 ### Features

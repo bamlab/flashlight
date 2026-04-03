@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.3](https://github.com/bamlab/flashlight/compare/@perf-profiler/aws-device-farm@0.10.2...@perf-profiler/aws-device-farm@0.10.3) (2026-04-03)
+
+### Bug Fixes
+
+- **aws-plugin:** update used appium version ([#357](https://github.com/bamlab/flashlight/issues/357)) ([2d45f6a](https://github.com/bamlab/flashlight/commit/2d45f6a9c8ec0c2ef1487bda94b884871e8c93a8))
+- **aws:** remove video processing since we switched to newer phones ([#344](https://github.com/bamlab/flashlight/issues/344)) ([75609d9](https://github.com/bamlab/flashlight/commit/75609d958d92a1625ec33a764d080d4189e23072))
+
 ## [0.10.2](https://github.com/bamlab/flashlight/compare/@perf-profiler/aws-device-farm@0.10.1...@perf-profiler/aws-device-farm@0.10.2) (2024-09-30)
 
 ### Bug Fixes

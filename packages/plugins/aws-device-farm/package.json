@@ -1,6 +1,6 @@
 {
   "name": "@perf-profiler/aws-device-farm",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "main": "dist/index.js",
   "bin": {
     "aws-device-farm-run-test": "dist/bin.js"
@@ -9,7 +9,7 @@
     "@aws-sdk/client-device-farm": "^3.529.1",
     "@perf-profiler/logger": "^0.3.3",
     "@perf-profiler/shell": "^0.2.1",
-    "@perf-profiler/types": "^0.8.0",
+    "@perf-profiler/types": "^0.9.0",
     "axios": "^1.1.3",
     "commander": "^12.0.0",
     "js-yaml": "^4.1.0"

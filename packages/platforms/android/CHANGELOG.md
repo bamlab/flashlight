@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/android@0.13.0...@perf-profiler/android@0.14.0) (2026-04-03)
+
+### Bug Fixes
+
+- stop running Android FPS detection on flashlight start ([#321](https://github.com/bamlab/android-performance-profiler/issues/321)) ([4643b9a](https://github.com/bamlab/android-performance-profiler/commit/4643b9a004872b4eb6bbca863004a921703c3182))
+
+### Features
+
+- add Support for High-FPS Readings in Flashlight for Devices Over 60 FPS ([#316](https://github.com/bamlab/android-performance-profiler/issues/316)) ([ae0bff0](https://github.com/bamlab/android-performance-profiler/commit/ae0bff0d929c3134b7c6a432c857254b6b710d2e))
+
 # [0.13.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/android@0.12.1...@perf-profiler/android@0.13.0) (2024-07-17)
 
 ### Features

@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.4](https://github.com/bamlab/flashlight/compare/@perf-profiler/e2e@0.11.3...@perf-profiler/e2e@0.11.4) (2026-04-03)
+
+### Bug Fixes
+
+- stop running Android FPS detection on flashlight start ([#321](https://github.com/bamlab/flashlight/issues/321)) ([4643b9a](https://github.com/bamlab/flashlight/commit/4643b9a004872b4eb6bbca863004a921703c3182))
+
 ## [0.11.3](https://github.com/bamlab/flashlight/compare/@perf-profiler/e2e@0.11.2...@perf-profiler/e2e@0.11.3) (2024-07-17)
 
 **Note:** Version bump only for package @perf-profiler/e2e
