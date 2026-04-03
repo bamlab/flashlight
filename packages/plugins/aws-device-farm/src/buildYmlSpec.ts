@@ -1,6 +1,6 @@
 import { dump } from "js-yaml";
 
-const APPIUM_VERSION = "2.11.4";
+const APPIUM_VERSION = "3.2.2";
 
 export const Commands = {
   INSTALL_NODE: ["devicefarm-cli use node 18", "node -v"],
