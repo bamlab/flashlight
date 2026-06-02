@@ -15,6 +15,7 @@ jest.mock("@perf-profiler/profiler", () => {
     mockPerformancePolling.setCallback(onMeasure);
     onStartMeasuring();
   });
+  mockedProfiler.detectDeviceRefreshRate = jest.fn(() => 120);
 
   return {
     ...jest.requireActual("@perf-profiler/profiler"),
@@ -90,6 +91,9 @@ describe("measurePerformance", () => {
         ],
         "name": "TITLE",
         "score": 3,
+        "specs": {
+          "refreshRate": 120,
+        },
         "status": "SUCCESS",
       }
     `);

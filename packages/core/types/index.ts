@@ -39,7 +39,7 @@ export interface TestCaseResult {
   status: TestCaseResultStatus;
   iterations: TestCaseIterationResult[];
   type?: TestCaseResultType;
-  specs?: DeviceSpecs;
+  specs: DeviceSpecs | undefined;
 }
 
 export interface AveragedTestCaseResult {
@@ -50,7 +50,7 @@ export interface AveragedTestCaseResult {
   average: TestCaseIterationResult;
   averageHighCpuUsage: { [processName: string]: number };
   type?: TestCaseResultType;
-  specs?: DeviceSpecs;
+  specs: DeviceSpecs | undefined;
 }
 
 // Shouldn't really be here but @perf-profiler/types is imported by everyone and doesn't contain any logic

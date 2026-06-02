@@ -29,7 +29,7 @@ const AverageCPUUsageExplanation = () => (
     An app might run at high frame rates, such as 60 FPS or higher, but might be using too much
     processing power, so it&apos;s important to check CPU usage.
     <br /> Depending on the device, this value can go up to <code>100% x number of cores</code>. For
-    instance, a Samsung A10s has 4 cores, so the max value would be 400%.
+    instance, a Samsung A10s has 8 cores, so the max value would be 800%.
   </>
 );
 

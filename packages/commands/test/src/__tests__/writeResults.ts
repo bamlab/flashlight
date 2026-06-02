@@ -9,6 +9,7 @@ jest.mock("@perf-profiler/profiler", () => ({
   profiler: {
     ...jest.requireActual("@perf-profiler/profiler").profiler,
     installProfilerOnDevice: jest.fn(),
+    detectDeviceRefreshRate: jest.fn(() => 120),
   },
 }));
 
