@@ -25,7 +25,7 @@ export const aTraceMock = mockSpawn();
 export const perfProfilerMock = mockSpawn();
 
 jest
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   .spyOn(require("child_process"), "spawn")
   .mockImplementationOnce((...args) => {
     expect(args).toEqual(["adb", ["shell", "atrace", "-c", "view", "-t", "999"]]);

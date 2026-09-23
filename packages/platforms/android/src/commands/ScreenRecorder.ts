@@ -9,7 +9,7 @@ async function isProcessRunning(pid: number): Promise<boolean> {
   try {
     const result = executeCommand(`adb shell ps -p ${pid}`).toString();
     return result.includes(pid.toString());
-  } catch (error) {
+  } catch {
     return false;
   }
 }

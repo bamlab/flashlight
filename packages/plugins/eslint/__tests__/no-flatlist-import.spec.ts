@@ -1,9 +1,11 @@
 // eslint-disable-next-line import/no-unresolved
 import { RuleTester } from "@typescript-eslint/rule-tester";
+// eslint-disable-next-line import/no-unresolved
+import parser from "@typescript-eslint/parser";
 import { rule } from "../rules/no-flatlist-import";
 
 const ruleTester = new RuleTester({
-  parser: "@typescript-eslint/parser",
+  languageOptions: { parser },
 });
 
 ruleTester.run("{RULE_NAME}", rule, {

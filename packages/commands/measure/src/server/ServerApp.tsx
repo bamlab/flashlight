@@ -26,7 +26,7 @@ export const createExpressApp = ({ port }: { port: number }) => {
       data = data.replace("localhost:3000", `localhost:${port}`);
 
       res.send(data);
-    } catch (err) {
+    } catch {
       res.status(500).send("Error loading the page");
     }
   });

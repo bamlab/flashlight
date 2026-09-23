@@ -6,7 +6,7 @@ export const getPidId = (bundleId: string) => {
   const command = `adb shell pidof ${bundleId}`;
   try {
     commandOutput = executeCommand(command);
-  } catch (error) {
+  } catch {
     throw new Error(
       `Failed to find process for bundleId ${bundleId}.\n\n This command failed: ${command}`
     );
