@@ -46,15 +46,21 @@ module.exports = {
     ...WEB_PACKAGES.map((name) => ({
       name,
       testEnvironment: "jsdom",
+      // ServerApp boots a real socket.io server inside this jsdom project. jsdom resolves the
+      // "browser" export condition, which hands engine.io the `ws` browser stub (no .Server),
+      // so this project needs node resolution.
+      testEnvironmentOptions:
+        name === "commands/measure" ? { customExportConditions: ["node"] } : undefined,
     })),
     ...NODE_PACKAGES.map((name) => ({
       name,
       testEnvironment: "node",
     })),
-  ].map(({ name, testEnvironment }) => ({
+  ].map(({ name, testEnvironment, testEnvironmentOptions }) => ({
     ...commonOptions,
     displayName: name,
     testEnvironment,
+    ...(testEnvironmentOptions ? { testEnvironmentOptions } : {}),
     testMatch: [`<rootDir>/packages/${name}/**/__tests__/**/*.{ts,tsx}`],
   })),
 };

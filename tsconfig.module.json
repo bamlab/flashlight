@@ -2,6 +2,7 @@
   "compilerOptions": {
     "composite": true,
     "target": "es6",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "CommonJS",
     "jsx": "react",
     "sourceMap": true,
