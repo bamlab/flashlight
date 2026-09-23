@@ -141,7 +141,7 @@ describe("measurePerformance", () => {
           maxRetries: MAX_RETRIES,
         }
       )
-    ).rejects.toThrowError("Max number of retries reached.");
+    ).rejects.toThrow("Max number of retries reached.");
   });
 
   it("throws an error if no measures are returned", async () => {
@@ -154,6 +154,6 @@ describe("measurePerformance", () => {
           iterationCount: 0,
         }
       )
-    ).rejects.toThrowError("No measure returned");
+    ).rejects.toThrow("No measure returned");
   });
 });
