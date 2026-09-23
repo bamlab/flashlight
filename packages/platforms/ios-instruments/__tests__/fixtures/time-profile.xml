@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<trace-query-result>
+  <node xpath='//trace-toc[1]/run[1]/data[1]/table[1]'>
+    <row>
+      <sample-time id="1" fmt="00:00.100.000">100000000</sample-time>
+      <thread id="2" fmt="Main Thread  0x1f4e5">
+        <tid id="3" fmt="128229">128229</tid>
+        <process id="4" fmt="fakeStore">
+          <pid id="5" fmt="1234">1234</pid>
+          <device-session id="6" fmt="Session 1">Session 1</device-session>
+        </process>
+      </thread>
+      <process ref="4"/>
+      <core id="7" fmt="0">0</core>
+      <thread-state id="8" fmt="Running">Running</thread-state>
+      <cycle-weight id="9" fmt="1">1</cycle-weight>
+    </row>
+    <row>
+      <sample-time id="30" fmt="00:00.110.000">110000000</sample-time>
+      <thread ref="2"/>
+      <process ref="4"/>
+      <core ref="7"/>
+      <thread-state ref="8"/>
+      <cycle-weight ref="9"/>
+    </row>
+    <row>
+      <sample-time id="31" fmt="00:00.120.000">120000000</sample-time>
+      <thread ref="2"/>
+      <process ref="4"/>
+      <core ref="7"/>
+      <thread-state ref="8"/>
+      <cycle-weight ref="9"/>
+    </row>
+    <row>
+      <sample-time id="32" fmt="00:00.253.333">253333000</sample-time>
+      <thread id="10" fmt="com.apple.uikit  0x2a1b3">
+        <tid id="11" fmt="128300">128300</tid>
+        <process ref="4"/>
+      </thread>
+      <process ref="4"/>
+      <core ref="7"/>
+      <thread-state ref="8"/>
+      <cycle-weight ref="9"/>
+    </row>
+    <row>
+      <sample-time id="33" fmt="00:00.260.000">260000000</sample-time>
+      <thread id="20" fmt="com.apple.uikit  0x3b2c4">
+        <tid id="21" fmt="128400">128400</tid>
+        <process ref="4"/>
+      </thread>
+      <process ref="4"/>
+      <core ref="7"/>
+      <thread-state ref="8"/>
+      <cycle-weight ref="9"/>
+    </row>
+    <row>
+      <sample-time ref="1"/>
+      <thread ref="2"/>
+      <process ref="4"/>
+      <core ref="7"/>
+      <thread-state ref="8"/>
+      <cycle-weight ref="9"/>
+    </row>
+    <row>
+      <sample-time id="34" fmt="00:00.760.000">760000000</sample-time>
+      <thread ref="2"/>
+      <process ref="4"/>
+      <core ref="7"/>
+      <thread-state ref="8"/>
+      <cycle-weight ref="9"/>
+    </row>
+  </node>
+</trace-query-result>

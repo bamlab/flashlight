@@ -22,6 +22,7 @@ const WEB_PACKAGES = ["plugins/flipper", "commands/measure", "core/web-reporter-
 
 const NODE_PACKAGES = [
   "platforms/android",
+  "platforms/ios-instruments",
   "plugins/appium-helper",
   "plugins/appium-test-cases",
   "plugins/aws-device-farm",

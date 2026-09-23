@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`writeReport converts an xctrace time-profile export into a report 1`] = `
+{
+  "iterations": [
+    {
+      "measures": [
+        {
+          "cpu": {
+            "perCore": {},
+            "perName": {
+              "Main Thread": 0.8,
+            },
+          },
+          "fps": 60,
+          "ram": 200,
+          "time": 0,
+        },
+        {
+          "cpu": {
+            "perCore": {},
+            "perName": {
+              "com.apple.uikit": 0.2,
+              "com.apple.uikit (1)": 0.2,
+            },
+          },
+          "fps": 60,
+          "ram": 200,
+          "time": 500,
+        },
+        {
+          "cpu": {
+            "perCore": {},
+            "perName": {
+              "Main Thread": 0.2,
+            },
+          },
+          "fps": 60,
+          "ram": 200,
+          "time": 1000,
+        },
+      ],
+      "status": "SUCCESS",
+      "time": 1000,
+    },
+  ],
+  "name": "iOS Measures",
+  "status": "SUCCESS",
+  "type": "IOS_EXPERIMENTAL",
+}
+`;
