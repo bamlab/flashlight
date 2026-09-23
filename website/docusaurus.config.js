@@ -1,6 +1,7 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
+/* eslint-disable import/no-unresolved */
 import { themes } from "prism-react-renderer";
 
 const googleFonts = [

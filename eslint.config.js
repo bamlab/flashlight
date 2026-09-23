@@ -9,6 +9,13 @@ const testingLibrary = require("eslint-plugin-testing-library");
 
 module.exports = tseslint.config(
   {
+    // eslint 9 reports unused disable directives by default; eslint 8 did not. Keep it off:
+    // website/ deps are installed separately, so its directives are only unused locally.
+    linterOptions: {
+      reportUnusedDisableDirectives: "off",
+    },
+  },
+  {
     ignores: [
       "**/dist/**",
       "**/node_modules/**",
