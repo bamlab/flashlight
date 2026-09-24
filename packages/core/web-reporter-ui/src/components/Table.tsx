@@ -195,8 +195,10 @@ export default function EnhancedTable({
                   <Checkbox
                     color="primary"
                     checked={isItemSelected}
-                    inputProps={{
-                      "aria-labelledby": labelId,
+                    slotProps={{
+                      input: {
+                        "aria-labelledby": labelId,
+                      },
                     }}
                     className="!text-neutral-300"
                   />

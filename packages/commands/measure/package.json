@@ -24,8 +24,8 @@
     "socket.io": "^4.7.5"
   },
   "devDependencies": {
-    "@mui/icons-material": "^5.15.12",
-    "@mui/material": "^5.15.12",
+    "@mui/icons-material": "^9.4.0",
+    "@mui/material": "^9.4.0",
     "@perf-profiler/web-reporter-ui": "^0.17.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/react": "^16.3.3",

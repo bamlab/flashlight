@@ -1,4 +1,5 @@
-import { PlayArrow, Stop } from "@mui/icons-material";
+import PlayArrow from "@mui/icons-material/PlayArrow";
+import Stop from "@mui/icons-material/Stop";
 import { Button } from "@perf-profiler/web-reporter-ui";
 import React from "react";
 
