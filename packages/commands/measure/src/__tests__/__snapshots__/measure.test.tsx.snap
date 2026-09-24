@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`flashlight measure interactive it displays measures: Web app with measures and threads opened - 1. TEXT 1`] = `
 "Auto-Detect

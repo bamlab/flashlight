@@ -38,6 +38,6 @@ describe("detectCurrentAppBundleId", () => {
 
   it("throws an error in case it couldn't find them", () => {
     executeCommandSpy.mockImplementation(() => "");
-    expect(detectCurrentAppBundleId).toThrowError();
+    expect(detectCurrentAppBundleId).toThrow();
   });
 });
