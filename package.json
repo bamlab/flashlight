@@ -60,5 +60,8 @@
     "*.{ts,tsx}": "eslint --cache --fix",
     "*.{ts,tsx,md,json}": "prettier --write"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "@parcel/resolver-default": {
+    "packageExports": true
+  }
 }

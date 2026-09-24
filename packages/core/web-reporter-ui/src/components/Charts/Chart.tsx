@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import ReactApexChart, { Props as ApexChartProps } from "react-apexcharts";
-import ApexCharts, { ApexOptions } from "apexcharts";
+import ApexCharts, { ApexAxisChartSeries, ApexOptions } from "apexcharts";
 import { POLLING_INTERVAL } from "@perf-profiler/types";
 import { merge, partition } from "lodash";
 
@@ -94,13 +94,14 @@ export const Chart = ({
 
   const chartOptions = useMemo(() => merge(commonOptions, options), [commonOptions, options]);
 
-  const ref = useRef<ReactApexChart>(null);
+  // react-apexcharts fills this in on mount. Child effects run before ours, so it is
+  // already set the first time the effect below runs.
+  const chartRef = useRef<ApexCharts | null>(null);
   const seriesRef = useRef(series);
   seriesRef.current = series;
 
   useEffect(() => {
-    //@ts-expect-error chart is not defined in the typings, but it exists!
-    const chart: ApexCharts | undefined = ref.current?.chart;
+    const chart = chartRef.current;
     if (!chart) return;
 
     toggleSeriesVisibility(
@@ -116,7 +117,7 @@ export const Chart = ({
         {title}
       </div>
       <ReactApexChart
-        ref={ref}
+        chartRef={chartRef}
         options={chartOptions}
         series={series}
         type={type}

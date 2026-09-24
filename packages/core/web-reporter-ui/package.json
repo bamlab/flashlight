@@ -10,13 +10,13 @@
     "@mui/utils": "^9.4.0",
     "@perf-profiler/reporter": "^0.10.0",
     "@perf-profiler/types": "^0.9.0",
-    "apexcharts": "3.54.1",
+    "apexcharts": "^7.5.1",
     "file-saver": "^2.0.5",
     "jszip": "^3.10.1",
     "lodash": "^4.17.21",
     "process": "^0.11.10",
     "react": "^18.0.0",
-    "react-apexcharts": "1.4.1",
+    "react-apexcharts": "~1.8.0",
     "tiny-emitter": "^2.1.0"
   },
   "devDependencies": {
