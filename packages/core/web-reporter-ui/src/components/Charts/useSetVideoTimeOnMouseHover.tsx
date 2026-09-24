@@ -1,4 +1,5 @@
 import { useRef, useMemo } from "react";
+import { ApexChart } from "apexcharts";
 import { setVideoCurrentTime } from "../../../videoCurrentTimeContext";
 import { RangeAreaSeriesType, LineSeriesType } from "./types";
 
@@ -8,6 +9,16 @@ export const getLastX = (series: RangeAreaSeriesType | LineSeriesType) => {
   return typeof lastDataPoint === "object" && lastDataPoint !== null && "x" in lastDataPoint
     ? lastDataPoint.x
     : undefined;
+};
+
+/**
+ * The bits of apexcharts' internal state we read to map a mouse position onto the x axis.
+ * Not part of the public typings: apexcharts spreads its state object into the third
+ * argument of mouseMove, and the published type only describes it with an index signature.
+ */
+type ChartInternals = {
+  globals?: { gridWidth?: number; translateX?: number };
+  dom?: { baseEl?: Element };
 };
 
 export const useSetVideoTimeOnMouseHover = ({
@@ -22,17 +33,17 @@ export const useSetVideoTimeOnMouseHover = ({
 
   return useMemo(
     () => ({
-      mouseMove: (event, chart) => {
-        if (lastXRef.current === undefined) return;
+      mouseMove: (event, _chart, options) => {
+        const maxX = lastXRef.current;
+        if (maxX === undefined || typeof maxX === "string") return;
 
-        const totalWidth = chart.events.ctx.dimensions.dimXAxis.w.globals.gridWidth;
+        const { globals, dom } = (options ?? {}) as ChartInternals;
+        const totalWidth = globals?.gridWidth;
+        const chartElement = dom?.baseEl;
+        if (!totalWidth || !chartElement) return;
 
         const mouseX =
-          event.clientX - chart.el.getBoundingClientRect().left - chart.w.globals.translateX;
-
-        const maxX = lastXRef.current;
-
-        if (typeof maxX === "string") return;
+          event.clientX - chartElement.getBoundingClientRect().left - (globals?.translateX ?? 0);
 
         setVideoCurrentTime((mouseX / totalWidth) * maxX);
 
