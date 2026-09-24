@@ -68,6 +68,30 @@ export const getResultsFromPaths = (jsonPaths: string[]): TestCaseResult[] => {
   return getJsonPaths().map((path) => JSON.parse(fs.readFileSync(path, "utf8")));
 };
 
+/**
+ * Rewrites the <script> tag parcel emitted so the report points at our own bundle.
+ *
+ * Parcel minifies index.html and drops attribute quotes, so the tag can be written as
+ * src="app.js", src='app.js' or src=app.js. The whole tag is replaced rather than patched,
+ * which also drops type="module": the report is opened over file://, where modules are
+ * blocked by CORS.
+ */
+export const replaceBundledScript = (htmlContent: string, newJsFile: string) => {
+  const scriptTag = htmlContent.match(
+    /<script\b[^>]*\bsrc=(?:"([^"]+)"|'([^']+)'|([^\s>]+))[^>]*>\s*<\/script>/
+  );
+
+  if (!scriptTag) {
+    throw new Error("Could not find the bundled script in the report's index.html");
+  }
+
+  return {
+    // Parcel writes an absolute path ("/report.<hash>.js"), but it sits next to index.html
+    scriptName: (scriptTag[1] ?? scriptTag[2] ?? scriptTag[3]).replace(/^\//, ""),
+    html: htmlContent.replace(scriptTag[0], `<script src="${newJsFile}"></script>`),
+  };
+};
+
 export const writeReport = ({
   jsonPaths,
   outputDir,
@@ -82,12 +106,7 @@ export const writeReport = ({
   const newJsFile = "report.js";
 
   const oldHtmlContent = fs.readFileSync(`${__dirname}/index.html`, "utf8");
-  const scriptName = oldHtmlContent.match(/src="(.*?)"/)?.[1];
-
-  const newHtmlContent = fs
-    .readFileSync(`${__dirname}/index.html`, "utf8")
-    .replace(`src="${scriptName}"`, `src="${newJsFile}"`)
-    .replace('type="module"', "");
+  const { scriptName, html: newHtmlContent } = replaceBundledScript(oldHtmlContent, newJsFile);
 
   const results = getResultsFromPaths(jsonPaths);
   const isIOSTestCaseResult = results.every((result) => result.type === "IOS_EXPERIMENTAL");
@@ -100,6 +119,7 @@ export const writeReport = ({
     report
   );
 
+  fs.mkdirSync(outputDir, { recursive: true });
   fs.writeFileSync(`${outputDir}/report.js`, jsFileContent);
 
   const htmlFilePath = `${outputDir}/report.html`;

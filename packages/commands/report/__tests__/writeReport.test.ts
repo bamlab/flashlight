@@ -1,5 +1,5 @@
 import { Measure, TestCaseIterationResult, TestCaseResult } from "@perf-profiler/types";
-import { getMeasuresForTimeInterval } from "../writeReport";
+import { getMeasuresForTimeInterval, replaceBundledScript } from "../writeReport";
 
 const mockMeasure = (name: string) => {
   // We're just mocking measure to make tests more readable here
@@ -123,5 +123,35 @@ describe("getMeasuresForTimeInterval", () => {
         status: "SUCCESS",
       },
     ]);
+  });
+});
+
+describe("replaceBundledScript", () => {
+  const PARCEL_UNQUOTED = `<div id=app></div>\n<script type=module src=/report.337efdc9.js></script>`;
+  const PARCEL_QUOTED = `<div id="app"></div>\n<script type="module" src="/report.337efdc9.js"></script>`;
+
+  it("handles the unquoted attributes parcel emits when it minifies", () => {
+    const { scriptName, html } = replaceBundledScript(PARCEL_UNQUOTED, "report.js");
+
+    expect(scriptName).toBe("report.337efdc9.js");
+    expect(html).toContain(`<script src="report.js"></script>`);
+  });
+
+  it("handles quoted attributes too", () => {
+    const { scriptName, html } = replaceBundledScript(PARCEL_QUOTED, "report.js");
+
+    expect(scriptName).toBe("report.337efdc9.js");
+    expect(html).toContain(`<script src="report.js"></script>`);
+  });
+
+  it("drops type=module, which file:// refuses to load", () => {
+    expect(replaceBundledScript(PARCEL_UNQUOTED, "report.js").html).not.toContain("module");
+    expect(replaceBundledScript(PARCEL_QUOTED, "report.js").html).not.toContain("module");
+  });
+
+  it("throws rather than silently producing a broken report", () => {
+    expect(() => replaceBundledScript("<div id=app></div>", "report.js")).toThrow(
+      "Could not find the bundled script"
+    );
   });
 });
