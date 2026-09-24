@@ -3254,10 +3254,10 @@
     "@types/node" "*"
     form-data "^4.0.0"
 
-"@types/supertest@^6.0.2":
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/@types/supertest/-/supertest-6.0.3.tgz#d736f0e994b195b63e1c93e80271a2faf927388c"
-  integrity sha512-8WzXq62EXFhJ7QsH3Ocb/iKQ/Ty9ZVWnVzoTKc9tyyFRRF3a74Tk2+TLFgaFFw364Ere+npzHKEJ6ga2LzIL7w==
+"@types/supertest@^7.2.1":
+  version "7.2.1"
+  resolved "https://registry.yarnpkg.com/@types/supertest/-/supertest-7.2.1.tgz#165e99f10fd652027cf1eaa74b55081b6daa0965"
+  integrity sha512-4CbBvoYVLHL7+yhbYrZET0vsvuyXTC05aRe7dNQkwMzm56auceoy6Yu3K50uZmwfHna1os3CMSgM/3QVkUtPTw==
   dependencies:
     "@types/methods" "^1.1.4"
     "@types/superagent" "^8.1.0"
@@ -4560,7 +4560,7 @@ common-ancestor-path@^1.0.1:
   resolved "https://registry.yarnpkg.com/common-ancestor-path/-/common-ancestor-path-1.0.1.tgz#4f7d2d1394d91b7abdf51871c62f71eadb0182a7"
   integrity sha512-L3sHRo1pXXEqX8VU28kfgUY+YGsk09hPqZiZmLacNib6XNTCM8ubYeT7ryXQw8asB1sKgcU5lkB7ONug08aB8w==
 
-component-emitter@^1.3.0:
+component-emitter@^1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.3.1.tgz#ef1d5796f7d93f135ee6fb684340b26403c97d17"
   integrity sha512-T0+barUSQRTUQASh8bx02dl+DhF54GtIDY13Y3m9oWTklKbb3Wv974meRpeZ3lp1JpLVECWWNHC4vaG2XHXouQ==
@@ -4672,6 +4672,11 @@ convert-to-spaces@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/convert-to-spaces/-/convert-to-spaces-1.0.2.tgz#7e3e48bbe6d997b1417ddca2868204b4d3d85715"
   integrity sha512-cj09EBuObp9gZNQCzc7hByQyrs6jVGE+o9kSJmeUoj+GiPiJvi5LYqEH/Hmme4+MTLHM+Ejtq+FChpjjEnsPdQ==
+
+cookie-signature@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/cookie-signature/-/cookie-signature-1.2.2.tgz#57c7fc3cc293acab9fec54d73e15690ebe4a1793"
+  integrity sha512-D76uU73ulSXrD1UXF4KE2TMxVVwhsnCgfAyTg9k8P6KGZjlXKrOLe4dJQKI3Bxi5wjesZoFXJWElNWBjPZMbhg==
 
 cookie-signature@~1.0.6:
   version "1.0.7"
@@ -4814,7 +4819,7 @@ debug@2.6.9, debug@^2.6.9:
   dependencies:
     ms "2.0.0"
 
-debug@4, debug@4.4.3, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4, debug@^4.4.3, debug@~4.4.1:
+debug@4, debug@4.4.3, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4, debug@^4.3.7, debug@^4.4.3, debug@~4.4.1:
   version "4.4.3"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.4.3.tgz#c6ae432d9bd9662582fce08709b038c58e9e3d6a"
   integrity sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==
@@ -5908,15 +5913,14 @@ form-data@4.0.6, form-data@^4.0.0, form-data@^4.0.5, form-data@^4.0.6:
     hasown "^2.0.4"
     mime-types "^2.1.35"
 
-formidable@^2.1.2:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/formidable/-/formidable-2.1.5.tgz#dd7ef4d55c164afaf9b6eb472bfd04b02d66d2dd"
-  integrity sha512-Oz5Hwvwak/DCaXVVUtPn4oLMLLy1CdclLKO1LFgU7XzDpVMUU5UjlSLpGMocyQNNk8F6IJW9M/YdooSn2MRI+Q==
+formidable@^3.5.4:
+  version "3.5.4"
+  resolved "https://registry.yarnpkg.com/formidable/-/formidable-3.5.4.tgz#ac9a593b951e829b3298f21aa9a2243932f32ed9"
+  integrity sha512-YikH+7CUTOtP44ZTnUhR7Ic2UASBPOqmaRkRKxRbywPTe5VxF7RRCck4af9wutiZ/QKM5nME9Bie2fFaPz5Gug==
   dependencies:
     "@paralleldrive/cuid2" "^2.2.2"
     dezalgo "^1.0.4"
     once "^1.4.0"
-    qs "^6.11.0"
 
 forwarded@0.2.0:
   version "0.2.0"
@@ -9305,7 +9309,7 @@ pure-rand@^7.0.0:
   resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-7.0.1.tgz#6f53a5a9e3e4a47445822af96821ca509ed37566"
   integrity sha512-oTUZM/NAZS8p7ANR3SHh30kXB+zK2r2BPcEn/awJIbOvq82WoMN4p62AWWp3Hhw50G0xMsw1mhIBLqHw64EcNQ==
 
-qs@^6.11.0, qs@~6.16.0:
+qs@^6.14.1, qs@~6.16.0:
   version "6.16.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.16.0.tgz#c22c723a28a920f3aacdce8289fabd43eccb79fd"
   integrity sha512-h6fhOIaRrID2CbEY2fqs+7t+UXZo+MLAnU5gRIq85uFtdiUPCdsApMlHhXogKVM4HM2DVbIjGNTTYH2OcmP1vA==
@@ -9726,7 +9730,7 @@ semver@^6.3.1:
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.1.tgz#556d2ef8689146e46dcea4bfdd095f3434dffcb4"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.1.1, semver@^7.3.5, semver@^7.3.7, semver@^7.3.8, semver@^7.5.2, semver@^7.5.3, semver@^7.5.4, semver@^7.6.3, semver@^7.7.1, semver@^7.7.2, semver@^7.7.3, semver@^7.8.5:
+semver@^7.1.1, semver@^7.3.5, semver@^7.3.7, semver@^7.5.2, semver@^7.5.3, semver@^7.5.4, semver@^7.6.3, semver@^7.7.1, semver@^7.7.2, semver@^7.7.3, semver@^7.8.5:
   version "7.8.5"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.8.5.tgz#39b646037dd50c14fb451e7e4cac58ed8b863f69"
   integrity sha512-Y7/KDsb8LjooZpwaqGyulO6DQlksgCncchHGk+sZIY4SBvUocMBEFH5Ur1fI4dV+Jvl0w6cjvucaIi40puRioA==
@@ -10281,29 +10285,29 @@ sucrase@^3.35.0:
     tinyglobby "^0.2.11"
     ts-interface-checker "^0.1.9"
 
-superagent@^8.1.2:
-  version "8.1.2"
-  resolved "https://registry.yarnpkg.com/superagent/-/superagent-8.1.2.tgz#03cb7da3ec8b32472c9d20f6c2a57c7f3765f30b"
-  integrity sha512-6WTxW1EB6yCxV5VFOIPQruWGHqc3yI7hEmZK6h+pyk69Lk/Ut7rLUY6W/ONF2MjBuGjvmMiIpsrVJ2vjrHlslA==
+superagent@^10.3.0:
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/superagent/-/superagent-10.4.1.tgz#2a461136f302376be9b0e236dc131a46f0974b69"
+  integrity sha512-PVMkMrhKrSTtFhUU8jiWuGh/gyRMKiyCTCmm0+qVzRNxlfntmRKJkDhlEXN62x3HIb33sQ4kmL8lcSdccWAchQ==
   dependencies:
-    component-emitter "^1.3.0"
+    component-emitter "^1.3.1"
     cookiejar "^2.1.4"
-    debug "^4.3.4"
+    debug "^4.3.7"
     fast-safe-stringify "^2.1.1"
-    form-data "^4.0.0"
-    formidable "^2.1.2"
+    form-data "^4.0.5"
+    formidable "^3.5.4"
     methods "^1.1.2"
     mime "2.6.0"
-    qs "^6.11.0"
-    semver "^7.3.8"
+    qs "^6.14.1"
 
-supertest@^6.3.4:
-  version "6.3.4"
-  resolved "https://registry.yarnpkg.com/supertest/-/supertest-6.3.4.tgz#2145c250570c2ea5d337db3552dbfb78a2286218"
-  integrity sha512-erY3HFDG0dPnhw4U+udPfrzXa4xhSG+n4rxfRuZWCUvjFWwKl+OxWf/7zk50s84/fAAs7vf5QAb9uRa0cCykxw==
+supertest@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/supertest/-/supertest-7.3.0.tgz#52838f0430f3fa69d40edf77d9139273e7f7110f"
+  integrity sha512-UwwmWq3xLhyU96c521wYNaBg7IqX78Wpj4FKs6Katp6vdklX42zU5ESvX3KeZRLFyO44RwFp4yvxYMNZzCcX9g==
   dependencies:
+    cookie-signature "^1.2.2"
     methods "^1.1.2"
-    superagent "^8.1.2"
+    superagent "^10.3.0"
 
 supports-color@7.2.0, supports-color@^7.1.0:
   version "7.2.0"
