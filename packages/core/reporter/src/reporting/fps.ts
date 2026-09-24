@@ -14,7 +14,7 @@ export const getStandardDeviationFPS = (
   const averageFpsUsages: number[] = [];
   iterations.forEach((iteration) => {
     const value = getAverageFPSUsage(iteration.measures);
-    value && averageFpsUsages.push(value);
+    if (value) averageFpsUsages.push(value);
   });
   return getStandardDeviation({ values: averageFpsUsages, average: averageFps });
 };
@@ -23,7 +23,7 @@ const getMinMaxFPS = (iterations: TestCaseIterationResult[]): [number, number] =
   const averageFpsUsages: number[] = [];
   iterations.forEach((iteration) => {
     const value = getAverageFPSUsage(iteration.measures);
-    value && averageFpsUsages.push(value);
+    if (value) averageFpsUsages.push(value);
   });
   return getMinMax(averageFpsUsages);
 };

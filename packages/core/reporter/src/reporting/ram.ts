@@ -13,7 +13,7 @@ export const getRamStats = (iterations: TestCaseIterationResult[], averageRam?: 
   const values: number[] = [];
   iterations.forEach((iteration) => {
     const averageRamUsage = getAverageRAMUsage(iteration.measures);
-    averageRamUsage && values.push(averageRamUsage);
+    if (averageRamUsage) values.push(averageRamUsage);
   });
 
   const standardDeviation = getStandardDeviation({

@@ -1,4 +1,5 @@
 import { saveAs } from "file-saver";
+// eslint-disable-next-line @typescript-eslint/no-require-imports -- jszip ships CJS typings
 import JSZip = require("jszip");
 import { TestCaseResult } from "@perf-profiler/types";
 

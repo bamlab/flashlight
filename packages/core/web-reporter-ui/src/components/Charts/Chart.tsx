@@ -17,14 +17,14 @@ function toggleSeriesVisibility(
   seriesToHide.forEach((name) => {
     try {
       chart.hideSeries(name);
-    } catch (e) {
+    } catch {
       // don't do anything
     }
   });
   seriesToShow.forEach((name) => {
     try {
       chart.showSeries(name);
-    } catch (e) {
+    } catch {
       // don't do anything
     }
   });
