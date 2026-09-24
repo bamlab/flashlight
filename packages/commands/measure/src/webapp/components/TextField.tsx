@@ -1,7 +1,7 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
-import { AndroidRounded } from "@mui/icons-material";
+import AndroidRounded from "@mui/icons-material/AndroidRounded";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

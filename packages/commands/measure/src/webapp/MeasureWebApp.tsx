@@ -8,7 +8,7 @@ import {
 
 import { BundleIdSelector } from "./components/BundleIdSelector";
 import { StartButton } from "./components/StartButton";
-import { Delete } from "@mui/icons-material";
+import Delete from "@mui/icons-material/Delete";
 import { AppBar } from "./components/AppBar";
 import { useMeasures } from "./useMeasures";
 import { SocketState } from "./components/SocketState";
