@@ -50,7 +50,7 @@
     "jest": "^30.5.2",
     "jest-environment-jsdom": "^30.5.2",
     "lerna": "^10.0.1",
-    "lint-staged": "15.5.2",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.2.5",
     "ts-jest": "^29.4.13",
     "typescript": "^5.4.2",
