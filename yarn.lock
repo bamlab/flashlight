@@ -3713,10 +3713,10 @@ apex-commons@^0.8.0:
   resolved "https://registry.yarnpkg.com/apex-commons/-/apex-commons-0.8.1.tgz#4adc82a63c634435032d88522dded7325e9803cc"
   integrity sha512-F7fqJVh0smeTu1d86uuRSNNZvaM/l11GNQMbu6oAiSvuXp+K8KCufg0oZTy2VQBEEipRLAdFqkHnphlVpTG0Gw==
 
-apexcharts@^7.5.1:
-  version "7.5.1"
-  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-7.5.1.tgz#eb4ef887f91470c887faf82c0a0f4d3bf27705c3"
-  integrity sha512-I+S/KSXKGwaCZx73CvAg7yLfM892NEZR2CG5UHkjGFjBq/LhesuglIGuaKn1fiGa5Z0voAyfFROLjWywZNyOEA==
+apexcharts@^7.6.0:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-7.6.0.tgz#16e45ffa7a9222eb353905a56af3e24e5504e0ac"
+  integrity sha512-8l5l1Fou9Yvef/Y/XGn9g22pkIvV/zZxVW1pWRP5sWJyf4eVIwWFfKMmVry6U751GGAwJ2e1iDB25QUi3pA8XA==
   dependencies:
     apex-commons "^0.8.0"
 
