@@ -1,4 +1,4 @@
-import { useRef, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { ApexChart } from "apexcharts";
 import { setVideoCurrentTime } from "../../../videoCurrentTimeContext";
 import { RangeAreaSeriesType, LineSeriesType } from "./types";
@@ -28,8 +28,12 @@ export const useSetVideoTimeOnMouseHover = ({
 }): ApexChart["events"] => {
   const lastXRef = useRef(lastX);
 
-  // Just making sure the useMemo doesn't depend on series since it doesn't need to
-  lastXRef.current = lastX;
+  // Just making sure the useMemo doesn't depend on series since it doesn't need to.
+  // Written in an effect rather than during render: the handler only reads it on mousemove,
+  // long after commit.
+  useEffect(() => {
+    lastXRef.current = lastX;
+  });
 
   return useMemo(
     () => ({
