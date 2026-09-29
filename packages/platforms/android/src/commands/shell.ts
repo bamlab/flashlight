@@ -29,15 +29,9 @@ const exit = () => {
   process.exit();
 };
 
-declare const global: {
-  Flipper: unknown;
-};
-
-if (!global.Flipper) {
-  process.on("SIGINT", exit); // CTRL+C
-  process.on("SIGQUIT", exit); // Keyboard quit
-  process.on("SIGTERM", exit); // `kill` command
-}
+process.on("SIGINT", exit); // CTRL+C
+process.on("SIGQUIT", exit); // Keyboard quit
+process.on("SIGTERM", exit); // `kill` command
 
 class AsyncExecutionError extends Error {}
 
