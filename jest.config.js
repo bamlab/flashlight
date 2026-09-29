@@ -18,7 +18,7 @@ const commonOptions = {
   setupFiles: ["<rootDir>/jest-setup.ts"],
 };
 
-const WEB_PACKAGES = ["plugins/flipper", "commands/measure", "core/web-reporter-ui"];
+const WEB_PACKAGES = ["commands/measure", "core/web-reporter-ui"];
 
 const NODE_PACKAGES = [
   "platforms/android",
