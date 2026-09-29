@@ -5,7 +5,8 @@
   "main": "dist/src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bamlab/android-performance-profiler.git"
+    "url": "https://github.com/bamlab/flashlight.git",
+    "directory": "packages/core/reporter"
   },
   "author": {
     "name": "Almouro",
