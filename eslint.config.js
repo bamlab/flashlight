@@ -31,17 +31,7 @@ module.exports = tseslint.config(
   importPlugin.flatConfigs.recommended,
   importPlugin.flatConfigs.typescript,
   prettierRecommended,
-  {
-    plugins: { "react-hooks": reactHooks },
-    // These two are what `configs.recommended` was up to v6. v7 folded the React Compiler
-    // rules into it, taking it from 2 rules to 16. Adopting those is a separate decision -
-    // they flag 6 real issues, and the fixes are component rewrites (Collapsible's height
-    // animation depends on the setState-in-effect and ref-read-during-render they forbid).
-    rules: {
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-    },
-  },
+  reactHooks.configs.flat.recommended,
   {
     languageOptions: {
       globals: globals.node,

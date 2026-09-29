@@ -3,7 +3,6 @@ import React, {
   PropsWithChildren,
   useCallback,
   useEffect,
-  useRef,
   useState,
 } from "react";
 import { ArrowDownIcon } from "./icons/ArrowDownIcon";
@@ -14,7 +13,7 @@ type Props = PropsWithChildren<{
   unmountOnExit?: boolean;
 }>;
 
-type COLLAPSE_STATE = "EXPANDING" | "COLLAPSING" | "COLLAPSED" | "EXPANDED";
+type COLLAPSE_STATE = "COLLAPSING" | "COLLAPSED" | "EXPANDED";
 
 const TRANSITION_DURATION = 300;
 
@@ -22,32 +21,24 @@ const useCollapsible = (unmountOnExit: boolean) => {
   const [collapseState, setCollapseState] = useState<COLLAPSE_STATE>("COLLAPSED");
 
   const toggleIsExpanded = useCallback(() => {
-    if (collapseState === "COLLAPSED") {
-      setCollapseState("EXPANDING");
-    } else if (collapseState === "EXPANDED") {
-      setCollapseState("COLLAPSING");
-    }
-  }, [collapseState]);
+    setCollapseState((state) => {
+      if (state === "COLLAPSED") return "EXPANDED";
+      if (state === "EXPANDED") return "COLLAPSING";
+      return state;
+    });
+  }, []);
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    if (collapseState !== "COLLAPSING") return;
 
-    if (collapseState === "EXPANDING") {
-      setCollapseState("EXPANDED");
-    } else if (collapseState === "COLLAPSING") {
-      timeout = setTimeout(() => setCollapseState("COLLAPSED"), TRANSITION_DURATION);
-    }
-
-    return () => {
-      clearTimeout(timeout);
-    };
+    // Hold the children mounted until the closing transition has finished.
+    const timeout = setTimeout(() => setCollapseState("COLLAPSED"), TRANSITION_DURATION);
+    return () => clearTimeout(timeout);
   }, [collapseState]);
 
   return {
     isExpanded: collapseState === "EXPANDED",
-    showChildren: unmountOnExit
-      ? ["EXPANDING", "EXPANDED", "COLLAPSING"].includes(collapseState)
-      : true,
+    showChildren: unmountOnExit ? collapseState !== "COLLAPSED" : true,
     toggleIsExpanded,
   };
 };
@@ -58,13 +49,7 @@ export const Collapsible: FunctionComponent<Props> = ({
   children,
   unmountOnExit = false,
 }) => {
-  const childrenContainerRef = useRef<HTMLDivElement>(null);
-
   const { isExpanded, showChildren, toggleIsExpanded } = useCollapsible(unmountOnExit);
-
-  const childrenContainerStyle = {
-    height: isExpanded ? childrenContainerRef.current?.scrollHeight : 0,
-  };
 
   return (
     <div className={`${className} cursor-pointer`} onClick={toggleIsExpanded}>
@@ -75,13 +60,15 @@ export const Collapsible: FunctionComponent<Props> = ({
         />
       </div>
 
+      {/* Animating grid-template-rows between 0fr and 1fr lets the row size itself from its
+          content, so the open height never has to be measured. */}
       <div
-        ref={childrenContainerRef}
-        className={`cursor-default overflow-hidden transition-[height] duration-300`}
-        style={childrenContainerStyle}
+        className={`cursor-default grid ${
+          isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        } transition-[grid-template-rows] duration-300`}
         onClick={(event) => event.stopPropagation()}
       >
-        {showChildren ? children : null}
+        <div className="overflow-hidden">{showChildren ? children : null}</div>
       </div>
     </div>
   );

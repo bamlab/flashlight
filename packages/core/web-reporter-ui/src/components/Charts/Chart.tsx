@@ -98,7 +98,13 @@ export const Chart = ({
   // already set the first time the effect below runs.
   const chartRef = useRef<ApexCharts | null>(null);
   const seriesRef = useRef(series);
-  seriesRef.current = series;
+
+  // Kept in a ref so the visibility effect below can read the latest series without
+  // re-running whenever they change. Written in an effect rather than during render, and
+  // declared first so it lands before that effect reads it.
+  useEffect(() => {
+    seriesRef.current = series;
+  });
 
   useEffect(() => {
     const chart = chartRef.current;
