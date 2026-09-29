@@ -22,6 +22,7 @@ module.exports = tseslint.config(
       "**/docs/**",
       "**/cpp-profiler/**",
       "**/.docusaurus/**",
+      "**/build/**",
       "**/report.js",
     ],
   },
