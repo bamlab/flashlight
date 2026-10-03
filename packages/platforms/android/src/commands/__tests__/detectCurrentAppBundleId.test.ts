@@ -7,6 +7,9 @@ const sampleOutputWithoutDollars = `
 mSurface=Surface(name=com.example.staging/com.example.MainActivity)/@0x993d3ae
 mSurface=Surface(name=com.sec.android.app.launcher/com.sec.android.app.launcher.activities.LauncherActivity)/@0x469a915`;
 
+const sampleOutputAndroid17 = `
+mSurface=Surface(name=VRI-com.example.android17/com.example.MainActivity#763)`;
+
 const executeCommandSpy = jest.spyOn(require("../shell"), "executeCommand");
 
 describe("detectCurrentAppBundleId", () => {
@@ -36,8 +39,22 @@ describe("detectCurrentAppBundleId", () => {
     });
   });
 
+  it("retrieves correctly bundle id and app activity from Android 17 VRI format", () => {
+    executeCommandSpy.mockImplementation((command) => {
+      expect(command).toEqual("adb shell dumpsys window windows");
+
+      return sampleOutputAndroid17;
+    });
+
+    expect(detectCurrentAppBundleId()).toEqual({
+      bundleId: "com.example.android17",
+      appActivity: "com.example.MainActivity",
+    });
+  });
+
   it("throws an error in case it couldn't find them", () => {
     executeCommandSpy.mockImplementation(() => "");
+
     expect(detectCurrentAppBundleId).toThrow();
   });
 });

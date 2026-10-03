@@ -16,7 +16,7 @@ export const detectCurrentAppBundleId = () => {
     .filter((line) => line.includes("Activity"))
     .join("\n");
 
-  const regexMatching = commandOutput.match(/name=([\w.]+)\/([\w.]+)\$?/);
+  const regexMatching = commandOutput.match(/name=(?:VRI-)?([\w.]+)\/([\w.]+)/);
 
   if (!regexMatching) {
     throw new Error(
