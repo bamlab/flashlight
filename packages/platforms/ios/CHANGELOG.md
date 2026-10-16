@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/bamlab/flashlight/compare/%40perf-profiler%2Fios%400.4.0...%40perf-profiler%2Fios%400.5.0) (2026-10-16)
+
+**Note:** Version bump only for package @perf-profiler/ios
+
 # [0.4.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/ios@0.3.3...@perf-profiler/ios@0.4.0) (2026-04-03)
 
 ### Features

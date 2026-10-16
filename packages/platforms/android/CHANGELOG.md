@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/bamlab/flashlight/compare/%40perf-profiler%2Fandroid%400.14.0...%40perf-profiler%2Fandroid%400.15.0) (2026-10-16)
+
+**Note:** Version bump only for package @perf-profiler/android
+
 # [0.14.0](https://github.com/bamlab/android-performance-profiler/compare/@perf-profiler/android@0.13.0...@perf-profiler/android@0.14.0) (2026-04-03)
 
 ### Bug Fixes

@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.18.0](https://github.com/bamlab/flashlight/compare/%40perf-profiler%2Fweb-reporter-ui%400.17.0...%40perf-profiler%2Fweb-reporter-ui%400.18.0) (2026-10-16)
+
+### Bug Fixes
+
+- **web-reporter-ui:** depend on react-dom 18 ([#391](https://github.com/bamlab/flashlight/issues/391)) ([37c5063](https://github.com/bamlab/flashlight/commit/37c50631a58dab8cbdaadaf87681e48155e1952f))
+- **web-reporter-ui:** pin react-apexcharts to 1.4.1 ([#370](https://github.com/bamlab/flashlight/issues/370)) ([daf55f7](https://github.com/bamlab/flashlight/commit/daf55f7d88d0f38990174668344e44088129b305)), closes [#364](https://github.com/bamlab/flashlight/issues/364)
+
 # [0.17.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter-ui@0.16.1...@perf-profiler/web-reporter-ui@0.17.0) (2026-04-03)
 
 ### Bug Fixes

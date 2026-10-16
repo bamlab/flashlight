@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/bamlab/flashlight/compare/%40perf-profiler%2Fweb-reporter%400.11.3...%40perf-profiler%2Fweb-reporter%400.12.0) (2026-10-16)
+
+### Bug Fixes
+
+- **web-reporter:** handle parcel's unquoted html attributes ([#373](https://github.com/bamlab/flashlight/issues/373)) ([6ff91ad](https://github.com/bamlab/flashlight/commit/6ff91ad38b8f435bf4f96202f69c820560d50ba1)), closes [#364](https://github.com/bamlab/flashlight/issues/364)
+
 ## [0.11.3](https://github.com/bamlab/flashlight/compare/@perf-profiler/web-reporter@0.11.2...@perf-profiler/web-reporter@0.11.3) (2026-04-03)
 
 **Note:** Version bump only for package @perf-profiler/web-reporter

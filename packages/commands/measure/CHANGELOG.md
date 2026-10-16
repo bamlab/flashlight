@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/bamlab/flashlight/compare/%40perf-profiler%2Fmeasure%400.5.0...%40perf-profiler%2Fmeasure%400.6.0) (2026-10-16)
+
+**Note:** Version bump only for package @perf-profiler/measure
+
 # [0.5.0](https://github.com/bamlab/flashlight/compare/@perf-profiler/measure@0.4.2...@perf-profiler/measure@0.5.0) (2026-04-03)
 
 ### Bug Fixes

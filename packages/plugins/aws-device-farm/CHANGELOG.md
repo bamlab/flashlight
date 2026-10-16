@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/bamlab/flashlight/compare/%40perf-profiler%2Faws-device-farm%400.10.3...%40perf-profiler%2Faws-device-farm%400.11.0) (2026-10-16)
+
+### Bug Fixes
+
+- **deps:** adm-zip 0.5 -> 0.6.1 ([#365](https://github.com/bamlab/flashlight/issues/365)) ([2072f56](https://github.com/bamlab/flashlight/commit/2072f56caaa6d9ae13e644d707a8d643ee1b6e32)), closes [high-severity](https://github.com/hi/issues/severity)
+
 ## [0.10.3](https://github.com/bamlab/flashlight/compare/@perf-profiler/aws-device-farm@0.10.2...@perf-profiler/aws-device-farm@0.10.3) (2026-04-03)
 
 ### Bug Fixes

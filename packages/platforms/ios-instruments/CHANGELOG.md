@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/bamlab/flashlight/compare/%40perf-profiler%2Fios-instruments%400.3.4...%40perf-profiler%2Fios-instruments%400.4.0) (2026-10-16)
+
+### Bug Fixes
+
+- **deps:** fast-xml-parser 4 -> 5 ([#366](https://github.com/bamlab/flashlight/issues/366)) ([818397c](https://github.com/bamlab/flashlight/commit/818397c014c81496d9648ace7489327292747aa2))
+
 ## [0.3.4](https://github.com/bamlab/flashlight/compare/@perf-profiler/ios-instruments@0.3.3...@perf-profiler/ios-instruments@0.3.4) (2026-04-03)
 
 **Note:** Version bump only for package @perf-profiler/ios-instruments
