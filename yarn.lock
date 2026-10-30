@@ -19,9 +19,7 @@
     lru-cache "^10.4.3"
 
 "@aws-sdk/client-device-farm@^3.529.1":
-  version "3.1139.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/client-device-farm/-/client-device-farm-3.1139.0.tgz#aef5337b7ba9ebae89c245188377bfd7d87417cf"
-  integrity sha512-x9qIdM6JL56U4TYv8xm872keyMpoWD/cUdZEEmqF+Vl3xP3WQeV0UPAcw3g/zNmTDgoT44+vdSV3IweO6ykywg==
+  version "3.1161.0"
   dependencies:
     "@aws-sdk/core" "^3.978.1"
     "@aws-sdk/credential-provider-node" "^3.972.84"
