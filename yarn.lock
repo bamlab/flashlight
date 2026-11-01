@@ -3954,9 +3954,7 @@ axios@1.18.1:
     proxy-from-env "^2.1.0"
 
 axios@^1.1.3:
-  version "1.20.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-1.20.0.tgz#515513445aa60e71d04b6521ca6210829ccb4786"
-  integrity sha512-r8aOh8j9cGKpgQAqpzrUHnSIc6a59Y3Xf/cv8sy1DrHCkZHzQGEuoq1tARk6qSyDdtQGSDgpb9kFlruzPvrgwg==
+  version "1.21.0"
   dependencies:
     follow-redirects "^1.16.0"
     form-data "^4.0.6"
