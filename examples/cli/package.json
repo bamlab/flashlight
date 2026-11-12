@@ -4,8 +4,8 @@
   "version": "1.0.0-alpha.3",
   "main": "dist/index.js",
   "dependencies": {
-    "@perf-profiler/profiler": "^0.10.12",
-    "@perf-profiler/reporter": "^0.10.0",
-    "@perf-profiler/types": "^0.9.0"
+    "@perf-profiler/profiler": "*",
+    "@perf-profiler/reporter": "*",
+    "@perf-profiler/types": "*"
   }
 }
