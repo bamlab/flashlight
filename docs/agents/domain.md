@@ -5,14 +5,14 @@ How the engineering skills should consume this repo's domain documentation when 
 ## Before exploring, read these
 
 - **`GLOSSARY.md`** at the repo root: the project's vocabulary (measure, iteration, report, score, …). Public.
-- **Architecture Decision Records are private.** They live in the maintainers' private repository, not here. If you have access to it (you are working from `bamlab/flashlight-cloud`, where this repo is the `flashlight-open-source/` submodule), read `../docs/adrs/` there, filtering on `Repo: flashlight`. Otherwise proceed without them.
+- **Architecture Decision Records are private.** They live in the private companion repo `bamlab/flashlight-internal`, not here. Maintainers clone it next to this repo: if `../flashlight-internal/docs/adrs/` exists, read the ADRs that touch your area (index in its `README.md`). Otherwise proceed without them.
 
 If any of these files don't exist, **proceed silently**. Don't flag their absence; don't suggest creating them upfront. The `/domain-modeling` skill (reached via `/grill-with-docs` and `/improve-codebase-architecture`) creates them lazily when terms or decisions actually get resolved.
 
 ## Writing domain docs
 
 - New or sharper **terms** → `GLOSSARY.md` here (single-context: one glossary for the whole repo).
-- New **decisions** (ADRs) → **never in this repo.** Write them in `bamlab/flashlight-cloud` under `docs/adrs/NNNN-title.md` with a `Repo: flashlight` line. If you can't reach that repo, hand the decision back to the maintainer instead of writing it here.
+- New **decisions** (ADRs) → **never in this repo.** Write them in `../flashlight-internal/docs/adrs/NNNN-title.md` (template in its `README.md`) and open the PR on `bamlab/flashlight-internal`. If you can't reach that repo, hand the decision back to the maintainer instead of writing it here.
 
 ## Use the glossary's vocabulary
 

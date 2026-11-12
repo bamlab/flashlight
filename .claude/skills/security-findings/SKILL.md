@@ -13,15 +13,17 @@ Security and GDPR findings are never written in the public repo (`bamlab/flashli
 finding
  ├─ a live secret is exposed ──────────────► STOP. Tell the maintainer now (it must be rotated). Don't write the value anywhere.
  ├─ a public dependency CVE (already disclosed) ► normal fix PR is fine; reference the advisory ID
- └─ anything else ─────────────────────────► private issue in bamlab/flashlight-cloud
-                                               (or a private security advisory on bamlab/flashlight
-                                                when an outside reporter must be credited)
+ ├─ in the CLI stack (bamlab/flashlight) ───► private issue in bamlab/flashlight-internal
+ │                                             (or a private security advisory on bamlab/flashlight
+ │                                              when an outside reporter must be credited)
+ └─ in the cloud stack (bamlab/flashlight-cloud) ► private issue in bamlab/flashlight-cloud
 ```
 
 ## Private issue format
 
 ```bash
-gh issue create -R bamlab/flashlight-cloud \
+# CLI stack: bamlab/flashlight-internal · cloud stack: bamlab/flashlight-cloud
+gh issue create -R bamlab/flashlight-internal \
   --title "security(<area>): <short description>" \
   --label "needs-triage" \
   --body-file <file>
@@ -38,4 +40,4 @@ Body:
 
 Before creating, search for an existing open issue on the same `file:line` and comment there instead of filing a duplicate.
 
-If you can't reach `bamlab/flashlight-cloud` (outside contributor), don't file anything public: open a private security advisory at https://github.com/bamlab/flashlight/security/advisories/new, as `SECURITY.md` describes.
+If you can't reach these private repos (outside contributor), don't file anything public: open a private security advisory at https://github.com/bamlab/flashlight/security/advisories/new, as `SECURITY.md` describes.

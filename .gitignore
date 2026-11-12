@@ -6,5 +6,5 @@ node_modules
 .cache
 .eslintcache
 
-# Architecture Decision Records are private: they live in bamlab/flashlight-cloud/docs/adrs
+# Architecture Decision Records are private: they live in bamlab/flashlight-internal
 docs/adrs/

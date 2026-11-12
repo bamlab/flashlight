@@ -4,15 +4,23 @@
 
 ## What is public and what is private
 
-| Public (`bamlab/flashlight`)                   | Private (`bamlab/flashlight-cloud`, Notion)                 |
-| ---------------------------------------------- | ----------------------------------------------------------- |
-| Code, tests, user docs (`website/`)            | Architecture Decision Records (`docs/adrs/`)                |
-| Standards and skills (`.claude/`, `AGENTS.md`) | Runbooks and access procedures (`docs/runbooks/`)           |
-| Skill config (`docs/agents/`), `GLOSSARY.md`   | Specs and product backlog (Notion)                          |
-| Issues and PRs about public code               | Security and GDPR findings, incidents, credentials handling |
+Two stacks, each with its private side:
+
+```
+CLI stack    bamlab/flashlight (public)  ─── private companion: bamlab/flashlight-internal
+Cloud stack  bamlab/flashlight-cloud (private, everything in it is private)
+Product      Notion (private): specs, backlog, Radar — links to ADRs, doesn't copy them
+```
+
+| Public (`bamlab/flashlight`)                   | Private                                                                                       |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Code, tests, user docs (`website/`)            | ADRs: CLI → `flashlight-internal/docs/adrs`, cloud → `flashlight-cloud/docs/adrs`             |
+| Standards and skills (`.claude/`, `AGENTS.md`) | Runbooks: CLI → `flashlight-internal/docs/runbooks`, cloud → `flashlight-cloud/docs/runbooks` |
+| Skill config (`docs/agents/`), `GLOSSARY.md`   | Specs and product backlog (Notion)                                                            |
+| Issues and PRs about public code               | Security and GDPR findings (private issues), incidents, credentials handling                  |
 
 - Never write an ADR, a runbook, an access procedure, an internal URL, a vulnerability or personal data into the public repo — not in code, comments, commits, issues or PRs.
-- A security or GDPR problem in public code is reported privately: a private issue in `bamlab/flashlight-cloud` or a private GitHub security advisory. Dependency CVEs that are already public may be fixed in a normal PR.
+- A security or GDPR problem in public code is reported privately: a private issue in `bamlab/flashlight-internal` (CLI) or `bamlab/flashlight-cloud` (cloud), or a private GitHub security advisory. Dependency CVEs that are already public may be fixed in a normal PR.
 
 ## Secrets
 
