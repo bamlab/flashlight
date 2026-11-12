@@ -20,6 +20,17 @@ not sure which ───────► /ask-matt
 
 Flashlight-specific skills: `/gdpr-audit`, `/eol-check`, `/security-findings`.
 
+Maintainers also have private Theodo skills (installed from `bamlab/flashlight-internal` with `install-skills.sh`; not available to outside contributors):
+
+```
+hard technical decision ─► /adr-writer        (only when it passes its "Is this an ADR?" gate)
+risky refactor ──────────► /refactoring       (Mikado: green at every commit)
+defect fixed ────────────► /dantotsu          (root cause write-up, French, kept private)
+review comments on a PR ─► /fix-pr-comments
+weekly (factory) ────────► /kaizen-conv · /kaizen-mr   (improve rules and docs from the week's friction)
+audits ──────────────────► /agent-readiness · /dependencies-management-audit
+```
+
 ## Ground rules for agents
 
 - Read `AGENTS.md`, these rules and `docs/agents/*.md` before working. Read `GLOSSARY.md` and the relevant ADRs when they exist and you have access.

@@ -12,7 +12,7 @@ If any of these files don't exist, **proceed silently**. Don't flag their absenc
 ## Writing domain docs
 
 - New or sharper **terms** → `GLOSSARY.md` here (single-context: one glossary for the whole repo).
-- New **decisions** (ADRs) → **never in this repo.** Write them in `../flashlight-internal/docs/adrs/NNNN-title.md` (template in its `README.md`) and open the PR on `bamlab/flashlight-internal`. If you can't reach that repo, hand the decision back to the maintainer instead of writing it here.
+- New **decisions** (ADRs) → only for **hard technical decisions**: costly to reverse (formats, published APIs, infrastructure), several credible options with real trade-offs, constraining future work. Everything else goes in the PR description or the spec. Maintainers write them with `/adr-writer`, **never in this repo:** write them in `../flashlight-internal/docs/adrs/NNNN-title.md` (template in its `README.md`) and open the PR on `bamlab/flashlight-internal`. If you can't reach that repo, hand the decision back to the maintainer instead of writing it here.
 
 ## Use the glossary's vocabulary
 
