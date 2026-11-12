@@ -1,0 +1,9 @@
+# Secret scanning config, used by the pre-commit hook and the "Secrets" CI workflow.
+# Allowlist entries must be narrow (one rule, one path) and say why. See .claude/rules/privacy-and-security.md.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Algolia DocSearch search-only key: public by design, shipped to every docs visitor"
+targetRules = ["generic-api-key"]
+paths = ['''^website/docusaurus\.config\.js$''']

@@ -1,3 +1,14 @@
 #!/bin/sh
 
+# Secret scanning (see .claude/rules/privacy-and-security.md). CI runs the same check, so a missing
+# local gitleaks only delays the failure: install it with `brew install gitleaks`.
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks git --pre-commit --staged --no-banner --redact -c .gitleaks.toml . || {
+    echo "gitleaks found a secret in the staged changes. Remove it (and rotate it if it was real)." >&2
+    exit 1
+  }
+else
+  echo "warning: gitleaks is not installed, secret scan skipped locally (brew install gitleaks)" >&2
+fi
+
 npx lint-staged

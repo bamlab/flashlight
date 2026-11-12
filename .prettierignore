@@ -7,3 +7,8 @@ report.html
 results*.json
 .docusaurus
 website/build
+
+# Vendored agent skills are kept byte-identical to upstream (see .claude/skills/VENDORED.md)
+.claude/skills/*
+!.claude/skills/gdpr-audit eol-check security-findings/
+!.claude/skills/VENDORED.md
