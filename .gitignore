@@ -5,3 +5,6 @@ node_modules
 *.tsbuildinfo
 .cache
 .eslintcache
+
+# Architecture Decision Records are private: they live in bamlab/flashlight-internal
+docs/adrs/
