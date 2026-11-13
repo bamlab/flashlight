@@ -35,4 +35,5 @@ A change is done when `yarn test` passes from the repo root. It runs, in order: 
 - Conventional commits for commits and PR titles: `type(scope): description`, lowercase, imperative verb. Types: `feat`, `fix`, `refactor`, `perf`, `test`, `docs`, `chore`, `ci`. Lerna builds changelogs from them.
 - One concern per PR. PRs are squash-merged; the PR title becomes the commit.
 - PR body follows `/pr`: what changed and why, evidence it works (test output, screenshots for UI), and the merge risk.
+- **Every PR links its Notion EPIC** (Flashlight - EPICs kanban) on a `**Notion EPIC:**` line at the top of the body. Feature work links the feature's EPIC; maintenance with no feature of its own (dependencies, CVEs, EOL upgrades, CI, agent rules, refactors) links [Maintenance de Flashlight](https://app.notion.com/p/3ed8f3776f4f80ab87ece18a098555f6). No fitting EPIC: create one first with `/log-task`. Outside contributors can leave it blank; the maintainer fills it in before merging.
 - Never push to `main`, never force-push a shared branch, never merge your own PR as an agent.

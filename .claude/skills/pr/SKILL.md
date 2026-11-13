@@ -12,6 +12,8 @@ metadata:
 Use this template for writing the PR body:
 
 ```markdown
+**Notion EPIC:** <EPIC page URL>
+
 ## Summary
 
 <diagram, diff-sketch, or tree>
@@ -35,6 +37,10 @@ Use this template for writing the PR body:
 ## Sections
 
 Skip all preambles and keep prose brief. Use the user's domain language from `GLOSSARY.md`.
+
+### Notion EPIC
+
+The EPIC in Flashlight - EPICs kanban this PR belongs to (see `engineering-standards.md`). Take it from the issue (its body or a `Notion EPIC:` comment); maintenance work links Maintenance de Flashlight.
 
 ### Summary
 
