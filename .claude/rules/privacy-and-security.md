@@ -19,7 +19,7 @@ Product      Notion (private): specs, backlog, Radar — links to ADRs, doesn't 
 | Skill config (`docs/agents/`), `GLOSSARY.md`   | Specs and product backlog (Notion)                                                            |
 | Issues and PRs about public code               | Security and GDPR findings (private issues), incidents, credentials handling                  |
 
-- Never write an ADR, a runbook, an access procedure, an internal URL, a vulnerability or personal data into the public repo — not in code, comments, commits, issues or PRs. One exception: a PR or issue may link its Notion EPIC (the workspace is access-controlled). Link only the EPIC page, and never quote its content.
+- Never write an ADR, a runbook, an access procedure, an internal URL, a vulnerability or personal data into the public repo — not in code, comments, commits, issues or PRs. Notion links (EPICs, specs, Radar) count as internal URLs.
 - A security or GDPR problem in public code is reported privately: a private issue in `bamlab/flashlight-internal` (CLI) or `bamlab/flashlight-cloud` (cloud), or a private GitHub security advisory. Dependency CVEs that are already public may be fixed in a normal PR.
 
 ## Secrets

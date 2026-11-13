@@ -9,29 +9,32 @@ metadata:
     url: "https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md"
 ---
 
-Use this template for writing the PR body:
+Write the PR body in the shape of the repo's `.github/pull_request_template.md`. Keep its sections and fill each one; delete the HTML comments and the checklist items that don't apply:
 
 ```markdown
-**Notion EPIC:** <EPIC page URL>
+**Notion EPIC:** <EPIC page URL>   ← bamlab/flashlight-cloud only; never in bamlab/flashlight
 
-## Summary
+Closes #<issue>
 
-<diagram, diff-sketch, or tree>
+## Description
+<what and why; diagram, diff-sketch or tree>
 
-## Evidence
+## Type of change
+<ticked boxes>
 
-- **Before:** <screenshot/output/failing test run>
-  **After:** <screenshot/output/passing test run>
+## What to look at
+<where the reviewer's attention goes, file:line>
 
-## Merge Danger
+## Validation
+<feature: screenshots / video / output · bug: before vs after>
+**How to test it:** <steps>
 
+## Merge danger
 **Door:** <one-way or two-way>
+**Blast Radius:** <one word>
 
-<optional: description>
-
-**Blast Radius:** <one-word description>
-
-<optional: potential ramifications of merge>
+## Checklist
+<the template's checklist, ticked>
 ```
 
 ## Sections
@@ -40,9 +43,17 @@ Skip all preambles and keep prose brief. Use the user's domain language from `GL
 
 ### Notion EPIC
 
-The EPIC in Flashlight - EPICs kanban this PR belongs to (see `engineering-standards.md`). Take it from the issue (its body or a `Notion EPIC:` comment); maintenance work links Maintenance de Flashlight.
+Every PR belongs to an EPIC in Flashlight - EPICs kanban (see `engineering-standards.md`). In `bamlab/flashlight-cloud`, put its URL on the first line. In `bamlab/flashlight` (public) never write a Notion link: add the PR to the EPIC page in Notion instead.
 
-### Summary
+### Description
+
+What changes and why, with the smallest visual that makes it clear (below).
+
+### What to look at
+
+Tell the reviewer where to spend attention: the tricky logic, the decision you are unsure of, the parts that can be skimmed. Link `file:line`.
+
+### Visuals for the description
 
 Pick the smallest view that makes the key point clear.
 
@@ -161,9 +172,9 @@ Place each visual next to the short text it supports. Keep only the calls, files
 
 You may use one of these, you may use several, it is unlikely you will use all of them. Use your judgement and don't overwhelm the user.
 
-### Evidence
+### Validation
 
-Concrete evidence that the change works. Show a before and after.
+Concrete evidence that the change works. A feature shows it working; a bug fix shows before and after.
 
 Screenshots are S-tier - when the environment is set up for it and the change is visual.
 
