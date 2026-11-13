@@ -2,7 +2,7 @@
 name: Front-End Bug Report
 about: Report a bug encountered while using the front-end app (local or cloud)
 title: ""
-labels: Package:Front-End, Status:Unconfirmed
+labels: Package:Front-End, Status:Unconfirmed, bug, needs-triage
 assignees: ""
 ---
 
