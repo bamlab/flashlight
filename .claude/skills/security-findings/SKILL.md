@@ -29,6 +29,15 @@ gh issue create -R bamlab/flashlight-internal \
   --body-file <file>
 ```
 
+**Critical findings** (severity `critical`) keep `needs-triage` and are also typed and prioritised, so nobody has to fill these in by hand:
+
+```bash
+gh issue edit <issue-url> --type Task
+# then set the native Priority issue field to Urgent:
+gh api graphql -f query='{ organization(login: "bamlab") { issueFields(first: 50) { nodes { ... on IssueFieldSingleSelect { id name options { id name } } } } } }'
+gh api graphql -f query='mutation { setIssueFieldValue(input: { issueId: "<issue node id>", issueFields: [{ fieldId: "<Priority field id>", singleSelectOptionId: "<Urgent option id>" }] }) { clientMutationId } }'
+```
+
 Body:
 
 - **Severity** — critical / high / medium / low (definitions in `/gdpr-audit`).

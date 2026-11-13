@@ -20,4 +20,5 @@ The same label set is used in `bamlab/flashlight`, `bamlab/flashlight-cloud` and
 - **Bug status**: `Status:Unconfirmed` (reported, not reproduced yet) → `Status:Confirmed` (reproduced) → `Status:Check Result` (fix released, waiting for the reporter to check). `Status:Stale`: no activity, candidate for closing. Keep the status label alongside `ready-for-agent` / `ready-for-human`.
 - **Type**: `bug`, `enhancement`, `documentation`, `support` (a dependency or external library version isn't supported), `question`, `duplicate`, `invalid`.
 - **Priority and effort**: use the native GitHub issue fields `Priority` (Urgent / High / Medium / Low) and `Effort` (High / Medium / Low), not labels. With `gh`, set them through the GraphQL `setIssueFieldValue` mutation.
+- **Critical security findings and CVEs**: keep `needs-triage`, and also set the issue type to `Task` and `Priority` to `Urgent` (see `/security-findings`).
 - **Contributors**: `help wanted`, `good first issue`.
