@@ -2,7 +2,7 @@
 name: Cloud Bug Report
 about: Report a bug encountered while using the cloud website (https://flashlight.dev/)
 title: ""
-labels: Package:Cloud, Status:Unconfirmed
+labels: Package:Cloud, Status:Unconfirmed, bug, needs-triage
 assignees: ""
 ---
 

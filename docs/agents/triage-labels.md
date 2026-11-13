@@ -4,18 +4,20 @@ The skills speak in terms of five canonical triage roles. This file maps those r
 
 | Label in mattpocock/skills | Label in our tracker | Meaning                                          |
 | -------------------------- | -------------------- | ------------------------------------------------ |
-| `needs-triage`             | `Status:Unconfirmed` | Maintainer needs to evaluate this issue          |
-| `needs-info`               | `needs details`      | Waiting on reporter for more information         |
+| `needs-triage`             | `needs-triage`       | Maintainer needs to evaluate this issue          |
+| `needs-info`               | `needs-info`         | Waiting on reporter for more information         |
 | `ready-for-agent`          | `ready-for-agent`    | Fully specified; the AI factory may implement it |
 | `ready-for-human`          | `ready-for-human`    | Requires human implementation                    |
 | `wontfix`                  | `wontfix`            | Will not be actioned                             |
 
 When a skill mentions a role (e.g. "apply the AFK-ready triage label"), use the corresponding label string from this table.
 
-Other status labels already used in this repo:
+## Other labels
 
-- `Status:Confirmed` — the bug is reproduced. Keep it alongside `ready-for-agent` / `ready-for-human`.
-- `Status:Check Result` — waiting for the reporter to check a fix.
-- `Status:Stale` — no activity; candidate for closing.
+The same label set is used in `bamlab/flashlight`, `bamlab/flashlight-cloud` and `bamlab/flashlight-internal`.
 
-Only a maintainer (or an org member's own issue) may apply `ready-for-agent`: it is what lets an agent start implementing.
+- **Scope** (one per issue): `Package:CLI`, `Package:Front-End`, `Package:Cloud`.
+- **Bug status**: `Status:Unconfirmed` (reported, not reproduced yet) → `Status:Confirmed` (reproduced) → `Status:Check Result` (fix released, waiting for the reporter to check). `Status:Stale`: no activity, candidate for closing. Keep the status label alongside `ready-for-agent` / `ready-for-human`.
+- **Type**: `bug`, `enhancement`, `documentation`, `support` (a dependency or external library version isn't supported), `question`, `duplicate`, `invalid`.
+- **Priority**: `Priority:High`, `Priority:Low`.
+- **Contributors**: `help wanted`, `good first issue`.

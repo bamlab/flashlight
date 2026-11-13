@@ -43,7 +43,7 @@ GitHub Issues on `bamlab/flashlight`; security and GDPR findings go to a private
 
 ### Triage labels
 
-The five triage roles map onto existing labels (`Status:Unconfirmed`, `needs details`, `ready-for-agent`, `ready-for-human`, `wontfix`). See `docs/agents/triage-labels.md`.
+The five triage roles use the canonical labels (`needs-triage`, `needs-info`, `ready-for-agent`, `ready-for-human`, `wontfix`), plus scope, status, type and priority labels shared with the private repos. See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 

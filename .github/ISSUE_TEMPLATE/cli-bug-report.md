@@ -2,7 +2,7 @@
 name: CLI Bug Report
 about: Report a bug encountered while using the CLI (eg. `flashlight measure`)
 title: ""
-labels: Package:CLI, Status:Unconfirmed
+labels: Package:CLI, Status:Unconfirmed, bug, needs-triage
 assignees: ""
 ---
 
