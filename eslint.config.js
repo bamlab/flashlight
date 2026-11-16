@@ -39,7 +39,9 @@ module.exports = tseslint.config(
     },
     settings: {
       react: {
-        version: "detect",
+        // "detect" calls context.getFilename(), removed in eslint 10; eslint-plugin-react 7.37.5
+        // has no fix yet. Keep in sync with the react version used by the packages.
+        version: "18.3",
       },
     },
     rules: {
