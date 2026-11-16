@@ -3775,6 +3775,8 @@ apex-commons@^0.8.0:
 
 apexcharts@^7.6.0:
   version "7.9.1"
+  resolved "https://registry.yarnpkg.com/apexcharts/-/apexcharts-7.9.1.tgz#79b050f8ebd0bda160d4656ba1d496883d50390c"
+  integrity sha512-sZkeiES5fCFzkQ7bkyxXhX/nRF1a0mYie5+NTQUMap9ePsW6pWjGjNSFYMnvVeeWzp/bXVI4d1OKy2vOE1M/PQ==
   dependencies:
     apex-commons "^0.8.0"
 
@@ -4008,8 +4010,10 @@ available-typed-arrays@^1.0.7:
 
 axios@^1.1.3:
   version "1.21.1"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.21.1.tgz#e15d57924d677aea9adb9f06b112b13b9ea0b9dd"
+  integrity sha512-6eI5Q/Y4u/Um9dDlsRoq5pY2rxnUTv+L4PpLitnbk/i4jb3MxLZ5CsN5Ih3IysbeRYK4pR+P7qfMsOQl9fwwFQ==
   dependencies:
-    follow-redirects "^1.16.0"
+    follow-redirects "^1.16.2"
     form-data "^4.0.6"
     https-proxy-agent "^5.0.1"
     proxy-from-env "^2.1.0"
@@ -4109,11 +4113,6 @@ base64-js@1.5.1, base64-js@^1.3.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
   integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
-
-base64id@~2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/base64id/-/base64id-2.0.0.tgz#2770ac6bc47d312af97a8bf9a634342e0cd25cb6"
-  integrity sha512-lGe34o6EHj9y3Kts9R4ZYs/Gr+6N7MCaMlIFA3F1R2O5/m7K06AxfSeO5530PEERE6/WyEg3lsuyw4GHlPZHog==
 
 baseline-browser-mapping@^2.11.23:
   version "2.11.25"
@@ -5914,7 +5913,7 @@ flatted@^3.2.9:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.4.4.tgz#aeeca2a506303f0cee61c59e6c9f2a88d2f29fc6"
   integrity sha512-5+ybhBZANEJxaH3X5evAFatUxLfEHSr7n6kYJ+1Qd0mUqr4eu9gIf6GDbWHf8RJijHrjjO8G+la14SlL2SeS1Q==
 
-follow-redirects@^1.16.0:
+follow-redirects@^1.16.2:
   version "1.16.3"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.16.3.tgz#62b60932427f616327014a5e401e8fc5e9027e9b"
   integrity sha512-toOSoqN6d51Wjf1aOFJYcoVv1aND9rj/CwjLU0Vz40oDuSpWDayCeKe4JpL5NL0WdFvoOOCI3BRo69HahjbR1A==
@@ -9885,9 +9884,10 @@ socket.io-parser@~4.2.4:
 
 socket.io@^4.7.5:
   version "4.8.4"
+  resolved "https://registry.yarnpkg.com/socket.io/-/socket.io-4.8.4.tgz#24bbb030792ce328ec3b73578b0dd8e63db7bbb7"
+  integrity sha512-9ZV9zg8vN8hO3Y25DhR7nUkJ1VDnBhq5O/JrXhFT9s6+F0gqytSASTHVfCFc2mJXaTfARroErplXlzFWwETZqQ==
   dependencies:
     accepts "~1.3.4"
-    base64id "~2.0.0"
     cors "~2.8.5"
     debug "~4.4.1"
     engine.io "~6.6.0"
