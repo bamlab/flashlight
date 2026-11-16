@@ -39,4 +39,5 @@ A change is done when `yarn test` passes from the repo root. It runs, in order: 
   - `bamlab/flashlight-cloud` (private): put the EPIC URL on the `**Notion EPIC:**` line of the PR template.
   - `bamlab/flashlight` (public): link the GitHub issue only (`Closes #n`), then add the PR link to the EPIC page in Notion.
   - Maintenance with no feature of its own (dependencies, CVEs, EOL upgrades, CI, agent rules, refactors) belongs to the EPIC « Maintenance de Flashlight ». No fitting EPIC: create one first with `/log-task`.
-- Never push to `main`, never force-push a shared branch, never merge your own PR as an agent.
+- **Every PR is reviewed before merge** by at least one reviewer other than its author: a person, or a review agent (`/code-review`, the factory's review-pr). An agent never reviews or approves a PR it wrote, and a human merges. `main` requires one approval on GitHub.
+- Never push to `main`, never force-push a shared branch, never merge a PR as an agent.
