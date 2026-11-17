@@ -2,6 +2,8 @@
 
 Closes #<!-- issue number; for a fix, the issue that reports the bug -->
 
+**Reviewer:** <!-- who reviews before merge: a person or a review agent, never the PR's author. A human merges. -->
+
 ## Description
 
 <!-- What changes and why, in a few lines. Who notices the difference. A small diagram, tree or diff-sketch helps more than prose (see `/pr`). -->

@@ -10,7 +10,7 @@ decided feature ──────► /to-spec ──► /to-tickets ──► /
 new issue ────────────► /triage
 bug / regression ─────► /diagnosing-bugs ──► /tdd
 code to write ────────► /tdd   (red → green → refactor, one vertical slice at a time)
-diff ready ───────────► /code-review ──► /pr
+diff ready ───────────► /code-review ──► /pr ──► review on the PR (a person or a review agent, never its author) ──► a human merges
 design question ──────► /prototype   ·   facts from primary sources ──► /research
 big, foggy piece of work ► /wayfinder
 codebase drift ───────► /improve-codebase-architecture
@@ -35,6 +35,7 @@ audits ──────────────────► /agent-readines
 
 - Read `AGENTS.md`, these rules and `docs/agents/*.md` before working. Read `GLOSSARY.md` and the relevant ADRs when they exist and you have access.
 - Work on a branch, end with a **draft** PR. Never merge, never push to `main`, never force-push.
+- Every PR gets a review on the PR itself before merge, by someone other than its author (see `engineering-standards.md`). Your own `/code-review` on your diff doesn't count as that review, and you never review or approve a PR you wrote.
 - Run `yarn test` before declaring anything done; paste the result as evidence.
 - Ask a human when a decision is product or architecture, not code. Record the answer where it belongs (ADR, spec, glossary) rather than only in chat.
 - Stay in scope: fix what the ticket asks. File what else you notice as a new ticket instead of fixing it on the side.
