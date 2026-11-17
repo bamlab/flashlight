@@ -29,6 +29,9 @@
     "@tsconfig/docusaurus": "^2.0.2",
     "typescript": "^5.4.2"
   },
+  "resolutions": {
+    "tinypool": "^2.1.2"
+  },
   "browserslist": {
     "production": [
       ">0.5%",
