@@ -25,7 +25,20 @@ yarn test             # prettier --check · build · eslint --max-warnings 0 · 
 yarn jest <pattern>   # run some tests
 ```
 
+Run `yarn` again after every pull and in every new git worktree (worktrees don't share `node_modules`). Stale or missing dependencies make eslint crash and the pre-commit hook fail before your code is even checked.
+
 Package-specific dev loops (measure, report, web-reporter) are in `CONTRIBUTING.md`.
+
+## What CI does not cover
+
+```
+PR ──► tests.yml: yarn test   (the only check that runs; ios_e2e.yml is disabled)
+         ✗ iOS (simulator or device)   ✗ AWS Device Farm runs   ✗ real Android devices
+```
+
+- The Device Farm host installs `@perf-profiler/e2e`, `@perf-profiler/appium-test-cases` and `@bam.tech/appium-helper` at `latest` (`packages/plugins/aws-device-farm/src/commands/createDefaultNodeTestPackage.ts`), and with them the packages they depend on, such as `platforms/android`. A change there reaches users' cloud runs on the next publish.
+- A PR touching those packages, or `platforms/ios*`, says so under **Merge danger** and states how it was checked (a real run, or "not verified on a device").
+- On a PR from a fork, CI only runs after a maintainer approves the workflow run. Until then the only check you'll see is Netlify's.
 
 ## Rules
 
